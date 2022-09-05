@@ -6,22 +6,17 @@ import {debounce} from '@s-ui/js/lib/function/debounce.js'
 import Injector from '@s-ui/react-primitive-injector'
 
 import getCroppedImg from './utils/cropImage.js'
-import {
-  baseClass,
-  DEBOUNCING_TIME,
-  DEFAULT_ASPECT,
-  getRotationDegrees,
-  noop
-} from './config.js'
+import {baseClass, DEFAULT_ASPECT, getRotationDegrees, noop} from './config.js'
 import ImageEditorCropper from './ImageEditorCropper.js'
 import ImageEditorDefault from './ImageEditorDefault.js'
 import ImageEditorSliders from './ImageEditorSliders.js'
+import {debouncingTime} from './prop-types.js'
 
 const MoleculeImageEditor = ({
   aspect = DEFAULT_ASPECT,
   cropLabelIcon,
   cropLabelText,
-  debouncingTime = DEBOUNCING_TIME,
+  debouncingTime,
   image,
   onChange,
   onCropping = noop,
@@ -34,15 +29,19 @@ const MoleculeImageEditor = ({
   const [zoom, zoomSetter] = useState(0)
 
   const setCrop =
-    debouncingTime > 0 ? debounce(cropSetter, debouncingTime) : cropSetter
+    debouncingTime === undefined
+      ? cropSetter
+      : debounce(cropSetter, debouncingTime)
 
   const setRotation =
-    debouncingTime > 0
-      ? debounce(rotationSetter, debouncingTime)
-      : rotationSetter
+    debouncingTime === undefined
+      ? rotationSetter
+      : debounce(rotationSetter, debouncingTime)
 
   const setZoom =
-    debouncingTime > 0 ? debounce(zoomSetter, debouncingTime) : zoomSetter
+    debouncingTime === undefined
+      ? zoomSetter
+      : debounce(zoomSetter, debouncingTime)
 
   const cropCompleteHandler = async (croppedArea, croppedAreaPixels) => {
     const rotationDegrees = getRotationDegrees(rotation)
@@ -57,9 +56,9 @@ const MoleculeImageEditor = ({
   }
 
   const onCropComplete = useCallback(
-    debouncingTime > 0
-      ? debounce(cropCompleteHandler, debouncingTime)
-      : cropCompleteHandler,
+    debouncingTime === undefined
+      ? cropCompleteHandler
+      : debounce(cropCompleteHandler, debouncingTime),
     [rotation, onCropping, image, onChange]
   )
 
@@ -93,7 +92,7 @@ MoleculeImageEditor.propTypes = {
   aspect: PropTypes.number,
   cropLabelIcon: PropTypes.node,
   cropLabelText: PropTypes.string,
-  debouncingTime: PropTypes.number,
+  debouncingTime,
   image: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onCropping: PropTypes.func,

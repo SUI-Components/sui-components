@@ -1,0 +1,17 @@
+{
+  "name": "@s-ui/react-hook-use-portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' ./lib"
+  },
+  "dependencies": {
+    "use-ssr": "1.0.24"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

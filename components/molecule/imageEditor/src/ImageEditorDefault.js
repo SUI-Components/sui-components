@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import ImageEditorCropper from './ImageEditorCropper.js'
 import ImageEditorSliders from './ImageEditorSliders.js'
 

@@ -1,8 +1,8 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_SECTION} from './settings.js'
-import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleCustomChildren from './articles/ArticleCustomChildren.js'
+import ArticleDefault from './articles/ArticleDefault.js'
+import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => (
   <div className="sui-StudioPreview">

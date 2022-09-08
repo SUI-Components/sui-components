@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.10.0 (2022-09-05)
+
+
+### Bug Fixes
+
+* **components/atom/pinInput:** upgrade dependencies ([1f549cf](https://github.com/SUI-Components/sui-components/commit/1f549cf26c56731f796bb6b6b70929aadde913bf))
+
+
+### Features
+
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 1.9.0 (2022-06-20)
 
 

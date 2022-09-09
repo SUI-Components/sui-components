@@ -11,6 +11,7 @@ const ArticleTarget = ({className}) => {
     <Article className={className}>
       <H2>Target</H2>
       <Paragraph>Providing a <Code>target</Code> argument to the hook options will append the declared Portal's children.</Paragraph>
+      <Paragraph>{'const { Portal } = usePortal({ target: element })'}</Paragraph>
       <div className="target" ref={targetedRef} />
       <Portal>
         <Box mode="dark">

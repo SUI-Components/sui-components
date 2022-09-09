@@ -1,5 +1,6 @@
 import {useState, useRef, useEffect, useCallback, useMemo} from 'react'
 import {createPortal, findDOMNode} from 'react-dom'
+
 import useSSR from 'use-ssr'
 
 import { BASE_CLASS, errorMessage1 } from './settings.js'
@@ -195,7 +196,7 @@ const usePortal = ({
   }, [isServer, handleOutsideMouseClick, handleKeydown, elToMountTo, portal])
 
   const Portal = useCallback(
-    ({children, isOpen: isOpenProp}) => {
+    ({children, isOpen: isOpenProp = defaultIsOpen}) => {
       useEffect(() => {
         if (isServer) return
         setIsOpen(isOpenProp)
@@ -219,10 +220,10 @@ const usePortal = ({
     ],
     {
       isOpen: isOpen.current,
-      ref: triggerElement,
+      triggerRef: triggerElement,
       open: openPortal,
       close: closePortal,
-      togglePortal,
+      toggle: togglePortal,
       Portal,
       portalRef: portal,
       ...customEventHandlers,

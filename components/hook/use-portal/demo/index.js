@@ -1,10 +1,17 @@
-import {Paragraph, H1, Code, Anchor} from '@s-ui/documentation-library'
+import {
+  Paragraph,
+  H1,
+  Code,
+  Anchor,
+  Emphasis
+} from '@s-ui/documentation-library'
 
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleTarget from './articles/ArticleTarget.js'
 import ArticleStateless from './articles/ArticleStateless.js'
 import ArticleStateful from './articles/ArticleStateful.js'
 import ArticleCloseOnEvent from './articles/ArticleCloseOnEvent.js'
+import ArticleCustom from './articles/ArticleCustom.js'
 
 const Demo = () => {
   return (
@@ -15,15 +22,22 @@ const Demo = () => {
         <Anchor href="https://reactjs.org/docs/portals.html">Portal</Anchor> set
         where is defined (default: document.body).
       </Paragraph>
+      <Emphasis>
+        * Portals will be displayed in a dark Box to identify them.
+      </Emphasis>
+      <br />
+      <br />
       <ArticleDefault />
-      <br/>
+      <br />
       <ArticleTarget />
-      <br/>
+      <br />
       <ArticleStateless />
-      <br/>
+      <br />
       <ArticleStateful />
-      <br/>
+      <br />
       <ArticleCloseOnEvent />
+      <br />
+      <ArticleCustom />
     </div>
   )
 }

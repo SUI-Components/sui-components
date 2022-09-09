@@ -9,7 +9,9 @@
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-popper": "2.3.0"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT"

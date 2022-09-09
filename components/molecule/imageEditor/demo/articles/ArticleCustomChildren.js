@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {Article, H2, Paragraph, Code} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeImageEditor from '../../src/index.js'
 import {DEMO_IMAGE} from '../settings.js'

@@ -1,3 +1,4 @@
+import {useRef} from 'react'
 import {
   H2,
   H4,
@@ -5,28 +6,45 @@ import {
   Article,
   Box,
   Code,
-  Button
+  Button,
+  Anchor
 } from '@s-ui/documentation-library'
 
 import usePortal from '../../src/index.js'
 
 const ArticleDefault = ({className}) => {
   const {Portal, portalRef} = usePortal()
-  const clickHandler = () => portalRef.current.scrollIntoView()
+  const articleRef = useRef()
+  const clickHandler = element => () => element.scrollIntoView()
   return (
-    <Article className={className}>
+    <Article className={className} ref={articleRef}>
       <H2>Default</H2>
       <Paragraph>
         The portal is default appended at the document body. It is default
         opened unless you define its initial <Code>isOpen</Code> configuration
         settings to false.
       </Paragraph>
-      <Button onClick={clickHandler}>Scroll into view</Button>
+      <Button onClick={clickHandler(portalRef.current)}>
+        Scroll into view
+      </Button>
       <Portal isOpen>
-        <Box style={{margin: '0 16px'}}>
+        <Box style={{margin: '0 16px 16px 16px'}} mode="dark">
           <H4>Default Portal Result </H4>
           <Paragraph>
-            This text is portaled at the end of document.body!
+            This text is portaled at the end of document.body from the{' '}
+            <Anchor
+              elementType="button"
+              onClick={clickHandler(articleRef.current)}
+              style={{
+                border: 0,
+                padding: 0,
+                margin: 0,
+                backgroundColor: 'transparent'
+              }}
+            >
+              default demo
+            </Anchor>
+            !
           </Paragraph>
         </Box>
       </Portal>

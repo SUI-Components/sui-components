@@ -52,3 +52,17 @@ const App = () => {
   }
 ]
 ```
+
+### Return
+#### Object
+```js
+{
+  isOpen, // (bool) is portal is visible or hidden
+  open, // (function) sets portal visible
+  close, // (function) sets portal hidden
+  toggle, // (function) toogles the visible/hidden portal state
+  Portal, // The rendered component
+  portalRef, // returns teh component ref 
+  ...customEventHandlers  //  
+}
+```

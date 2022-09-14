@@ -27,15 +27,15 @@ const Demo = () => {
       </Emphasis>
       <br />
       <br />
-      <ArticleDefault />
+      {/*<ArticleDefault />*/}
       <br />
-      <ArticleTarget />
+      {/*<ArticleTarget />*/}
       <br />
-      <ArticleStateless />
+      {/*<ArticleStateless />*/}
       <br />
-      <ArticleStateful />
+      {/*<ArticleStateful />*/}
       <br />
-      <ArticleCloseOnEvent />
+      {/*<ArticleCloseOnEvent />*/}
       <br />
       <ArticleCustom />
     </div>

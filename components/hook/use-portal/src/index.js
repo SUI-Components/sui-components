@@ -1,17 +1,29 @@
-import {useState, useRef, useEffect, useCallback, useMemo} from 'react'
+import {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  useMemo,
+  forwardRef,
+  useLayoutEffect
+} from 'react'
 import {createPortal, findDOMNode} from 'react-dom'
+import {isFragment} from 'react-is'
 
+import cx from 'classnames'
 import useSSR from 'use-ssr'
 
-import { BASE_CLASS, errorMessage1 } from './settings.js'
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+
+import {BASE_CLASS, errorMessage1, DEFAULT_IS_OPEN} from './settings.js'
 
 const usePortal = ({
   hasCloseOnOutsideClick = false,
   hasCloseOnEsc = false,
-  target,
-  isOpen: defaultIsOpen = true,
+  target = document.body,
   onOpen,
   onClose,
+  isOpen: defaultIsOpen = DEFAULT_IS_OPEN,
   onToggle,
   onClick,
   ...eventHandlers
@@ -29,21 +41,7 @@ const usePortal = ({
   }, [])
 
   const triggerElement = useRef() // this is the element you are clicking/hovering/whatever, to trigger opening the portal
-  const element = useMemo(() => {
-    let element = null
-    if (isBrowser) {
-      element = document.createElement('div')
-      element.classList.add(BASE_CLASS)
-    }
-    return element
-  }, [isBrowser])
-  const portal = useRef(isBrowser ? element : null)
-
-  useEffect(() => {
-    if (isBrowser && !portal.current) {
-      portal.current = element
-    }
-  }, [isBrowser, portal])
+  const portal = useRef()
 
   const elToMountTo = useMemo(() => {
     if (isServer) return
@@ -52,14 +50,12 @@ const usePortal = ({
 
   const createCustomEvent = event => {
     if (!event) return {portal, triggerElement, event}
+    debugger
     const response = event || {}
     if (response.persist) response.persist()
     response.portal = portal
     response.triggerElement = triggerElement
     response.event = event
-    const {currentTarget} = event
-    if (!triggerElement.current && currentTarget && currentTarget !== document)
-      triggerElement.current = response.currentTarget
     return response
   }
 
@@ -79,25 +75,18 @@ const usePortal = ({
     event => {
       if (isServer) return
       const customEvent = createCustomEvent(event)
-      // for some reason, when we don't have the event argument, there
-      // is a weird race condition. Would like to see if we can remove
-      // setTimeout, but for now this works
-      if (triggerElement.current == null) {
-        setTimeout(() => setIsOpen(true), 0)
-        throw Error(errorMessage1)
-      }
-      if (onOpen) onOpen(customEvent)
-      setIsOpen(true)
+      if (onOpen && isOpen.current === false) onOpen(customEvent)
+      if (isOpen.current === false) setIsOpen(true)
     },
-    [isServer, portal, setIsOpen, triggerElement, onOpen]
+    [isServer, setIsOpen, onOpen]
   )
 
   const closePortal = useCallback(
     event => {
       if (isServer) return
       const customEvent = createCustomEvent(event)
-      if (onClose && isOpen.current) onClose(customEvent)
-      if (isOpen.current) setIsOpen(false)
+      if (onClose && isOpen.current === true) onClose(customEvent)
+      if (isOpen.current === true) setIsOpen(false)
     },
     [isServer, onClose, setIsOpen]
   )
@@ -160,9 +149,6 @@ const usePortal = ({
       onScroll: 'scroll',
       onWheel: 'wheel'
     }
-    const node = portal.current
-    elToMountTo.appendChild(portal.current)
-    // handles all special case handlers. Currently only onScroll and onWheel
     Object.entries(eventHandlerMap).forEach(
       ([handlerName /* onScroll */, eventListenerName /* scroll */]) => {
         if (!eventHandlers[handlerName]) return
@@ -191,21 +177,40 @@ const usePortal = ({
       )
       document.removeEventListener('keydown', handleKeydown)
       document.removeEventListener('mousedown', handleMouseDown)
-      elToMountTo.removeChild(node)
     }
   }, [isServer, handleOutsideMouseClick, handleKeydown, elToMountTo, portal])
 
-  const Portal = useCallback(
-    ({children, isOpen: isOpenProp = defaultIsOpen}) => {
+  const Portal = forwardRef(
+    (
+      {as: As = 'div', children, isOpen: isOpenProp, className, ...props},
+      forwardedRef
+    ) => {
+      const ref = useMergeRefs(forwardedRef, portal, () => {
+        console.log(triggerElement)
+        debugger
+      })
       useEffect(() => {
         if (isServer) return
-        setIsOpen(isOpenProp)
+        if (isOpenProp !== undefined) {
+          setIsOpen(isOpenProp)
+        }
       }, [isOpenProp])
-      if (portal.current != null && isOpen.current)
-        return createPortal(children, portal.current)
-      return null
-    },
-    [portal]
+
+      return isOpen.current
+        ? createPortal(
+            <As
+              {...(!isFragment(<As />) && {
+                ref,
+                className: cx(BASE_CLASS, className),
+                ...props
+              })}
+            >
+              {children}
+            </As>,
+            target
+          )
+        : null
+    }
   )
 
   return Object.assign(

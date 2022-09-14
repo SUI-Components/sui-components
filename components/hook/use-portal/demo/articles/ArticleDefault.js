@@ -1,4 +1,5 @@
 import {useRef} from 'react'
+import {findDOMNode} from 'react-dom'
 import {
   H2,
   H4,
@@ -15,7 +16,6 @@ import usePortal from '../../src/index.js'
 const ArticleDefault = ({className}) => {
   const {Portal, portalRef} = usePortal()
   const articleRef = useRef()
-  const clickHandler = element => () => element.scrollIntoView()
   return (
     <Article className={className} ref={articleRef}>
       <H2>Default</H2>
@@ -24,17 +24,17 @@ const ArticleDefault = ({className}) => {
         opened unless you define its initial <Code>isOpen</Code> configuration
         settings to false.
       </Paragraph>
-      <Button onClick={clickHandler(portalRef.current)}>
+      <Button onClick={() => portalRef.current.scrollIntoView()}>
         Scroll into view
       </Button>
-      <Portal isOpen>
-        <Box style={{margin: '0 16px 16px 16px'}} mode="dark">
+      <Portal ref={portalRef} isOpen>
+        <Box style={{margin: '0px 16px 16px 16px'}} mode="dark">
           <H4>Default Portal Result </H4>
           <Paragraph>
             This text is portaled at the end of document.body from the{' '}
             <Anchor
               elementType="button"
-              onClick={clickHandler(articleRef.current)}
+              onClick={() => articleRef.current.scrollIntoView()}
               style={{
                 border: 0,
                 padding: 0,

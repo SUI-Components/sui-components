@@ -1,5 +1,15 @@
 import {useRef, useState} from 'react'
-import {H2, Paragraph, Article, Button, Box} from '@s-ui/documentation-library'
+
+import PropTypes from 'prop-types'
+
+import {
+  Article,
+  Box,
+  Button,
+  Code,
+  H2,
+  Paragraph
+} from '@s-ui/documentation-library'
 
 import usePortal from '../../src/index.js'
 
@@ -16,8 +26,11 @@ const ArticleStateful = ({className}) => {
   })
   return (
     <Article className={className}>
-      <H2>Stateful control</H2>
-      <Paragraph>asdasd</Paragraph>
+      <H2>Stateful Control</H2>
+      <Paragraph>
+        You can also define the Portal behavior under the <Code>isOpen</Code>{' '}
+        (boolean) Portal prop as a controlled component.
+      </Paragraph>
       <div className="target" ref={targetedRef} />
       <Portal isOpen={isOpened}>
         <Box mode="dark">
@@ -30,6 +43,10 @@ const ArticleStateful = ({className}) => {
       {!isOpened && <Button onClick={openHandler}>Open</Button>}
     </Article>
   )
+}
+
+ArticleStateful.propTypes = {
+  className: PropTypes.string
 }
 
 export default ArticleStateful

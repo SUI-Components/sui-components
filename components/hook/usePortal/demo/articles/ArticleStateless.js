@@ -36,6 +36,9 @@ const ArticleStateless = ({className}) => {
     </Article>
   )
 }
+ArticleStateless.propTypes = {
+  className: PropTypes.string
+}
 
 ArticleStateless.displayName = 'ArticleStateless'
 

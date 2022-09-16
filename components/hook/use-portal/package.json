@@ -13,7 +13,11 @@
     "classnames": "2.2.5",
     "@s-ui/react-hooks": "1"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "hook",
+    "portal"
+  ],
   "author": "",
   "license": "MIT"
 }

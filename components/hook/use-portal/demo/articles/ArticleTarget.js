@@ -1,6 +1,8 @@
 import {useRef} from 'react'
 
-import {H2, Paragraph, Article, Code, Box} from '@s-ui/documentation-library'
+import PropTypes from 'prop-types'
+
+import {Article, Box, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import usePortal from '../../src/index.js'
 
@@ -10,8 +12,13 @@ const ArticleTarget = ({className}) => {
   return (
     <Article className={className}>
       <H2>Target</H2>
-      <Paragraph>Providing a <Code>target</Code> argument to the hook options will append the declared Portal's children.</Paragraph>
-      <Paragraph>{'const { Portal } = usePortal({ target: element })'}</Paragraph>
+      <Paragraph>
+        Providing a <Code>target</Code> argument to the hook options will append
+        the declared Portal's children.
+      </Paragraph>
+      <Paragraph>
+        {'const { Portal } = usePortal({ target: element })'}
+      </Paragraph>
       <div className="target" ref={targetedRef} />
       <Portal>
         <Box mode="dark">
@@ -23,6 +30,10 @@ const ArticleTarget = ({className}) => {
       </Portal>
     </Article>
   )
+}
+
+ArticleTarget.propTypes = {
+  className: PropTypes.string
 }
 
 export default ArticleTarget

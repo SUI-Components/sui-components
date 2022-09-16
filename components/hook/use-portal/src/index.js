@@ -1,44 +1,36 @@
+/* eslint-disable react/prop-types */
 import {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
   forwardRef,
-  useLayoutEffect
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
 } from 'react'
 import {createPortal, findDOMNode} from 'react-dom'
 import {isFragment} from 'react-is'
 
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import useSSR from 'use-ssr'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {BASE_CLASS, errorMessage1, DEFAULT_IS_OPEN} from './settings.js'
+import {BASE_CLASS, DEFAULT_IS_OPEN} from './settings.js'
 
 const usePortal = ({
-  hasCloseOnOutsideClick = false,
-  hasCloseOnEsc = false,
+  isOpen: defaultIsOpen = DEFAULT_IS_OPEN,
   target = document.body,
   onOpen,
   onClose,
-  isOpen: defaultIsOpen = DEFAULT_IS_OPEN,
   onToggle,
   onClick,
+  hasCloseOnOutsideClick = false,
+  hasCloseOnEsc = false,
   ...eventHandlers
 } = {}) => {
-  const {isServer, isBrowser} = useSSR()
-  const [isOpened, setOpened] = useState(defaultIsOpen)
-
-  // we use this ref because `isOpen` is stale for handleOutsideMouseClick
-  const isOpen = useRef(isOpened)
-
-  const setIsOpen = useCallback(value => {
-    // workaround to not have stale `isOpened` in the handleOutsideMouseClick
-    isOpen.current = value
-    setOpened(value)
-  }, [])
+  const {isServer} = useSSR()
+  const [isOpened, setIsOpened] = useState(defaultIsOpen)
 
   const triggerElement = useRef() // this is the element you are clicking/hovering/whatever, to trigger opening the portal
   const portal = useRef()
@@ -50,7 +42,6 @@ const usePortal = ({
 
   const createCustomEvent = event => {
     if (!event) return {portal, triggerElement, event}
-    debugger
     const response = event || {}
     if (response.persist) response.persist()
     response.portal = portal
@@ -71,30 +62,22 @@ const usePortal = ({
     {}
   )
 
-  const openPortal = useCallback(
-    event => {
+  const setIsOpen = useCallback(
+    value => event => {
       if (isServer) return
       const customEvent = createCustomEvent(event)
-      if (onOpen && isOpen.current === false) onOpen(customEvent)
-      if (isOpen.current === false) setIsOpen(true)
+      if (onOpen && value === true) setTimeout(() => onOpen(customEvent), 0)
+      if (onClose && value === false) onClose(customEvent)
+      setIsOpened(value)
     },
-    [isServer, setIsOpen, onOpen]
+    [isServer, setIsOpened, onClose]
   )
 
-  const closePortal = useCallback(
-    event => {
-      if (isServer) return
-      const customEvent = createCustomEvent(event)
-      if (onClose && isOpen.current === true) onClose(customEvent)
-      if (isOpen.current === true) setIsOpen(false)
-    },
-    [isServer, onClose, setIsOpen]
-  )
+  const openPortal = setIsOpen(true)
+  const closePortal = setIsOpen(false)
 
-  const togglePortal = useCallback(
-    event => (isOpen.current ? closePortal(event) : openPortal(event)),
-    [closePortal, openPortal]
-  )
+  const togglePortal = event =>
+    isOpened ? closePortal(event) : openPortal(event)
 
   const handleKeydown = useCallback(
     event =>
@@ -108,7 +91,7 @@ const usePortal = ({
       if (
         containsTarget(portal) ||
         event.button !== 0 ||
-        !isOpen.current ||
+        !isOpened ||
         containsTarget(triggerElement)
       ) {
         return
@@ -139,8 +122,9 @@ const usePortal = ({
     if (
       !(elToMountTo instanceof HTMLElement) ||
       !(portal.current instanceof HTMLElement)
-    )
+    ) {
       return
+    }
 
     // TODO: eventually will need to figure out a better solution for this.
     // Surely we can find a way to map onScroll/onWheel -> scroll/wheel better,
@@ -180,51 +164,58 @@ const usePortal = ({
     }
   }, [isServer, handleOutsideMouseClick, handleKeydown, elToMountTo, portal])
 
-  const Portal = forwardRef(
-    (
-      {as: As = 'div', children, isOpen: isOpenProp, className, ...props},
-      forwardedRef
-    ) => {
-      const ref = useMergeRefs(forwardedRef, portal, () => {
-        console.log(triggerElement)
-        debugger
-      })
-      useEffect(() => {
-        if (isServer) return
-        if (isOpenProp !== undefined) {
-          setIsOpen(isOpenProp)
-        }
-      }, [isOpenProp])
+  const Portal = useCallback(
+    forwardRef(
+      (
+        {as: As = 'div', children, isOpen: isOpenProp, className, ...props},
+        forwardedRef
+      ) => {
+        const ref = useMergeRefs(forwardedRef, portal)
+        useEffect(() => {
+          if (isServer) return
+          if (isOpenProp !== undefined) {
+            setIsOpened(isOpenProp)
+          }
+        }, [isOpenProp])
 
-      return isOpen.current
-        ? createPortal(
-            <As
-              {...(!isFragment(<As />) && {
-                ref,
-                className: cx(BASE_CLASS, className),
-                ...props
-              })}
-            >
-              {children}
-            </As>,
-            target
-          )
-        : null
-    }
+        return isOpened
+          ? createPortal(
+              <As
+                {...(!isFragment(<As />) && {
+                  ref,
+                  className: cx(BASE_CLASS, className),
+                  ...props
+                })}
+              >
+                {children}
+              </As>,
+              target
+            )
+          : null
+      }
+    ),
+    [isOpened, portal, target]
   )
+  Portal.propTypes = {
+    as: PropTypes.elementType,
+    children: PropTypes.node,
+    isOpen: PropTypes.bool,
+    className: PropTypes.string
+  }
+  Portal.displayName = 'Portal'
 
   return Object.assign(
     [
+      Portal,
       openPortal,
       closePortal,
-      isOpen.current,
-      Portal,
+      isOpened,
       togglePortal,
       triggerElement,
       portal
     ],
     {
-      isOpen: isOpen.current,
+      isOpen: isOpened,
       triggerRef: triggerElement,
       open: openPortal,
       close: closePortal,

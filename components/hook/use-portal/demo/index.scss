@@ -1,0 +1,10 @@
+@import '../src/index';
+
+.sui-DemoTooltip {
+  background-color: $c-primary-light;
+  border-radius: $bdrs-base;
+  padding: $p-base;
+  border-width: $bdw-m;
+  border-color: $c-primary;
+  border-style: solid;
+}

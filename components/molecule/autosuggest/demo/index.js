@@ -9,19 +9,18 @@ import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 
 import ComboCountries from './components/ComboCountries.js'
 import {
-  iconClose,
-  iconSearch,
   iconAlert,
+  iconClose,
+  iconError,
   iconInfo,
-  iconError
+  iconSearch
 } from './Icons/index.js'
-
 import {
   CLASS_DEMO_SECTION,
-  options,
   MoleculeAutosuggestWithState,
   MoleculeAutosuggestWithStateTags,
-  MoleculeAutosuggestWithStateTagsLabels
+  MoleculeAutosuggestWithStateTagsLabels,
+  options
 } from './config.js'
 
 import './index.scss'

@@ -1,13 +1,6 @@
-import {useRef, useState} from 'react'
+import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  Paragraph,
-  Button,
-  Box
-} from '@s-ui/documentation-library'
+import {Article, Button, H2, Paragraph} from '@s-ui/documentation-library'
 
 import useTooltip from './ArticleCustom/useTooltip.js'
 
@@ -17,17 +10,19 @@ const ArticleCustom = ({className}) => {
     <Article className={className}>
       <H2>Custom</H2>
       <Paragraph>
-        You can use an stateless <Code>Portal</Code> with its <Code>open</Code>{' '}
-        and <Code>close</Code>{' '}
+        You can use the hook defining custom event handlers to extend its
+        functionalities to may other ways like creating tooltips.
       </Paragraph>
       <Button {...bind}>button hovered</Button>
-      <Tooltip>
-        <Box mode="dark">
-          <Paragraph>hello world</Paragraph>
-        </Box>
+      <Tooltip className="sui-DemoTooltip">
+        <Paragraph>hello world</Paragraph>
       </Tooltip>
     </Article>
   )
+}
+
+ArticleCustom.propTypes = {
+  className: PropTypes.string
 }
 
 export default ArticleCustom

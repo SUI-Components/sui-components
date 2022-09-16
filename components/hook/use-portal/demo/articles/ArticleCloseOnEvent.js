@@ -1,16 +1,19 @@
-import {useState, useRef} from 'react'
+import {useRef, useState} from 'react'
+
+import PropTypes from 'prop-types'
+
 import {
-  H2,
-  H3,
-  Paragraph,
-  Code,
   Article,
   Box,
-  RadioButton,
-  Grid,
   Cell,
-  UnorderedList,
-  ListItem
+  Code,
+  Grid,
+  H2,
+  H3,
+  ListItem,
+  Paragraph,
+  RadioButton,
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 import usePortal from '../../src/index.js'
@@ -104,6 +107,10 @@ const ArticleCloseOnEvent = ({className}) => {
       <Paragraph>Portals can use both behaviors enabled also.</Paragraph>
     </Article>
   )
+}
+
+ArticleCloseOnEvent.propTypes = {
+  className: PropTypes.string
 }
 
 export default ArticleCloseOnEvent

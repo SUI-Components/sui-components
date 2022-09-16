@@ -1,11 +1,14 @@
 import {useRef} from 'react'
+
+import PropTypes from 'prop-types'
+
 import {
-  H2,
-  Paragraph,
   Article,
-  Button,
   Box,
-  Code
+  Button,
+  Code,
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import usePortal from '../../src/index.js'
@@ -32,6 +35,9 @@ const ArticleStateless = ({className}) => {
       {!isOpen && <Button onClick={open}>Open</Button>}
     </Article>
   )
+}
+ArticleStateless.propTypes = {
+  className: PropTypes.string
 }
 
 export default ArticleStateless

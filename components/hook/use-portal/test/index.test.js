@@ -1,21 +1,29 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import {act, cleanup, renderHook} from '@testing-library/react-hooks'
-
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
 describe(json.name, () => {
-  const {default: hook} = pkg
-  const setupEnvironment =
-    hook =>
-    (...args) =>
-      renderHook(() => hook(...args))
-  const setup = setupEnvironment(hook)
+  const {default: usePortal} = pkg
+  const Component = ({children, ...props}) => {
+    const targetRef = useRef()
+    const {Portal} = usePortal({target: targetRef.current})
+
+    return (
+      <div className="portal-test-container">
+        <div className="portal-test-container-origin">
+          <Portal {...props}>{children}</Portal>
+        </div>
+        <div ref={targetRef} className="portal-test-container-target" />
+      </div>
+    )
+  }
+
+  const setup = setupEnvironment(Component)
 
   it('library should include defined exported elements', () => {
     // Given
@@ -32,34 +40,29 @@ describe(json.name, () => {
   })
 
   describe('hook', () => {
-    it('should be called without crashing', () => {
+    it('should render without crashing', () => {
       // Given
+      const props = {as: 'h1'}
 
       // When
-      const {result} = setup()
+      const component = <Component {...props} />
 
       // Then
-      expect(() => result.current).to.not.throw()
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+      ReactDOM.unmountComponentAtNode(div)
     })
 
-    it('should return proper props as an array', () => {
+    it('should NOT render null', () => {
       // Given
+      const props = {}
 
       // When
-      const {result} = setup()
-      const [
-        Portal
-        // open, close, isOpen, toggle, triggerRef, portalRef
-      ] = result.current
-
-      // console.log(result.current)
+      const {container} = setup(props)
 
       // Then
-      expect(Portal).to.be.a('function')
-      // expect(Portal.displayName).to.equal('Portal')
-      // expect(open).to.be.a('function')
-      // expect(close).to.be.a('function')
-      // expect(toggle).to.be.a('function')
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
     })
   })
 })

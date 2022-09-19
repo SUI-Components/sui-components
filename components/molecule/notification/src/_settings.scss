@@ -33,6 +33,14 @@ $notification-type-colors: (
   system: $c-system
 ) !default;
 
+$notification-type-positive-colors: (
+  info: color-variation($c-primary, $c-light-step * 2),
+  success: color-variation($c-success, $c-light-step * 2),
+  warning: color-variation($c-alert, $c-light-step * 2),
+  error: color-variation($c-error, $c-light-step * 2),
+  system: color-variation($c-system, $c-light-step * 2)
+) !default;
+
 $notification-type-font-colors: (
   info: $c-white,
   success: $c-white,

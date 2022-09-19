@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.33.0 (2022-09-19)
+
+
+### Features
+
+* **components/molecule/notification:** create new variable to define background positive variation ([b77ec9b](https://github.com/SUI-Components/sui-components/commit/b77ec9ba9fd3eb965df744311d09bec895184490))
+* **components/molecule/notification:** refactor to use background colors set at theme to create pos ([70bd3b0](https://github.com/SUI-Components/sui-components/commit/70bd3b07365967e52164b10a9a2a00e43240a209))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 1.32.0 (2022-06-23)
 
 

@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $w-notification: 100% !default;
 $z-notification: 1000 !default;
 $mh-notification: 500px !default;
@@ -34,11 +36,31 @@ $notification-type-colors: (
 ) !default;
 
 $notification-type-positive-colors: (
-  info: color-variation($c-primary, $c-light-step * 2),
-  success: color-variation($c-success, $c-light-step * 2),
-  warning: color-variation($c-alert, $c-light-step * 2),
-  error: color-variation($c-error, $c-light-step * 2),
-  system: color-variation($c-system, $c-light-step * 2)
+  info:
+    color-variation(
+      map.get($notification-type-colors, 'info'),
+      $c-light-step * 2
+    ),
+  success:
+    color-variation(
+      map.get($notification-type-colors, 'success'),
+      $c-light-step * 2
+    ),
+  warning:
+    color-variation(
+      map.get($notification-type-colors, 'warning'),
+      $c-light-step * 2
+    ),
+  error:
+    color-variation(
+      map.get($notification-type-colors, 'error'),
+      $c-light-step * 2
+    ),
+  system:
+    color-variation(
+      map.get($notification-type-colors, 'system'),
+      $c-light-step * 2
+    )
 ) !default;
 
 $notification-type-font-colors: (

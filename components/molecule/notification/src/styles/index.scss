@@ -85,9 +85,9 @@ $base-class: '.sui-MoleculeNotification';
     }
 
     // Type variations
-    @each $key, $value in $notification-type-colors {
+    @each $key, $value in $notification-type-positive-colors {
       &#{$base-class}--#{$key} {
-        background: color-variation($value, $c-light-step * 2);
+        background: #{$value};
       }
     }
   }

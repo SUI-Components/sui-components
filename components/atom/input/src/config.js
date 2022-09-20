@@ -1,11 +1,15 @@
 import cx from 'classnames'
 
+import Input from './Input/index.js'
+
 export const PREFIX = 'sui'
 export const CATEGORY = 'Atom'
 export const COMPONENT = 'Input'
 
 export const BASE = `${PREFIX}-${CATEGORY}${COMPONENT}`
 
+export const BASE_CLASS_ITEM = `${BASE}-item`
+export const BASE_CLASS_AREA_FOCUSABLE = `${BASE}-area-focusable`
 export const BASE_CLASS = `${BASE}-input`
 
 // Enums

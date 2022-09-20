@@ -1,5 +1,56 @@
 $base-class: '.sui-AtomInput';
+$base-class-area-focusable: '.sui-AtomInput-area-focusable';
 
 @import '../Input/Component/index';
 @import '../Input/Wrappers/index';
 @import '../Password/index';
+
+#{$base-class} {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+
+
+
+  #{$base-class}-item {
+    border-width: $bdw-s 0;
+    border-style: solid;
+    border-color: $c-gray-light;
+    &:first-child {
+      border-bottom-left-radius: $bdrs-atom-input;
+      border-top-left-radius: $bdrs-atom-input;
+      border-left-width: $bdw-s;
+    }
+    &:last-child {
+      border-bottom-right-radius: $bdrs-atom-input;
+      border-top-right-radius: $bdrs-atom-input;
+      border-right-width: $bdw-s;
+    }
+
+  }
+
+  @each $shapeMapKey, $shapeMapValue in $bdrs-atom-input-shapes {
+    &#{$base-class}-shape-#{$shapeMapKey} {
+      #{$base-class}-item {
+        &:first-child {
+          border-bottom-left-radius: $shapeMapValue;
+          border-top-left-radius: $shapeMapValue;
+        }
+        &:last-child {
+          border-bottom-right-radius: $shapeMapValue;
+          border-top-right-radius: $shapeMapValue;
+        }
+      }
+    }
+  }
+
+  #{$base-class-area-focusable} {
+    display: flex;
+    width: 100%;
+    padding-left: $pl-atom-input;
+    padding-right: $pr-atom-input;
+    &:focus-within {
+      @include sui-atom-input-input-focus;
+    }
+  }
+}

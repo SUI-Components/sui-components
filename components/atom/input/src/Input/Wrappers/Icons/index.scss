@@ -1,44 +1,41 @@
-#{$base-class}--withIcon {
-  position: relative;
-  width: 100%;
+$base-class-with-icon: '#{$base-class}--withIcon';
 
-  &--left #{$base-class-input} {
-    padding-left: $pl-atom-input-input;
+#{$base-class-with-icon}-icon--left {
+  //padding-left: $pl-atom-input-input;
+}
+
+#{$base-class-with-icon}-icon--right {
+  //padding-right: $pr-atom-input-input;
+}
+
+#{$base-class-with-icon}-icon {
+  align-items: center;
+  color: $c-atom-input-icon;
+  display: flex;
+  fill: $c-atom-input-icon;
+  //height: $w-atom-input-icon;
+  justify-content: center;
+  //position: absolute;
+  //top: $t-atom-input-icon;
+  //transform: translateY($trf-ty-atom-input-icon);
+  width: $w-atom-input-icon;
+  pointer-events: none;
+
+  &--withHandler {
+    cursor: pointer;
+    pointer-events: auto;
   }
 
-  &--right #{$base-class-input} {
-    padding-right: $pr-atom-input-input;
+  &--left {
+    //left: $l-atom-input-icon;
   }
 
-  &-icon {
-    align-items: center;
-    color: $c-atom-input-icon;
-    display: flex;
-    fill: $c-atom-input-icon;
-    height: $w-atom-input-icon;
-    justify-content: center;
-    position: absolute;
-    top: $t-atom-input-icon;
-    transform: translateY($trf-ty-atom-input-icon);
-    width: $w-atom-input-icon;
-    pointer-events: none;
+  &--right {
+    //right: $r-atom-input-icon;
+  }
 
-    &--withHandler {
-      cursor: pointer;
-      pointer-events: auto;
-    }
-
-    &--left {
-      left: $l-atom-input-icon;
-    }
-
-    &--right {
-      right: $r-atom-input-icon;
-    }
-
-    & > * {
-      height: 100%;
-      width: 100%;
-    }
+  & > * {
+    //height: 100%;
+    //width: 100%;
   }
 }

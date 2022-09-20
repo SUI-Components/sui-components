@@ -7,9 +7,11 @@ $class-read-only: '#{$base-class-input}--readOnly';
   -webkit-appearance: none;
 
   @include sui-atom-input-input;
-  border-radius: $bdrs-atom-input;
   min-height: auto;
   text-overflow: $tov-atom-input-placeholder;
+  padding-left: 0;
+  padding-right: 0;
+  border: 0 solid transparent;
   &--charsSize {
     width: inherit;
   }
@@ -23,15 +25,6 @@ $class-read-only: '#{$base-class-input}--readOnly';
     border: $bd-atom-input-read-only;
     color: $c-atom-input-read-only;
   }
-
-  @include atom-input-shape-wrapper(
-    $base-class,
-    $base-class-input,
-    $bdrs-atom-input-shapes,
-    $sizes-atom-input,
-    $bdrs-atom-input,
-    $h-atom-input--m
-  );
 
   &#{$base-class-input}--noBorder,
   &#{$base-class-input}--noBorder:disabled {
@@ -60,13 +53,17 @@ $class-read-only: '#{$base-class-input}--readOnly';
   }
 
   &:focus {
-    @include sui-atom-input-input-focus;
+    // @include sui-atom-input-input-focus;
+    box-shadow: none;
+  }
+  &:focus-visible {
+    outline: 0;
   }
 
   @each $type, $attr in $sizes-atom-input {
     &-size-#{$type} {
-      height: $attr;
-      min-height: $attr;
+      height: $attr - 2 * $bdw-s;
+      min-height: $attr - 2 * $bdw-s;
     }
   }
 
@@ -75,7 +72,8 @@ $class-read-only: '#{$base-class-input}--readOnly';
       border-color: $color;
 
       &:focus {
-        box-shadow: $bxsh-atom-input-size $color;
+        box-shadow: none;
+        //box-shadow: $bxsh-atom-input-size $color;
       }
     }
   }

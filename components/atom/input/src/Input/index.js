@@ -1,16 +1,33 @@
 import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-import {SIZES} from '../config.js'
-import Input, {inputSizes, inputStates} from './Component/index.js'
+import {
+  SIZES,
+  BASE_CLASS_AREA_FOCUSABLE,
+  BASE_CLASS_ITEM,
+  TYPES
+} from '../config.js'
+
+import Mask from '../Mask/index.js'
+import Password from '../Password/index.js'
+import Input from './Component/index.js'
+
 import InputAddons from './Wrappers/Addons/InputAddons.js'
 import InputButton from './Wrappers/Button/InputButton.js'
 import InputIcons from './Wrappers/Icons/InputIcons.js'
 
+const componentType = {
+  undefined: ({...props}) => [Input, {...props}],
+  [TYPES.SUI_PASSWORD]: ({type, ...props}) => [Password, {...props}],
+  [TYPES.MASK]: ({type, ...props}) => [Mask, {...props}]
+}
+
 const BaseInput = forwardRef(
   (
     {
+      type,
       button,
       leftAddon,
       rightAddon,
@@ -24,6 +41,9 @@ const BaseInput = forwardRef(
     },
     forwardedRef
   ) => {
+    const [Component, passedProps] = componentType[type]
+      ? componentType[type]({type, size, ...inputProps})
+      : componentType[undefined]({type, size, ...inputProps})
     return (
       <InputButton button={button}>
         <InputAddons
@@ -32,16 +52,18 @@ const BaseInput = forwardRef(
           shape={inputProps.shape}
           size={size}
         >
-          <InputIcons
-            leftIcon={leftIcon}
-            rightIcon={rightIcon}
-            onClickLeftIcon={onClickLeftIcon}
-            onClickRightIcon={onClickRightIcon}
-          >
-            <Input ref={forwardedRef} {...inputProps} size={size}>
-              {children}
-            </Input>
-          </InputIcons>
+          <div className={cx(BASE_CLASS_ITEM, BASE_CLASS_AREA_FOCUSABLE)}>
+            <InputIcons
+              leftIcon={leftIcon}
+              rightIcon={rightIcon}
+              onClickLeftIcon={onClickLeftIcon}
+              onClickRightIcon={onClickRightIcon}
+            >
+              <Component ref={forwardedRef} {...passedProps} size={size}>
+                {children}
+              </Component>
+            </InputIcons>
+          </div>
         </InputAddons>
       </InputButton>
     )
@@ -70,4 +92,4 @@ BaseInput.propTypes = {
 }
 
 export default BaseInput
-export {inputSizes, inputStates, BaseInput}
+export {BaseInput}

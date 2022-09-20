@@ -1,12 +1,14 @@
 import {forwardRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import Input from '../Input/index.js'
 import {
   BASE_CLASS_PASSWORD,
+  BASE_CLASS_ITEM,
   BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
   PASSWORD,
   TEXT
@@ -38,7 +40,7 @@ const Password = forwardRef(
     }
 
     return (
-      <div className={BASE_CLASS_PASSWORD}>
+      <>
         <Input
           ref={forwardedRef}
           {...props}
@@ -46,10 +48,13 @@ const Password = forwardRef(
           value={innerValue}
           type={type}
         />
-        <div onClick={toggle} className={BASE_CLASS_PASSWORD_TOGGLE_BUTTON}>
+        <div
+          onClick={toggle}
+          className={cx(BASE_CLASS_ITEM, BASE_CLASS_PASSWORD_TOGGLE_BUTTON)}
+        >
           {type === PASSWORD ? pwShowLabel : pwHideLabel}
         </div>
-      </div>
+      </>
     )
   }
 )

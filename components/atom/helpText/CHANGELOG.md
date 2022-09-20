@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.8.0 (2022-09-20)
+
+
+### Features
+
+* **components/atom/helpText:** add margin top variable ([1235303](https://github.com/SUI-Components/sui-components/commit/123530333dcebbbbad5079de2150e6cd4182dc67))
+* **components/atom/helpText:** update margin variable ([ffd3505](https://github.com/SUI-Components/sui-components/commit/ffd35051631d0561780bdc1af30fa7283fcd53e6))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 1.7.0 (2022-06-20)
 
 

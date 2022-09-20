@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2022-09-20)
+
+
+### Features
+
+* **components/molecule/imageEditor:** Add a SCSS token to customize imageEditor labels color ([714c393](https://github.com/SUI-Components/sui-components/commit/714c393e87c94deb5fe2cb2f8f968deb7ce1224f))
+
+
+
 # 1.9.0 (2022-09-05)
 
 

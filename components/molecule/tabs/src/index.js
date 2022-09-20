@@ -13,10 +13,13 @@ const MoleculeTabsWithStateActive = ({children, onChange, ...props}) => {
     Children.forEach(children, (child, index) => {
       if (child) {
         const {active} = child.props
-        if (active) setActiveTab(index + 1)
+        const childrenActiveTab = index + 1
+        if (active && childrenActiveTab !== activeTab) {
+          setActiveTab(childrenActiveTab)
+        }
       }
     })
-  }, []) // eslint-disable-line
+  }, [children]) // eslint-disable-line
 
   const extendedChildren = () => {
     return Children.toArray(children)

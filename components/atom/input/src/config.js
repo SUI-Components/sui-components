@@ -1,5 +1,7 @@
 import cx from 'classnames'
 
+import Input from './Input/index.js'
+
 export const PREFIX = 'sui'
 export const CATEGORY = 'Atom'
 export const COMPONENT = 'Input'

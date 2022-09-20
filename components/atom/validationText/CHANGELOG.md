@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.8.0 (2022-09-20)
+
+
+### Features
+
+* **components/atom/validationText:** add margin top variable ([38cfc80](https://github.com/SUI-Components/sui-components/commit/38cfc8043787aaf23bf8a96cbbf97cdaed1ceeeb))
+* **components/atom/validationText:** update margin ([7a2e11e](https://github.com/SUI-Components/sui-components/commit/7a2e11ebac2eaf128eb06b0e9cde21e76a42f8ae))
+* **components/atom/validationText:** update margin variable ([1df0b7d](https://github.com/SUI-Components/sui-components/commit/1df0b7db3ae148d9f26a9ada6a71d6ea317ac72c))
+
+
+
 # 1.7.0 (2022-06-20)
 
 

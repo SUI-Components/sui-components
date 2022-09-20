@@ -1,21 +1,23 @@
 import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
-import Input, {inputSizes, inputStates} from './Input/index.js'
-import Mask from './Mask/index.js'
-import Password from './Password/index.js'
-import {INPUT_SHAPES, TYPES} from './config.js'
+import Input from './Input/index.js'
+import {INPUT_SHAPES, INPUT_STATES, SIZES, TYPES, BASE} from './config.js'
 
-const AtomInput = forwardRef(({type, ...props}, ref) => {
-  switch (type) {
-    case 'sui-password':
-      return <Password ref={ref} {...props} />
-    case 'mask':
-      return <Mask ref={ref} {...props} />
-    default:
-      return <Input ref={ref} {...props} type={type} />
-  }
+const AtomInput = forwardRef(({type, shape, size, ...props}, ref) => {
+  return (
+    <div
+      className={cx(
+        BASE,
+        shape && `${BASE}-shape-${shape}`,
+        size && `${BASE}-size-${size}`
+      )}
+    >
+      <Input ref={ref} {...{type, shape, size, ...props}} />
+    </div>
+  )
 })
 
 AtomInput.propTypes = {
@@ -139,8 +141,8 @@ AtomInput.displayName = 'AtomInput'
 export default AtomInput
 
 export {
-  inputSizes,
-  inputStates,
+  SIZES as inputSizes,
+  INPUT_STATES as inputStates,
   TYPES as inputTypes,
   INPUT_SHAPES as inputShapes
 }

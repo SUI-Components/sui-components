@@ -8,7 +8,7 @@ const InputWithClearUI = ({
   onClickClear,
   isVisibleClear,
   iconClear,
-  rightIcon = <i />,
+  rightIcon,
   children,
   ...props
 }) => {

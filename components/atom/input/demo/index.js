@@ -1,12 +1,5 @@
 import {useState} from 'react'
 
-import AtomInput, {
-  inputShapes,
-  inputSizes,
-  inputStates,
-  inputTypes
-} from 'components/atom/input/src/index.js'
-
 import {
   Anchor,
   AntDesignIcon,
@@ -29,6 +22,12 @@ import {
   UnorderedList
 } from '@s-ui/documentation-library'
 
+import AtomInput, {
+  inputShapes,
+  inputSizes,
+  inputStates,
+  inputTypes
+} from '../../input/src/index.js'
 import {flexCenteredStyle, stackMap} from './settings.js'
 
 const DefaultDemo = () => (
@@ -288,6 +287,22 @@ const AddonAndIconDemo = () => {
   return (
     <Article>
       <H2>Addon and Icon</H2>
+      <AtomInput
+        leftIcon={
+          <AntDesignIcon
+            icon="AiOutlineInfoCircle"
+            style={{color: 'currentColor'}}
+          />
+        }
+        rightIcon={
+          <AntDesignIcon
+            icon="AiOutlineInfoCircle"
+            style={{color: 'currentColor'}}
+          />
+        }
+        leftAddon="leftAddon"
+        rightAddon="rightAddon"
+      />
       <Paragraph>
         Input offers the possibility to add icons and contents on its left or
         right positions
@@ -602,17 +617,17 @@ const Demo = () => (
       <br />
       <SizeDemo />
       <br />
-      <DisabledReadOnlyDemo />
+      {/*<DisabledReadOnlyDemo />*/}
       <br />
       <AddonAndIconDemo />
       <br />
-      <BorderlessDemo />
+      {/*<BorderlessDemo />*/}
       <br />
-      <StateDemo />
+      {/*<StateDemo />*/}
       <br />
-      <ErrorStatusDemo />
+      {/*<ErrorStatusDemo />*/}
       <br />
-      <InlineFormDemo />
+      {/*<InlineFormDemo />*/}
       <br />
       <ShapeDemo />
       <br />

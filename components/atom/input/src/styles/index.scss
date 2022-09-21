@@ -10,8 +10,6 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
   width: 100%;
   align-items: stretch;
 
-
-
   #{$base-class}-item {
     border-width: $bdw-s 0;
     border-style: solid;
@@ -26,7 +24,6 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
       border-top-right-radius: $bdrs-atom-input;
       border-right-width: $bdw-s;
     }
-
   }
 
   @each $shapeMapKey, $shapeMapValue in $bdrs-atom-input-shapes {
@@ -49,8 +46,57 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
     width: 100%;
     padding-left: $pl-atom-input;
     padding-right: $pr-atom-input;
+    background: $bgc-atom-input;
     &:focus-within {
-      @include sui-atom-input-input-focus;
+      border-color: $c-primary;
+      border-top-width: $bd-atom-input-focus;
+      border-bottom-width: $bd-atom-input-focus;
+      box-shadow: $bxsh-atom-input;
+      outline: 0 none;
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--status-#{$state} {
+      #{$base-class}-item {
+        border-color: $color;
+      }
+    }
+  }
+
+  &#{$base-class}--is-disabled {
+    #{$base-class-area-focusable} {
+      pointer-events: none;
+    }
+    &:not(#{$base-class}--is-read-only) {
+      #{$base-class-area-focusable} {
+        -webkit-text-fill-color: $c-atom-input-disabled;
+        background: $bgc-atom-input-disabled;
+        border: $bd-atom-input-disabled;
+        color: $c-atom-input-disabled;
+      }
+    }
+  }
+
+  @each $type, $attr in $sizes-atom-input {
+    &#{$base-class}-size-#{$type} {
+      height: $attr;
+      min-height: $attr;
+    }
+  }
+
+  &#{$base-class}-borderless {
+    #{$base-class}-item {
+      border-width: 0;
+    }
+    #{$base-class-area-focusable} {
+      padding-left: $pl-atom-input + $bdw-s;
+      padding-right: $pr-atom-input + $bdw-s;
+      &:focus-within {
+        padding-left: $pl-atom-input;
+        padding-right: $pr-atom-input;
+        @include sui-atom-input-input-focus;
+      }
     }
   }
 }

@@ -1,38 +1,54 @@
-import {forwardRef, useEffect, useRef, useState} from 'react'
+import {forwardRef, useEffect} from 'react'
 
 import PropTypes from 'prop-types'
 
-import Input from '../Input/index.js'
+import {useIMask} from 'react-imask'
+
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+
+import Input from '../Input/Component/index.js'
 
 const MaskInput = forwardRef(
-  ({name, onChange, mask: maskOptions, ...props}, forwardedRef) => {
-    const [mask, setMask] = useState(null)
-    const refInput = useRef(null)
-
-    useEffect(() => () => mask && mask.destroy(), [mask])
-
-    const handleChange = (ev, {value}) => {
-      typeof onChange === 'function' && onChange(ev, {value})
-    }
-
-    const handleFocus = () => {
-      if (!mask) {
-        import('imask').then(({default: IMask}) => {
-          setMask(new IMask(refInput.current, maskOptions))
-        })
+  (
+    {
+      name,
+      onChange,
+      onComplete,
+      mask,
+      value: propValue,
+      defaultValue,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const {
+      ref: refInput,
+      maskRef,
+      value: maskedValue = '',
+      setValue,
+      ...other
+    } = useIMask(
+      {...mask},
+      {
+        onAccept: (value, maskRef, event, ...args) => {
+          typeof onChange === 'function' &&
+            onChange(event, {value, maskRef, ...args})
+        },
+        onComplete: (value, maskRef, event, ...args) => {
+          typeof onComplete === 'function' &&
+            onComplete(event, {value, maskRef, ...args})
+        }
       }
-    }
-
-    return (
-      <Input
-        ref={forwardedRef}
-        id={name}
-        reference={refInput}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        {...props}
-      />
     )
+    useEffect(() => {
+      if(propValue !== maskedValue) {
+        setValue(propValue)
+      }
+    }, [propValue])
+
+    const ref = useMergeRefs(refInput, forwardedRef)
+
+    return <Input ref={ref} id={name} value={maskedValue} {...props} />
   }
 )
 
@@ -44,7 +60,9 @@ MaskInput.propTypes = {
   /* The name of the control */
   name: PropTypes.string,
   /* Event launched on every input change */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /* Event fired every onChange which completes teh mask */
+  onComplete: PropTypes.func
 }
 
 export default MaskInput

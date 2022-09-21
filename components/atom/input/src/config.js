@@ -63,9 +63,9 @@ export const getClassNames = ({
     hideInput && `${BASE_CLASS}--hidden`,
     noBorder && `${BASE_CLASS}--noBorder`,
     readOnly && `${BASE_CLASS}--readOnly`,
-    errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`,
+    errorState && `${BASE_CLASS}--status-${INPUT_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--status-${INPUT_STATES.SUCCESS}`,
+    state && `${BASE_CLASS}--status-${state}`,
     shape && `${BASE_CLASS}-shape-${shape}`
   )
 }

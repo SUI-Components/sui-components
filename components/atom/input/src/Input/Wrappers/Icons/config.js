@@ -1,11 +1,11 @@
-import {BASE, BASE_CLASS_ITEM, BASE_CLASS_ITEM_FOCUSABLE} from '../../../config.js'
+import {BASE, BASE_CLASS_ITEM, BASE_CLASS_AREA_FOCUSABLE} from '../../../config.js'
 
 export const ICON_TYPES = {
   LEFT: 'left',
   RIGHT: 'right'
 }
 
-export {BASE_CLASS_ITEM, BASE_CLASS_ITEM_FOCUSABLE}
+export {BASE_CLASS_ITEM, BASE_CLASS_AREA_FOCUSABLE}
 export const BASE_CLASS_ICON = `${BASE}--withIcon`
 export const BASE_CLASS_ICON_COMPONENT = `${BASE_CLASS_ICON}-icon`
 export const BASE_CLASS_ICON_CONTENT_COMPONENT = `${BASE_CLASS_ICON_COMPONENT}--content`

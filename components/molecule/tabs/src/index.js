@@ -26,7 +26,7 @@ const MoleculeTabsWithStateActive = ({
   }
 
   return (
-    <MoleculeTabs {...props} activeTab={activeTab} onChange={handleChange}>
+    <MoleculeTabs {...props} onChange={handleChange}>
       {Children.toArray(children)
         .filter(Boolean)
         .map((child, index) =>

@@ -38,4 +38,19 @@ $base-class-addon: '#{$base-class}--withAddon';
       }
     }
   }
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--status-#{$state} {
+      #{$base-class}-item {
+        &#{$base-class-addon} {
+          border-color: $bdc-atom-input-addon;
+          &#{$base-class-addon}--right {
+            border-left-color: $color;
+          }
+          &#{$base-class-addon}--left {
+            border-right-color: $color;
+          }
+        }
+      }
+    }
+  }
 }

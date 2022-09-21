@@ -304,7 +304,6 @@ const AddonAndIconDemo = () => {
       <Grid cols={2} gutter={[8, 8]}>
         <Cell span={2}>
           <AtomInput
-            state={inputStates.ERROR}
             leftIcon={icon === 'leftIcon' ? valueIcon : undefined}
             rightIcon={icon === 'rightIcon' ? valueIcon : undefined}
             leftAddon={leftAddon}

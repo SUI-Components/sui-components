@@ -1,16 +1,10 @@
 import {forwardRef} from 'react'
 
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import Input from './Input/index.js'
-import {
-  INPUT_SHAPES,
-  INPUT_STATES,
-  SIZES,
-  TYPES,
-  BASE,
-} from './config.js'
+import {BASE, INPUT_SHAPES, INPUT_STATES, SIZES, TYPES} from './config.js'
 
 const AtomInput = forwardRef(
   (
@@ -119,7 +113,7 @@ AtomInput.propTypes = {
   disabled: PropTypes.bool,
 
   /** 's' or 'm', default: 'm' */
-  size: PropTypes.oneOf(Object.values(inputSizes)),
+  size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number,
@@ -149,7 +143,7 @@ AtomInput.propTypes = {
   errorState: PropTypes.bool,
 
   /** 'success', 'error' or 'alert' */
-  state: PropTypes.oneOf(Object.values(inputStates)),
+  state: PropTypes.oneOf(Object.values(INPUT_STATES)),
 
   /** value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -173,7 +167,13 @@ AtomInput.propTypes = {
   inputMode: PropTypes.string,
 
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
-  shape: PropTypes.string
+  shape: PropTypes.string,
+
+  /** Wether to hide the input border or not */
+  noBorder: PropTypes.bool,
+
+  /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
+  readOnly: PropTypes.bool
 }
 
 AtomInput.displayName = 'AtomInput'

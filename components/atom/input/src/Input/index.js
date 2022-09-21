@@ -1,19 +1,17 @@
 import {forwardRef} from 'react'
 
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {
-  SIZES,
   BASE_CLASS_AREA_FOCUSABLE,
   BASE_CLASS_ITEM,
+  SIZES,
   TYPES
 } from '../config.js'
-
 import Mask from '../Mask/index.js'
 import Password from '../Password/index.js'
 import Input from './Component/index.js'
-
 import InputAddons from './Wrappers/Addons/InputAddons.js'
 import InputButton from './Wrappers/Button/InputButton.js'
 import InputIcons from './Wrappers/Icons/InputIcons.js'
@@ -72,6 +70,8 @@ const BaseInput = forwardRef(
 )
 
 BaseInput.propTypes = {
+  /* text, password, date or number */
+  type: PropTypes.string,
   /** button html element */
   button: PropTypes.node,
   /* inner react node element */

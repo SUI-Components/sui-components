@@ -1,8 +1,7 @@
 import {forwardRef, useEffect} from 'react'
+import {useIMask} from 'react-imask'
 
 import PropTypes from 'prop-types'
-
-import {useIMask} from 'react-imask'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
@@ -23,10 +22,8 @@ const MaskInput = forwardRef(
   ) => {
     const {
       ref: refInput,
-      maskRef,
       value: maskedValue = '',
-      setValue,
-      ...other
+      setValue
     } = useIMask(
       {...mask},
       {
@@ -41,10 +38,10 @@ const MaskInput = forwardRef(
       }
     )
     useEffect(() => {
-      if(propValue !== maskedValue) {
+      if (propValue !== maskedValue) {
         setValue(propValue)
       }
-    }, [propValue])
+    }, [propValue, setValue, maskedValue])
 
     const ref = useMergeRefs(refInput, forwardedRef)
 
@@ -55,6 +52,10 @@ const MaskInput = forwardRef(
 MaskInput.displayName = 'MaskInput'
 
 MaskInput.propTypes = {
+  /* The value of the control */
+  value: PropTypes.string,
+  /* default value of the control */
+  defaultValue: PropTypes.string,
   /* mask object, see https://unmanner.github.io/imaskjs/ */
   mask: PropTypes.object.isRequired,
   /* The name of the control */

@@ -1,16 +1,12 @@
 import {forwardRef, useState} from 'react'
 
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import Input from '../Input/Component/index.js'
-import {
-  BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
-  PASSWORD,
-  TEXT
-} from './config.js'
+import {BASE_CLASS_PASSWORD_TOGGLE_BUTTON, PASSWORD, TEXT} from './config.js'
 
 const Password = forwardRef(
   (

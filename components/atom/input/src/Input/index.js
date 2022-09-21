@@ -44,6 +44,7 @@ const BaseInput = forwardRef(
     const [Component, passedProps] = componentType[type]
       ? componentType[type]({type, size, ...inputProps})
       : componentType[undefined]({type, size, ...inputProps})
+
     return (
       <InputButton button={button}>
         <InputAddons
@@ -52,7 +53,7 @@ const BaseInput = forwardRef(
           shape={inputProps.shape}
           size={size}
         >
-          <div className={cx(BASE_CLASS_ITEM, BASE_CLASS_AREA_FOCUSABLE)}>
+          <span className={cx(BASE_CLASS_ITEM, BASE_CLASS_AREA_FOCUSABLE)}>
             <InputIcons
               leftIcon={leftIcon}
               rightIcon={rightIcon}
@@ -63,7 +64,7 @@ const BaseInput = forwardRef(
                 {children}
               </Component>
             </InputIcons>
-          </div>
+          </span>
         </InputAddons>
       </InputButton>
     )

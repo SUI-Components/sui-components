@@ -1,41 +1,44 @@
+@use 'sass:math';
+
 $base-class-with-icon: '#{$base-class}--withIcon';
 
-#{$base-class-with-icon}-icon--left {
-  //padding-left: $pl-atom-input-input;
-}
+#{$base-class} {
+  #{$base-class-with-icon}-icon {
+    align-items: center;
+    color: $c-atom-input-icon;
+    display: flex;
+    fill: $c-atom-input-icon;
+    justify-content: center;
+    width: $w-atom-input-icon;
+    pointer-events: none;
 
-#{$base-class-with-icon}-icon--right {
-  //padding-right: $pr-atom-input-input;
-}
+    &--withHandler {
+      cursor: pointer;
+      pointer-events: auto;
+    }
 
-#{$base-class-with-icon}-icon {
-  align-items: center;
-  color: $c-atom-input-icon;
-  display: flex;
-  fill: $c-atom-input-icon;
-  //height: $w-atom-input-icon;
-  justify-content: center;
-  //position: absolute;
-  //top: $t-atom-input-icon;
-  //transform: translateY($trf-ty-atom-input-icon);
-  width: $w-atom-input-icon;
-  pointer-events: none;
+    &--left {
+      #{$base-class-with-icon}-icon--content {
+        width: $w-atom-input-icon;
+        margin-right: math.div($pl-atom-input, 2);
+      }
+    }
 
-  &--withHandler {
-    cursor: pointer;
-    pointer-events: auto;
+    &--right {
+      #{$base-class-with-icon}-icon--content {
+        width: $w-atom-input-icon;
+        margin-left: math.div($pr-atom-input, 2);
+      }
+    }
   }
-
-  &--left {
-    //left: $l-atom-input-icon;
-  }
-
-  &--right {
-    //right: $r-atom-input-icon;
-  }
-
-  & > * {
-    //height: 100%;
-    //width: 100%;
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--status-#{$state} {
+      #{$base-class-with-icon}-icon {
+        #{$base-class-with-icon}-icon--content {
+          color: $color;
+          fill: $color;
+        }
+      }
+    }
   }
 }

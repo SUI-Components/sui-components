@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, Fragment} from 'react'
 
 import {
   Anchor,
@@ -165,7 +165,7 @@ const TypeDemo = () => {
             'MASK',
             {
               type: inputTypes.MASK,
-              mask: 'ES00 0000 0000 00 0000000000',
+              mask: {mask: 'ES00 0000 0000 00 0000000000'},
               placeholder: 'ES00 0000 0000 00 0000000000',
               charsSize: 31
             },
@@ -287,22 +287,6 @@ const AddonAndIconDemo = () => {
   return (
     <Article>
       <H2>Addon and Icon</H2>
-      <AtomInput
-        leftIcon={
-          <AntDesignIcon
-            icon="AiOutlineInfoCircle"
-            style={{color: 'currentColor'}}
-          />
-        }
-        rightIcon={
-          <AntDesignIcon
-            icon="AiOutlineInfoCircle"
-            style={{color: 'currentColor'}}
-          />
-        }
-        leftAddon="leftAddon"
-        rightAddon="rightAddon"
-      />
       <Paragraph>
         Input offers the possibility to add icons and contents on its left or
         right positions
@@ -321,6 +305,7 @@ const AddonAndIconDemo = () => {
       <Grid cols={2} gutter={[8, 8]}>
         <Cell span={2}>
           <AtomInput
+            state={inputStates.ERROR}
             leftIcon={icon === 'leftIcon' ? valueIcon : undefined}
             rightIcon={icon === 'rightIcon' ? valueIcon : undefined}
             leftAddon={leftAddon}
@@ -444,7 +429,7 @@ const BorderlessDemo = () => {
   const [border, setBorder] = useState(true)
   const [mode, setMode] = useState('light')
   return (
-    <Article>
+    <Article mode={mode}>
       <H2>No border</H2>
       <Paragraph>
         The border of the input can be removed using the boolean prop{' '}
@@ -468,9 +453,7 @@ const BorderlessDemo = () => {
           />
         </Cell>
         <Cell span={2}>
-          <Box mode={mode}>
-            <AtomInput placeholder="click to interact" noBorder={!border} />
-          </Box>
+          <AtomInput placeholder="click to interact" noBorder={!border} />
         </Cell>
       </Grid>
     </Article>
@@ -540,7 +523,9 @@ const InlineFormDemo = () => (
       Input have its own way of provide a submision using the{' '}
       <Code>button</Code> prop, you can pass a React node.
     </Paragraph>
-    <AtomInput button={<Button>Send</Button>} />
+    <AtomInput
+      button={<Button style={{height: '100%', borderRadius: 0}}>Send</Button>}
+    />
   </Article>
 )
 
@@ -577,7 +562,7 @@ const ShapeDemo = () => (
       ))}
       {Object.entries({default: undefined, ...inputSizes}).map(
         ([sizeKey, sizeValue]) => (
-          <>
+          <Fragment key={sizeKey}>
             <Cell key={sizeKey}>
               <Label>{`${sizeKey}`}</Label>
             </Cell>
@@ -593,7 +578,7 @@ const ShapeDemo = () => (
                 </Cell>
               )
             )}
-          </>
+          </Fragment>
         )
       )}
     </Grid>
@@ -617,17 +602,17 @@ const Demo = () => (
       <br />
       <SizeDemo />
       <br />
-      {/*<DisabledReadOnlyDemo />*/}
+      <DisabledReadOnlyDemo />
       <br />
       <AddonAndIconDemo />
       <br />
-      {/*<BorderlessDemo />*/}
+      <BorderlessDemo />
       <br />
-      {/*<StateDemo />*/}
+      <StateDemo />
       <br />
-      {/*<ErrorStatusDemo />*/}
+      <ErrorStatusDemo />
       <br />
-      {/*<InlineFormDemo />*/}
+      <InlineFormDemo />
       <br />
       <ShapeDemo />
       <br />

@@ -4,21 +4,61 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import Input from './Input/index.js'
-import {INPUT_SHAPES, INPUT_STATES, SIZES, TYPES, BASE} from './config.js'
+import {
+  INPUT_SHAPES,
+  INPUT_STATES,
+  SIZES,
+  TYPES,
+  BASE,
+} from './config.js'
 
-const AtomInput = forwardRef(({type, shape, size, ...props}, ref) => {
-  return (
-    <div
-      className={cx(
-        BASE,
-        shape && `${BASE}-shape-${shape}`,
-        size && `${BASE}-size-${size}`
-      )}
-    >
-      <Input ref={ref} {...{type, shape, size, ...props}} />
-    </div>
-  )
-})
+const AtomInput = forwardRef(
+  (
+    {
+      type,
+      shape,
+      size = SIZES.MEDIUM,
+      noBorder,
+      errorState,
+      state,
+      disabled,
+      readOnly,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <span
+        className={cx(
+          BASE,
+          shape && `${BASE}-shape-${shape}`,
+          size && `${BASE}-size-${size}`,
+          noBorder && `${BASE}-borderless`,
+          disabled && `${BASE}--is-disabled`,
+          readOnly && `${BASE}--is-read-only`,
+          errorState && `${BASE}--status-${INPUT_STATES.ERROR}`,
+          errorState === false && `${BASE}--status-${INPUT_STATES.SUCCESS}`,
+          state && `${BASE}--status-${state}`
+        )}
+      >
+        <Input
+          ref={ref}
+          {...{
+            disabled,
+            readOnly,
+            type,
+            noBorder,
+            errorState,
+            state,
+            shape,
+            size,
+            ...props
+          }}
+        />
+      </span>
+    )
+  }
+)
 
 AtomInput.propTypes = {
   /** native types (text, date, ...), 'sui-password' */

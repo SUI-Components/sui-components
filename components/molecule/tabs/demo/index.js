@@ -1,5 +1,6 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleActiveTabs from './Articles/ArticleActiveTabs.js'
 import ArticleDefault from './Articles/ArticleDefault.js'
 import ArticleIconsCounters from './Articles/ArticleIconsCounters.js'
 import ArticleType from './Articles/ArticleType.js'
@@ -17,6 +18,8 @@ const Demo = () => {
         classic or highlighted variants
       </Paragraph>
       <ArticleDefault className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleActiveTabs className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleType className={CLASS_DEMO_SECTION} />
       <br />

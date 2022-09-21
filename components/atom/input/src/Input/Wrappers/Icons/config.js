@@ -1,4 +1,8 @@
-import {BASE, BASE_CLASS_ITEM, BASE_CLASS_AREA_FOCUSABLE} from '../../../config.js'
+import {
+  BASE,
+  BASE_CLASS_AREA_FOCUSABLE,
+  BASE_CLASS_ITEM
+} from '../../../config.js'
 
 export const ICON_TYPES = {
   LEFT: 'left',

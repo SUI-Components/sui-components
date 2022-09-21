@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types'
-
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {BASE_CLASS_BUTTON, BASE_CLASS_ITEM} from './config.js'
 

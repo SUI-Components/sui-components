@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.6.0 (2022-09-22)
+
+
+### Bug Fixes
+
+* **components/molecule/drawer:** avoid add a listener for keydown that prevents the default behaviou ([2f3158a](https://github.com/SUI-Components/sui-components/commit/2f3158affa430b3c1f0d73288ebc82c6091ccb88))
+
+
+
 # 4.5.0 (2022-06-23)
 
 

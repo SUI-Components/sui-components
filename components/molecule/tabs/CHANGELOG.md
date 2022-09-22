@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.36.0 (2022-09-22)
+
+
+### Features
+
+* **components/molecule/tabs:** Change tabs to be able to modify current active tabs by updating pro ([3f6a23e](https://github.com/SUI-Components/sui-components/commit/3f6a23e3538970054c289b4607c806baa72c6922))
+* **components/molecule/tabs:** control/uncontroll active tabs ([7945c33](https://github.com/SUI-Components/sui-components/commit/7945c339e5a145a2d593b2f68d4344aea2100f7b))
+* **components/molecule/tabs:** remove unnecesary prop injected ([4b67d13](https://github.com/SUI-Components/sui-components/commit/4b67d1304388ec589112eb3bd4d24767c8733367))
+
+
+
 # 2.35.0 (2022-06-23)
 
 

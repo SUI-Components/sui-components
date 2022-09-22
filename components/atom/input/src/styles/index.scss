@@ -7,7 +7,6 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
 
 #{$base-class} {
   display: flex;
-  width: 100%;
   align-items: stretch;
 
   #{$base-class}-item {
@@ -93,9 +92,7 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
       padding-left: $pl-atom-input + $bdw-s;
       padding-right: $pr-atom-input + $bdw-s;
       &:focus-within {
-        padding-left: $pl-atom-input;
-        padding-right: $pr-atom-input;
-        @include sui-atom-input-input-focus;
+        box-shadow: none;
       }
     }
   }

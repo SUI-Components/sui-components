@@ -1,9 +1,6 @@
 $base-class-password: '#{$base-class}-password';
 
 #{$base-class-password} {
-  position: relative;
-  width: 100%;
-
   &--toggleButton {
     color: $c-atom-input-password-toggle-button;
     cursor: pointer;

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $base-class: '.sui-AtomInput';
 $base-class-area-focusable: '.sui-AtomInput-area-focusable';
 
@@ -8,11 +10,10 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
 #{$base-class} {
   display: flex;
   align-items: stretch;
+  flex-grow: 1;
 
   #{$base-class}-item {
-    border-width: $bdw-s 0;
-    border-style: solid;
-    border-color: $c-gray-light;
+    border: $bd-atom-input-base;
     &:first-child {
       border-bottom-left-radius: $bdrs-atom-input;
       border-top-left-radius: $bdrs-atom-input;
@@ -22,6 +23,12 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
       border-bottom-right-radius: $bdrs-atom-input;
       border-top-right-radius: $bdrs-atom-input;
       border-right-width: $bdw-s;
+    }
+  }
+
+  &:not(#{$base-class}--has-charSize) {
+    #{$base-class-area-focusable} {
+      flex-grow: 1;
     }
   }
 
@@ -42,14 +49,12 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
 
   #{$base-class-area-focusable} {
     display: flex;
-    width: 100%;
     padding-left: $pl-atom-input;
     padding-right: $pr-atom-input;
     background: $bgc-atom-input;
+    gap: math.div($p-l, 2);
     &:focus-within {
-      border-color: $c-primary;
-      border-top-width: $bd-atom-input-focus;
-      border-bottom-width: $bd-atom-input-focus;
+      border: $bd-atom-input-focus;
       box-shadow: $bxsh-atom-input;
       outline: 0 none;
     }
@@ -60,6 +65,14 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
       #{$base-class}-item {
         border-color: $color;
       }
+    }
+  }
+
+  &#{$base-class}--is-read-only {
+    #{$base-class-area-focusable} {
+      background: $bgc-atom-input-read-only;
+      border: $bd-atom-input-read-only;
+      color: $c-atom-input-read-only;
     }
   }
 
@@ -85,14 +98,17 @@ $base-class-area-focusable: '.sui-AtomInput-area-focusable';
   }
 
   &#{$base-class}-borderless {
-    #{$base-class}-item {
-      border-width: 0;
-    }
-    #{$base-class-area-focusable} {
-      padding-left: $pl-atom-input + $bdw-s;
-      padding-right: $pr-atom-input + $bdw-s;
-      &:focus-within {
-        box-shadow: none;
+    &,
+    &#{$base-class}--is-disabled:not(#{$base-class}--is-read-only) {
+      #{$base-class}-item {
+        border-width: 0;
+      }
+      #{$base-class-area-focusable} {
+        padding-left: $pl-atom-input + $bdw-s;
+        padding-right: $pr-atom-input + $bdw-s;
+        &:focus-within {
+          box-shadow: none;
+        }
       }
     }
   }

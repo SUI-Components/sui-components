@@ -11,6 +11,7 @@ const AtomInput = forwardRef(
     {
       type,
       shape,
+      charsSize,
       size = SIZES.MEDIUM,
       noBorder,
       errorState,
@@ -30,6 +31,9 @@ const AtomInput = forwardRef(
           noBorder && `${BASE}-borderless`,
           disabled && `${BASE}--is-disabled`,
           readOnly && `${BASE}--is-read-only`,
+          Number.isInteger(charsSize) &&
+            charsSize >= 0 &&
+            `${BASE}--has-charSize`,
           errorState && `${BASE}--status-${INPUT_STATES.ERROR}`,
           errorState === false && `${BASE}--status-${INPUT_STATES.SUCCESS}`,
           state && `${BASE}--status-${state}`
@@ -44,6 +48,7 @@ const AtomInput = forwardRef(
             noBorder,
             errorState,
             state,
+            charsSize,
             shape,
             size,
             ...props

@@ -16,11 +16,11 @@ $base-class-addon: '#{$base-class}--withAddon';
     width: auto;
 
     &#{$base-class-addon}--right {
-      border-left-width: $bdw-s;
+      border-left-width: 0;
     }
 
     &#{$base-class-addon}--left {
-      border-right-width: $bdw-s;
+      border-right-width: 0;
     }
   }
   @each $state, $color in $states-atom-input {

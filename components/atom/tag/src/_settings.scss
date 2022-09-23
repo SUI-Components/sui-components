@@ -3,18 +3,42 @@ $bgc-atom-tag: color-variation($c-gray, 3) !default;
 $mw-label: 240px !default;
 
 // sizes
+$h-atom-tag-xl: 48px !default;
 $h-atom-tag-l: 40px !default;
 $h-atom-tag-m: 32px !default;
 $h-atom-tag-s: 24px !default;
+$h-atom-tag-xs: 16px !default;
 $m-atom-tag: $m-m !default;
+$p-atom-tag-xl: 0 $p-l !default;
 $p-atom-tag-l: 0 $p-l !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
+$p-atom-tag-xs: 0 $p-m !default;
+
+$atom-tag-sizes: (xlarge, large, medium, small, xsmall) !default;
+
+$h-atom-tags: (
+  xlarge: $h-atom-tag-xl,
+  large: $h-atom-tag-l,
+  medium: $h-atom-tag-m,
+  small: $h-atom-tag-s,
+  xsmall: $h-atom-tag-xs
+) !default;
+
+$p-atom-tags: (
+  xlarge: $p-atom-tag-xl,
+  large: $p-atom-tag-l,
+  medium: $p-atom-tag-m,
+  small: $p-atom-tag-s,
+  xsmall: $p-atom-tag-xs
+) !default;
 
 $p-atom-tag-hasIcon-hasClose: (
-  small: $p-atom-tag-s,
+  xlarge: $p-atom-tag-xl,
+  large: $p-atom-tag-l,
   medium: $p-atom-tag-m,
-  large: $p-atom-tag-l
+  small: $p-atom-tag-s,
+  xsmall: $p-atom-tag-xs
 ) !default;
 
 // outline

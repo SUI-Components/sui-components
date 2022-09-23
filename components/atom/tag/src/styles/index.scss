@@ -6,7 +6,6 @@ $base-class: '.sui-AtomTag';
   align-content: center;
   background-color: $bgc-atom-tag;
   border: $bd-atom-tag;
-  border-radius: ceil($h-atom-tag-m * 0.5);
   box-sizing: border-box;
   cursor: default;
   display: inline-flex;
@@ -103,7 +102,7 @@ $base-class: '.sui-AtomTag';
       }
     }
 
-    &#{$self}--outline {
+    &#{$base-class}--design-outline {
       border-color: $c-atom-tag-actionable-invert;
       color: $c-atom-tag-actionable-invert;
       fill: $c-atom-tag-actionable-invert;
@@ -119,50 +118,32 @@ $base-class: '.sui-AtomTag';
     }
   }
 
-  &-small {
-    height: $h-atom-tag-s;
-    padding: $p-atom-tag-s;
-    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
-      padding: map-get($p-atom-tag-hasIcon-hasClose, 'small');
-    }
+  @each $atom-tag-size in $atom-tag-sizes {
+    &#{$base-class}--size-#{$atom-tag-size} {
+      height: map-get($h-atom-tags, $atom-tag-size);
+      padding: map-get($p-atom-tags, $atom-tag-size);
+      border-radius: ceil(map-get($h-atom-tags, $atom-tag-size) * 0.5);
+      &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+        padding: map-get($p-atom-tag-hasIcon-hasClose, $atom-tag-size);
+      }
 
-    & .sui-AtomTag-label {
-      line-height: $h-atom-tag-s;
-    }
+      & .sui-AtomTag-label {
+        line-height: map-get($h-atom-tags, $atom-tag-size);
+      }
 
-    .sui-AtomTag-closeable {
-      @include icon-secondary-clickable-area($h-atom-tag-s);
-    }
+      .sui-AtomTag-closeable {
+        @include icon-secondary-clickable-area(
+          map-get($h-atom-tags, $atom-tag-size)
+        );
+      }
 
-    .sui-AtomTag-icon {
-      margin-left: 0;
-    }
+      .sui-AtomTag-icon {
+        margin-left: 0;
+      }
 
-    .sui-AtomTag-secondary-icon {
-      margin-right: 0;
-    }
-  }
-
-  &-medium {
-    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
-      padding: map-get($p-atom-tag-hasIcon-hasClose, 'medium');
-    }
-  }
-
-  &-large {
-    border-radius: ceil($h-atom-tag-l * 0.5);
-    height: $h-atom-tag-l;
-    padding: $p-atom-tag-l;
-    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
-      padding: map-get($p-atom-tag-hasIcon-hasClose, 'large');
-    }
-
-    & .sui-AtomTag-label {
-      line-height: $h-atom-tag-l;
-    }
-
-    .sui-AtomTag-closeable {
-      @include icon-secondary-clickable-area($h-atom-tag-l);
+      .sui-AtomTag-secondary-icon {
+        margin-right: 0;
+      }
     }
   }
 
@@ -182,22 +163,22 @@ $base-class: '.sui-AtomTag';
     }
   }
 
-  &--outline {
+  &--design-outline {
     background-color: $bgc-atom-tag-outline;
     border: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
   }
 
-  @each $name, $type in $atom-tag-types {
-    $bgc: map-get($type, bgc);
-    $c: map-get($type, c);
-    $bgc-hover: map-get($type, bgc-hover);
-    $c-hover: map-get($type, c-hover);
-    $bdc: map-get($type, bdc);
-    $bds: map-get($type, bds);
-    $bdw: map-get($type, bdw);
-    $bdc-hover: map-get($type, bdc-hover);
+  @each $type-name, $type-value in $atom-tag-types {
+    $bgc: map-get($type-value, bgc);
+    $c: map-get($type-value, c);
+    $bgc-hover: map-get($type-value, bgc-hover);
+    $c-hover: map-get($type-value, c-hover);
+    $bdc: map-get($type-value, bdc);
+    $bds: map-get($type-value, bds);
+    $bdw: map-get($type-value, bdw);
+    $bdc-hover: map-get($type-value, bdc-hover);
 
-    &--#{$name} {
+    &--type-#{$type-name} {
       background-color: $bgc;
       border-color: $bdc;
       border-style: $bds;
@@ -212,7 +193,7 @@ $base-class: '.sui-AtomTag';
         fill: $c;
       }
 
-      &#{$self}--outline {
+      &#{$self}--design-outline {
         border-color: $bgc;
         color: $bgc;
         background-color: $c;

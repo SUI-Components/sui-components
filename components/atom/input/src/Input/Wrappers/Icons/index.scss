@@ -20,14 +20,12 @@ $base-class-with-icon: '#{$base-class}--withIcon';
     &--left {
       #{$base-class-with-icon}-icon--content {
         width: $w-atom-input-icon;
-        margin-right: math.div($pl-atom-input, 2);
       }
     }
 
     &--right {
       #{$base-class-with-icon}-icon--content {
         width: $w-atom-input-icon;
-        margin-left: math.div($pr-atom-input, 2);
       }
     }
   }

@@ -14,6 +14,7 @@ import {
   CLASS_TAGS_ERROR,
   CLASS_TAGS_FOCUS,
   CLASS_TAGS_SUCCESS,
+  getInputToTagSize,
   isDuplicate,
   isFunction
 } from './config.js'
@@ -136,10 +137,11 @@ const MoleculeInputTags = forwardRef(
                 label
               })}
               label={label}
-              size={atomTagSizes.SMALL}
+              size={getInputToTagSize(size)}
               responsive
               readOnly={readOnly}
               disabled={disabled}
+              isFitted
             />
           )
         })}
@@ -156,6 +158,7 @@ const MoleculeInputTags = forwardRef(
             noBorder
             readOnly={readOnly}
             disabled={disabled}
+            size={size}
             placeholder={isEmpty ? placeholder : undefined}
           />
         )}

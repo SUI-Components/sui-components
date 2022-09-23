@@ -1,3 +1,4 @@
 $sizes-atom-input-paddings: m $p-m, s $p-s !default;
-$bg-input-tag-disable: $c-gray-light-4 !default;
+$bg-input-tag-disable: $bgc-atom-input-disabled;
+$bgc-input-tag-read-only: $bgc-atom-input-read-only;
 $bdrs-molecule-input-tags: 0 !default;

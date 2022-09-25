@@ -14,12 +14,15 @@ module.exports = async function exportCoverageFromMarkdownShields({github, conte
         login: sender
       },
       repository: {
-        owner
+        name,
+        owner: {
+          login: owner
+        }
       }
     }
   } = context
 
-  console.log(context, {workflow, eventName, actor, action, labelName, sender, owner})
+  console.log({workflow, eventName, actor, action, labelName, sender, owner, name})
 
   if(senderNames.length === 0 || senderNames.includes(sender)) {
     // const { data } = await github.rest.projects.listForRepo({ ...repo });

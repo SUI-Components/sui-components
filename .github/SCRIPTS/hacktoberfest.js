@@ -26,15 +26,17 @@ module.exports = async function exportCoverageFromMarkdownShields(
     sender,
     ownerName,
     repositoryName,
-  })
+  }, senderNames)
 
   if (senderNames.length === 0 || senderNames.includes(sender)) {
+    console.log('.')
     const {data} = await github.rest.projects.listForOrg({
       org: ownerName,
       state: 'open'
       //owner: owner,
       // repo: repositoryName
     })
+    console.log('.')
 
     console.log(data)
     switch (action) {

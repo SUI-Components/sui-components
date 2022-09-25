@@ -25,7 +25,7 @@ module.exports = async function exportCoverageFromMarkdownShields(
     labelName,
     sender,
     ownerName,
-    name
+    repositoryName
   })
 
   if (senderNames.length === 0 || senderNames.includes(sender)) {

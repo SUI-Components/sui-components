@@ -14,4 +14,4 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            console.log({context})
+            console.log(context.eventName, {label: context.payload.label})

@@ -10,6 +10,9 @@ jobs:
   track:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Log Master Coverage
         uses: actions/github-script@v5
         with:

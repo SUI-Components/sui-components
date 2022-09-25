@@ -16,6 +16,7 @@ module.exports = async function exportCoverageFromMarkdownShields(
       }
     }
   } = context
+  const orgName = core.getInput('org_name', {required: true})
 
   console.log({
     workflow,
@@ -25,12 +26,14 @@ module.exports = async function exportCoverageFromMarkdownShields(
     labelName,
     sender,
     ownerName,
-    repositoryName
+    repositoryName,
+    orgName
   })
 
   if (senderNames.length === 0 || senderNames.includes(sender)) {
     const {data} = await github.rest.projects.listForOrg({
-      owner: ownerName,
+      owner: orgName,
+      state: 'open'
       // repo: repositoryName
     })
 

@@ -67,3 +67,5 @@ export const getClassNames = ({
     shape && `${BASE_CLASS}-shape-${shape}`
   )
 }
+
+export const isFunction = fn => typeof fn === 'function'

@@ -17,7 +17,7 @@ import InputButton from './Wrappers/Button/InputButton.js'
 import InputIcons from './Wrappers/Icons/InputIcons.js'
 
 const componentType = {
-  undefined: ({...props}) => [Input, {...props}],
+  undefined: (props) => [Input, props],
   [TYPES.SUI_PASSWORD]: ({type, ...props}) => [Password, {...props}],
   [TYPES.MASK]: ({type, ...props}) => [Mask, {...props}]
 }

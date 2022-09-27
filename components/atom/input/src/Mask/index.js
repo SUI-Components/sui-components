@@ -7,6 +7,8 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import Input from '../Input/Component/index.js'
 
+import {isFunction} from '../config.js'
+
 const MaskInput = forwardRef(
   (
     {
@@ -27,14 +29,10 @@ const MaskInput = forwardRef(
     } = useIMask(
       {...mask},
       {
-        onAccept: (value, maskRef, event, ...args) => {
-          typeof onChange === 'function' &&
-            onChange(event, {value, maskRef, ...args})
-        },
-        onComplete: (value, maskRef, event, ...args) => {
-          typeof onComplete === 'function' &&
-            onComplete(event, {value, maskRef, ...args})
-        }
+        onAccept: (value, maskRef, event, ...args) =>
+          isFunction(onChange) && onChange(event, {value, maskRef, ...args}),
+        onComplete: (value, maskRef, event, ...args) =>
+          isFunction(onComplete) && onComplete(event, {value, maskRef, ...args})
       }
     )
     useEffect(() => {

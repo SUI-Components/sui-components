@@ -69,3 +69,6 @@ export const getClassNames = ({
 }
 
 export const isFunction = fn => typeof fn === 'function'
+
+export const isValidSize = charSize =>
+  Number.isInteger(charSize) && charSize >= 0

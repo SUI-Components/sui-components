@@ -31,7 +31,7 @@ const AtomImage = ({
   placeholder,
   skeleton,
   sources = [],
-  spinner: Spinner,
+  spinner,
   ...imgProps
 }) => {
   const imageRef = useRef()
@@ -78,9 +78,9 @@ const AtomImage = ({
     backgroundImage: `url(${placeholder || skeleton})`
   }
 
-  const SpinnerExtended =
-    Spinner &&
-    cloneElement(Spinner, {
+  const spinnerExtended =
+    spinner &&
+    cloneElement(spinner, {
       className: CLASS_SPINNER
     })
 
@@ -107,7 +107,7 @@ const AtomImage = ({
           />
         </picture>
       </figure>
-      {!error && isLoading && SpinnerExtended}
+      {!error && isLoading && spinnerExtended}
       {error && (
         <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />
       )}
@@ -148,7 +148,7 @@ AtomImage.propTypes = {
   skeleton: PropTypes.string,
 
   /** Spinner (component) displayed while the final image is being loaded */
-  spinner: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+  spinner: PropTypes.node([PropTypes.element, PropTypes.func]),
 
   /** Icon (component) to be displayed in an Error Box when the image cannot be loaded */
   errorIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),

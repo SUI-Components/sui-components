@@ -40,7 +40,7 @@ $base-class: '.sui-AtomLabel';
 
   &--disabled {
     cursor: default;
-    opacity: 0.3;
+    opacity: $o-atom-label-disabled;
     pointer-events: none;
   }
 

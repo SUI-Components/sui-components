@@ -192,7 +192,7 @@ describe(json.name, () => {
       const {getByText} = setup(props)
 
       // Then
-      expect(getByText('JS')).to.be.visible
+      expect(getByText('js')).to.be.visible
     })
 
     describe('forwardRef', () => {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.14.0 (2022-09-29)
+
+
+### Features
+
+* **components/molecule/avatar:** handle background color for avatar name fallback ([d25b405](https://github.com/SUI-Components/sui-components/commit/d25b4059dadc602e6bcc97649c551bb91d8e847a))
+
+
+
 # 1.13.0 (2022-08-12)
 
 

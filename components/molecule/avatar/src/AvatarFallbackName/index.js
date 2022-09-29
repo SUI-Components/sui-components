@@ -1,6 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import useConvertStringToHex from '../useConvertStringToHex.js'
 import {BASE_CLASS_NAME} from './settings.js'
 
 const MoleculeAvatarFallbackName = ({
@@ -20,9 +21,16 @@ const MoleculeAvatarFallbackName = ({
       ? `${firstName.charAt(0)}${lastName.charAt(0)}`
       : firstName.charAt(0)
 
+  const backgroundColor = useConvertStringToHex(nameProp)
+
   return (
-    <div className={className} aria-label={nameProp} {...others}>
-      {name.toUpperCase()}
+    <div
+      className={className}
+      aria-label={nameProp}
+      style={{backgroundColor}}
+      {...others}
+    >
+      {name}
     </div>
   )
 }

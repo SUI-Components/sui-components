@@ -22,7 +22,6 @@ import AvatarBadge, {
 } from './AvatarBadge/index.js'
 import AvatarFallback from './AvatarFallback/index.js'
 import {AVATAR_SIZES, baseClassName} from './settings.js'
-import useConvertStringToHex from './useConvertStringToHex.js'
 
 const MoleculeAvatar = forwardRef(
   (
@@ -49,7 +48,6 @@ const MoleculeAvatar = forwardRef(
     forwardedRef
   ) => {
     const className = cx(baseClassName, `${baseClassName}--${size}`)
-    const backgroundColor = useConvertStringToHex(name)
     const children = Children.toArray(childrenProp)
       .filter(child => isValidElement(child))
       .map(child => cloneElement(child, {size}))
@@ -90,15 +88,7 @@ const MoleculeAvatar = forwardRef(
     ])
 
     return (
-      <span
-        style={{
-          ...(!src && {backgroundColor}),
-          ...style
-        }}
-        className={className}
-        {...others}
-        ref={forwardedRef}
-      >
+      <span style={style} className={className} {...others} ref={forwardedRef}>
         {renderContent()}
       </span>
     )

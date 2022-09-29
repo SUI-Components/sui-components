@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.22.0 (2022-09-29)
+
+
+### Features
+
+* **components/atom/label:** add opacity token ([#2338](https://github.com/SUI-Components/sui-components/issues/2338)) ([56540fa](https://github.com/SUI-Components/sui-components/commit/56540fa9d5ea7625eb91d273ab87c5f7285f6bd4))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 1.21.0 (2022-06-30)
 
 

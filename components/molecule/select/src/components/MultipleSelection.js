@@ -26,6 +26,7 @@ const MoleculeSelectFieldMultiSelection = props => {
   } = props
 
   const tags = values.map(value => optionsData[value])
+  const isFull = () => maxTags && tags?.length >= maxTags
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
     const handleToggle = ev => {
@@ -41,8 +42,6 @@ const MoleculeSelectFieldMultiSelection = props => {
       values.filter(value => value !== valueOptionSelected)
 
     const addToValues = () => [...values, valueOptionSelected]
-
-    const isFull = () => maxTags && tags?.length >= maxTags
 
     if (isValueSelectedAlreadySelected()) {
       onChange(ev, {value: removeFromValues()})
@@ -82,7 +81,7 @@ const MoleculeSelectFieldMultiSelection = props => {
       <MoleculeDropdownList
         checkbox
         size={size}
-        visible={isOpen}
+        visible={!isFull() && isOpen}
         onSelect={handleMultiSelection}
         value={values}
       >

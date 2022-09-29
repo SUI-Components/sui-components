@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.14.0 (2022-09-29)
+
+
+### Features
+
+* **components/atom/image:** rename node prop ([4e13e98](https://github.com/SUI-Components/sui-components/commit/4e13e98affe157059edaeaf1843880e017fbc1f1)), closes [#2319](https://github.com/SUI-Components/sui-components/issues/2319)
+
+
+
 # 2.13.0 (2022-07-18)
 
 

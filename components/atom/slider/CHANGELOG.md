@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.29.0 (2022-09-30)
+
+
+### Features
+
+* **components/atom/slider:** add z-index in tooltip ([8eeca33](https://github.com/SUI-Components/sui-components/commit/8eeca333bf1c944de479ed3c3383d5fba03b2dbc))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 1.28.0 (2022-07-06)
 
 

@@ -1,9 +1,10 @@
-import {Children, cloneElement} from 'react'
+import {Children} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
+import Injector from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import {BASE_CLASS, combineProps, isFunction} from './settings.js'
@@ -46,15 +47,20 @@ const MoleculeButtonGroup = ({
         isFunction(onClickChild) && onClickChild(event, ...args)
         isFunction(onClick) && onClick(event, ...args)
       }
-      return cloneElement(child, {
-        ...props,
-        negative: combineProps(negativeChild, negativeProp),
-        size: combineProps(sizeChild, sizeProp),
-        design: combineProps(designChild, designProp),
-        groupPosition,
-        fullWidth,
-        onClick: clickHandler
-      })
+
+      return (
+        <Injector
+          {...props}
+          negative={combineProps(negativeChild, negativeProp)}
+          size={combineProps(sizeChild, sizeProp)}
+          design={combineProps(designChild, designProp)}
+          groupPosition={groupPosition}
+          fullWidth={fullWidth}
+          onClick={clickHandler}
+        >
+          {child}
+        </Injector>
+      )
     })
   return (
     <Poly className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>

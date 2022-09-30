@@ -1,10 +1,4 @@
-import {
-  Children,
-  cloneElement,
-  forwardRef,
-  isValidElement,
-  useCallback
-} from 'react'
+import {Children, forwardRef, isValidElement, useCallback} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -14,6 +8,7 @@ import AtomSkeleton, {
   ATOM_SKELETON_ANIMATIONS,
   ATOM_SKELETON_VARIANTS
 } from '@s-ui/react-atom-skeleton'
+import Injector from '@s-ui/react-primitive-injector'
 
 import AvatarBadge, {
   AVATAR_BADGE_PLACEMENTS,
@@ -50,7 +45,7 @@ const MoleculeAvatar = forwardRef(
     const className = cx(baseClassName, `${baseClassName}--${size}`)
     const children = Children.toArray(childrenProp)
       .filter(child => isValidElement(child))
-      .map(child => cloneElement(child, {size}))
+      .map(child => <Injector size={size}>{child}</Injector>)
 
     const renderContent = useCallback(() => {
       if (isLoading) {

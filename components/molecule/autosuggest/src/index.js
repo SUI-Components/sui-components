@@ -30,6 +30,7 @@ const MoleculeAutosuggest = ({
   isOpen,
   keysCloseList = CLOSE_KEYS_LIST,
   keysSelection = SELECT_KEYS_LIST,
+  blurOnSelect,
   multiselection,
   onBlur,
   onChange,
@@ -137,7 +138,10 @@ const MoleculeAutosuggest = ({
       else if (isSomeOptionFocused) handleFocusIn(ev)
       if (key === 'Enter') {
         typeof onEnter === 'function' && onEnter(ev)
-        innerRefInput && (!isControlled || autoClose) && innerRefInput.focus()
+
+        if (innerRefInput && (!isControlled || autoClose) && !blurOnSelect) {
+          innerRefInput.focus()
+        }
       }
     }
   }
@@ -181,7 +185,24 @@ const MoleculeAutosuggest = ({
 
   const handleClick = () => {
     const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
-    innerRefInput && (!isControlled || autoClose) && innerRefInput.focus()
+
+    if (innerRefInput && (!isControlled || autoClose) && !blurOnSelect) {
+      innerRefInput.focus()
+    }
+  }
+
+  const handleClear = ev => {
+    ev.stopPropagation()
+
+    const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
+
+    if (innerRefInput && (!isControlled || autoClose)) {
+      innerRefInput.focus()
+    }
+
+    if (onClear) {
+      onClear(ev)
+    }
   }
 
   const autosuggestSelectionProps = {
@@ -196,7 +217,7 @@ const MoleculeAutosuggest = ({
     keysSelection,
     onBlur,
     onChange,
-    onClear,
+    onClear: handleClear,
     onEnter,
     onFocus,
     onInputKeyDown: handleInputKeyDown,
@@ -274,6 +295,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** if select accept single value or multiple values */
   multiselection: PropTypes.bool,
+
+  /** Remove focus from input on option select */
+  blurOnSelect: PropTypes.bool,
 
   /** callback to be called when input losses focus */
   onBlur: PropTypes.func,

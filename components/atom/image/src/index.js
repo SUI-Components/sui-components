@@ -1,7 +1,9 @@
-import {cloneElement, useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
+import Injector from '@s-ui/react-primitive-injector'
 
 import ErrorImage from './ErrorImage.js'
 import {
@@ -78,12 +80,6 @@ const AtomImage = ({
     backgroundImage: `url(${placeholder || skeleton})`
   }
 
-  const spinnerExtended =
-    spinner &&
-    cloneElement(spinner, {
-      className: CLASS_SPINNER
-    })
-
   return (
     <div className={classNames}>
       <figure
@@ -107,7 +103,9 @@ const AtomImage = ({
           />
         </picture>
       </figure>
-      {!error && isLoading && spinnerExtended}
+      {!error && isLoading && spinner && (
+        <Injector classNames={CLASS_SPINNER}>{spinner}</Injector>
+      )}
       {error && (
         <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />
       )}

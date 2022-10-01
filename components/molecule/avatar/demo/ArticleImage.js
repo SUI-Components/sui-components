@@ -20,6 +20,8 @@ const ArticleImage = ({className}) => {
   const [src, setSrc] = useState(
     'https://randomuser.me/api/portraits/men/1.jpg'
   )
+  const [brokenSrc, setBrokenSrc] = useState('https://brokenimagesrc')
+  const [name, setName] = useState('John Doe')
   const [fallbackIcon, setFallbackIcon] = useState()
   return (
     <Article className={className}>
@@ -87,6 +89,46 @@ const ArticleImage = ({className}) => {
       </RadioButtonGroup>
       <br />
       <MoleculeAvatar
+        fallbackIcon={
+          fallbackIcon ? (
+            <AtomIcon>
+              <AntDesignIcon
+                icon={fallbackIcon}
+                style={{color: 'currentColor'}}
+              />
+            </AtomIcon>
+          ) : undefined
+        }
+      />
+      <H2>Fallback Name</H2>
+      <Paragraph>
+        If the provided image fails on loading and the <Code>name</Code>{' '}
+        property is passed, the avatar will display the name initials with a
+        colored background.
+      </Paragraph>
+      <Input
+        value={brokenSrc}
+        onChange={event => {
+          setBrokenSrc(event.target.value)
+        }}
+        placeholder="image"
+        fullWidth
+      />
+      <br />
+      <br />
+      <Input
+        value={name}
+        onChange={event => {
+          setName(event.target.value)
+        }}
+        placeholder="image"
+        fullWidth
+      />
+      <br />
+      <br />
+      <MoleculeAvatar
+        src={brokenSrc}
+        name={name}
         fallbackIcon={
           fallbackIcon ? (
             <AtomIcon>

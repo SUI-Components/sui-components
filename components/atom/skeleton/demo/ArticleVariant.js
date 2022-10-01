@@ -14,6 +14,9 @@ import {
 
 import AtomSkeleton, {atomSkeletonVariants} from '../src/index.js'
 
+const height = 200
+const width = 200
+
 const ArticleVariant = ({className}) => {
   const [variantState, setVariantState] = useState()
   return (
@@ -44,7 +47,11 @@ const ArticleVariant = ({className}) => {
       </RadioButtonGroup>
       <br />
       <br />
-      <AtomSkeleton variant={variantState} />
+      <AtomSkeleton
+        height={`${height}px`}
+        variant={variantState}
+        width={`${width}px`}
+      />
     </Article>
   )
 }

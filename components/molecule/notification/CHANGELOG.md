@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.34.0 (2022-10-01)
+
+
+### Features
+
+* **components/molecule/notification:** Remove -system ([b84c52c](https://github.com/SUI-Components/sui-components/commit/b84c52c956db4b709039dc6739f60c48b5427a79))
+
+
+
 # 1.33.0 (2022-09-19)
 
 

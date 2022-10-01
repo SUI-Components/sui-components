@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.44.0 (2022-10-01)
+
+
+### Features
+
+* **components/atom/tag:** Remove -system ([50ba722](https://github.com/SUI-Components/sui-components/commit/50ba7220a71b7b123bb8e93dd3db5dde3911e5cc))
+
+
+
 # 2.43.0 (2022-07-27)
 
 

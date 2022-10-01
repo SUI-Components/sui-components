@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.30.0 (2022-10-01)
+
+
+### Features
+
+* **components/atom/slider:** Remove -system ([4881c4b](https://github.com/SUI-Components/sui-components/commit/4881c4b79e5f2f4da5e6986c542ac36e253d1316))
+
+
+
 # 1.29.0 (2022-09-30)
 
 

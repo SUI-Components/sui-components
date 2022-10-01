@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.15.0 (2022-10-01)
+
+
+### Features
+
+* **components/atom/image:** replace cloneElement spinner ([5871943](https://github.com/SUI-Components/sui-components/commit/58719439ec5e98e8a81d2b77b53e9a7cdd9bbee1)), closes [#2320](https://github.com/SUI-Components/sui-components/issues/2320)
+
+
+
 # 2.14.0 (2022-09-29)
 
 

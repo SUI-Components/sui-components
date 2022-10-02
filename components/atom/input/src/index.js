@@ -8,11 +8,29 @@ import Password from './Password/index.js'
 import {INPUT_SHAPES, TYPES} from './config.js'
 
 const AtomInput = forwardRef(({type, ...props}, ref) => {
+  const checkIfValidNumberInput = event => {
+    // Check if input type number is valid as input type number doesn't currently work in browsers like Safari and Firefox
+    // Allowing: Integers | Backspace | Tab | Delete | Left & Right arrow keys
+    const allowedCharacter =
+      /(^\d*$)|(Backspace|Tab|Delete|ArrowLeft|ArrowRight)/
+
+    return !event.key.match(allowedCharacter) && event.preventDefault()
+  }
   switch (type) {
     case 'sui-password':
       return <Password ref={ref} {...props} />
     case 'mask':
       return <Mask ref={ref} {...props} />
+    case 'number':
+      return (
+        <Input
+          ref={ref}
+          {...props}
+          type={type}
+          onKeyDown={e => checkIfValidNumberInput(e)}
+        />
+      )
+
     default:
       return <Input ref={ref} {...props} type={type} />
   }

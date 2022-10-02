@@ -17,7 +17,7 @@ const AtomInput = forwardRef(({type, ...props}, ref) => {
     case 'number':
       return (
         <Input
-          onKeyDown={e => checkIfValidNumberInput(e)}
+          onKeyDown={checkIfValidNumberInput}
           ref={ref}
           type={type}
           {...props}

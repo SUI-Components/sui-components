@@ -127,7 +127,7 @@ describe(json.name, () => {
           sinon.match({
             tags: [],
             name: props.name,
-            value: value
+            value
           })
         )
       })
@@ -161,7 +161,7 @@ describe(json.name, () => {
           sinon.match({
             tags: props.tags,
             name: props.name,
-            value: value
+            value
           })
         )
       })

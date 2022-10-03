@@ -1,0 +1,17 @@
+{
+  "name": "@s-ui/react-hook-use-portal-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@popperjs/core": "2.11.6",
+    "@s-ui/react-hooks": "1",
+    "react-fast-compare": "3.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,28 @@
+name: Demo Improvements
+description: Demo is not following the agreements
+title: '🎨 '
+labels: [demo]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this new component definition!
+  - type: textarea
+    attributes:
+      label: Acceptance Criteria
+      description: Please add a clear and concise predefined requirements that must be met to mark a user story complete.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Definition of done (DOD)
+      description: An agreed-upon set of items that must be completed before a project or user story can be considered complete
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional info
+      description: Add any other context about the problem here.
+    validations:
+      required: false
+

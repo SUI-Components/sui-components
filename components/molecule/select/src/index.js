@@ -2,11 +2,11 @@ import {
   Children,
   cloneElement,
   createRef,
+  forwardRef,
   useCallback,
   useEffect,
   useRef,
-  useState,
-  forwardRef
+  useState
 } from 'react'
 
 import PropTypes from 'prop-types'
@@ -20,10 +20,10 @@ import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
 import MoleculeSelectSingleSelection from './components/SingleSelection.js'
 import {
   ENABLED_KEYS,
+  getClassName,
   getOptionData,
   SELECT_STATES,
-  SELECTION_KEYS,
-  getClassName
+  SELECTION_KEYS
 } from './config.js'
 
 const MoleculeSelect = forwardRef((props, forwardedRef) => {

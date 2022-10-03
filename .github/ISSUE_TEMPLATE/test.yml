@@ -1,0 +1,34 @@
+name: Test
+description: Report test case
+title: '🧪 '
+labels: [test]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this test addition report!
+        
+        Testing purports commitment against users.
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: Component name
+      placeholder: component
+    validations:
+      required: true
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: Category name
+      placeholder: category
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Tests
+      description: tests needed.
+    validations:
+      required: false
+

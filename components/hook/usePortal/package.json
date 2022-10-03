@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-atom-image",
-  "version": "2.16.0",
+  "name": "@s-ui/react-hook-use-portal",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,10 +9,15 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "@s-ui/react-primitive-injector": "1"
+    "use-ssr": "1.0.24",
+    "classnames": "2.2.5",
+    "@s-ui/react-hooks": "1"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "hook",
+    "portal"
+  ],
   "author": "",
   "license": "MIT"
 }

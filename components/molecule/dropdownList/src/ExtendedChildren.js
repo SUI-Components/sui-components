@@ -1,7 +1,7 @@
-import {cloneElement} from 'react'
-
 import isEqual from 'lodash.isequal'
 import PropTypes from 'prop-types'
+
+import Injector from '@s-ui/react-primitive-injector'
 
 const ExtendedChildren = ({
   value,
@@ -24,19 +24,29 @@ const ExtendedChildren = ({
       onSelectOptionHandler(...args)
     typeof onSelectListHandler === 'function' && onSelectListHandler(...args)
   }
-  return cloneElement(children, {
-    ...props,
-    selected: selectedChild === undefined ? selected : selectedChild,
-    onSelect: onSelectHandler,
-    checkbox: checkboxChild === undefined ? checkbox : checkboxChild
-  })
+  return (
+    <Injector
+      {...{
+        ...props,
+        selected: selectedChild === undefined ? selected : selectedChild,
+        onSelect: onSelectHandler,
+        checkbox: checkboxChild === undefined ? checkbox : checkboxChild
+      }}
+    >
+      {children}
+    </Injector>
+  )
 }
 
 ExtendedChildren.propTypes = {
   /** selected value */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  /** checkbox contained in all DropdownOption **/
+  checkbox: PropTypes.bool,
   /** each single node to be included in the list (MoleculeDropdownOption) */
-  children: PropTypes.node
+  children: PropTypes.node,
+  /** callback on select option **/
+  onSelect: PropTypes.func
 }
 
 export default ExtendedChildren

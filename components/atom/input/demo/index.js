@@ -1,17 +1,9 @@
-import {useState} from 'react'
-
-import AtomInput, {
-  inputShapes,
-  inputSizes,
-  inputStates,
-  inputTypes
-} from 'components/atom/input/src/index.js'
+import {Fragment, useState} from 'react'
 
 import {
   Anchor,
   AntDesignIcon,
   Article,
-  Box,
   Button,
   Cell,
   Code,
@@ -29,6 +21,12 @@ import {
   UnorderedList
 } from '@s-ui/documentation-library'
 
+import AtomInput, {
+  inputShapes,
+  inputSizes,
+  inputStates,
+  inputTypes
+} from '../../input/src/index.js'
 import {flexCenteredStyle, stackMap} from './settings.js'
 
 const DefaultDemo = () => (
@@ -166,7 +164,7 @@ const TypeDemo = () => {
             'MASK',
             {
               type: inputTypes.MASK,
-              mask: 'ES00 0000 0000 00 0000000000',
+              mask: {mask: 'ES00 0000 0000 00 0000000000'},
               placeholder: 'ES00 0000 0000 00 0000000000',
               charsSize: 31
             },
@@ -429,7 +427,7 @@ const BorderlessDemo = () => {
   const [border, setBorder] = useState(true)
   const [mode, setMode] = useState('light')
   return (
-    <Article>
+    <Article mode={mode}>
       <H2>No border</H2>
       <Paragraph>
         The border of the input can be removed using the boolean prop{' '}
@@ -453,9 +451,7 @@ const BorderlessDemo = () => {
           />
         </Cell>
         <Cell span={2}>
-          <Box mode={mode}>
-            <AtomInput placeholder="click to interact" noBorder={!border} />
-          </Box>
+          <AtomInput placeholder="click to interact" noBorder={!border} />
         </Cell>
       </Grid>
     </Article>
@@ -525,7 +521,9 @@ const InlineFormDemo = () => (
       Input have its own way of provide a submision using the{' '}
       <Code>button</Code> prop, you can pass a React node.
     </Paragraph>
-    <AtomInput button={<Button>Send</Button>} />
+    <AtomInput
+      button={<Button style={{height: '100%', borderRadius: 0}}>Send</Button>}
+    />
   </Article>
 )
 
@@ -562,7 +560,7 @@ const ShapeDemo = () => (
       ))}
       {Object.entries({default: undefined, ...inputSizes}).map(
         ([sizeKey, sizeValue]) => (
-          <>
+          <Fragment key={sizeKey}>
             <Cell key={sizeKey}>
               <Label>{`${sizeKey}`}</Label>
             </Cell>
@@ -578,7 +576,7 @@ const ShapeDemo = () => (
                 </Cell>
               )
             )}
-          </>
+          </Fragment>
         )
       )}
     </Grid>

@@ -34,28 +34,32 @@ const ArticleDesign = ({className}) => {
         )}
         {Object.values(atomTagDesigns)
           .reverse()
-          .map((size, index) => (
+          .map((design, index) => (
             <Fragment key={index}>
               <Cell
                 style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
               >
-                <Label>{size}</Label>
+                <Label>{design}</Label>
               </Cell>
               <Cell style={flexCenteredStyle}>
-                <AtomTag label="Tag Structure" size={size} />
+                <AtomTag label="Tag Structure" design={design} />
               </Cell>
               <Cell style={flexCenteredStyle}>
-                <AtomTag closeIcon={closeIcon} label="Close Tag" size={size} />
+                <AtomTag
+                  closeIcon={closeIcon}
+                  label="Close Tag"
+                  design={design}
+                />
               </Cell>
               <Cell style={flexCenteredStyle}>
-                <AtomTag icon={icon} label="Icon Tag" size={size} />
+                <AtomTag icon={icon} label="Icon Tag" design={design} />
               </Cell>
               <Cell style={flexCenteredStyle}>
                 <AtomTag
                   closeIcon={closeIcon}
                   icon={icon}
                   label="Icon & Close Tag"
-                  size={size}
+                  design={design}
                 />
               </Cell>
             </Fragment>

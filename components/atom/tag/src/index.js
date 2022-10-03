@@ -11,43 +11,52 @@ import {
 } from './constants.js'
 import StandardTag from './Standard.js'
 
-const AtomTag = props => {
-  const {
-    design,
-    href,
-    icon,
-    onClick,
-    responsive,
-    size,
-    type,
-    readOnly,
-    disabled,
-    isFitted = false
-  } = props
+const AtomTag = ({
+  design,
+  href,
+  icon,
+  iconPlacement = 'left',
+  onClick,
+  responsive,
+  size = SIZES.MEDIUM,
+  type,
+  readOnly,
+  disabled,
+  isFitted = false,
+  ...props
+}) => {
   const isActionable = onClick || href
-  const classNames = cx(
-    'sui-AtomTag',
-    `sui-AtomTag-${size}`,
-    design && `sui-AtomTag--${design}`,
-    icon && 'sui-AtomTag-hasIcon',
-    responsive && 'sui-AtomTag--responsive',
-    type && `sui-AtomTag--${type}`,
-    isFitted && 'sui-AtomTag--isFitted'
-  )
+  const [Component, getter] = isActionable
+    ? [ActionableTag, getActionableProps]
+    : [StandardTag, getStandardProps]
 
-  return isActionable ? (
-    <ActionableTag
-      {...getActionableProps(props)}
+  return (
+    <Component
+      {...getter({
+        design,
+        href,
+        icon,
+        iconPlacement,
+        onClick,
+        responsive,
+        size,
+        type,
+        readOnly,
+        disabled,
+        isFitted,
+        ...props
+      })}
       disabled={disabled}
       readOnly={readOnly}
-      className={classNames}
-    />
-  ) : (
-    <StandardTag
-      {...getStandardProps(props)}
-      disabled={disabled}
-      readOnly={readOnly}
-      className={classNames}
+      className={cx(
+        'sui-AtomTag',
+        `sui-AtomTag--size-${size}`,
+        design && `sui-AtomTag--design-${design}`,
+        icon && 'sui-AtomTag-hasIcon',
+        responsive && 'sui-AtomTag--responsive',
+        type && `sui-AtomTag--type-${type}`,
+        isFitted && 'sui-AtomTag--isFitted'
+      )}
     />
   )
 }
@@ -117,11 +126,6 @@ AtomTag.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** element becomes border-margin-padding-less */
   isFitted: PropTypes.bool
-}
-
-AtomTag.defaultProps = {
-  iconPlacement: 'left',
-  size: SIZES.MEDIUM
 }
 
 export default AtomTag

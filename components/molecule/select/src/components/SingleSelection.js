@@ -48,7 +48,7 @@ const MoleculeSelectSingleSelection = props => {
         size={selectSize}
         tabIndex={tabIndex}
       >
-        <AtomInput />
+        <AtomInput noBorder />
       </MoleculeInputSelect>
       <MoleculeDropdownList
         size={size}

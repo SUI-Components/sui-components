@@ -10,6 +10,7 @@ $class-input: '#{$base-class}-input';
   display: flex;
   flex-wrap: wrap;
   padding: 0 0 0 $p-m;
+  gap: $p-base;
 
   &--focus {
     @include sui-atom-input-input-focus;
@@ -21,6 +22,9 @@ $class-input: '#{$base-class}-input';
       border: 0;
       background-color: transparent;
     }
+  }
+  &[aria-readonly='true'] {
+    background-color: $bgc-input-tag-read-only;
   }
 
   & #{$class-input} {

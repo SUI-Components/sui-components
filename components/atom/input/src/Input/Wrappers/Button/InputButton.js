@@ -1,6 +1,7 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {BASE_CLASS_BUTTON} from './config.js'
+import {BASE_CLASS_BUTTON, BASE_CLASS_ITEM} from './config.js'
 
 const InputButton = ({button, children}) => {
   if (button === undefined) {
@@ -8,10 +9,12 @@ const InputButton = ({button, children}) => {
   }
 
   return (
-    <div className={BASE_CLASS_BUTTON}>
-      <div className={`${BASE_CLASS_BUTTON}-input`}>{children}</div>
-      <div className={`${BASE_CLASS_BUTTON}-button`}>{button}</div>
-    </div>
+    <>
+      {children}
+      <span className={cx(BASE_CLASS_ITEM, `${BASE_CLASS_BUTTON}-button`)}>
+        {button}
+      </span>
+    </>
   )
 }
 InputButton.propTypes = {

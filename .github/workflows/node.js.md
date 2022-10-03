@@ -24,9 +24,12 @@ stateDiagram-v2
     check_skip: check-skip
     jobs_fork_state_start --> assign_pr_owner
     jobs_fork_state_start --> build
+    jobs_fork_state_start --> lint
     jobs_fork_state_start --> testing
     
     build --> deploy
+    lint --> release
+    lint --> deploy
     testing --> release
     testing --> deploy
     

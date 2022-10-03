@@ -11,7 +11,8 @@
   "dependencies": {
     "@s-ui/react-atom-help-text": "1",
     "@s-ui/react-atom-label": "1",
-    "@s-ui/react-atom-validation-text": "1"
+    "@s-ui/react-atom-validation-text": "1",
+    "@s-ui/react-primitive-injector": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

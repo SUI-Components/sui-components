@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.33.0 (2022-10-03)
+
+
+### Features
+
+* **components/molecule/dropdownList:** remove unnecesary code ([01d811e](https://github.com/SUI-Components/sui-components/commit/01d811ea44dbda9bd37c2a7edfc4a8016cc546a3))
+* **components/molecule/dropdownList:** replace cloneElement by Injector ([1b461d7](https://github.com/SUI-Components/sui-components/commit/1b461d7b8499e14c27327b9466918e3a055f972b)), closes [#2331](https://github.com/SUI-Components/sui-components/issues/2331)
+
+
+
 # 1.32.0 (2022-07-26)
 
 

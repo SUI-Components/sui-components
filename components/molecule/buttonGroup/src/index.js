@@ -21,9 +21,9 @@ const MoleculeButtonGroup = ({
   as = 'div',
   children,
   fullWidth,
-  size: sizeProp,
-  design: designProp,
-  negative: negativeProp,
+  size,
+  design,
+  negative,
   groupPositions,
   onClick,
   ...props
@@ -41,9 +41,9 @@ const MoleculeButtonGroup = ({
       return (
         <Injector
           {...props}
-          negative={negativeProp}
-          size={sizeProp}
-          design={designProp}
+          negative={negative}
+          size={size}
+          design={design}
           groupPosition={groupPosition}
           fullWidth={fullWidth}
           onClick={onClick}

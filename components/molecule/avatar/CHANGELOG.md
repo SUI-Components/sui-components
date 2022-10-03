@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2022-10-03)
+
+
+### Features
+
+* **components/molecule/avatar:** Add primitive injector dependency ([014c3c1](https://github.com/SUI-Components/sui-components/commit/014c3c19eb8e5f4039c02e7180ed4b6459f9d2d9))
+
+
+
 # 1.14.0 (2022-09-29)
 
 

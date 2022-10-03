@@ -146,7 +146,7 @@ AtomImage.propTypes = {
   skeleton: PropTypes.string,
 
   /** Spinner (component) displayed while the final image is being loaded */
-  spinner: PropTypes.node([PropTypes.element, PropTypes.func]),
+  spinner: PropTypes.node,
 
   /** Icon (component) to be displayed in an Error Box when the image cannot be loaded */
   errorIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),

@@ -155,7 +155,7 @@ AtomSlider.propTypes = {
   /* only if range=false, shows a position fixed label with the current value instead of a tooltip */
   valueLabel: PropTypes.bool,
 
-  /* Set your own mark labels */
+  /* Set your own mark labels, usually first and last positions */
   marks: PropTypes.array,
 
   /* callback to format the value shown as label */

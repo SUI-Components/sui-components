@@ -3,34 +3,18 @@ import PropTypes from 'prop-types'
 
 import Injector from '@s-ui/react-primitive-injector'
 
-const ExtendedChildren = ({
-  value,
-  children,
-  onSelect: onSelectListHandler,
-  checkbox,
-  ...props
-}) => {
-  const {
-    value: valueChild,
-    onSelect: onSelectOptionHandler,
-    selected: selectedChild,
-    checkbox: checkboxChild
-  } = children.props
+const ExtendedChildren = ({value, children, onSelect, checkbox, ...props}) => {
+  const {value: valueChild} = children.props
   const selected = Array.isArray(value)
     ? value.some(innerValue => isEqual(valueChild, innerValue))
     : isEqual(value, valueChild)
-  const onSelectHandler = (...args) => {
-    typeof onSelectOptionHandler === 'function' &&
-      onSelectOptionHandler(...args)
-    typeof onSelectListHandler === 'function' && onSelectListHandler(...args)
-  }
   return (
     <Injector
       {...{
         ...props,
-        selected: selectedChild === undefined ? selected : selectedChild,
-        onSelect: onSelectHandler,
-        checkbox: checkboxChild === undefined ? checkbox : checkboxChild
+        selected,
+        onSelect,
+        checkbox
       }}
     >
       {children}

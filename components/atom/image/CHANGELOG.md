@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.16.0 (2022-10-03)
+
+
+### Bug Fixes
+
+* **components/atom/image:** update proptype ([4b77543](https://github.com/SUI-Components/sui-components/commit/4b77543d4c8537d76c136b1b4a234dc31c2183eb))
+
+
+
 # 2.15.0 (2022-10-01)
 
 

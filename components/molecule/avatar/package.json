@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/react-atom-image": "2",
-    "@s-ui/react-atom-skeleton": "1"
+    "@s-ui/react-atom-skeleton": "1",
+    "@s-ui/react-primitive-injector": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

@@ -20,6 +20,16 @@ import AtomSlider from '@s-ui/react-atom-slider'
 <AtomSlider/>
 ```
 
+### Basic usage with custom markers (only first and last position)
+
+```js
+<AtomSlider
+  min={1}
+  max={9}
+  marks={['1 km', '9 km']}
+/>
+```
+
 ### Step 25 and default value 50
 
 ```js

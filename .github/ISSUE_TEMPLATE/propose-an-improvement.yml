@@ -1,7 +1,7 @@
 name: Improve an existing component
 description: Suggest to add a new Prop, SCSS Variable and else
 title: '✨'
-labels: []
+labels: [enhancement]
 body:
   - type: markdown
     attributes:

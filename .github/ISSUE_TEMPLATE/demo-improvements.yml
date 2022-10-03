@@ -1,6 +1,6 @@
 name: Demo Improvements
 description: Demo is not following the agreements
-title: 🎨'
+title: '🎨 '
 labels: [demo]
 body:
   - type: markdown

@@ -1,5 +1,5 @@
-name: Report a bug / issue
-description: Report a bug / issue to help us improve SUI
+name: Test
+description: Report test case
 title: '🧪 '
 labels: [test]
 body:

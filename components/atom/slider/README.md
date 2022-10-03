@@ -24,9 +24,9 @@ import AtomSlider from '@s-ui/react-atom-slider'
 
 ```js
 <AtomSlider
-    min={1}
-    max={9}
-    marks={['1 km', '9 km']}
+  min={1}
+  max={9}
+  marks={['1 km', '9 km']}
 />
 ```
 

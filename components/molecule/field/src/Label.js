@@ -1,35 +1,22 @@
-import {cloneElement} from 'react'
 import {isElement} from 'react-is'
 
 import PropTypes from 'prop-types'
 
-import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
+import AtomLabel from '@s-ui/react-atom-label'
+import Injector from '@s-ui/react-primitive-injector'
 
 import {CLASS_NODE_LABEL_CONTAINER} from './config.js'
 
-const MoleculeLabel = ({
-  label,
-  nodeLabel,
-  type: typeValidationLabel,
-  name,
-  onClick
-}) => {
+const MoleculeLabel = ({label, nodeLabel, ...props}) => {
   const innerLabel = () => {
     if ((label && isElement(label)) || (label === undefined && nodeLabel)) {
-      return cloneElement(label === undefined ? nodeLabel : label, {
-        type: typeValidationLabel,
-        name,
-        onClick
-      })
-    } else if (label) {
       return (
-        <AtomLabel
-          type={typeValidationLabel}
-          name={name}
-          text={label}
-          onClick={onClick}
-        />
+        <Injector {...props}>
+          {label === undefined ? nodeLabel : label}
+        </Injector>
       )
+    } else if (label) {
+      return <AtomLabel text={label} {...props} />
     }
     return null
   }
@@ -38,10 +25,7 @@ const MoleculeLabel = ({
 
 MoleculeLabel.propTypes = {
   label: PropTypes.string,
-  nodeLabel: PropTypes.element,
-  type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
-  name: PropTypes.string,
-  onClick: PropTypes.func
+  nodeLabel: PropTypes.element
 }
 
 export default MoleculeLabel

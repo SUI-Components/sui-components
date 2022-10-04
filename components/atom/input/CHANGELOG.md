@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.22.0 (2022-10-04)
+
+
+### Bug Fixes
+
+* **components/atom/input:** Add input validator function for input type number ([c72b340](https://github.com/SUI-Components/sui-components/commit/c72b3402d65cad1a467828c4b9de06de29603fb4))
+
+
+
 # 5.21.0 (2022-08-26)
 
 

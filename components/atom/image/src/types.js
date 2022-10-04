@@ -12,7 +12,8 @@ const htmlImgProps = {
   sizes: PropTypes.string,
   srcset: PropTypes.string,
   usemap: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.string,
+  title: PropTypes.string
 }
 
 export {htmlImgProps}

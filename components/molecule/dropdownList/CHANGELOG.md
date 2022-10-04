@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2022-10-04)
+
+
+### Features
+
+* **components/molecule/dropdownList:** upgrade dropdownOption version ([6d1788c](https://github.com/SUI-Components/sui-components/commit/6d1788c8b2df523ab806dd88069a380292b48162))
+
+
+
 # 1.33.0 (2022-10-03)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.36.0 (2022-10-04)
+
+
+### Bug Fixes
+
+* **components/molecule/field:** fix lint error ([9f56f8b](https://github.com/SUI-Components/sui-components/commit/9f56f8bfee58813850bc68492b8696d97098f4c4))
+
+
+
 # 1.35.0 (2022-10-04)
 
 

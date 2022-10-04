@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2022-10-04)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** change prop naming following conventions ([c6e900e](https://github.com/SUI-Components/sui-components/commit/c6e900e197cccbf7a85e55e7b794333e9da3e997))
+
+
+
 # 1.45.0 (2022-07-22)
 
 

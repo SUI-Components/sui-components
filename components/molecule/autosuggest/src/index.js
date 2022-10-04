@@ -81,7 +81,7 @@ const MoleculeAutosuggest = ({
       refsMoleculeAutosuggestOptions.current[index] = createRef()
       return cloneElement(child, {
         innerRef: refsMoleculeAutosuggestOptions.current[index],
-        onSelectKey: keysSelection
+        selectKey: keysSelection
       })
     })
 
@@ -117,7 +117,6 @@ const MoleculeAutosuggest = ({
     ev.persist()
     const {current: domInnerInput} = refMoleculeAutosuggestInput
     const {current: optionsFromRef} = refsMoleculeAutosuggestOptions
-    const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
     const {key} = ev
     const options = optionsFromRef.map(getTarget)
 
@@ -137,7 +136,7 @@ const MoleculeAutosuggest = ({
       else if (isSomeOptionFocused) handleFocusIn(ev)
       if (key === 'Enter') {
         typeof onEnter === 'function' && onEnter(ev)
-        innerRefInput && (!isControlled || autoClose) && innerRefInput.focus()
+        handleFocusInput()
       }
     }
   }
@@ -180,8 +179,22 @@ const MoleculeAutosuggest = ({
   }
 
   const handleClick = () => {
+    handleFocusInput()
+  }
+
+  const handleFocusInput = () => {
     const {current: innerRefInput} = innerRefMoleculeAutosuggestInput
-    innerRefInput && (!isControlled || autoClose) && innerRefInput.focus()
+    if (innerRefInput && (!isControlled || autoClose)) {
+      innerRefInput.focus()
+    }
+  }
+
+  const handleClear = ev => {
+    ev.stopPropagation()
+    handleFocusInput()
+    if (onClear) {
+      onClear(ev)
+    }
   }
 
   const autosuggestSelectionProps = {
@@ -196,7 +209,7 @@ const MoleculeAutosuggest = ({
     keysSelection,
     onBlur,
     onChange,
-    onClear,
+    onClear: handleClear,
     onEnter,
     onFocus,
     onInputKeyDown: handleInputKeyDown,

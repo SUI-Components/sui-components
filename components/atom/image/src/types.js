@@ -11,9 +11,9 @@ const htmlImgProps = {
   referrerpolicy: PropTypes.string,
   sizes: PropTypes.string,
   srcset: PropTypes.string,
+  title: PropTypes.string,
   usemap: PropTypes.string,
-  width: PropTypes.string,
-  title: PropTypes.string
+  width: PropTypes.string
 }
 
 export {htmlImgProps}

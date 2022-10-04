@@ -9,10 +9,10 @@ import {CLASS_NODE_LABEL_CONTAINER} from './config.js'
 
 const MoleculeLabel = ({label, nodeLabel, ...props}) => {
   const innerLabel = () => {
-    if ((label && isElement(label)) || (label === undefined && nodeLabel)) {
+    if ((label && isElement(label)) || (!label && nodeLabel)) {
       return (
         <Injector {...props}>
-          {label === undefined ? nodeLabel : label}
+          {!label ? nodeLabel : label}
         </Injector>
       )
     } else if (label) {

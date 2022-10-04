@@ -35,7 +35,7 @@ const MoleculeDropdownOption = forwardRef(
       highlightQuery,
       highlightValue,
       innerRef,
-      onSelectKey,
+      selectKey,
       onSelect,
       selected,
       defaultSelected,
@@ -72,7 +72,7 @@ const MoleculeDropdownOption = forwardRef(
     ])
     const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
       disabled,
-      onSelectKey,
+      selectKey,
       onSelect,
       selected: innerSelected,
       setInnerSelected,
@@ -179,7 +179,10 @@ MoleculeDropdownOption.propTypes = {
   /** Text to be display if used with highlight query with custom content */
   highlightValue: PropTypes.string,
   /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
-  onSelectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  selectKey: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   /** Custom ref handler that will be assigned to the "target" element */
   innerRef: PropTypes.object,
   /** Text with css clamp = 2 */
@@ -193,7 +196,7 @@ MoleculeDropdownOption.defaultProps = {
   disabled: false,
   onSelect: () => {},
   defaultSelected: false,
-  onSelectKey: 'Enter',
+  selectKey: 'Enter',
   innerRef: createRef()
 }
 export default MoleculeDropdownOption

@@ -2,9 +2,10 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import CheckboxDemo from './CheckboxDemo.js'
-import InputDemo from './InputDemo.js'
-import TextareaDemo from './TextareaDemo.js'
+import ArticleCheckbox from './articles/ArticleCheckbox.js'
+import ArticleInput from './articles/ArticleInput.js'
+import ArticleTextArea from './articles/ArticleTextArea.js'
+import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'
 
@@ -16,11 +17,11 @@ const Demo = () => {
         Help Text is a feedback that the system gives users to make them clearly
         understand which information is required
       </Paragraph>
-      <InputDemo />
+      <ArticleInput className={CLASS_SECTION} />
       <br />
-      <TextareaDemo />
+      <ArticleTextArea className={CLASS_SECTION} />
       <br />
-      <CheckboxDemo />
+      <ArticleCheckbox className={CLASS_SECTION} />
     </div>
   )
 }

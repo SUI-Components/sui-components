@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.9.0 (2022-10-06)
+
+
+### Features
+
+* **components/atom/helpText:** admit react nodes as a text ([f41967e](https://github.com/SUI-Components/sui-components/commit/f41967ec354662dcc551562ccfe75aa729aff29e))
+
+
+
 # 1.8.0 (2022-09-20)
 
 

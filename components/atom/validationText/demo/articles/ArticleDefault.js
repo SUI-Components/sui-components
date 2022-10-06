@@ -1,3 +1,7 @@
+import {useState} from 'react'
+
+import PropTypes from 'prop-types'
+
 import {
   Article,
   Cell,
@@ -9,12 +13,14 @@ import {
   Paragraph,
   RadioButton
 } from '@s-ui/documentation-library'
+
 import AtomValidationText, {AtomValidationTextTypes} from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
 
-const DefaultArticle = ({className}) => {
+const ArticleDefault = ({className}) => {
+  const [mode, setMode] = useState('light')
   return (
-    <Article mode={mode}>
+    <Article className={className} mode={mode}>
       <H2>Type</H2>
       <Paragraph>
         using the prop <Code>type</Code> user can inherit the helpText color
@@ -55,3 +61,9 @@ const DefaultArticle = ({className}) => {
     </Article>
   )
 }
+
+ArticleDefault.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleDefault

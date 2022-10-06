@@ -164,7 +164,7 @@ MoleculeDropdownOption.propTypes = {
   children: PropTypes.node,
   /** Contains checkbox */
   checkbox: PropTypes.bool,
-  /** Addtional props to set up the checkbox */
+  /** Additional props to set up the checkbox */
   checkboxProps: PropTypes.object,
   /** Is disabled */
   disabled: PropTypes.bool,

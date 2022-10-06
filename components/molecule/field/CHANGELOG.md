@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.37.0 (2022-10-06)
+
+
+### Features
+
+* **components/molecule/field:** admit react nodes in error alert success and help text ([a946f54](https://github.com/SUI-Components/sui-components/commit/a946f54bae2d472c25efab4a5d9709c021c92834))
+
+
+
 # 1.36.0 (2022-10-04)
 
 

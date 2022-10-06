@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.20.0 (2022-10-06)
+
+
+### Features
+
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 2.19.0 (2022-06-20)
 
 

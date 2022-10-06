@@ -1,33 +1,25 @@
-import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import {
   Article,
   Cell,
-  Code,
   Grid,
   H2,
   Input,
   Label,
-  Paragraph,
-  RadioButton
+  Paragraph
 } from '@s-ui/documentation-library'
 
 import AtomValidationText, {AtomValidationTextTypes} from '../../src/index.js'
-import {flexCenteredStyle} from '../settings.js'
+import {flexCenteredStyle, nodeText} from '../settings.js'
 
-const ArticleDefault = ({className}) => {
-  const [mode, setMode] = useState('light')
+const ArticleNodes = ({className}) => {
   return (
-    <Article className={className} mode={mode}>
-      <H2>Type</H2>
+    <Article className={className}>
+      <H2>Node texts</H2>
       <Paragraph>
-        using the prop <Code>type</Code> user can inherit the helpText color
-        styler for validation text usages.
+        The component is prepared for admit react node elements as a text.
       </Paragraph>
-      <RadioButton
-        onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
-        label={mode}
-      />
       <br />
       <br />
       <Grid
@@ -52,7 +44,7 @@ const ArticleDefault = ({className}) => {
             key={index}
           >
             <Input />
-            <AtomValidationText type={type} text="validation text" />
+            <AtomValidationText type={type} text={nodeText} />
           </Cell>
         ))}
       </Grid>
@@ -60,4 +52,8 @@ const ArticleDefault = ({className}) => {
   )
 }
 
-export default ArticleDefault
+ArticleNodes.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleNodes

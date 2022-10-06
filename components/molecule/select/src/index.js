@@ -57,7 +57,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
       refsMoleculeSelectOptions.current[index] = createRef()
       return cloneElement(child, {
         innerRef: refsMoleculeSelectOptions.current[index],
-        onSelectKey: keysSelection
+        selectKey: keysSelection
       })
     })
 

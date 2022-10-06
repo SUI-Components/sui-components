@@ -2,33 +2,17 @@ import {isElement} from 'react-is'
 
 import PropTypes from 'prop-types'
 
-import AtomLabel, {AtomLabelTypes} from '@s-ui/react-atom-label'
+import AtomLabel from '@s-ui/react-atom-label'
 import Injector from '@s-ui/react-primitive-injector'
 
 import {CLASS_NODE_LABEL_CONTAINER} from './config.js'
 
-const MoleculeLabel = ({
-  label,
-  nodeLabel,
-  type: typeValidationLabel,
-  name,
-  onClick
-}) => {
+const MoleculeLabel = ({label, nodeLabel, ...props}) => {
   const innerLabel = () => {
-    const baseProps = {
-      type: typeValidationLabel,
-      name,
-      onClick
-    }
-
-    if (label) {
-      const [Component, providedProps] = isElement(label)
-        ? [props => <Injector {...props}>{label}</Injector>, baseProps]
-        : [AtomLabel, {...baseProps, text: label}]
-
-      return <Component {...providedProps} />
-    } else if (nodeLabel) {
-      return <Injector {...baseProps}>{nodeLabel}</Injector>
+    if ((label && isElement(label)) || (!label && nodeLabel)) {
+      return <Injector {...props}>{!label ? nodeLabel : label}</Injector>
+    } else if (label) {
+      return <AtomLabel text={label} {...props} />
     }
     return null
   }
@@ -37,10 +21,7 @@ const MoleculeLabel = ({
 
 MoleculeLabel.propTypes = {
   label: PropTypes.string,
-  nodeLabel: PropTypes.element,
-  type: PropTypes.oneOf(Object.values(AtomLabelTypes)),
-  name: PropTypes.string,
-  onClick: PropTypes.func
+  nodeLabel: PropTypes.element
 }
 
 export default MoleculeLabel

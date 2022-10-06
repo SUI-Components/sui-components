@@ -5,16 +5,15 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import PropTypes from 'prop-types'
 import React, {useRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import {/** chai, **/ expect} from 'chai'
+import PropTypes from 'prop-types'
+
 // import chaiDOM from 'chai-dom'
 // import sinon from 'sinon'
-
 // import {fireEvent} from '@testing-library/react'
-
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 

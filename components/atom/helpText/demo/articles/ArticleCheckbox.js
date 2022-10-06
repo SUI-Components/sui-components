@@ -1,16 +1,18 @@
 import {useState} from 'react'
 
+import PropTypes from 'prop-types'
+
 import {Article, H2} from '@s-ui/documentation-library'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomLabel from '@s-ui/react-atom-label'
 
-import AtomHelpText from '../src/index.js'
+import AtomHelpText from '../../src/index.js'
 
-const CheckboxDemo = () => {
+const ArticleCheckbox = ({className}) => {
   const [isChecked, setIsChecked] = useState(false)
 
   return (
-    <Article>
+    <Article className={className}>
       <H2>Checkbox</H2>
       <AtomCheckbox
         checked={isChecked}
@@ -22,4 +24,8 @@ const CheckboxDemo = () => {
   )
 }
 
-export default CheckboxDemo
+ArticleCheckbox.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleCheckbox

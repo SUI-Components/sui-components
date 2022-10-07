@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.13.0 (2022-10-07)
+
+
+### Features
+
+* **components/atom/popover:** add icon color type ([a6dac91](https://github.com/SUI-Components/sui-components/commit/a6dac91162387b0aa7e5fb99557d76f061ba034b))
+
+
+
 # 3.12.0 (2022-10-06)
 
 

@@ -148,11 +148,11 @@ $base-class-item-panel: '#{$base-class-item}Panel';
       box-sizing: border-box;
     }
     &::before {
-      transform: rotate(-45deg);
+      transform: rotate(-135deg);
       left: 33%;
     }
     &::after {
-      transform: rotate(-135deg);
+      transform: rotate(-45deg);
       right: 33%;
     }
   }

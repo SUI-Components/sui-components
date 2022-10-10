@@ -70,7 +70,7 @@ const MoleculeTabs = ({
       >
         {extendedChildren}
       </ul>
-      {activeTabContent || null}
+      {activeTabContent}
     </div>
   )
 }

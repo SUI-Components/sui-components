@@ -47,13 +47,13 @@ const MoleculeTabs = ({
     if (child) {
       const {children: childrenChild, active, numTab} = child.props
 
-      return active ? (
-        <div className={CLASS_CONTENT} id={`${id}-${numTab}`} role="tabpanel">
-          {childrenChild}
-        </div>
-      ) : (
-        activeContent
-      )
+      if (active) {
+        return (
+          <div className={CLASS_CONTENT} id={`${id}-${numTab}`} role="tabpanel">
+            {childrenChild}
+          </div>
+        )
+      }
     }
     return activeContent
   }, null)

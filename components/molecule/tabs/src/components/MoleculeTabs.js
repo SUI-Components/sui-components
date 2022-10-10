@@ -16,6 +16,7 @@ import {
 const MoleculeTabs = ({
   autoScrollIntoView = true,
   children,
+  id = 'molecule-tab-content',
   onChange,
   type,
   variant
@@ -37,6 +38,7 @@ const MoleculeTabs = ({
         autoScrollIntoView,
         isIntersecting,
         numTab,
+        id,
         onChange
       })
     })
@@ -44,12 +46,9 @@ const MoleculeTabs = ({
   const activeTabContent = childrenArray.reduce((activeContent, child) => {
     if (child) {
       const {children: childrenChild, active, numTab} = child.props
+
       return active ? (
-        <div
-          className={CLASS_CONTENT}
-          id={`molecule-tab-content-${numTab}`}
-          role="tabpanel"
-        >
+        <div className={CLASS_CONTENT} id={`${id}-${numTab}`} role="tabpanel">
           {childrenChild}
         </div>
       ) : (
@@ -84,6 +83,9 @@ MoleculeTabs.propTypes = {
 
   /** children */
   children: PropTypes.any,
+
+  /** id used to make tabs unique */
+  id: PropTypes.string,
 
   /** onChange */
   onChange: PropTypes.func,

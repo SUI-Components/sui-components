@@ -28,6 +28,7 @@ import {
 
 const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const {
+    onBlur,
     isOpen,
     onToggle,
     children,
@@ -39,6 +40,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     refMoleculeSelect: refMoleculeSelectFromProps,
     'aria-label': ariaLabel
   } = props
+
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
   const refsMoleculeSelectOptions = useRef([])
   const ref = useMergeRefs(forwardedRef, refMoleculeSelect)
@@ -125,7 +127,10 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     }
   }
 
-  const handleFocusOut = () => setFocus(false)
+  const handleFocusOut = e => {
+    onBlur(e)
+    setFocus(false)
+  }
 
   const handleFocusIn = () => !disabled && setFocus(true)
 
@@ -185,6 +190,9 @@ MoleculeSelect.propTypes = {
   /** if list of options is displayed or not */
   isOpen: PropTypes.bool,
 
+  /** callback onBlur to be triggered when focused outside of the input */
+  onBlur: PropTypes.func,
+
   /** callback when arrow up/down is clicked → to show/hide list of options */
   onToggle: PropTypes.func,
 
@@ -232,6 +240,7 @@ MoleculeSelect.propTypes = {
 }
 
 MoleculeSelect.defaultProps = {
+  onBlur: () => {},
   disabled: false,
   keysSelection: SELECTION_KEYS,
   onChange: () => {},

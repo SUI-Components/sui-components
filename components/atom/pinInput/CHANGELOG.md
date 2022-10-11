@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.11.0 (2022-10-11)
+
+
+### Features
+
+* **components/atom/pinInput:** create new token to be able to overwrite the placeholder color ([513ae8a](https://github.com/SUI-Components/sui-components/commit/513ae8acc0728d6aa9e1a5780871985de2b52b3d))
+* **components/atom/pinInput:** replace inherit by auto ([c2f410e](https://github.com/SUI-Components/sui-components/commit/c2f410e589644bcbb1a26c5c107a73f336442d82))
+
+
+
 # 1.10.0 (2022-09-05)
 
 

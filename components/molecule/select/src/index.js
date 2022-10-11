@@ -127,8 +127,8 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     }
   }
 
-  const handleFocusOut = e => {
-    onBlur(e)
+  const handleFocusOut = event => {
+    onBlur(event)
     setFocus(false)
   }
 

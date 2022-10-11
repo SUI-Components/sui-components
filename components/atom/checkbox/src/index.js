@@ -155,7 +155,7 @@ const AtomCheckbox = forwardRef(
           aria-hidden={!isNative}
           aria-checked={pressedValue({checked, indeterminate})}
           indeterminate={indeterminate ? 'true' : undefined}
-          {...(isNative && {onChange: handleChange(inputRef)})}
+          onChange={handleChange(inputRef)}
           {...props}
         />
         <CheckboxIcon

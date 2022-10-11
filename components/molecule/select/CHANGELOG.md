@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.57.0 (2022-10-11)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** accept onblur prop ([ad3f8fb](https://github.com/SUI-Components/sui-components/commit/ad3f8fb08be2260ffba01fce160c4d3df3814754)), closes [#2282](https://github.com/SUI-Components/sui-components/issues/2282)
+
+
+
 # 1.56.0 (2022-10-04)
 
 

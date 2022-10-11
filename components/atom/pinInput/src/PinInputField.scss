@@ -10,6 +10,10 @@
   padding: 0;
   text-align: center;
 
+  &::placeholder {
+    color: $c-pin-input-placeholder;
+  }
+
   &:focus {
     border: $bdw-s solid $c-primary-dark;
     cursor: text;

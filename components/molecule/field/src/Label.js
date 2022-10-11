@@ -7,12 +7,24 @@ import Injector from '@s-ui/react-primitive-injector'
 
 import {CLASS_NODE_LABEL_CONTAINER} from './config.js'
 
-const MoleculeLabel = ({label, nodeLabel, ...props}) => {
+const MoleculeLabel = ({label, name, nodeLabel, ...props}) => {
   const innerLabel = () => {
     if ((label && isElement(label)) || (!label && nodeLabel)) {
-      return <Injector {...props}>{!label ? nodeLabel : label}</Injector>
+      const isLabelHTMLElement =
+        label?.type === 'label' || nodeLabel?.type === 'label'
+
+      return isLabelHTMLElement ? (
+        <Injector {...props} htmlFor={name}>
+          {!label ? nodeLabel : label}
+        </Injector>
+      ) : (
+        <AtomLabel
+          name={name}
+          text={<Injector {...props}>{!label ? nodeLabel : label}</Injector>}
+        />
+      )
     } else if (label) {
-      return <AtomLabel text={label} {...props} />
+      return <AtomLabel name={name} text={label} {...props} />
     }
     return null
   }
@@ -21,6 +33,7 @@ const MoleculeLabel = ({label, nodeLabel, ...props}) => {
 
 MoleculeLabel.propTypes = {
   label: PropTypes.string,
+  name: PropTypes.string,
   nodeLabel: PropTypes.element
 }
 

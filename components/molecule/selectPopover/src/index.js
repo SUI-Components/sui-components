@@ -264,16 +264,23 @@ function MoleculeSelectPopover({
     BASE_CLASS,
     fullWidth && `${BASE_CLASS}--fullWidth`,
     isDisabled && 'is-disabled',
-    renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`,
-    hasOverlay && `${BASE_CLASS}-overlay--${overlayType}`,
-    isOpen && 'is-open'
+    renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`
+  )
+
+  const overlayClassNames = cx(
+    `${BASE_CLASS}-overlay`,
+    `${BASE_CLASS}-overlay--${overlayType}`,
+    {'is-open': isOpen}
   )
 
   return (
-    <div className={classNames} title={title}>
-      {renderSelect()}
-      {renderContentWrapper()}
-    </div>
+    <>
+      <div className={classNames} title={title}>
+        {renderSelect()}
+        {renderContentWrapper()}
+      </div>
+      {hasOverlay && <div className={overlayClassNames} />}
+    </>
   )
 }
 

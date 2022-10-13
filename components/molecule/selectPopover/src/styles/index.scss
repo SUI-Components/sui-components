@@ -107,7 +107,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
       &--#{'' + $name} {
         $bgc: map-get($type, bgc);
 
-        &::after {
+        &::before {
           background-color: $bgc;
           content: '';
           height: 100%;
@@ -115,7 +115,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
           margin-top: $m-select-popover-popover;
           opacity: 0;
           pointer-events: none;
-          position: fixed;
+          position: absolute;
           transition: opacity 0.25s ease-in;
           width: 100%;
           z-index: $z-select-popover-select-popover - 1;
@@ -124,7 +124,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
         &.is-open {
           $op: map-get($type, op);
 
-          &::after {
+          &::before {
             opacity: $op;
           }
         }

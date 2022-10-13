@@ -10,6 +10,8 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import {fireEvent} from '@testing-library/react'
+
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
@@ -147,6 +149,42 @@ describe(json.name, () => {
       expect(getByText(count[2].toString()).innerHTML).to.equal(
         count[2].toString()
       )
+    })
+
+    it('should switch content when tab 2 is clicked', () => {
+      // Given
+      const library = pkg
+      const {MoleculeTab} = library
+      const expectedContent1 = 'Content 1'
+      const expectedContent2 = 'Content 2'
+      const props = {
+        children: [
+          <MoleculeTab key={0} label="Tab 1" active>
+            {expectedContent1}
+          </MoleculeTab>,
+          <MoleculeTab key={1} label="Tab 2">
+            {expectedContent2}
+          </MoleculeTab>
+        ]
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const tab1 = getByRole('tab', {name: 'Tab 1'})
+      expect(tab1).to.have.attribute('aria-selected', 'true')
+
+      const content1 = getByRole('tabpanel')
+      expect(content1.innerHTML).to.equal(expectedContent1)
+
+      // Click on second tab
+      const tab2 = getByRole('tab', {name: 'Tab 2'})
+      expect(tab2).to.have.attribute('aria-selected', 'false')
+      fireEvent.click(tab2)
+      const content2 = getByRole('tabpanel')
+
+      // Then
+      expect(tab2).to.have.attribute('aria-selected', 'true')
+      expect(content2.innerHTML).to.equal(expectedContent2)
     })
   })
 

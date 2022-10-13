@@ -21,6 +21,7 @@ const MoleculeTab = forwardRef(
       count,
       disabled,
       icon,
+      id = 'molecule-tab-content',
       isIntersecting,
       label,
       numTab,
@@ -54,6 +55,9 @@ const MoleculeTab = forwardRef(
         className={className}
         onClick={handleChange}
         ref={useMergeRefs(innerRef, forwardedRef)}
+        role="tab"
+        aria-selected={active}
+        aria-controls={`${id}-${numTab}`}
       >
         {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
         {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
@@ -72,6 +76,9 @@ MoleculeTab.propTypes = {
 
   /** icon (React component) */
   icon: PropTypes.node,
+
+  /** id used to make tabs unique per page */
+  id: PropTypes.string,
 
   /** count to display */
   count: PropTypes.string,

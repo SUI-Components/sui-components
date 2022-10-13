@@ -2,6 +2,7 @@
 import {useState} from 'react'
 
 import MoleculeSelectPopover, {
+  selectPopoverOverlayTypes,
   selectPopoverPlacements,
   selectPopoverSizes
 } from 'components/molecule/selectPopover/src/index.js'
@@ -34,6 +35,7 @@ const Demo = () => {
   const [addCustomButton, setAddCustomButton] = useState(false)
   const [customContentWrapper, setCustomContentWrapper] = useState(false)
   const [renderSelect, setRenderSelect] = useState(false)
+  const [overlayType, setOverlayType] = useState(selectPopoverOverlayTypes.NONE)
 
   const handleChangeItem = event => {
     const {target} = event
@@ -191,6 +193,18 @@ const Demo = () => {
             Disabled
           </label>
         </div>
+        <div>
+          {Object.values(selectPopoverOverlayTypes).map(type => (
+            <label>
+              <input
+                type="checkbox"
+                checked={overlayType === type}
+                onChange={() => setOverlayType(type)}
+              />
+              {type.toUpperCase()} overlay
+            </label>
+          ))}
+        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
@@ -214,6 +228,7 @@ const Demo = () => {
           onCustomAction={() => setUnconfirmedItems(items)}
           onClose={handleClose}
           onOpen={handleOpen}
+          overlayType={overlayType}
           placement={placement}
           selectText={selectText}
           size={size}
@@ -239,6 +254,30 @@ const Demo = () => {
             </div>
           </div>
         </MoleculeSelectPopover>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+          recusandae labore numquam aliquam? Neque unde excepturi nam labore
+          velit a accusantium alias sunt quos voluptatem vel similique, pariatur
+          fugiat voluptate.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+          incidunt animi a dignissimos aliquid voluptas quo quisquam adipisci
+          distinctio accusamus, officiis amet mollitia error, dolore vero
+          similique nihil? Corrupti, quaerat.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
+          possimus cumque ut sunt? Quo aperiam id magni placeat iusto, quidem
+          corporis enim, iste ad sapiente distinctio dicta, voluptatem minima
+          fuga!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
+          sint ratione architecto iste sapiente repudiandae inventore fugit
+          expedita deleniti! Debitis maiores corrupti ducimus id cum veniam
+          distinctio eos fuga repellat.
+        </p>
       </div>
     </div>
   )

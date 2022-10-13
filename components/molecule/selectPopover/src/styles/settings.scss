@@ -21,3 +21,22 @@ $cur-select-popover-select: pointer !default;
 $op-select-popover: 0.4 !default;
 
 $z-select-popover-select-popover: $z-tooltips !default;
+
+$op-select-popover-overlay: 0.6 !default;
+$op-select-popover-dark-overlay: $op-select-popover-overlay !default;
+$op-select-popover-light-overlay: $op-select-popover-overlay !default;
+$bgc-select-popover-dark-overlay: $c-black !default;
+$bgc-select-popover-light-overlay: $c-white !default;
+
+$m-select-popover-popover: $m-m !default;
+
+$molecule-select-popover-overlay-types: (
+  dark: (
+    bgc: $bgc-select-popover-dark-overlay,
+    op: $op-select-popover-dark-overlay
+  ),
+  light: (
+    bgc: $bgc-select-popover-light-overlay,
+    op: $op-select-popover-light-overlay
+  )
+) !default;

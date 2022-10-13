@@ -13,6 +13,12 @@ export const PLACEMENTS = {
   RIGHT: 'right'
 }
 
+export const OVERLAY_TYPES = {
+  DARK: 'dark',
+  LIGHT: 'light',
+  NONE: 'none'
+}
+
 const placements = {
   [PLACEMENTS.AUTO_START]: PLACEMENTS.LEFT,
   [PLACEMENTS.AUTO_END]: PLACEMENTS.RIGHT,

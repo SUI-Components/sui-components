@@ -23,6 +23,7 @@ describe(json.name, () => {
     // Given
     const library = pkg
     const libraryExportedMembers = [
+      'selectPopoverOverlayTypes',
       'selectPopoverSizes',
       'selectPopoverPlacements',
       'default'
@@ -30,6 +31,7 @@ describe(json.name, () => {
 
     // When
     const {
+      selectPopoverOverlayTypes,
       selectPopoverSizes,
       selectPopoverPlacements,
       default: MoleculeSelectPopover,
@@ -162,6 +164,41 @@ describe(json.name, () => {
       // When
       const {selectPopoverPlacements: actual} = library
       const {LEFT, RIGHT, AUTO_START, AUTO_END, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('selectPopoverOverlayTypes', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {selectPopoverOverlayTypes: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        DARK: 'dark',
+        LIGHT: 'light',
+        NONE: 'none'
+      }
+
+      // When
+      const {selectPopoverOverlayTypes: actual} = library
+      const {DARK, LIGHT, NONE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

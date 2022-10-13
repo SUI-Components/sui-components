@@ -5,7 +5,13 @@ import PropTypes from 'prop-types'
 
 import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 
-import {BASE_CLASS, getPlacement, PLACEMENTS, SIZES} from './config.js'
+import {
+  BASE_CLASS,
+  getPlacement,
+  OVERLAY_TYPES,
+  PLACEMENTS,
+  SIZES
+} from './config.js'
 
 function usePrevious(value) {
   const ref = useRef()
@@ -36,6 +42,7 @@ function MoleculeSelectPopover({
   onClose = () => {},
   onCustomAction = () => {},
   onOpen = () => {},
+  overlayType = OVERLAY_TYPES.NONE,
   placement,
   renderContentWrapper: renderContentWrapperProp,
   renderSelect: renderSelectProp,
@@ -51,6 +58,8 @@ function MoleculeSelectPopover({
   const previousIsOpen = usePrevious(isOpen)
   const selectRef = useRef()
   const contentWrapperRef = useRef()
+
+  const hasOverlay = overlayType !== OVERLAY_TYPES.NONE
 
   const getPopoverClassName = () => {
     const {left, right} =
@@ -255,7 +264,9 @@ function MoleculeSelectPopover({
     BASE_CLASS,
     fullWidth && `${BASE_CLASS}--fullWidth`,
     isDisabled && 'is-disabled',
-    renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`
+    renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`,
+    hasOverlay && `${BASE_CLASS}-overlay--${overlayType}`,
+    isOpen && 'is-open'
   )
 
   return (
@@ -295,6 +306,7 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onCustomAction: PropTypes.func,
   onOpen: PropTypes.func,
+  overlayType: PropTypes.oneOf(Object.keys(OVERLAY_TYPES)),
   placement: PropTypes.oneOf([
     PLACEMENTS.AUTO_END,
     PLACEMENTS.AUTO_START,
@@ -309,4 +321,8 @@ MoleculeSelectPopover.propTypes = {
 }
 
 export default MoleculeSelectPopover
-export {SIZES as selectPopoverSizes, PLACEMENTS as selectPopoverPlacements}
+export {
+  OVERLAY_TYPES as selectPopoverOverlayTypes,
+  PLACEMENTS as selectPopoverPlacements,
+  SIZES as selectPopoverSizes
+}

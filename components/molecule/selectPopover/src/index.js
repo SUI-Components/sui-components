@@ -50,7 +50,7 @@ function MoleculeSelectPopover({
   onClose = () => {},
   onCustomAction = () => {},
   onOpen = () => {},
-  overlayContentRef,
+  overlayContentRef = {},
   overlayType = OVERLAY_TYPES.NONE,
   placement,
   renderContentWrapper: renderContentWrapperProp,
@@ -328,7 +328,7 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onCustomAction: PropTypes.func,
   onOpen: PropTypes.func,
-  overlayContentRef: PropTypes.node,
+  overlayContentRef: PropTypes.object,
   overlayType: PropTypes.oneOf(Object.values(OVERLAY_TYPES)),
   placement: PropTypes.oneOf([
     PLACEMENTS.AUTO_END,

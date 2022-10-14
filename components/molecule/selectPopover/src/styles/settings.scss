@@ -22,19 +22,25 @@ $op-select-popover: 0.4 !default;
 
 $z-select-popover-select-popover: $z-tooltips !default;
 
-$op-select-popover-overlay: 0.6 !default;
-$op-select-popover-dark-overlay: $op-select-popover-overlay !default;
-$op-select-popover-light-overlay: $op-select-popover-overlay !default;
+$op-select-popover-initial-overlay: 0 !default;
+$op-select-popover-finish-overlay: 0.6 !default;
 $bgc-select-popover-dark-overlay: $c-black !default;
 $bgc-select-popover-light-overlay: $c-white !default;
 
 $molecule-select-popover-overlay-types: (
   dark: (
-    bgc: $bgc-select-popover-dark-overlay,
-    op: $op-select-popover-dark-overlay
+    bgc: $bgc-select-popover-dark-overlay
   ),
   light: (
-    bgc: $bgc-select-popover-light-overlay,
-    op: $op-select-popover-light-overlay
+    bgc: $bgc-select-popover-light-overlay
   )
 ) !default;
+
+@keyframes op-overlay-animation {
+  0% {
+    opacity: $op-select-popover-initial-overlay;
+  }
+  100% {
+    opacity: $op-select-popover-finish-overlay;
+  }
+}

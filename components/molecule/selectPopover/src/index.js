@@ -291,7 +291,7 @@ function MoleculeSelectPopover({
         {renderContentWrapper()}
       </div>
       {hasOverlay && (
-        <Portal as={Fragment}>
+        <Portal as={Fragment} isOpen={isOpen}>
           <div className={overlayClassNames} />
         </Portal>
       )}

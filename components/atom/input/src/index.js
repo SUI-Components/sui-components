@@ -4,7 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import Input from './Input/index.js'
-import {BASE, INPUT_SHAPES, INPUT_STATES, SIZES, TYPES} from './config.js'
+import {BASE, INPUT_SHAPES, INPUT_STATES, SIZES, TYPES, isValidSize} from './config.js'
 import {checkIfValidNumberInput} from './helper.js'
 
 const AtomInput = forwardRef(({

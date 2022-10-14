@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.2.0 (2022-10-14)
+
+
+### Bug Fixes
+
+* **components/atom/checkbox:** return handler name properly ([e699c8f](https://github.com/SUI-Components/sui-components/commit/e699c8f46f67e237d8371e7011f58125cace5ca2))
+
+
+
 # 3.1.0 (2022-07-18)
 
 

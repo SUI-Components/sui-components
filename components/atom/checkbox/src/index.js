@@ -33,7 +33,7 @@ const AtomCheckbox = forwardRef(
       indeterminate: indeterminateProp,
       indeterminateIcon: IndeterminateIcon,
       icon: IconProp,
-      name,
+      name: nameProp,
       onChange: onChangeFromProps,
       status,
       size = CHECKBOX_SIZES.MEDIUM,
@@ -47,6 +47,7 @@ const AtomCheckbox = forwardRef(
       checkedProp,
       defaultCheckedProp
     )
+    const name = name || id 
     const [indeterminate, setIndeterminate, isIndeterminateControlled] =
       useControlledState(indeterminateProp, defaultIndeterminateProp)
 

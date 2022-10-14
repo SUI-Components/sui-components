@@ -50,7 +50,12 @@ const MoleculeAvatar = forwardRef(
       }
 
       const fallback = (
-        <AvatarFallback name={name} size={size} icon={fallbackIcon} />
+        <AvatarFallback
+          name={name}
+          size={size}
+          icon={fallbackIcon}
+          {...others}
+        />
       )
 
       return (
@@ -76,7 +81,8 @@ const MoleculeAvatar = forwardRef(
       size,
       skeleton,
       src,
-      imageProps
+      imageProps,
+      others
     ])
 
     return (

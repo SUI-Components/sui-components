@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 
 import MoleculeSelectPopover, {
   selectPopoverOverlayTypes,
@@ -36,6 +36,8 @@ const Demo = () => {
   const [customContentWrapper, setCustomContentWrapper] = useState(false)
   const [renderSelect, setRenderSelect] = useState(false)
   const [overlayType, setOverlayType] = useState(selectPopoverOverlayTypes.NONE)
+
+  const overlayContentRef = useRef()
 
   const handleChangeItem = event => {
     const {target} = event
@@ -123,6 +125,25 @@ const Demo = () => {
           ))}
         </MoleculeSelect>
         <br />
+        <label>Overlay types</label>
+        <MoleculeSelect
+          value={overlayType}
+          onChange={(_, {value}) => {
+            setOverlayType(value)
+          }}
+          placeholder="Select a overlay type..."
+          iconArrowDown={<IconArrowDown />}
+        >
+          {Object.keys(selectPopoverOverlayTypes).map(key => (
+            <MoleculeSelectOption
+              key={key}
+              value={selectPopoverOverlayTypes[key]}
+            >
+              {key}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelect>
+        <br />
         <div>
           <label>
             <input
@@ -193,18 +214,6 @@ const Demo = () => {
             Disabled
           </label>
         </div>
-        <div>
-          {Object.values(selectPopoverOverlayTypes).map(type => (
-            <label>
-              <input
-                type="checkbox"
-                checked={overlayType === type}
-                onChange={() => setOverlayType(type)}
-              />
-              {type.toUpperCase()} overlay
-            </label>
-          ))}
-        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
@@ -228,6 +237,7 @@ const Demo = () => {
           onCustomAction={() => setUnconfirmedItems(items)}
           onClose={handleClose}
           onOpen={handleOpen}
+          overlayContentRef={overlayContentRef}
           overlayType={overlayType}
           placement={placement}
           selectText={selectText}
@@ -254,30 +264,32 @@ const Demo = () => {
             </div>
           </div>
         </MoleculeSelectPopover>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-          recusandae labore numquam aliquam? Neque unde excepturi nam labore
-          velit a accusantium alias sunt quos voluptatem vel similique, pariatur
-          fugiat voluptate.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-          incidunt animi a dignissimos aliquid voluptas quo quisquam adipisci
-          distinctio accusamus, officiis amet mollitia error, dolore vero
-          similique nihil? Corrupti, quaerat.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
-          possimus cumque ut sunt? Quo aperiam id magni placeat iusto, quidem
-          corporis enim, iste ad sapiente distinctio dicta, voluptatem minima
-          fuga!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
-          sint ratione architecto iste sapiente repudiandae inventore fugit
-          expedita deleniti! Debitis maiores corrupti ducimus id cum veniam
-          distinctio eos fuga repellat.
-        </p>
+        <div className="demo-overlay-content" ref={overlayContentRef}>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            recusandae labore numquam aliquam? Neque unde excepturi nam labore
+            velit a accusantium alias sunt quos voluptatem vel similique,
+            pariatur fugiat voluptate.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+            incidunt animi a dignissimos aliquid voluptas quo quisquam adipisci
+            distinctio accusamus, officiis amet mollitia error, dolore vero
+            similique nihil? Corrupti, quaerat.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
+            possimus cumque ut sunt? Quo aperiam id magni placeat iusto, quidem
+            corporis enim, iste ad sapiente distinctio dicta, voluptatem minima
+            fuga!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
+            sint ratione architecto iste sapiente repudiandae inventore fugit
+            expedita deleniti! Debitis maiores corrupti ducimus id cum veniam
+            distinctio eos fuga repellat.
+          </p>
+        </div>
       </div>
     </div>
   )

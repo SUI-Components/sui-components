@@ -1,9 +1,17 @@
-import {cloneElement, useCallback, useEffect, useRef, useState} from 'react'
+import {
+  cloneElement,
+  Fragment,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
+import usePortal from '@s-ui/react-hook-use-portal'
 
 import {
   BASE_CLASS,
@@ -42,6 +50,7 @@ function MoleculeSelectPopover({
   onClose = () => {},
   onCustomAction = () => {},
   onOpen = () => {},
+  overlayContentRef,
   overlayType = OVERLAY_TYPES.NONE,
   placement,
   renderContentWrapper: renderContentWrapperProp,
@@ -58,8 +67,10 @@ function MoleculeSelectPopover({
   const previousIsOpen = usePrevious(isOpen)
   const selectRef = useRef()
   const contentWrapperRef = useRef()
+  const {Portal} = usePortal({target: overlayContentRef.current})
 
-  const hasOverlay = overlayType !== OVERLAY_TYPES.NONE
+  const hasOverlay =
+    Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
 
   const getPopoverClassName = () => {
     const {left, right} =
@@ -279,7 +290,11 @@ function MoleculeSelectPopover({
         {renderSelect()}
         {renderContentWrapper()}
       </div>
-      {hasOverlay && <div className={overlayClassNames} />}
+      {hasOverlay && (
+        <Portal as={Fragment}>
+          <div className={overlayClassNames} />
+        </Portal>
+      )}
     </>
   )
 }
@@ -313,7 +328,8 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onCustomAction: PropTypes.func,
   onOpen: PropTypes.func,
-  overlayType: PropTypes.oneOf(Object.keys(OVERLAY_TYPES)),
+  overlayContentRef: PropTypes.node,
+  overlayType: PropTypes.oneOf(Object.values(OVERLAY_TYPES)),
   placement: PropTypes.oneOf([
     PLACEMENTS.AUTO_END,
     PLACEMENTS.AUTO_START,

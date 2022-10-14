@@ -67,7 +67,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
     border: $bd-select-popover-content;
     border-radius: $bdrs-select-popover-content;
     box-shadow: $bxsh-select-popover;
-    margin-top: $m-select-popover-popover;
+    margin-top: $m-m;
     position: absolute;
     min-width: $w-select-popover;
     z-index: $z-select-popover-select-popover;
@@ -106,27 +106,20 @@ $base-class: '.sui-MoleculeSelectPopover ';
     @each $name, $type in $molecule-select-popover-overlay-types {
       &--#{'' + $name} {
         $bgc: map-get($type, bgc);
-
-        &::before {
-          background-color: $bgc;
-          content: '';
-          height: 100%;
-          left: 0;
-          margin-top: $m-select-popover-popover;
-          opacity: 0;
-          pointer-events: none;
-          position: absolute;
-          transition: opacity 0.25s ease-in;
-          width: 100%;
-          z-index: $z-select-popover-select-popover - 1;
-        }
+        background-color: $bgc;
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition: opacity 0.25s ease-in;
+        width: 100%;
 
         &.is-open {
           $op: map-get($type, op);
-
-          &::before {
-            opacity: $op;
-          }
+          opacity: $op;
         }
       }
     }

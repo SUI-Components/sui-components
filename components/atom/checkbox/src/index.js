@@ -47,7 +47,7 @@ const AtomCheckbox = forwardRef(
       checkedProp,
       defaultCheckedProp
     )
-    const name = name || id 
+    const name = nameProp || id
     const [indeterminate, setIndeterminate, isIndeterminateControlled] =
       useControlledState(indeterminateProp, defaultIndeterminateProp)
 

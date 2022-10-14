@@ -100,11 +100,11 @@ describe(json.name, () => {
       const {getByRole} = setup(props)
       const textBox = getByRole('textbox')
 
-      fireEvent.focusIn(textBox)
-      fireEvent.focusOut(textBox)
+      textBox.focus()
+      fireEvent.blur(textBox)
 
       // Then
-      sinon.assert.called(spy)
+      sinon.assert.calledOnce(spy)
     })
   })
 

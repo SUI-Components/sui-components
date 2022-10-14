@@ -1,47 +1,24 @@
-import {forwardRef, useEffect} from 'react'
-import {useIMask} from 'react-imask'
+import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-
 import Input from '../Input/Component/index.js'
 
-import {isFunction} from '../config.js'
+import useMask from './useMask.js'
 
 const MaskInput = forwardRef(
   (
-    {
-      name,
-      onChange,
-      onComplete,
-      mask,
-      value: propValue,
-      defaultValue,
-      ...props
-    },
+    {name, onChange, onComplete, mask, value, defaultValue, ...props},
     forwardedRef
   ) => {
-    const {
-      ref: refInput,
-      value: maskedValue = '',
-      setValue
-    } = useIMask(
-      {...mask},
-      {
-        onAccept: (value, maskRef, event, ...args) =>
-          isFunction(onChange) && onChange(event, {value, maskRef, ...args}),
-        onComplete: (value, maskRef, event, ...args) =>
-          isFunction(onComplete) && onComplete(event, {value, maskRef, ...args})
-      }
-    )
-    useEffect(() => {
-      if (propValue !== maskedValue) {
-        setValue(propValue)
-      }
-    }, [propValue, setValue, maskedValue])
-
-    const ref = useMergeRefs(refInput, forwardedRef)
+    const {maskedValue, ref} = useMask({
+      value,
+      defaultValue,
+      mask,
+      onChange,
+      onComplete,
+      forwardedRef
+    })
 
     return <Input ref={ref} id={name} value={maskedValue} {...props} />
   }

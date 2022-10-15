@@ -9,7 +9,10 @@ const MoleculeLabel = ({label, name, nodeLabel, ...rest}) => {
   const [Component, props] =
     typeof label === 'string'
       ? [AtomLabel, {text: label, name, ...rest}]
-      : [Injector, {htmlFor: name, ...rest}]
+      : [
+          Injector,
+          {htmlFor: name, children: !label ? nodeLabel : label, ...rest}
+        ]
   return (
     <div className={CLASS_NODE_LABEL_CONTAINER}>
       <Component {...props} />

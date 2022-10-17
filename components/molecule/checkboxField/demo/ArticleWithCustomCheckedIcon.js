@@ -15,9 +15,8 @@ export const ArticleWithCustomCheckedIcon = ({className}) => {
         label={<div>I'm a label as a react node clickable</div>}
         checkedIcon={() => <p>✅</p>}
         uncheckedIcon={() => <p>❌</p>}
-        // eslint-disable-next-line no-console
         onChange={(e, {name, value, checked}) => {
-          console.log({name, checked, value})
+          console.log({name, checked, value}) // eslint-disable-line no-console
         }}
       />
     </Article>

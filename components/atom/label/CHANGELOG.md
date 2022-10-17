@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2022-10-17)
+
+
+### Features
+
+* **components/atom/label:** add htmlFor attribute ([1fab184](https://github.com/SUI-Components/sui-components/commit/1fab1841c11727eae8e5b150f34c85e791695d11))
+
+
+
 # 1.22.0 (2022-09-29)
 
 

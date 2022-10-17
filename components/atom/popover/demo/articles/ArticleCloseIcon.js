@@ -1,8 +1,5 @@
 import {useState} from 'react'
 
-import AtomPopover, {
-  atomPopoverTriggers
-} from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
@@ -16,7 +13,8 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import IconClose from './Icons/IconClose.js'
+import AtomPopover, {atomPopoverTriggers} from '../../src/index.js'
+import IconClose from '../Icons/IconClose.js'
 
 const ArticleCloseIcon = ({className, content: Content}) => {
   const [isVisible, setIsVisible] = useState('true')

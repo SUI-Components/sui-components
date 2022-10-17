@@ -1,15 +1,16 @@
-import AtomPopover from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
-import IconClose from './Icons/IconClose.js'
 import {
   Article,
   Button,
-  H2,
-  Paragraph,
+  Cell,
   Grid,
-  Cell
+  H2,
+  Paragraph
 } from '@s-ui/documentation-library'
+
+import AtomPopover from '../../src/index.js'
+import IconClose from '../Icons/IconClose.js'
 
 const ArticleType = ({className, content: Content}) => {
   return (

@@ -1,29 +1,22 @@
 import PropTypes from 'prop-types'
 
-import AtomLabel from '@s-ui/react-atom-label'
 import Injector from '@s-ui/react-primitive-injector'
 
-import {CLASS_NODE_LABEL_CONTAINER} from './config.js'
+import {CLASS_NODE_LABEL_CONTAINER, getLabeled} from './config.js'
 
-const MoleculeLabel = ({label, name, nodeLabel, ...rest}) => {
-  const [Component, props] =
-    typeof label === 'string'
-      ? [AtomLabel, {text: label, name, ...rest}]
-      : [
-          Injector,
-          {htmlFor: name, children: !label ? nodeLabel : label, ...rest}
-        ]
+const MoleculeLabel = ({name, children, ...rest}) => {
   return (
     <div className={CLASS_NODE_LABEL_CONTAINER}>
-      <Component {...props} />
+      <Injector htmlFor={name} {...rest}>
+        {getLabeled(children)}
+      </Injector>
     </div>
   )
 }
 
 MoleculeLabel.propTypes = {
-  label: PropTypes.string,
   name: PropTypes.string,
-  nodeLabel: PropTypes.element
+  children: PropTypes.node
 }
 
 export default MoleculeLabel

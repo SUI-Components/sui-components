@@ -90,10 +90,10 @@ const MoleculeField = ({
           <MoleculeLabel
             type={typeValidationLabel}
             name={name}
-            label={label}
-            nodeLabel={nodeLabel}
             onClick={onClickLabel}
-          />
+          >
+            {label || nodeLabel}
+          </MoleculeLabel>
         </div>
       )}
       <div

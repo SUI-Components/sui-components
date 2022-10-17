@@ -8,7 +8,7 @@ const MoleculeAvatarFallbackName = ({
   name: nameProp,
   size,
   className: classNameProp,
-  isHexBackground = true,
+  fallbackColor: backgroundColorProp,
   ...others
 }) => {
   const className = cx(
@@ -22,13 +22,14 @@ const MoleculeAvatarFallbackName = ({
       ? `${firstName.charAt(0)}${lastName.charAt(0)}`
       : firstName.charAt(0)
 
-  const backgroundColor = useConvertStringToHex(nameProp)
+  const stringToHexBackgroundColor = useConvertStringToHex(nameProp)
+  const backgroundColor = backgroundColorProp || stringToHexBackgroundColor
 
   return (
     <div
       className={className}
       aria-label={nameProp}
-      {...(isHexBackground && {style: {backgroundColor}})}
+      {...{style: {backgroundColor}}}
       {...others}
     >
       {name}
@@ -39,7 +40,7 @@ const MoleculeAvatarFallbackName = ({
 MoleculeAvatarFallbackName.displayName = 'MoleculeAvatarFallbackName'
 MoleculeAvatarFallbackName.propTypes = {
   className: PropTypes.string,
-  isHexBackground: PropTypes.bool,
+  fallbackColor: PropTypes.string,
   name: PropTypes.string,
   src: PropTypes.string,
   size: PropTypes.string

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.38.0 (2022-10-17)
+
+
+### Features
+
+* **components/molecule/field:** Wrap node label in a real label to make the checkbox react to the c ([c0abc42](https://github.com/SUI-Components/sui-components/commit/c0abc420c5cde1b08e77b63179ca288a2cf4be6d))
+
+
+
 # 1.37.0 (2022-10-06)
 
 

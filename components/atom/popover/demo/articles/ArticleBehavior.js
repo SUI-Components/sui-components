@@ -1,9 +1,5 @@
 import {useState} from 'react'
 
-import AtomPopover, {
-  atomPopoverPositions,
-  atomPopoverTriggers
-} from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
@@ -22,6 +18,11 @@ import {
   Text,
   UnorderedList
 } from '@s-ui/documentation-library'
+
+import AtomPopover, {
+  atomPopoverPositions,
+  atomPopoverTriggers
+} from '../../src/index.js'
 
 const StatusDisplayer = ({value, values = []}) => (
   <Box fullWidth>

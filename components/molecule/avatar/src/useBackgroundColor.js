@@ -22,10 +22,11 @@ const convertStringToHex = str => {
   return color
 }
 
-const useConvertStringToHex = str => {
+const useBackgroundColor = ({name, backgroundColor}) => {
   return useMemo(() => {
-    return str ? convertStringToHex(str) : undefined
-  }, [str])
+    if (backgroundColor) return backgroundColor
+    return name ? convertStringToHex(name) : undefined
+  }, [name, backgroundColor])
 }
 
-export default useConvertStringToHex
+export default useBackgroundColor

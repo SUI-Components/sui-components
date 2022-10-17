@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 1.17.0 (2022-10-17)
+
+
+### Features
+
+* **components/molecule/avatar:** improve props and modify hook for getting background color ([14d9f18](https://github.com/SUI-Components/sui-components/commit/14d9f18383e53135d755d613215785551da8a435))
+* **components/molecule/avatar:** make optional hex background of fallback name ([980aee2](https://github.com/SUI-Components/sui-components/commit/980aee27885945e254d989bd6cf7195879a981d1))
+* **components/molecule/avatar:** refactor prop ([6829b84](https://github.com/SUI-Components/sui-components/commit/6829b84b4d6aa766d049eb86b0fab67d2213aa2a))
+* **components/molecule/avatar:** refactor props ([20583ba](https://github.com/SUI-Components/sui-components/commit/20583bac1413ed979813537bf48b22a59a919002))
+* **components/molecule/avatar:** refactor to avoid conditional ([3346f16](https://github.com/SUI-Components/sui-components/commit/3346f16e314eb2e915545e30a804ea0435f569f7))
+
+
+
 # 1.16.0 (2022-10-06)
 
 

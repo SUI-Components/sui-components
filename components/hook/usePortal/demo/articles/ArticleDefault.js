@@ -125,6 +125,8 @@ const ArticleDefault = ({className}) => {
   )
 }
 
+ArticleDefault.displayName = 'ArticleDefault'
+
 ArticleDefault.propTypes = {
   className: PropTypes.string
 }

@@ -32,6 +32,8 @@ const ArticleTarget = ({className}) => {
   )
 }
 
+ArticleTarget.displayName = 'ArticleTarget'
+
 ArticleTarget.propTypes = {
   className: PropTypes.string
 }

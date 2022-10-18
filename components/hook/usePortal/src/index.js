@@ -15,6 +15,7 @@ import PropTypes from 'prop-types'
 import useSSR from 'use-ssr'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import useMount from '@s-ui/react-hooks/lib/useMount'
 
 import {BASE_CLASS, DEFAULT_IS_OPEN} from './settings.js'
 
@@ -30,10 +31,15 @@ const usePortal = ({
   ...eventHandlers
 } = {}) => {
   const {isServer} = useSSR()
+  const [isReady, setIsReady] = useState()
   const [isOpened, setIsOpened] = useState(defaultIsOpen)
 
   const triggerElement = useRef() // this is the element you are clicking/hovering/whatever, to trigger opening the portal
   const portal = useRef()
+
+  useMount(() => {
+    setIsReady(true)
+  })
 
   const elToMountTo = useMemo(() => {
     if (isServer) return
@@ -70,7 +76,7 @@ const usePortal = ({
       if (onClose && value === false) onClose(customEvent)
       setIsOpened(value)
     },
-    [isServer, setIsOpened, onClose]
+    [isServer, setIsOpened, onClose, onOpen]
   )
 
   const openPortal = setIsOpen(true)
@@ -100,7 +106,7 @@ const usePortal = ({
         closePortal(event)
       }
     },
-    [isServer, closePortal, hasCloseOnOutsideClick, portal]
+    [closePortal, hasCloseOnOutsideClick, portal, isOpened]
   )
 
   const handleMouseDown = useCallback(
@@ -111,7 +117,7 @@ const usePortal = ({
         onClick(customEvent)
       handleOutsideMouseClick(event)
     },
-    [handleOutsideMouseClick]
+    [handleOutsideMouseClick, isServer, onClick]
   )
 
   // used to remove the event listeners on unmount
@@ -156,45 +162,50 @@ const usePortal = ({
             eventListenerName,
             eventListeners.current[handlerName]
           )
-          delete eventListeners.current[handlerName]
+          delete eventListeners.current[handlerName] // eslint-disable-line react-hooks/exhaustive-deps
         }
       )
       document.removeEventListener('keydown', handleKeydown)
       document.removeEventListener('mousedown', handleMouseDown)
     }
-  }, [isServer, handleOutsideMouseClick, handleKeydown, elToMountTo, portal])
+  }, [
+    isServer,
+    handleOutsideMouseClick,
+    handleKeydown,
+    elToMountTo,
+    portal,
+    eventHandlers,
+    handleMouseDown
+  ])
 
-  const Portal = useCallback(
-    forwardRef(
-      (
-        {as: As = 'div', children, isOpen: isOpenProp, className, ...props},
-        forwardedRef
-      ) => {
-        const ref = useMergeRefs(forwardedRef, portal)
-        useEffect(() => {
-          if (isServer) return
-          if (isOpenProp !== undefined) {
-            setIsOpened(isOpenProp)
-          }
-        }, [isOpenProp])
+  const Portal = forwardRef(
+    (
+      {as: As = 'div', children, isOpen: isOpenProp, className, ...props},
+      forwardedRef
+    ) => {
+      const ref = useMergeRefs(forwardedRef, portal)
+      useEffect(() => {
+        if (isServer) return
+        if (isOpenProp !== undefined) {
+          setIsOpened(isOpenProp)
+        }
+      }, [isOpenProp])
 
-        return isOpened
-          ? createPortal(
-              <As
-                {...(!isFragment(<As />) && {
-                  ref,
-                  className: cx(BASE_CLASS, className),
-                  ...props
-                })}
-              >
-                {children}
-              </As>,
-              target
-            )
-          : null
-      }
-    ),
-    [isOpened, portal, target]
+      return isReady && isOpened
+        ? createPortal(
+            <As
+              {...(!isFragment(<As />) && {
+                ref,
+                className: cx(BASE_CLASS, className),
+                ...props
+              })}
+            >
+              {children}
+            </As>,
+            target
+          )
+        : null
+    }
   )
   Portal.propTypes = {
     as: PropTypes.elementType,

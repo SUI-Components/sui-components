@@ -29,18 +29,11 @@ $bgc-select-popover-light-overlay: $c-white !default;
 
 $molecule-select-popover-overlay-types: (
   dark: (
-    bgc: $bgc-select-popover-dark-overlay
+    bgc: $bgc-select-popover-dark-overlay,
+    op: $op-select-popover-finish-overlay
   ),
   light: (
-    bgc: $bgc-select-popover-light-overlay
+    bgc: $bgc-select-popover-light-overlay,
+    op: $op-select-popover-finish-overlay
   )
 ) !default;
-
-@keyframes op-overlay-animation {
-  0% {
-    opacity: $op-select-popover-initial-overlay;
-  }
-  100% {
-    opacity: $op-select-popover-finish-overlay;
-  }
-}

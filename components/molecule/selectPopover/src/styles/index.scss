@@ -106,15 +106,21 @@ $base-class: '.sui-MoleculeSelectPopover ';
     @each $name, $type in $molecule-select-popover-overlay-types {
       &--#{$name} {
         $bgc: map-get($type, bgc);
-        animation: op-overlay-animation 1s both;
         background-color: $bgc;
         content: '';
         height: 100%;
         left: 0;
+        opacity: $op-select-popover-initial-overlay;
         pointer-events: none;
         position: absolute;
         top: 0;
+        transition: opacity 0.25s ease-in;
         width: 100%;
+
+        &.is-open {
+          $op: map-get($type, op);
+          opacity: $op;
+        }
       }
     }
   }

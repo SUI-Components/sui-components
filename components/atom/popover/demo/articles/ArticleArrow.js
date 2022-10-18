@@ -37,7 +37,7 @@ const ArticleArrow = ({className, content: Content}) => {
           onClick={() => setIsHidden('false')}
         />
       </RadioButtonGroup>
-      <Box style={{display: 'flex', justifyContent: 'center'}} fullWidth>
+      <Box style={{display: 'flex', justifyContent: 'center'}}>
         <ReMountDebounced observe={[isHidden]}>
           <AtomPopover
             isVisible

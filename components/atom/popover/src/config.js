@@ -1,3 +1,5 @@
+import {Children} from 'react'
+
 import cx from 'classnames'
 
 import loadable from '@loadable/component'
@@ -47,3 +49,8 @@ export const getClassName = ({defaultClass, type}) => {
     [`${defaultClass}--type-${type}`]: Boolean(type)
   })
 }
+
+export const getChildrenAsReactNode = element =>
+  typeof children === 'string'
+    ? [<span key={1}>{element}</span>]
+    : Children.only(element)

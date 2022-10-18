@@ -41,7 +41,7 @@ const ArticleCloseIcon = ({className, content: Content}) => {
           onClick={() => setIsVisible('false')}
         />
       </RadioButtonGroup>
-      <Box style={{display: 'flex', justifyContent: 'center'}} fullWidth>
+      <Box style={{display: 'flex', justifyContent: 'center'}}>
         <AtomPopover
           isVisible
           content={<Content />}

@@ -2,8 +2,6 @@
 
 > An animated loop used for giving users feedback while the content of a page or section is being loaded.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

@@ -2,8 +2,6 @@
 
 > Thumbnails are images that appear on cards, highlights or detail pages. They can be shown in different sizes and appearances. There are basically two variants: logos for company logos and avatars for person images.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

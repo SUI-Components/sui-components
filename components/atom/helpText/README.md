@@ -2,8 +2,6 @@
 
 > Help Text is a feedback that the system gives users to make them clearly understand which information is required
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

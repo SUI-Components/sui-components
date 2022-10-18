@@ -2,9 +2,6 @@
 
 SUI Atom ActionButton
 
-![Atom Action Button Colors](./assets/action-button-colors.png)
-![Atom Action Button Sizes and States](./assets/action-button-sizes-states.png)
-
 ## Installation
 
 ```sh

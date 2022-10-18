@@ -109,6 +109,8 @@ const ArticleCloseOnEvent = ({className}) => {
   )
 }
 
+ArticleCloseOnEvent.displayName = 'ArticleCloseOnEvent'
+
 ArticleCloseOnEvent.propTypes = {
   className: PropTypes.string
 }

@@ -8,14 +8,15 @@ import {BASE_CLASS} from './settings.js'
 const MoleculeRadioButtonGroup = ({
   id,
   value,
+  defaultValue,
   onChange,
   children,
   name,
   ...props
 }) => {
-  const [innerValue, setInnerValue] = useControlledState(value)
+  const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
   const handleChangeGroup = (e, {name, value}) => {
-    setInnerValue(value, true)
+    setInnerValue(value)
     typeof onChange === 'function' && onChange(e, {name, value})
   }
   return (
@@ -57,8 +58,11 @@ MoleculeRadioButtonGroup.propTypes = {
   /* onChange callback */
   onChange: PropTypes.func,
 
-  /* Value assigned to the radio button */
-  value: PropTypes.string
+  /* Controlled value assigned to the radio button */
+  value: PropTypes.string,
+
+  /* Initial value assigned to the radio button */
+  defaultValue: PropTypes.string
 }
 
 export default MoleculeRadioButtonGroup

@@ -52,51 +52,45 @@ function MoleculeSelectPopover({
   const selectRef = useRef()
   const contentWrapperRef = useRef()
 
-  const getPopoverClassName = () => {
-    const {left, right} =
-      contentWrapperRef.current?.getBoundingClientRect() || {}
-    const outFromTheLeftSide = left < 0
-    const outFromTheRightSide =
-      right > (window.innerWidth || document.documentElement.clientWidth)
-
-    if (outFromTheRightSide) {
-      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
-    } else if (outFromTheLeftSide) {
-      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
-    }
-
-    return popoverClassName
-  }
-
   useEffect(() => {
     /**
      * Only run open events:
      *  - After first render
      *  - When isOpen actually changes
+     *  - When placement changes
      **/
     if (typeof previousIsOpen === 'undefined' || isOpen === previousIsOpen) {
       return
     }
 
-    if (
-      isOpen &&
-      [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)
-    ) {
-      setPopoverClassName(getPopoverClassName())
-    }
+    const getPopoverClassName = () => {
+      if (
+        isOpen &&
+        [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)
+      ) {
+        const {left, right} =
+          contentWrapperRef.current?.getBoundingClientRect() || {}
+        const outFromTheLeftSide = left < 0
+        const outFromTheRightSide =
+          right > (window.innerWidth || document.documentElement.clientWidth)
 
-    const openEvent = isOpen ? onOpen : onClose
-    openEvent()
-  }, [isOpen, onClose, onOpen, previousIsOpen, getPopoverClassName])
+        if (outFromTheRightSide) {
+          return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
+        } else if (outFromTheLeftSide) {
+          return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
+        }
+      }
 
-  useEffect(() => {
-    setPopoverClassName(
-      cx(
+      return cx(
         `${popoverBaseClass}`,
         `${popoverBaseClass}--${getPlacement(placement)}`
       )
-    )
-  }, [placement])
+    }
+
+    setPopoverClassName(getPopoverClassName())
+    const openEvent = isOpen ? onOpen : onClose
+    openEvent()
+  }, [isOpen, onClose, onOpen, previousIsOpen, placement])
 
   const selectClassName = cx(
     `${BASE_CLASS}-select`,

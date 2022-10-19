@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomRadioButton from '@s-ui/react-atom-radio-button'
 
-import MoleculeRadioButtonGroup from '../src/index.js'
+import MoleculeRadioButtonGroup from '../../src/index.js'
 
 const ArticleAtomRadioButton = ({className}) => {
   return (
@@ -15,14 +15,12 @@ const ArticleAtomRadioButton = ({className}) => {
       </Paragraph>
       <br />
       <MoleculeRadioButtonGroup
-        onChange={(ev, {name, value}) => {
-          // eslint-disable-next-line no-console
-          console.log({[name]: value})
-        }}
+        onChange={
+          (ev, {name, value}) => console.log({[name]: value}) // eslint-disable-line no-console
+        }
         name="favorite-beatle"
         value="john"
       >
-        <br />
         <AtomRadioButton value="john" />
         <AtomRadioButton value="paul" />
         <AtomRadioButton value="george" />

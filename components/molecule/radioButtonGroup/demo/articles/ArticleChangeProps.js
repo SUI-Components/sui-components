@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 
-import MoleculeRadioButtonGroup from '../src/index.js'
+import MoleculeRadioButtonGroup from '../../src/index.js'
 
 const ArticleChangeProps = ({className}) => {
   const [value, setValue] = useState('john')

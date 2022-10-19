@@ -2,10 +2,10 @@
 
 import {H1, H2, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleAtomRadioButton from './ArticleAtomRadioButton.js'
-import ArticleChangeProps from './ArticleChangeProps.js'
-import ArticleMoleculeRadioButtonField from './ArticleMoleculeRadioButtonField.js'
-import ArticleWithIcons from './ArticleWithIcons.js'
+import ArticleAtomRadioButton from './articles/ArticleAtomRadioButton.js'
+import ArticleChangeProps from './articles/ArticleChangeProps.js'
+import ArticleMoleculeRadioButtonField from './articles/ArticleMoleculeRadioButtonField.js'
+import ArticleWithIcons from './articles/ArticleWithIcons.js'
 
 import './index.scss'
 

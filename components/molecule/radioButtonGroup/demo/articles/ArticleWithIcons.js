@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import {Article, H2} from '@s-ui/documentation-library'
 
-import RadioButtonGroupIcons from './components/radioButtonGroupIcons.js'
+import RadioButtonGroupIcons from '../components/radioButtonGroupIcons.js'
 
 const ArticleWithIcons = ({className}) => {
   return (

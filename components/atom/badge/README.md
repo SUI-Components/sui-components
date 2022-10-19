@@ -2,8 +2,6 @@
 
 > Atom Element: SUI badge
 
-![](./assets/screenshot.png)
-
 ## Installation
 
 ```sh

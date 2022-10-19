@@ -2,8 +2,6 @@
 
 > MoleculeValidationCode implements the AtomMoleculeValidationCode and adds it more features such as, clear button, send button and resend button. It also provides a label to provide information to the user.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

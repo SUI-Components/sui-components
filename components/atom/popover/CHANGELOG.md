@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 3.15.0 (2022-10-18)
+
+
+### Bug Fixes
+
+* **components/atom/popover:** condition error ([4354727](https://github.com/SUI-Components/sui-components/commit/4354727a2456f8b349e191755bcd8b1c21a6b68a))
+
+
+
+# 3.14.0 (2022-10-18)
+
+
+
 # 3.13.0 (2022-10-07)
 
 

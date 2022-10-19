@@ -33,7 +33,7 @@ const AtomCheckbox = forwardRef(
       indeterminate: indeterminateProp,
       indeterminateIcon: IndeterminateIcon,
       icon: IconProp,
-      name,
+      name: nameProp,
       onChange: onChangeFromProps,
       status,
       size = CHECKBOX_SIZES.MEDIUM,
@@ -47,6 +47,7 @@ const AtomCheckbox = forwardRef(
       checkedProp,
       defaultCheckedProp
     )
+    const name = nameProp || id
     const [indeterminate, setIndeterminate, isIndeterminateControlled] =
       useControlledState(indeterminateProp, defaultIndeterminateProp)
 
@@ -155,7 +156,7 @@ const AtomCheckbox = forwardRef(
           aria-hidden={!isNative}
           aria-checked={pressedValue({checked, indeterminate})}
           indeterminate={indeterminate ? 'true' : undefined}
-          {...(isNative && {onChange: handleChange(inputRef)})}
+          onChange={handleChange(inputRef)}
           {...props}
         />
         <CheckboxIcon

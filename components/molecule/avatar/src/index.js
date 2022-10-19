@@ -33,6 +33,7 @@ const MoleculeAvatar = forwardRef(
       ),
       name,
       src,
+      fallbackColor,
       fallbackIcon,
       style,
       isLoading,
@@ -50,7 +51,12 @@ const MoleculeAvatar = forwardRef(
       }
 
       const fallback = (
-        <AvatarFallback name={name} size={size} icon={fallbackIcon} />
+        <AvatarFallback
+          name={name}
+          size={size}
+          icon={fallbackIcon}
+          backgroundColor={fallbackColor}
+        />
       )
 
       return (
@@ -70,6 +76,7 @@ const MoleculeAvatar = forwardRef(
       )
     }, [
       children,
+      fallbackColor,
       fallbackIcon,
       isLoading,
       name,
@@ -93,6 +100,7 @@ MoleculeAvatar.propTypes = {
   name: PropTypes.string,
   src: PropTypes.string,
   style: PropTypes.object,
+  fallbackColor: PropTypes.string,
   fallbackIcon: PropTypes.element,
   skeleton: PropTypes.element,
   isLoading: PropTypes.bool,

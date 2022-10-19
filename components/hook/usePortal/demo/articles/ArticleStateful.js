@@ -45,6 +45,8 @@ const ArticleStateful = ({className}) => {
   )
 }
 
+ArticleStateful.displayName = 'ArticleStateful'
+
 ArticleStateful.propTypes = {
   className: PropTypes.string
 }

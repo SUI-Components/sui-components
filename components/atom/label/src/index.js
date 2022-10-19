@@ -8,11 +8,12 @@ const AtomLabel = ({
   text,
   optionalText,
   type,
+  htmlFor,
   fontSize,
   onClick
 }) => (
   <label
-    htmlFor={name}
+    htmlFor={htmlFor || name}
     className={getClass({type, inline, fontSize})}
     onClick={onClick}
   >
@@ -26,6 +27,10 @@ const AtomLabel = ({
 AtomLabel.displayName = 'AtomLabel'
 
 AtomLabel.propTypes = {
+  /**
+   * used as for attribute. Must be the same as the form element id
+   */
+  htmlFor: PropTypes.string,
   /**
    * used as for attribute. Must be the same as the form element id
    */

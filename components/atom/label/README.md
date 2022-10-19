@@ -2,8 +2,6 @@
 
 > The Label is the name of the associated field, that explains what is the about. It should be clear, concise and short.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

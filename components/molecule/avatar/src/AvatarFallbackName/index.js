@@ -1,13 +1,14 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import useConvertStringToHex from '../useConvertStringToHex.js'
+import useBackgroundColor from '../useBackgroundColor.js'
 import {BASE_CLASS_NAME} from './settings.js'
 
 const MoleculeAvatarFallbackName = ({
   name: nameProp,
   size,
   className: classNameProp,
+  backgroundColor: backgroundColorProp,
   ...others
 }) => {
   const className = cx(
@@ -21,7 +22,10 @@ const MoleculeAvatarFallbackName = ({
       ? `${firstName.charAt(0)}${lastName.charAt(0)}`
       : firstName.charAt(0)
 
-  const backgroundColor = useConvertStringToHex(nameProp)
+  const backgroundColor = useBackgroundColor({
+    name: nameProp,
+    backgroundColor: backgroundColorProp
+  })
 
   return (
     <div
@@ -38,6 +42,7 @@ const MoleculeAvatarFallbackName = ({
 MoleculeAvatarFallbackName.displayName = 'MoleculeAvatarFallbackName'
 MoleculeAvatarFallbackName.propTypes = {
   className: PropTypes.string,
+  backgroundColor: PropTypes.string,
   name: PropTypes.string,
   src: PropTypes.string,
   size: PropTypes.string

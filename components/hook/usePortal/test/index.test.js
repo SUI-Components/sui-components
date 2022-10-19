@@ -65,7 +65,7 @@ describe(json.name, () => {
   describe('hook', () => {
     it('should render without crashing', () => {
       // Given
-      const props = {as: 'h1'}
+      const props = {}
 
       // When
       const component = <Component {...props} />
@@ -78,7 +78,71 @@ describe(json.name, () => {
 
     it('should first render null', () => {
       // Given
-      const props = {}
+      const props = {children: 'children'}
+
+      // When
+      const {container, getByTestId, getByText} = setup(props)
+      const portalContainerElement = getByTestId('portal-test-container')
+      const portalContainerOriginElement = getByTestId(
+        'portal-test-container-origin'
+      )
+      const portalContainerTargetElement = getByTestId(
+        'portal-test-container-target'
+      )
+      const portalElement = getByText(props.children)
+
+      // Then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+
+      expect(portalContainerElement.innerHTML).to.be.a('string')
+      expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+      expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+      expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+      expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+      expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+
+      expect(portalElement.innerHTML).to.be.a('string')
+      expect(portalElement.innerHTML).to.equal(props.children)
+    })
+
+    it('should add portal to the right place', () => {
+      // Given
+      const props = {children: 'portal-content'}
+
+      // When
+      const {container, getByTestId, getByText} = setup(props)
+      const portalContainerElement = getByTestId('portal-test-container')
+      const portalContainerOriginElement = getByTestId(
+        'portal-test-container-origin'
+      )
+      const portalContainerTargetElement = getByTestId(
+        'portal-test-container-target'
+      )
+      const portalElement = getByText(props.children)
+
+      // Then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+
+      expect(portalContainerElement.innerHTML).to.be.a('string')
+      expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+      expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+      expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+      expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+      expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+
+      expect(portalElement.innerHTML).to.be.a('string')
+      expect(portalElement.innerHTML).to.equal(props.children)
+    })
+
+    it('given isOpen=false should NOT add portal', () => {
+      // Given
+      const props = {children: 'portal-content', isOpen: false}
 
       // When
       const {container, getByTestId} = setup(props)
@@ -104,90 +168,12 @@ describe(json.name, () => {
       expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
     })
 
-    it('should add portal to the right place', () => {
-      // Given
-      const props = {children: 'portal-content'}
-
-      // When
-      const {container, rerender, getByTestId} = setup(props)
-      const portalContainerElement = getByTestId('portal-test-container')
-      const portalContainerOriginElement = getByTestId(
-        'portal-test-container-origin'
-      )
-      const portalContainerTargetElement = getByTestId(
-        'portal-test-container-target'
-      )
-
-      // Then
-      expect(container.innerHTML).to.be.a('string')
-      expect(container.innerHTML).to.not.have.lengthOf(0)
-
-      expect(portalContainerElement.innerHTML).to.be.a('string')
-      expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
-
-      expect(portalContainerOriginElement.innerHTML).to.be.a('string')
-      expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
-
-      expect(portalContainerTargetElement.innerHTML).to.be.a('string')
-      expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
-
-      // When
-      rerender(<Component {...props} />)
-      expect(portalContainerElement.innerHTML).to.be.a('string')
-      expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
-
-      expect(portalContainerOriginElement.innerHTML).to.be.a('string')
-      expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
-
-      expect(portalContainerTargetElement.innerHTML).to.be.a('string')
-      expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
-    })
-
-    it('given isOpen=false should NOT add portal', () => {
-      // Given
-      const props = {children: 'portal-content', isOpen: false}
-
-      // When
-      const {container, rerender, getByTestId} = setup(props)
-      const portalContainerElement = getByTestId('portal-test-container')
-      const portalContainerOriginElement = getByTestId(
-        'portal-test-container-origin'
-      )
-      const portalContainerTargetElement = getByTestId(
-        'portal-test-container-target'
-      )
-
-      // Then
-      expect(container.innerHTML).to.be.a('string')
-      expect(container.innerHTML).to.not.have.lengthOf(0)
-
-      expect(portalContainerElement.innerHTML).to.be.a('string')
-      expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
-
-      expect(portalContainerOriginElement.innerHTML).to.be.a('string')
-      expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
-
-      expect(portalContainerTargetElement.innerHTML).to.be.a('string')
-      expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
-
-      // When
-      rerender(<Component {...props} />)
-      expect(portalContainerElement.innerHTML).to.be.a('string')
-      expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
-
-      expect(portalContainerOriginElement.innerHTML).to.be.a('string')
-      expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
-
-      expect(portalContainerTargetElement.innerHTML).to.be.a('string')
-      expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
-    })
-
     it('given isOpen=true should add portal', () => {
       // Given
       const props = {children: 'portal-content', isOpen: true}
 
       // When
-      const {container, rerender, getByTestId} = setup(props)
+      const {container, getByTestId, getByText} = setup(props)
       const portalContainerElement = getByTestId('portal-test-container')
       const portalContainerOriginElement = getByTestId(
         'portal-test-container-origin'
@@ -195,6 +181,7 @@ describe(json.name, () => {
       const portalContainerTargetElement = getByTestId(
         'portal-test-container-target'
       )
+      const portalElement = getByText(props.children)
 
       // Then
       expect(container.innerHTML).to.be.a('string')
@@ -207,18 +194,10 @@ describe(json.name, () => {
       expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
 
       expect(portalContainerTargetElement.innerHTML).to.be.a('string')
-      expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
-
-      // When
-      rerender(<Component {...props} />)
-      expect(portalContainerElement.innerHTML).to.be.a('string')
-      expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
-
-      expect(portalContainerOriginElement.innerHTML).to.be.a('string')
-      expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
-
-      expect(portalContainerTargetElement.innerHTML).to.be.a('string')
       expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+
+      expect(portalElement.innerHTML).to.be.a('string')
+      expect(portalElement.innerHTML).to.equal(props.children)
     })
 
     describe('fire events', () => {

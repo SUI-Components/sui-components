@@ -1,6 +1,5 @@
 import {useState} from 'react'
 
-import AtomPopover from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
@@ -16,6 +15,8 @@ import {
   RadioButton,
   UnorderedList
 } from '@s-ui/documentation-library'
+
+import AtomPopover from '../../src/index.js'
 
 const ArticlePosition = ({className, content: Content}) => {
   const [position, setPosition] = useState(undefined)

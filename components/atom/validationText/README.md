@@ -2,8 +2,6 @@
 
 > Validation text is used for indicating whether the entered data is correct. It is provided by using the "Help Text" plus one color each.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

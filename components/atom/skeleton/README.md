@@ -2,8 +2,6 @@
 
 > Skeleton is used to display the loading state of a component while avoiding layout shift.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

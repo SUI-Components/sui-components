@@ -21,6 +21,8 @@ const ArticleCustom = ({className}) => {
   )
 }
 
+ArticleCustom.displayName = 'ArticleCustom'
+
 ArticleCustom.propTypes = {
   className: PropTypes.string
 }

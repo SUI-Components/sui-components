@@ -2,8 +2,6 @@
 
 > The collapsible component allows the user to expand or collapse content. We use this component to lightweight the content of a page or section.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

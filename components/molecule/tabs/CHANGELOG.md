@@ -1,12 +1,25 @@
 # CHANGELOG
 
+# 2.37.0 (2022-10-13)
+
+
+### Features
+
+* **components/molecule/tabs:** add id prop to make tabs uniques ([b90231d](https://github.com/SUI-Components/sui-components/commit/b90231dc07db9ef4dcc7943fafe2c634b38a1070))
+* **components/molecule/tabs:** add pull request feedback ([208e0be](https://github.com/SUI-Components/sui-components/commit/208e0bed5aa055ae796fc934d79c334b17acc1b4))
+* **components/molecule/tabs:** pull request feedback ([f32e971](https://github.com/SUI-Components/sui-components/commit/f32e9718a114586ba6e9139406c0db8f330100fd))
+
+
+
 # 2.36.0 (2022-09-22)
 
 
 ### Features
 
+* **components/molecule/tabs:** add orientation aria attribute ([71296a3](https://github.com/SUI-Components/sui-components/commit/71296a319365c6109c7e9aaa2077933ceb80d09e))
 * **components/molecule/tabs:** Change tabs to be able to modify current active tabs by updating pro ([3f6a23e](https://github.com/SUI-Components/sui-components/commit/3f6a23e3538970054c289b4607c806baa72c6922))
 * **components/molecule/tabs:** control/uncontroll active tabs ([7945c33](https://github.com/SUI-Components/sui-components/commit/7945c339e5a145a2d593b2f68d4344aea2100f7b))
+* **components/molecule/tabs:** make tabs accesibles ([b4ebaf3](https://github.com/SUI-Components/sui-components/commit/b4ebaf3f60efa0bb51422059bf631f9e1e076666))
 * **components/molecule/tabs:** remove unnecesary prop injected ([4b67d13](https://github.com/SUI-Components/sui-components/commit/4b67d1304388ec589112eb3bd4d24767c8733367))
 
 

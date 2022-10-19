@@ -1,8 +1,5 @@
 import {useState} from 'react'
 
-import AtomPopover, {
-  atomPopoverTriggers
-} from 'components/atom/popover/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
@@ -15,7 +12,8 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import ReMountDebounced from './ReMountDebounced.js'
+import AtomPopover, {atomPopoverTriggers} from '../../src/index.js'
+import ReMountDebounced from '../ReMountDebounced.js'
 
 const ArticleArrow = ({className, content: Content}) => {
   const [isHidden, setIsHidden] = useState('false')
@@ -39,7 +37,7 @@ const ArticleArrow = ({className, content: Content}) => {
           onClick={() => setIsHidden('false')}
         />
       </RadioButtonGroup>
-      <Box style={{display: 'flex', justifyContent: 'center'}} fullWidth>
+      <Box style={{display: 'flex', justifyContent: 'center'}}>
         <ReMountDebounced observe={[isHidden]}>
           <AtomPopover
             isVisible

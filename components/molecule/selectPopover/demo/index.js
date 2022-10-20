@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 
 import MoleculeSelectPopover, {
+  selectPopoverOverlayTypes,
   selectPopoverPlacements,
   selectPopoverSizes
 } from 'components/molecule/selectPopover/src/index.js'
@@ -34,6 +35,9 @@ const Demo = () => {
   const [addCustomButton, setAddCustomButton] = useState(false)
   const [customContentWrapper, setCustomContentWrapper] = useState(false)
   const [renderSelect, setRenderSelect] = useState(false)
+  const [overlayType, setOverlayType] = useState(selectPopoverOverlayTypes.NONE)
+
+  const overlayContentRef = useRef()
 
   const handleChangeItem = event => {
     const {target} = event
@@ -115,6 +119,25 @@ const Demo = () => {
             <MoleculeSelectOption
               key={key}
               value={selectPopoverPlacements[key]}
+            >
+              {key}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelect>
+        <br />
+        <label>Overlay types</label>
+        <MoleculeSelect
+          value={overlayType}
+          onChange={(_, {value}) => {
+            setOverlayType(value)
+          }}
+          placeholder="Select a overlay type..."
+          iconArrowDown={<IconArrowDown />}
+        >
+          {Object.keys(selectPopoverOverlayTypes).map(key => (
+            <MoleculeSelectOption
+              key={key}
+              value={selectPopoverOverlayTypes[key]}
             >
               {key}
             </MoleculeSelectOption>
@@ -214,6 +237,8 @@ const Demo = () => {
           onCustomAction={() => setUnconfirmedItems(items)}
           onClose={handleClose}
           onOpen={handleOpen}
+          overlayContentRef={overlayContentRef}
+          overlayType={overlayType}
           placement={placement}
           selectText={selectText}
           size={size}
@@ -239,6 +264,32 @@ const Demo = () => {
             </div>
           </div>
         </MoleculeSelectPopover>
+        <div className="demo-overlay-content" ref={overlayContentRef}>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            recusandae labore numquam aliquam? Neque unde excepturi nam labore
+            velit a accusantium alias sunt quos voluptatem vel similique,
+            pariatur fugiat voluptate.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+            incidunt animi a dignissimos aliquid voluptas quo quisquam adipisci
+            distinctio accusamus, officiis amet mollitia error, dolore vero
+            similique nihil? Corrupti, quaerat.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam
+            possimus cumque ut sunt? Quo aperiam id magni placeat iusto, quidem
+            corporis enim, iste ad sapiente distinctio dicta, voluptatem minima
+            fuga!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
+            sint ratione architecto iste sapiente repudiandae inventore fugit
+            expedita deleniti! Debitis maiores corrupti ducimus id cum veniam
+            distinctio eos fuga repellat.
+          </p>
+        </div>
       </div>
     </div>
   )

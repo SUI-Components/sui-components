@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2022-10-21)
+
+
+### Bug Fixes
+
+* **components/hook/usePortal:** usePortal become SSR friendly ([3818bd8](https://github.com/SUI-Components/sui-components/commit/3818bd8deee9d910933d5c781e296a90cf2d9732))
+
+
+
 # 1.2.0 (2022-10-18)
 
 

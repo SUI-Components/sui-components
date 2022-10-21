@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.36.0 (2022-10-21)
+
+
+### Features
+
+* **components/molecule/selectPopover:** disable pointer events only when overlay is open ([41cd1ee](https://github.com/SUI-Components/sui-components/commit/41cd1ee74804f42ac1ac3a10e3656c6b6f3e6314))
+* **components/molecule/selectPopover:** improve overlay outside click ([d8f65c5](https://github.com/SUI-Components/sui-components/commit/d8f65c5011b4df4921044832122ce6d1967674fe))
+
+
+
 # 1.35.0 (2022-10-20)
 
 

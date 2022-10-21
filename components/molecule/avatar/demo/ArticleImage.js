@@ -22,6 +22,8 @@ const ArticleImage = ({className}) => {
   )
   const [brokenSrc, setBrokenSrc] = useState('https://brokenimagesrc')
   const [name, setName] = useState('John Doe')
+  const [fallbackColorName, setFallbackColorName] = useState('John Doe')
+  const [fallbackColor, setFallbackColor] = useState('#87bc45')
   const [fallbackIcon, setFallbackIcon] = useState()
   return (
     <Article className={className}>
@@ -129,6 +131,57 @@ const ArticleImage = ({className}) => {
       <MoleculeAvatar
         src={brokenSrc}
         name={name}
+        fallbackIcon={
+          fallbackIcon ? (
+            <AtomIcon>
+              <AntDesignIcon
+                icon={fallbackIcon}
+                style={{color: 'currentColor'}}
+              />
+            </AtomIcon>
+          ) : undefined
+        }
+      />
+      <H2>Fallback Color</H2>
+      <Paragraph>
+        If the provided image fails on loading and the{' '}
+        <Code>fallbackColor</Code> property is passed, the background color of
+        the avatar will be colored with same background color as you passed.
+      </Paragraph>
+      <Input
+        value={brokenSrc}
+        onChange={event => {
+          setBrokenSrc(event.target.value)
+        }}
+        placeholder="image"
+        fullWidth
+      />
+      <br />
+      <br />
+      <Input
+        value={fallbackColorName}
+        onChange={event => {
+          setFallbackColorName(event.target.value)
+        }}
+        placeholder="image"
+        fullWidth
+      />
+      <br />
+      <br />
+      <Input
+        value={fallbackColor}
+        onChange={event => {
+          setFallbackColor(event.target.value)
+        }}
+        placeholder="image"
+        fullWidth
+      />
+      <br />
+      <br />
+      <MoleculeAvatar
+        src={brokenSrc}
+        name={fallbackColorName}
+        fallbackColor={fallbackColor}
         fallbackIcon={
           fallbackIcon ? (
             <AtomIcon>

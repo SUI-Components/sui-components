@@ -21,7 +21,7 @@ import {BASE_CLASS, DEFAULT_IS_OPEN} from './settings.js'
 
 const usePortal = ({
   isOpen: defaultIsOpen = DEFAULT_IS_OPEN,
-  target = document.body,
+  target,
   onOpen,
   onClose,
   onToggle,
@@ -202,7 +202,7 @@ const usePortal = ({
             >
               {children}
             </As>,
-            target
+            target || document.body
           )
         : null
     }

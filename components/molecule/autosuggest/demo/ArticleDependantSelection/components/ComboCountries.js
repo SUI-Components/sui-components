@@ -8,9 +8,9 @@ import {withStateValue} from '@s-ui/hoc'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 
-import regions from '../data/regions.json'
-import {iconArrowDown} from '../Icons/index.js'
-import {filterOptionsCodeValue} from '../services/index.js'
+import regions from '../../data/regions.json'
+import {iconArrowDown} from '../../Icons/index.js'
+import {filterOptionsCodeValue} from '../../services/index.js'
 
 const MoleculeSelectWithState = withStateValue(MoleculeSelect)
 const MoleculeAutosuggestWithState = withStateValue(MoleculeAutosuggest)

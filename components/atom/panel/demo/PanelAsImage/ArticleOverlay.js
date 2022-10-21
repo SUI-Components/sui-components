@@ -20,14 +20,14 @@ const ArticleOverlay = ({className}) => {
             {Object.keys(atomPanelAlpha).map((alpha, index) => (
               <div
                 key={index}
-                style={Object.assign({}, flexItem, {width: '250px'})}
+                style={Object.assign({}, flexItem, {width: '100px'})}
               >
                 <AtomPanel
                   src="https://picsum.photos/250/200"
                   overlayColor={atomPanelColors[color]}
                   overlayAlpha={atomPanelAlpha[alpha]}
                 >
-                  <div style={{height: '150px'}} />
+                  <div style={{height: '100px'}} />
                 </AtomPanel>
                 <span>
                   {color} {alpha}

@@ -119,6 +119,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
         &.is-open {
           $op: map-get($type, op);
           opacity: $op;
+          pointer-events: none;
         }
       }
     }

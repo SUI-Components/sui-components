@@ -38,13 +38,13 @@ const ArticleMoleculeRadioButtonField = ({className}) => {
         <MoleculeRadioButtonField
           id="george"
           value="george"
-          label="George"
+          nodeLabel={<CustomLabel text="George" />}
           helpText="George Harrison"
         />
         <MoleculeRadioButtonField
           id="ringo"
           value="ringo"
-          label="Ringo"
+          nodeLabel={<CustomLabel text="Ringo" />}
           helpText="Ringo Star"
           disabled
         />

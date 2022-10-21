@@ -23,7 +23,7 @@ const ArticleOverlay = ({className}) => {
                 style={Object.assign({}, flexItem, {width: '100px'})}
               >
                 <AtomPanel
-                  src="https://picsum.photos/250/200"
+                  src="https://picsum.photos/100/100"
                   overlayColor={atomPanelColors[color]}
                   overlayAlpha={atomPanelAlpha[alpha]}
                 >

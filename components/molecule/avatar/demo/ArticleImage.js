@@ -22,6 +22,7 @@ const ArticleImage = ({className}) => {
   )
   const [brokenSrc, setBrokenSrc] = useState('https://brokenimagesrc')
   const [name, setName] = useState('John Doe')
+  const [fallbackColorName, setFallbackColorName] = useState('John Doe')
   const [fallbackColor, setFallbackColor] = useState('#87bc45')
   const [fallbackIcon, setFallbackIcon] = useState()
   return (
@@ -158,6 +159,16 @@ const ArticleImage = ({className}) => {
       <br />
       <br />
       <Input
+        value={fallbackColorName}
+        onChange={event => {
+          setFallbackColorName(event.target.value)
+        }}
+        placeholder="image"
+        fullWidth
+      />
+      <br />
+      <br />
+      <Input
         value={fallbackColor}
         onChange={event => {
           setFallbackColor(event.target.value)
@@ -169,7 +180,7 @@ const ArticleImage = ({className}) => {
       <br />
       <MoleculeAvatar
         src={brokenSrc}
-        name={name}
+        name={fallbackColorName}
         fallbackColor={fallbackColor}
         fallbackIcon={
           fallbackIcon ? (

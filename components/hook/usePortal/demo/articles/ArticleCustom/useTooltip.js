@@ -14,7 +14,6 @@ const useTooltip = ({isOpen, ...config} = {}) => {
     portalRef,
     open,
     close,
-    isOpen: isOpened,
     triggerRef
   } = usePortal({
     onMouseEnter: event => open(event),
@@ -46,7 +45,7 @@ const useTooltip = ({isOpen, ...config} = {}) => {
         </Portal>
       )
     },
-    [isOpened, styles, attributes]
+    [styles, attributes]
   )
 
   return [

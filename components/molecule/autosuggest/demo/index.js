@@ -22,9 +22,13 @@ const Demo = () => (
         mind, those two components has more possibilities if you need it.
       </Paragraph>
       <ArticleSingleSelection />
+      <br />
       <ArticleMultipleSelection />
+      <br />
       <ArticleDependantSelection />
+      <br />
       <ArticleIsOpenProp />
+      <br />
       <ArticleArrayObjects />
     </div>
   </div>

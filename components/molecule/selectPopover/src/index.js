@@ -274,8 +274,7 @@ function MoleculeSelectPopover({
 
   const overlayClassNames = cx(
     `${BASE_CLASS}-overlay`,
-    `${BASE_CLASS}-overlay--${overlayType}`,
-    {'is-open': isOpen}
+    `${BASE_CLASS}-overlay--${overlayType}`
   )
 
   return (
@@ -285,7 +284,7 @@ function MoleculeSelectPopover({
         {renderContentWrapper()}
       </div>
       {hasOverlay && (
-        <Portal as={Fragment}>
+        <Portal as={Fragment} isOpen={isOpen}>
           <div className={overlayClassNames} />
         </Portal>
       )}

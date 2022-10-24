@@ -110,17 +110,10 @@ $base-class: '.sui-MoleculeSelectPopover ';
         content: '';
         height: 100%;
         left: 0;
-        opacity: $op-select-popover-initial-overlay;
+        opacity: $op-select-popover-overlay;
         position: absolute;
         top: 0;
-        transition: opacity 0.25s ease-in;
         width: 100%;
-
-        &.is-open {
-          $op: map-get($type, op);
-          opacity: $op;
-          pointer-events: none;
-        }
       }
     }
   }

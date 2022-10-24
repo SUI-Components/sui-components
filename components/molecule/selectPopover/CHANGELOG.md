@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.37.0 (2022-10-24)
+
+
+### Features
+
+* **components/molecule/selectPopover:** improve overlay behavior ([bbb8e0c](https://github.com/SUI-Components/sui-components/commit/bbb8e0c573fa85233ee932477130841bcb1d4ed2))
+
+
+
 # 1.36.0 (2022-10-21)
 
 

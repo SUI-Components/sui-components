@@ -109,6 +109,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
       bottom: 0;
       box-sizing: border-box;
       color: $c-atom-slider-label;
+      width: $w-atom-slider-label;
     }
   }
 
@@ -139,6 +140,11 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     #{$class-track} {
       background: $c-atom-slider-rail;
     }
+  }
+
+  &--fullWidth {
+    padding: $p-atom-slider-fullwidth;
+    width: 100%;
   }
 }
 

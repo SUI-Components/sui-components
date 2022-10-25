@@ -8,6 +8,7 @@ import markerFactory from './markerFactory.js'
 import {
   BASE_CLASS,
   CLASS_DISABLED,
+  CLASS_FULLWIDTH,
   CLASS_INVERSE,
   Label,
   Range,
@@ -29,7 +30,8 @@ const AtomSlider = ({
   hideMarks = false,
   hideTooltip = false,
   defaultValue,
-  invertColors
+  invertColors,
+  fullWidth
 }) => {
   let initialStateValue
   const refAtomSlider = useRef()
@@ -82,24 +84,24 @@ const AtomSlider = ({
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,
-    marks: hideMarks ? {} : markerFactory({step, min, max, marks}),
+    marks: hideMarks ? {} : markerFactory({step, min, max, marks, fullWidth}),
     max,
     min,
     step,
     value: internalValue
   }
 
+  const computedClassName = cx(
+    BASE_CLASS,
+    {[CLASS_DISABLED]: disabled},
+    {[CLASS_INVERSE]: invertColors},
+    {[CLASS_FULLWIDTH]: fullWidth}
+  )
+
   // Determine the type of the slider according to the range prop
   const Type = range ? Range : Slider
   return (
-    <div
-      ref={refAtomSlider}
-      className={cx(
-        BASE_CLASS,
-        {[CLASS_DISABLED]: disabled},
-        {[CLASS_INVERSE]: invertColors}
-      )}
-    >
+    <div ref={refAtomSlider} className={computedClassName}>
       {valueLabel && customProps.handle ? (
         <>
           <Label
@@ -168,7 +170,10 @@ AtomSlider.propTypes = {
   hideTooltip: PropTypes.bool,
 
   /* If true it will invert the colors for selected track and rail */
-  invertColors: PropTypes.bool
+  invertColors: PropTypes.bool,
+
+  /* If true it will render in a full witdh design */
+  fullWidth: PropTypes.bool
 }
 
 export default AtomSlider

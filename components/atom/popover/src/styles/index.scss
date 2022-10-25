@@ -83,7 +83,8 @@ $class-arrow: '#{$base-class}-arrow';
     }
 
     @each $type-key, $type-value in $popover-type {
-      &--type-#{$type-key}::after {
+      &--type-#{$type-key}::after,
+      &--type-#{$type-key}::before {
         border-bottom-color: map-get($type-value, bgc);
       }
     }

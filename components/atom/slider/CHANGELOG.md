@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.31.0 (2022-10-26)
+
+
+### Features
+
+* **components/atom/slider:** add fullWidth prop ([2e766ac](https://github.com/SUI-Components/sui-components/commit/2e766ac76f541ace7ba857ed2712537ee1fd3a92))
+* **components/atom/slider:** remove console ([d069a1d](https://github.com/SUI-Components/sui-components/commit/d069a1df550410204ad9e0c487da1ea13e364a9b))
+* **components/atom/slider:** rename to isFullWidth ([4240527](https://github.com/SUI-Components/sui-components/commit/4240527a974518ffef3d76ee7d7a2be3fbfc7492))
+
+
+
 # 1.30.0 (2022-10-01)
 
 

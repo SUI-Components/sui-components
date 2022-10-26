@@ -28,30 +28,30 @@ const ArticleVerticallyCropped = ({className}) => {
           </div>
           <span>Original</span>
         </div>
-        <div style={Object.assign({}, flexItem, {width: '250px'})}>
+        <div style={Object.assign({}, flexItem, {width: '100px'})}>
           <AtomPanel
             src="https://picsum.photos/250/200"
             verticalAlign={atomPanelVerticalAlign.TOP}
           >
-            <div style={{height: '150px'}} />
+            <div style={{height: '100px'}} />
           </AtomPanel>
           <span>Top</span>
         </div>
-        <div style={Object.assign({}, flexItem, {width: '250px'})}>
+        <div style={Object.assign({}, flexItem, {width: '100px'})}>
           <AtomPanel
             src="https://picsum.photos/250/200"
             verticalAlign={atomPanelVerticalAlign.CENTER}
           >
-            <div style={{height: '150px'}} />
+            <div style={{height: '100px'}} />
           </AtomPanel>
           <span>Center</span>
         </div>
-        <div style={Object.assign({}, flexItem, {width: '250px'})}>
+        <div style={Object.assign({}, flexItem, {width: '100px'})}>
           <AtomPanel
             src="https://picsum.photos/250/200"
             verticalAlign={atomPanelVerticalAlign.BOTTOM}
           >
-            <div style={{height: '150px'}} />
+            <div style={{height: '100px'}} />
           </AtomPanel>
           <span>Bottom</span>
         </div>

@@ -1,16 +1,30 @@
+import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
+
+import Injector from '@s-ui/react-primitive-injector'
 
 import {getClassNames, TYPES} from './settings.js'
 
-const AtomValidationText = function ({type, text}) {
-  return <span className={getClassNames(type)}>{text}</span>
-}
+const AtomValidationText = forwardRef(({type, text}, forwardedRef) => {
+  const isTextString = typeof text === 'string'
+  const Component = isTextString ? 'span' : Injector
+  return (
+    <Component
+      className={getClassNames(type)}
+      {...(isTextString && {ref: forwardedRef})}
+    >
+      {text}
+    </Component>
+  )
+})
 
 AtomValidationText.displayName = 'AtomValidationText'
 
 AtomValidationText.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPES)).isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.bool])
+    .isRequired
 }
 
 export default AtomValidationText

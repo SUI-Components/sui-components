@@ -2,21 +2,14 @@
 
 ### SUI Components is an Open-Source, high quality library of React components that empowers teams to craft any product with ease.
 
-## Contribute
-
-<a href="https://github.com/SUI-Components/sui-components/issues/new?template=report-a-bug---issue.md" target="_blank">Report a bug or defect</a>
+<a href="https://github.com/SUI-Components/sui-components/issues/new/choose" target="_blank">Report a bug</a>
 
 <a href="https://github.com/SUI-Components/sui-components/discussions/new" target="_blank">Improve an existing component</a>
 
 <a href="https://github.com/SUI-Components/sui-components/discussions/new" target="_blank">Propose a new component</a>
 
-## Current status
+## Performance Metrics
 
-<a href="https://pages.github.mpi-internal.com/scmspain/design-systems/sui/index.html" target="_blank">Performance dashboard</a>
+<a href="https://pages.github.mpi-internal.com/scmspain/design-systems/sui/index.html" target="_blank">Design System Dashboard</a>
 
-## Documentation
-
-<a href="https://github.com/SUI-Components/sui-components/tree/master/contributor-docs" target="_blank">Contributor</a>
-
-## Coverage
-<a href="coverage/index.html" target="_blank">Contributor</a>
+<a href="coverage/index.html" target="_blank">Test coverage</a>

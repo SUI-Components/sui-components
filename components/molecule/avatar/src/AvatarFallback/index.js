@@ -1,7 +1,7 @@
-import {cloneElement} from 'react'
-
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+
+import Injector from '@s-ui/react-primitive-injector'
 
 import AvatarFallbackIcon from '../AvatarFallbackIcon/index.js'
 import {BASE_CLASS_NAME as FALLBACK_ICON_CLASS_NAME} from '../AvatarFallbackIcon/settings.js'
@@ -14,11 +14,15 @@ const MoleculeAvatarFallback = ({
   ...others
 }) => {
   const className = cx(classNameProp, FALLBACK_ICON_CLASS_NAME)
-  return name ? (
-    <AvatarFallbackName name={name} {...others} />
-  ) : (
-    cloneElement(icon, {...others, className, role: 'img'})
-  )
+
+  const [Component, providedProps] = name
+    ? [AvatarFallbackName, {name, ...others}]
+    : [
+        props => <Injector {...props}>{icon}</Injector>,
+        {...others, className, role: 'img'}
+      ]
+
+  return <Component {...providedProps} />
 }
 
 MoleculeAvatarFallback.displayName = 'MoleculeAvatarFallback'

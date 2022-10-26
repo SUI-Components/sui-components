@@ -13,12 +13,16 @@ $ml-atom-slider-handle: 0 !default;
 $ml-atom-slider-label: 0 !default;
 $mb-atom-slider-label: $m-m !default;
 $trf-atom-slider-label: translateX(-50%) !default;
-$c-atom-slider-label: $c-system !default;
+$c-atom-slider-label: $c-black !default;
+$w-atom-slider-label: auto !default;
 $w-atom-slider-handle: 24px !default;
 $b-atom-slider-handle: $bdw-s solid $c-primary !default;
 $bxsh-atom-slider-handle: none !default;
 
 $h-atom-slider-track: 8px !default;
 $p-atom-slider: $p-l !default;
+$p-atom-slider-fullwidth: $p-l 0 !default;
 
 $mt-atom-slider-mark: 10px !default;
+
+$z-atom-slider-tooltip: auto !default;

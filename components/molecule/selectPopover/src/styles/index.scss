@@ -101,4 +101,20 @@ $base-class: '.sui-MoleculeSelectPopover ';
       transform: rotate(-90deg) !important;
     }
   }
+
+  &-overlay {
+    @each $name, $type in $molecule-select-popover-overlay-types {
+      &--#{$name} {
+        $bgc: map-get($type, bgc);
+        background-color: $bgc;
+        content: '';
+        height: 100%;
+        left: 0;
+        opacity: $op-select-popover-overlay;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
 }

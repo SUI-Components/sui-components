@@ -2,8 +2,6 @@
 
 > Atom Table to show tabular information.
 
-![Atom Table](./assets/preview.png)
-
 ## Installation
 
 ```sh

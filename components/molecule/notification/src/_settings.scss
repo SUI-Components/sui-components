@@ -32,7 +32,7 @@ $notification-type-colors: (
   success: $c-success,
   warning: $c-alert,
   error: $c-error,
-  system: $c-system
+  system: $c-black
 ) !default;
 
 $notification-type-positive-colors: (
@@ -77,7 +77,7 @@ $notification-type-positive-text-colors: (
   success: $c-success,
   warning: $c-alert,
   error: $c-error,
-  system: $c-system
+  system: $c-black
 ) !default;
 
 // Positive Icon color
@@ -86,7 +86,7 @@ $notification-type-positive-icon-colors: (
   success: $c-success,
   warning: $c-alert,
   error: $c-error,
-  system: $c-system
+  system: $c-black
 ) !default;
 
 // Effects

@@ -1,11 +1,25 @@
-import {cloneElement, useCallback, useEffect, useRef, useState} from 'react'
+import {
+  cloneElement,
+  Fragment,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
+import usePortal from '@s-ui/react-hook-use-portal'
 
-import {BASE_CLASS, getPlacement, PLACEMENTS, SIZES} from './config.js'
+import {
+  BASE_CLASS,
+  getPlacement,
+  OVERLAY_TYPES,
+  PLACEMENTS,
+  SIZES
+} from './config.js'
 
 function usePrevious(value) {
   const ref = useRef()
@@ -36,6 +50,8 @@ function MoleculeSelectPopover({
   onClose = () => {},
   onCustomAction = () => {},
   onOpen = () => {},
+  overlayContentRef = {},
+  overlayType = OVERLAY_TYPES.NONE,
   placement,
   renderContentWrapper: renderContentWrapperProp,
   renderSelect: renderSelectProp,
@@ -51,52 +67,50 @@ function MoleculeSelectPopover({
   const previousIsOpen = usePrevious(isOpen)
   const selectRef = useRef()
   const contentWrapperRef = useRef()
+  const {Portal} = usePortal({target: overlayContentRef.current})
 
-  const getPopoverClassName = () => {
-    const {left, right} =
-      contentWrapperRef.current?.getBoundingClientRect() || {}
-    const outFromTheLeftSide = left < 0
-    const outFromTheRightSide =
-      right > (window.innerWidth || document.documentElement.clientWidth)
-
-    if (outFromTheRightSide) {
-      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
-    } else if (outFromTheLeftSide) {
-      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
-    }
-
-    return popoverClassName
-  }
+  const hasOverlay =
+    Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
 
   useEffect(() => {
     /**
      * Only run open events:
      *  - After first render
      *  - When isOpen actually changes
+     *  - When placement changes
      **/
     if (typeof previousIsOpen === 'undefined' || isOpen === previousIsOpen) {
       return
     }
 
-    if (
-      isOpen &&
-      [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)
-    ) {
-      setPopoverClassName(getPopoverClassName())
-    }
+    const getPopoverClassName = () => {
+      if (
+        isOpen &&
+        [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)
+      ) {
+        const {left, right} =
+          contentWrapperRef.current?.getBoundingClientRect() || {}
+        const outFromTheLeftSide = left < 0
+        const outFromTheRightSide =
+          right > (window.innerWidth || document.documentElement.clientWidth)
 
-    const openEvent = isOpen ? onOpen : onClose
-    openEvent()
-  }, [isOpen, onClose, onOpen, previousIsOpen, getPopoverClassName])
+        if (outFromTheRightSide) {
+          return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
+        } else if (outFromTheLeftSide) {
+          return cx(`${popoverBaseClass}`, `${popoverBaseClass}--right`)
+        }
+      }
 
-  useEffect(() => {
-    setPopoverClassName(
-      cx(
+      return cx(
         `${popoverBaseClass}`,
         `${popoverBaseClass}--${getPlacement(placement)}`
       )
-    )
-  }, [placement])
+    }
+
+    setPopoverClassName(getPopoverClassName())
+    const openEvent = isOpen ? onOpen : onClose
+    openEvent()
+  }, [isOpen, onClose, onOpen, previousIsOpen, placement])
 
   const selectClassName = cx(
     `${BASE_CLASS}-select`,
@@ -258,11 +272,23 @@ function MoleculeSelectPopover({
     renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`
   )
 
+  const overlayClassNames = cx(
+    `${BASE_CLASS}-overlay`,
+    `${BASE_CLASS}-overlay--${overlayType}`
+  )
+
   return (
-    <div className={classNames} title={title}>
-      {renderSelect()}
-      {renderContentWrapper()}
-    </div>
+    <>
+      <div className={classNames} title={title}>
+        {renderSelect()}
+        {renderContentWrapper()}
+      </div>
+      {hasOverlay && (
+        <Portal as={Fragment} isOpen={isOpen}>
+          <div className={overlayClassNames} />
+        </Portal>
+      )}
+    </>
   )
 }
 
@@ -295,6 +321,8 @@ MoleculeSelectPopover.propTypes = {
   onClose: PropTypes.func,
   onCustomAction: PropTypes.func,
   onOpen: PropTypes.func,
+  overlayContentRef: PropTypes.object,
+  overlayType: PropTypes.oneOf(Object.values(OVERLAY_TYPES)),
   placement: PropTypes.oneOf([
     PLACEMENTS.AUTO_END,
     PLACEMENTS.AUTO_START,
@@ -309,4 +337,8 @@ MoleculeSelectPopover.propTypes = {
 }
 
 export default MoleculeSelectPopover
-export {SIZES as selectPopoverSizes, PLACEMENTS as selectPopoverPlacements}
+export {
+  OVERLAY_TYPES as selectPopoverOverlayTypes,
+  PLACEMENTS as selectPopoverPlacements,
+  SIZES as selectPopoverSizes
+}

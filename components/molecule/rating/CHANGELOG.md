@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2022-10-01)
+
+
+### Features
+
+* **components/molecule/rating:** Remove -system ([dc7bd06](https://github.com/SUI-Components/sui-components/commit/dc7bd06a57c74e6112589ec6a97b738f090632cc))
+
+
+
 # 1.20.0 (2022-06-23)
 
 

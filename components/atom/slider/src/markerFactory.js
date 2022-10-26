@@ -22,11 +22,30 @@ const linearMarksFactory = ({step, min, max, ticks}) => {
       }, {})
 }
 
-const markerFactory = ({step, min, max, marks}) => {
+const fullWidthMarksFactory = marks => {
+  const marksKeys = Object.keys(marks)
+  const firstMarkKey = marksKeys[0]
+  const lastMarkKey = marksKeys[marksKeys.length - 1]
+
+  const nextMarks = {
+    ...marks,
+    [firstMarkKey]: {label: marks[firstMarkKey], style: {transform: 'inherit'}},
+    [lastMarkKey]: {
+      label: marks[lastMarkKey],
+      style: {transform: 'inherit', left: 'auto', right: '0'}
+    }
+  }
+  return nextMarks
+}
+
+const markerFactory = ({step, min, max, marks, isFullWidth}) => {
   const ticks = Math.round((max - min) / step) + 1
-  return marks
+
+  const nextMarks = marks
     ? customMarksFactory({marks, min, max, step, ticks})
     : linearMarksFactory({step, min, max, ticks})
+
+  return isFullWidth ? fullWidthMarksFactory(nextMarks) : nextMarks
 }
 
 export default markerFactory

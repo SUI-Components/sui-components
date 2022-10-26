@@ -9,6 +9,9 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+
+import {fireEvent} from '@testing-library/react'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -84,6 +87,24 @@ describe(json.name, () => {
 
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('should call onBlur callback', () => {
+      const spy = sinon.spy()
+
+      const props = {
+        onBlur: spy
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const textBox = getByRole('textbox')
+
+      textBox.focus()
+      fireEvent.blur(textBox)
+
+      // Then
+      sinon.assert.calledOnce(spy)
     })
   })
 

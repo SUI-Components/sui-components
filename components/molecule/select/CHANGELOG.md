@@ -1,5 +1,24 @@
 # CHANGELOG
 
+# 1.57.0 (2022-10-11)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** accept onblur prop ([ad3f8fb](https://github.com/SUI-Components/sui-components/commit/ad3f8fb08be2260ffba01fce160c4d3df3814754)), closes [#2282](https://github.com/SUI-Components/sui-components/issues/2282)
+
+
+
+# 1.56.0 (2022-10-04)
+
+
+### Features
+
+* **components/molecule/select:** set new prop name following conventions ([484a999](https://github.com/SUI-Components/sui-components/commit/484a9999fa2eace0fcaf27f73d37872b3d1ca208))
+* **components/molecule/select:** upgrade dropdownOption version ([e05859e](https://github.com/SUI-Components/sui-components/commit/e05859e6135cf0400b616705dce25c0f00a89c2f))
+
+
+
 # 1.55.0 (2022-07-29)
 
 

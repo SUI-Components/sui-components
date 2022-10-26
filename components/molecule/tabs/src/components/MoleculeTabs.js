@@ -16,6 +16,7 @@ import {
 const MoleculeTabs = ({
   autoScrollIntoView = true,
   children,
+  id = 'molecule-tab-content',
   onChange,
   type,
   variant
@@ -25,6 +26,7 @@ const MoleculeTabs = ({
     [`${BASE_CLASS}--${type}`]: type
   })
   const childrenArray = Children.toArray(children)
+  const isVerticalOrientation = type === TYPES.VERTICAL
 
   const [isIntersecting, outerRef] = useOnScreen()
 
@@ -36,26 +38,39 @@ const MoleculeTabs = ({
         autoScrollIntoView,
         isIntersecting,
         numTab,
+        id,
         onChange
       })
     })
 
   const activeTabContent = childrenArray.reduce((activeContent, child) => {
     if (child) {
-      const {children: childrenChild, active} = child.props
-      return active ? childrenChild : activeContent
+      const {children: childrenChild, active, numTab} = child.props
+
+      if (active) {
+        return (
+          <div className={CLASS_CONTENT} id={`${id}-${numTab}`} role="tabpanel">
+            {childrenChild}
+          </div>
+        )
+      }
     }
     return activeContent
   }, null)
 
   return (
     <div className={className}>
-      <ul ref={outerRef} className={CLASS_SCROLLER}>
+      <ul
+        ref={outerRef}
+        className={CLASS_SCROLLER}
+        role="tablist"
+        aria-orientation={
+          isVerticalOrientation ? TYPES.VERTICAL : TYPES.HORIZONTAL
+        }
+      >
         {extendedChildren}
       </ul>
-      {activeTabContent ? (
-        <div className={CLASS_CONTENT}>{activeTabContent}</div>
-      ) : null}
+      {activeTabContent}
     </div>
   )
 }
@@ -68,6 +83,9 @@ MoleculeTabs.propTypes = {
 
   /** children */
   children: PropTypes.any,
+
+  /** id used to make tabs unique */
+  id: PropTypes.string,
 
   /** onChange */
   onChange: PropTypes.func,

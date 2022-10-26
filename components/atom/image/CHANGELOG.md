@@ -1,5 +1,32 @@
 # CHANGELOG
 
+# 2.16.0 (2022-10-03)
+
+
+### Bug Fixes
+
+* **components/atom/image:** update proptype ([4b77543](https://github.com/SUI-Components/sui-components/commit/4b77543d4c8537d76c136b1b4a234dc31c2183eb))
+
+
+
+# 2.15.0 (2022-10-01)
+
+
+### Features
+
+* **components/atom/image:** replace cloneElement spinner ([5871943](https://github.com/SUI-Components/sui-components/commit/58719439ec5e98e8a81d2b77b53e9a7cdd9bbee1)), closes [#2320](https://github.com/SUI-Components/sui-components/issues/2320)
+
+
+
+# 2.14.0 (2022-09-29)
+
+
+### Features
+
+* **components/atom/image:** rename node prop ([4e13e98](https://github.com/SUI-Components/sui-components/commit/4e13e98affe157059edaeaf1843880e017fbc1f1)), closes [#2319](https://github.com/SUI-Components/sui-components/issues/2319)
+
+
+
 # 2.13.0 (2022-07-18)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-select-popover",
-  "version": "1.33.0",
+  "version": "1.37.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/react-atom-button": "1"
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-hook-use-portal": "1"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

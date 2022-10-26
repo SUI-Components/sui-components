@@ -2,8 +2,6 @@
 
 > Description
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh

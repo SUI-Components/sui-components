@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
-import AtomIcon, {atomIconColors, atomIconSizes} from '@s-ui/react-atom-icon'
 import {AntDesignIcon} from '@s-ui/documentation-library'
+import AtomIcon, {atomIconColors, atomIconSizes} from '@s-ui/react-atom-icon'
 
 const alert = (
   <AntDesignIcon icon="AiFillAlert" style={{color: 'currentcolor'}} />

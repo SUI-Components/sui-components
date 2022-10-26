@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.66.0 (2022-10-04)
+
+
+### Features
+
+* **components/molecule/autosuggest:** update the dropdownOption new prop name ([01facc9](https://github.com/SUI-Components/sui-components/commit/01facc9fb7058abda63dc9667fabee5cf44d8d36))
+
+
+
 # 2.65.0 (2022-08-22)
 
 

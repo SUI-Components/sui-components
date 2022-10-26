@@ -1,53 +1,45 @@
-import {Children, cloneElement, useEffect, useState} from 'react'
-
 import PropTypes from 'prop-types'
+
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+import Injector, {combineProps} from '@s-ui/react-primitive-injector'
 
 import {BASE_CLASS} from './settings.js'
 
 const MoleculeRadioButtonGroup = ({
   id,
-  value: initValue,
-  onChange: onChangeFromProps,
+  value,
+  onChange,
   children,
   name,
   ...props
 }) => {
-  const [value, setValue] = useState(initValue)
-
-  useEffect(() => {
-    setValue(initValue)
-  }, [initValue])
-
-  const handleChangeGroup = (e, {name, value: innerValue}) => {
-    setValue(innerValue)
-    typeof onChangeFromProps === 'function' &&
-      onChangeFromProps(e, {name, value: innerValue})
+  const [innerValue, setInnerValue] = useControlledState(value)
+  const handleChangeGroup = (e, {name, value}) => {
+    setInnerValue(value, true)
+    typeof onChange === 'function' && onChange(e, {name, value})
   }
-
-  const extendedChildren = Children.toArray(children)
-    .filter(Boolean)
-    .map((child, index) => {
-      const {
-        props: {value: childValue}
-      } = child
-      const checked = value === childValue
-      const onChange = handleChangeGroup
-      return cloneElement(child, {
-        ...props,
-        checked,
-        onChange,
-        name
-      })
-    })
-
-  return <div className={BASE_CLASS}>{extendedChildren}</div>
+  return (
+    <div className={BASE_CLASS} id={id}>
+      <Injector
+        combine={(injectedProps, {checked, onChange, ...ownProps}) => {
+          return combineProps(
+            {
+              checked: ownProps.value === innerValue,
+              onChange: handleChangeGroup,
+              name,
+              ...props
+            },
+            ownProps
+          )
+        }}
+      >
+        {children}
+      </Injector>
+    </div>
+  )
 }
 
 MoleculeRadioButtonGroup.displayName = 'MoleculeRadioButtonGroup'
-
-MoleculeRadioButtonGroup.defaultProps = {
-  checked: false
-}
 
 MoleculeRadioButtonGroup.propTypes = {
   /* children */
@@ -61,9 +53,6 @@ MoleculeRadioButtonGroup.propTypes = {
 
   /* This Boolean attribute prevents the user from interacting with the input */
   disabled: PropTypes.bool,
-
-  /* Mark the input as selected */
-  checked: PropTypes.bool,
 
   /* onChange callback */
   onChange: PropTypes.func,

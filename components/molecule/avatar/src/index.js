@@ -1,10 +1,4 @@
-import {
-  Children,
-  cloneElement,
-  forwardRef,
-  isValidElement,
-  useCallback
-} from 'react'
+import {forwardRef, useCallback} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -14,6 +8,7 @@ import AtomSkeleton, {
   ATOM_SKELETON_ANIMATIONS,
   ATOM_SKELETON_VARIANTS
 } from '@s-ui/react-atom-skeleton'
+import Injector from '@s-ui/react-primitive-injector'
 
 import AvatarBadge, {
   AVATAR_BADGE_PLACEMENTS,
@@ -38,19 +33,17 @@ const MoleculeAvatar = forwardRef(
       ),
       name,
       src,
+      fallbackColor,
       fallbackIcon,
       style,
       isLoading,
       imageProps = {},
-      children: childrenProp,
+      children,
       ...others
     },
     forwardedRef
   ) => {
     const className = cx(baseClassName, `${baseClassName}--${size}`)
-    const children = Children.toArray(childrenProp)
-      .filter(child => isValidElement(child))
-      .map(child => cloneElement(child, {size}))
 
     const renderContent = useCallback(() => {
       if (isLoading) {
@@ -58,7 +51,12 @@ const MoleculeAvatar = forwardRef(
       }
 
       const fallback = (
-        <AvatarFallback name={name} size={size} icon={fallbackIcon} />
+        <AvatarFallback
+          name={name}
+          size={size}
+          icon={fallbackIcon}
+          backgroundColor={fallbackColor}
+        />
       )
 
       return (
@@ -73,11 +71,12 @@ const MoleculeAvatar = forwardRef(
           ) : (
             fallback
           )}
-          {!isLoading && children}
+          {!isLoading && <Injector size={size}>{children}</Injector>}
         </>
       )
     }, [
       children,
+      fallbackColor,
       fallbackIcon,
       isLoading,
       name,
@@ -101,6 +100,7 @@ MoleculeAvatar.propTypes = {
   name: PropTypes.string,
   src: PropTypes.string,
   style: PropTypes.object,
+  fallbackColor: PropTypes.string,
   fallbackIcon: PropTypes.element,
   skeleton: PropTypes.element,
   isLoading: PropTypes.bool,

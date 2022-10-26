@@ -43,23 +43,26 @@ const MoleculeImageEditor = ({
       ? zoomSetter
       : debounce(zoomSetter, debouncingTime)
 
-  const cropCompleteHandler = async (croppedArea, croppedAreaPixels) => {
-    const rotationDegrees = getRotationDegrees(rotation)
-    onCropping(true)
-    const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
-      image,
-      croppedAreaPixels,
-      rotationDegrees
-    )
-    onChange(croppedImageUrl, croppedImageBlobObject)
-    onCropping(false)
-  }
-
   const onCropComplete = useCallback(
-    debouncingTime === undefined
-      ? cropCompleteHandler
-      : debounce(cropCompleteHandler, debouncingTime),
-    [rotation, onCropping, image, onChange]
+    async (croppedArea, croppedAreaPixels, ...args) => {
+      const cropCompleteHandler = async () => {
+        const rotationDegrees = getRotationDegrees(rotation)
+        onCropping(true)
+        const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
+          image,
+          croppedAreaPixels,
+          rotationDegrees
+        )
+        onChange(croppedImageUrl, croppedImageBlobObject)
+        onCropping(false)
+      }
+      const callback =
+        debouncingTime === undefined
+          ? cropCompleteHandler
+          : debounce(cropCompleteHandler, debouncingTime)
+      await callback(croppedArea, croppedAreaPixels, ...args)
+    },
+    [rotation, onCropping, image, onChange, debouncingTime]
   )
 
   return (

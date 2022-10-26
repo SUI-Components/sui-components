@@ -27,10 +27,16 @@ $class-arrow: '#{$base-class}-arrow';
     @each $type-key, $type-value in $popover-type {
       $bgc: map-get($type-value, bgc);
       $bdc: map-get($type-value, bdc);
+      $c-icon: map-get($type-value, c-icon);
 
       &--type-#{$type-key} {
         background-color: $bgc;
         border-color: $bdc;
+        #{$base-class}-closeIcon {
+          svg {
+            fill: $c-icon;
+          }
+        }
       }
     }
   }
@@ -43,7 +49,7 @@ $class-arrow: '#{$base-class}-arrow';
     z-index: $z-tooltips;
 
     svg {
-      fill: $c-atom-popover-close-icon !important;
+      fill: $c-atom-popover-close-icon;
       height: $sz-atom-popover-close-icon;
       width: $sz-atom-popover-close-icon;
     }
@@ -77,7 +83,8 @@ $class-arrow: '#{$base-class}-arrow';
     }
 
     @each $type-key, $type-value in $popover-type {
-      &--type-#{$type-key}::after {
+      &--type-#{$type-key}::after,
+      &--type-#{$type-key}::before {
         border-bottom-color: map-get($type-value, bgc);
       }
     }

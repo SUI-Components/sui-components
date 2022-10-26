@@ -1,5 +1,44 @@
 # CHANGELOG
 
+# 3.17.0 (2022-10-25)
+
+
+
+# 3.16.0 (2022-10-25)
+
+
+### Bug Fixes
+
+* **components/atom/popover:** arrow border color inherit from custom type ([4099bf8](https://github.com/SUI-Components/sui-components/commit/4099bf83b594a9dc4f20db4e8ef59257059db60d))
+
+
+
+# 3.15.0 (2022-10-18)
+
+
+### Bug Fixes
+
+* **components/atom/popover:** condition error ([4354727](https://github.com/SUI-Components/sui-components/commit/4354727a2456f8b349e191755bcd8b1c21a6b68a))
+
+
+
+# 3.14.0 (2022-10-18)
+
+
+
+# 3.13.0 (2022-10-07)
+
+
+### Features
+
+* **components/atom/popover:** add icon color type ([a6dac91](https://github.com/SUI-Components/sui-components/commit/a6dac91162387b0aa7e5fb99557d76f061ba034b))
+
+
+
+# 3.12.0 (2022-10-06)
+
+
+
 # 3.11.0 (2022-06-20)
 
 

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.2.0 (2022-10-10)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** Fixed grammar error ([10ff698](https://github.com/SUI-Components/sui-components/commit/10ff698453177b950592d33e981cf964c69b05e4)), closes [#2371](https://github.com/SUI-Components/sui-components/issues/2371)
+
+
+
+# 2.1.0 (2022-10-04)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** change prop naming following conventions ([c6e900e](https://github.com/SUI-Components/sui-components/commit/c6e900e197cccbf7a85e55e7b794333e9da3e997))
+
+
+
 # 1.45.0 (2022-07-22)
 
 

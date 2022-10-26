@@ -1,5 +1,36 @@
 # CHANGELOG
 
+# 1.31.0 (2022-10-26)
+
+
+### Features
+
+* **components/atom/slider:** add fullWidth prop ([2e766ac](https://github.com/SUI-Components/sui-components/commit/2e766ac76f541ace7ba857ed2712537ee1fd3a92))
+* **components/atom/slider:** remove console ([d069a1d](https://github.com/SUI-Components/sui-components/commit/d069a1df550410204ad9e0c487da1ea13e364a9b))
+* **components/atom/slider:** rename to isFullWidth ([4240527](https://github.com/SUI-Components/sui-components/commit/4240527a974518ffef3d76ee7d7a2be3fbfc7492))
+
+
+
+# 1.30.0 (2022-10-01)
+
+
+### Features
+
+* **components/atom/slider:** Remove -system ([4881c4b](https://github.com/SUI-Components/sui-components/commit/4881c4b79e5f2f4da5e6986c542ac36e253d1316))
+
+
+
+# 1.29.0 (2022-09-30)
+
+
+### Features
+
+* **components/atom/slider:** add z-index in tooltip ([8eeca33](https://github.com/SUI-Components/sui-components/commit/8eeca333bf1c944de479ed3c3383d5fba03b2dbc))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 1.28.0 (2022-07-06)
 
 

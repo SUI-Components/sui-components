@@ -109,6 +109,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
       bottom: 0;
       box-sizing: border-box;
       color: $c-atom-slider-label;
+      width: $w-atom-slider-label;
     }
   }
 
@@ -140,6 +141,11 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
       background: $c-atom-slider-rail;
     }
   }
+
+  &--fullWidth {
+    padding: $p-atom-slider-fullwidth;
+    width: 100%;
+  }
 }
 
 #{$class-tooltip-hidden} {
@@ -147,6 +153,8 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 }
 
 #{$class-tooltip} {
+  z-index: $z-atom-slider-tooltip;
+
   #{$class-tooltip-inner} {
     background: transparent;
     border-color: transparent;

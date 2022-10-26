@@ -4,6 +4,7 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 import ArticleDisabled from './ArticleDisabled.js'
 import ArticleSize from './ArticleSize.js'
 import ArticleStatus from './ArticleStatus.js'
+import ArticleWithCustomCheckedIcon from './ArticleWithCustomCheckedIcon.js'
 import ArticleWithHelpText from './ArticleWithHelpText.js'
 import ArticleWithLabelFullWidth from './ArticleWithLabelFullWidth.js'
 
@@ -29,6 +30,9 @@ const Demo = () => {
         <ArticleStatus className={CLASS_NAME} />
         <br />
         <ArticleDisabled className={CLASS_NAME} />
+        <br />
+        <ArticleWithCustomCheckedIcon className={CLASS_NAME} />
+        <br />
       </div>
     </div>
   )

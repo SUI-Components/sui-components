@@ -1,5 +1,43 @@
 # CHANGELOG
 
+# 1.37.0 (2022-10-24)
+
+
+### Features
+
+* **components/molecule/selectPopover:** improve overlay behavior ([bbb8e0c](https://github.com/SUI-Components/sui-components/commit/bbb8e0c573fa85233ee932477130841bcb1d4ed2))
+
+
+
+# 1.36.0 (2022-10-21)
+
+
+### Features
+
+* **components/molecule/selectPopover:** disable pointer events only when overlay is open ([41cd1ee](https://github.com/SUI-Components/sui-components/commit/41cd1ee74804f42ac1ac3a10e3656c6b6f3e6314))
+* **components/molecule/selectPopover:** improve overlay outside click ([d8f65c5](https://github.com/SUI-Components/sui-components/commit/d8f65c5011b4df4921044832122ce6d1967674fe))
+
+
+
+# 1.35.0 (2022-10-20)
+
+
+
+# 1.34.0 (2022-10-19)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add overlay as react portal ([d7a504f](https://github.com/SUI-Components/sui-components/commit/d7a504f3d456deb0d0141432aaf3093b94fff70f))
+* **components/molecule/selectPopover:** improve overlay position ([8b3d146](https://github.com/SUI-Components/sui-components/commit/8b3d1467082797599ef562a425b9a66521015ad0))
+* **components/molecule/selectPopover:** overlayContentRef default value ([4c56ed7](https://github.com/SUI-Components/sui-components/commit/4c56ed77515511715cccb6318b46e4fef110437a))
+* **components/molecule/selectPopover:** remove unnecessary class ([d52489f](https://github.com/SUI-Components/sui-components/commit/d52489facc557cb481234347340a5998fea1f3f0))
+* **components/molecule/selectPopover:** show overlay from selected type ([6a8beb8](https://github.com/SUI-Components/sui-components/commit/6a8beb8860f8bb39df0716f3c5cd7736557ae78a))
+* **components/molecule/selectPopover:** show portal node only if select popover is open ([bc6e613](https://github.com/SUI-Components/sui-components/commit/bc6e613fc29b51ed9f09118ab3b25eda2913aef0))
+* **components/molecule/selectPopover:** update isOpen behavior ([a903d46](https://github.com/SUI-Components/sui-components/commit/a903d46848e6cc7515a9d20aeee5906299fac52c))
+
+
+
 # 1.33.0 (2022-08-25)
 
 

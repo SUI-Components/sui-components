@@ -8,6 +8,7 @@ import ArticleRangeSteps from './ArticleRangeSteps.js'
 import ArticleSliderControlledState from './ArticleSliderControlledState.js'
 import ArticleSliderDefault from './ArticleSliderDefault.js'
 import ArticleSliderDisabled from './ArticleSliderDisabled.js'
+import ArticleSliderFullWidth from './ArticleSliderFullWidth.js'
 import ArticleSliderHideMarks from './ArticleSliderHideMarks.js'
 import ArticleSliderInvertColors from './ArticleSliderInvertColors.js'
 import ArticleSliderMarks from './ArticleSliderMarks.js'
@@ -42,6 +43,8 @@ const Demo = () => {
       <ArticleSliderValueLabel className={CLASS_SECTION} />
       <br />
       <ArticleSliderHideMarks className={CLASS_SECTION} />
+      <br />
+      <ArticleSliderFullWidth className={CLASS_SECTION} />
       <H1>Range</H1>
       <Paragraph>
         Component that works as an input that provides a slider a set of two

@@ -2,8 +2,6 @@
 
 > Atom Element: SUI button
 
-![](./assets/screenshot.png)
-
 ## Installation
 
 ```sh

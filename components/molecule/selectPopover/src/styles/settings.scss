@@ -21,3 +21,16 @@ $cur-select-popover-select: pointer !default;
 $op-select-popover: 0.4 !default;
 
 $z-select-popover-select-popover: $z-tooltips !default;
+
+$op-select-popover-overlay: 0.6 !default;
+$bgc-select-popover-dark-overlay: $c-black !default;
+$bgc-select-popover-light-overlay: $c-white !default;
+
+$molecule-select-popover-overlay-types: (
+  dark: (
+    bgc: $bgc-select-popover-dark-overlay
+  ),
+  light: (
+    bgc: $bgc-select-popover-light-overlay
+  )
+) !default;

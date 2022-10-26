@@ -5,7 +5,6 @@ import {H1, H2, Paragraph} from '@s-ui/documentation-library'
 import ArticleAtomRadioButton from './articles/ArticleAtomRadioButton.js'
 import ArticleChangeProps from './articles/ArticleChangeProps.js'
 import ArticleMoleculeRadioButtonField from './articles/ArticleMoleculeRadioButtonField.js'
-import ArticleWithIcons from './articles/ArticleWithIcons.js'
 
 import './index.scss'
 
@@ -25,8 +24,6 @@ const Demo = () => {
         <ArticleAtomRadioButton className={CLASS_SECTION} />
         <br />
         <ArticleMoleculeRadioButtonField className={CLASS_SECTION} />
-        <br />
-        <ArticleWithIcons className={CLASS_SECTION} />
         <br />
         <ArticleChangeProps className={CLASS_SECTION} />
       </div>

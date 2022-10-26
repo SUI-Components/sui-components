@@ -19,7 +19,7 @@ const ArticleAtomRadioButton = ({className}) => {
           (ev, {name, value}) => console.log({[name]: value}) // eslint-disable-line no-console
         }
         name="favorite-beatle"
-        value="john"
+        defaultValue="john"
       >
         <AtomRadioButton value="john" />
         <AtomRadioButton value="paul" />

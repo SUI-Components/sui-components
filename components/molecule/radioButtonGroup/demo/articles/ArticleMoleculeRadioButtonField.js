@@ -21,12 +21,12 @@ const ArticleMoleculeRadioButtonField = ({className}) => {
           console.log({[name]: value})
         }}
         name="field-favorite-beatle"
-        value="john"
+        defaultValue="john"
       >
         <MoleculeRadioButtonField
           id="john"
           value="john"
-          nodeLabel={<CustomLabel text="John" />}
+          label={<CustomLabel text="John" />}
           helpText="John Lennon"
         />
         <MoleculeRadioButtonField

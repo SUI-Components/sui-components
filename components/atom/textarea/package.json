@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/react-atom-help-text": "1",
-    "@s-ui/react-atom-input": "5"
+    "@s-ui/react-atom-input": "5.22.0-beta.0"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

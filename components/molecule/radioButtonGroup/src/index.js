@@ -27,7 +27,7 @@ const MoleculeRadioButtonGroup = ({
               checked: ownProps.value === innerValue,
               onChange: handleChangeGroup,
               name,
-              props
+              ...props
             },
             ownProps
           )

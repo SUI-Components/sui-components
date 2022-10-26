@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2022-10-26)
+
+
+### Bug Fixes
+
+* **components/molecule/radioButtonGroup:** props not being passed ([ae8e604](https://github.com/SUI-Components/sui-components/commit/ae8e604e3155ff5135d240242b5b9f709a8583e5))
+
+
+
 # 1.10.0 (2022-10-19)
 
 

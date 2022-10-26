@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.0.0 (2022-10-26)
+
+
+
 # 1.11.0 (2022-10-26)
 
 
@@ -10,6 +14,11 @@
 
 
 # 1.10.0 (2022-10-19)
+
+
+### Features
+
+* **components/molecule/radioButtonGroup:** controlled and uncontrolled behavior ([59d083a](https://github.com/SUI-Components/sui-components/commit/59d083ad0e5ef54e3c410974c4205ce281373bf7))
 
 
 

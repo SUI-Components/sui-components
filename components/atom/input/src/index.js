@@ -8,62 +8,62 @@ import {
   BASE,
   INPUT_SHAPES,
   INPUT_STATES,
+  isValidSize,
   SIZES,
-  TYPES,
-  isValidSize
+  TYPES
 } from './config.js'
 import {checkIfValidNumberInput} from './helper.js'
 
 const AtomInput = forwardRef(
-(
-{
-  type,
-  shape,
-  charsSize,
-  size = SIZES.MEDIUM,
-  noBorder,
-  errorState,
-  state,
-  disabled,
-  readOnly,
-  ...props
-},
-ref
-) => {
-  return (
-  <span
-  className={cx(
-  BASE,
-  shape && `${BASE}-shape-${shape}`,
-  size && `${BASE}-size-${size}`,
-  noBorder && `${BASE}-borderless`,
-  disabled && `${BASE}--is-disabled`,
-  readOnly && `${BASE}--is-read-only`,
-  isValidSize(charsSize) && `${BASE}--has-charSize`,
-  errorState && `${BASE}--status-${INPUT_STATES.ERROR}`,
-  errorState === false && `${BASE}--status-${INPUT_STATES.SUCCESS}`,
-  state && `${BASE}--status-${state}`
-  )}
-  >
+  (
+    {
+      type,
+      shape,
+      charsSize,
+      size = SIZES.MEDIUM,
+      noBorder,
+      errorState,
+      state,
+      disabled,
+      readOnly,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <span
+        className={cx(
+          BASE,
+          shape && `${BASE}-shape-${shape}`,
+          size && `${BASE}-size-${size}`,
+          noBorder && `${BASE}-borderless`,
+          disabled && `${BASE}--is-disabled`,
+          readOnly && `${BASE}--is-read-only`,
+          isValidSize(charsSize) && `${BASE}--has-charSize`,
+          errorState && `${BASE}--status-${INPUT_STATES.ERROR}`,
+          errorState === false && `${BASE}--status-${INPUT_STATES.SUCCESS}`,
+          state && `${BASE}--status-${state}`
+        )}
+      >
         <Input
-        ref={ref}
-        {...{
-          disabled,
-          readOnly,
-          type,
-          noBorder,
-          errorState,
-          state,
-          charsSize,
-          shape,
-          size,
-          ...(type === 'number' && {onKeyDown: checkIfValidNumberInput}),
-          ...props
-        }}
+          ref={ref}
+          {...{
+            disabled,
+            readOnly,
+            type,
+            noBorder,
+            errorState,
+            state,
+            charsSize,
+            shape,
+            size,
+            ...(type === 'number' && {onKeyDown: checkIfValidNumberInput}),
+            ...props
+          }}
         />
       </span>
-  )
-}
+    )
+  }
 )
 
 AtomInput.propTypes = {

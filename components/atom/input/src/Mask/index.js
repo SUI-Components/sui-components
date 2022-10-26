@@ -3,7 +3,6 @@ import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import Input from '../Input/Component/index.js'
-
 import useMask from './useMask.js'
 
 const MaskInput = forwardRef(

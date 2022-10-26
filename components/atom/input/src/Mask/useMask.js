@@ -1,5 +1,4 @@
 import {useEffect} from 'react'
-
 import {useIMask} from 'react-imask'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
@@ -33,7 +32,7 @@ const useMask = ({
     if (value !== maskedValue) {
       setValue(value)
     }
-  }, [argValue, setValue, maskedValue])
+  }, [argValue, setValue, maskedValue, value])
 
   const ref = useMergeRefs(refInput, forwardedRef)
 

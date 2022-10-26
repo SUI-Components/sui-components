@@ -11,7 +11,7 @@ export const ACTIONABLE_ONLY_PROPS = [
 
 export const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
 
-export var SIZES = {
+export const SIZES = {
   XLARGE: 'xlarge',
   LARGE: 'large',
   MEDIUM: 'medium',

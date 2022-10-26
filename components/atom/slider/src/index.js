@@ -172,7 +172,7 @@ AtomSlider.propTypes = {
   /* If true it will invert the colors for selected track and rail */
   invertColors: PropTypes.bool,
 
-  /* If true it will render in a full witdh design */
+  /* If true it will render in a full width design */
   fullWidth: PropTypes.bool
 }
 

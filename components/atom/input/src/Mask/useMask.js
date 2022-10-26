@@ -1,8 +1,8 @@
 import {useEffect} from 'react'
 import {useIMask} from 'react-imask'
 
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
 
 import {isFunction} from '../config.js'
 
@@ -14,7 +14,7 @@ const useMask = ({
   onComplete,
   forwardedRef
 }) => {
-  const [value] = useMountedState(argValue, argDefaultValue)
+  const [value] = useControlledState(argValue, argDefaultValue)
   const {
     ref: refInput,
     value: maskedValue = '',
@@ -28,15 +28,12 @@ const useMask = ({
         isFunction(onComplete) && onComplete(event, {value, maskRef, ...args})
     }
   )
-  useEffect(() => {
-    if (value !== maskedValue) {
-      setValue(value)
-    }
-  }, [argValue, setValue, maskedValue, value])
-
   const ref = useMergeRefs(refInput, forwardedRef)
-
-  return Object.assign([maskedValue, ref])
+  useEffect(
+    () => value !== maskedValue && setValue(maskedValue),
+    [argValue, setValue, maskedValue, value]
+  )
+  return Object.assign([maskedValue, ref], {maskedValue, ref})
 }
 
 export default useMask

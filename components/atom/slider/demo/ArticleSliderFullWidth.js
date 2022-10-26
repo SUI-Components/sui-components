@@ -12,10 +12,10 @@ const ArticleSliderFullWidth = ({className}) => {
     <Article className={className}>
       <H2>Full Width</H2>
       <Paragraph>
-        The <Code>fullWidth</Code> prop render the slider until box border.
+        The <Code>isFullWidth</Code> prop render the slider until box border.
       </Paragraph>
       <AtomSlider
-        fullWidth
+        isFullWidth
         marks={['1 Kilometer', 'All Country']}
         onChange={(event, {value}) => {
           setUncontrolledState(value)

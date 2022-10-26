@@ -31,7 +31,7 @@ const AtomSlider = ({
   hideTooltip = false,
   defaultValue,
   invertColors,
-  fullWidth
+  isFullWidth
 }) => {
   let initialStateValue
   const refAtomSlider = useRef()
@@ -84,7 +84,7 @@ const AtomSlider = ({
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,
-    marks: hideMarks ? {} : markerFactory({step, min, max, marks, fullWidth}),
+    marks: hideMarks ? {} : markerFactory({step, min, max, marks, isFullWidth}),
     max,
     min,
     step,
@@ -95,7 +95,7 @@ const AtomSlider = ({
     BASE_CLASS,
     {[CLASS_DISABLED]: disabled},
     {[CLASS_INVERSE]: invertColors},
-    {[CLASS_FULLWIDTH]: fullWidth}
+    {[CLASS_FULLWIDTH]: isFullWidth}
   )
 
   // Determine the type of the slider according to the range prop
@@ -173,7 +173,7 @@ AtomSlider.propTypes = {
   invertColors: PropTypes.bool,
 
   /* If true it will render in a full width design */
-  fullWidth: PropTypes.bool
+  isFullWidth: PropTypes.bool
 }
 
 export default AtomSlider

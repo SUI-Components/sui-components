@@ -38,14 +38,14 @@ const fullWidthMarksFactory = marks => {
   return nextMarks
 }
 
-const markerFactory = ({step, min, max, marks, fullWidth}) => {
+const markerFactory = ({step, min, max, marks, isFullWidth}) => {
   const ticks = Math.round((max - min) / step) + 1
 
   const nextMarks = marks
     ? customMarksFactory({marks, min, max, step, ticks})
     : linearMarksFactory({step, min, max, ticks})
 
-  return fullWidth ? fullWidthMarksFactory(nextMarks) : nextMarks
+  return isFullWidth ? fullWidthMarksFactory(nextMarks) : nextMarks
 }
 
 export default markerFactory

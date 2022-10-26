@@ -8,17 +8,20 @@
 import React, {useRef} from 'react'
 import ReactDOM from 'react-dom'
 
-import {/** chai, **/ expect} from 'chai'
+import {expect} from 'chai'
 import PropTypes from 'prop-types'
 
-// import chaiDOM from 'chai-dom'
-// import sinon from 'sinon'
-// import {fireEvent} from '@testing-library/react'
+import sinon from 'sinon'
+import {fireEvent, waitFor} from '@testing-library/react'
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
 describe(json.name, () => {
   const {default: usePortal} = pkg
+  const OPEN = 'open'
+  const CLOSE = 'close'
+  const TOGGLE = 'toggle'
+  const BIND = 'bind'
   const Component = ({children, isOpen: isOpenProps, ...handlers}) => {
     const targetRef = useRef()
     const {Portal, isOpen, open, close, toggle, bind} = usePortal({
@@ -33,10 +36,10 @@ describe(json.name, () => {
           <Portal isOpen={isOpen}>{children}</Portal>
         </div>
         <div ref={targetRef} data-testid="portal-test-container-target" />
-        <button onClick={open}>open</button>
-        <button onClick={close}>close</button>
-        <button onClick={toggle}>toggle</button>
-        <button onClick={bind}>bind</button>
+        <button onClick={open}>{OPEN}</button>
+        <button onClick={close}>{CLOSE}</button>
+        <button onClick={toggle}>{TOGGLE}</button>
+        <button onClick={bind}>{BIND}</button>
       </div>
     )
   }
@@ -201,32 +204,385 @@ describe(json.name, () => {
     })
 
     describe('fire events', () => {
-      it.skip('should fire onClose when it is triggered', () => {
-        // Given
-        // const spyOnClose = sinon.spy()
-        // const props = {children: 'portal-content', onClose: spyOnClose}
-        // When
-        // const {container, rerender, getByTestId, getByText} = setup(props)
-        // rerender(<Component {...props} />)
-        // const portalContainerElement = getByTestId('portal-test-container')
-        // const portalContainerOriginElement = getByTestId(
-        //   'portal-test-container-origin'
-        // )
-        // const portalContainerTargetElement = getByTestId(
-        //   'portal-test-container-target'
-        // )
-        // Then
-        // expect(portalContainerElement.innerHTML).to.be.a('string')
-        // expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
-        //
-        // expect(portalContainerOriginElement.innerHTML).to.be.a('string')
-        // expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
-        //
-        // expect(portalContainerTargetElement.innerHTML).to.be.a('string')
-        // expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
-        // And
-        // When
-        // fireEvent.click(getByText(props.children))
+      describe('close', () => {
+        it('should close portal when it is fired', () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(CLOSE))
+
+          // Then
+          sinon.assert.callCount(spyOnClose, 1)
+          sinon.assert.calledWith(spyOnClose, sinon.match.truthy)
+          sinon.assert.callCount(spyOnOpen, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+        })
+
+        it('should close portal when it is fired and has isOpen: true configured', () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            isOpen: true,
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(CLOSE))
+
+          // Then
+          sinon.assert.callCount(spyOnClose, 1)
+          sinon.assert.calledWith(spyOnClose, sinon.match.truthy)
+          sinon.assert.callCount(spyOnOpen, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+        })
+
+        it('should close portal when it is fired and has isOpen: false configured', () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            isOpen: false,
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(CLOSE))
+
+          // Then
+          sinon.assert.callCount(spyOnClose, 1)
+          sinon.assert.calledWith(spyOnClose, sinon.match.truthy)
+          sinon.assert.callCount(spyOnOpen, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+        })
+      })
+
+      describe('open', () => {
+        it('should open portal when it is fired', async () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(OPEN))
+
+          // Then
+          sinon.assert.callCount(spyOnOpen, 0)
+          await waitFor(() =>
+            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
+          )
+          sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
+          sinon.assert.callCount(spyOnClose, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        })
+
+        it('should open portal when it is fired and has isOpen: true configured', async () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            isOpen: true,
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(OPEN))
+
+          // Then
+          sinon.assert.callCount(spyOnOpen, 0)
+          await waitFor(() =>
+            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
+          )
+          sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
+          sinon.assert.callCount(spyOnClose, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        })
+
+        it('should open portal when it is fired and has isOpen: false configured', async () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            isOpen: false,
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(OPEN))
+
+          // Then
+          sinon.assert.callCount(spyOnOpen, 0)
+          await waitFor(() =>
+            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
+          )
+          sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
+          sinon.assert.callCount(spyOnClose, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        })
+      })
+
+      describe('toggle', () => {
+        it('should toggle portal when it is fired', () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(TOGGLE))
+
+          // Then
+          sinon.assert.callCount(spyOnClose, 1)
+          sinon.assert.calledWith(spyOnClose, sinon.match.truthy)
+          sinon.assert.callCount(spyOnOpen, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+        })
+
+        it('should toggle portal when it is fired and has isOpen: true configured', () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            isOpen: true,
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(TOGGLE))
+
+          // Then
+          sinon.assert.callCount(spyOnClose, 1)
+          sinon.assert.calledWith(spyOnClose, sinon.match.truthy)
+          sinon.assert.callCount(spyOnOpen, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+        })
+
+        it('should toggle portal when it is fired and has isOpen: false configured', async () => {
+          // Given
+          const spyOnClose = sinon.spy()
+          const spyOnOpen = sinon.spy()
+          const props = {
+            children: 'portal-content',
+            isOpen: false,
+            onClose: spyOnClose,
+            onOpen: spyOnOpen
+          }
+
+          // When
+          const {getByTestId, getByText} = setup(props)
+          const portalContainerElement = getByTestId('portal-test-container')
+          const portalContainerOriginElement = getByTestId(
+            'portal-test-container-origin'
+          )
+          const portalContainerTargetElement = getByTestId(
+            'portal-test-container-target'
+          )
+          // Then
+          expect(portalContainerElement.innerHTML).to.be.a('string')
+          expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+          expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+          expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+          // And
+          // When
+          fireEvent.click(getByText(TOGGLE))
+
+          // Then
+          sinon.assert.callCount(spyOnOpen, 0)
+          await waitFor(() =>
+            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
+          )
+          sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
+          sinon.assert.callCount(spyOnClose, 0)
+          expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+          expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        })
       })
     })
   })

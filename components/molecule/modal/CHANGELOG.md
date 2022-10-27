@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.46.0 (2022-10-27)
+
+
+### Bug Fixes
+
+* **components/molecule/modal:** fix close modal when drag end outside ([a877c2f](https://github.com/SUI-Components/sui-components/commit/a877c2fac768c16b140777b2e31701fad48fd3d6))
+
+
+
 # 1.45.0 (2022-06-27)
 
 

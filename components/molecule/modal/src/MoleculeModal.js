@@ -53,6 +53,7 @@ const MoleculeModal = forwardRef(
     const enableScrollPage = () => (document.body.style.overflow = 'auto')
 
     const [isClientReady, setIsClientReady] = useState(false)
+    const shoudlCloseOnOutsideClick = useRef()
 
     const getContainer = () => {
       let containerDOMEl = document.getElementById(portalContainerId)
@@ -88,6 +89,8 @@ const MoleculeModal = forwardRef(
     )
 
     useEffect(() => {
+      shoudlCloseOnOutsideClick.current = false
+
       if (isOpen && !isPageScrollable) blockScrollPage()
       else if (!isOpen && !isPageScrollable) enableScrollPage()
 
@@ -108,8 +111,20 @@ const MoleculeModal = forwardRef(
       }
     }, [onKeyDown])
 
-    const handleOutsideClick = ev => {
+    const handleOutsideMouseDown = ev => {
       if (closeOnOutsideClick && ev.target === wrapperRef.current) {
+        shoudlCloseOnOutsideClick.current = true
+      } else {
+        shoudlCloseOnOutsideClick.current = false
+      }
+    }
+
+    const handleOutsideMouseUp = ev => {
+      if (
+        closeOnOutsideClick &&
+        shoudlCloseOnOutsideClick.current &&
+        ev.target === wrapperRef.current
+      ) {
         closeModal(ev)
       }
     }
@@ -140,7 +155,9 @@ const MoleculeModal = forwardRef(
           className={wrapperClassName}
           ref={ref}
           onAnimationEnd={onAnimationEnd}
-          onClick={handleOutsideClick}
+          onMouseDown={handleOutsideMouseDown}
+          onMouseUp={handleOutsideMouseUp}
+          draggable="false"
         >
           <div className={dialogClassName}>
             {(iconClose || header) && (

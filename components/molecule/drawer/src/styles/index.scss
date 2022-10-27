@@ -34,20 +34,24 @@ $base-class: '.sui-MoleculeDrawer';
     &--placement {
       position: fixed;
       &-left {
-        left: -100%;
-        top: 0px;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
       }
       &-right {
-        right: -100%;
         top: 0;
+        right: 0;
+        transform: translateX(100%);
       }
       &-top {
-        top: -100%;
+        top: 0;
         left: 0;
+        transform: translateY(-100%);
       }
       &-bottom {
-        bottom: -100%;
+        bottom: 0;
         left: 0;
+        transform: translateY(100%);
       }
     }
 
@@ -82,21 +86,13 @@ $base-class: '.sui-MoleculeDrawer';
     &--state-opened {
       box-shadow: $bxsh-molecule-drawer;
       &#{$this}--placement {
-        &-left {
-          left: 0;
-          top: 0;
-        }
+        &-left,
         &-right {
-          right: 0;
-          top: 0;
+          transform: translateX(0);
         }
-        &-top {
-          top: 0;
-          left: 0;
-        }
+        &-top,
         &-bottom {
-          bottom: 0;
-          left: 0;
+          transform: translateY(0);
         }
       }
     }

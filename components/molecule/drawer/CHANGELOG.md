@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.7.0 (2022-10-28)
+
+
+### Features
+
+* **components/molecule/drawer:** Change position movement to translateX or Y to delete CLS ([dee72d6](https://github.com/SUI-Components/sui-components/commit/dee72d6805cdb2871b7b35bd23107552d47fbd5a))
+
+
+
 # 4.6.0 (2022-09-22)
 
 

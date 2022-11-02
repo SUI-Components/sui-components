@@ -10,8 +10,6 @@ $base-class: '.sui-AtomTextarea';
   font-size: $fz-atom-textarea;
   line-height: $lh-atom-textarea;
   padding: $p-atom-textarea;
-  padding-left: $pl-atom-textarea;
-  padding-top: $pt-atom-textarea;
   resize: $rsz-atom-textarea;
   width: $w-atom-textarea;
 
@@ -31,13 +29,15 @@ $base-class: '.sui-AtomTextarea';
 
   &--short {
     height: calc(
-      (#{$lh-atom-textarea} * #{$short-num-lines-atom-textarea}) + #{$pt-atom-textarea}
+      (#{$lh-atom-textarea} * #{$short-num-lines-atom-textarea}) + #{$p-atom-textarea +
+        $bdw-s} * 2
     );
   }
 
   &--long {
     height: calc(
-      (#{$lh-atom-textarea} * #{$long-num-lines-atom-textarea}) + #{$pt-atom-textarea}
+      (#{$lh-atom-textarea} * #{$long-num-lines-atom-textarea}) + #{$p-atom-textarea +
+        $bdw-s} * 2
     );
   }
 

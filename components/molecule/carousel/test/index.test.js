@@ -23,10 +23,14 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['default']
+    const libraryExportedMembers = ['default', 'adaptReactSlidyProps']
 
     // When
-    const {default: MoleculeButtonGroup, ...others} = library
+    const {
+      default: MoleculeButtonGroup,
+      adaptReactSlidyProps,
+      ...others
+    } = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -117,7 +121,7 @@ describe(json.name, () => {
       })
     })
 
-    it('renders without problems with hasArrows=false and has the arrows', () => {
+    it('renders without problems with hasArrows=true and has the arrows', () => {
       // Given
       const elementsText = ['slide 1', 'slide 2', 'slide 3', 'slide 4']
       const [arrowLeftText, arrowRightText] = ['arrowLeft', 'arrowRight']
@@ -127,8 +131,8 @@ describe(json.name, () => {
         children: elementsText.map((elementText, index) => (
           <span key={index}>{elementText}</span>
         )),
-        ArrowLeft: () => <span>{arrowLeftText}</span>,
-        ArrowRight: () => <span>{arrowRightText}</span>
+        arrowLeft: <span>{arrowLeftText}</span>,
+        arrowRight: <span>{arrowRightText}</span>
       }
       // When
       const {getByText} = setup(props)

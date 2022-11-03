@@ -11,7 +11,8 @@ import {
   CLASS_FULL_HEIGHT,
   CLASS_FULL_WIDTH,
   CLASS_IMAGE_OBJECT_FIT,
-  getNumOfSlidesSanitized
+  getNumOfSlidesSanitized,
+  adaptReactSlidyProps
 } from './settings.js'
 
 const MoleculeCarousel = forwardRef(
@@ -187,3 +188,5 @@ MoleculeCarousel.propTypes = {
 }
 
 export default MoleculeCarousel
+
+export {adaptReactSlidyProps}

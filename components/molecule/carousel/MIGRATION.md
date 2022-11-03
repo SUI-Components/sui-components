@@ -46,7 +46,7 @@ import MoleculeCarousel from '@s-ui/react-molecule-carousel'
 
 - The `useWhatever` is a reserved prefix for react-hooks.
 - Booleans MUST start with `isWathever` or `hasWhatever`.
-  - ~~`useFullWidth`~~ --> **`isFullWidth`** 
+  - ~~`useFullWidth`~~ --> **`isFullWidth`**
   - ~~`useFullHeight`~~ --> **`isFullHeight`**
   - ~~`keyboardNavigation`~~ --> **`hasKeyboardNavigation`**
   - ~~`infiniteLoop`~~ --> **`hasInfiniteLoop`**
@@ -113,8 +113,43 @@ return (
     onSlideAfter={afterSlideHandler}
     onSlideBefore={beforeSlideHandler}
     defaultSlide={index}
-    arrowLeft={ArrowLeftComponent}
-    arrowRight={ArrowRightComponent}
+    arrowLeft={<ArrowLeftComponent />}
+    arrowRight={<ArrowRightComponent />}
+  >
+    <img alt="1" src="./image1.jpg" />
+    <img alt="2" src="./image3.jpg" />
+    <img alt="3" src="./image3.jpg" />
+  </MoleculeCarousel>
+)
+```
+
+> The package also includes an exported props transposer (adapter) to easy migrate from react-slidy props to @s-ui/react-molecule-carousel. This will only be maintained in V1, so please create a refactor task to remove the usage of that adapter and transpose manually the relation naming.
+
+```jsx
+import MoleculeCarousel, {
+  adaptReactSlidyProps
+} from '@s-ui/react-molecule-carousel'
+
+return (
+  <MoleculeCarousel
+    {...adaptReactSlidyProps({
+      useFullWidth: true,
+      useFullHeight: true,
+      keyboardNavigation: true,
+      infiniteLoop: true,
+      lazyLoadSlider: true,
+      sanitize: true,
+      showArrows: true,
+      doAfterInit: afterInitHandler,
+      doAfterDestroy: afterDestroyHandler,
+      doAfterSlide: afterSlideHandler,
+      doBeforeSlide: beforeSlideHandler,
+      initialSlide: index,
+      ArrowLeft: ArrowLeftComponent,
+      ArrowRight: ArrowRightComponent,
+      ...
+      anyOtherProp: anyOtherPropValue
+    })}
   >
     <img alt="1" src="./image1.jpg" />
     <img alt="2" src="./image3.jpg" />

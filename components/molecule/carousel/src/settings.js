@@ -25,3 +25,37 @@ export function destroySlider(slidyInstance, doAfterDestroy) {
 
 export const getNumOfSlidesSanitized = ({numOfSlides, children, isSanitized}) =>
   isSanitized ? Math.min(numOfSlides, Children.count(children)) : numOfSlides
+
+export const adaptReactSlidyProps = ({
+  useFullWidth: isFullWidth,
+  useFullHeight: isFullHeight,
+  keyboardNavigation: hasKeyboardNavigation,
+  infiniteLoop: hasInfiniteLoop,
+  lazyLoadSlider: hasLazyLoadSlider,
+  sanitize: isSanitized,
+  showArrows: hasArrows,
+  doAfterInit: onInit,
+  doAfterDestroy: onDestroy,
+  doAfterSlide: onSlideAfter,
+  doBeforeSlide: onSlideBefore,
+  initialSlide: defaultSlide,
+  ArrowLeft,
+  ArrowRight,
+  ...props
+}) => ({
+  ...props,
+  isFullWidth,
+  isFullHeight,
+  hasKeyboardNavigation,
+  hasInfiniteLoop,
+  hasLazyLoadSlider,
+  isSanitized,
+  hasArrows,
+  onInit,
+  onDestroy,
+  onSlideAfter,
+  onSlideBefore,
+  defaultSlide,
+  arrowLeft: ArrowLeft ? <ArrowLeft /> : undefined,
+  arrowRight: ArrowRight ? <ArrowRight /> : undefined
+})

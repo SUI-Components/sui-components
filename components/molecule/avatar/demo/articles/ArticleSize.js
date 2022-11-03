@@ -12,7 +12,7 @@ import {
   UnorderedList
 } from '@s-ui/documentation-library'
 
-import MoleculeAvatar, {MOLECULE_AVATAR_SIZES} from '../src/index.js'
+import MoleculeAvatar, {MOLECULE_AVATAR_SIZES} from '../../src/index.js'
 
 const ArticleSize = ({className}) => {
   return (

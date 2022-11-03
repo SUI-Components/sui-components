@@ -43,4 +43,4 @@ return <MoleculeCarousel />
 
 > **Find full description and more examples in the [demo page](#).**
 
-## [Migration](<Migration.md>)
+## [Migration](<MIGRATION.md>)

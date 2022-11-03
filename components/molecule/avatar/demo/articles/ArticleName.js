@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Input, Paragraph} from '@s-ui/documentation-library'
 
-import MoleculeAvatar from '../src/index.js'
+import MoleculeAvatar from '../../src/index.js'
 
 const ArticleName = ({className}) => {
   const [name, setName] = useState('John Doe')

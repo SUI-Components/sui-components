@@ -81,7 +81,7 @@ describe(json.name, () => {
       const elementsText = ['slide 1', 'slide 2', 'slide 3', 'slide 4']
       const [elementText1, ...otherElementsText] = elementsText
       const props = {
-        lazyLoadSlider: false,
+        hasLazyLoadSlider: false,
         children: elementsText.map((elementText, index) => (
           <span key={index}>{elementText}</span>
         ))
@@ -117,13 +117,13 @@ describe(json.name, () => {
       })
     })
 
-    it('renders without problems with showArrows=false and has the arrows', () => {
+    it('renders without problems with hasArrows=false and has the arrows', () => {
       // Given
       const elementsText = ['slide 1', 'slide 2', 'slide 3', 'slide 4']
       const [arrowLeftText, arrowRightText] = ['arrowLeft', 'arrowRight']
       const props = {
-        lazyLoadSlider: false,
-        showArrows: true,
+        hasLazyLoadSlider: false,
+        hasArrows: true,
         children: elementsText.map((elementText, index) => (
           <span key={index}>{elementText}</span>
         )),
@@ -140,13 +140,13 @@ describe(json.name, () => {
       expect(arrowRightElement.innerHTML).to.equal(arrowRightText)
     })
 
-    it('renders without problems with showArrows=false and has NOT the arrows', () => {
+    it('renders without problems with hasArrows=false and has NOT the arrows', () => {
       // Given
       const elementsText = ['slide 1', 'slide 2', 'slide 3', 'slide 4']
       const [arrowLeftText, arrowRightText] = ['arrowLeft', 'arrowRight']
       const props = {
-        lazyLoadSlider: false,
-        showArrows: false,
+        hasLazyLoadSlider: false,
+        hasArrows: false,
         children: elementsText.map((elementText, index) => (
           <span key={index}>{elementText}</span>
         )),

@@ -1,4 +1,4 @@
-import {Children, forwardRef, useEffect, useRef, useState} from 'react'
+import {forwardRef, useEffect, useRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -10,14 +10,15 @@ import {
   BASE_CLASS,
   CLASS_FULL_HEIGHT,
   CLASS_FULL_WIDTH,
-  CLASS_IMAGE_OBJECT_FIT
+  CLASS_IMAGE_OBJECT_FIT,
+  getNumOfSlidesSanitized
 } from './settings.js'
 
 const MoleculeCarousel = forwardRef(
   (
     {
-      ArrowLeft,
-      ArrowRight,
+      arrowLeft,
+      arrowRight,
       children,
       classNameBase = BASE_CLASS,
       onDestroy,
@@ -28,31 +29,31 @@ const MoleculeCarousel = forwardRef(
       onNext,
       onPrevious,
       onSlide,
-      infiniteLoop = false,
+      hasInfiniteLoop = false,
       itemsToPreload = 1,
-      initialSlide = 0,
+      defaultSlide = 0,
+      slide,
       ease = 'ease',
-      lazyLoadSlider = true,
+      hasLazyLoadSlider = true,
       lazyLoadConfig = {offset: 150},
-      keyboardNavigation = false,
+      hasKeyboardNavigation = false,
       numOfSlides = 1,
-      sanitize = true,
-      slide = 0,
+      isSanitized = true,
       slideSpeed = 500,
-      showArrows = true,
+      hasArrows = true,
       isFullHeight = false,
       isFullWidth = true
     },
     forwardedRef
   ) => {
-    const [showSlider, setShowSlider] = useState(!lazyLoadSlider)
+    const [showSlider, setShowSlider] = useState(!hasLazyLoadSlider)
     const innerRef = useRef(null)
     const ref = useMergeRefs(forwardedRef, innerRef)
 
     useEffect(
       () => {
         let observer
-        if (lazyLoadSlider) {
+        if (hasLazyLoadSlider) {
           const initLazyLoadSlider = () => {
             // if we support IntersectionObserver, let's use it
             const {offset = 0} = lazyLoadConfig
@@ -81,8 +82,6 @@ const MoleculeCarousel = forwardRef(
       }
     }
 
-    const numOfSlidesSanitized = Math.min(numOfSlides, Children.count(children))
-
     return (
       <div
         ref={ref}
@@ -95,8 +94,8 @@ const MoleculeCarousel = forwardRef(
       >
         {showSlider && (
           <CarouselContainer
-            ArrowLeft={ArrowLeft}
-            ArrowRight={ArrowRight}
+            arrowLeft={arrowLeft}
+            arrowRight={arrowRight}
             children={children}
             classNameBase={classNameBase}
             onDestroy={onDestroy}
@@ -107,14 +106,18 @@ const MoleculeCarousel = forwardRef(
             onPrevious={onPrevious}
             onSlide={onSlide}
             ease={ease}
-            infiniteLoop={infiniteLoop}
-            initialSlide={initialSlide}
-            itemsToPreload={itemsToPreload}
-            keyboardNavigation={keyboardNavigation}
-            showArrows={showArrows}
+            hasInfiniteLoop={hasInfiniteLoop}
+            defaultSlide={defaultSlide}
             slide={slide}
+            itemsToPreload={itemsToPreload}
+            hasKeyboardNavigation={hasKeyboardNavigation}
+            hasArrows={hasArrows}
             slideSpeed={slideSpeed}
-            numOfSlides={sanitize ? numOfSlidesSanitized : numOfSlides}
+            numOfSlides={getNumOfSlidesSanitized({
+              isSanitized,
+              numOfSlides,
+              children
+            })}
           >
             {children}
           </CarouselContainer>
@@ -127,9 +130,9 @@ const MoleculeCarousel = forwardRef(
 MoleculeCarousel.displayName = 'MoleculeCarousel'
 MoleculeCarousel.propTypes = {
   /** Component to be used as the left arrow for the slider */
-  ArrowLeft: PropTypes.elementType,
+  arrowLeft: PropTypes.element,
   /** Component to be used as the right arrow for the slider */
-  ArrowRight: PropTypes.elementType,
+  arrowRight: PropTypes.element,
   /** Children to be used as slides for the slider */
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   /** Class base to create all clases for elements. Styles might break if you modify it. */
@@ -153,15 +156,17 @@ MoleculeCarousel.propTypes = {
   /** Determine the object-fit property for the images */
   imageObjectFit: PropTypes.oneOf(['cover', 'contain']),
   /** Indicates if the slider will start with the first slide once it ends */
-  infiniteLoop: PropTypes.bool,
+  hasInfiniteLoop: PropTypes.bool,
   /** Determine the number of items that will be preloaded */
   itemsToPreload: PropTypes.number,
   /** Determine the first slide to start with */
-  initialSlide: PropTypes.number,
+  defaultSlide: PropTypes.number,
+  /** Change dynamically the slide number, perfect to use with dots */
+  slide: PropTypes.number,
   /** Activate navigation by keyboard */
-  keyboardNavigation: PropTypes.bool,
+  hasKeyboardNavigation: PropTypes.bool,
   /** Determine if the slider will be lazy loaded using Intersection Observer */
-  lazyLoadSlider: PropTypes.bool,
+  hasLazyLoadSlider: PropTypes.bool,
   /** Configuration for lazy loading. Only needed if lazyLoadSlider is true */
   lazyLoadConfig: PropTypes.shape({
     /** Distance which the slider will be loaded */
@@ -170,11 +175,9 @@ MoleculeCarousel.propTypes = {
   /** Number of slides to show at once */
   numOfSlides: PropTypes.number,
   /** Determine if we want to sanitize the slides or take numberOfSlider directly */
-  sanitize: PropTypes.bool,
-  /** Change dynamically the slide number, perfect to use with dots */
-  slide: PropTypes.number,
+  isSanitized: PropTypes.bool,
   /** Determine if arrows should be shown */
-  showArrows: PropTypes.bool,
+  hasArrows: PropTypes.bool,
   /** Determine the speed of the sliding animation */
   slideSpeed: PropTypes.number,
   /** Use the full width of the container for the image */

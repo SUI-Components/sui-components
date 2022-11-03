@@ -3,5 +3,7 @@
 $base-class: '.DemoMoleculeCarousel';
 
 #{$base-class} {
-  // Do your magic
+  &-customArrow {
+    font-size: 3em;
+  }
 }

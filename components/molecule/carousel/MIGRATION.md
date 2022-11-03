@@ -44,12 +44,26 @@ import MoleculeCarousel from '@s-ui/react-molecule-carousel'
 
 3. Replace props (if needed)
 
-- ~~`useFullWidth`~~ --> **`isFullWidth`**: booleans MUST start with `isWathever` or `hasWhatever`. The `useWhatever` is a reserved prefix for react-hooks.
-- ~~`useFullHeight`~~ --> **`isFullHeight`**: booleans MUST start with `isWathever` or `hasWhatever`. The `useWhatever` is a reserved prefix for react-hooks.
-- ~~`doAfterInit`~~ --> **`onInit`**: handlers MUST have the `onWhatever` prefix in react .
-- ~~`doAfterDestroy`~~ --> **`onDestroy`**: handlers MUST have the `onWhatever` prefix in react.
-- ~~`doAfterSlide`~~ --> **`onSlideAfter`**: handlers MUST have the `onWhatever` prefix in react.
-- ~~`doBeforeSlide`~~ --> **`onSlideBefore`**: handlers MUST have the `onWhatever` prefix in react.
+- The `useWhatever` is a reserved prefix for react-hooks.
+- Booleans MUST start with `isWathever` or `hasWhatever`.
+  - ~~`useFullWidth`~~ --> **`isFullWidth`** 
+  - ~~`useFullHeight`~~ --> **`isFullHeight`**
+  - ~~`keyboardNavigation`~~ --> **`hasKeyboardNavigation`**
+  - ~~`infiniteLoop`~~ --> **`hasInfiniteLoop`**
+  - ~~`lazyLoadSlider`~~ --> **`hasLazyLoadSlider`**
+  - ~~`sanitize`~~ --> **`isSanitized`**
+  - ~~`showArrows`~~ --> **`hasArrows`**
+- Handlers MUST have the `onWhatever` prefix in react.
+  - ~~`doAfterInit`~~ --> **`onInit`**
+  - ~~`doAfterDestroy`~~ --> **`onDestroy`**
+  - ~~`doAfterSlide`~~ --> **`onSlideAfter`**
+  - ~~`doBeforeSlide`~~ --> **`onSlideBefore`**
+  - ~~`doBeforeSlide`~~ --> **`onSlideBefore`**
+- The initial state have the `defaultWahetever` prefix.
+  - ~~`initialSlide`~~ --> **`defaultSlide`**
+- Prop name has NOT first capital letter
+  - ~~`ArrowLeft`~~ --> **`arrowLeft`**
+  - ~~`ArrowRight`~~ --> **`arrowRight`**
 
 **from**
 
@@ -60,10 +74,18 @@ return (
   <Slidy
     useFullWidth
     useFullHeight
-    doAfterInit={AfterInit}
-    doAfterDestroy={AfterDestroy}
-    doAfterSlide={AfterSlide}
-    doBeforeSlide={BeforeSlide}
+    keyboardNavigation
+    infiniteLoop
+    lazyLoadSlider
+    sanitize
+    showArrows
+    doAfterInit={afterInitHandler}
+    doAfterDestroy={afterDestroyHandler}
+    doAfterSlide={afterSlideHandler}
+    doBeforeSlide={beforeSlideHandler}
+    initialSlide={index}
+    ArrowLeft={ArrowLeftComponent}
+    ArrowRight={ArrowRightComponent}
   >
     <img alt="1" src="./image1.jpg" />
     <img alt="2" src="./image3.jpg" />
@@ -81,10 +103,18 @@ return (
   <MoleculeCarousel
     isFullWidth
     isFullHeight
-    onInit={AfterInit}
-    onDestroy={AfterDestroy}
-    onSlideAfter={AfterSlide}
-    onSlideBefore={BeforeSlide}
+    hasKeyboardNavigation
+    hasInfiniteLoop
+    hasLazyLoadSlider
+    isSanitized
+    hasArrows
+    onInit={afterInitHandler}
+    onDestroy={afterDestroyHandler}
+    onSlideAfter={afterSlideHandler}
+    onSlideBefore={beforeSlideHandler}
+    defaultSlide={index}
+    arrowLeft={ArrowLeftComponent}
+    arrowRight={ArrowRightComponent}
   >
     <img alt="1" src="./image1.jpg" />
     <img alt="2" src="./image3.jpg" />

@@ -3,14 +3,16 @@ import {Children, useEffect, useRef, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+
 import CarouselArrow from './CarouselArrow.js'
 import CarouselItem from './CarouselItem.js'
 import {destroySlider, getItemsToRender, handleFn} from './settings.js'
 import slidy from './slidy.js'
 
 const CarouselContainer = ({
-  ArrowLeft,
-  ArrowRight,
+  arrowLeft,
+  arrowRight,
   children,
   classNameBase,
   onNext,
@@ -21,13 +23,13 @@ const CarouselContainer = ({
   onSlideAfter,
   onSlideBefore,
   ease,
-  infiniteLoop,
-  initialSlide,
-  itemsToPreload,
-  keyboardNavigation,
-  numOfSlides,
-  showArrows,
+  hasInfiniteLoop,
+  defaultSlide,
   slide,
+  itemsToPreload,
+  hasKeyboardNavigation,
+  numOfSlides,
+  hasArrows,
   slideSpeed
 }) => {
   const [slidyInstance, setSlidyInstance] = useState({
@@ -36,7 +38,10 @@ const CarouselContainer = ({
     prev: handleFn(),
     updateItems: handleFn()
   })
-  const [index, setIndex] = useState(initialSlide)
+  const [index, setIndex, , initialSlide] = useControlledState(
+    slide,
+    defaultSlide
+  )
   const [maxIndex, setMaxIndex] = useState(initialSlide)
   const sliderContainerDOMEl = useRef(null)
   const slidesDOMEl = useRef(null)
@@ -44,10 +49,12 @@ const CarouselContainer = ({
   const items = Children.toArray(children).filter(child => child !== null)
 
   useEffect(
-    function () {
-      slide !== index && handleFn(slidyInstance.goTo)(slide)
+    () => {
+      if (slide !== index) {
+        handleFn(slidyInstance.goTo)(slide)
+      }
     },
-    [slide] // eslint-disable-line
+    [slide, index] // eslint-disable-line
   )
 
   useEffect(
@@ -76,7 +83,7 @@ const CarouselContainer = ({
               ...other,
               index,
               itemsLength: items.length,
-              initialSlide,
+              defaultSlide,
               numOfSlides,
               maxIndex
             },
@@ -84,7 +91,7 @@ const CarouselContainer = ({
           ),
         numOfSlides,
         slideSpeed,
-        infiniteLoop,
+        infiniteLoop: hasInfiniteLoop,
         slidesDOMEl: slidesDOMEl.current,
         initialSlide: index,
         items: items.length,
@@ -135,7 +142,7 @@ const CarouselContainer = ({
         maxIndex
       })
 
-      if (keyboardNavigation) {
+      if (hasKeyboardNavigation) {
         handleKeyboard = e => {
           if (e.keyCode === 39) {
             handleFn(slidyInstance.next)(e)
@@ -156,7 +163,7 @@ const CarouselContainer = ({
             maxIndex
           })
         )
-        if (keyboardNavigation) {
+        if (hasKeyboardNavigation) {
           document.removeEventListener('keydown', handleKeyboard)
         }
       }
@@ -183,35 +190,37 @@ const CarouselContainer = ({
   return (
     <>
       <CarouselArrow
-        as={ArrowLeft}
         className={cx(
           `${classNameBase}-arrow`,
           `${classNameBase}-arrowLeft`,
-          !ArrowLeft && `${classNameBase}-prev`
+          arrowLeft ? `${classNameBase}-arrowCustom` : `${classNameBase}-prev`
         )}
-        label={ArrowLeft ? null : 'Previous'}
-        role={ArrowLeft ? null : 'button'}
-        showArrows={showArrows}
-        disabled={index === 0 && !infiniteLoop}
+        label={arrowLeft ? null : 'Previous'}
+        role={arrowLeft ? null : 'button'}
+        hasArrows={hasArrows}
+        disabled={index === 0 && !hasInfiniteLoop}
         onClick={handlePrev}
-      />
+      >
+        {arrowLeft}
+      </CarouselArrow>
       <CarouselArrow
-        as={ArrowRight}
         className={cx(
           `${classNameBase}-arrow`,
           `${classNameBase}-arrowRight`,
-          !ArrowRight && `${classNameBase}-next`
+          arrowRight ? `${classNameBase}-arrowCustom` : `${classNameBase}-next`
         )}
-        label={ArrowRight ? null : 'Next'}
-        role={ArrowRight ? null : 'button'}
-        showArrows={showArrows}
+        label={arrowRight ? null : 'Next'}
+        role={arrowRight ? null : 'button'}
+        hasArrows={hasArrows}
         disabled={
           (items.length <= numOfSlides ||
             index === items.length - numOfSlides) &&
-          !infiniteLoop
+          !hasInfiniteLoop
         }
         onClick={handleNext}
-      />
+      >
+        {arrowRight}
+      </CarouselArrow>
       <div ref={sliderContainerDOMEl}>
         <ul className={cx(`${classNameBase}-itemsList`)} ref={slidesDOMEl}>
           {Children.map(itemsToRender, child => (
@@ -229,10 +238,10 @@ const CarouselContainer = ({
 }
 
 CarouselContainer.propTypes = {
-  /** Component to be used as the left arrow for the slider */
-  ArrowLeft: PropTypes.elementType,
-  /** Component to be used as the right arrow for the slider */
-  ArrowRight: PropTypes.elementType,
+  /** Element to be used as the left arrow for the slider */
+  arrowLeft: PropTypes.element,
+  /** Element to be used as the right arrow for the slider */
+  arrowRight: PropTypes.element,
   /** Children to be used as slides for the slider */
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   /** Class base to create all clases for elements. Styles might break if you modify it. */
@@ -254,17 +263,17 @@ CarouselContainer.propTypes = {
   /** Ease mode to use on translations */
   ease: PropTypes.string,
   /** Indicates if the slider will start with the first slide once it ends */
-  infiniteLoop: PropTypes.bool,
+  hasInfiniteLoop: PropTypes.bool,
   /** Determine the first slide to start with */
-  initialSlide: PropTypes.number,
+  defaultSlide: PropTypes.number,
   /** Determine the number of items that will be preloaded */
   itemsToPreload: PropTypes.number,
   /** Activate navigation by keyboard */
-  keyboardNavigation: PropTypes.bool,
+  hasKeyboardNavigation: PropTypes.bool,
   /** Number of slides to show at once */
   numOfSlides: PropTypes.number,
   /** Determine if arrows should be shown */
-  showArrows: PropTypes.bool,
+  hasArrows: PropTypes.bool,
   /** Change dynamically the slide number, perfect to use with dots */
   slide: PropTypes.number,
   /** Determine the speed of the sliding animation */

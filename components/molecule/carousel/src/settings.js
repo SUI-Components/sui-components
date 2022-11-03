@@ -1,3 +1,5 @@
+import {Children} from 'react'
+
 export const BASE_CLASS = 'sui-MoleculeCarousel'
 
 export const CLASS_IMAGE_OBJECT_FIT = `${BASE_CLASS}--image-object-fit`
@@ -20,3 +22,6 @@ export function destroySlider(slidyInstance, doAfterDestroy) {
   slidyInstance && slidyInstance.clean() && slidyInstance.destroy()
   doAfterDestroy()
 }
+
+export const getNumOfSlidesSanitized = ({numOfSlides, children, isSanitized}) =>
+  isSanitized ? Math.min(numOfSlides, Children.count(children)) : numOfSlides

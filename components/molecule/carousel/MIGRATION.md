@@ -62,6 +62,7 @@ import MoleculeCarousel from '@s-ui/react-molecule-carousel'
 - The initial state have the `defaultWahetever` prefix.
   - ~~`initialSlide`~~ --> **`defaultSlide`**
 - Prop name has NOT first capital letter
+- Prop values SHOULD better be provided as element (not elementType) (nodes over Component entities)
   - ~~`ArrowLeft`~~ --> **`arrowLeft`**
   - ~~`ArrowRight`~~ --> **`arrowRight`**
 

@@ -42,17 +42,17 @@ import MoleculeCarousel from '@s-ui/react-molecule-carousel'
 
 **from**
 ```jsx
-import MoleculeCarousel from '@s-ui/react-molecule-carousel'
+import Slidy from 'react-slidy'
 
 return (
-  <MoleculeCarousel
+  <Slidy
     useFullWidth
     useFullHeight
   >
     <img alt="1" src="./image1.jpg" />
     <img alt="2" src="./image3.jpg" />
     <img alt="3" src="./image3.jpg" />
-  </MoleculeCarousel>
+  </Slidy>
 )
 ```
 **to**

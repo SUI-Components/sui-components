@@ -1,6 +1,6 @@
 # MIGRATION
 
-From react-slidy 4 to @s-ui/react-molecule-carousel
+From [react-slidy](https://github.com/midudev/react-slidy) 4 to @s-ui/react-molecule-carousel
 
 1. Update the dependency
 

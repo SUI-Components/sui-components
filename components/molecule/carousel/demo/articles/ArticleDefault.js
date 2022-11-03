@@ -7,7 +7,9 @@ import MoleculeCarousel from '../../src/index.js'
 const ArticleDefault = ({className}) => (
   <Article className={className}>
     <H2>Default</H2>
-    <Paragraph></Paragraph>
+    <Paragraph>
+      By default, the component expect to receive as child some images.
+    </Paragraph>
     <MoleculeCarousel>
       <img
         alt="1"

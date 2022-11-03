@@ -16,7 +16,7 @@ import MoleculeAvatar, {
   MOLECULE_AVATAR_BADGE_PLACEMENTS,
   MOLECULE_AVATAR_BADGE_SIZES,
   MOLECULE_AVATAR_BADGE_STATUSES
-} from '../src/index.js'
+} from '../../src/index.js'
 
 const ArticleBadge = ({className}) => {
   return (

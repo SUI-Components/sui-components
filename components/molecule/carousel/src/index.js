@@ -20,11 +20,14 @@ const MoleculeCarousel = forwardRef(
       ArrowRight,
       children,
       classNameBase = BASE_CLASS,
-      doAfterDestroy,
-      doAfterInit,
-      doAfterSlide,
-      doBeforeSlide,
+      onDestroy,
+      onInit,
+      onSlideAfter,
+      onSlideBefore,
       imageObjectFit,
+      onNext,
+      onPrevious,
+      onSlide,
       infiniteLoop = false,
       itemsToPreload = 1,
       initialSlide = 0,
@@ -96,10 +99,13 @@ const MoleculeCarousel = forwardRef(
             ArrowRight={ArrowRight}
             children={children}
             classNameBase={classNameBase}
-            doAfterDestroy={doAfterDestroy}
-            doAfterInit={doAfterInit}
-            doAfterSlide={doAfterSlide}
-            doBeforeSlide={doBeforeSlide}
+            onDestroy={onDestroy}
+            onInit={onInit}
+            onSlideAfter={onSlideAfter}
+            onSlideBefore={onSlideBefore}
+            onNext={onNext}
+            onPrevious={onPrevious}
+            onSlide={onSlide}
             ease={ease}
             infiniteLoop={infiniteLoop}
             initialSlide={initialSlide}
@@ -129,13 +135,19 @@ MoleculeCarousel.propTypes = {
   /** Class base to create all clases for elements. Styles might break if you modify it. */
   classNameBase: PropTypes.string,
   /** Function that will be executed AFTER destroying the slider. Useful for clean up stuff */
-  doAfterDestroy: PropTypes.func,
+  onDestroy: PropTypes.func,
   /** Function that will be executed AFTER initializing  the slider */
-  doAfterInit: PropTypes.func,
+  onInit: PropTypes.func,
   /** Function that will be executed AFTER slide transition has ended */
-  doAfterSlide: PropTypes.func,
+  onSlideAfter: PropTypes.func,
+  /** change index handler **/
+  onSlide: PropTypes.func,
   /** Function that will be executed BEFORE slide is happening */
-  doBeforeSlide: PropTypes.func,
+  onSlideBefore: PropTypes.func,
+  /** next handler **/
+  onNext: PropTypes.func,
+  /** previous handler **/
+  onPrevious: PropTypes.func,
   /** Ease mode to use on translations */
   ease: PropTypes.string,
   /** Determine the object-fit property for the images */

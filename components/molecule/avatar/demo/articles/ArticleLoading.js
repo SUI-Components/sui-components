@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import MoleculeAvatar from '../src/index.js'
+import MoleculeAvatar from '../../src/index.js'
 
 const ArticleLoading = ({className}) => {
   return (

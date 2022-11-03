@@ -10,9 +10,10 @@ import ReactDOM from 'react-dom'
 
 import {expect} from 'chai'
 import PropTypes from 'prop-types'
-
 import sinon from 'sinon'
+
 import {fireEvent, waitFor} from '@testing-library/react'
+
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 

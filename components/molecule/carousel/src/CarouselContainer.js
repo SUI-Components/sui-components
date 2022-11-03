@@ -13,10 +13,13 @@ const CarouselContainer = ({
   ArrowRight,
   children,
   classNameBase,
-  doAfterDestroy,
-  doAfterInit,
-  doAfterSlide,
-  doBeforeSlide,
+  onNext,
+  onPrevious,
+  onSlide,
+  onDestroy,
+  onInit,
+  onSlideAfter,
+  onSlideBefore,
   ease,
   infiniteLoop,
   initialSlide,
@@ -52,8 +55,33 @@ const CarouselContainer = ({
       let handleKeyboard
       const slidyInstance = slidy(sliderContainerDOMEl.current, {
         ease,
-        doAfterSlide: handleFn(doAfterSlide),
-        doBeforeSlide: handleFn(doBeforeSlide),
+        doAfterSlide: ({currentSlide, ...other}, ...args) =>
+          handleFn(onSlideAfter)(
+            {
+              currentSlide,
+              ...other,
+              index,
+              itemsLength: items.length,
+              initialSlide,
+              numOfSlides,
+              maxIndex
+            },
+            ...args
+          ),
+        doBeforeSlide: ({currentSlide, nextSlide, ...other}, ...args) =>
+          handleFn(onSlideBefore)(
+            {
+              currentSlide,
+              nextSlide,
+              ...other,
+              index,
+              itemsLength: items.length,
+              initialSlide,
+              numOfSlides,
+              maxIndex
+            },
+            ...args
+          ),
         numOfSlides,
         slideSpeed,
         infiniteLoop,
@@ -63,26 +91,71 @@ const CarouselContainer = ({
         onNext: nextIndex => {
           setIndex(nextIndex)
           nextIndex > maxIndex && setMaxIndex(nextIndex)
+          handleFn(onNext)({
+            index: nextIndex,
+            itemsLength: items.length,
+            initialSlide,
+            numOfSlides,
+            maxIndex
+          })
+          handleFn(onSlide)({
+            index: nextIndex,
+            itemsLength: items.length,
+            initialSlide,
+            numOfSlides,
+            maxIndex
+          })
           return nextIndex
         },
         onPrev: nextIndex => {
           setIndex(nextIndex)
+          handleFn(onPrevious)({
+            index: nextIndex,
+            itemsLength: items.length,
+            initialSlide,
+            numOfSlides,
+            maxIndex
+          })
+          handleFn(onSlide)({
+            index: nextIndex,
+            itemsLength: items.length,
+            initialSlide,
+            numOfSlides,
+            maxIndex
+          })
           return nextIndex
         }
       })
       setSlidyInstance(slidyInstance)
-      handleFn(doAfterInit)()
+      handleFn(onInit)({
+        initialSlide,
+        itemsLength: items.length,
+        numOfSlides,
+        index,
+        maxIndex
+      })
 
       if (keyboardNavigation) {
         handleKeyboard = e => {
-          if (e.keyCode === 39) handleFn(slidyInstance.next)(e)
-          else if (e.keyCode === 37) handleFn(slidyInstance.prev)(e)
+          if (e.keyCode === 39) {
+            handleFn(slidyInstance.next)(e)
+          } else if (e.keyCode === 37) {
+            handleFn(slidyInstance.prev)(e)
+          }
         }
         document.addEventListener('keydown', handleKeyboard)
       }
 
       return () => {
-        destroySlider(slidyInstance, handleFn(doAfterDestroy))
+        destroySlider(slidyInstance, () =>
+          handleFn(onDestroy)({
+            initialSlide,
+            itemsLength: items.length,
+            numOfSlides,
+            index,
+            maxIndex
+          })
+        )
         if (keyboardNavigation) {
           document.removeEventListener('keydown', handleKeyboard)
         }
@@ -165,13 +238,19 @@ CarouselContainer.propTypes = {
   /** Class base to create all clases for elements. Styles might break if you modify it. */
   classNameBase: PropTypes.string,
   /** Function that will be executed AFTER destroying the slider. Useful for clean up stuff */
-  doAfterDestroy: PropTypes.func,
+  onDestroy: PropTypes.func,
   /** Function that will be executed AFTER initializing  the slider */
-  doAfterInit: PropTypes.func,
+  onInit: PropTypes.func,
   /** Function that will be executed AFTER slide transition has ended */
-  doAfterSlide: PropTypes.func,
+  onSlideAfter: PropTypes.func,
+  /** change index handler **/
+  onSlide: PropTypes.func,
   /** Function that will be executed BEFORE slide is happening */
-  doBeforeSlide: PropTypes.func,
+  onSlideBefore: PropTypes.func,
+  /** next handler **/
+  onNext: PropTypes.func,
+  /** previous handler **/
+  onPrevious: PropTypes.func,
   /** Ease mode to use on translations */
   ease: PropTypes.string,
   /** Indicates if the slider will start with the first slide once it ends */

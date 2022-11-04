@@ -1,17 +1,21 @@
+import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {
   Article,
   Code,
   H2,
-  ListItem,
   Paragraph,
-  UnorderedList
+  RadioButton,
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
 
 import MoleculeCarousel from '../../src/index.js'
 
-const ArticleHandlers = ({className}) => {
+const ArticleControlled = ({className}) => {
+  const [index, setIndex] = useState(undefined)
+  const handleOnChange = (event, value) => setIndex(value)
   const handle =
     handlerName =>
     (...args) => {
@@ -19,25 +23,25 @@ const ArticleHandlers = ({className}) => {
     }
   return (
     <Article className={className}>
-      <H2>Handlers</H2>
-      <Paragraph>The carousel has teh following handlers:</Paragraph>
-      <UnorderedList>
-        <ListItem>
-          <Code>onInit</Code>: Function that will be executed AFTER initializing
-          the slider
-        </ListItem>
-        <ListItem>
-          <Code>onDestroy</Code>: Function that will be executed AFTER
-          destroying the slider. Useful for clean up stuff
-        </ListItem>
-        <ListItem>
-          <Code>onSlide</Code>: Function that will be executed every time the
-          index position changes
-        </ListItem>
-      </UnorderedList>
+      <H2>Controlled</H2>
+      <Paragraph>
+        Take control of visible element using the <Code>slide</Code> (number)
+        prop
+      </Paragraph>
+      <div>
+        <RadioButtonGroup value={index} onChange={handleOnChange}>
+          {new Array(4).fill('').map((_, currentIndex) => (
+            <RadioButton
+              checked={index === currentIndex}
+              label={`${currentIndex}`}
+              value={currentIndex}
+            />
+          ))}
+        </RadioButtonGroup>
+      </div>
+      <br />
       <MoleculeCarousel
-        onInit={handle('onInit')}
-        onDestroy={handle('onDestroy')}
+        slide={index}
         onSlideAfter={handle('onSlideAfter')}
         onSlideBefore={handle('onSlideBefore')}
         onPrevious={handle('onPrevious')}
@@ -65,8 +69,8 @@ const ArticleHandlers = ({className}) => {
   )
 }
 
-ArticleHandlers.propTypes = {
+ArticleControlled.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleHandlers
+export default ArticleControlled

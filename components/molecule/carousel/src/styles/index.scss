@@ -19,6 +19,26 @@ $base-class: '.sui-MoleculeCarousel';
     transition: opacity 0.3s ease;
     width: auto;
     z-index: 1;
+    background-color: $c-gray-light-2;
+    border: none;
+
+    &:focus {
+      background-color: $c-gray-light-3;
+      outline: none;
+    }
+    &:hover {
+      background-color: $c-gray-light-4;
+    }
+
+    &Custom {
+      background-color: transparent;
+      &:focus {
+        background-color: transparent;
+      }
+      &:hover {
+        background-color: transparent;
+      }
+    }
 
     &Left {
       left: 0;

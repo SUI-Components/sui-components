@@ -1,35 +1,37 @@
 import PropTypes from 'prop-types'
 
 const CarouselArrow = ({
-  as: As = 'span',
   label,
   role,
   disabled,
   onClick,
-  showArrows,
+  hasArrows,
   className,
+  children,
   ...props
 }) => {
-  if (!showArrows) return null
+  if (!hasArrows) return null
   return (
-    <As
+    <button
+      type="button"
       aria-label={label}
-      role={role}
       className={className}
       disabled={disabled}
       onClick={onClick}
       {...props}
-    />
+    >
+      {children}
+    </button>
   )
 }
 
 CarouselArrow.propTypes = {
-  as: PropTypes.element,
+  children: PropTypes.node,
   label: PropTypes.string,
   role: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  showArrows: PropTypes.bool,
+  hasArrows: PropTypes.bool,
   className: PropTypes.string
 }
 

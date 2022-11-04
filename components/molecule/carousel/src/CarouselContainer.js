@@ -135,10 +135,10 @@ const CarouselContainer = ({
       })
       setSlidyInstance(slidyInstance)
       handleFn(onInit)({
-        initialSlide,
-        itemsLength: items.length,
-        numOfSlides,
         index,
+        itemsLength: items.length,
+        initialSlide,
+        numOfSlides,
         maxIndex
       })
 
@@ -223,8 +223,12 @@ const CarouselContainer = ({
       </CarouselArrow>
       <div ref={sliderContainerDOMEl}>
         <ul className={cx(`${classNameBase}-itemsList`)} ref={slidesDOMEl}>
-          {Children.map(itemsToRender, child => (
+          {Children.map(itemsToRender, (child, currentIndex) => (
             <CarouselItem
+              data-index={currentIndex}
+              aria-hidden={
+                currentIndex < index || currentIndex > index + numOfSlides
+              }
               classNameBase={classNameBase}
               itemsLength={numOfSlides}
             >

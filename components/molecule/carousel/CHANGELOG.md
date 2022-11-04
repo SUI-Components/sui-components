@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.3.0 (2022-11-04)
+
+
+### Features
+
+* **components/molecule/carousel:** add demos and refactor naming ([4f66c9f](https://github.com/SUI-Components/sui-components/commit/4f66c9fa3a8abbab91a1f4fb27ccdd0f2240b598))
+* **components/molecule/carousel:** add the transposer documentation ([8bb8d92](https://github.com/SUI-Components/sui-components/commit/8bb8d920110ee156044a3e52b5164d7f9b39186f))
+
+
+
 # 1.2.0 (2022-11-03)
 
 

@@ -1,0 +1,159 @@
+.sui-AtomButton {
+  $root: &;
+
+  // Special custom property.
+  --color-inverted: #{$c-white};
+  // Basic custom properties.
+  --background-color: var(--color-main);
+  --border-color: var(--color-main);
+  --border-radius: #{$bdrs-atom-button};
+  --color: var(--color-inverted);
+
+  &-group {
+    &--middle#{$root} {
+      --border-radius: 0;
+    }
+
+    &--first#{$root} {
+      --border-radius: #{$bdrs-atom-button-first};
+    }
+
+    &--last#{$root} {
+      --border-radius: #{$bdrs-atom-button-last};
+    }
+
+    &--selected#{$root} {
+      --border-radius: #{$bdrs-atom-button-group-selected};
+    }
+  }
+
+  // Links
+  &--link {
+    --background-color: transparent;
+    --color: var(--color-main);
+    --text-align: center;
+
+    &#{$root}--negative {
+      &#{$root}--focused,
+      &:active {
+        --background-color: transparent;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          --background-color: transparent;
+        }
+      }
+    }
+  }
+
+  // Colors
+  @each $name, $pair in $c-atom-button-colors {
+    $color-main: nth($pair, 1);
+
+    &--#{$name} {
+      --color-main: #{$color-main};
+      --color-focused: #{if(
+          length($pair) > 1,
+          nth($pair, 2),
+          color-variation($color-main, -1)
+        )};
+      --color-focused-inverted: #{color-variation($color-main, 4)};
+    }
+  }
+
+  // Designs
+  &--solid {
+    &#{$root}--focused,
+    &:active {
+      --background-color: var(--color-focused);
+      --border-color: var(--color-focused);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        --background-color: var(--color-focused);
+        --border-color: var(--color-focused);
+      }
+    }
+
+    &#{$root}--negative {
+      --background-color: var(--color-inverted);
+      --border-color: var(--color-inverted);
+      --color: var(--color-main);
+    }
+  }
+
+  &--outline,
+  &--flat {
+    --background-color: unset;
+    --color: var(--color-main);
+
+    &#{$root}--focused,
+    &:active {
+      --background-color: var(--color-focused-inverted);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        --background-color: var(--color-focused-inverted);
+      }
+    }
+
+    &#{$root}--negative {
+      --border-color: var(--color-inverted);
+
+      &#{$root}--focused,
+      &:active {
+        --background-color: var(--color-focused);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          --background-color: var(--color-focused);
+        }
+      }
+    }
+  }
+
+  // Shapes
+  &--squared {
+    --border-radius: 0;
+  }
+
+  // Alignment
+  &--center {
+    --text-align: center;
+  }
+
+  &--left {
+    --text-align: left;
+  }
+
+  &--right {
+    --text-align: right;
+  }
+
+  // Sizes
+  &--large {
+    --border-radius: #{$bdrs-atom-button-large};
+  }
+
+  // Modifiers
+  &--negative {
+    --color: var(--color-inverted);
+
+    &#{$root}--focused,
+    &:active {
+      --background-color: var(--color-focused-inverted);
+      --border-color: var(--color-focused-inverted);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        --background-color: var(--color-focused-inverted);
+        --border-color: var(--color-focused-inverted);
+      }
+    }
+  }
+}

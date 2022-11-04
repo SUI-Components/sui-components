@@ -6,55 +6,43 @@ $c-primary-flat-hover: color-variation($c-primary, 4) !default;
 $c-atom-button-colors: (
   'primary': (
     $c-primary,
-    $c-white,
     $c-primary-hover,
     $c-primary-flat-hover
   ),
   'accent': (
     $c-accent,
-    $c-white,
     $c-accent-hover,
     $c-accent-flat-hover
   ),
   'neutral': (
-    $c-gray,
-    $c-white
+    $c-gray
   ),
   'success': (
-    $c-success,
-    $c-white
+    $c-success
   ),
   'alert': (
-    $c-alert,
-    $c-white
+    $c-alert
   ),
   'error': (
-    $c-error,
-    $c-white
+    $c-error
   ),
   'social-facebook': (
-    $c-facebook,
-    $c-white
+    $c-facebook
   ),
   'social-twitter': (
-    $c-twitter,
-    $c-white
+    $c-twitter
   ),
   'social-google': (
-    $c-google,
-    $c-white
+    $c-google
   ),
   'social-youtube': (
-    $c-youtube,
-    $c-white
+    $c-youtube
   ),
   'social-whatsapp': (
-    $c-whatsapp,
-    $c-white
+    $c-whatsapp
   ),
   'social-instagram': (
-    $c-instagram,
-    $c-white
+    $c-instagram
   )
 ) !default;
 
@@ -114,7 +102,7 @@ $td-atom-button-link: none !default;
 
 // Sets active states when button is not disabled
 @mixin button-focused {
-  &#{$base-class}--focused,
+  &.sui-AtomButton--focused,
   &:active {
     @content;
   }
@@ -126,9 +114,9 @@ $td-atom-button-link: none !default;
 }
 
 @mixin button-icon($size, $margin) {
-  & #{$base-class}-leftIcon,
-  & #{$base-class}-rightIcon,
-  & #{$base-class}-centerIcon {
+  & .sui-AtomButton-leftIcon,
+  & .sui-AtomButton-rightIcon,
+  & .sui-AtomButton-centerIcon {
     &:not(& [class*='Icon']) {
       height: $size;
       width: $size;
@@ -139,11 +127,11 @@ $td-atom-button-link: none !default;
     }
   }
 
-  & #{$base-class}-leftIcon {
+  & .sui-AtomButton-leftIcon {
     margin-right: $margin;
   }
 
-  & #{$base-class}-rightIcon {
+  & .sui-AtomButton-rightIcon {
     margin-left: $margin;
   }
 }

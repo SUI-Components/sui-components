@@ -1,4 +1,4 @@
-@keyframes spin {
+@keyframes atom-button-spin {
   0% {
     transform: rotate(0deg);
   }
@@ -13,7 +13,7 @@
   border-color: currentcolor currentcolor transparent transparent;
   border-style: solid;
   border-radius: 9999px;
-  animation: spin 1s linear infinite;
+  animation: 'atom-button-spin' 1s linear infinite;
   width: 1em;
   height: 1em;
   box-sizing: border-box;

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.21.0 (2022-11-07)
+
+
+### Bug Fixes
+
+* **components/atom/textarea:** Fix issue with paddings in textarea ([396ba14](https://github.com/SUI-Components/sui-components/commit/396ba1425c7e8a652cd039dfbc761f65249ac305))
+
+
+
 # 2.20.0 (2022-10-06)
 
 

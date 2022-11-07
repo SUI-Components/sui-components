@@ -3,10 +3,7 @@ $long-num-lines: 7 !default;
 $short-num-lines-atom-textarea: $short-num-lines !default;
 $long-num-lines-atom-textarea: $long-num-lines !default;
 
-$p-atom-textarea: 2px !default;
-$pm-atom-textarea: $p-m !default; // deprecated
-$pt-atom-textarea: $pm-atom-textarea !default;
-$pl-atom-textarea: $p-l !default;
+$p-atom-textarea: $p-m !default;
 $ff-atom-textarea: $ff-sans-serif !default;
 $fz-atom-textarea: $fz-base !default;
 $lh-atom-textarea: $lh-l !default;

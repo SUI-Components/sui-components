@@ -235,7 +235,7 @@ jobs:
       - name: Deploy
         id: deploy
         run: |
-          npm i -g vercel --no-save --no-fund --no-audit --no-scripts
+          npm i -g vercel deploy --prebuilt --no-save --no-fund --no-audit --no-scripts
           DEPLOYMENT_URL=$(vercel --token $VERCEL_TOKEN --yes $VERCEL_PARAMS)
           echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
         env:

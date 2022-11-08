@@ -1,6 +1,6 @@
 # Welcome to SUI Components
 
-### SUI Components is an Open-Source, high quality library of React components that empowers teams to craft any product with ease.
+### SUI Components is an Open-Source, high quality library of React components that empower teams to craft any product with ease.
 
 <a href="https://github.com/SUI-Components/sui-components/issues/new/choose" target="_blank">Report a bug</a>
 

@@ -236,7 +236,7 @@ $base-class-step: #{$base-class}Step;
       + #{$base-class-step}Connector {
         height: 100%;
         #{$base-class-step}ConnectorLine {
-          width: calc(100% - #{2 * ($m-stepper+ $bdw-stepper)});
+          width: $w-stepper-separator-horizontal;
           height: $h-stepper;
           margin: 3 * $sz-base $m-stepper 0 $m-stepper;
         }

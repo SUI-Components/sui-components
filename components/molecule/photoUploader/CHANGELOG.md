@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.22.0 (2022-11-08)
+
+
+### Features
+
+* **components/molecule/photoUploader:** send extended info on photos uploaded callback ([b925591](https://github.com/SUI-Components/sui-components/commit/b925591397126fbabee20e89b25c217738681c6b))
+
+
+
 # 2.21.0 (2022-07-11)
 
 

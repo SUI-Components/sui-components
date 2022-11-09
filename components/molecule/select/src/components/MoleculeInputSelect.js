@@ -20,8 +20,12 @@ const MoleculeInputSelect = props => {
 
   return (
     <div className={CLASS_CONTAINER} onClick={!disabled ? onClick : null}>
-      <Injector {...props}>{children}</Injector>
-      <span className={classNames}>{iconArrow}</span>
+      <Injector
+        rightIcon={<span className={classNames}>{iconArrow}</span>}
+        {...props}
+      >
+        {children}
+      </Injector>
     </div>
   )
 }

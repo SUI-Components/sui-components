@@ -12,9 +12,11 @@ export const ACTIONABLE_ONLY_PROPS = [
 export const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
 
 export const SIZES = {
+  XLARGE: 'xlarge',
   LARGE: 'large',
   MEDIUM: 'medium',
-  SMALL: 'small'
+  SMALL: 'small',
+  XSMALL: 'xsmall'
 }
 
 export const LINK_TYPES = {

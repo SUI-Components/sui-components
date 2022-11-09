@@ -13,7 +13,7 @@
   "dependencies": {
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-icon": "1",
-    "@s-ui/react-atom-input": "5",
+    "@s-ui/react-atom-input": "5.22.0-beta.0",
     "react-use": "17.4.0"
   }
 }

@@ -16,8 +16,8 @@
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-molecule-autosuggest-field": "2",
     "@s-ui/react-molecule-dropdown-option": "2",
-    "@s-ui/react-molecule-input-tags": "2",
-    "@s-ui/react-molecule-select": "1",
+     "@s-ui/react-molecule-input-tags": "2.25.0-beta.1",
+    "@s-ui/react-molecule-select": "1.57.0-beta.0",
     "axios": "0.21.4"
   }
 }

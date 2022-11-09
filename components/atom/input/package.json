@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-input",
-  "version": "5.22.0",
+  "version": "5.22.0-beta.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "dependencies": {
     "@s-ui/react-hooks": "1",
     "@s-ui/react-primitive-polymorphic-element": "1",
-    "imask": "3.4.0"
+    "react-imask": "6.4.3"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

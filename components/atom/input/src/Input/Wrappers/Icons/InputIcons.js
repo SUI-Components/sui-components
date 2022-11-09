@@ -2,13 +2,11 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {
-  BASE_CLASS_ICON,
   BASE_CLASS_ICON_COMPONENT,
   BASE_CLASS_ICON_COMPONENT_HANDLER,
   BASE_CLASS_ICON_COMPONENT_LEFT,
   BASE_CLASS_ICON_COMPONENT_RIGHT,
-  BASE_CLASS_ICON_LEFT,
-  BASE_CLASS_ICON_RIGHT
+  BASE_CLASS_ICON_CONTENT_COMPONENT
 } from './config.js'
 
 const InputIcons = ({
@@ -18,9 +16,6 @@ const InputIcons = ({
   onClickRightIcon,
   children
 }) => {
-  if (!(leftIcon || rightIcon)) {
-    return children
-  }
   const handleLeftClick = event => {
     onClickLeftIcon && onClickLeftIcon(event)
   }
@@ -30,24 +25,22 @@ const InputIcons = ({
   }
 
   return (
-    <div
-      className={cx(BASE_CLASS_ICON, {
-        [BASE_CLASS_ICON_LEFT]: leftIcon,
-        [BASE_CLASS_ICON_RIGHT]: rightIcon
-      })}
-    >
+    <>
       {leftIcon && (
         <span
           className={cx(
             BASE_CLASS_ICON_COMPONENT,
-            BASE_CLASS_ICON_COMPONENT_LEFT,
-            {
-              [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickLeftIcon
-            }
+            BASE_CLASS_ICON_COMPONENT_LEFT
           )}
           onClick={handleLeftClick}
         >
-          {leftIcon}
+          <span
+            className={cx(BASE_CLASS_ICON_CONTENT_COMPONENT, {
+              [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickLeftIcon
+            })}
+          >
+            {leftIcon}
+          </span>
         </span>
       )}
       {children}
@@ -55,17 +48,20 @@ const InputIcons = ({
         <span
           className={cx(
             BASE_CLASS_ICON_COMPONENT,
-            BASE_CLASS_ICON_COMPONENT_RIGHT,
-            {
-              [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickRightIcon
-            }
+            BASE_CLASS_ICON_COMPONENT_RIGHT
           )}
           onClick={handleRightClick}
         >
-          {rightIcon}
+          <span
+            className={cx(BASE_CLASS_ICON_CONTENT_COMPONENT, {
+              [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickRightIcon
+            })}
+          >
+            {rightIcon}
+          </span>
         </span>
       )}
-    </div>
+    </>
   )
 }
 

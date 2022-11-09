@@ -13,3 +13,6 @@ export const stackMap = (arr = [], ...mappingCallbacks) =>
       e(value, innerIndex + this.length * index)
     )
   }, arr)
+
+const BASE_CLASS_DEMO = `DemoAtomInput`
+export const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`

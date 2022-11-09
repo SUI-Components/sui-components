@@ -13,7 +13,7 @@
   "dependencies": {
     "@s-ui/react-atom-checkbox": "2",
     "@s-ui/react-atom-icon": "1",
-    "@s-ui/react-atom-input": "5",
+    "@s-ui/react-atom-input": "5.22.0-beta.0",
     "@s-ui/react-atom-label": "1",
     "@s-ui/react-atom-textarea": "2"
   }

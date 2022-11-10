@@ -209,7 +209,6 @@ $base-class: '.sui-AtomTag';
       fill: $c;
 
       &#{$self}-actionable {
-        border: 1px solid;
         background-color: $bgc;
         border-color: $bdc;
         color: $c;

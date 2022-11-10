@@ -196,6 +196,9 @@ $base-class: '.sui-AtomTag';
     $bds: map-get($type, bds);
     $bdw: map-get($type, bdw);
     $bdc-hover: map-get($type, bdc-hover);
+    $c-icon-close: map-get($type, c-icon-close);
+    $c-icon-close-hover: map-get($type, c-icon-close-hover);
+    $bgc-icon-close-hover: map-get($type, bgc-icon-close-hover);
 
     &--#{$name} {
       background-color: $bgc;
@@ -206,6 +209,7 @@ $base-class: '.sui-AtomTag';
       fill: $c;
 
       &#{$self}-actionable {
+        border: 1px solid;
         background-color: $bgc;
         border-color: $bdc;
         color: $c;
@@ -217,6 +221,18 @@ $base-class: '.sui-AtomTag';
         color: $bgc;
         background-color: $c;
         fill: $bgc;
+      }
+
+      & > #{$self}-closeable {
+        color: $c-icon-close;
+      }
+
+      #{$self}-closeable > #{$self}-closeableIcon {
+        color: $c-icon-close;
+        &:hover {
+          color: $c-icon-close-hover;
+          background-color: $bgc-icon-close-hover;
+        }
       }
 
       @if $bgc-hover or $c-hover {

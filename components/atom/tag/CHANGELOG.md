@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.45.0 (2022-11-10)
+
+
+### Features
+
+* **components/atom/tag:** Allows to customize color and background color for the AtomTag ([e89bc2a](https://github.com/SUI-Components/sui-components/commit/e89bc2a3bf4f04344772f99a8734fa45d983d23c))
+* **components/atom/tag:** revert change in actionable border ([d346772](https://github.com/SUI-Components/sui-components/commit/d346772534d098d339d168ce100b85518e82f248))
+
+
+
 # 2.44.0 (2022-10-01)
 
 

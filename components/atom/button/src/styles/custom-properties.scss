@@ -8,6 +8,8 @@
   --border-color: var(--color-main);
   --border-radius: #{$bdrs-atom-button};
   --color: var(--color-inverted);
+  --padding: 0 var(--p-l);
+  --text-decoration: none;
 
   &-group {
     &--middle#{$root} {
@@ -48,17 +50,79 @@
   }
 
   // Colors
-  @each $name, $pair in $c-atom-button-colors {
-    $color-main: nth($pair, 1);
+  &--primary {
+    --color-main: var(--c-primary-500);
+    --color-focused: var(--c-primary-600);
+    --color-focused-inverted: var(--c-primary-100);
+  }
+  &--accent {
+    --color-main: var(--c-accent-500);
+    --color-focused: var(--c-accent-600);
+    --color-focused-inverted: var(--c-accent-100);
+  }
+  &--neutral {
+    --color-main: var(--c-neutral-500);
+    --color-focused: var(--c-neutral-600);
+    --color-focused-inverted: var(--c-neutral-100);
+  }
+  &--success {
+    --color-main: #{$c-success};
+    --color-focused: #{color-variation($c-success, -1)};
+    --color-focused-inverted: #{color-variation($c-success, 4)};
+  }
+  &--alert {
+    --color-main: #{$c-alert};
+    --color-focused: #{color-variation($c-alert, -1)};
+    --color-focused-inverted: #{color-variation($c-alert, 4)};
+  }
+  &--error {
+    --color-main: #{$c-error};
+    --color-focused: #{color-variation($c-error, -1)};
+    --color-focused-inverted: #{color-variation($c-error, 4)};
+  }
+  &--social-facebook {
+    --color-main: #{$c-facebook};
+    --color-focused: #{color-variation($c-facebook, -1)};
+    --color-focused-inverted: #{color-variation($c-facebook, 4)};
+  }
+  &--social-twitter {
+    --color-main: #{$c-twitter};
+    --color-focused: #{color-variation($c-twitter, -1)};
+    --color-focused-inverted: #{color-variation($c-twitter, 4)};
+  }
+  &--social-google {
+    --color-main: #{$c-google};
+    --color-focused: #{color-variation($c-google, -1)};
+    --color-focused-inverted: #{color-variation($c-google, 4)};
+  }
+  &--social-youtube {
+    --color-main: #{$c-youtube};
+    --color-focused: #{color-variation($c-youtube, -1)};
+    --color-focused-inverted: #{color-variation($c-youtube, 4)};
+  }
+  &--social-whatsapp {
+    --color-main: #{$c-whatsapp};
+    --color-focused: #{color-variation($c-whatsapp, -1)};
+    --color-focused-inverted: #{color-variation($c-whatsapp, 4)};
+  }
+  &--social-instagram {
+    --color-main: #{$c-instagram};
+    --color-focused: #{color-variation($c-instagram, -1)};
+    --color-focused-inverted: #{color-variation($c-instagram, 4)};
+  }
 
-    &--#{$name} {
-      --color-main: #{$color-main};
-      --color-focused: #{if(
-          length($pair) > 1,
-          nth($pair, 2),
-          color-variation($color-main, -1)
-        )};
-      --color-focused-inverted: #{color-variation($color-main, 4)};
+  // Links
+  &--link {
+    --text-decoration: #{$td-atom-button-link};
+
+    &#{$root}--focused,
+    &:active {
+      --text-decoration: underline;
+    }
+    @media (hover: hover) {
+      &:hover {
+        --text-decoration: underline;
+      }
     }
   }
 
@@ -135,6 +199,11 @@
   }
 
   // Sizes
+
+  &--small {
+    --padding: 0 var(--p-m);
+  }
+
   &--large {
     --border-radius: #{$bdrs-atom-button-large};
   }

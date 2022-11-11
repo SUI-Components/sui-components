@@ -3,6 +3,7 @@ import {forwardRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import Theme from '../../../primitive/theme/src/index.js'
 import ButtonSpinnerIcon from './buttonSpinnerIcon/index.js'
 import Button from './Button.js'
 import ButtonIcon from './ButtonIcon.js'
@@ -77,50 +78,52 @@ const AtomButton = forwardRef((props, ref) => {
   const newProps = cleanProps(props)
 
   return (
-    <Button
-      {...newProps}
-      type={type}
-      link={link}
-      className={classNames}
-      title={title}
-      disabled={disabled || isLoading}
-      forwardingRef={ref}
-      value={value}
-    >
-      <span className={`${CLASS}-inner`}>
-        {isLoading ? (
-          <>
-            <ButtonIcon
-              position={
-                loadingText ? ICON_POSITIONS.LEFT : ICON_POSITIONS.CENTER
-              }
-              size={size}
-            >
-              {loader}
-            </ButtonIcon>
-            {children && loadingText ? (
-              loadingText
-            ) : (
-              <span className={`${CLASS}-text`}>{children}</span>
-            )}
-          </>
-        ) : (
-          <>
-            <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
-              {leftIcon}
-            </ButtonIcon>
-            {leftIcon || rightIcon ? (
-              <span className={`${CLASS}-text`}>{children}</span>
-            ) : (
-              children
-            )}
-            <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
-              {rightIcon}
-            </ButtonIcon>
-          </>
-        )}
-      </span>
-    </Button>
+    <Theme>
+      <Button
+        {...newProps}
+        type={type}
+        link={link}
+        className={classNames}
+        title={title}
+        disabled={disabled || isLoading}
+        forwardingRef={ref}
+        value={value}
+      >
+        <span className={`${CLASS}-inner`}>
+          {isLoading ? (
+            <>
+              <ButtonIcon
+                position={
+                  loadingText ? ICON_POSITIONS.LEFT : ICON_POSITIONS.CENTER
+                }
+                size={size}
+              >
+                {loader}
+              </ButtonIcon>
+              {children && loadingText ? (
+                loadingText
+              ) : (
+                <span className={`${CLASS}-text`}>{children}</span>
+              )}
+            </>
+          ) : (
+            <>
+              <ButtonIcon position={ICON_POSITIONS.LEFT} size={size}>
+                {leftIcon}
+              </ButtonIcon>
+              {leftIcon || rightIcon ? (
+                <span className={`${CLASS}-text`}>{children}</span>
+              ) : (
+                children
+              )}
+              <ButtonIcon position={ICON_POSITIONS.RIGHT} size={size}>
+                {rightIcon}
+              </ButtonIcon>
+            </>
+          )}
+        </span>
+      </Button>
+    </Theme>
   )
 })
 

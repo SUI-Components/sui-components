@@ -44,3 +44,5 @@ return <MoleculeCarousel />
 > **Find full description and more examples in the [demo page](#).**
 
 ## [Migration](<MIGRATION.md>)
+
+From [react-slidy](https://github.com/midudev/react-slidy) 4 to @s-ui/react-molecule-carousel

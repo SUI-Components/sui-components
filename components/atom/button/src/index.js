@@ -3,10 +3,12 @@ import {forwardRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import Theme from '../../../primitive/theme/src/index.js'
+import Theme from '@s-ui/react-theme'
+
 import ButtonSpinnerIcon from './buttonSpinnerIcon/index.js'
 import Button from './Button.js'
 import ButtonIcon from './ButtonIcon.js'
+
 import {
   ALIGNMENT,
   CLASS,
@@ -26,6 +28,8 @@ import {
   TYPES,
   TYPES_CONVERSION
 } from './config.js'
+
+import './index.scss'
 
 const AtomButton = forwardRef((props, ref) => {
   const {

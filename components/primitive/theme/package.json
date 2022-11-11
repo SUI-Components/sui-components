@@ -1,0 +1,18 @@
+{
+  "name": "@s-ui/react-theme",
+  "version": "1.0.0-beta.0",
+  "description": "Theme",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,5 +1,4 @@
 .sui-AtomButton {
-  @include reset-button;
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
 
   background-color: var(--background-color); // New (solid)
@@ -19,10 +18,9 @@
   line-height: normal;
   min-width: $sz-atom-button;
   outline: 0;
-  padding: 0 $p-atom-button;
+  padding: var(--padding); // OK
   text-align: var(--text-align);
-  text-decoration: none;
-  text-decoration-line: none; // ???
+  text-decoration: var(--text-decoration);
   text-transform: $tt-atom-button;
   white-space: nowrap;
 
@@ -33,7 +31,6 @@
   &-group {
     margin-left: -1px;
     margin-right: 0;
-    padding: 0 $p-atom-button-group-sides;
 
     & + & {
       margin-left: -1px;
@@ -92,7 +89,8 @@
   }
 
   // Links
-  &.sui-AtomButton--link:not(.sui-AtomButton--solid):not(.sui-AtomButton--outline):not(.sui-AtomButton--flat) {
+  // &--link:not(.sui-AtomButton--solid):not(.sui-AtomButton--outline):not(.sui-AtomButton--flat) {
+  &--link {
     // Overwritten mixin for testing purposes.
     //@include link();
     font-family: $ff-link;
@@ -108,20 +106,6 @@
     border: none;
     padding: 0;
     justify-content: center;
-    text-decoration: $td-atom-button-link;
-
-    @include button-focused {
-      // background: transparent;
-      text-decoration: underline;
-    }
-
-    &.sui-AtomButton--negative {
-      // background: transparent;
-
-      @include button-focused {
-        // background: transparent;
-      }
-    }
   }
 
   // Designs
@@ -155,7 +139,6 @@
     font-weight: $fw-atom-button-small;
     height: $sz-atom-button-small;
     min-width: $sz-atom-button-small;
-    padding: 0 $p-atom-button-small;
 
     &.sui-AtomButton--circular {
       @include button-circular($sz-atom-button-small);
@@ -168,7 +151,6 @@
     font-weight: $fw-atom-button-large;
     height: $sz-atom-button-large;
     min-width: $sz-atom-button-large;
-    padding: 0 $p-atom-button-large;
 
     &.sui-AtomButton--circular {
       @include button-circular($sz-atom-button-large);

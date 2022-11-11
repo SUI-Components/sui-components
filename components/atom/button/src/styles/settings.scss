@@ -1,51 +1,3 @@
-$c-accent-hover: color-variation($c-accent, -1) !default;
-$c-accent-flat-hover: color-variation($c-accent, 4) !default;
-$c-primary-hover: color-variation($c-primary, -1) !default;
-$c-primary-flat-hover: color-variation($c-primary, 4) !default;
-
-$c-atom-button-colors: (
-  'primary': (
-    $c-primary,
-    $c-primary-hover,
-    $c-primary-flat-hover
-  ),
-  'accent': (
-    $c-accent,
-    $c-accent-hover,
-    $c-accent-flat-hover
-  ),
-  'neutral': (
-    $c-gray
-  ),
-  'success': (
-    $c-success
-  ),
-  'alert': (
-    $c-alert
-  ),
-  'error': (
-    $c-error
-  ),
-  'social-facebook': (
-    $c-facebook
-  ),
-  'social-twitter': (
-    $c-twitter
-  ),
-  'social-google': (
-    $c-google
-  ),
-  'social-youtube': (
-    $c-youtube
-  ),
-  'social-whatsapp': (
-    $c-whatsapp
-  ),
-  'social-instagram': (
-    $c-instagram
-  )
-) !default;
-
 $ff-atom-button: $ff-sans-serif !default;
 
 $bdrs-atom-button: $bdrs-m !default;
@@ -59,14 +11,12 @@ $fz-atom-button-small: $fz-s !default;
 $fw-atom-button-small: $fw-semi-bold !default;
 $icon-sz-atom-button-small: $sz-icon-s !default;
 $icon-m-atom-button-small: $m-s !default;
-$p-atom-button-small: $p-m !default;
 
 $sz-atom-button: $p-base * 5 !default;
 $fz-atom-button: $fz-m !default;
 $fw-atom-button: $fw-semi-bold !default;
 $icon-sz-atom-button: $sz-icon-s !default;
 $icon-m-atom-button: $m-m !default;
-$p-atom-button: $p-l !default;
 
 $bdrs-atom-button-large: $bdrs-m !default;
 $sz-atom-button-large: $p-base * 6 !default;
@@ -74,7 +24,6 @@ $fz-atom-button-large: $fz-m !default;
 $fw-atom-button-large: $fw-semi-bold !default;
 $icon-sz-atom-button-large: $sz-icon-m !default;
 $icon-m-atom-button-large: $m-m !default;
-$p-atom-button-large: $p-l !default;
 $m-consecutive-atom-button: $m-m !default;
 
 $bdrs-atom-button-group-selected: none !default;
@@ -82,7 +31,6 @@ $bxsh-atom-button-group-selected: none !default;
 $bd-atom-button-group-focused: 1px solid !default;
 $bdrs-atom-button-first: $bdrs-m 0 0 $bdrs-m !default;
 $bdrs-atom-button-last: 0 $bdrs-m $bdrs-m 0 !default;
-$p-atom-button-group-sides: $p-l !default;
 
 $bxsh-atom-button-solid-primary: none !default;
 $bxsh-atom-button-solid-primary-negative: none !default;
@@ -99,19 +47,6 @@ $icon-fill-color: currentColor !default;
 $icon-stroke-color: currentColor !default;
 
 $td-atom-button-link: none !default;
-
-// Sets active states when button is not disabled
-@mixin button-focused {
-  &.sui-AtomButton--focused,
-  &:active {
-    @content;
-  }
-  @media (hover: hover) {
-    &:hover {
-      @content;
-    }
-  }
-}
 
 @mixin button-icon($size, $margin) {
   & .sui-AtomButton-leftIcon,

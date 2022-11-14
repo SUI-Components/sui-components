@@ -12,7 +12,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
-import {fireEvent} from '@testing-library/react'
+import {fireEvent, waitFor} from '@testing-library/react'
 
 import MoleculeDropDownOption from '@s-ui/react-molecule-dropdown-option'
 
@@ -416,6 +416,43 @@ describe(json.name, () => {
             )
             sinon.assert.called(spy)
           })
+        })
+      })
+      describe('onBlur', () => {
+        it('should call onBlur handler when clicking outside', async () => {
+          const onBlurSpy = sinon.spy()
+
+          const props = {
+            onBlur: onBlurSpy
+          }
+
+          const {getByRole} = setup(props)
+
+          const $textBox = getByRole('textbox')
+
+          $textBox.focus()
+          $textBox.blur()
+
+          await waitFor(() => expect(sinon.assert.called(onBlurSpy)))
+        })
+
+        it('should call onBlur handler when clicking outside after input a text', async () => {
+          const onBlurSpy = sinon.spy()
+
+          const props = {
+            onBlur: onBlurSpy
+          }
+
+          const {getByRole} = setup(props)
+          const $textBox = getByRole('textbox')
+          const changeEvent = {target: {value: 'asdf'}}
+
+          fireEvent.change(getByRole('textbox'), changeEvent)
+
+          $textBox.focus()
+          $textBox.blur()
+
+          await waitFor(() => expect(sinon.assert.called(onBlurSpy)))
         })
       })
     })

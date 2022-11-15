@@ -138,6 +138,7 @@ Examples:
 - Navbar
 - Menu
 - Timeline
+- Table
 - ...
 
 ## [SPECIE](components/specie)
@@ -154,8 +155,9 @@ Examples:
 
 Examples:
 - Theme Provider
-- Notification Manager
+- Notification Manager (Toast)
 - Internationalization Provider
 - Device Detector
-- Network Detector
+- Shortcut Provider
+- Network Detection
 - ...

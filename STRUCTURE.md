@@ -16,6 +16,7 @@ Atomic design is not a linear process, but rather a mental model to help us thin
 The stages of our atomic design are:
 - [QUARKS](#quark)
 - [HADRONS](#hadron)
+  - [Design Tokens](#design-token)
   - [Custom Hooks](#custom-hookcomponentshook)
   - [Primitives](#primitivecomponentsprimitive)
   - [High Order Components (HOC)](#high-order-components-hoc)
@@ -26,7 +27,7 @@ The stages of our atomic design are:
 - [ECOSYSTEMS](#ecosystemcomponentsecosystem)
 
 ## QUARK
-**Quarks** are types of elementary parts and a fundamental constituent of components. They are functionalities available in React Library.
+**Quarks** are types of elementary parts and a fundamental constituent of components. They are functionalities available in React Library or native browser functionalities like css custom properties.
 
 Examples:
 
@@ -39,7 +40,16 @@ Examples:
 - Suspense and lazy
 
 ## HADRON
-Quarks combine to form composite particles called **hadrons**. The most common are custom-hooks, primitives and High-Order-Components.
+Quarks combine to form composite particles called **hadrons**. The most common are design-tokens, custom-hooks, primitives and High-Order-Components.
+
+### DESIGN TOKEN
+Design tokens represent the small, repeated design decisions that make up a design system's visual style. Tokens replace static values, such as hex codes for color, with self-explanatory names.
+
+Tokens enable a design system to have a single source of truth. They provide a kind of repository for recording and tracking style choices and changes.
+
+When using tokens for design and implementation, style updates will propagate consistently through an entire product or suite of products.
+
+Because tokens are reusable and purpose-driven, they can define system-wide updates to themes and contexts for use. For example, tokens can be used to systematically apply a high-contrast color scheme for improved visibility, or to change the type scale to make small text legible on a TV.
 
 ### [CUSTOM-HOOK](components/hook)
 A **custom-Hook** is a JavaScript function whose name starts with **”use”** and that may call other Hooks. Building your own Hooks lets you extract component logic into reusable functions.

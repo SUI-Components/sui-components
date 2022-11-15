@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.67.0 (2022-11-15)
+
+
+### Bug Fixes
+
+* **components/molecule/autosuggest:** call on blur after typing ([08f9b12](https://github.com/SUI-Components/sui-components/commit/08f9b127a7c328e907dd986c94c6554a8c5c6a03))
+
+
+
 # 2.66.0 (2022-10-04)
 
 

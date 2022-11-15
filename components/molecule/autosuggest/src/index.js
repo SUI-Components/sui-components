@@ -163,8 +163,8 @@ const MoleculeAutosuggest = ({
           closeList(ev)
         } else {
           setFocus(false)
-          typeof onBlur === 'function' && onBlur()
         }
+        typeof onBlur === 'function' && onBlur()
       }
     }, 1)
     setFocus(true)

@@ -27,6 +27,7 @@ The stages of our atomic design are:
 
 ## QUARK
 **Quarks** are types of elementary parts and a fundamental constituent of components. They are functionalities available in React Library.
+
 Examples:
 
 - state, context
@@ -76,7 +77,6 @@ Repetitive self-enclosed functionalities with no visual effect served as a Compo
 
 Whereas a component transforms props into UI, a higher-order component transforms a component into another component.
 
-
 <details>
 <summary>Example</summary>
 
@@ -111,7 +111,8 @@ HOC are NEVER used in **SUI_COMPONENTS**. We prefer composition over inheritance
 ## [ATOM](components/atom)
 **Atoms** are the basic building blocks of all matter. Each chemical element has distinct properties, and they can’t be broken down further without losing their meaning
 
-Example:
+Examples:
+
 - Button
 - Input
 - Checkbox
@@ -123,6 +124,7 @@ Example:
 **Molecules** are groups of two or more atoms held together by chemical bonds. These combinations of atoms take on their own unique properties, and become more tangible and operational than atoms.
 
 Examples:
+
 - Autocomplete
 - Select
 - Accordion
@@ -135,6 +137,7 @@ Examples:
 **Organisms** are assemblies of molecules functioning together as a unit. These relatively complex structures can range from single-celled organisms all the way up to incredibly sophisticated organisms like human beings.
 
 Examples:
+
 - Navbar
 - Menu
 - Timeline
@@ -145,6 +148,7 @@ Examples:
 **Species** are advanced life forms with a large number of different types of views and a single purpose. 
 
 Examples:
+
 - DateManager: DatePicker, RangePicker, DateTimePicker, ...
 - FileManager: FileDirectory, PhotoEditor, ...
 - Form
@@ -154,6 +158,7 @@ Examples:
 **Ecosystem** is the environment where all the different containing elements exist. 
 
 Examples:
+
 - Theme Provider
 - Notification Manager (Toast)
 - Internationalization Provider

@@ -58,8 +58,17 @@ $base-class: '.sui-MoleculeCollapsible';
   &-container {
     background-color: $bgc-collapsible-container;
     position: relative;
-    text-align: $ta-collapsible-container;
     width: 100%;
+
+    &--alignButton {
+      &-center {
+        text-align: center;
+      }
+
+      &-right {
+        text-align: right;
+      }
+    }
 
     &#{&}--withGradient.is-collapsed {
       &::before {

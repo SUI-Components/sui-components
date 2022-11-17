@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.46.0 (2022-11-17)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** Avoid rendering an empty label if there is no label prop ([4d7a717](https://github.com/SUI-Components/sui-components/commit/4d7a717ca34c441f98c1a4f3b55842ae2f51055d))
+
+
+
 # 2.45.0 (2022-11-10)
 
 

@@ -65,6 +65,7 @@ export const SingleSwitchTypeRender = forwardRef(
               name={name}
               text={defaultLabelLeft ? label : labelLeft}
               optionalText={labelOptionalText}
+              inline={fullWidth ? 'left' : 'right'}
             />
           )}
           <button

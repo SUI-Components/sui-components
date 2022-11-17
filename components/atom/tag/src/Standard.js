@@ -22,9 +22,11 @@ const StandardTag = ({
       {...(readOnly && !disabled && {'aria-readonly': readOnly})}
     >
       {icon && <span className="sui-AtomTag-icon">{icon}</span>}
-      <span className="sui-AtomTag-label" title={title || label}>
-        {label}
-      </span>
+      {label ? (
+        <span className="sui-AtomTag-label" title={title || label}>
+          {label}
+        </span>
+      ) : null}
       {closeIcon && !(disabled || readOnly) && (
         <span
           className="sui-AtomTag-closeable"

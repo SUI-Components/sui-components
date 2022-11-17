@@ -42,9 +42,11 @@ const ActionableTag = function ({
       {icon && iconPlacement === LEFT_ICON_PLACEMENT && (
         <span className="sui-AtomTag-icon">{icon}</span>
       )}
-      <span className="sui-AtomTag-label" title={title || label}>
-        {label}
-      </span>
+      {label ? (
+        <span className="sui-AtomTag-label" title={title || label}>
+          {label}
+        </span>
+      ) : null}
       {icon && iconPlacement === RIGHT_ICON_PLACEMENT && (
         <span className="sui-AtomTag-secondary-icon">{icon}</span>
       )}

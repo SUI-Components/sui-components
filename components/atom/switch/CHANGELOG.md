@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.29.0 (2022-11-17)
+
+
+### Bug Fixes
+
+* **components/atom/switch:** FullWidth switch should have the text with align left ([3529906](https://github.com/SUI-Components/sui-components/commit/35299062c27880e2b1f8cc8b21b15aef01368d29))
+
+
+
 # 1.28.0 (2022-10-06)
 
 

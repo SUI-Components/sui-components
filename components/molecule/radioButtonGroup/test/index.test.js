@@ -9,6 +9,11 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+
+import {fireEvent} from '@testing-library/react'
+
+import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -73,6 +78,45 @@ describe(json.name, () => {
 
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('given an onChange event should change its inner value', () => {
+      // Given
+      const spyOnChange = sinon.spy()
+      const values = new Array(5).fill('').map((_, i) => i)
+      const props = {
+        onChange: spyOnChange,
+        defaultValue: [0],
+        name: 'name',
+        children: values.map(v => (
+          <MoleculeRadioButtonField
+            key={v}
+            id={`${v}`}
+            value={v}
+            label={`${v}`}
+          />
+        ))
+      }
+
+      // When
+      const {getByText, debug} = setup(props)
+      console.log(values)
+      debug()
+
+      // Then
+      sinon.assert.callCount(spyOnChange, 0)
+
+      // And
+      // When
+      fireEvent.click(getByText(`${values[0]}`))
+
+      // Then
+      sinon.assert.callCount(spyOnChange, 1)
+      sinon.assert.calledWith(
+        spyOnChange,
+        sinon.match.truthy,
+        sinon.match({name: props.name, value: `${values[0]}`})
+      )
     })
   })
 })

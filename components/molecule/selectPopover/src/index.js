@@ -31,7 +31,7 @@ function usePrevious(value) {
 
 const popoverBaseClass = `${BASE_CLASS}-popover`
 
-function MoleculeSelectPopover({
+const MoleculeSelectPopover = ({
   acceptButtonText,
   acceptButtonOptions,
   cancelButtonText,
@@ -58,7 +58,7 @@ function MoleculeSelectPopover({
   selectText,
   size = 'm',
   title
-}) {
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [popoverClassName, setPopoverClassName] = useState(
     cx(`${popoverBaseClass}`, `${popoverBaseClass}--${getPlacement(placement)}`)

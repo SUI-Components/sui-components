@@ -10,7 +10,7 @@ import MoleculeField from '@s-ui/react-molecule-field'
 
 import {getErrorState, getState} from './settings.js'
 
-function MoleculeAutosuggestField({
+const MoleculeAutosuggestField = ({
   alertText,
   children,
   errorText,
@@ -23,7 +23,7 @@ function MoleculeAutosuggestField({
   successText,
   useContrastLabel,
   ...restProps
-}) {
+}) => {
   const refAutosuggest = useRef()
 
   const handleClick = () => {

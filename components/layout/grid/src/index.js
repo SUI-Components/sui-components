@@ -16,7 +16,7 @@ import {
   JUSTIFY_CONTENT
 } from './settings.js'
 
-function LayoutGrid({
+const LayoutGrid = ({
   alignContent,
   alignItems,
   as = 'div',
@@ -39,7 +39,7 @@ function LayoutGrid({
   xxlOffset,
   xxs,
   xxsOffset
-}) {
+}) => {
   const classNames = cx(
     `${BASE_CLASS}`,
     Object.values(ALIGN_CONTENT).includes(alignContent) &&

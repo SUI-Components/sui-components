@@ -10,7 +10,7 @@ import {
   POSITIONS
 } from './config.js'
 
-function AtomToast({
+const AtomToast = ({
   autoClose = true,
   autoCloseTime = AUTO_CLOSE_TIMES.medium,
   children,
@@ -20,7 +20,7 @@ function AtomToast({
   onClose,
   position = POSITIONS.topRight,
   show: showFromProps = true
-}) {
+}) => {
   const [show, setShow] = useState(showFromProps)
   const [delay, setDelay] = useState(true)
 

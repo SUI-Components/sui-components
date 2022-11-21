@@ -85,15 +85,28 @@ describe(json.name, () => {
     })
 
     describe('type line', () => {
-      // Given
-      const props = {type: pkg.atomProgressBarTypes.LINE, percentage: 50}
+      it('should NOT render null', () => {
+        // Given
+        const props = {type: pkg.atomProgressBarTypes.LINE, percentage: 50}
 
-      // When
-      const {container} = setup(props)
+        // When
+        const {container} = setup(props)
 
-      // Then
-      expect(container.innerHTML).to.be.a('string')
-      expect(container.innerHTML).to.not.have.lengthOf(0)
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
+      it('should NOT break when passing invalid percentage', () => {
+        // Given
+        const props = {type: pkg.atomProgressBarTypes.LINE, percentage: 'a'}
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
     })
     describe('type circle', () => {
       it('should NOT render null', () => {
@@ -109,19 +122,50 @@ describe(json.name, () => {
       })
     })
     describe('type double line', () => {
-      // Given
-      const props = {
-        type: pkg.atomProgressBarTypes.LINE_DOUBLE_BAR,
-        mainBarPercentage: 25,
-        extraBarPercentage: 50
-      }
+      it('should NOT render null', () => {
+        // Given
+        const props = {
+          type: pkg.atomProgressBarTypes.LINE_DOUBLE_BAR,
+          mainBarPercentage: 25,
+          extraBarPercentage: 50
+        }
 
-      // When
-      const {container} = setup(props)
+        // When
+        const {container} = setup(props)
 
-      // Then
-      expect(container.innerHTML).to.be.a('string')
-      expect(container.innerHTML).to.not.have.lengthOf(0)
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
+      it('should NOT break when passing invalid percentage', () => {
+        // Given
+        const props = {
+          type: pkg.atomProgressBarTypes.LINE_DOUBLE_BAR,
+          mainBarPercentage: 'a',
+          extraBarPercentage: 'b'
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
+      it('should NOT break when passing a percentage array', () => {
+        // Given
+        const props = {
+          type: pkg.atomProgressBarTypes.LINE_DOUBLE_BAR,
+          percentage: [25, 50]
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.not.have.lengthOf(0)
+      })
     })
   })
 

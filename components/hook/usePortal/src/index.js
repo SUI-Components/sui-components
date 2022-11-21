@@ -25,11 +25,11 @@ const usePortal = ({
   onOpen,
   onClose,
   onToggle,
-  onClick,
   hasCloseOnOutsideClick = false,
   hasCloseOnEsc = false,
   ...eventHandlers
 } = {}) => {
+  const {onClick} = eventHandlers
   const {isServer} = useSSR()
   const [isReady, setIsReady] = useState()
   const [isOpened, setIsOpened] = useState(defaultIsOpen)

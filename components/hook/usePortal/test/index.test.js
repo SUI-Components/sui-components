@@ -5,7 +5,7 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
-import React, {useRef} from 'react'
+import React, {forwardRef, useRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import {expect} from 'chai'
@@ -13,6 +13,8 @@ import PropTypes from 'prop-types'
 import sinon from 'sinon'
 
 import {fireEvent, waitFor} from '@testing-library/react'
+
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -23,29 +25,49 @@ describe(json.name, () => {
   const CLOSE = 'close'
   const TOGGLE = 'toggle'
   const BIND = 'bind'
-  const Component = ({children, isOpen: isOpenProps, ...handlers}) => {
-    const targetRef = useRef()
-    const {Portal, isOpen, open, close, toggle, bind} = usePortal({
-      target: targetRef.current,
-      isOpen: isOpenProps,
-      ...handlers
-    })
+  const OUTSIDE = 'outside'
+  const Component = forwardRef(
+    (
+      {
+        hasCloseOnOutsideClick,
+        hasCloseOnEsc,
+        children,
+        isOpen: isOpenProps,
+        ...handlers
+      },
+      forwardedRef
+    ) => {
+      const targetRef = useRef()
+      const ref = useMergeRefs(forwardedRef, targetRef)
+      const {Portal, isOpen, open, close, toggle, bind, onClick} = usePortal({
+        hasCloseOnOutsideClick,
+        hasCloseOnEsc,
+        target: targetRef.current,
+        isOpen: isOpenProps,
+        ...handlers
+      })
 
-    return (
-      <div data-testid="portal-test-container">
-        <div data-testid="portal-test-container-origin">
-          <Portal isOpen={isOpen}>{children}</Portal>
+      return (
+        <div data-testid="portal-test-container">
+          <div data-testid="portal-test-container-origin">
+            <Portal isOpen={isOpen} onClick={onClick}>
+              {children}
+            </Portal>
+          </div>
+          <div ref={ref} data-testid="portal-test-container-target" />
+          <button onClick={open}>{OPEN}</button>
+          <button onClick={close}>{CLOSE}</button>
+          <button onClick={toggle}>{TOGGLE}</button>
+          <button onClick={bind}>{BIND}</button>
+          <div>{OUTSIDE}</div>
         </div>
-        <div ref={targetRef} data-testid="portal-test-container-target" />
-        <button onClick={open}>{OPEN}</button>
-        <button onClick={close}>{CLOSE}</button>
-        <button onClick={toggle}>{TOGGLE}</button>
-        <button onClick={bind}>{BIND}</button>
-      </div>
-    )
-  }
+      )
+    }
+  )
 
   Component.propTypes = {
+    hasCloseOnOutsideClick: PropTypes.bool,
+    hasCloseOnEsc: PropTypes.bool,
     children: PropTypes.node,
     isOpen: PropTypes.bool
   }
@@ -584,6 +606,338 @@ describe(json.name, () => {
           expect(portalContainerTargetElement.innerHTML).to.be.a('string')
           expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
         })
+      })
+    })
+    describe('hasCloseOnEsc', () => {
+      it('given isOpen=true and hasCloseOnEsc=undefined configured when pressing "ESC" key should NOT fire onClose event', () => {
+        // Given
+        const spyOnClose = sinon.spy()
+        const spyOnOpen = sinon.spy()
+        const props = {
+          ref: {current: null},
+          isOpen: true,
+          hasCloseOnEsc: undefined,
+          children: 'portal-content',
+          onClose: spyOnClose,
+          onOpen: spyOnOpen
+        }
+        // When
+        const {getByTestId} = setup(props)
+        const portalContainerElement = getByTestId('portal-test-container')
+        const portalContainerOriginElement = getByTestId(
+          'portal-test-container-origin'
+        )
+        const portalContainerTargetElement = getByTestId(
+          'portal-test-container-target'
+        )
+        // Then
+        expect(portalContainerElement.innerHTML).to.be.a('string')
+        expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+        expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+        expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+        expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        // And
+        // When
+        fireEvent.keyDown(props.ref.current, {key: 'Escape', code: 'Escape'})
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 0)
+        sinon.assert.callCount(spyOnOpen, 0)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+      })
+
+      it('given isOpen=true and hasCloseOnEsc=true configured when pressing "ESC" key should fire onClose event', () => {
+        // Given
+        const spyOnClose = sinon.spy()
+        const spyOnOpen = sinon.spy()
+        const props = {
+          ref: {current: null},
+          isOpen: true,
+          hasCloseOnEsc: true,
+          children: 'portal-content',
+          onClose: spyOnClose,
+          onOpen: spyOnOpen
+        }
+        // When
+        const {getByTestId} = setup(props)
+        const portalContainerElement = getByTestId('portal-test-container')
+        const portalContainerOriginElement = getByTestId(
+          'portal-test-container-origin'
+        )
+        const portalContainerTargetElement = getByTestId(
+          'portal-test-container-target'
+        )
+        // Then
+        expect(portalContainerElement.innerHTML).to.be.a('string')
+        expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+        expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+        expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+        expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        // And
+        // When
+        fireEvent.keyDown(props.ref.current, {key: 'Escape', code: 'Escape'})
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 1)
+        sinon.assert.calledWith(spyOnClose, sinon.match.truthy)
+        sinon.assert.callCount(spyOnOpen, 0)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+        expect(portalContainerTargetElement.innerHTML).to.have.lengthOf(0)
+      })
+
+      it('given isOpen=true and hasCloseOnEsc=false configured when pressing "ESC" key should NOT fire onClose event', () => {
+        // Given
+        const spyOnClose = sinon.spy()
+        const spyOnOpen = sinon.spy()
+        const props = {
+          ref: {current: null},
+          isOpen: true,
+          hasCloseOnEsc: false,
+          children: 'portal-content',
+          onClose: spyOnClose,
+          onOpen: spyOnOpen
+        }
+        // When
+        const {getByTestId} = setup(props)
+        const portalContainerElement = getByTestId('portal-test-container')
+        const portalContainerOriginElement = getByTestId(
+          'portal-test-container-origin'
+        )
+        const portalContainerTargetElement = getByTestId(
+          'portal-test-container-target'
+        )
+        // Then
+        expect(portalContainerElement.innerHTML).to.be.a('string')
+        expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+        expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+        expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+        expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        // And
+        // When
+        fireEvent.keyDown(props.ref.current, {key: 'Escape', code: 'Escape'})
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 0)
+        sinon.assert.callCount(spyOnOpen, 0)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+      })
+    })
+
+    describe('hasCloseOnOutsideClick', () => {
+      it('given isOpen=true and hasCloseOnOutsideClick=undefined configured when pressing "ESC" key should NOT fire onClose event', () => {
+        // Given
+        const spyOnClose = sinon.spy()
+        const spyOnOpen = sinon.spy()
+        const spyOnClick = sinon.spy()
+        const props = {
+          ref: {current: null},
+          isOpen: true,
+          hasCloseOnOutsideClick: false,
+          children: 'portal-content',
+          onClose: spyOnClose,
+          onOpen: spyOnOpen,
+          onClick: spyOnClick
+        }
+        // When
+        const {getByTestId, getByText} = setup(props)
+        const portalContainerElement = getByTestId('portal-test-container')
+        const portalContainerOriginElement = getByTestId(
+          'portal-test-container-origin'
+        )
+        const portalContainerTargetElement = getByTestId(
+          'portal-test-container-target'
+        )
+        // Then
+        expect(portalContainerElement.innerHTML).to.be.a('string')
+        expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+        expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+        expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+        expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        // And
+        // When
+        fireEvent.mouseDown(getByText(props.children))
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 0)
+        sinon.assert.callCount(spyOnOpen, 0)
+        sinon.assert.callCount(spyOnClick, 1)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+
+        // And
+        // When
+        fireEvent.mouseDown(getByText(OUTSIDE))
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 0)
+        sinon.assert.callCount(spyOnOpen, 0)
+        sinon.assert.callCount(spyOnClick, 1)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+      })
+      it('given isOpen=true and hasCloseOnOutsideClick=true configured when pressing "ESC" key should fire onClose event', () => {
+        // Given
+        const spyOnClose = sinon.spy()
+        const spyOnOpen = sinon.spy()
+        const spyOnClick = sinon.spy()
+        const props = {
+          ref: {current: null},
+          isOpen: true,
+          hasCloseOnOutsideClick: true,
+          children: 'portal-content',
+          onClose: spyOnClose,
+          onOpen: spyOnOpen,
+          onClick: spyOnClick
+        }
+        // When
+        const {getByTestId, getByText} = setup(props)
+        const portalContainerElement = getByTestId('portal-test-container')
+        const portalContainerOriginElement = getByTestId(
+          'portal-test-container-origin'
+        )
+        const portalContainerTargetElement = getByTestId(
+          'portal-test-container-target'
+        )
+        // Then
+        expect(portalContainerElement.innerHTML).to.be.a('string')
+        expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+        expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+        expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+        expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        // And
+        // When
+        fireEvent.mouseDown(getByText(props.children))
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 0)
+        sinon.assert.callCount(spyOnOpen, 0)
+        sinon.assert.callCount(spyOnClick, 1)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+
+        // And
+        // When
+        fireEvent.mouseDown(getByText(OUTSIDE))
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 1)
+        sinon.assert.callCount(spyOnOpen, 0)
+        sinon.assert.callCount(spyOnClick, 1)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+      })
+
+      it('given isOpen=true and hasCloseOnOutsideClick=false configured when pressing "ESC" key should NOT fire onClose event', () => {
+        // Given
+        const spyOnClose = sinon.spy()
+        const spyOnOpen = sinon.spy()
+        const spyOnClick = sinon.spy()
+        const props = {
+          ref: {current: null},
+          isOpen: true,
+          hasCloseOnOutsideClick: false,
+          children: 'portal-content',
+          onClose: spyOnClose,
+          onOpen: spyOnOpen,
+          onClick: spyOnClick
+        }
+        // When
+        const {getByTestId, getByText} = setup(props)
+        const portalContainerElement = getByTestId('portal-test-container')
+        const portalContainerOriginElement = getByTestId(
+          'portal-test-container-origin'
+        )
+        const portalContainerTargetElement = getByTestId(
+          'portal-test-container-target'
+        )
+        // Then
+        expect(portalContainerElement.innerHTML).to.be.a('string')
+        expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
+
+        expect(portalContainerOriginElement.innerHTML).to.be.a('string')
+        expect(portalContainerOriginElement.innerHTML).to.have.lengthOf(0)
+
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+        expect(portalContainerTargetElement.innerHTML).to.not.have.lengthOf(0)
+        // And
+        // When
+        fireEvent.mouseDown(getByText(props.children))
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 0)
+        sinon.assert.callCount(spyOnOpen, 0)
+        sinon.assert.callCount(spyOnClick, 1)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+
+        // And
+        // When
+        fireEvent.mouseDown(getByText(OUTSIDE))
+
+        // Then
+        sinon.assert.callCount(spyOnClose, 0)
+        sinon.assert.callCount(spyOnOpen, 0)
+        sinon.assert.callCount(spyOnClick, 1)
+        expect(portalContainerTargetElement.innerHTML).to.be.a('string')
+      })
+    })
+
+    describe('customEventHandlers', () => {
+      it('given a custom event onClick handled it should be fired adapting it to the customEventHandlers', () => {
+        // Given
+        const spyOnClick = sinon.spy()
+        const props = {
+          children: 'portal-content',
+          onClick: spyOnClick
+        }
+
+        // When
+        const {getByText} = setup(props)
+
+        // Then
+        sinon.assert.callCount(spyOnClick, 0)
+
+        // And
+        // When
+        fireEvent.click(getByText(props.children))
+
+        // Then
+        sinon.assert.callCount(spyOnClick, 1)
+        sinon.assert.calledWith(spyOnClick, sinon.match.truthy)
+      })
+
+      it('given a custom event onScroll handled it should be fired adapting it to the customEventHandlers', () => {
+        // Given
+        const spyOnScroll = sinon.spy()
+        const props = {
+          ref: {current: null},
+          children: 'portal-content',
+          onScroll: spyOnScroll
+        }
+
+        // When
+        setup(props)
+
+        // Then
+        sinon.assert.callCount(spyOnScroll, 0)
+
+        // And
+        // When
+        fireEvent.scroll(document, {target: {scrollY: 100}})
+
+        // Then
+        sinon.assert.callCount(spyOnScroll, 1)
+        sinon.assert.calledWith(spyOnScroll, sinon.match.truthy)
       })
     })
   })

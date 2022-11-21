@@ -7,12 +7,12 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import CarouselContainer from './CarouselContainer.js'
 import {
+  adaptReactSlidyProps,
   BASE_CLASS,
   CLASS_FULL_HEIGHT,
   CLASS_FULL_WIDTH,
   CLASS_IMAGE_OBJECT_FIT,
-  getNumOfSlidesSanitized,
-  adaptReactSlidyProps
+  getNumOfSlidesSanitized
 } from './settings.js'
 
 const MoleculeCarousel = forwardRef(

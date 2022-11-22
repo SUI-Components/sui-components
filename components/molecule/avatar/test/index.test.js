@@ -24,7 +24,6 @@ describe(json.name, () => {
       'MOLECULE_AVATAR_BADGE_STATUSES',
       'MOLECULE_AVATAR_BADGE_PLACEMENTS',
       'MOLECULE_AVATAR_BADGE_SIZES',
-      'moleculeAvatarSizes',
       'moleculeAvatarBadgeStatuses',
       'moleculeAvatarBadgePlacements',
       'moleculeAvatarBadgeSizes',
@@ -37,7 +36,6 @@ describe(json.name, () => {
       MOLECULE_AVATAR_BADGE_STATUSES,
       MOLECULE_AVATAR_BADGE_PLACEMENTS,
       MOLECULE_AVATAR_BADGE_SIZES,
-      moleculeAvatarSizes,
       moleculeAvatarBadgeStatuses,
       moleculeAvatarBadgePlacements,
       moleculeAvatarBadgeSizes,
@@ -209,44 +207,6 @@ describe(json.name, () => {
         // Then
         expect(ref.current).to.not.equal(undefined)
         expect(ref.current.nodeName).to.equal('SPAN')
-      })
-    })
-  })
-
-  describe('moleculeAvatarSizes', () => {
-    it('value must be an object enum', () => {
-      // Given
-      const library = pkg
-
-      // When
-      const {moleculeAvatarSizes: actual} = library
-
-      // Then
-      expect(actual).to.be.an('object')
-    })
-
-    it('value must be a defined string-key pair filled', () => {
-      // Given
-      const library = pkg
-      const expected = {
-        XXLARGE: 'xxlarge',
-        XLARGE: 'xlarge',
-        LARGE: 'large',
-        MEDIUM: 'medium',
-        SMALL: 'small',
-        XSMALL: 'xsmall'
-      }
-
-      // When
-      const {moleculeAvatarSizes: actual} = library
-      const {XXLARGE, XLARGE, LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
-
-      // Then
-      expect(Object.keys(others).length).to.equal(0)
-      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
-      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
-        expect(Object.keys(actual).includes(expectedKey)).to.be.true
-        expect(actual[expectedKey]).to.equal(expectedValue)
       })
     })
   })

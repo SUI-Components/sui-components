@@ -35,16 +35,13 @@ const AtomTag = props => {
     isFitted && 'sui-AtomTag--isFitted'
   )
 
-  return isActionable ? (
-    <ActionableTag
-      {...getActionableProps(props)}
-      disabled={disabled}
-      readOnly={readOnly}
-      className={classNames}
-    />
-  ) : (
-    <StandardTag
-      {...getStandardProps(props)}
+  const [Component, getComponentProps] = isActionable
+    ? [ActionableTag, getActionableProps]
+    : [StandardTag, getStandardProps]
+
+  return (
+    <Component
+      {...getComponentProps(props)}
       disabled={disabled}
       readOnly={readOnly}
       className={classNames}

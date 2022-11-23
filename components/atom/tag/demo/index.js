@@ -17,7 +17,6 @@ export default () => (
       We use tags to visually emphasise features of the UI and make recognition
       and interaction easier.
     </Paragraph>
-    <br />
     <ArticleSize className={CLASS_SECTION} />
     <br />
     <ArticleDesign className={CLASS_SECTION} />

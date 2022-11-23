@@ -17,6 +17,11 @@ export const SIZES = {
   SMALL: 'small'
 }
 
+export const ICON_PLACEMENTS = {
+  LEFT: 'left',
+  RIGHT: 'right'
+}
+
 export const LINK_TYPES = {
   NOFOLLOW: 'nofollow',
   NOOPENER: 'noopener',

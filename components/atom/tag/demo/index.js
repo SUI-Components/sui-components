@@ -1,5 +1,6 @@
 import {Article, H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleActionable from './articles/ArticleActionable.js'
 import ArticleDesign from './articles/ArticleDesign.js'
 import ArticleIcons from './articles/ArticleIcons.js'
@@ -17,6 +18,8 @@ export default () => (
       We use tags to visually emphasise features of the UI and make recognition
       and interaction easier.
     </Paragraph>
+    <ArticleDefault className={CLASS_SECTION} />
+    <br />
     <ArticleSize className={CLASS_SECTION} />
     <br />
     <ArticleDesign className={CLASS_SECTION} />

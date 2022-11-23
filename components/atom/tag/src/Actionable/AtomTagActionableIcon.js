@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import {ICON_PLACEMENTS, ICON_PLACEMENT_CLASSNAME} from './settings.js'
+
+import {ICON_PLACEMENT_CLASSNAME, ICON_PLACEMENTS} from './settings.js'
 
 const AtomTagActionableIcon = ({icon, iconPlacement}) =>
   icon ? (

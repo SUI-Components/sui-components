@@ -3,8 +3,8 @@ import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import {LINK_TYPES} from '../constants.js'
-import ActionableTagContainer from './Container.js'
 import AtomTagActionableIcon from './AtomTagActionableIcon.js'
+import ActionableTagContainer from './Container.js'
 import {
   getClassNames,
   getLinkTypesString,

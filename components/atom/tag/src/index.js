@@ -8,8 +8,8 @@ import {
   DESIGNS,
   getActionableProps,
   getStandardProps,
-  LINK_TYPES,
   ICON_PLACEMENTS,
+  LINK_TYPES,
   SIZES
 } from './constants.js'
 import StandardTag from './Standard.js'

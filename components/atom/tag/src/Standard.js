@@ -18,38 +18,35 @@ const StandardTag = forwardRef(
       title
     },
     forwardedRef
-  ) => {
-    console.log(closeIcon)
-    return (
-      <span
-        ref={forwardedRef}
-        className={cx(className, closeIcon && 'sui-AtomTag-hasClose')}
-        {...(disabled && {'aria-disabled': disabled})}
-        {...(readOnly && !disabled && {'aria-readonly': readOnly})}
-      >
-        {icon && <span className="sui-AtomTag-icon">{icon}</span>}
-        {label ? (
-          <span className="sui-AtomTag-label" title={title || label}>
-            {label}
+  ) => (
+    <span
+      ref={forwardedRef}
+      className={cx(className, closeIcon && 'sui-AtomTag-hasClose')}
+      {...(disabled && {'aria-disabled': disabled})}
+      {...(readOnly && !disabled && {'aria-readonly': readOnly})}
+    >
+      {icon && <span className="sui-AtomTag-icon">{icon}</span>}
+      {label ? (
+        <span className="sui-AtomTag-label" title={title || label}>
+          {label}
+        </span>
+      ) : null}
+      {closeIcon && !(disabled || readOnly) && (
+        <span
+          role="button"
+          className="sui-AtomTag-closeable"
+          onClick={onHandler({disabled, readOnly}, onClose, {
+            value,
+            label
+          })}
+        >
+          <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">
+            {closeIcon}
           </span>
-        ) : null}
-        {closeIcon && !(disabled || readOnly) && (
-          <span
-            role="button"
-            className="sui-AtomTag-closeable"
-            onClick={onHandler({disabled, readOnly}, onClose, {
-              value,
-              label
-            })}
-          >
-            <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">
-              {closeIcon}
-            </span>
-          </span>
-        )}
-      </span>
-    )
-  }
+        </span>
+      )}
+    </span>
+  )
 )
 
 StandardTag.propTypes = {

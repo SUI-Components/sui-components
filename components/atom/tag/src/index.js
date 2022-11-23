@@ -1,3 +1,5 @@
+import {forwardRef} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -6,48 +8,70 @@ import {
   DESIGNS,
   getActionableProps,
   getStandardProps,
+  ICON_PLACEMENTS,
   LINK_TYPES,
   SIZES
 } from './constants.js'
 import StandardTag from './Standard.js'
 
-const AtomTag = props => {
-  const {
-    design,
-    href,
-    icon,
-    onClick,
-    responsive,
-    size,
-    type,
-    readOnly,
-    disabled,
-    isFitted = false
-  } = props
-  const isActionable = onClick || href
-  const classNames = cx(
-    'sui-AtomTag',
-    `sui-AtomTag-${size}`,
-    design && `sui-AtomTag--${design}`,
-    icon && 'sui-AtomTag-hasIcon',
-    responsive && 'sui-AtomTag--responsive',
-    type && `sui-AtomTag--${type}`,
-    isFitted && 'sui-AtomTag--isFitted'
-  )
+const AtomTag = forwardRef(
+  (
+    {
+      design,
+      href,
+      icon,
+      iconPlacement = ICON_PLACEMENTS.LEFT,
+      onClick,
+      responsive,
+      size = SIZES.MEDIUM,
+      type,
+      readOnly,
+      disabled,
+      isFitted = false,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const isActionable = onClick || href
 
-  const [Component, getComponentProps] = isActionable
-    ? [ActionableTag, getActionableProps]
-    : [StandardTag, getStandardProps]
+    const classNames = cx(
+      'sui-AtomTag',
+      `sui-AtomTag-${size}`,
+      design && `sui-AtomTag--${design}`,
+      icon && 'sui-AtomTag-hasIcon',
+      responsive && 'sui-AtomTag--responsive',
+      type && `sui-AtomTag--${type}`,
+      isFitted && 'sui-AtomTag--isFitted'
+    )
 
-  return (
-    <Component
-      {...getComponentProps(props)}
-      disabled={disabled}
-      readOnly={readOnly}
-      className={classNames}
-    />
-  )
-}
+    const [Component, getComponentProps] = isActionable
+      ? [ActionableTag, getActionableProps]
+      : [StandardTag, getStandardProps]
+
+    return (
+      <Component
+        {...getComponentProps({
+          design,
+          href,
+          icon,
+          iconPlacement,
+          onClick,
+          responsive,
+          size,
+          type,
+          readOnly,
+          disabled,
+          isFitted,
+          ...props
+        })}
+        ref={forwardedRef}
+        disabled={disabled}
+        readOnly={readOnly}
+        className={classNames}
+      />
+    )
+  }
+)
 
 AtomTag.displayName = 'AtomTag'
 
@@ -86,7 +110,7 @@ AtomTag.propTypes = {
   /**
    * Actionable tags can have iconPlacement='right'
    */
-  iconPlacement: PropTypes.oneOf(['right', 'left']),
+  iconPlacement: PropTypes.oneOf(Object.values(ICON_PLACEMENTS)),
   /**
    * Tag size
    */
@@ -116,12 +140,9 @@ AtomTag.propTypes = {
   isFitted: PropTypes.bool
 }
 
-AtomTag.defaultProps = {
-  iconPlacement: 'left',
-  size: SIZES.MEDIUM
-}
-
 export default AtomTag
+
+export {ICON_PLACEMENTS as atomTagIconPlacements}
 export {DESIGNS as atomTagDesigns}
 export {LINK_TYPES as linkTypes}
 export {LINK_TYPES as atomTagLinkTypes}

@@ -1,58 +1,68 @@
+import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {LINK_TYPES} from '../constants.js'
+import AtomTagActionableIcon from './AtomTagActionableIcon.js'
 import ActionableTagContainer from './Container.js'
 import {
   getClassNames,
   getLinkTypesString,
-  LEFT_ICON_PLACEMENT,
-  onHandler,
-  RIGHT_ICON_PLACEMENT
+  ICON_PLACEMENTS,
+  onHandler
 } from './settings.js'
 
-const ActionableTag = function ({
-  icon,
-  href,
-  iconPlacement,
-  label,
-  onClick,
-  target,
-  rel,
-  linkFactory,
-  className,
-  readOnly,
-  disabled,
-  title,
-  value = null
-}) {
-  return (
-    <ActionableTagContainer
-      className={getClassNames({className})}
-      Link={linkFactory}
-      onClick={onHandler({disabled, readOnly}, onClick, {
-        value,
-        label
-      })}
-      href={href}
-      target={target}
-      rel={rel}
-      readOnly={readOnly}
-      disabled={disabled}
-    >
-      {icon && iconPlacement === LEFT_ICON_PLACEMENT && (
-        <span className="sui-AtomTag-icon">{icon}</span>
-      )}
-      {label ? (
-        <span className="sui-AtomTag-label" title={title || label}>
-          {label}
-        </span>
-      ) : null}
-      {icon && iconPlacement === RIGHT_ICON_PLACEMENT && (
-        <span className="sui-AtomTag-secondary-icon">{icon}</span>
-      )}
-    </ActionableTagContainer>
-  )
-}
+const ActionableTag = forwardRef(
+  (
+    {
+      icon,
+      href,
+      iconPlacement,
+      label,
+      onClick,
+      target,
+      rel,
+      linkFactory,
+      className,
+      readOnly,
+      disabled,
+      title,
+      value = null
+    },
+    forwardedRef
+  ) => {
+    return (
+      <ActionableTagContainer
+        ref={forwardedRef}
+        className={getClassNames({className})}
+        Link={linkFactory}
+        onClick={onHandler({disabled, readOnly}, onClick, {
+          value,
+          label
+        })}
+        href={href}
+        target={target}
+        rel={rel}
+        readOnly={readOnly}
+        disabled={disabled}
+      >
+        <AtomTagActionableIcon
+          icon={icon}
+          iconPlacement={ICON_PLACEMENTS.LEFT}
+        />
+        {label ? (
+          <span className="sui-AtomTag-label" title={title || label}>
+            {label}
+          </span>
+        ) : null}
+        <AtomTagActionableIcon
+          icon={icon}
+          iconPlacement={ICON_PLACEMENTS.RIGHT}
+        />
+      </ActionableTagContainer>
+    )
+  }
+)
 
 ActionableTag.propTypes = {
   className: PropTypes.string,
@@ -61,7 +71,7 @@ ActionableTag.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   icon: PropTypes.node,
   href: PropTypes.string,
-  iconPlacement: PropTypes.oneOf([LEFT_ICON_PLACEMENT, RIGHT_ICON_PLACEMENT]),
+  iconPlacement: PropTypes.oneOf(Object.values(ICON_PLACEMENTS)),
   onClick: PropTypes.func,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
@@ -72,22 +82,25 @@ ActionableTag.propTypes = {
 
 ActionableTag.defaultProps = {
   // eslint-disable-next-line react/prop-types
-  linkFactory: ({href, target, rel, className, role, children} = {}) => {
-    const optionalProps = {
-      ...(rel && {rel: getLinkTypesString(rel)})
+  linkFactory: forwardRef(
+    ({href, target, rel, className, role, children} = {}, forwardRef) => {
+      const optionalProps = {
+        ...(rel && {rel: getLinkTypesString(rel)})
+      }
+      return (
+        <a
+          ref={forwardRef}
+          href={href}
+          target={target}
+          className={className}
+          role={role}
+          {...optionalProps}
+        >
+          {children}
+        </a>
+      )
     }
-    return (
-      <a
-        href={href}
-        target={target}
-        className={className}
-        role={role}
-        {...optionalProps}
-      >
-        {children}
-      </a>
-    )
-  }
+  )
 }
 
 export default ActionableTag

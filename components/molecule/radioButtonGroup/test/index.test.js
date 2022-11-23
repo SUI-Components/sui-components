@@ -99,9 +99,7 @@ describe(json.name, () => {
       }
 
       // When
-      const {getByText, debug} = setup(props)
-      console.log(values)
-      debug()
+      const {getByText} = setup(props)
 
       // Then
       sinon.assert.callCount(spyOnChange, 0)

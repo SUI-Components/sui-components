@@ -1,23 +1,28 @@
+import {forwardRef} from 'react'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {onHandler} from './constants.js'
 
-const StandardTag = ({
-  className,
-  closeIcon,
-  icon,
-  label,
-  onClose,
-  value,
-  readOnly,
-  disabled,
-  title
-}) => {
-  const classNames = cx(className, closeIcon && 'sui-AtomTag-hasClose')
-  return (
+const StandardTag = forwardRef(
+  (
+    {
+      className,
+      closeIcon,
+      icon,
+      label,
+      onClose = () => {},
+      value,
+      readOnly,
+      disabled,
+      title
+    },
+    forwardedRef
+  ) => (
     <span
-      className={classNames}
+      ref={forwardedRef}
+      className={cx(className, closeIcon && 'sui-AtomTag-hasClose')}
       {...(disabled && {'aria-disabled': disabled})}
       {...(readOnly && !disabled && {'aria-readonly': readOnly})}
     >
@@ -29,6 +34,7 @@ const StandardTag = ({
       ) : null}
       {closeIcon && !(disabled || readOnly) && (
         <span
+          role="button"
           className="sui-AtomTag-closeable"
           onClick={onHandler({disabled, readOnly}, onClose, {
             value,
@@ -42,7 +48,7 @@ const StandardTag = ({
       )}
     </span>
   )
-}
+)
 
 StandardTag.propTypes = {
   readOnly: PropTypes.bool,
@@ -54,10 +60,6 @@ StandardTag.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-}
-
-StandardTag.propTypes = {
-  onClose: () => {}
 }
 
 export default StandardTag

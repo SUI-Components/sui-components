@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.47.0 (2022-11-23)
+
+
+### Features
+
+* **components/molecule/modal:** Fix styles ([1357457](https://github.com/SUI-Components/sui-components/commit/1357457b58b740517b4b2a4923a84990a4d124ef))
+
+
+
 # 1.46.0 (2022-10-27)
 
 

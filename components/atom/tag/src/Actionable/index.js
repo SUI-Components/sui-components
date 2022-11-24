@@ -47,7 +47,7 @@ const ActionableTag = forwardRef(
         disabled={disabled}
       >
         <AtomTagActionableIcon
-          icon={icon}
+          {...(iconPlacement === ICON_PLACEMENTS.LEFT && {icon})}
           iconPlacement={ICON_PLACEMENTS.LEFT}
         />
         {label ? (
@@ -56,7 +56,7 @@ const ActionableTag = forwardRef(
           </span>
         ) : null}
         <AtomTagActionableIcon
-          icon={icon}
+          {...(iconPlacement === ICON_PLACEMENTS.RIGHT && {icon})}
           iconPlacement={ICON_PLACEMENTS.RIGHT}
         />
       </ActionableTagContainer>

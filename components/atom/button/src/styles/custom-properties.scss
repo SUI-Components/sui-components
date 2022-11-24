@@ -5,11 +5,16 @@
   --color-inverted: #{$c-white};
   // Basic custom properties.
   --background-color: var(--color-main);
+  --border: #{$bdw-s} solid;
   --border-color: var(--color-main);
   --border-radius: #{$bdrs-atom-button};
   --color: var(--color-inverted);
   --padding: 0 var(--p-l);
   --text-decoration: none;
+
+  &:focus {
+    --box-shadow: none; // ??
+  }
 
   &-group {
     &--middle#{$root} {
@@ -128,6 +133,14 @@
 
   // Designs
   &--solid {
+    &#{$root}--primary {
+      --box-shadow: none; // ??
+
+      &#{$root}--negative {
+        --box-shadow: none; // ??
+      }
+    }
+
     &#{$root}--focused,
     &:active {
       --background-color: var(--color-focused);
@@ -199,7 +212,6 @@
   }
 
   // Sizes
-
   &--small {
     --padding: 0 var(--p-m);
   }
@@ -224,5 +236,30 @@
         --border-color: var(--color-focused-inverted);
       }
     }
+  }
+
+  // Elevations
+  &--elevation-medium {
+    --box-shadow: var(--bxsh-m);
+
+    // &#{$root}--primary {
+    //   --box-shadow: var(--bxsh-m);
+
+    //   &#{$root}--negative {
+    //     --box-shadow: var(--bxsh-m);
+    //   }
+    // }
+  }
+
+  &--elevation-large {
+    --box-shadow: var(--bxsh-l);
+
+    // &#{$root}--primary {
+    //   --box-shadow: var(--bxsh-m);
+
+    //   &#{$root}--negative {
+    //     --box-shadow: var(--bxsh-m);
+    //   }
+    // }
   }
 }

@@ -8,7 +8,6 @@ import Theme from '@s-ui/react-theme'
 import ButtonSpinnerIcon from './buttonSpinnerIcon/index.js'
 import Button from './Button.js'
 import ButtonIcon from './ButtonIcon.js'
-
 import {
   ALIGNMENT,
   CLASS,

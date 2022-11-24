@@ -3,8 +3,9 @@
 
   background-color: var(--background-color); // New (solid)
   border-radius: var(--border-radius);
-  border: $bdw-s solid;
+  border: var(--border);
   border-color: var(--border-color); // New (solid)
+  box-shadow: var(--box-shadow); // New
   box-sizing: border-box;
   color: var(--color); // New (solid)
   display: inline-block;
@@ -30,17 +31,11 @@
 
   &-group {
     margin-left: -1px;
-    margin-right: 0;
+    margin-right: 0; // ??
 
     & + & {
       margin-left: -1px;
-      margin-right: 0;
-    }
-
-    &--selected {
-      &.sui-AtomButton {
-        box-shadow: $bxsh-atom-button-group-selected;
-      }
+      margin-right: 0; // ??
     }
 
     &--focused {
@@ -108,17 +103,6 @@
     justify-content: center;
   }
 
-  // Designs
-  &--solid {
-    &.sui-AtomButton--primary {
-      box-shadow: $bxsh-atom-button-solid-primary;
-
-      &.sui-AtomButton--negative {
-        box-shadow: $bxsh-atom-button-solid-primary-negative;
-      }
-    }
-  }
-
   // &--outline {
   //   background: none;
   // }
@@ -172,25 +156,6 @@
   // &--negative {
   //   background: none; // ???
   // }
-
-  // Box shadow
-  @each $key-bxsh, $bxsh in $bxsh-atom-button {
-    &--elevation-#{$key-bxsh} {
-      box-shadow: $bxsh;
-
-      &.sui-AtomButton--primary {
-        box-shadow: $bxsh;
-
-        &.sui-AtomButton--negative {
-          box-shadow: $bxsh;
-        }
-      }
-    }
-  }
-
-  &:focus {
-    box-shadow: $bxsh-atom-button-focus;
-  }
 
   // Other types
   &--empty {

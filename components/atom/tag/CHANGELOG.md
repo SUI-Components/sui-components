@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.49.0 (2022-11-24)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** tag repitted appearance ([6cb5233](https://github.com/SUI-Components/sui-components/commit/6cb523381223b1d4fdbca6e23fad2b5e0295d8b0))
+
+
+
 # 2.48.0 (2022-11-23)
 
 

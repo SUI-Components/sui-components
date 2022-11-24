@@ -16,6 +16,6 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@s-ui/react-head": "^1.11.0"
+    "@s-ui/react-head": "alpha"
   }
 }

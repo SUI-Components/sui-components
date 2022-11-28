@@ -96,9 +96,12 @@ const MoleculeDataCounter = forwardRef(
     }
 
     const handleChange = (event, {value}) => {
-      const newValue = parseInt(value, 10)
+      const parsedIntNewValue = parseInt(value, 10)
+
+      const diffValue = isNaN(parsedIntNewValue) && 0
+
       assignDiff(event, {
-        diff: isNaN(newValue) ? undefined : 0,
+        diff: diffValue,
         lastAction: ACTIONS.CHANGE
       })
     }

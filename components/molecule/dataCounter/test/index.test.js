@@ -10,6 +10,8 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import userEvents from '@testing-library/user-event'
+
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
@@ -91,6 +93,20 @@ describe(json.name, () => {
 
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('should not allow to reach NaN values', () => {
+      // Given
+
+      // When
+      const {getByRole, getByDisplayValue} = setup({value: 10})
+
+      const dataCounterInputTextBox = getByRole('textbox')
+
+      userEvents.clear(dataCounterInputTextBox)
+
+      // Then
+      expect(getByDisplayValue(10)).to.exist
     })
   })
 

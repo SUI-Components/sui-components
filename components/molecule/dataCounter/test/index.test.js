@@ -97,12 +97,10 @@ describe(json.name, () => {
 
     it('should not allow to reach NaN values', () => {
       // Given
-
-      // When
       const {getByRole, getByDisplayValue} = setup({value: 10})
 
+      // When
       const dataCounterInputTextBox = getByRole('textbox')
-
       userEvents.clear(dataCounterInputTextBox)
 
       // Then

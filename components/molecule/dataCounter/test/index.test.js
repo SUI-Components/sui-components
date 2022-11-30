@@ -13,6 +13,8 @@ import sinon from 'sinon'
 
 import {fireEvent} from '@testing-library/react'
 
+import userEvents from '@testing-library/user-event'
+
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
@@ -301,6 +303,18 @@ describe(json.name, () => {
 
       sinon.assert.notCalled(spy)
       expect(input.value).to.equal(`${initialValue}`)
+    })
+      
+    it('should not allow to reach NaN values', () => {
+      // Given
+      const {getByRole, getByDisplayValue} = setup({value: 10})
+
+      // When
+      const dataCounterInputTextBox = getByRole('textbox')
+      userEvents.clear(dataCounterInputTextBox)
+
+      // Then
+      expect(getByDisplayValue(10)).to.exist
     })
   })
 

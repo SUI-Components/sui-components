@@ -138,7 +138,8 @@ const MoleculeDataCounter = forwardRef(
             <AtomButton
               design={atomButtonDesigns.OUTLINE}
               disabled={decrementDisabled}
-              isButton
+              type="button"
+              aria-label="substract"
               isLoading={isLoading && lastAction === ACTIONS.LESS}
               size={sizeConversor[size]}
               {...useMouseHold(decrementValue, {
@@ -167,7 +168,8 @@ const MoleculeDataCounter = forwardRef(
             <AtomButton
               design={atomButtonDesigns.OUTLINE}
               disabled={incrementDisabled}
-              isButton
+              type="button"
+              aria-label="add"
               isLoading={isLoading && lastAction === ACTIONS.MORE}
               size={sizeConversor[size]}
               {...useMouseHold(incrementValue, {

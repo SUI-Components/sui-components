@@ -9,6 +9,9 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+
+import {fireEvent} from '@testing-library/react'
 
 import userEvents from '@testing-library/user-event'
 
@@ -93,6 +96,213 @@ describe(json.name, () => {
 
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('given min=undefined max=undefined range should render input with half of default ranges', () => {
+      // Given
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText'
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal('50')
+    })
+
+    it('given min=100 max=200 range should render input with half of default ranges', () => {
+      // Given
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        min: 100,
+        max: 200
+      }
+      const {min, max} = props
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${min + (max - min) / 2}`)
+    })
+
+    it('given min=100 max=200 range and initialValue=100 should render input preserving the value given', () => {
+      // Given
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        min: 100,
+        max: 200,
+        initialValue: 100
+      }
+      const {initialValue} = props
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${initialValue}`)
+    })
+
+    it('given min=100 max=200 range and value=100 should render input preserving the value given', () => {
+      // Given
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        min: 100,
+        max: 200,
+        value: 100
+      }
+      const {value} = props
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${value}`)
+    })
+
+    it('given min=undefined max=undefined range should when clicking substract button should decrease the input value', () => {
+      // Given
+      const spy = sinon.spy()
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        onChange: spy
+      }
+
+      // When
+      const {getByLabelText, getByRole} = setup(props)
+      const button = getByLabelText('substract')
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${50}`)
+      const {value} = input
+
+      // And
+      // When
+      fireEvent.click(button)
+
+      sinon.assert.called(spy)
+      sinon.assert.calledOnce(spy)
+      expect(input.value).to.equal(`${Number(value) - 1}`)
+    })
+
+    it('given min=undefined max=undefined range should when clicking increase button should increase the input value', () => {
+      // Given
+      const spy = sinon.spy()
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        onChange: spy
+      }
+
+      // When
+      const {getByLabelText, getByRole} = setup(props)
+      const button = getByLabelText('add')
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${50}`)
+      const {value} = input
+
+      // And
+      // When
+      fireEvent.click(button)
+
+      sinon.assert.called(spy)
+      sinon.assert.calledOnce(spy)
+      expect(input.value).to.equal(`${Number(value) + 1}`)
+    })
+
+    it('given min=0 max=2 range and initialValue=2 when clicking substract button should keep the input value', () => {
+      // Given
+      const spy = sinon.spy()
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        onChange: spy,
+        min: 0,
+        max: 2,
+        initialValue: 0
+      }
+      const {initialValue} = props
+
+      // When
+      const {getByLabelText, getByRole} = setup(props)
+      const button = getByLabelText('substract')
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${initialValue}`)
+
+      // And
+      // When
+      fireEvent.click(button)
+
+      sinon.assert.notCalled(spy)
+      expect(input.value).to.equal(`${initialValue}`)
+    })
+
+    it('given min=undefined max=undefined range should when clicking increase button should keep the input value', () => {
+      // Given
+      const spy = sinon.spy()
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        onChange: spy,
+        min: 0,
+        max: 2,
+        initialValue: 2
+      }
+      const {initialValue} = props
+
+      // When
+      const {getByLabelText, getByRole} = setup(props)
+      const button = getByLabelText('add')
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${initialValue}`)
+
+      // And
+      // When
+      fireEvent.click(button)
+
+      sinon.assert.notCalled(spy)
+      expect(input.value).to.equal(`${initialValue}`)
     })
 
     it('should not allow to reach NaN values', () => {

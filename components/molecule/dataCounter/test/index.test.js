@@ -12,7 +12,6 @@ import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
 import {fireEvent} from '@testing-library/react'
-
 import userEvents from '@testing-library/user-event'
 
 import json from '../package.json'

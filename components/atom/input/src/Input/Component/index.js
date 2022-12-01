@@ -12,6 +12,7 @@ import {
   noop,
   SIZES
 } from '../../config.js'
+import isValidInputValue from '../../helpers/isValidInputValue.js'
 
 const Input = forwardRef(
   (
@@ -67,11 +68,14 @@ const Input = forwardRef(
         target: {value, name}
       } = ev
       const {key} = ev
-      onKeyDown(ev, {value, name})
-      if (typeof onEnterKey === 'string') {
-        key === onEnterKey && onEnter(ev, {value, name})
-      } else if (Array.isArray(onEnterKey)) {
-        onEnterKey.includes(key) && onEnter(ev, {value, name})
+
+      if (isValidInputValue(event, {type, onEnterKey})) {
+        onKeyDown(ev, {value, name})
+        if (typeof onEnterKey === 'string') {
+          key === onEnterKey && onEnter(ev, {value, name})
+        } else if (Array.isArray(onEnterKey)) {
+          onEnterKey.includes(key) && onEnter(ev, {value, name})
+        }
       }
     }
 

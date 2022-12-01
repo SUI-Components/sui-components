@@ -9,6 +9,9 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+
+import userEvents from '@testing-library/user-event'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -85,13 +88,35 @@ describe(json.name, () => {
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
     })
+
+    it('given a valid input value using keyPress should set it as the value', () => {
+      // Given
+      const onChangeSpy = sinon.spy()
+      const onKeyDownSpy = sinon.spy()
+      const props = {
+        onChange: onChangeSpy,
+        onKeyDown: onKeyDownSpy
+      }
+      const value = '1'
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('textbox')
+
+      userEvents.type(input, value)
+
+      // Then
+      sinon.assert.callCount(onChangeSpy, 1)
+      sinon.assert.callCount(onKeyDownSpy, 1)
+      expect(input.value).to.equal(value)
+    })
   })
 
-  describe(`${Component.displayName} ${pkg.inputTypes.MASK}`, () => {
+  describe(`${Component.displayName} ${pkg.inputTypes.NUMBER}`, () => {
     it('should render without crashing', () => {
       // Given
       const props = {
-        type: pkg.inputTypes.MASK
+        type: pkg.inputTypes.NUMBER
       }
 
       // When
@@ -106,7 +131,7 @@ describe(json.name, () => {
     it('should NOT render null', () => {
       // Given
       const props = {
-        type: pkg.inputTypes.MASK
+        type: pkg.inputTypes.NUMBER
       }
 
       // When
@@ -121,7 +146,7 @@ describe(json.name, () => {
       // Given
       const props = {
         className: 'extended-classNames',
-        type: pkg.inputTypes.MASK
+        type: pkg.inputTypes.NUMBER
       }
       const findSentence = str => string =>
         string.match(new RegExp(`S*${str}S*`))
@@ -132,6 +157,129 @@ describe(json.name, () => {
 
       // Then
       expect(findClassName(container.innerHTML)).to.be.null
+    })
+
+    it('given a valid input value using keyPress should set it as the value', () => {
+      // Given
+      const onChangeSpy = sinon.spy()
+      const onKeyDownSpy = sinon.spy()
+      const props = {
+        type: pkg.inputTypes.NUMBER,
+        onChange: onChangeSpy,
+        onKeyDown: onKeyDownSpy
+      }
+      const value = '1'
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('spinbutton')
+
+      userEvents.type(input, value)
+
+      // Then
+      sinon.assert.callCount(onChangeSpy, 1)
+      sinon.assert.callCount(onKeyDownSpy, 1)
+      expect(input.value).to.equal(value)
+    })
+
+    it('given a NON valid input value using keyPress should set it as the value', () => {
+      // Given
+      const onChangeSpy = sinon.spy()
+      const onKeyDownSpy = sinon.spy()
+      const props = {
+        type: pkg.inputTypes.NUMBER,
+        onChange: onChangeSpy,
+        onKeyDown: onKeyDownSpy
+      }
+      const value = 'a'
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('spinbutton')
+
+      userEvents.type(input, value)
+
+      // Then
+      sinon.assert.callCount(onChangeSpy, 0)
+      sinon.assert.callCount(onKeyDownSpy, 0)
+      expect(input.value).to.equal('')
+    })
+
+    it('given an enter input using keyPress should fire onEnter event', () => {
+      // Given
+      const onChangeSpy = sinon.spy()
+      const onKeyDownSpy = sinon.spy()
+      const onEnterSpy = sinon.spy()
+      const props = {
+        type: pkg.inputTypes.NUMBER,
+        onChange: onChangeSpy,
+        onKeyDown: onKeyDownSpy,
+        onEnter: onEnterSpy
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('spinbutton')
+
+      userEvents.type(input, '{enter}')
+
+      // Then
+      sinon.assert.callCount(onChangeSpy, 0)
+      sinon.assert.callCount(onKeyDownSpy, 1)
+      expect(input.value).to.equal('')
+      sinon.assert.callCount(onEnterSpy, 1)
+    })
+
+    it('given a tab key enter firer and firing a tab keyPress should fire onEnter event', () => {
+      // Given
+      const onChangeSpy = sinon.spy()
+      const onKeyDownSpy = sinon.spy()
+      const onEnterSpy = sinon.spy()
+      const props = {
+        type: pkg.inputTypes.NUMBER,
+        onChange: onChangeSpy,
+        onKeyDown: onKeyDownSpy,
+        onEnter: onEnterSpy,
+        onEnterKey: ['Tab', 'Enter']
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('spinbutton')
+
+      userEvents.type(input, '{Tab}')
+
+      // Then
+      sinon.assert.callCount(onChangeSpy, 0)
+      sinon.assert.callCount(onKeyDownSpy, 1)
+      expect(input.value).to.equal('')
+      sinon.assert.callCount(onEnterSpy, 1)
+    })
+
+    it('given NULL key enter firer ant firing an enter keyPress should NOT fire onEnter event', () => {
+      // Given
+      const onChangeSpy = sinon.spy()
+      const onKeyDownSpy = sinon.spy()
+      const onEnterSpy = sinon.spy()
+      const props = {
+        type: pkg.inputTypes.NUMBER,
+        onChange: onChangeSpy,
+        onKeyDown: onKeyDownSpy,
+        onEnter: onEnterSpy,
+        onEnterKey: null
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('spinbutton')
+
+      userEvents.type(input, '{Tab}')
+
+      // Then
+      sinon.assert.callCount(onChangeSpy, 0)
+      sinon.assert.callCount(onKeyDownSpy, 1)
+      expect(input.value).to.equal('')
+      sinon.assert.callCount(onEnterSpy, 0)
     })
   })
 
@@ -441,8 +589,8 @@ describe(json.name, () => {
         // Given
         const testIdPrefix = 'testID'
         const props = {
-          leftAddon: <div data-testid={testIdPrefix}>leftAddon</div>,
-          rightAddon: <div data-testid={testIdPrefix}>rightAddon</div>,
+          leftIcon: <div data-testid={testIdPrefix}>leftAddon</div>,
+          rightIcon: <div data-testid={testIdPrefix}>rightAddon</div>,
           shape: pkg.inputShapes.CIRCLE
         }
 
@@ -453,6 +601,52 @@ describe(json.name, () => {
         expect(getAllByTestId(testIdPrefix))
           .to.be.an('array')
           .to.have.lengthOf(2)
+      })
+
+      it('given a left and right icon, when pressing left Icon should fire onClickLeftIcon', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const onClickLeftIcon = sinon.spy()
+        const onClickRightIcon = sinon.spy()
+        const props = {
+          leftIcon: <div data-testid={testIdPrefix}>leftAddon</div>,
+          rightIcon: <div data-testid={testIdPrefix}>rightAddon</div>,
+          onClickLeftIcon,
+          onClickRightIcon
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+        const [iconLeft] = getAllByTestId(testIdPrefix)
+
+        userEvents.click(iconLeft)
+
+        // Then
+        sinon.assert.callCount(onClickLeftIcon, 1)
+        sinon.assert.callCount(onClickRightIcon, 0)
+      })
+
+      it('given a left and right icon, when pressing right Icon should fire onClickRightIcon', () => {
+        // Given
+        const testIdPrefix = 'testID'
+        const onClickLeftIcon = sinon.spy()
+        const onClickRightIcon = sinon.spy()
+        const props = {
+          leftIcon: <div data-testid={testIdPrefix}>leftAddon</div>,
+          rightIcon: <div data-testid={testIdPrefix}>rightAddon</div>,
+          onClickLeftIcon,
+          onClickRightIcon
+        }
+
+        // When
+        const {getAllByTestId} = setup(props)
+        const [, iconRight] = getAllByTestId(testIdPrefix)
+
+        userEvents.click(iconRight)
+
+        // Then
+        sinon.assert.callCount(onClickLeftIcon, 0)
+        sinon.assert.callCount(onClickRightIcon, 1)
       })
     })
   })

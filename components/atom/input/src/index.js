@@ -6,7 +6,6 @@ import Input, {inputSizes, inputStates} from './Input/index.js'
 import Mask from './Mask/index.js'
 import Password from './Password/index.js'
 import {INPUT_SHAPES, TYPES} from './config.js'
-import {checkIfValidNumberInput} from './helper.js'
 
 const AtomInput = forwardRef(({type, ...props}, ref) => {
   switch (type) {
@@ -14,15 +13,6 @@ const AtomInput = forwardRef(({type, ...props}, ref) => {
       return <Password ref={ref} {...props} />
     case 'mask':
       return <Mask ref={ref} {...props} />
-    case 'number':
-      return (
-        <Input
-          onKeyDown={checkIfValidNumberInput}
-          ref={ref}
-          type={type}
-          {...props}
-        />
-      )
 
     default:
       return <Input ref={ref} {...props} type={type} />

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2022-11-29)
+
+
+### Features
+
+* **components/molecule/dataCounter:** control nan values unpon clearing input value ([3f9f142](https://github.com/SUI-Components/sui-components/commit/3f9f1424b2fd06ce3f5f5662c47f4cc501d3e361))
+
+
+
 # 1.16.0 (2022-06-23)
 
 

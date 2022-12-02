@@ -86,5 +86,20 @@
     },
     "black": "#000000",
     "white": "#FFFFFF"
+  },
+  "padding": {
+    "giant": "48px",
+    "xxxl": "40px",
+    "xxl": "32px",
+    "xl": "24px",
+    "l": "16px",
+    "m": "8px",
+    "s": "4px",
+    "xs": "2px"
+  },
+  "boxShadow": {
+    "s": "0 1px 1px 0 rgba(0, 0, 0, 0.24)",
+    "m": "0 1px 4px 0 rgba(0, 0, 0, 0.24)",
+    "l": "0 3px 8px 0 rgba(0, 0, 0, 0.16)"
   }
 }

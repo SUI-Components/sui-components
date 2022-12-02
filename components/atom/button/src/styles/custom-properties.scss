@@ -133,13 +133,13 @@
 
   // Designs
   &--solid {
-    &#{$root}--primary {
-      --box-shadow: none; // ??
+    // &#{$root}--primary {
+    //   --box-shadow: none; // ??
 
-      &#{$root}--negative {
-        --box-shadow: none; // ??
-      }
-    }
+    //   &#{$root}--negative {
+    //     --box-shadow: none; // ??
+    //   }
+    // }
 
     &#{$root}--focused,
     &:active {

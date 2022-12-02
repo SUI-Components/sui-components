@@ -9,8 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "latest",
-    "@s-ui/react-theme": "beta"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "license": "MIT"

@@ -8,7 +8,7 @@ const EcosystemTheme = ({tokens = {}, components, id, children, mode}) => {
   return (
     <HeadProvider>
       <Head>
-        <style>{`:root {${setTokens(tokens)}`}</style>
+        <style>{`:root {${setTokens(tokens)};`}</style>
       </Head>
       {children}
     </HeadProvider>

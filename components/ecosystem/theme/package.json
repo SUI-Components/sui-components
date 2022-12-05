@@ -16,7 +16,8 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
+    "@s-ui/react-head": "alpha",
     "lodash.merge": "4.6.2",
-    "@s-ui/react-head": "alpha"
+    "lodash.setwith": "4.3.2"
   }
 }

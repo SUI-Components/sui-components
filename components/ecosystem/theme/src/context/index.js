@@ -1,17 +1,26 @@
-import {createContext, useContext} from 'react'
+import {createContext} from 'react'
 
 import PropTypes from 'prop-types'
 
-const ThemeContext = createContext({})
+import {MODE} from '../settings.js'
 
-const ThemeProvider = ({children, ...props}) => (
-  <ThemeContext.Provider value={{...props}}>{children}</ThemeContext.Provider>
+export const ThemeContext = createContext({})
+export const ComponentContext = createContext({})
+
+const ThemeProvider = ({children, tokens, components, mode, onModeChange}) => (
+  <ThemeContext.Provider value={{tokens, mode, setMode: onModeChange}}>
+    <ComponentContext.Provider value={components}>
+      {children}
+    </ComponentContext.Provider>
+  </ThemeContext.Provider>
 )
 
 ThemeProvider.propTypes = {
-  children: PropTypes.string
+  children: PropTypes.string,
+  tokens: PropTypes.shape({}), // TODO
+  components: PropTypes.shape({}), // TODO
+  mode: PropTypes.oneOf(Object.values(MODE)),
+  onModeChange: PropTypes.func
 }
-
-export const useTheme = () => useContext(ThemeContext)
 
 export default ThemeProvider

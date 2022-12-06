@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 
 import {Article, Cell, Grid, H2, Label} from '@s-ui/documentation-library'
 
-import {useTheme} from '../../src/index.js'
+import {useMode, useTheme} from '../../src/index.js'
 import Color from '../Color.js'
 
 const ArticleDefault = ({className}) => {
   const {
     color: {black, white, ...colors}
   } = useTheme()
+  const [mode] = useMode()
   return (
     <Article className={className}>
       <H2>Default</H2>
@@ -24,18 +25,27 @@ const ArticleDefault = ({className}) => {
                   <Color
                     token={`var(--c-${colorName}-500)`}
                     name={colorName}
-                    mode="dark"
+                    mode={mode !== 'dark' && 'dark'}
                   />
                 </Cell>
                 <Cell>
                   <Grid cols={10}>
                     {Object.entries(colorValue).map(([valueKey, value]) => (
                       <Cell key={value}>
-                        <Color
-                          token={`${value}`}
-                          name={`${colorName} ${valueKey}`}
-                          mode={valueKey >= 400 && 'dark'}
-                        />
+                        {mode === 'dark' && (
+                          <Color
+                            token={`${value}`}
+                            name={`${colorName} ${valueKey}`}
+                            mode={valueKey <= 400 && 'dark'}
+                          />
+                        )}
+                        {mode !== 'dark' && (
+                          <Color
+                            token={`${value}`}
+                            name={`${colorName} ${valueKey}`}
+                            mode={valueKey >= 400 && 'dark'}
+                          />
+                        )}
                       </Cell>
                     ))}
                   </Grid>
@@ -45,10 +55,10 @@ const ArticleDefault = ({className}) => {
           ))}
         </Cell>
         <Cell>
-          <Color token={black} name="black" mode="dark" />
+          <Color token={black} name="black" mode={mode !== 'dark' && 'dark'} />
         </Cell>
         <Cell>
-          <Color token={white} name="white" />
+          <Color token={white} name="white" mode={mode === 'dark' && 'dark'} />
         </Cell>
       </Grid>
     </Article>

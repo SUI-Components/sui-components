@@ -4,8 +4,9 @@
   "description": "Theme",
   "main": "lib/index.js",
   "scripts": {
-    "prepublishOnly": "npm run build:js && npm run build:styles",
+    "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:json && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:json": "cpx './src/**/*.json' ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "repository": {
@@ -18,6 +19,7 @@
   "peerDependencies": {
     "@s-ui/react-head": "alpha",
     "lodash.merge": "4.6.2",
-    "lodash.setwith": "4.3.2"
+    "lodash.setwith": "4.3.2",
+    "@s-ui/react-hooks": "1"
   }
 }

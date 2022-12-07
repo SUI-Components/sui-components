@@ -136,7 +136,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     min-height: $sz-empty-icon;
     position: relative;
     overflow: hidden;
-    transform: rotate(-180deg);
+    transform: rotate(0deg);
     &::before,
     &::after {
       position: absolute;
@@ -157,7 +157,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     }
   }
   &#{$base-class-item-header-icon}Default--expanded {
-    transform: rotate(0deg);
+    transform: rotate(-180deg);
   }
 }
 

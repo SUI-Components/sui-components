@@ -5,6 +5,7 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 import EcosystemTheme from '../src/index.js'
 import ArticleCustomize from './articles/ArticleCustomize.js'
 import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleMode from './articles/ArticleMode.js'
 import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {
@@ -22,6 +23,8 @@ const Demo = () => {
           value={customProperty}
           onChange={onChange}
         />
+        <br />
+        <ArticleMode className={CLASS_SECTION} />
       </EcosystemTheme>
     </div>
   )

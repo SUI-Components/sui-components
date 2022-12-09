@@ -76,6 +76,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         tabIndex={tabIndex}
         maxTags={maxTags}
         value=""
+        {...props}
       >
         <MoleculeInputTags />
       </MoleculeInputSelect>

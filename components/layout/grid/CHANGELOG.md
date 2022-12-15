@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.15.0 (2022-12-15)
+
+
+### Features
+
+* **components/layout/grid:** griditem prop spreading ([3c3736e](https://github.com/SUI-Components/sui-components/commit/3c3736e4f63ed623374a1ec569f7e33e4fad0a37))
+
+
+
 # 2.14.0 (2022-12-15)
 
 

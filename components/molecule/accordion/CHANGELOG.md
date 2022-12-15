@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 2.8.0 (2022-12-15)
+
+
+### Bug Fixes
+
+* **component/molecule/accordion:** icon transition ([5e124b8](https://github.com/SUI-Components/sui-components/commit/5e124b89792dd864d7ea1a5c66650c3fa08bb857))
+* **component/molecule/accordion:** The arrows are upside down ([557f807](https://github.com/SUI-Components/sui-components/commit/557f807de7a807db4bd459e01ebee45fb1cda6ac))
+
+
+### Features
+
+* **components/molecule/accordion:** bump ([3f98b6c](https://github.com/SUI-Components/sui-components/commit/3f98b6cf7e594b42ddfc3604fc6a427a366d57b1))
+
+
+
 # 2.7.0 (2022-10-06)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.14.0 (2022-12-15)
+
+
+### Features
+
+* **components/layout/grid:** add props spreading ([1c9d263](https://github.com/SUI-Components/sui-components/commit/1c9d263590ba64b2bab2461e462d3f7dab55c7cf))
+
+
+
 # 2.13.0 (2022-10-06)
 
 

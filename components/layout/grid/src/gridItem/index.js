@@ -26,7 +26,8 @@ export default function LayoutGridItem({
   xxl,
   xxlOffset,
   xxs,
-  xxsOffset
+  xxsOffset,
+  ...props
 }) {
   const spanClassnames = useMemo(
     () => getColSpanClassNamesTransform({colSpan, xxl, xl, l, m, s, xs, xxs}),
@@ -46,7 +47,7 @@ export default function LayoutGridItem({
   )
 
   return (
-    <PolymorphicElement as={as} className={classNames}>
+    <PolymorphicElement as={as} className={classNames} {...props}>
       {children}
     </PolymorphicElement>
   )

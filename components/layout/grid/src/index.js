@@ -38,7 +38,8 @@ const LayoutGrid = ({
   xxl,
   xxlOffset,
   xxs,
-  xxsOffset
+  xxsOffset,
+  ...props
 }) => {
   const classNames = cx(
     `${BASE_CLASS}`,
@@ -53,7 +54,7 @@ const LayoutGrid = ({
   )
 
   return (
-    <PolymorphicElement as={as} className={classNames}>
+    <PolymorphicElement as={as} className={classNames} {...props}>
       <Injector
         colSpan={colSpan}
         l={l}

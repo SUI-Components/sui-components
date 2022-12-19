@@ -20,7 +20,9 @@ const getClassNames = function ({
   overlayAlpha = ALPHA[DEFAULT_ALPHA],
   color,
   rounded,
-  elevation
+  elevation,
+  isFullWidth,
+  isFullHeight
 }) {
   const BASE_CLASS = 'sui-atom-panel'
   const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
@@ -33,6 +35,8 @@ const getClassNames = function ({
     overlayColor && `${BASE_CLASS}--${overlayColor}-overlay-${overlayAlpha}`,
     `${BASE_CLASS}-color--${color}`,
     resized && `${IMAGE_PANEL_CLASS}--resized`,
+    isFullWidth && `${BASE_CLASS}--fullWidth`,
+    isFullHeight && `${BASE_CLASS}--fullHeight`,
     elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`
   )
 }
@@ -63,6 +67,8 @@ ImagePanel.propTypes = {
   as: PropTypes.elementType,
   id: PropTypes.string,
   children: PropTypes.node,
+  isFullWidth: PropTypes.bool,
+  isFullHeight: PropTypes.bool,
   /**
    * Background color while loading the image
    */

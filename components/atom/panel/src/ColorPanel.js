@@ -35,6 +35,8 @@ ColorPanel.propTypes = {
   as: PropTypes.elementType,
   id: PropTypes.string,
   children: PropTypes.node,
+  isFullWidth: PropTypes.bool,
+  isFullHeight: PropTypes.bool,
   color: PropTypes.oneOf(Object.values(COLORS)),
   alpha: PropTypes.oneOf(Object.values(ALPHA)),
   rounded: PropTypes.oneOf(Object.values(BORDER_RADIUS)),

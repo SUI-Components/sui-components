@@ -83,7 +83,15 @@ AtomPanel.propTypes = {
   /**
    * Specify the element id
    */
-  id: PropTypes.string
+  id: PropTypes.string,
+  /**
+   * Sets the element's width to 100%
+   */
+  isFullWidth: PropTypes.bool,
+  /**
+   * Sets the element's height to 100%
+   */
+  isFullHeight: PropTypes.bool,
 }
 
 export default AtomPanel

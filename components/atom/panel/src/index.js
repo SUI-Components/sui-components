@@ -91,7 +91,7 @@ AtomPanel.propTypes = {
   /**
    * Sets the element's height to 100%
    */
-  isFullHeight: PropTypes.bool,
+  isFullHeight: PropTypes.bool
 }
 
 export default AtomPanel

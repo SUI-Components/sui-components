@@ -48,6 +48,7 @@ const Input = forwardRef(
       onEnter = noop,
       onEnterKey = 'Enter',
       onKeyDown = noop,
+      onKeyPress = noop,
       required,
       pattern,
       inputMode,
@@ -104,6 +105,7 @@ const Input = forwardRef(
         onFocus={onFocus}
         onBlur={onBlur}
         onKeyDown={handleKeyDown}
+        onKeyPress={onKeyPress}
         placeholder={placeholder}
         ref={useMergeRefs(...[reference, forwardedRef].filter(Boolean))}
         type={type}
@@ -141,6 +143,8 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /* onKeyDown callback */
   onKeyDown: PropTypes.func,
+  /* onKeyPress callback */
+  onKeyPress: PropTypes.func,
   /* onChange callback */
   onChange: PropTypes.func,
   /* onFocus callback */

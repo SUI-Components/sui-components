@@ -1,11 +1,22 @@
 # CHANGELOG
 
+# 1.18.0 (2022-12-20)
+
+
+
 # 1.17.0 (2022-12-20)
 
 
 ### Bug Fixes
 
 * **components/atom/panel:** Fix border radius on overlay ([36724eb](https://github.com/SUI-Components/sui-components/commit/36724eb76452cf4c8b1e085710df19893292cac5))
+
+
+### Features
+
+* **components/atom/panel/demo:** add the demo for isFullHeight prop ([7898775](https://github.com/SUI-Components/sui-components/commit/7898775616650c214f68cbe8c61b9fb84d88e03c))
+* **components/atom/panel:** lint ([254af2d](https://github.com/SUI-Components/sui-components/commit/254af2dd66592479e6b009fbb551306038eb7a92))
+* **components/atom/panel:** Pass isFullWidth and isFullHeight properties ([e7e9525](https://github.com/SUI-Components/sui-components/commit/e7e9525ada5acdc9f11c0486ba6924d58c8b4101))
 
 
 

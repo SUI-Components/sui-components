@@ -55,7 +55,14 @@ export const VERTICAL_ALIGNMENTS = {
 export const DEFAULT_ALPHA = 'CONTRAST'
 export const DEFAULT_COLOR = 'ACCENT'
 
-export const getClassNames = function ({color, alpha, rounded, elevation}) {
+export const getClassNames = function ({
+  color,
+  alpha,
+  rounded,
+  elevation,
+  isFullWidth,
+  isFullHeight
+}) {
   const BASE_CLASS = 'sui-atom-panel'
   const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
   return cx(
@@ -63,6 +70,8 @@ export const getClassNames = function ({color, alpha, rounded, elevation}) {
     rounded !== BORDER_RADIUS.NONE && `${BASE_CLASS}--rounded-${rounded}`,
     COLOR_PANEL_CLASS,
     color && `${COLOR_PANEL_CLASS}--${color}-${alpha}`,
-    elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`
+    elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`,
+    isFullWidth && `${BASE_CLASS}--fullWidth`,
+    isFullHeight && `${BASE_CLASS}--fullHeight`
   )
 }

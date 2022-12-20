@@ -34,6 +34,14 @@ $base-class: '.sui-atom-panel';
     }
   }
 
+  &--fullWidth {
+    width: 100%;
+  }
+
+  &--fullHeight {
+    height: 100%;
+  }
+
   &-image {
     @extend %sui-atom-panel-image;
 

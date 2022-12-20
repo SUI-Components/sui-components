@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2022-12-20)
+
+
+### Bug Fixes
+
+* **components/atom/panel:** Fix border radius on overlay ([36724eb](https://github.com/SUI-Components/sui-components/commit/36724eb76452cf4c8b1e085710df19893292cac5))
+
+
+
 # 1.16.0 (2022-06-30)
 
 

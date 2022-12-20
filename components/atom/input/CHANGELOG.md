@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.24.0 (2022-12-20)
+
+
+### Features
+
+* **components/atom/input:** add key press event ([1faa2e4](https://github.com/SUI-Components/sui-components/commit/1faa2e4a95bd83488cff9b9c2573b973038d7731))
+
+
+
 # 5.23.0 (2022-12-01)
 
 

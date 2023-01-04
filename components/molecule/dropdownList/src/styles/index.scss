@@ -18,6 +18,9 @@ $base-class: '.sui-MoleculeDropdownList';
       border: $bd-dropdown-list;
       box-shadow: $bxsh-dropdown-list;
     }
+    &-flat {
+      margin: $m-dropdown-list--design-flat;
+    }
   }
 
   &--small {

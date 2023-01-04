@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2023-01-04)
+
+
+### Features
+
+* **components/molecule/dropdownList:** Add margin token to design flat ([84a7fa5](https://github.com/SUI-Components/sui-components/commit/84a7fa5bc16ff12931ef5e8ad7c916c1d01e954d))
+
+
+
 # 2.1.0 (2022-10-04)
 
 

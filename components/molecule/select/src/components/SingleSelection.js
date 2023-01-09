@@ -1,4 +1,4 @@
-import AtomInput from '@s-ui/react-atom-input'
+import AtomInput, {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 
 import MoleculeInputSelect from './MoleculeInputSelect.js'
@@ -21,7 +21,8 @@ const MoleculeSelectSingleSelection = props => {
     optionsData = {},
     required,
     selectSize,
-    tabIndex
+    tabIndex,
+    disableDeviceKeyboard
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -48,7 +49,11 @@ const MoleculeSelectSingleSelection = props => {
         size={selectSize}
         tabIndex={tabIndex}
       >
-        <AtomInput />
+        <AtomInput
+          {...(disableDeviceKeyboard === true && {
+            inputMode: inputTypes.NONE
+          })}
+        />
       </MoleculeInputSelect>
       <MoleculeDropdownList
         size={size}

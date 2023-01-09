@@ -197,7 +197,7 @@ MoleculeInputTags.propTypes = {
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,
 
-  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  /* object generated w/ React.createRef method to get a DOM reference of internal input */
   innerRefInput: PropTypes.object,
 
   /* text to be displayed if there is no tags and the input is empty */

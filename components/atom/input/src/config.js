@@ -17,7 +17,8 @@ export const TYPES = {
   SUI_PASSWORD: 'sui-password',
   TEXT: 'text',
   TEL: 'tel',
-  EMAIL: 'email'
+  EMAIL: 'email',
+  NONE: 'none'
 }
 
 export const SIZES = {

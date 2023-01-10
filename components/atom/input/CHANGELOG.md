@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.25.0 (2023-01-10)
+
+
+### Features
+
+* **components/atom/input:** add none input mode type ([57e3fa5](https://github.com/SUI-Components/sui-components/commit/57e3fa5e34d5d35ef1fa6351ac0d1bd0bd8e6710))
+
+
+
 # 5.24.0 (2022-12-20)
 
 

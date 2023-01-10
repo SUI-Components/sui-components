@@ -3,7 +3,7 @@ import {forwardRef, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
+import AtomInput, {inputSizes, inputTypes} from '@s-ui/react-atom-input'
 import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
@@ -157,6 +157,7 @@ const MoleculeInputTags = forwardRef(
             readOnly={readOnly}
             disabled={disabled}
             placeholder={isEmpty ? placeholder : undefined}
+            inputMode={inputTypes.NONE}
           />
         )}
       </div>

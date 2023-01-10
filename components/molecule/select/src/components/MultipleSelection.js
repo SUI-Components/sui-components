@@ -1,3 +1,4 @@
+import {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
@@ -77,7 +78,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         maxTags={maxTags}
         value=""
       >
-        <MoleculeInputTags />
+        <MoleculeInputTags inputMode={inputTypes.NONE} />
       </MoleculeInputSelect>
       <MoleculeDropdownList
         checkbox

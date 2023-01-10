@@ -674,7 +674,8 @@ describe(json.name, () => {
         SUI_PASSWORD: 'sui-password',
         TEXT: 'text',
         TEL: 'tel',
-        EMAIL: 'email'
+        EMAIL: 'email',
+        NONE: 'none'
       }
 
       // When
@@ -688,6 +689,7 @@ describe(json.name, () => {
         TEXT,
         TEL,
         EMAIL,
+        NONE,
         ...others
       } = actual
 

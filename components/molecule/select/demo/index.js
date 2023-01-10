@@ -61,22 +61,6 @@ const Demo = () => (
       </div>
 
       <div className={CLASS_DEMO_SECTION}>
-        <h3>With Disabled Device Keyboard</h3>
-        <MoleculeSelectWithState
-          placeholder="Select a Country..."
-          onChange={(_, {value}) => console.log(value)}
-          iconArrowDown={<IconArrowDown />}
-          disableDeviceKeyboard
-        >
-          {countriesList.map((country, i) => (
-            <MoleculeSelectOption key={i} value={country}>
-              {country}
-            </MoleculeSelectOption>
-          ))}
-        </MoleculeSelectWithState>
-      </div>
-
-      <div className={CLASS_DEMO_SECTION}>
         <h3>With leftIcon</h3>
         <MoleculeSelectWithState
           placeholder="Select a Country..."

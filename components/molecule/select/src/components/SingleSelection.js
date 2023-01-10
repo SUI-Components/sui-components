@@ -21,8 +21,7 @@ const MoleculeSelectSingleSelection = props => {
     optionsData = {},
     required,
     selectSize,
-    tabIndex,
-    disableDeviceKeyboard
+    tabIndex
   } = props
 
   const handleSelection = (ev, {value}) => {
@@ -49,11 +48,7 @@ const MoleculeSelectSingleSelection = props => {
         size={selectSize}
         tabIndex={tabIndex}
       >
-        <AtomInput
-          {...(disableDeviceKeyboard === true && {
-            inputMode: inputTypes.NONE
-          })}
-        />
+        <AtomInput inputMode={inputTypes.NONE} />
       </MoleculeInputSelect>
       <MoleculeDropdownList
         size={size}

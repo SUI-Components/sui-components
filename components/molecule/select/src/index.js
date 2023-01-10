@@ -38,8 +38,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     keysSelection,
     multiselection,
     refMoleculeSelect: refMoleculeSelectFromProps,
-    'aria-label': ariaLabel,
-    disableDeviceKeyboard
+    'aria-label': ariaLabel
   } = props
 
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
@@ -161,7 +160,6 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
         optionsData={optionsData}
         isOpen={isOpenState}
         onToggle={handleToggle}
-        disableDeviceKeyboard={disableDeviceKeyboard}
         {...props}
       >
         {extendedChildren}
@@ -238,10 +236,7 @@ MoleculeSelect.propTypes = {
   tabIndex: PropTypes.number,
 
   /* Optional aria-label */
-  'aria-label': PropTypes.string,
-
-  /* Optional Boolean attribute to disable the device keyboards (iOS/Android) for the input element */
-  disableDeviceKeyboard: PropTypes.bool
+  'aria-label': PropTypes.string
 }
 
 MoleculeSelect.defaultProps = {
@@ -250,8 +245,7 @@ MoleculeSelect.defaultProps = {
   keysSelection: SELECTION_KEYS,
   onChange: () => {},
   readOnly: false,
-  selectSize: SELECT_SIZES.MEDIUM,
-  disableDeviceKeyboard: false
+  selectSize: SELECT_SIZES.MEDIUM
 }
 
 MoleculeSelect.displayName = 'MoleculeSelect'

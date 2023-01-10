@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.58.0 (2023-01-10)
+
+
+### Features
+
+* **components/molecule/select:** add disableDeviceKeyboard prop ([5966565](https://github.com/SUI-Components/sui-components/commit/59665653d2d8a2233ba9b3108d137fbfcc3031d4))
+* **components/molecule/select:** add the input mode none on the multiselect ([bbf602a](https://github.com/SUI-Components/sui-components/commit/bbf602a097edc3ae2d4df7afd471db6ca2049b21))
+* **components/molecule/select:** remove the disableDeviceKeyboard prop to use none by default ([6d0ccb8](https://github.com/SUI-Components/sui-components/commit/6d0ccb8baa51a0ca4c20ef62408305a83b2bbf58))
+
+
+
 # 1.57.0 (2022-10-11)
 
 

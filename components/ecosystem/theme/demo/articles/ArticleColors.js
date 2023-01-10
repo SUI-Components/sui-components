@@ -7,23 +7,43 @@ import {Article, Cell, Grid, H2, Label} from '@s-ui/documentation-library'
 import {useMode, useTheme} from '../../src/index.js'
 import Color from '../Color.js'
 
-const ArticleDefault = ({className}) => {
+const ArticleColors = ({className}) => {
   const {
-    color: {black, white, ...colors}
+    colors: {
+      color: {
+        black,
+        white,
+        primary,
+        accent,
+        success,
+        alert,
+        error,
+        info,
+        neutral
+      }
+    }
   } = useTheme()
   const [mode] = useMode()
   return (
     <Article className={className}>
-      <H2>Default</H2>
+      <H2>Colors</H2>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          {Object.entries(colors).map(([colorName, colorValue]) => (
+          {Object.entries({
+            primary,
+            accent,
+            success,
+            alert,
+            error,
+            info,
+            neutral
+          }).map(([colorName, colorValue]) => (
             <Fragment key={colorName}>
               <Label fontWeight="bold">{colorName}</Label>
               <Grid>
                 <Cell>
                   <Color
-                    token={`var(--c-${colorName}-500)`}
+                    token={`${colorValue[500]}`}
                     name={colorName}
                     mode={mode !== 'dark' && 'dark'}
                   />
@@ -65,8 +85,8 @@ const ArticleDefault = ({className}) => {
   )
 }
 
-ArticleDefault.propTypes = {
+ArticleColors.propTypes = {
   className: PropTypes.string
 }
 
-export default ArticleDefault
+export default ArticleColors

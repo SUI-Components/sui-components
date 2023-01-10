@@ -16,10 +16,11 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "peerDependencies": {
+  "dependencies": {
     "@s-ui/react-head": "alpha",
+    "@s-ui/react-hooks": "1",
     "lodash.merge": "4.6.2",
     "lodash.setwith": "4.3.2",
-    "@s-ui/react-hooks": "1"
+    "change-case": "4.1.2"
   }
 }

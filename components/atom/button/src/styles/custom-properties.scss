@@ -39,6 +39,17 @@
     --background-color: transparent;
     --color: var(--color-main);
     --text-align: center;
+    --text-decoration: #{$td-atom-button-link};
+
+    &#{$root}--focused,
+    &:active {
+      --text-decoration: underline;
+    }
+    @media (hover: hover) {
+      &:hover {
+        --text-decoration: underline;
+      }
+    }
 
     &#{$root}--negative {
       &#{$root}--focused,
@@ -114,21 +125,6 @@
     --color-main: #{$c-instagram};
     --color-focused: #{color-variation($c-instagram, -1)};
     --color-focused-inverted: #{color-variation($c-instagram, 4)};
-  }
-
-  // Links
-  &--link {
-    --text-decoration: #{$td-atom-button-link};
-
-    &#{$root}--focused,
-    &:active {
-      --text-decoration: underline;
-    }
-    @media (hover: hover) {
-      &:hover {
-        --text-decoration: underline;
-      }
-    }
   }
 
   // Designs

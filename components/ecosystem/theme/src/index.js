@@ -5,7 +5,7 @@ import useCallbackRef from '@s-ui/react-hooks/lib/useCallbackRef'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import ThemeContext from './context/index.js'
-import {useComponentTheme, useMode, useTheme} from './hook/index.js'
+import {useMode, useTheme} from './hook/index.js'
 import getTokens from './utils/getTokens.js'
 import {serialize} from './utils/tokenize.js'
 import {MODE} from './settings.js'
@@ -53,6 +53,6 @@ EcosystemTheme.propTypes = {
   children: PropTypes.node
 }
 
-export {useTheme, useComponentTheme, useMode, MODE as themeMode}
+export {useTheme, useMode, MODE as themeMode}
 
 export default EcosystemTheme

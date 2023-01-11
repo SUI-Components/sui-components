@@ -53,6 +53,8 @@ EcosystemTheme.propTypes = {
   children: PropTypes.node
 }
 
+EcosystemTheme.displayName = 'EcosystemTheme'
+
 export {useTheme, useMode, MODE as themeMode}
 
 export default EcosystemTheme

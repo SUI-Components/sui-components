@@ -27,10 +27,12 @@ const EcosystemTheme = ({
     typeof onModeChange === 'function' && onModeChange(mode)
   })
   return (
-    <HeadProvider>
-      <Head>
-        <style>{`${selector} {${serialize(resultingTokens)};`}</style>
-      </Head>
+    <>
+      <HeadProvider>
+        <Head>
+          <style>{`${selector} {${serialize(resultingTokens)};`}</style>
+        </Head>
+      </HeadProvider>
       <ThemeContext
         mode={modeState}
         onModeChange={modeChangeHandler}
@@ -39,7 +41,7 @@ const EcosystemTheme = ({
       >
         {children}
       </ThemeContext>
-    </HeadProvider>
+    </>
   )
 }
 

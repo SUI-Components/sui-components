@@ -1,12 +1,13 @@
 import {useMemo} from 'react'
 
-import {loremIpsum} from 'lorem-ipsum'
+import {loremIpsum as lorem} from 'lorem-ipsum'
 import PropTypes from 'prop-types'
 
-/** See: https://www.npmjs.com/package/lorem-ipsum **/
-const LoremIpsum = ({
+export const loremIpsum = ({...args}) => lorem({...args})
+
+export const useLoremIpsum = ({
   count,
-  format = 'html',
+  format,
   paragraphLowerBound,
   paragraphUpperBound,
   random,
@@ -14,9 +15,9 @@ const LoremIpsum = ({
   sentenceUpperBound,
   suffix,
   words,
-  units = 'paragraph'
-}) => {
-  const lorem = useMemo(() => {
+  units
+}) =>
+  useMemo(() => {
     const text = loremIpsum({
       count,
       format,
@@ -42,6 +43,32 @@ const LoremIpsum = ({
     words,
     units
   ])
+
+/** See: https://www.npmjs.com/package/lorem-ipsum **/
+const LoremIpsum = ({
+  count,
+  format = 'html',
+  paragraphLowerBound,
+  paragraphUpperBound,
+  random,
+  sentenceLowerBound,
+  sentenceUpperBound,
+  suffix,
+  words,
+  units = 'paragraph'
+}) => {
+  const lorem = useLoremIpsum({
+    count,
+    format,
+    paragraphLowerBound,
+    paragraphUpperBound,
+    random,
+    sentenceLowerBound,
+    sentenceUpperBound,
+    suffix,
+    words,
+    units
+  })
   return format === 'html' ? <span dangerouslySetInnerHTML={lorem} /> : lorem
 }
 

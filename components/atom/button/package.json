@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "latest",
-    "@s-ui/react-ecosystem-theme": "beta"
+    "@s-ui/react-ecosystem-theme": "1.0.0-beta.5"
   },
   "keywords": [],
   "license": "MIT"

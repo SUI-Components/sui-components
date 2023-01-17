@@ -17,9 +17,9 @@
   --padding: 0 var(--p-l);
   --text-decoration: none;
   --font-family: var(--fw-semi-bold);
-  --font-size: var(--fw-semi-bold);
+  --font-size: var(--fz-base);
   --font-weight: var(--fw-semi-bold);
-  --height: calc(var(--p-base) * 4);
+  --height: calc(var(--sz-base) * 5);
   --line-height: normal;
   --min-width: calc(var(--p-base) * 5);
   --text-transform: none;
@@ -245,7 +245,7 @@
 
   // Shapes
   &--circular {
-    --border-radius: calc(--p-base * 5 * 0.5);
+    --border-radius: calc(var(--sz-base) * 5 * 0.5);
   }
 
   // Sizes
@@ -260,7 +260,7 @@
     --icon-margin: var(--m-s);
 
     &#{$root}--circular {
-      --border-radius: calc(--p-base * 4 * 0.5);
+      --border-radius: calc(var(--sz-base) * 4 * 0.5);
     }
   }
 
@@ -275,7 +275,7 @@
     --icon-margin: var(--m-m);
 
     &#{$root}--circular {
-      --border-radius: calc(--p-base * 6 * 0.5);
+      --border-radius: calc(var(--sz-base) * 6 * 0.5);
     }
   }
 

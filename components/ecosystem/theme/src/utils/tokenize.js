@@ -40,7 +40,7 @@ const conform = key => {
   return key.replace(
     /(?<category>[a-zA-Z]+)-(?<property>[a-zA-Z]+)-(.*)/,
     (match, category, property, rest) => {
-      const tokenPrefix = PROPERTIES[property]
+      const tokenPrefix = PROPERTIES[property] || property
 
       if (!tokenPrefix) {
         // eslint-disable-next-line

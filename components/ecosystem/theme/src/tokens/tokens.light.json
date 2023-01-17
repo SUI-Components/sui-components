@@ -86,7 +86,14 @@
         "900": "#252428"
       },
       "black": "#000000",
-      "white": "#FFFFFF"
+      "white": "#FFFFFF",
+      "facebook": "#3B5998",
+      "twitter":  "#3B5998",
+      "google": "#55ACEE",
+      "youtube":  "#D34836",
+      "whatsapp": "#BB0000",
+      "instagram":  "#7ED321",
+      "tiktok": "#8A3AB9"
     }
   },
   "size": {

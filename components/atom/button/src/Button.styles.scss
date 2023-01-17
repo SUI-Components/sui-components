@@ -29,6 +29,7 @@
   &-leftIcon,
   &-rightIcon,
   &-centerIcon {
+    display: inline-flex;
     &:not(& [class*='Icon']) {
       height: var(--icon-size);
       width: var(--icon-size);
@@ -36,6 +37,16 @@
       align-content: center;
       justify-content: center;
       align-items: center;
+    }
+
+    // add compatibility with SuiAtomIcon with correct alignment
+    .sui-AtomIcon {
+      display: inline-flex;
+    }
+
+    svg {
+      fill: currentColor;
+      stroke: currentColor;
     }
   }
 
@@ -62,23 +73,6 @@
 
     .sui-AtomButton-text {
       opacity: 0;
-    }
-  }
-
-  // Icons
-  &-leftIcon,
-  &-rightIcon,
-  &-centerIcon {
-    display: inline-flex;
-
-    // add compatibility with SuiAtomIcon with correct alignment
-    .sui-AtomIcon {
-      display: inline-flex;
-    }
-
-    svg {
-      fill: currentColor;
-      stroke: currentColor;
     }
   }
 

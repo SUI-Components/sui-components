@@ -1,50 +1,86 @@
 .sui-AtomButton {
   $root: &;
 
-  // Special custom property.
-  --color-inverted: #{$c-white};
+  // Special custom properties.
+  --color-inverted: var(--c-white);
+
+  // Icon custom properties.
+  --icon-size: var(--sz-icon-s);
+  --icon-margin: var(--m-m);
+
   // Basic custom properties.
   --background-color: var(--color-main);
-  --border: #{$bdw-s} solid;
+  --border: var(--bdw-s) solid;
   --border-color: var(--color-main);
-  --border-radius: #{$bdrs-atom-button};
+  --border-radius: var(--bdrs-m);
   --color: var(--color-inverted);
   --padding: 0 var(--p-l);
   --text-decoration: none;
+  --font-family: var(--fw-semi-bold);
+  --font-size: var(--fw-semi-bold);
+  --font-weight: var(--fw-semi-bold);
+  --height: calc(var(--p-base) * 4);
+  --line-height: normal;
+  --min-width: calc(var(--p-base) * 5);
+  --text-transform: none;
 
   &:focus {
     --box-shadow: none; // ??
   }
 
+  & + &:not(&--fitted):not(&-group) {
+    --margin-left: var(--m-m);
+  }
+
   &-group {
+    --margin-left: -1px;
+    --margin-right: 0; // ??
+
+    & + & {
+      --margin-left: -1px;
+      --margin-right: 0; // ??
+    }
+
     &--middle#{$root} {
       --border-radius: 0;
     }
 
     &--first#{$root} {
-      --border-radius: #{$bdrs-atom-button-first};
+      --border-radius: var(--bdrs-m) 0 0 var(--bdrs-m);
     }
 
     &--last#{$root} {
-      --border-radius: #{$bdrs-atom-button-last};
+      --border-radius: 0 var(--bdrs-m) var(--bdrs-m) 0;
     }
 
     &--selected#{$root} {
-      --border-radius: #{$bdrs-atom-button-group-selected};
+      --border-radius: none;
     }
+
+    &--focused {
+      --border: 1px solid;
+    }
+  }
+
+  &-inner {
+    --height: 100%;
   }
 
   // Links
   &--link {
     --background-color: transparent;
     --color: var(--color-main);
+    --font-family: var(--ff-link);
+    --font-weight: var(--fw-link);
+    --line-height: var(--lh-link);
     --text-align: center;
-    --text-decoration: #{$td-atom-button-link};
+    --text-decoration: none;
 
     &#{$root}--focused,
     &:active {
       --text-decoration: underline;
     }
+
     @media (hover: hover) {
       &:hover {
         --text-decoration: underline;
@@ -82,49 +118,49 @@
     --color-focused-inverted: var(--c-neutral-100);
   }
   &--success {
-    --color-main: #{$c-success};
-    --color-focused: #{color-variation($c-success, -1)};
-    --color-focused-inverted: #{color-variation($c-success, 4)};
+    --color-main: var(--c-success-500);
+    --color-focused: var(--c-success-600);
+    --color-focused-inverted: var(--c-success-100);
   }
   &--alert {
-    --color-main: #{$c-alert};
-    --color-focused: #{color-variation($c-alert, -1)};
-    --color-focused-inverted: #{color-variation($c-alert, 4)};
+    --color-main: var(--c-alert-500);
+    --color-focused: var(--c-alert-600);
+    --color-focused-inverted: var(--c-alert-100);
   }
   &--error {
-    --color-main: #{$c-error};
-    --color-focused: #{color-variation($c-error, -1)};
-    --color-focused-inverted: #{color-variation($c-error, 4)};
+    --color-main: var(--c-error-500);
+    --color-focused: var(--c-error-600);
+    --color-focused-inverted: var(--c-error-100);
   }
   &--social-facebook {
-    --color-main: #{$c-facebook};
-    --color-focused: #{color-variation($c-facebook, -1)};
-    --color-focused-inverted: #{color-variation($c-facebook, 4)};
+    --color-main: var(--c-facebook-500);
+    --color-focused: var(--c-facebook-600);
+    --color-focused-inverted: var(--c-facebook-100);
   }
   &--social-twitter {
-    --color-main: #{$c-twitter};
-    --color-focused: #{color-variation($c-twitter, -1)};
-    --color-focused-inverted: #{color-variation($c-twitter, 4)};
+    --color-main: var(--c-twitter-500);
+    --color-focused: var(--c-twitter-600);
+    --color-focused-inverted: var(--c-twitter-100);
   }
   &--social-google {
-    --color-main: #{$c-google};
-    --color-focused: #{color-variation($c-google, -1)};
-    --color-focused-inverted: #{color-variation($c-google, 4)};
+    --color-main: var(--c-google-500);
+    --color-focused: var(--c-google-600);
+    --color-focused-inverted: var(--c-google-100);
   }
   &--social-youtube {
-    --color-main: #{$c-youtube};
-    --color-focused: #{color-variation($c-youtube, -1)};
-    --color-focused-inverted: #{color-variation($c-youtube, 4)};
+    --color-main: var(--c-youtube-500);
+    --color-focused: var(--c-youtube-600);
+    --color-focused-inverted: var(--c-youtube-100);
   }
   &--social-whatsapp {
-    --color-main: #{$c-whatsapp};
-    --color-focused: #{color-variation($c-whatsapp, -1)};
-    --color-focused-inverted: #{color-variation($c-whatsapp, 4)};
+    --color-main: var(--c-whatsapp-500);
+    --color-focused: var(--c-whatsapp-600);
+    --color-focused-inverted: var(--c-whatsapp-100);
   }
   &--social-instagram {
-    --color-main: #{$c-instagram};
-    --color-focused: #{color-variation($c-instagram, -1)};
-    --color-focused-inverted: #{color-variation($c-instagram, 4)};
+    --color-main: var(--c-instagram-500);
+    --color-focused: var(--c-instagram-600);
+    --color-focused-inverted: var(--c-instagram-100);
   }
 
   // Designs
@@ -207,13 +243,40 @@
     --text-align: right;
   }
 
+  // Shapes
+  &--circular {
+    --border-radius: calc(--p-base * 5 * 0.5);
+  }
+
   // Sizes
   &--small {
+    --font-size: var(--fz-s);
+    --font-weight: var(--fw-semi-bold);
+    --height: calc(var(--p-base) * 4);
+    --min-width: calc(var(--p-base) * 4);
     --padding: 0 var(--p-m);
+    // Icon custom properties.
+    --icon-size: var(--sz-icon-s);
+    --icon-margin: var(--m-s);
+
+    &#{$root}--circular {
+      --border-radius: calc(--p-base * 4 * 0.5);
+    }
   }
 
   &--large {
-    --border-radius: #{$bdrs-atom-button-large};
+    --border-radius: var(--bdrs-m);
+    --font-size: var(--fz-m);
+    --font-weight: var(--fw-semi-bold);
+    --height: calc(var(--p-base) * 6);
+    --min-width: calc(var(--p-base) * 6);
+    // Icon custom properties.
+    --icon-size: var(--sz-icon-m);
+    --icon-margin: var(--m-m);
+
+    &#{$root}--circular {
+      --border-radius: calc(--p-base * 6 * 0.5);
+    }
   }
 
   // Modifiers

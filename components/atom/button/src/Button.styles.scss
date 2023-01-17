@@ -1,6 +1,4 @@
 .sui-AtomButton {
-  @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
-
   background-color: var(--background-color); // New (solid)
   border-radius: var(--border-radius);
   border: var(--border);
@@ -11,45 +9,52 @@
   display: inline-block;
   position: relative;
   font: {
-    family: $ff-atom-button;
-    size: $fz-atom-button;
-    weight: $fw-atom-button;
+    family: var(--font-family);
+    size: var(--font-size);
+    weight: var(--font-weight);
   }
-  height: $sz-atom-button;
-  line-height: normal;
-  min-width: $sz-atom-button;
+  height: var(--height);
+  line-height: var(--line-height);
+  margin-left: var(--margin-left);
+  margin-right: var(--margin-right);
+  min-width: var(--min-width);
   outline: 0;
   padding: var(--padding); // OK
   text-align: var(--text-align);
   text-decoration: var(--text-decoration);
-  text-transform: $tt-atom-button;
+  text-transform: var(--text-transform);
   white-space: nowrap;
 
-  & + &:not(&--fitted):not(&-group) {
-    margin-left: $m-consecutive-atom-button;
-  }
-
-  &-group {
-    margin-left: -1px;
-    margin-right: 0; // ??
-
-    & + & {
-      margin-left: -1px;
-      margin-right: 0; // ??
-    }
-
-    &--focused {
-      border: $bd-atom-button-group-focused;
+  // Button Icon
+  &-leftIcon,
+  &-rightIcon,
+  &-centerIcon {
+    &:not(& [class*='Icon']) {
+      height: var(--icon-size);
+      width: var(--icon-size);
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
     }
   }
 
+  &-leftIcon {
+    margin-right: var(--icon-margin);
+  }
+
+  &-rightIcon {
+    margin-left: var(--icon-margin);
+  }
+
+  // Inner
   &-inner {
     align-items: center;
     display: inline-flex;
-    height: 100%;
     pointer-events: none;
   }
 
+  // Elements
   &--loading {
     .sui-AtomButton-inner {
       justify-content: center;
@@ -72,8 +77,8 @@
     }
 
     svg {
-      fill: $icon-fill-color;
-      stroke: $icon-stroke-color;
+      fill: currentColor;
+      stroke: currentColor;
     }
   }
 
@@ -88,12 +93,12 @@
   &--link {
     // Overwritten mixin for testing purposes.
     //@include link();
-    font-family: $ff-link;
     font-stretch: normal;
     font-style: normal;
-    font-weight: $fw-link;
+    // font-family: $ff-link;
+    // font-weight: $fw-link;
     letter-spacing: normal;
-    line-height: $lh-link;
+    // line-height: $lh-link;
     text-align: left;
     // Actual properties.
     // background: transparent;
@@ -109,36 +114,6 @@
 
   &--flat {
     border: 0;
-  }
-
-  // Shapes
-  &--circular {
-    @include button-circular($sz-atom-button);
-  }
-
-  // Sizes
-  &--small {
-    @include button-icon($icon-sz-atom-button-small, $icon-m-atom-button-small);
-    font-size: $fz-atom-button-small;
-    font-weight: $fw-atom-button-small;
-    height: $sz-atom-button-small;
-    min-width: $sz-atom-button-small;
-
-    &.sui-AtomButton--circular {
-      @include button-circular($sz-atom-button-small);
-    }
-  }
-
-  &--large {
-    @include button-icon($icon-sz-atom-button-large, $icon-m-atom-button-large);
-    font-size: $fz-atom-button-large;
-    font-weight: $fw-atom-button-large;
-    height: $sz-atom-button-large;
-    min-width: $sz-atom-button-large;
-
-    &.sui-AtomButton--circular {
-      @include button-circular($sz-atom-button-large);
-    }
   }
 
   // Modifiers

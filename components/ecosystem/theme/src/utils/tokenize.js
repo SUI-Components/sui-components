@@ -1,12 +1,9 @@
+import {paramCase} from 'change-case'
 import setWith from 'lodash.setwith'
 
-const CUSTOM_PROPERTY_SEPARATOR = '-'
+import PROPERTIES from '../constants/properties.js'
 
-const TOKENS_PREFIX_MAP = {
-  color: 'c',
-  padding: 'p',
-  boxShadow: 'bxsh'
-}
+const CUSTOM_PROPERTY_SEPARATOR = '-'
 
 const TYPE_MAP = {
   object: (prefix, value, {keys = [], key, ...settings} = {}) =>
@@ -24,7 +21,10 @@ const TYPE_MAP = {
   }
 }
 
-const parse = (tokens, {prefix, affix = '-', keys = []}) => {
+const parse = (
+  tokens,
+  {prefix, affix = CUSTOM_PROPERTY_SEPARATOR, keys = []}
+) => {
   return Object.entries(tokens)
     .map(([tokenKey, tokenValue]) =>
       (TYPE_MAP[typeof tokenValue] || TYPE_MAP.undefined)(
@@ -36,20 +36,24 @@ const parse = (tokens, {prefix, affix = '-', keys = []}) => {
     .flat()
 }
 
-const conform = key =>
-  key.replace(/([a-zA-Z]+)-(.*)/, (allKey, prefix, rest) => {
-    const tokenPrefix = TOKENS_PREFIX_MAP[prefix]
+const conform = key => {
+  return key.replace(
+    /(?<category>[a-zA-Z]+)-(?<property>[a-zA-Z]+)-(.*)/,
+    (match, category, property, rest) => {
+      const tokenPrefix = PROPERTIES[property]
 
-    if (!tokenPrefix) {
-      // eslint-disable-next-line
-      console.warn(
-        `[THEME] You are trying to set the token "${prefix}", not defined in our design system.`
-      )
-      return ''
+      if (!tokenPrefix) {
+        // eslint-disable-next-line
+        console.warn(
+          `[THEME] You are trying to set the token "${property}", from "${match}" is not defined in our design system.`
+        )
+        return ''
+      }
+
+      return `${tokenPrefix}${CUSTOM_PROPERTY_SEPARATOR}${paramCase(rest)}`
     }
-
-    return `${TOKENS_PREFIX_MAP[prefix]}${CUSTOM_PROPERTY_SEPARATOR}${rest}`
-  })
+  )
+}
 
 export const serialize = map =>
   Array.from(map.entries())

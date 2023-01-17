@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 
-import {ComponentContext, ThemeContext} from '../context/index.js'
+import {ThemeContext} from '../context/index.js'
 
 export const useTheme = () => {
   const {tokens} = useContext(ThemeContext)
@@ -14,5 +14,3 @@ export const useMode = () => {
     setMode
   })
 }
-
-export const useComponentTheme = () => useContext(ComponentContext)

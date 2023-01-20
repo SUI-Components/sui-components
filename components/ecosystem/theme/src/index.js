@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import {paramCase} from 'change-case'
 
 import Head, {HeadProvider} from '@s-ui/react-head'
 import useCallbackRef from '@s-ui/react-hooks/lib/useCallbackRef'
@@ -13,7 +14,7 @@ import {MODE} from './settings.js'
 // eslint-disable-next-line
 const EcosystemTheme = ({
   tokens = {},
-  components,
+  components = {},
   selector = ':root',
   children,
   mode,
@@ -30,7 +31,18 @@ const EcosystemTheme = ({
     <>
       <HeadProvider>
         <Head>
-          <style>{`${selector} {${serialize(resultingTokens)};`}</style>
+          <style>{`${selector} {${serialize(resultingTokens)}}${Object.entries(
+            components
+          ).map(
+            ([componentSelector, value = {}]) =>
+              `${componentSelector} {${serialize(
+                new Map(
+                  Object.entries(
+                    typeof value === 'function' ? value(dictionary) : value
+                  ).map(([key, value]) => [`--${paramCase(key)}`, value])
+                )
+              )}}`
+          )}`}</style>
         </Head>
       </HeadProvider>
       <ThemeContext

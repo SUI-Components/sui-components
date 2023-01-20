@@ -1,11 +1,10 @@
 import {useContext} from 'react'
 
-import {ThemeContext} from '../context/index.js'
+import {ThemeContext, ComponentContext} from '../context/index.js'
 
-export const useTheme = () => {
-  const {tokens} = useContext(ThemeContext)
-  return tokens
-}
+export const useTheme = () => useContext(ThemeContext).tokens
+
+export const useComponentTheme = () => useContext(ComponentContext)
 
 export const useMode = () => {
   const {mode, setMode} = useContext(ThemeContext)

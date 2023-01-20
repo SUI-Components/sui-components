@@ -43,7 +43,19 @@ const Demo = () => {
   const {negative, content, icon, leftIcon, rightIcon, socialButtons, link} =
     state
   return (
-    <Theme>
+    <Theme
+      components={
+        {
+          // ['.sui-AtomButton']: ({
+          //   colors: {
+          //     color: {tiktok}
+          //   }
+          // }) => ({
+          //   colorMain: tiktok[50]
+          // })
+        }
+      }
+    >
       <div className="sui-StudioPreview">
         <H1>Button</H1>
         <Paragraph>

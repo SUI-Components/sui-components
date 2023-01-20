@@ -252,8 +252,8 @@
   &--small {
     --font-size: var(--fz-s);
     --font-weight: var(--fw-semi-bold);
-    --height: calc(var(--p-base) * 4);
-    --min-width: calc(var(--p-base) * 4);
+    --height: calc(var(--sz-base) * 4);
+    --min-width: calc(var(--sz-base) * 4);
     --padding: 0 var(--p-m);
     // Icon custom properties.
     --icon-size: var(--sz-icon-s);
@@ -268,7 +268,7 @@
     --border-radius: var(--bdrs-m);
     --font-size: var(--fz-m);
     --font-weight: var(--fw-semi-bold);
-    --height: calc(var(--p-base) * 6);
+    --height: calc(var(--sz-base) * 6);
     --min-width: calc(var(--p-base) * 6);
     // Icon custom properties.
     --icon-size: var(--sz-icon-m);

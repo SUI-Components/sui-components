@@ -1,0 +1,22 @@
+{
+  "name": "@s-ui/react-molecule-file-uploader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' ./lib"
+  },
+  "dependencies": {
+    "@s-ui/react-atom-icon": "1.18.0",
+    "@s-ui/react-primitive-injector": "1",
+    "buffer": "6.0.3"
+  },
+  "peerDependencies": {
+    "@s-ui/component-dependencies": "1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

@@ -185,13 +185,15 @@ export default function slidy(containerDOMEl, options) {
         (direction === true && index === items - 1)
 
       /**
-       * If the swipe is valid and we're not out of bounds
+       * If the swipe is valid and we're not out of bounds or is infiniteLoop
        * -> Slide to the direction
        * otherwise: go back to the previous slide with a linear animation
        */
-      isValid === true && isOutOfBounds === false
-        ? slide(direction)
-        : _translate(slideSpeed, LINEAR_ANIMATION)
+      if (isValid === true && (isOutOfBounds === false || infiniteLoop)) {
+        slide(direction)
+      } else {
+        _translate(slideSpeed, LINEAR_ANIMATION)
+      }
     }
 
     // reset variables with the initial values

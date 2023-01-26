@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2023-01-26)
+
+
+### Bug Fixes
+
+* **components/molecule/carousel:** fix infiniteLoop onTouchEnd event ([d67a00c](https://github.com/SUI-Components/sui-components/commit/d67a00cfc209686c6f67e2d90ef5fb95bb293fc7))
+
+
+
 # 1.3.0 (2022-11-04)
 
 

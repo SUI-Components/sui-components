@@ -44,7 +44,7 @@ const onSelectPage = (e, {page}) => { console.log({e, page}) }
 
 ### With callbacks
 ```js
-<MoleculePagination totalPages={25} page={7} onClickNext={onClickNext} onClickPrev={onClickPrev} onClickPage={onClickPage}/>
+<MoleculePagination totalPages={25} page={7} onSelectNext={onSelectNext} onSelectPrev={onSelectPrev} onSelectPage={onSelectPage}/>
 ```
 
 ### Full example

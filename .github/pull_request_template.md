@@ -8,6 +8,11 @@
 <!-- https://github.com/SUI-Components/sui-components/issues -->
 **TASK**: <!--- #issueID -->
 
+### Description, Motivation and Context
+<!--- Describe your changes in detail -->
+<!--- Why is this change required? What problem does it solve? -->
+<!--- If it is solving an issue... How can it be reproduced in order to compare between both behaviors? -->
+
 ### Types of changes
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
 
@@ -19,11 +24,7 @@
 - [ ] 🧪 Test
 - [ ] 🧠 Refactor
 - [ ] 💄 Styles
-
-### Description, Motivation and Context
-<!--- Describe your changes in detail -->
-<!--- Why is this change required? What problem does it solve? -->
-<!--- If it is solving an issue... How can it be reproduced in order to compare between both behaviors? -->
+- [ ] 🛠️ Tool
 
 ### Screenshots - Animations
 <!-- Adding images or gif animations of your changes improves the understanding of your changes -->

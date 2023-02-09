@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.18.0 (2023-02-09)
+
+
+### Features
+
+* **components/molecule/collapsible:** Update for print styles ([6f40031](https://github.com/SUI-Components/sui-components/commit/6f4003102c219272fb84ff635d81524c5e24bfe9))
+
+
+
 # 1.17.0 (2022-06-23)
 
 

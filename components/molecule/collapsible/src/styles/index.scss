@@ -72,6 +72,10 @@ $base-class: '.sui-MoleculeCollapsible';
         width: 100%;
       }
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   &-icon {

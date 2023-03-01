@@ -69,6 +69,7 @@ $base-class: '.sui-MoleculeDropdownOption';
 
   &.is-selected:not(&-checkbox) &-text {
     font-weight: $fw-molecule-dropdown-option-selected-text;
+    color: $c-molecule-dropdown-option-selected-text;
   }
 
   &--disabled {

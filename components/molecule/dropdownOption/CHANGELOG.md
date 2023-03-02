@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2023-03-02)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** add token for selected option color ([9efea9b](https://github.com/SUI-Components/sui-components/commit/9efea9b4bea03499aaea102277564dc6c5867969))
+
+
+
 # 2.2.0 (2022-10-10)
 
 

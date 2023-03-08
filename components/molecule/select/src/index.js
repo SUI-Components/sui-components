@@ -51,8 +51,6 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
 
-  const options = refsMoleculeSelectOptions.current.map(getTarget)
-
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
@@ -100,6 +98,9 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   }, [children, handleOutsideClick])
 
   const focusFirstOption = ev => {
+    const options = refsMoleculeSelectOptions.current.map(option =>
+      getTarget(option.current)
+    )
     options[0] && options[0].focus()
     ev.preventDefault()
     ev.stopPropagation()

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.59.0 (2023-03-08)
+
+
+### Features
+
+* **components/molecule/select:** Avoid problems when auto-focusing first select option ([b4741bd](https://github.com/SUI-Components/sui-components/commit/b4741bda63930c7c6450fd1e84512574e2f2b695))
+
+
+
 # 1.58.0 (2023-01-10)
 
 

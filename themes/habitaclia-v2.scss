@@ -1,0 +1,9 @@
+// Inherit from original theme
+@import '~@s-ui/theme/lib/index';
+@import '~@adv-ui/hb-theme-v2/lib/index';
+
+// Common css for sui-studio
+@import './common';
+
+// Load font
+//

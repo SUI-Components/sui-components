@@ -23,6 +23,7 @@ const THEMES_PACKAGES = [
   '@adv-ui/ep-theme',
   '@adv-ui/fc-theme',
   '@adv-ui/hab-theme',
+  '@adv-ui/hb-theme-v2',
   '@adv-ui/ij-theme',
   '@adv-ui/ma-theme',
   '@adv-ui/mt-theme'

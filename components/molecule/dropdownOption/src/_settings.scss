@@ -3,6 +3,7 @@ $c-dropdown-option-disabled: color-variation($c-gray, 3) !default;
 $mih-dropdown-option: 40px !default;
 $h-dropdown-option: $mih-dropdown-option !default; // deprecated
 $bgc-dropdown-option-hover: $c-gray-light-4 !default;
+$c-dropdown-option-hover: inherit !default;
 
 $c-molecule-dropdown-option--highlight-mark: initial !default;
 $bdr-molecule-dropdown-option: 0 !default;

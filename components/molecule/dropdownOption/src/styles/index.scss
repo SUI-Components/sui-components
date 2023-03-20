@@ -80,8 +80,13 @@ $base-class: '.sui-MoleculeDropdownOption';
   &:hover,
   &:focus {
     background-color: $bgc-dropdown-option-hover;
+    color: $c-dropdown-option-hover;
     cursor: pointer;
     outline: none;
+
+    & #{$base-class}-description {
+      color: $c-dropdown-option-hover;
+    }
   }
 
   &--withDescription {

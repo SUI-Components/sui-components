@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.4.0 (2023-03-20)
+
+
+### Features
+
+* **components/molecule/dropdownOption:** add token for hover on dropdownOption ([b1b4a21](https://github.com/SUI-Components/sui-components/commit/b1b4a21ed5debb1ea6dc8453cb8f1da62503dc65))
+
+
+
 # 2.3.0 (2023-03-02)
 
 

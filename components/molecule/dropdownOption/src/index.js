@@ -16,6 +16,7 @@ import {
   CLASS_DISABLED,
   CLASS_HIGHLIGHTED,
   CLASS_HIGHLIGHTED_MARK,
+  CLASS_LEFT_ADDON,
   CLASS_TEXT,
   CLASS_WITH_DESCRIPTION,
   MODIFIER_LINE_WRAP,
@@ -35,6 +36,7 @@ const MoleculeDropdownOption = forwardRef(
       highlightQuery,
       highlightValue,
       innerRef,
+      leftAddon,
       selectKey,
       onSelect,
       selected,
@@ -140,9 +142,14 @@ const MoleculeDropdownOption = forwardRef(
         {highlightQuery ? (
           renderHighlightOption(highlightValue || children)
         ) : (
-          <span onFocus={handleInnerFocus} className={innerClassName}>
-            {children}
-          </span>
+          <>
+            {leftAddon ? (
+              <span className={CLASS_LEFT_ADDON}>{leftAddon}</span>
+            ) : null}
+            <span onFocus={handleInnerFocus} className={innerClassName}>
+              {children}
+            </span>
+          </>
         )}
         {description && (
           <span className={CLASS_DESCRIPTION}>{description}</span>
@@ -168,6 +175,8 @@ MoleculeDropdownOption.propTypes = {
   checkboxProps: PropTypes.object,
   /** Is disabled */
   disabled: PropTypes.bool,
+  /** Custom element set at left side of an option */
+  leftAddon: PropTypes.node,
   /** onSelect callback (ev, {value}) */
   onSelect: PropTypes.func,
   /** Selected html controlled property */

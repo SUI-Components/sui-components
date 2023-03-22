@@ -25,10 +25,11 @@ const InitialState = ({
   buttonSize = BUTTON_SIZE,
   icon,
   text,
+  onClick,
   dividerText = ALTERNATIVE_ACTION_TEXT
 }) => {
   return (
-    <div className={INITIAL_STATE_CLASS_NAME}>
+    <div onClick={onClick} className={INITIAL_STATE_CLASS_NAME}>
       <div className={ICON_INITIAL_STATE_CLASS_NAME}>
         <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
       </div>
@@ -68,7 +69,8 @@ InitialState.propTypes = {
   buttonSize: PropTypes.string,
   icon: PropTypes.node.isRequired,
   text: PropTypes.string.isRequired,
-  dividerText: PropTypes.string
+  dividerText: PropTypes.string,
+  onClick: PropTypes.func
 }
 
 export default InitialState

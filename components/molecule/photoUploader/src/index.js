@@ -74,6 +74,7 @@ const MoleculePhotoUploader = forwardRef(
       notificationErrorFormatPhotoUploaded,
       onDropFiles = noop,
       onFileDialogOpen = noop,
+      onInitialStateClick = noop,
       outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
       outputImageAspectRatioDisabled = false,
       rejectPhotosIcon,
@@ -81,7 +82,8 @@ const MoleculePhotoUploader = forwardRef(
       rotateIcon,
       rotationDirection = ROTATION_DIRECTION.counterclockwise,
       thumbIconSize,
-      uploadingPhotosText
+      uploadingPhotosText,
+      disabled = false
     },
     forwardedRef
   ) => {
@@ -224,6 +226,7 @@ const MoleculePhotoUploader = forwardRef(
     } = useDropzone({
       noClick: isPhotoUploaderFully(),
       noKeyboard: isPhotoUploaderFully(),
+      disabled,
       accept: acceptedFileTypes,
       onDrop: onDropFiles,
       onFileDialogOpen,
@@ -262,6 +265,7 @@ const MoleculePhotoUploader = forwardRef(
             <input {...getInputProps()} ref={inputRef} />
             {isPhotoUploaderEmpty && !isDragActive && (
               <InitialState
+                onClick={onInitialStateClick}
                 buttonColor={addPhotoButtonColor}
                 buttonDesign={addPhotoButtonDesign}
                 buttonText={addPhotoTextButton}
@@ -520,7 +524,13 @@ MoleculePhotoUploader.propTypes = {
   uploadingPhotosText: PropTypes.string.isRequired,
 
   /** Icon size inside action buttons in thumb card */
-  thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES))
+  thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
+
+  /** Func to be executed when file dialog is clicked */
+  onInitialStateClick: PropTypes.func,
+
+  /** Disable the file dialog area */
+  disabled: PropTypes.bool
 }
 
 export default MoleculePhotoUploader

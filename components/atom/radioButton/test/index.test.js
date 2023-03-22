@@ -5,6 +5,7 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
+import {createRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -60,6 +61,22 @@ describe(json.name, () => {
       // Then
       expect(container.innerHTML).to.be.a('string')
       expect(container.innerHTML).to.not.have.lengthOf(0)
+    })
+
+    describe('forwardRef', () => {
+      it('should return forwardRef html input element when giving a ref to the component', () => {
+        // Given
+        const ref = createRef()
+
+        // When
+        const component = <Component ref={ref} />
+        const div = document.createElement('div')
+        ReactDOM.render(component, div)
+
+        // Then
+        expect(ref.current).to.not.equal(undefined)
+        expect(ref.current.nodeName).to.equal('INPUT')
+      })
     })
   })
 

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.5.0 (2023-03-22)
+
+
+### Features
+
+* **components/molecule/dropdownOption/demo:** add left addon demo ([a82e2c5](https://github.com/SUI-Components/sui-components/commit/a82e2c58b2d5eb1c81becfda4003fe1a0d91eda7))
+* **components/molecule/dropdownOption:** add left addon prop ([403b568](https://github.com/SUI-Components/sui-components/commit/403b568ff85e9a30b098e31a2e0540c57b28420d))
+
+
+
 # 2.4.0 (2023-03-20)
 
 

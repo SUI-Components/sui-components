@@ -525,7 +525,7 @@ MoleculePhotoUploader.propTypes = {
   /** Icon size inside action buttons in thumb card */
   thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
 
-  /** Func to be executed when file dialog is clicked */
+  /** Func to be executed when dropzone area is clicked */
   onInitialStateClick: PropTypes.func,
 
   /** A boolean to disable click in dropzone area */

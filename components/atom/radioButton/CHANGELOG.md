@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2023-03-22)
+
+
+### Features
+
+* **components/atom/radioButton:** wrap with forward ref ([2711fd6](https://github.com/SUI-Components/sui-components/commit/2711fd6881374c586822fb4c2c50431ddf7af53c))
+
+
+
 # 1.10.0 (2022-10-06)
 
 

@@ -4,6 +4,7 @@ import ArticleBehavior from './ArticleBehavior.js'
 import ArticleDefault from './ArticleDefault.js'
 import ArticleDescription from './ArticleDescription.js'
 import ArticleHighLight from './ArticleHighLight.js'
+import ArticleLeftAddons from './ArticleLeftAddons.js'
 import ArticleTextWrap from './ArticleTextWrap.js'
 import {CLASS_DEMO_SECTION} from './config.js'
 
@@ -25,6 +26,8 @@ const Demo = () => (
     <ArticleDescription className={CLASS_DEMO_SECTION} />
     <br />
     <ArticleTextWrap className={CLASS_DEMO_SECTION} />
+    <br />
+    <ArticleLeftAddons className={CLASS_DEMO_SECTION} />
   </div>
 )
 

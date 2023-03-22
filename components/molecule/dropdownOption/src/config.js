@@ -10,6 +10,7 @@ export const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 export const CLASS_WITH_DESCRIPTION = `${BASE_CLASS}--withDescription`
 export const CLASS_HIGHLIGHTED = `is-highlighted`
 export const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
+export const CLASS_LEFT_ADDON = `${BASE_CLASS}-leftAddon`
 
 export const TEXT_WRAP_STYLES = {
   NO_WRAP: 'noWrap',

@@ -5,6 +5,7 @@ $base-class: '.sui-MoleculeDropdownOption';
   border-radius: $bdrs-molecule-dropdown-option;
   color: $c-dropdown-option;
   display: flex;
+  gap: $g-molecule-dropdown-option;
   min-height: $mih-dropdown-option;
   padding: $pt-molecule-dropdown-option $pr-molecule-dropdown-option
     $pb-molecule-dropdown-option $pl-molecule-dropdown-option;
@@ -23,12 +24,19 @@ $base-class: '.sui-MoleculeDropdownOption';
     padding-left: $p-s;
   }
 
+  &-leftAddon {
+    margin-left: $ml-molecule-dropdown-option-text;
+  }
+
   &-text {
     font-size: $fz-molecule-dropdown-option-text;
     flex-basis: 100%;
     overflow: hidden;
-    margin-left: $ml-molecule-dropdown-option-text;
     text-overflow: ellipsis;
+
+    &:first-child {
+      margin-left: $ml-molecule-dropdown-option-text;
+    }
 
     &--noWrap {
       white-space: nowrap;

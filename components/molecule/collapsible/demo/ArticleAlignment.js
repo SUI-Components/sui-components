@@ -10,13 +10,14 @@ const ArticleAlignment = ({className, icon, showText, hideText}) => {
     <Article className={className}>
       <H2>Collapsible Alignment</H2>
       <Paragraph>
-        These are the options for the prop <Code> alignContainer</Code>
+        These are the options for the prop <Code> alignContainer</Code> and{' '}
+        <Code> alignButton</Code> (default left)
       </Paragraph>
       <br />
       <br />
       <DemoWrapper>
         <div style={{display: 'flex', flexDirection: 'column', maxWidth: 400}}>
-          <span>Collapsible Left</span>
+          <span>Collapsible Left and Button Left</span>
           <div
             style={{
               backgroundColor: '#fff',
@@ -35,13 +36,14 @@ const ArticleAlignment = ({className, icon, showText, hideText}) => {
           </div>
         </div>
         <div style={{display: 'flex', flexDirection: 'column', maxWidth: 400}}>
-          <span>Collapsible Center</span>
+          <span>Collapsible Center and Button Center</span>
           <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
             <MoleculeCollapsible
               icon={icon}
               showText={showText}
               hideText={hideText}
               alignContainer="center"
+              alignButton="center"
             >
               <Text />
             </MoleculeCollapsible>
@@ -55,6 +57,7 @@ const ArticleAlignment = ({className, icon, showText, hideText}) => {
               showText={showText}
               hideText={hideText}
               alignContainer="right"
+              alignButton="right"
             >
               <Text />
             </MoleculeCollapsible>

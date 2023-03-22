@@ -83,7 +83,7 @@ const MoleculePhotoUploader = forwardRef(
       rotationDirection = ROTATION_DIRECTION.counterclockwise,
       thumbIconSize,
       uploadingPhotosText,
-      disabled = false
+      noClick = false
     },
     forwardedRef
   ) => {
@@ -224,9 +224,8 @@ const MoleculePhotoUploader = forwardRef(
       isDragReject,
       inputRef: dropzoneInputRef
     } = useDropzone({
-      noClick: isPhotoUploaderFully(),
+      noClick: isPhotoUploaderFully() || noClick,
       noKeyboard: isPhotoUploaderFully(),
-      disabled,
       accept: acceptedFileTypes,
       onDrop: onDropFiles,
       onFileDialogOpen,
@@ -529,8 +528,8 @@ MoleculePhotoUploader.propTypes = {
   /** Func to be executed when file dialog is clicked */
   onInitialStateClick: PropTypes.func,
 
-  /** Disable the file dialog area */
-  disabled: PropTypes.bool
+  /** A boolean to disable click in dropzone area */
+  noClick: PropTypes.bool
 }
 
 export default MoleculePhotoUploader

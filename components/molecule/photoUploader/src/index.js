@@ -74,7 +74,7 @@ const MoleculePhotoUploader = forwardRef(
       notificationErrorFormatPhotoUploaded,
       onDropFiles = noop,
       onFileDialogOpen = noop,
-      onInitialStateClick = noop,
+      onEmptyViewClick = noop,
       outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
       outputImageAspectRatioDisabled = false,
       rejectPhotosIcon,
@@ -264,7 +264,7 @@ const MoleculePhotoUploader = forwardRef(
             <input {...getInputProps()} ref={inputRef} />
             {isPhotoUploaderEmpty && !isDragActive && (
               <InitialState
-                onClick={onInitialStateClick}
+                onClick={onEmptyViewClick}
                 buttonColor={addPhotoButtonColor}
                 buttonDesign={addPhotoButtonDesign}
                 buttonText={addPhotoTextButton}
@@ -526,7 +526,7 @@ MoleculePhotoUploader.propTypes = {
   thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
 
   /** Func to be executed when dropzone area is clicked */
-  onInitialStateClick: PropTypes.func,
+  onEmptyViewClick: PropTypes.func,
 
   /** A boolean to enable click in dropzone area */
   isClickable: PropTypes.bool

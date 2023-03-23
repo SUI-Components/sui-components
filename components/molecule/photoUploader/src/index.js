@@ -83,7 +83,7 @@ const MoleculePhotoUploader = forwardRef(
       rotationDirection = ROTATION_DIRECTION.counterclockwise,
       thumbIconSize,
       uploadingPhotosText,
-      noClick = false
+      isClickable = true
     },
     forwardedRef
   ) => {
@@ -224,7 +224,7 @@ const MoleculePhotoUploader = forwardRef(
       isDragReject,
       inputRef: dropzoneInputRef
     } = useDropzone({
-      noClick: isPhotoUploaderFully() || noClick,
+      noClick: isPhotoUploaderFully() || !isClickable,
       noKeyboard: isPhotoUploaderFully(),
       accept: acceptedFileTypes,
       onDrop: onDropFiles,
@@ -528,8 +528,8 @@ MoleculePhotoUploader.propTypes = {
   /** Func to be executed when dropzone area is clicked */
   onInitialStateClick: PropTypes.func,
 
-  /** A boolean to disable click in dropzone area */
-  noClick: PropTypes.bool
+  /** A boolean to enable click in dropzone area */
+  isClickable: PropTypes.bool
 }
 
 export default MoleculePhotoUploader

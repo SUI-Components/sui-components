@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.23.0 (2023-03-27)
+
+
+### Features
+
+* **components/molecule/photoUploader:** add prop noclick ([9c03453](https://github.com/SUI-Components/sui-components/commit/9c034531e5267ea1431182db76585a8819c376a9))
+* **components/molecule/photoUploader:** add props to photouploader ([014d3dc](https://github.com/SUI-Components/sui-components/commit/014d3dc3fc47ead4649a8c0d153a4d79e9e98dc0))
+* **components/molecule/photoUploader:** Rename folder, import and styles. ([98adedf](https://github.com/SUI-Components/sui-components/commit/98adedf5f46b91a473a9084125714631bda18926))
+* **components/molecule/photoUploader:** update prop ([40fd572](https://github.com/SUI-Components/sui-components/commit/40fd572ad7a1c9cb8b97fd0ad7f269bae4ffbe03))
+* **components/molecule/photoUploader:** update prop name ([bce3d1c](https://github.com/SUI-Components/sui-components/commit/bce3d1cb42201276b4deeba0626ef3db72927e5b))
+* **components/molecule/photoUploader:** update proptypes comment ([8039810](https://github.com/SUI-Components/sui-components/commit/8039810c34cf0192f7490f367e315f51adc0396e))
+
+
+
 # 2.22.0 (2022-11-08)
 
 

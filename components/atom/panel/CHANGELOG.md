@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.19.0 (2023-03-27)
+
+
+### Features
+
+* **components/atom/panel:** add xxl and giant for radius prop ([37d763c](https://github.com/SUI-Components/sui-components/commit/37d763c45ffedddd326a2175ccd9fc663dcdd942))
+* **components/atom/panel:** remove unwanted code ([686b391](https://github.com/SUI-Components/sui-components/commit/686b3912c013e4739cf5f01f89c41db416e4148c))
+
+
+
 # 1.18.0 (2022-12-20)
 
 

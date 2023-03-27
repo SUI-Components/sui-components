@@ -11,7 +11,7 @@ import useMount from '@s-ui/react-hooks/lib/useMount'
 
 import DragNotification from './DragNotification/index.js'
 import DragState from './DragState/index.js'
-import InitialState from './InitialState/index.js'
+import EmptyView from './EmptyView/index.js'
 import PhotosPreview from './PhotosPreview/index.js'
 import {
   ACTIONS,
@@ -74,6 +74,7 @@ const MoleculePhotoUploader = forwardRef(
       notificationErrorFormatPhotoUploaded,
       onDropFiles = noop,
       onFileDialogOpen = noop,
+      onEmptyViewClick = noop,
       outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
       outputImageAspectRatioDisabled = false,
       rejectPhotosIcon,
@@ -81,7 +82,8 @@ const MoleculePhotoUploader = forwardRef(
       rotateIcon,
       rotationDirection = ROTATION_DIRECTION.counterclockwise,
       thumbIconSize,
-      uploadingPhotosText
+      uploadingPhotosText,
+      isClickable = true
     },
     forwardedRef
   ) => {
@@ -222,7 +224,7 @@ const MoleculePhotoUploader = forwardRef(
       isDragReject,
       inputRef: dropzoneInputRef
     } = useDropzone({
-      noClick: isPhotoUploaderFully(),
+      noClick: isPhotoUploaderFully() || !isClickable,
       noKeyboard: isPhotoUploaderFully(),
       accept: acceptedFileTypes,
       onDrop: onDropFiles,
@@ -261,7 +263,8 @@ const MoleculePhotoUploader = forwardRef(
           <div {...getRootProps({className: dropzoneClassName})}>
             <input {...getInputProps()} ref={inputRef} />
             {isPhotoUploaderEmpty && !isDragActive && (
-              <InitialState
+              <EmptyView
+                onClick={onEmptyViewClick}
                 buttonColor={addPhotoButtonColor}
                 buttonDesign={addPhotoButtonDesign}
                 buttonText={addPhotoTextButton}
@@ -520,7 +523,13 @@ MoleculePhotoUploader.propTypes = {
   uploadingPhotosText: PropTypes.string.isRequired,
 
   /** Icon size inside action buttons in thumb card */
-  thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES))
+  thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
+
+  /** Func to be executed when dropzone area is clicked */
+  onEmptyViewClick: PropTypes.func,
+
+  /** A boolean to enable click in dropzone area */
+  isClickable: PropTypes.bool
 }
 
 export default MoleculePhotoUploader

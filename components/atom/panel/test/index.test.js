@@ -439,12 +439,14 @@ describe(json.name, () => {
           NONE: 'none',
           M: 'm',
           L: 'l',
-          XL: 'xl'
+          XL: 'xl',
+          XXL: 'xxl',
+          GIANT: 'giant'
         }
 
         // When
         const {atomPanelRounded: actual} = library
-        const {NONE, M, L, XL, ...others} = actual
+        const {NONE, M, L, XL, XXL, GIANT, ...others} = actual
 
         // Then
         expect(Object.keys(others).length).to.equal(0)
@@ -681,13 +683,15 @@ describe(json.name, () => {
         NONE: 'none',
         M: 'm',
         L: 'l',
-        XL: 'xl'
+        XL: 'xl',
+        XXL: 'xxl',
+        GIANT: 'giant'
       }
 
       // When
       const {atomPanelRounded: actual} = library
-      const {NONE, M, L, XL, ...others} = actual
 
+      const {NONE, M, L, XL, XXL, GIANT, ...others} = actual
       // Then
       expect(Object.keys(others).length).to.equal(0)
       expect(Object.keys(actual)).to.have.members(Object.keys(expected))

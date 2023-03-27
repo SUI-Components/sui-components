@@ -26,7 +26,9 @@ export const BORDER_RADIUS = {
   NONE: 'none',
   M: 'm',
   L: 'l',
-  XL: 'xl'
+  XL: 'xl',
+  XXL: 'xxl',
+  GIANT: 'giant'
 }
 
 export const ELEVATION = {

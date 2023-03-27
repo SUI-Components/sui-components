@@ -30,7 +30,7 @@ $skeleton-class: '#{$base-class}-skeleton';
       cursor: no-drop;
     }
   }
-  &-initialState {
+  &-emptyView {
     align-items: center;
     padding: $p-photo-uploader-initial-state;
     background: $bg-photo-uploader-initial-state;

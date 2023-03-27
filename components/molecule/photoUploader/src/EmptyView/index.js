@@ -10,14 +10,14 @@ import {
   BUTTON_DESIGN,
   BUTTON_SIZE,
   BUTTON_STATE_CLASS_NAME,
-  ICON_INITIAL_STATE_CLASS_NAME,
-  INITIAL_STATE_CLASS_NAME,
+  EMPTY_VIEW_CLASS_NAME,
+  ICON_EMPTY_VIEW_CLASS_NAME,
   TEXT_STATE_CLASS_NAME,
   TEXT_STATE_DIVIDER_CLASS_NAME,
   TEXT_STATE_TEXT_CLASS_NAME
 } from './config.js'
 
-const InitialState = ({
+const EmptyView = ({
   buttonDesign = BUTTON_DESIGN,
   buttonColor = BUTTON_COLOR,
   buttonText,
@@ -29,8 +29,8 @@ const InitialState = ({
   dividerText = ALTERNATIVE_ACTION_TEXT
 }) => {
   return (
-    <div onClick={onClick} className={INITIAL_STATE_CLASS_NAME}>
-      <div className={ICON_INITIAL_STATE_CLASS_NAME}>
+    <div onClick={onClick} className={EMPTY_VIEW_CLASS_NAME}>
+      <div className={ICON_EMPTY_VIEW_CLASS_NAME}>
         <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
       </div>
       <div className={TEXT_STATE_CLASS_NAME}>
@@ -59,9 +59,9 @@ const InitialState = ({
   )
 }
 
-InitialState.displayName = 'InitialState'
+EmptyView.displayName = 'EmptyView'
 
-InitialState.propTypes = {
+EmptyView.propTypes = {
   buttonColor: PropTypes.string,
   buttonDesign: PropTypes.string,
   buttonText: PropTypes.string.isRequired,
@@ -73,4 +73,4 @@ InitialState.propTypes = {
   onClick: PropTypes.func
 }
 
-export default InitialState
+export default EmptyView

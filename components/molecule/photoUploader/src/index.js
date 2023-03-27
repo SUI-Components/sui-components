@@ -11,7 +11,7 @@ import useMount from '@s-ui/react-hooks/lib/useMount'
 
 import DragNotification from './DragNotification/index.js'
 import DragState from './DragState/index.js'
-import InitialState from './InitialState/index.js'
+import EmptyView from './EmptyView/index.js'
 import PhotosPreview from './PhotosPreview/index.js'
 import {
   ACTIONS,
@@ -263,7 +263,7 @@ const MoleculePhotoUploader = forwardRef(
           <div {...getRootProps({className: dropzoneClassName})}>
             <input {...getInputProps()} ref={inputRef} />
             {isPhotoUploaderEmpty && !isDragActive && (
-              <InitialState
+              <EmptyView
                 onClick={onEmptyViewClick}
                 buttonColor={addPhotoButtonColor}
                 buttonDesign={addPhotoButtonDesign}

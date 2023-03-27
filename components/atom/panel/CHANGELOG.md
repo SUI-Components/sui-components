@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2023-03-27)
+
+
+### Features
+
+* **components/atom/panel:** fix xxl and giant calculation ([9a4f4b6](https://github.com/SUI-Components/sui-components/commit/9a4f4b64a9b7a8bcd4e8b16e6ec37120ae791428))
+
+
+
 # 1.19.0 (2023-03-27)
 
 

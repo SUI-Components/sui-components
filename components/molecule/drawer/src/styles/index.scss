@@ -61,25 +61,25 @@ $base-class: '.sui-MoleculeDrawer';
           height: 100%;
           width: $size-value;
           max-width: 100%;
-          overflow-x: scroll;
+          overflow-x: $ox-molecule-drawer-sroll;
         }
         &#{$this}--placement-right {
           height: 100%;
           width: $size-value;
           max-width: 100%;
-          overflow-x: scroll;
+          overflow-x: $ox-molecule-drawer-sroll;
         }
         &#{$this}--placement-top {
           width: 100%;
           height: $size-value;
           max-height: 100%;
-          overflow-y: scroll;
+          overflow-y: $oy-molecule-drawer-sroll;
         }
         &#{$this}--placement-bottom {
           width: 100%;
           height: $size-value;
           max-height: 100%;
-          overflow-y: scroll;
+          overflow-y: $oy-molecule-drawer-sroll;
         }
       }
     }

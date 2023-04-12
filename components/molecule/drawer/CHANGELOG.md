@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.8.0 (2023-04-12)
+
+
+### Features
+
+* **components/molecule/drawer:** add tokens to overflow ([22a878d](https://github.com/SUI-Components/sui-components/commit/22a878d4cc6b0394118967b57be6403c1d7928e8))
+
+
+
 # 4.7.0 (2022-10-28)
 
 

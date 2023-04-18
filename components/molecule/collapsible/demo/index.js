@@ -2,6 +2,7 @@ import {Paragraph} from '@s-ui/documentation-library'
 
 import {GetIcon} from './config/index.js'
 import ArticleAlignment from './ArticleAlignment.js'
+import ArticleButtonTextAlignment from './ArticleButtonTextAlignment.js'
 import ArticleCustomHeight from './ArticleCustomHeight.js'
 import ArticleGradient from './ArticleGradient.js'
 import ArticleNoCollapse from './ArticleNoCollapse.js'
@@ -23,6 +24,13 @@ const Demo = () => {
           section.
         </Paragraph>
         <ArticleAlignment icon={icon} showText={showText} hideText={hideText} />
+        <br />
+        <br />
+        <ArticleButtonTextAlignment
+          icon={icon}
+          showText={showText}
+          hideText={hideText}
+        />
         <br />
         <br />
         <ArticleGradient icon={icon} showText={showText} hideText={hideText} />

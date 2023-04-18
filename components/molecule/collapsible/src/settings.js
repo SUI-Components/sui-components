@@ -12,3 +12,9 @@ export const CONTENT_ALIGN = {
   CENTER: 'center',
   RIGHT: 'right'
 }
+
+export const BUTTON_TEXT_ALIGN = {
+  CENTER: 'center',
+  RIGHT: 'right',
+  LEFT: 'left'
+}

@@ -61,6 +61,20 @@ $base-class: '.sui-MoleculeCollapsible';
     text-align: $ta-collapsible-container;
     width: 100%;
 
+    &--alignButtonText {
+      &-center {
+        text-align: center;
+      }
+
+      &-right {
+        text-align: right;
+      }
+
+      &-left {
+        text-align: left;
+      }
+    }
+
     &#{&}--withGradient.is-collapsed {
       &::before {
         background: $bg-collapsible-container-gradient;

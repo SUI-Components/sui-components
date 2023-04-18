@@ -7,6 +7,7 @@ import {
   BASE_CLASS,
   BUTTON_CLASS,
   BUTTON_CONTENT_CLASS,
+  BUTTON_TEXT_ALIGN,
   COLLAPSED_CLASS,
   CONTAINER_BUTTON_CLASS,
   CONTENT_ALIGN,
@@ -18,6 +19,7 @@ import {
 const MoleculeCollapsible = ({
   onClose = () => {},
   onOpen = () => {},
+  alignButtonText,
   alignContainer,
   children,
   height = MIN_HEIGHT,
@@ -56,6 +58,8 @@ const MoleculeCollapsible = ({
   })
   const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
     [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
+    [`${CONTAINER_BUTTON_CLASS}--alignButtonText-${alignButtonText}`]:
+      alignButtonText,
     [COLLAPSED_CLASS]: collapsed
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
@@ -94,6 +98,10 @@ const MoleculeCollapsible = ({
 MoleculeCollapsible.displayName = 'MoleculeCollapsible'
 
 MoleculeCollapsible.propTypes = {
+  /**
+   * Button text align center || right || left
+   */
+  alignButtonText: PropTypes.oneOf(Object.values(BUTTON_TEXT_ALIGN)),
   /**
    * Container align center || right
    */
@@ -142,4 +150,8 @@ MoleculeCollapsible.propTypes = {
 
 export default MoleculeCollapsible
 
-export {CONTENT_ALIGN, CONTENT_ALIGN as moleculeCollapsibleContentAlign}
+export {
+  CONTENT_ALIGN,
+  CONTENT_ALIGN as moleculeCollapsibleContentAlign,
+  BUTTON_TEXT_ALIGN as moleculeCollapsibleButtonAlign
+}

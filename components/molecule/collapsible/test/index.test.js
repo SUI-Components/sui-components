@@ -25,6 +25,7 @@ describe(json.name, () => {
     const libraryExportedMembers = [
       'CONTENT_ALIGN',
       'moleculeCollapsibleContentAlign',
+      'moleculeCollapsibleButtonAlign',
       'default'
     ]
 
@@ -32,6 +33,7 @@ describe(json.name, () => {
     const {
       CONTENT_ALIGN,
       moleculeCollapsibleContentAlign,
+      moleculeCollapsibleButtonAlign,
       default: MoleculeCollapsible,
       ...others
     } = library
@@ -118,6 +120,41 @@ describe(json.name, () => {
       // When
       const {moleculeCollapsibleContentAlign: actual} = library
       const {CENTER, RIGHT, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeCollapsibleButtonAlign', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeCollapsibleButtonAlign: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        CENTER: 'center',
+        RIGHT: 'right',
+        LEFT: 'left'
+      }
+
+      // When
+      const {moleculeCollapsibleButtonAlign: actual} = library
+      const {CENTER, RIGHT, LEFT, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

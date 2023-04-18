@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.19.0 (2023-04-18)
+
+
+### Features
+
+* **components/molecule/collapsible:** add alignButtonText ([f4749ce](https://github.com/SUI-Components/sui-components/commit/f4749ce41969e862250fb7eca9012dbf7c7b7c51))
+
+
+
 # 1.18.0 (2023-02-09)
 
 

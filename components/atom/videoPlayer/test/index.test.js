@@ -103,4 +103,40 @@ describe('AtomVideoPlayer', () => {
       )
     })
   })
+
+  /*
+  <div style="padding:73.33% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/54289199?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  */
+
+  describe('VIMEO Videos', () => {
+    it('should embed the vimeo video player if src is a vimeo video', () => {
+      // Given
+      const props = {
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      component.getByTitle('VIMEO video player')
+    })
+
+    it('should convert standard vimeo url to an embeddable url', () => {
+      // Given
+      const props = {
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle('VIMEO video player')
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include(
+        'https://player.vimeo.com/video/54289199'
+      )
+    })
+  })
 })

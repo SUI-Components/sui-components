@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import Switcher from './components/switcher.js'
+import Switcher from './components/Switcher.js'
 export default function AtomVideoPlayer({src = ''}) {
   return (
     <div className="react-AtomVideoPlayer">

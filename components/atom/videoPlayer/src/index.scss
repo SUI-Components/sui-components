@@ -1,5 +1,16 @@
 @import '~@s-ui/theme/lib/index';
 
-.react-AtomVideoPlayer {
-  // Do your magic
+.sui-AtomVideoPlayer {
+  &-vimeoPlayer {
+    padding: 73.33% 0 0 0; /* This is a magic number coming from vimeo snippet */
+    position: relative;
+
+    &Frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

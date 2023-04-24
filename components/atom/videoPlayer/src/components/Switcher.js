@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types'
 
 import useDetectVideoType from '../hooks/useDetectVideoType.js'
-import {YOUTUBE} from '../settings.js'
+import {VIMEO, YOUTUBE} from '../settings.js'
+import VimeoPlayer from './VimeoPlayer.js'
 import YouTubePlayer from './YouTubePlayer.js'
 
 const Switcher = ({src}) => {
   const {detectVideoType} = useDetectVideoType()
   const videoType = detectVideoType(src)
   switch (videoType) {
+    case VIMEO.VIDEO_TYPE:
+      return <VimeoPlayer src={src} />
+
     case YOUTUBE.VIDEO_TYPE:
       return <YouTubePlayer src={src} />
 

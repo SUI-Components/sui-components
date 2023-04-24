@@ -103,4 +103,36 @@ describe('AtomVideoPlayer', () => {
       )
     })
   })
+
+  describe('VIMEO Videos', () => {
+    it('should embed the vimeo video player if src is a vimeo video', () => {
+      // Given
+      const props = {
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      component.getByTitle('VIMEO video player')
+    })
+
+    it('should convert standard vimeo url to an embeddable url', () => {
+      // Given
+      const props = {
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle('VIMEO video player')
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include(
+        'https://player.vimeo.com/video/54289199'
+      )
+    })
+  })
 })

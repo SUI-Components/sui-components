@@ -1,3 +1,5 @@
+export const BASE_CLASS = 'sui-AtomVideoPlayer'
+
 export const VIMEO = {
   EMBEDDABLE_URL: 'https://player.vimeo.com/video/',
   STANDARD_URL: 'https://vimeo.com/',

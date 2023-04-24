@@ -1,16 +1,14 @@
 import PropTypes from 'prop-types'
 
+import useYouTubeProperties from '../hooks/useYouTubeProperties.js'
+
 const YouTubePlayer = ({src}) => {
-  let videoSrc = src
-  // If it's a non-embeddable video
-  if (videoSrc.includes('youtube.com/watch?v=')) {
-    const videoId = videoSrc.split('watch?v=')[1]
-    videoSrc = `https://www.youtube.com/embed/${videoId}`
-  }
+  const {getEmbeddableUrl} = useYouTubeProperties()
+  const videoSrc = getEmbeddableUrl(src)
+
+  // TODO: How to render the iframe with 100% width and height 👉🏾 https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed
   return (
     <iframe
-      width="560"
-      height="315"
       src={videoSrc}
       title="YouTube video player"
       frameBorder="0"

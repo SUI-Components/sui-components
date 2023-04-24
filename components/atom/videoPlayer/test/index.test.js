@@ -85,5 +85,22 @@ describe('AtomVideoPlayer', () => {
         'https://www.youtube.com/embed/1gI_HGDgG7c'
       )
     })
+
+    it('should convert shared videos urls to embedable urls', () => {
+      // Given
+      const props = {
+        src: 'https://youtu.be/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle('YouTube video player')
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.equal(
+        'https://www.youtube.com/embed/1gI_HGDgG7c'
+      )
+    })
   })
 })

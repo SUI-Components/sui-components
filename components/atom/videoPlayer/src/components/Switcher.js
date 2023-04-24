@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types'
 
 import useDetectVideoType from '../hooks/useDetectVideoType.js'
-import {YOUTUBE_VIDEO_TYPE} from '../settings.js'
+import {YOUTUBE} from '../settings.js'
 import YouTubePlayer from './YouTubePlayer.js'
 
 const Switcher = ({src}) => {
   const {detectVideoType} = useDetectVideoType()
   const videoType = detectVideoType(src)
-
   switch (videoType) {
-    case YOUTUBE_VIDEO_TYPE:
+    case YOUTUBE.VIDEO_TYPE:
       return <YouTubePlayer src={src} />
 
     default:

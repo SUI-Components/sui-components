@@ -1,8 +1,10 @@
-import {YOUTUBE_VIDEO_TYPE} from '../settings.js'
+import {YOUTUBE} from '../settings.js'
 
 const useDetectVideoType = () => {
   const detectVideoType = src => {
-    if (src.includes(YOUTUBE_VIDEO_TYPE)) return YOUTUBE_VIDEO_TYPE
+    if (src.includes(YOUTUBE.VIDEO_TYPE) || src.includes(YOUTUBE.SHORT_URL))
+      return YOUTUBE.VIDEO_TYPE
+    return 'unknown'
   }
   return {detectVideoType}
 }

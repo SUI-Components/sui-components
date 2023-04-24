@@ -5,7 +5,7 @@ const matcher = (arrayPattern, value) =>
   arrayPattern.find(pattern => value.includes(pattern))
 
 const useVideoPlayer = ({
-  as: As = 'h1',
+  as: As = 'div',
   children = 'Not supported media type',
   className,
   src = '',
@@ -15,7 +15,7 @@ const useVideoPlayer = ({
     return [
       YouTubePlayer,
       {
-        classNames: [BASE_CLASS, `${BASE_CLASS}-youtubePlayer`].join(' '),
+        className: [BASE_CLASS, `${BASE_CLASS}-youtubePlayer`].join(' '),
         src,
         ...props
       }
@@ -24,12 +24,12 @@ const useVideoPlayer = ({
     return [
       VimeoPlayer,
       {
-        classNames: [BASE_CLASS, `${BASE_CLASS}-vimeoPlayer`].join(' '),
+        className: [BASE_CLASS, `${BASE_CLASS}-vimeoPlayer`].join(' '),
         src,
         ...props
       }
     ]
   }
-  return [As, {children, ...props}]
+  return ['h1', {className: BASE_CLASS, children, ...props}]
 }
 export default useVideoPlayer

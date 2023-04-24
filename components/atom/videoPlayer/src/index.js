@@ -1,16 +1,19 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
-import Switcher from './components/Switcher.js'
-import {BASE_CLASS} from './settings.js'
-export default function AtomVideoPlayer({src = ''}) {
-  return (
-    <div className={BASE_CLASS}>
-      <Switcher src={src} />
-    </div>
-  )
-}
+import useVideoPlayer from './hooks/useVideoPlayer.js'
+
+const AtomVideoPlayer = forwardRef((props, forwardedRef) => {
+  const [Component, componentProps] = useVideoPlayer({
+    ref: forwardedRef,
+    ...props
+  })
+  return <Component {...componentProps} />
+})
 
 AtomVideoPlayer.displayName = 'AtomVideoPlayer'
 AtomVideoPlayer.propTypes = {
   src: PropTypes.string
 }
+
+export default AtomVideoPlayer

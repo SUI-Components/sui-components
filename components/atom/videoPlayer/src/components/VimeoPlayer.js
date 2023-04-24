@@ -1,15 +1,16 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import useVimeoProperties from '../hooks/useVimeoProperties.js'
 import {BASE_CLASS} from '../settings.js'
 
-const VimeoPlayer = ({src}) => {
+const VimeoPlayer = forwardRef(({className, src}, forwardedRef) => {
   const {getEmbeddableUrl} = useVimeoProperties()
   const videoSrc = getEmbeddableUrl(src)
 
   return (
     <>
-      <div className={`${BASE_CLASS}-vimeoPlayer`}>
+      <div className={className} ref={forwardedRef}>
         <iframe
           className={`${BASE_CLASS}-vimeoPlayerFrame`}
           title="VIMEO video player"
@@ -17,15 +18,16 @@ const VimeoPlayer = ({src}) => {
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        />
       </div>
       {/* Is this really needed? */}
       {/* <script src="https://player.vimeo.com/api/player.js"></script> */}
     </>
   )
-}
+})
 
 VimeoPlayer.propTypes = {
+  className: PropTypes.string,
   src: PropTypes.string
 }
 

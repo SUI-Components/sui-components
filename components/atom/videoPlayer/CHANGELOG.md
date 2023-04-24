@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.2.0 (2023-04-24)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Refactor how vimeo videos are displayed ([41d4185](https://github.com/SUI-Components/sui-components/commit/41d41858bb3477cead5083fa5ab14de92d18030f))
+* **components/atom/videoPlayer:** Start working on VIMEO video playing ([c99b3df](https://github.com/SUI-Components/sui-components/commit/c99b3df01a88d98ea30f4e325d23177a7509ab83))
+
+
+
 # 1.1.0 (2023-04-24)
 
 

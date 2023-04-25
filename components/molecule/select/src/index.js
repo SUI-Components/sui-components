@@ -44,6 +44,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     withSearch = false,
     searchPlaceholder,
     filterFn,
+    noResults,
     refMoleculeSelect: refMoleculeSelectFromProps,
     'aria-label': ariaLabel
   } = props
@@ -60,6 +61,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
 
+  let numOptions = 0
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .filter(child => {
@@ -67,9 +69,8 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
       return filterFn({option: child.props, query})
     })
     .map((child, index) => {
-      if (child.type.displayName === 'MoleculeDropdownOption') {
-        refsMoleculeSelectOptions.current[index] = createRef()
-      }
+      numOptions++
+      refsMoleculeSelectOptions.current[index] = createRef()
       return cloneElement(child, {
         innerRef: refsMoleculeSelectOptions.current[index],
         selectKey: keysSelection
@@ -181,7 +182,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     setFocus(false)
   }
 
-  const handleFocusIn = () => !disabled && setFocus(true)
+  const handleFocusIn = () => !disabled && !withSearch && setFocus(true)
 
   const handleClick = ev => {
     ev.persist()
@@ -223,7 +224,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
           onToggle={handleToggle}
           {...props}
         >
-          {extendedChildren}
+          {numOptions > 0 ? extendedChildren : noResults}
         </Select>
       </div>
     </DropdownContext.Provider>
@@ -305,6 +306,9 @@ MoleculeSelect.propTypes = {
 
   /* Placeholder for the search input text */
   searchPlaceholder: PropTypes.string,
+
+  /* Component to render when no options are found after aplying the filterFn */
+  noResults: PropTypes.node,
 
   /* Optional aria-label */
   'aria-label': PropTypes.string

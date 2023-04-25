@@ -192,6 +192,11 @@ const Demo = () => (
           withSearch
           filterFn={({option, query}) => option.children.includes(query)}
           searchPlaceholder="Search a country..."
+          noResults={
+            <div className="DemoMoleculeSelect-noResults">
+              No results found...
+            </div>
+          }
           multiselection
         >
           {countriesList.map((country, i) => (

@@ -14,6 +14,18 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
   }
 
   &-inputSelect {
+    &-search {
+      border-top: $bd-dropdown-list;
+      border-left: $bd-dropdown-list;
+      border-right: $bd-dropdown-list;
+      padding: $p-m $p-l;
+      background-color: $bgc-atom-input;
+      z-index: $z-dropdown-menu;
+
+      &--hidden {
+        display: none;
+      }
+    }
     &-container {
       align-items: center;
       border: $bd-select;

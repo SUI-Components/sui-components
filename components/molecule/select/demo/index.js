@@ -183,6 +183,26 @@ const Demo = () => (
       </div>
 
       <div className={CLASS_DEMO_SECTION}>
+        <h3>With Search</h3>
+        <MoleculeSelectWithState
+          placeholder="Select some countries..."
+          onChange={(_, {value}) => console.log(value)}
+          iconCloseTag={<IconCloseTag />}
+          iconArrowDown={<IconArrowDown />}
+          withSearch
+          filterFn={({option, query}) => option.children.includes(query)}
+          searchPlaceholder="Search a country..."
+          multiselection
+        >
+          {countriesList.map((country, i) => (
+            <MoleculeSelectOption key={i} value={country}>
+              {country}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelectWithState>
+      </div>
+
+      <div className={CLASS_DEMO_SECTION}>
         <h3>With preselected Value</h3>
         <MoleculeSelectWithState
           placeholder="Select some countries..."

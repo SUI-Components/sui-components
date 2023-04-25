@@ -1,6 +1,13 @@
+import cx from 'classnames'
+
 import {BASE_CLASS as ROOT_BASE_CLASS} from '../config.js'
 
 export const BASE_CLASS = `${ROOT_BASE_CLASS}-inputSelect`
+const CLASS_SEARCH = `${BASE_CLASS}-search`
+export const getClassSearch = isOpen =>
+  cx(CLASS_SEARCH, {
+    [`${CLASS_SEARCH}--hidden`]: !isOpen
+  })
 export const CLASS_CONTAINER = `${BASE_CLASS}-container`
 export const CLASS_ARROW = `${BASE_CLASS}-arrow`
 export const CLASS_ARROW_DOWN = `${CLASS_ARROW}--down`

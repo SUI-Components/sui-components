@@ -1,8 +1,12 @@
+import {useState} from 'react'
+
 import {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeInputTags from '@s-ui/react-molecule-input-tags'
 
+import {useDropdown} from '../config.js'
 import MoleculeInputSelect from './MoleculeInputSelect.js'
+import Search from './Search.js'
 
 const MoleculeSelectFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */
@@ -27,6 +31,9 @@ const MoleculeSelectFieldMultiSelection = props => {
   } = props
 
   const tags = values.map(value => optionsData[value])
+
+  const [focusedFirstOption, setFocusedFirstOption] = useState(false)
+  const {withSearch, isFirstOptionFocused, inputSearch} = useDropdown()
 
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
     const handleToggle = ev => {
@@ -58,6 +65,20 @@ const MoleculeSelectFieldMultiSelection = props => {
     refMoleculeSelect.current.focus()
   }
 
+  const handleKeyDown = ev => {
+    if (isFirstOptionFocused()) {
+      setFocusedFirstOption(true)
+    } else {
+      setFocusedFirstOption(false)
+    }
+
+    if (ev?.key === 'Escape') {
+      onToggle(ev, {isOpen: false})
+    } else if (ev?.key === 'ArrowUp') {
+      focusedFirstOption && setTimeout(() => inputSearch?.focus())
+    }
+  }
+
   return (
     <>
       <MoleculeInputSelect
@@ -80,11 +101,13 @@ const MoleculeSelectFieldMultiSelection = props => {
       >
         <MoleculeInputTags inputMode={inputTypes.NONE} />
       </MoleculeInputSelect>
+      {withSearch && <Search />}
       <MoleculeDropdownList
         checkbox
         size={size}
         visible={isOpen}
         onSelect={handleMultiSelection}
+        onKeyDown={handleKeyDown}
         value={values}
       >
         {children}

@@ -2,13 +2,14 @@ import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import Switcher from './components/Switcher.js'
+import useVideoPlayer from './hooks/useVideoPlayer.js'
 import {BASE_CLASS} from './settings.js'
 
 const AtomVideoPlayer = forwardRef(({src = ''}, forwardedRef) => {
+  const [Component, props] = useVideoPlayer({src})
   return (
     <div ref={forwardedRef} className={BASE_CLASS}>
-      <Switcher src={src} />
+      <Component {...props} />
     </div>
   )
 })

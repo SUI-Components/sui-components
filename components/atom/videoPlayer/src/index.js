@@ -14,8 +14,9 @@ const AtomVideoPlayer = forwardRef(({src = ''}, forwardedRef) => {
 })
 
 AtomVideoPlayer.displayName = 'AtomVideoPlayer'
+
 AtomVideoPlayer.propTypes = {
-  src: PropTypes.string
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)])
 }
 
 export default AtomVideoPlayer

@@ -17,7 +17,7 @@ const NativePlayer = ({src}) => {
 }
 
 NativePlayer.propTypes = {
-  src: PropTypes.string
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)])
 }
 
 export default NativePlayer

@@ -25,7 +25,7 @@ const Switcher = ({src}) => {
 }
 
 Switcher.propTypes = {
-  src: PropTypes.string
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)])
 }
 
 export default Switcher

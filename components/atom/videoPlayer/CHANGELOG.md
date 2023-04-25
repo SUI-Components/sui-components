@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.3.0 (2023-04-25)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add support to play native videos ([8167597](https://github.com/SUI-Components/sui-components/commit/8167597603d03af081b113f9dc66e774be9a046f))
+* **components/atom/videoPlayer:** Change propTypes to make them include instance of blob ([1ff5e53](https://github.com/SUI-Components/sui-components/commit/1ff5e53d80b0969310099f7a87a0d8ff7b4d5806))
+
+
+
 # 1.2.0 (2023-04-24)
 
 

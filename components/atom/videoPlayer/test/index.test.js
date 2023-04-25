@@ -55,6 +55,35 @@ describe('AtomVideoPlayer', () => {
     })
   })
 
+  describe('Native video player', () => {
+    it('should try to play the video using the native player if it is a remote file with a known extension', () => {
+      // Given
+      const props = {
+        src: 'https://cdn.coverr.co/videos/coverr-boat-in-the-sea-5656/1080p.mp4'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      component.getByTitle('Native video player')
+    })
+
+    it('should try to play the video using the native player when receiving a blob object as src', async () => {
+      // Given
+      const props = {
+        src: new File(['fakeVideo'], 'hello.mp4', {type: 'video/mp4'})
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const {src} = await component.findByTestId('videosrc')
+      expect(src).to.eql('data:video/mp4;base64,ZmFrZVZpZGVv')
+    })
+  })
+
   describe('YouTube Videos', () => {
     it('should embed the youtube video player if src is a youtube video', () => {
       // Given

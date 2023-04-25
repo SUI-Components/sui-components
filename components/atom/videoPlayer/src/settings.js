@@ -1,5 +1,10 @@
 export const BASE_CLASS = 'sui-AtomVideoPlayer'
 
+export const NATIVE = {
+  VIDEO_FORMATS: ['mp4', 'ogg', 'webm'],
+  VIDEO_TYPE: 'native'
+}
+
 export const VIMEO = {
   EMBEDDABLE_URL: 'https://player.vimeo.com/video/',
   STANDARD_URL: 'https://vimeo.com/',

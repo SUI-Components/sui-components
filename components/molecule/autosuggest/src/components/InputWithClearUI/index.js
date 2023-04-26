@@ -10,10 +10,17 @@ const InputWithClearUI = ({
   iconClear,
   rightIcon = <i />,
   children,
+  onClick,
+  selectMode,
   ...props
 }) => {
   return (
-    <div className={CLASS_CONTAINER}>
+    <div
+      className={CLASS_CONTAINER}
+      onClick={ev => {
+        selectMode && onClick(ev, {isOpen: !props.isOpen})
+      }}
+    >
       <Injector
         {...props}
         rightIcon={
@@ -41,7 +48,13 @@ InputWithClearUI.propTypes = {
 
   isVisibleClear: PropTypes.any,
 
-  onClickClear: PropTypes.func
+  onClickClear: PropTypes.func,
+
+  onClick: PropTypes.func,
+
+  selectMode: PropTypes.bool,
+
+  isOpen: PropTypes.bool
 }
 
 InputWithClearUI.displayName = 'InputWithClearUI'

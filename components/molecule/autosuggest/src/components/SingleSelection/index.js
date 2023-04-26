@@ -17,6 +17,7 @@ const MoleculeAutosuggestSingleSelection = ({
   id,
   innerRefInput: refInput = {},
   inputMode,
+  selectMode,
   isOpen,
   leftIcon,
   maxLength,
@@ -71,8 +72,10 @@ const MoleculeAutosuggestSingleSelection = ({
         disabled={disabled}
         iconClear={!disabled && iconClear}
         id={id}
+        isOpen={isOpen}
         reference={refInput}
         inputMode={inputMode}
+        selectMode={selectMode}
         isVisibleClear={value}
         leftIcon={leftIcon}
         maxLength={maxLength}

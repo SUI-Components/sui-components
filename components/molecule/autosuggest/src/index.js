@@ -31,6 +31,7 @@ const MoleculeAutosuggest = ({
   keysCloseList = CLOSE_KEYS_LIST,
   keysSelection = SELECT_KEYS_LIST,
   multiselection,
+  selectMode = false,
   onBlur,
   onChange,
   onClear,
@@ -64,8 +65,8 @@ const MoleculeAutosuggest = ({
   const [focus, setFocus] = useState(false)
 
   const handleToggle = (ev, {isOpen: nextIsOpenState}) => {
-    const {type} = ev
-
+    const {type, key} = ev
+    if (selectMode && key === 'Enter') return
     if (type !== 'change') {
       setIsOpenState(nextIsOpenState, autoClose !== false)
     } else if (!isOpenState) {
@@ -207,6 +208,7 @@ const MoleculeAutosuggest = ({
     isOpen: isOpenState,
     keysCloseList,
     keysSelection,
+    selectMode,
     onBlur,
     onChange,
     onClear: handleClear,
@@ -350,6 +352,11 @@ MoleculeAutosuggest.propTypes = {
 
   /** native input types (text, date, ...), 'sui-password' */
   type: PropTypes.oneOf(Object.values(inputTypes)),
+
+  /** Set the autosuggest to behave like a select,
+   * not closing the dropdown when enter is pressed on the input
+   * and toggling the dropdown when clicking the input */
+  selectMode: PropTypes.bool,
 
   /** value selected */
   value: PropTypes.any

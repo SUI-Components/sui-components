@@ -17,10 +17,12 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   design,
   disabled = false,
   iconClear,
+  rightIcon,
   iconCloseTag = <span />,
   id,
   innerRefInput: refInput = {},
   inputMode,
+  selectMode,
   isOpen,
   onChange,
   onChangeTags,
@@ -101,10 +103,12 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         autoFocus={autoFocus}
         disabled={disabled}
         iconClear={iconClear}
+        rightIcon={rightIcon}
         id={id}
+        isOpen={isOpen}
         innerRefInput={moleculeInputRef}
         inputMode={inputMode}
-        isOpen={isOpen}
+        selectMode={selectMode}
         isVisibleClear={!disabled && tags.length}
         noBorder
         onChange={handleChange}

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.5.0 (2023-04-26)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add support for adaptative video streaming ([785ada5](https://github.com/SUI-Components/sui-components/commit/785ada5b7fba28bf0794ea053143ed8ed5039572))
+* **components/atom/videoPlayer:** Avoid test errores by making our own hlsjs wrapper ([92d29f4](https://github.com/SUI-Components/sui-components/commit/92d29f49e86b5d02a2ca90e3377245e29865f33e))
+
+
+
 # 1.4.0 (2023-04-25)
 
 

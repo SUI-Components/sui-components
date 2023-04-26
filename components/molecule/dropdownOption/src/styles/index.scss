@@ -30,6 +30,7 @@ $base-class: '.sui-MoleculeDropdownOption';
 
   &-text {
     font-size: $fz-molecule-dropdown-option-text;
+    line-height: $lh-molecule-dropdown-option-text;
     flex-basis: 100%;
     overflow: hidden;
     text-overflow: ellipsis;

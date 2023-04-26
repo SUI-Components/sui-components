@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2023-04-26)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownOption:** add line-height inherit to dropdownOption text ([1b84832](https://github.com/SUI-Components/sui-components/commit/1b84832f7a6b50ffa9b15e99309f1e70036561c4))
+
+
+
 # 2.5.0 (2023-03-22)
 
 

@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/SUI-Components/sui-components"
   },
+  "dependencies": {
+    "hls.js": "^0.14.17"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT"

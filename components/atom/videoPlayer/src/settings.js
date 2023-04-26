@@ -1,5 +1,10 @@
 export const BASE_CLASS = 'sui-AtomVideoPlayer'
 
+export const HLS = {
+  VIDEO_FORMATS: ['m3u8'],
+  VIDEO_TYPE: 'hls'
+}
+
 export const NATIVE = {
   VIDEO_FORMATS: ['mp4', 'ogg', 'webm'],
   VIDEO_TYPE: 'native'

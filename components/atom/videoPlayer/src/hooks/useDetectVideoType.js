@@ -1,4 +1,4 @@
-import {NATIVE, UNKNOWN, VIMEO, YOUTUBE} from '../settings.js'
+import {HLS, NATIVE, UNKNOWN, VIMEO, YOUTUBE} from '../settings.js'
 
 const useDetectVideoType = () => {
   const getVideoExtension = src => {
@@ -13,6 +13,9 @@ const useDetectVideoType = () => {
 
   const detectVideoType = src => {
     const extension = getVideoExtension(src)
+
+    if (HLS.VIDEO_FORMATS.includes(extension)) return HLS.VIDEO_TYPE
+
     if (src instanceof Blob || NATIVE.VIDEO_FORMATS.includes(extension))
       return NATIVE.VIDEO_TYPE
 

@@ -55,6 +55,21 @@ describe('AtomVideoPlayer', () => {
     })
   })
 
+  describe('Adaptative streaming player', () => {
+    it('should open adaptative streaming videos by using hls.js', () => {
+      // Given
+      const props = {
+        src: 'https://media-frontend.yams-pro.mpi-internal.com/api/v1/yams-frontend/statics/vo/surf.mp4/hls.m3u8'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      component.getByTitle('HLS video player')
+    })
+  })
+
   describe('Native video player', () => {
     it('should try to play the video using the native player if it is a remote file with a known extension', () => {
       // Given

@@ -1,14 +1,18 @@
-import {YOUTUBE} from '../settings.js'
+import {
+  YOUTUBE,
+  YOUTUBE_SHORT_URL,
+  YOUTUBE_STANDARD_URL
+} from '../settings/players.js'
 
 const useYouTubeProperties = () => {
   const getEmbeddableUrl = src => {
     let videoSrc = _replaceNonEmbeddableUrl({
       src,
-      nonEmbeddableUrl: YOUTUBE.STANDARD_URL
+      nonEmbeddableUrl: YOUTUBE_STANDARD_URL
     })
     videoSrc = _replaceNonEmbeddableUrl({
       src: videoSrc,
-      nonEmbeddableUrl: YOUTUBE.SHORT_URL
+      nonEmbeddableUrl: YOUTUBE_SHORT_URL
     })
     return videoSrc
   }

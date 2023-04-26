@@ -17,7 +17,15 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 
 .sui-AtomVideoPlayer {
   &-nativePlayer {
-    width: 100%;
+    &Video {
+      width: 100%;
+    }
+  }
+
+  &-hlsPlayer {
+    &Video {
+      width: 100%;
+    }
   }
 
   &-vimeoPlayer {

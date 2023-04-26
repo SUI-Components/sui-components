@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 import useVimeoProperties from '../hooks/useVimeoProperties.js'
-import {BASE_CLASS} from '../settings.js'
+import {BASE_CLASS} from '../settings/index.js'
 
 const VimeoPlayer = ({src}) => {
   const {getEmbeddableUrl} = useVimeoProperties()

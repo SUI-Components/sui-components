@@ -1,10 +1,10 @@
-import {VIMEO} from '../settings.js'
+import {VIMEO} from '../settings/players.js'
 
 const useVimeoProperties = () => {
   const getEmbeddableUrl = src => {
     const videoSrc = _replaceNonEmbeddableUrl({
       src,
-      nonEmbeddableUrl: VIMEO.STANDARD_URL
+      nonEmbeddableUrl: VIMEO.SRC_PATTERNS[0]
     })
     return videoSrc
   }

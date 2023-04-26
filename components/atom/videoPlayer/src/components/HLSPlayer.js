@@ -3,6 +3,8 @@ import {createRef, useEffect} from 'react'
 import Hls from 'hls.js'
 import PropTypes from 'prop-types'
 
+import {BASE_CLASS} from '../settings/index.js'
+
 const HLSPlayer = ({
   hlsConfig,
   playerRef = createRef(),
@@ -75,19 +77,22 @@ const HLSPlayer = ({
     }
   }, [autoPlay, hlsConfig, playerRef, src])
 
-  // If Media Source is supported, use HLS.js to play video
-  if (Hls.isSupported())
-    return <video title="HLS video player" ref={playerRef} {...props} />
+  const nativePlayerProps = {
+    autoPlay,
+    src
+  }
 
-  // Fallback to using a regular video player if HLS is supported by default in the user's browser
   return (
-    <video
-      title="HLS video player"
-      ref={playerRef}
-      src={src}
-      autoPlay={autoPlay}
-      {...props}
-    />
+    <div className={`${BASE_CLASS}-hlsPlayer`}>
+      <video
+        controls
+        className={`${BASE_CLASS}-hlsPlayerVideo`}
+        title="HLS video player"
+        ref={playerRef}
+        {...(Hls.isSupported() === false ? nativePlayerProps : {})}
+        {...props}
+      />
+    </div>
   )
 }
 

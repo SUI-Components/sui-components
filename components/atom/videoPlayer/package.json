@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/SUI-Components/sui-components"
   },
+  "dependencies": {
+    "react-hls-player": "3.0.7"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT"

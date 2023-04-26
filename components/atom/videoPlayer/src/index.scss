@@ -1,16 +1,32 @@
 @import '~@s-ui/theme/lib/index';
 
-.sui-AtomVideoPlayer {
-  &-vimeoPlayer {
-    padding: 73.33% 0 0 0; /* This is a magic number coming from vimeo snippet */
-    position: relative;
+$sixteenByNineAspectRatio: calc(100% / 16 * 9);
+$fourByThreeAspectRatio: calc(100% / 4 * 3);
 
-    &Frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+@mixin atom-videoplayer-external-player {
+  position: relative;
+
+  &Frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.sui-AtomVideoPlayer {
+  &-nativePlayer {
+    width: 100%;
+  }
+
+  &-vimeoPlayer {
+    padding: $fourByThreeAspectRatio 0 0 0;
+    @include atom-videoplayer-external-player;
+  }
+
+  &-youtubePlayer {
+    padding: $sixteenByNineAspectRatio 0 0 0;
+    @include atom-videoplayer-external-player;
   }
 }

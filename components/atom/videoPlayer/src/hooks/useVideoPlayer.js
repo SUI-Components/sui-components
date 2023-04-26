@@ -1,7 +1,8 @@
+import HLSPlayer from '../components/HLSPlayer.js'
 import NativePlayer from '../components/NativePlayer.js'
 import VimeoPlayer from '../components/VimeoPlayer.js'
 import YouTubePlayer from '../components/YouTubePlayer.js'
-import {NATIVE, VIMEO, YOUTUBE} from '../settings.js'
+import {HLS, NATIVE, VIMEO, YOUTUBE} from '../settings.js'
 import useDetectVideoType from './useDetectVideoType.js'
 const useVideoPlayer = props => {
   const {src} = props
@@ -9,6 +10,9 @@ const useVideoPlayer = props => {
   const videoType = detectVideoType(src)
 
   switch (videoType) {
+    case HLS.VIDEO_TYPE:
+      return [HLSPlayer, props]
+
     case NATIVE.VIDEO_TYPE:
       return [NativePlayer, props]
 
@@ -19,7 +23,7 @@ const useVideoPlayer = props => {
       return [YouTubePlayer, props]
 
     default:
-      return ['h1', {...props, children: 'Not supported media type'}]
+      return ['p', {...props, children: 'Not supported media type'}]
   }
 }
 

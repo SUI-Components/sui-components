@@ -16,7 +16,7 @@
     "url": "https://github.com/SUI-Components/sui-components"
   },
   "dependencies": {
-    "react-hls-player": "3.0.7"
+    "hls.js": "^0.14.17"
   },
   "keywords": [],
   "author": "",

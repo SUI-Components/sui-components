@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2023-04-27)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add a prop to configure if controls should be displayed ([001576a](https://github.com/SUI-Components/sui-components/commit/001576a876b22fcd2d4d1c6e000bca1c7012ee69))
+
+
+
 # 1.6.0 (2023-04-27)
 
 

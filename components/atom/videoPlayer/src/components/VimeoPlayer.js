@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import useVimeoProperties from '../hooks/useVimeoProperties.js'
 import {BASE_CLASS, VIMEO_DEFAULT_TITLE} from '../settings/index.js'
 
-const VimeoPlayer = ({src, title = VIMEO_DEFAULT_TITLE}) => {
+const VimeoPlayer = ({controls, src, title = VIMEO_DEFAULT_TITLE}) => {
   const {getEmbeddableUrl} = useVimeoProperties()
-  const videoSrc = getEmbeddableUrl(src)
+  const videoSrc = `${getEmbeddableUrl(src)}${!controls ? '?controls=0' : ''}`
 
   return (
     <div className={`${BASE_CLASS}-vimeoPlayer`}>
@@ -22,6 +22,7 @@ const VimeoPlayer = ({src, title = VIMEO_DEFAULT_TITLE}) => {
 }
 
 VimeoPlayer.propTypes = {
+  controls: PropTypes.bool,
   src: PropTypes.string,
   title: PropTypes.string
 }

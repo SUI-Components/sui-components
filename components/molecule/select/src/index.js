@@ -5,6 +5,7 @@ import {
   forwardRef,
   useCallback,
   useEffect,
+  useMemo,
   useReducer,
   useRef,
   useState
@@ -41,12 +42,12 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     disabled,
     keysSelection,
     multiselection,
-    withSearch = false,
+    hasSearch = false,
     searchPlaceholder,
-    filterFn,
     noResults,
     refMoleculeSelect: refMoleculeSelectFromProps,
-    'aria-label': ariaLabel
+    'aria-label': ariaLabel,
+    onSearch
   } = props
 
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
@@ -54,37 +55,29 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const ref = useMergeRefs(forwardedRef, refMoleculeSelect)
   const [inputSearch, setInputRef] = useFunctionalRef()
 
-  const [query, setQuery] = useState('')
   const [isOpenState, setIsOpenState] = useState(isOpen || false)
   useEffect(() => setIsOpenState(isOpen), [isOpen, setIsOpenState])
 
   const [optionsData, setOptionsData] = useState(getOptionData(children))
   const [focus, setFocus] = useState(false)
 
-  let numOptions = 0
-  const extendedChildren = Children.toArray(children)
-    .filter(Boolean)
-    .filter(child => {
-      if (!filterFn) return true
-      return filterFn({option: child.props, query})
-    })
-    .map((child, index) => {
-      numOptions++
-      refsMoleculeSelectOptions.current[index] = createRef()
-      return cloneElement(child, {
-        innerRef: refsMoleculeSelectOptions.current[index],
-        selectKey: keysSelection
-      })
-    })
+  const extendedChildren = useMemo(
+    () =>
+      Children.toArray(children)
+        .filter(Boolean)
+        .map((child, index) => {
+          refsMoleculeSelectOptions.current[index] = createRef()
+          return cloneElement(child, {
+            ref: refsMoleculeSelectOptions.current[index],
+            selectKey: keysSelection
+          })
+        }),
+    [children, keysSelection]
+  )
+
+  const numOptions = Children.toArray(extendedChildren).length
 
   const className = getClassName({state, errorState, focus, disabled})
-
-  const onSearch = useCallback(
-    ({value}) => {
-      setQuery(value)
-    },
-    [setQuery]
-  )
 
   const closeList = useCallback((ev, {isOutsideEvent = false}) => {
     setIsOpenState(false)
@@ -164,16 +157,14 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const handleKeyDown = ev => {
     ev.persist()
     const isEnabledKey = ENABLED_KEYS.includes(ev.key)
-    const domSourceEvent = ev.target
-    const domMoleculeSelect = refMoleculeSelect.current
     if (!isOpenState && isEnabledKey) {
-      domSourceEvent === domMoleculeSelect && setIsOpenState(!isOpenState)
+      setIsOpenState(!isOpenState)
       setTimeout(() => focusFirstOption(ev))
     } else if (ev.key === 'Escape') {
       closeList(ev, {isOutsideEvent: true})
     } else {
       isOpenState && setTimeout(() => focusSearchInput(ev))
-      !withSearch && setTimeout(() => focusFirstOption(ev))
+      !hasSearch && setTimeout(() => focusFirstOption(ev))
     }
   }
 
@@ -182,12 +173,12 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     setFocus(false)
   }
 
-  const handleFocusIn = () => !disabled && !withSearch && setFocus(true)
+  const handleFocusIn = () => !disabled && !hasSearch && setFocus(true)
 
   const handleClick = ev => {
     ev.persist()
     if (focus) {
-      !withSearch && setTimeout(() => focusFirstOption(ev))
+      !hasSearch && setTimeout(() => focusFirstOption(ev))
     }
   }
   const Select = multiselection
@@ -195,7 +186,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     : MoleculeSelectSingleSelection
 
   const context = {
-    withSearch,
+    hasSearch,
     setInputRef,
     isOpen: isOpenState,
     focusFirstOption,
@@ -299,15 +290,15 @@ MoleculeSelect.propTypes = {
   tabIndex: PropTypes.number,
 
   /* This Boolean attribute activates a search input to search over the options */
-  withSearch: PropTypes.bool,
+  hasSearch: PropTypes.bool,
 
-  /* This function attribute allows you to configure how the options will be filtered based on the current search query */
-  filterFn: PropTypes.func,
+  /* callback to be triggered when value search input changes   */
+  onSearch: PropTypes.func,
 
   /* Placeholder for the search input text */
   searchPlaceholder: PropTypes.string,
 
-  /* Component to render when no options are found after aplying the filterFn */
+  /* Component to render when no options are provided */
   noResults: PropTypes.node,
 
   /* Optional aria-label */

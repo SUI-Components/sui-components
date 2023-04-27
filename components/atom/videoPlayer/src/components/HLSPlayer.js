@@ -7,6 +7,7 @@ import {BASE_CLASS, HLS_DEFAULT_TITLE} from '../settings/index.js'
 
 const HLSPlayer = ({
   autoPlay,
+  controls,
   hlsConfig,
   playerRef = createRef(),
   src,
@@ -86,7 +87,7 @@ const HLSPlayer = ({
   return (
     <div className={`${BASE_CLASS}-hlsPlayer`}>
       <video
-        controls
+        controls={controls}
         className={`${BASE_CLASS}-hlsPlayerVideo`}
         title={title}
         ref={playerRef}
@@ -99,6 +100,7 @@ const HLSPlayer = ({
 
 HLSPlayer.propTypes = {
   autoPlay: PropTypes.bool,
+  controls: PropTypes.bool,
   hlsConfig: PropTypes.object,
   playerRef: PropTypes.object,
   src: PropTypes.string,

@@ -24,7 +24,7 @@ describe('AtomVideoPlayer', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {src: ''}
 
     // When
     const component = <AtomVideoPlayer {...props} />
@@ -37,7 +37,7 @@ describe('AtomVideoPlayer', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {}
+    const props = {src: ''}
 
     // When
     const {container} = setup(props)
@@ -75,6 +75,33 @@ describe('AtomVideoPlayer', () => {
       // Then
       component.getByTitle(HLS_DEFAULT_TITLE)
     })
+
+    it('should display controls by default', () => {
+      // Given
+      const props = {
+        src: 'https://media-frontend.yams-pro.mpi-internal.com/api/v1/yams-frontend/statics/vo/surf.mp4/hls.m3u8'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      expect(component.getByTitle(HLS_DEFAULT_TITLE).controls).to.eql(true)
+    })
+
+    it('should avoid displaying controls if controls prop is set to false', () => {
+      // Given
+      const props = {
+        controls: false,
+        src: 'https://media-frontend.yams-pro.mpi-internal.com/api/v1/yams-frontend/statics/vo/surf.mp4/hls.m3u8'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      expect(component.getByTitle(HLS_DEFAULT_TITLE).controls).to.eql(false)
+    })
   })
 
   describe('Native video player', () => {
@@ -103,6 +130,33 @@ describe('AtomVideoPlayer', () => {
       // Then
       const {src} = await component.findByTestId('videosrc')
       expect(src).to.eql('data:video/mp4;base64,ZmFrZVZpZGVv')
+    })
+
+    it('should display controls by default', () => {
+      // Given
+      const props = {
+        src: 'https://cdn.coverr.co/videos/coverr-boat-in-the-sea-5656/1080p.mp4'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      expect(component.getByTitle(NATIVE_DEFAULT_TITLE).controls).to.eql(true)
+    })
+
+    it('should avoid displaying controls if controls prop is set to false', () => {
+      // Given
+      const props = {
+        controls: false,
+        src: 'https://cdn.coverr.co/videos/coverr-boat-in-the-sea-5656/1080p.mp4'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      expect(component.getByTitle(NATIVE_DEFAULT_TITLE).controls).to.eql(false)
     })
   })
 
@@ -153,6 +207,22 @@ describe('AtomVideoPlayer', () => {
         'https://www.youtube.com/embed/1gI_HGDgG7c'
       )
     })
+
+    it('should avoid displaying controls if controls prop is set to false', () => {
+      // Given
+      const props = {
+        controls: false,
+        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include('controls=0')
+    })
   })
 
   describe('VIMEO Videos', () => {
@@ -184,6 +254,22 @@ describe('AtomVideoPlayer', () => {
       expect(iframeNode.src).to.include(
         'https://player.vimeo.com/video/54289199'
       )
+    })
+
+    it('should avoid displaying controls if controls prop is set to false', () => {
+      // Given
+      const props = {
+        controls: false,
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include('controls=0')
     })
   })
 })

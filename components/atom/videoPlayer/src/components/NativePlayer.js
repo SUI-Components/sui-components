@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import useGetBlobAsVideoSrcEffect from '../hooks/useGetBlobAsVideoSrcEffect.js'
 import {BASE_CLASS, NATIVE_DEFAULT_TITLE} from '../settings/index.js'
 
-const NativePlayer = ({src, title = NATIVE_DEFAULT_TITLE}) => {
+const NativePlayer = ({controls, src, title = NATIVE_DEFAULT_TITLE}) => {
   const videoNode = useRef(null)
   const videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
 
@@ -15,7 +15,7 @@ const NativePlayer = ({src, title = NATIVE_DEFAULT_TITLE}) => {
         className={`${BASE_CLASS}-nativePlayerVideo`}
         ref={videoNode}
         title={title}
-        controls
+        controls={controls}
       >
         {videoSrc !== null && <source data-testid="videosrc" src={videoSrc} />}
         Your browser does not support the video tag.
@@ -25,6 +25,7 @@ const NativePlayer = ({src, title = NATIVE_DEFAULT_TITLE}) => {
 }
 
 NativePlayer.propTypes = {
+  controls: PropTypes.bool,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
   title: PropTypes.string
 }

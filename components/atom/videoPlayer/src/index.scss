@@ -7,11 +7,11 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
   position: relative;
 
   &Frame {
+    height: 100%;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
   }
 }
 
@@ -29,12 +29,12 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
   }
 
   &-vimeoPlayer {
-    padding: $fourByThreeAspectRatio 0 0 0;
     @include atom-videoplayer-external-player;
+    padding: $fourByThreeAspectRatio 0 0 0;
   }
 
   &-youtubePlayer {
-    padding: $sixteenByNineAspectRatio 0 0 0;
     @include atom-videoplayer-external-player;
+    padding: $sixteenByNineAspectRatio 0 0 0;
   }
 }

@@ -3,13 +3,14 @@ import {createRef, useEffect} from 'react'
 import Hls from 'hls.js'
 import PropTypes from 'prop-types'
 
-import {BASE_CLASS} from '../settings/index.js'
+import {BASE_CLASS, HLS_DEFAULT_TITLE} from '../settings/index.js'
 
 const HLSPlayer = ({
+  autoPlay,
   hlsConfig,
   playerRef = createRef(),
   src,
-  autoPlay,
+  title = HLS_DEFAULT_TITLE,
   ...props
 }) => {
   useEffect(() => {
@@ -87,7 +88,7 @@ const HLSPlayer = ({
       <video
         controls
         className={`${BASE_CLASS}-hlsPlayerVideo`}
-        title="HLS video player"
+        title={title}
         ref={playerRef}
         {...(Hls.isSupported() === false ? nativePlayerProps : {})}
         {...props}
@@ -97,10 +98,11 @@ const HLSPlayer = ({
 }
 
 HLSPlayer.propTypes = {
+  autoPlay: PropTypes.bool,
   hlsConfig: PropTypes.object,
   playerRef: PropTypes.object,
   src: PropTypes.string,
-  autoPlay: PropTypes.bool
+  title: PropTypes.string
 }
 
 export default HLSPlayer

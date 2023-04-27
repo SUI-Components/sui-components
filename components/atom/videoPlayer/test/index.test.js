@@ -10,6 +10,13 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import {
+  HLS_DEFAULT_TITLE,
+  NATIVE_DEFAULT_TITLE,
+  VIMEO_DEFAULT_TITLE,
+  YOUTUBE_DEFAULT_TITLE
+} from '../src/settings/index.js'
+
 chai.use(chaiDOM)
 
 describe('AtomVideoPlayer', () => {
@@ -66,7 +73,7 @@ describe('AtomVideoPlayer', () => {
       const component = setup(props)
 
       // Then
-      component.getByTitle('HLS video player')
+      component.getByTitle(HLS_DEFAULT_TITLE)
     })
   })
 
@@ -81,7 +88,7 @@ describe('AtomVideoPlayer', () => {
       const component = setup(props)
 
       // Then
-      component.getByTitle('Native video player')
+      component.getByTitle(NATIVE_DEFAULT_TITLE)
     })
 
     it('should try to play the video using the native player when receiving a blob object as src', async () => {
@@ -110,7 +117,7 @@ describe('AtomVideoPlayer', () => {
       const component = setup(props)
 
       // Then
-      component.getByTitle('YouTube video player')
+      component.getByTitle(YOUTUBE_DEFAULT_TITLE)
     })
 
     it('should convert standard youtube urls to embedable urls', () => {
@@ -123,7 +130,7 @@ describe('AtomVideoPlayer', () => {
       const component = setup(props)
 
       // Then
-      const iframeNode = component.getByTitle('YouTube video player')
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
       expect(iframeNode.src).to.equal(
         'https://www.youtube.com/embed/1gI_HGDgG7c'
@@ -140,7 +147,7 @@ describe('AtomVideoPlayer', () => {
       const component = setup(props)
 
       // Then
-      const iframeNode = component.getByTitle('YouTube video player')
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
       expect(iframeNode.src).to.equal(
         'https://www.youtube.com/embed/1gI_HGDgG7c'
@@ -159,7 +166,7 @@ describe('AtomVideoPlayer', () => {
       const component = setup(props)
 
       // Then
-      component.getByTitle('VIMEO video player')
+      component.getByTitle(VIMEO_DEFAULT_TITLE)
     })
 
     it('should convert standard vimeo url to an embeddable url', () => {
@@ -172,7 +179,7 @@ describe('AtomVideoPlayer', () => {
       const component = setup(props)
 
       // Then
-      const iframeNode = component.getByTitle('VIMEO video player')
+      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
       expect(iframeNode.src).to.include(
         'https://player.vimeo.com/video/54289199'

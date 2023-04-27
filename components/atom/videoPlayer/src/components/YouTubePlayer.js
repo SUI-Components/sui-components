@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types'
 
 import useYouTubeProperties from '../hooks/useYouTubeProperties.js'
-import {BASE_CLASS} from '../settings.js'
+import {BASE_CLASS, YOUTUBE_DEFAULT_TITLE} from '../settings/index.js'
 
-const YouTubePlayer = ({src}) => {
+const YouTubePlayer = ({src, title = YOUTUBE_DEFAULT_TITLE}) => {
   const {getEmbeddableUrl} = useYouTubeProperties()
   const videoSrc = getEmbeddableUrl(src)
 
-  // TODO: How to render the iframe with 100% width and height 👉🏾 https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed
   return (
     <div className={`${BASE_CLASS}-youtubePlayer`}>
       <iframe
         className={`${BASE_CLASS}-youtubePlayerFrame`}
         src={videoSrc}
-        title="YouTube video player"
+        title={title}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
@@ -23,7 +22,8 @@ const YouTubePlayer = ({src}) => {
 }
 
 YouTubePlayer.propTypes = {
-  src: PropTypes.string
+  src: PropTypes.string,
+  title: PropTypes.string
 }
 
 export default YouTubePlayer

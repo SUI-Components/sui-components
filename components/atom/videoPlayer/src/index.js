@@ -3,7 +3,7 @@ import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import useVideoPlayer from './hooks/useVideoPlayer.js'
-import {BASE_CLASS} from './settings.js'
+import {BASE_CLASS} from './settings/index.js'
 
 const AtomVideoPlayer = forwardRef(({src = ''}, forwardedRef) => {
   const [Component, props] = useVideoPlayer({src})

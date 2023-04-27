@@ -1,4 +1,5 @@
-import {HLS, NATIVE, UNKNOWN, VIMEO, YOUTUBE} from '../settings.js'
+import {UNKNOWN} from '../settings/index.js'
+import {DETECTABLE_VIDEO_TYPES, DETECTION_TYPES} from '../settings/players.js'
 
 const useDetectVideoType = () => {
   const getVideoExtension = src => {
@@ -12,19 +13,30 @@ const useDetectVideoType = () => {
   }
 
   const detectVideoType = src => {
-    const extension = getVideoExtension(src)
+    const type = DETECTABLE_VIDEO_TYPES.find(detectableType => {
+      const {DETECTION_TYPE, TYPE_DESCRIPTION} = detectableType
+      const extension = getVideoExtension(src)
 
-    if (HLS.VIDEO_FORMATS.includes(extension)) return HLS.VIDEO_TYPE
+      switch (DETECTION_TYPE) {
+        case DETECTION_TYPES.FILE_EXTENSION:
+          if (TYPE_DESCRIPTION.FILE_FORMATS.includes(extension)) return true
+          break
 
-    if (src instanceof Blob || NATIVE.VIDEO_FORMATS.includes(extension))
-      return NATIVE.VIDEO_TYPE
+        case DETECTION_TYPES.SRC_INSTANCE_TYPE:
+          if (src instanceof TYPE_DESCRIPTION.INSTANCE_TYPE) return true
+          break
 
-    if (src.includes(YOUTUBE.VIDEO_TYPE) || src.includes(YOUTUBE.SHORT_URL))
-      return YOUTUBE.VIDEO_TYPE
+        case DETECTION_TYPES.SRC_PATTERN:
+          if (
+            TYPE_DESCRIPTION.SRC_PATTERNS.some(pattern => src.includes(pattern))
+          )
+            return true
+          break
+      }
+      return false
+    })
 
-    if (src.includes(VIMEO.VIDEO_TYPE)) return VIMEO.VIDEO_TYPE
-
-    return UNKNOWN
+    return type !== undefined ? type.TYPE_DESCRIPTION : UNKNOWN
   }
   return {detectVideoType}
 }

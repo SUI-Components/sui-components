@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 
 import useVimeoProperties from '../hooks/useVimeoProperties.js'
-import {BASE_CLASS} from '../settings.js'
+import {BASE_CLASS, VIMEO_DEFAULT_TITLE} from '../settings/index.js'
 
-const VimeoPlayer = ({src}) => {
+const VimeoPlayer = ({src, title = VIMEO_DEFAULT_TITLE}) => {
   const {getEmbeddableUrl} = useVimeoProperties()
   const videoSrc = getEmbeddableUrl(src)
 
@@ -11,7 +11,7 @@ const VimeoPlayer = ({src}) => {
     <div className={`${BASE_CLASS}-vimeoPlayer`}>
       <iframe
         className={`${BASE_CLASS}-vimeoPlayerFrame`}
-        title="VIMEO video player"
+        title={title}
         src={videoSrc}
         frameBorder="0"
         allow="autoplay; fullscreen; picture-in-picture"
@@ -22,7 +22,8 @@ const VimeoPlayer = ({src}) => {
 }
 
 VimeoPlayer.propTypes = {
-  src: PropTypes.string
+  src: PropTypes.string,
+  title: PropTypes.string
 }
 
 export default VimeoPlayer

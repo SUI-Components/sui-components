@@ -1,0 +1,6 @@
+export const BASE_CLASS = 'sui-AtomVideoPlayer'
+export const UNKNOWN = 'unknown'
+export const HLS_DEFAULT_TITLE = 'HLS video player'
+export const NATIVE_DEFAULT_TITLE = 'Native video player'
+export const VIMEO_DEFAULT_TITLE = 'VIMEO video player'
+export const YOUTUBE_DEFAULT_TITLE = 'YouTube video player'

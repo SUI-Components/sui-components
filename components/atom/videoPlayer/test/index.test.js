@@ -158,6 +158,20 @@ describe('AtomVideoPlayer', () => {
       // Then
       expect(component.getByTitle(NATIVE_DEFAULT_TITLE).controls).to.eql(false)
     })
+
+    it('should autoplay the video if autoPlay prop is set to true', () => {
+      // Given
+      const props = {
+        autoPlay: true,
+        src: 'https://cdn.coverr.co/videos/coverr-boat-in-the-sea-5656/1080p.mp4'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      expect(component.getByTitle(NATIVE_DEFAULT_TITLE).autoplay).to.eql(true)
+    })
   })
 
   describe('YouTube Videos', () => {
@@ -186,7 +200,7 @@ describe('AtomVideoPlayer', () => {
       // Then
       const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.equal(
+      expect(iframeNode.src).to.include(
         'https://www.youtube.com/embed/1gI_HGDgG7c'
       )
     })
@@ -203,7 +217,7 @@ describe('AtomVideoPlayer', () => {
       // Then
       const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.equal(
+      expect(iframeNode.src).to.include(
         'https://www.youtube.com/embed/1gI_HGDgG7c'
       )
     })
@@ -222,6 +236,22 @@ describe('AtomVideoPlayer', () => {
       const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
       expect(iframeNode.src).to.include('controls=0')
+    })
+
+    it('should autoplay the video if the autoPlay prop is set to true', () => {
+      // Given
+      const props = {
+        autoPlay: true,
+        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include('autoplay=1')
     })
   })
 
@@ -268,8 +298,22 @@ describe('AtomVideoPlayer', () => {
 
       // Then
       const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
-      // check that the iframe src is the embedable url
       expect(iframeNode.src).to.include('controls=0')
+    })
+
+    it('should autoplay the video if the prop autoPlay is set to true', () => {
+      // Given
+      const props = {
+        autoPlay: true,
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
+      expect(iframeNode.src).to.include('autoplay=1')
     })
   })
 })

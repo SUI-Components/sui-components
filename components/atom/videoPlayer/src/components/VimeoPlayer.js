@@ -1,11 +1,24 @@
 import PropTypes from 'prop-types'
 
+import {toQueryString} from '@s-ui/js/lib/string'
+
 import useVimeoProperties from '../hooks/useVimeoProperties.js'
 import {BASE_CLASS, VIMEO_DEFAULT_TITLE} from '../settings/index.js'
 
-const VimeoPlayer = ({controls, src, title = VIMEO_DEFAULT_TITLE}) => {
+const VimeoPlayer = ({
+  autoPlay,
+  controls,
+  src,
+  title = VIMEO_DEFAULT_TITLE
+}) => {
   const {getEmbeddableUrl} = useVimeoProperties()
-  const videoSrc = `${getEmbeddableUrl(src)}${!controls ? '?controls=0' : ''}`
+
+  const params = toQueryString({
+    controls: controls ? '1' : '0',
+    autoplay: autoPlay ? '1' : '0'
+  })
+
+  const videoSrc = `${getEmbeddableUrl(src)}?${params}`
 
   return (
     <div className={`${BASE_CLASS}-vimeoPlayer`}>
@@ -22,6 +35,7 @@ const VimeoPlayer = ({controls, src, title = VIMEO_DEFAULT_TITLE}) => {
 }
 
 VimeoPlayer.propTypes = {
+  autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
   src: PropTypes.string,
   title: PropTypes.string

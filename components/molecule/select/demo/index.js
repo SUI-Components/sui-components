@@ -13,7 +13,12 @@ import ComboCountries from './components/ComboCountries.js'
 import MoleculeSelectUseEffect from './components/MoleculeSelectUseEffect.js'
 import countriesData from './data/countries.json'
 import {countries as countriesList} from './data/index.js'
-import {IconArrowDown, IconClock, IconCloseTag} from './Icons/index.js'
+import {
+  IconArrowDown,
+  IconClock,
+  IconCloseTag,
+  IconSearch
+} from './Icons/index.js'
 
 import './index.scss'
 
@@ -72,6 +77,7 @@ const Demo = () => {
             hasSearch
             onSearch={({value}) => setQuerySingle(value)}
             searchPlaceholder="Search a country..."
+            searchIcon={<IconSearch />}
             noResults={
               <div className="DemoMoleculeSelect-noResults">
                 No results found...
@@ -219,6 +225,7 @@ const Demo = () => {
             onChange={(_, {value}) => console.log(value)}
             iconCloseTag={<IconCloseTag />}
             iconArrowDown={<IconArrowDown />}
+            searchIcon={<IconSearch />}
             hasSearch
             onSearch={({value}) => setQuery(value)}
             searchPlaceholder="Search a country..."

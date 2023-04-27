@@ -8,8 +8,14 @@ import {getClassSearch} from './config.js'
 export default function Search(props) {
   const [value, setValue] = useState('')
 
-  const {setInputRef, isOpen, focusFirstOption, onSearch, searchPlaceholder} =
-    useDropdown()
+  const {
+    setInputRef,
+    isOpen,
+    focusFirstOption,
+    onSearch,
+    searchPlaceholder,
+    searchIcon
+  } = useDropdown()
 
   const handleKeyDown = ev => {
     setTimeout(() => focusFirstOption(ev))
@@ -28,6 +34,7 @@ export default function Search(props) {
         reference={setInputRef}
         onChange={onChange}
         placeholder={searchPlaceholder}
+        leftIcon={searchIcon}
         {...props}
       />
     </div>

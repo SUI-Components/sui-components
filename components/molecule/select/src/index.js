@@ -43,6 +43,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     keysSelection,
     multiselection,
     hasSearch = false,
+    searchIcon,
     searchPlaceholder,
     noResults,
     refMoleculeSelect: refMoleculeSelectFromProps,
@@ -193,7 +194,8 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     inputSearch,
     onSearch,
     isFirstOptionFocused,
-    searchPlaceholder
+    searchPlaceholder,
+    searchIcon
   }
 
   return (
@@ -291,6 +293,9 @@ MoleculeSelect.propTypes = {
 
   /* This Boolean attribute activates a search input to search over the options */
   hasSearch: PropTypes.bool,
+
+  /* Icon to be displayed in the search input */
+  searchIcon: PropTypes.node,
 
   /* callback to be triggered when value search input changes   */
   onSearch: PropTypes.func,

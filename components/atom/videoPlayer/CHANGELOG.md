@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.8.0 (2023-04-28)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add autoplay prop to atom videoPlayer ([4b22741](https://github.com/SUI-Components/sui-components/commit/4b22741908cb5d838d7eb70b1db1a0645b7977a4))
+
+
+
 # 1.7.0 (2023-04-27)
 
 

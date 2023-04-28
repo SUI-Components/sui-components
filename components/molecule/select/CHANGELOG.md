@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 1.60.0 (2023-04-28)
+
+
+### Features
+
+* **components/molecule/select:** Add a Search input to search over the options on the select ([f1d7dc6](https://github.com/SUI-Components/sui-components/commit/f1d7dc608d378641277b7ff51b16eb93df1cef42))
+* **components/molecule/select:** Add some theme variables and improve readme ([a4b78c3](https://github.com/SUI-Components/sui-components/commit/a4b78c3b4f9a0607cae2c96fd30a6f31db40ce0a))
+* **components/molecule/select:** Added test and add onSearch as a callback prop ([046efe5](https://github.com/SUI-Components/sui-components/commit/046efe5a49edc3c099a237ffa025442d83bbcd5d))
+* **components/molecule/select:** Added the noResults prop ([1f3eee0](https://github.com/SUI-Components/sui-components/commit/1f3eee0f649525f3e16c9b7b13d702541205f04b))
+* **components/molecule/select:** Allow to set a left icon on the search input ([1ddda23](https://github.com/SUI-Components/sui-components/commit/1ddda23ff1e273a6e26ad6e5f5f6106fa9a8d227))
+
+
+
 # 1.59.0 (2023-03-08)
 
 

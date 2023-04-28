@@ -14,6 +14,18 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
   }
 
   &-inputSelect {
+    &-search {
+      border-radius: $bdrs-molecule-select-search;
+      border: $bd-molecule-select-search;
+      border-bottom: $bd-bottom-molecule-select-search;
+      padding: $p-molecule-select-search;
+      background-color: $bgc-molecule-select-search;
+      z-index: $z-dropdown-menu;
+
+      &--hidden {
+        display: none;
+      }
+    }
     &-container {
       align-items: center;
       border: $bd-select;

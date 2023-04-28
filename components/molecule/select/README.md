@@ -76,6 +76,31 @@ const options = ['John', 'Paul', 'George', 'Ringo']
 </MoleculeSelect>
 ```
 
+#### With a search input
+
+```js
+<MoleculeSelect
+  placeholder="Select a Country..."
+  onChange={(_, {value}) => console.log(value)}
+  iconArrowDown={<IconArrowDown />}
+  hasSearch
+  onSearch={({value}) => console.log(value)}
+  searchPlaceholder="Search a country..."
+  noResults={
+    <div>
+      No results found...
+    </div>
+  }
+  size={moleculeSelectDropdownListSizes.LARGE}
+>
+  {options.map((option, i) => (
+    <MoleculeSelectOption key={i} value={option}>
+      {option}
+    </MoleculeSelectOption>
+  ))}
+</MoleculeSelect>
+```
+
 #### With state highlight
 
 Can be `success`, `error` or `alert`.

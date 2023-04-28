@@ -1,4 +1,4 @@
-import {Children} from 'react'
+import {Children, createContext, useContext} from 'react'
 
 import cx from 'classnames'
 
@@ -11,6 +11,9 @@ export const SELECT_STATES = {
   SUCCESS: 'success',
   ALERT: 'alert'
 }
+
+export const DropdownContext = createContext()
+export const useDropdown = () => useContext(DropdownContext)
 
 export const ENABLED_KEYS = ['Enter', 'ArrowDown', 'ArrowUp']
 

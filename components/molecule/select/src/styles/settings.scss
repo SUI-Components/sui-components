@@ -14,3 +14,9 @@ $bd-molecule-select-focus: $bdw-s solid $c-primary !default;
 $bdc-molecule-select-input-with-state: transparent !default;
 $c-molecule-select-arrow-disabled: $c-select-list-arrow-fill !default;
 $c-molecule-select-disabled: inherit !default;
+
+$bd-molecule-select-search: $bd-dropdown-list !default;
+$bd-bottom-molecule-select-search: none !default;
+$bdrs-molecule-select-search: none !default;
+$p-molecule-select-search: $p-m $p-l !default;
+$bgc-molecule-select-search: $bc-dropdown-list !default;

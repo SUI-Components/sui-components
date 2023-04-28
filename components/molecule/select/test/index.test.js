@@ -11,7 +11,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
-import {fireEvent} from '@testing-library/react'
+import {fireEvent, waitFor} from '@testing-library/react'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -105,6 +105,43 @@ describe(json.name, () => {
 
       // Then
       sinon.assert.calledOnce(spy)
+    })
+
+    it('should display the search input when hasSearch is active', () => {
+      const props = {
+        hasSearch: true,
+        searchPlaceholder: 'search placehoder',
+        multiselection: true
+      }
+
+      // When
+      const {getByPlaceholderText} = setup(props)
+
+      // Then
+      expect(getByPlaceholderText(props.searchPlaceholder)).to.not.be.null
+    })
+
+    it('should call the onSearch callback when typing on the search input', async () => {
+      const spy = sinon.spy()
+
+      const props = {
+        onSearch: spy,
+        hasSearch: true,
+        searchPlaceholder: 'search placehoder',
+        multiselection: true
+      }
+
+      // When
+      const {getByPlaceholderText} = setup(props)
+
+      const searchInput = getByPlaceholderText(props.searchPlaceholder)
+
+      searchInput.focus()
+      fireEvent.change(searchInput, {target: {value: 'abc'}})
+
+      // Then
+      await waitFor(() => sinon.assert.callCount(spy, 1))
+      sinon.assert.calledWith(spy, {value: 'abc'})
     })
   })
 

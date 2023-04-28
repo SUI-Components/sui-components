@@ -1,12 +1,24 @@
 import PropTypes from 'prop-types'
 
+import {toQueryString} from '@s-ui/js/lib/string'
+
 import useYouTubeProperties from '../hooks/useYouTubeProperties.js'
 import {BASE_CLASS, YOUTUBE_DEFAULT_TITLE} from '../settings/index.js'
 
-const YouTubePlayer = ({controls, src, title = YOUTUBE_DEFAULT_TITLE}) => {
+const YouTubePlayer = ({
+  autoPlay,
+  controls,
+  src,
+  title = YOUTUBE_DEFAULT_TITLE
+}) => {
   const {getEmbeddableUrl} = useYouTubeProperties()
-  const videoSrc = `${getEmbeddableUrl(src)}${!controls ? '?controls=0' : ''}`
 
+  const params = toQueryString({
+    controls: controls ? '1' : '0',
+    autoplay: autoPlay ? '1' : '0'
+  })
+
+  const videoSrc = `${getEmbeddableUrl(src)}?${params}`
   return (
     <div className={`${BASE_CLASS}-youtubePlayer`}>
       <iframe
@@ -22,6 +34,7 @@ const YouTubePlayer = ({controls, src, title = YOUTUBE_DEFAULT_TITLE}) => {
 }
 
 YouTubePlayer.propTypes = {
+  autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
   src: PropTypes.string,
   title: PropTypes.string

@@ -5,13 +5,19 @@ import PropTypes from 'prop-types'
 import useGetBlobAsVideoSrcEffect from '../hooks/useGetBlobAsVideoSrcEffect.js'
 import {BASE_CLASS, NATIVE_DEFAULT_TITLE} from '../settings/index.js'
 
-const NativePlayer = ({controls, src, title = NATIVE_DEFAULT_TITLE}) => {
+const NativePlayer = ({
+  autoPlay,
+  controls,
+  src,
+  title = NATIVE_DEFAULT_TITLE
+}) => {
   const videoNode = useRef(null)
   const videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
 
   return (
     <div className={`${BASE_CLASS}-nativePlayer`}>
       <video
+        autoPlay={autoPlay}
         className={`${BASE_CLASS}-nativePlayerVideo`}
         ref={videoNode}
         title={title}
@@ -25,6 +31,7 @@ const NativePlayer = ({controls, src, title = NATIVE_DEFAULT_TITLE}) => {
 }
 
 NativePlayer.propTypes = {
+  autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
   title: PropTypes.string

@@ -8,20 +8,6 @@ import {useDropdown} from '../config.js'
 import MoleculeInputSelect from './MoleculeInputSelect.js'
 import Search from './Search.js'
 
-function removeDuplicateTags(tags) {
-  const tagsSet = new Set()
-  tags.forEach(tag => tagsSet.add(tag))
-
-  return Array.from(tagsSet).filter(Boolean)
-}
-
-function keepSelectedTagsIfRemovedFromDOM(optionsData, values) {
-  return removeDuplicateTags([
-    ...values.map(value => optionsData[value]),
-    ...values
-  ])
-}
-
 const MoleculeSelectFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */
   const {
@@ -44,7 +30,7 @@ const MoleculeSelectFieldMultiSelection = props => {
     maxTags
   } = props
 
-  const tags = keepSelectedTagsIfRemovedFromDOM(optionsData, values)
+  const tags = values.map(value => optionsData[value])
 
   const [focusedFirstOption, setFocusedFirstOption] = useState(false)
   const {hasSearch, isFirstOptionFocused, inputSearch} = useDropdown()

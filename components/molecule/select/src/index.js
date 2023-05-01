@@ -51,6 +51,8 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     onSearch
   } = props
 
+  const refOptions = useRef({})
+
   const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
   const refsMoleculeSelectOptions = useRef([])
   const ref = useMergeRefs(forwardedRef, refMoleculeSelect)
@@ -59,7 +61,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const [isOpenState, setIsOpenState] = useState(isOpen || false)
   useEffect(() => setIsOpenState(isOpen), [isOpen, setIsOpenState])
 
-  const [optionsData, setOptionsData] = useState(getOptionData(children))
+  Object.assign(refOptions.current, getOptionData(children))
   const [focus, setFocus] = useState(false)
 
   const extendedChildren = useMemo(
@@ -134,7 +136,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   }, [refsMoleculeSelectOptions])
 
   useEffect(() => {
-    setOptionsData(getOptionData(children))
+    Object.assign(refOptions.current, getOptionData(children))
     document.addEventListener('touchend', handleOutsideClick)
     document.addEventListener('mousedown', handleOutsideClick)
 
@@ -212,7 +214,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
       >
         <Select
           refMoleculeSelect={refMoleculeSelect}
-          optionsData={optionsData}
+          optionsData={refOptions.current}
           isOpen={isOpenState}
           onToggle={handleToggle}
           {...props}

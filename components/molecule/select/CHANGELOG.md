@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.61.0 (2023-05-02)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** Keep options even if children changes ([a53f809](https://github.com/SUI-Components/sui-components/commit/a53f80980dc545b4c5e12e472489697d6f3479b6))
+
+
+
 # 1.60.0 (2023-04-28)
 
 

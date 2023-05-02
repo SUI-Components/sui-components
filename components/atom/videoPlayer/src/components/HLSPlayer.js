@@ -9,6 +9,7 @@ const HLSPlayer = ({
   autoPlay,
   controls,
   hlsConfig,
+  offset,
   playerRef = createRef(),
   src,
   title = HLS_DEFAULT_TITLE,
@@ -22,9 +23,16 @@ const HLSPlayer = ({
         hls.destroy()
       }
 
+      const startOffsetConfig = offset
+        ? {
+            startPosition: offset
+          }
+        : {}
+
       const newHls = new Hls({
         enableWorker: false,
-        ...hlsConfig
+        ...hlsConfig,
+        ...startOffsetConfig
       })
 
       if (playerRef.current !== null) {
@@ -32,7 +40,7 @@ const HLSPlayer = ({
       }
 
       newHls.on(Hls.Events.MEDIA_ATTACHED, () => {
-        newHls.loadSource(src)
+        newHls.loadSource(`${src}`)
 
         newHls.on(Hls.Events.MANIFEST_PARSED, () => {
           if (autoPlay) {
@@ -77,7 +85,7 @@ const HLSPlayer = ({
         hls.destroy()
       }
     }
-  }, [autoPlay, hlsConfig, playerRef, src])
+  }, [autoPlay, hlsConfig, offset, playerRef, src])
 
   const nativePlayerProps = {
     autoPlay,
@@ -102,6 +110,7 @@ HLSPlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
   hlsConfig: PropTypes.object,
+  offset: PropTypes.number,
   playerRef: PropTypes.object,
   src: PropTypes.string,
   title: PropTypes.string

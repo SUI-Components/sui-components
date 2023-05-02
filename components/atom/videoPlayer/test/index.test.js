@@ -24,7 +24,7 @@ describe('AtomVideoPlayer', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {src: ''}
+    const props = {}
 
     // When
     const component = <AtomVideoPlayer {...props} />
@@ -37,7 +37,7 @@ describe('AtomVideoPlayer', () => {
 
   it('should NOT render null', () => {
     // Given
-    const props = {src: ''}
+    const props = {}
 
     // When
     const {container} = setup(props)
@@ -59,6 +59,180 @@ describe('AtomVideoPlayer', () => {
 
       // Then
       component.getByText('Not supported media type')
+    })
+  })
+
+  describe('YouTube Videos', () => {
+    it('should embed the youtube video player if src is a youtube video', () => {
+      // Given
+      const props = {
+        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+    })
+
+    it('should convert standard youtube urls to embedable urls', () => {
+      // Given
+      const props = {
+        src: 'https://www.youtube.com/watch?v=1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include(
+        'https://www.youtube.com/embed/1gI_HGDgG7c'
+      )
+    })
+
+    it('should convert shared videos urls to embedable urls', () => {
+      // Given
+      const props = {
+        src: 'https://youtu.be/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include(
+        'https://www.youtube.com/embed/1gI_HGDgG7c'
+      )
+    })
+
+    it('should avoid displaying controls if controls prop is set to false', () => {
+      // Given
+      const props = {
+        controls: false,
+        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include('controls=0')
+    })
+
+    it('should autoplay the video if the autoPlay prop is set to true', () => {
+      // Given
+      const props = {
+        autoPlay: true,
+        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include('autoplay=1')
+    })
+
+    it('should start the video at the expected time if offset param is passed', () => {
+      // Given
+      const props = {
+        offset: 10,
+        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include('start=10')
+    })
+  })
+
+  describe('VIMEO Videos', () => {
+    it('should embed the vimeo video player if src is a vimeo video', () => {
+      // Given
+      const props = {
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      component.getByTitle(VIMEO_DEFAULT_TITLE)
+    })
+
+    it('should convert standard vimeo url to an embeddable url', () => {
+      // Given
+      const props = {
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include(
+        'https://player.vimeo.com/video/54289199'
+      )
+    })
+
+    it('should avoid displaying controls if controls prop is set to false', () => {
+      // Given
+      const props = {
+        controls: false,
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
+      expect(iframeNode.src).to.include('controls=0')
+    })
+
+    it('should autoplay the video if the prop autoPlay is set to true', () => {
+      // Given
+      const props = {
+        autoPlay: true,
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
+      expect(iframeNode.src).to.include('autoplay=1')
+    })
+
+    it('should start the video at the expected time if offset param is passed', () => {
+      // Given
+      const props = {
+        offset: '25',
+        src: 'https://vimeo.com/54289199'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
+      expect(iframeNode.src).to.include('#t=25')
     })
   })
 
@@ -172,148 +346,20 @@ describe('AtomVideoPlayer', () => {
       // Then
       expect(component.getByTitle(NATIVE_DEFAULT_TITLE).autoplay).to.eql(true)
     })
-  })
 
-  describe('YouTube Videos', () => {
-    it('should embed the youtube video player if src is a youtube video', () => {
+    it('should start the video at the expected time if offset param is passed', async () => {
       // Given
       const props = {
-        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+        offset: '15',
+        src: 'https://cdn.coverr.co/videos/coverr-boat-in-the-sea-5656/1080p.mp4'
       }
 
       // When
       const component = setup(props)
 
       // Then
-      component.getByTitle(YOUTUBE_DEFAULT_TITLE)
-    })
-
-    it('should convert standard youtube urls to embedable urls', () => {
-      // Given
-      const props = {
-        src: 'https://www.youtube.com/watch?v=1gI_HGDgG7c'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
-      // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://www.youtube.com/embed/1gI_HGDgG7c'
-      )
-    })
-
-    it('should convert shared videos urls to embedable urls', () => {
-      // Given
-      const props = {
-        src: 'https://youtu.be/1gI_HGDgG7c'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
-      // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://www.youtube.com/embed/1gI_HGDgG7c'
-      )
-    })
-
-    it('should avoid displaying controls if controls prop is set to false', () => {
-      // Given
-      const props = {
-        controls: false,
-        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
-      // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include('controls=0')
-    })
-
-    it('should autoplay the video if the autoPlay prop is set to true', () => {
-      // Given
-      const props = {
-        autoPlay: true,
-        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
-      // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include('autoplay=1')
-    })
-  })
-
-  describe('VIMEO Videos', () => {
-    it('should embed the vimeo video player if src is a vimeo video', () => {
-      // Given
-      const props = {
-        src: 'https://vimeo.com/54289199'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      component.getByTitle(VIMEO_DEFAULT_TITLE)
-    })
-
-    it('should convert standard vimeo url to an embeddable url', () => {
-      // Given
-      const props = {
-        src: 'https://vimeo.com/54289199'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
-      // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://player.vimeo.com/video/54289199'
-      )
-    })
-
-    it('should avoid displaying controls if controls prop is set to false', () => {
-      // Given
-      const props = {
-        controls: false,
-        src: 'https://vimeo.com/54289199'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
-      expect(iframeNode.src).to.include('controls=0')
-    })
-
-    it('should autoplay the video if the prop autoPlay is set to true', () => {
-      // Given
-      const props = {
-        autoPlay: true,
-        src: 'https://vimeo.com/54289199'
-      }
-
-      // When
-      const component = setup(props)
-
-      // Then
-      const iframeNode = component.getByTitle(VIMEO_DEFAULT_TITLE)
-      expect(iframeNode.src).to.include('autoplay=1')
+      const {src} = await component.findByTestId('videosrc')
+      expect(src).to.include('#t=15')
     })
   })
 })

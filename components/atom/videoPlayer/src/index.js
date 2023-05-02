@@ -6,10 +6,11 @@ import useVideoPlayer from './hooks/useVideoPlayer.js'
 import {BASE_CLASS} from './settings/index.js'
 
 const AtomVideoPlayer = forwardRef(
-  ({autoPlay = false, controls = true, src}, forwardedRef) => {
+  ({autoPlay = false, controls = true, offset, src = ''}, forwardedRef) => {
     const [Component, props] = useVideoPlayer({
       autoPlay,
       controls,
+      offset,
       src
     })
     return (
@@ -25,8 +26,8 @@ AtomVideoPlayer.displayName = 'AtomVideoPlayer'
 AtomVideoPlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  offset: PropTypes.number,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)])
-    .isRequired
 }
 
 export default AtomVideoPlayer

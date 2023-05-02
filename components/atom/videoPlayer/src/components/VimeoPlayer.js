@@ -8,6 +8,7 @@ import {BASE_CLASS, VIMEO_DEFAULT_TITLE} from '../settings/index.js'
 const VimeoPlayer = ({
   autoPlay,
   controls,
+  offset,
   src,
   title = VIMEO_DEFAULT_TITLE
 }) => {
@@ -18,7 +19,9 @@ const VimeoPlayer = ({
     autoplay: autoPlay ? '1' : '0'
   })
 
-  const videoSrc = `${getEmbeddableUrl(src)}?${params}`
+  const time = `#t=${offset}`
+
+  const videoSrc = `${getEmbeddableUrl(src)}?${params}${time}`
 
   return (
     <div className={`${BASE_CLASS}-vimeoPlayer`}>
@@ -37,6 +40,7 @@ const VimeoPlayer = ({
 VimeoPlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  offset: PropTypes.number,
   src: PropTypes.string,
   title: PropTypes.string
 }

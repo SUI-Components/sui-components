@@ -160,6 +160,15 @@ const ArticleDefault = ({className}) => {
         The <Code>disabled</Code> (boolean) prop allows the possibility to
         disable the element also.
       </Paragraph>
+      <Paragraph>
+        The <Code>hide</Code> (boolean) prop allows the possibility to hide the
+        element by setting the display to none, for cases where you need the
+        element to be in the DOM.
+      </Paragraph>
+      <MoleculeDropdownOption value={0}>Not hide</MoleculeDropdownOption>
+      <MoleculeDropdownOption value={0} hide>
+        Hide
+      </MoleculeDropdownOption>
     </Article>
   )
 }

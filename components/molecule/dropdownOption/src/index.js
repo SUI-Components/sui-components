@@ -14,6 +14,7 @@ import {
   CLASS_CHECKBOX,
   CLASS_DESCRIPTION,
   CLASS_DISABLED,
+  CLASS_HIDE,
   CLASS_HIGHLIGHTED,
   CLASS_HIGHLIGHTED_MARK,
   CLASS_LEFT_ADDON,
@@ -45,6 +46,7 @@ const MoleculeDropdownOption = forwardRef(
       value,
       description,
       withTwoLinesText,
+      hide = false,
       ...props
     },
     forwardedRef
@@ -58,6 +60,7 @@ const MoleculeDropdownOption = forwardRef(
       [CLASS_CHECKBOX]: checkbox,
       [CLASS_DISABLED]: disabled,
       [CLASS_WITH_DESCRIPTION]: description,
+      [CLASS_HIDE]: hide,
       'is-selected': innerSelected
     })
     const innerClassName = cx([
@@ -181,6 +184,8 @@ MoleculeDropdownOption.propTypes = {
   onSelect: PropTypes.func,
   /** Selected html controlled property */
   selected: PropTypes.bool,
+  /** Hide the element but without removing it from the DOM */
+  hide: PropTypes.bool,
   /** Initial selected **/
   defaultSelected: PropTypes.bool,
   /** Text to be highlighted in the option text if found */

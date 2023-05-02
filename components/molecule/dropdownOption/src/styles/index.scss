@@ -105,4 +105,8 @@ $base-class: '.sui-MoleculeDropdownOption';
     padding: $pt-molecule-dropdown-option-with-description
       $pl-molecule-dropdown-option;
   }
+
+  &.is-hidden {
+    display: none;
+  }
 }

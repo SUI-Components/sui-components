@@ -43,4 +43,18 @@ return (
 )
 ```
 
+### With hide
+
+Useful when you need to hide an option but you still need the option to be presnet in the DOM
+
+```js
+import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+
+return (
+  <MoleculeDropdownOption value="option1" hide>
+    Option 1
+  </MoleculeDropdownOption>
+)
+```
+
 **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/dropdownOption/demo).**

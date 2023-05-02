@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2023-05-02)
+
+
+### Features
+
+* **components/molecule/stepper:** Hide label ([ab65a63](https://github.com/SUI-Components/sui-components/commit/ab65a63b173af1b23e31f7aa0f7223b01f07babf))
+
+
+
 # 2.4.0 (2022-11-08)
 
 

@@ -10,8 +10,6 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import {waitFor} from '@testing-library/react'
-
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
@@ -102,7 +100,7 @@ describe(json.name, () => {
       expect(getByRole('option').innerText).to.equal(props.children)
     })
 
-    it('should hide the element', async () => {
+    it('should hide the element', () => {
       // Given
       const props = {
         children: 'children',
@@ -110,12 +108,13 @@ describe(json.name, () => {
       }
 
       // When
-      const {queryByRole} = setup(props)
+      const {getByRole} = setup(props)
+
+      const option = getByRole('option', {hidden: true})
 
       // Then
-      await waitFor(() => {
-        expect(queryByRole('option')).to.be.null
-      })
+      expect(option).to.not.be.null
+      expect(option.classList.value).to.contain.oneOf(['is-hidden'])
     })
 
     it('should have an option description', () => {

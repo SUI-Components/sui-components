@@ -16,6 +16,7 @@
     "url": "https://github.com/SUI-Components/sui-components"
   },
   "dependencies": {
+    "@vimeo/player": "2.19.0",
     "hls.js": "0.14.17"
   },
   "keywords": [],

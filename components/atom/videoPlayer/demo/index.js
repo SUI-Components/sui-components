@@ -11,7 +11,11 @@ export default () => {
       <AtomVideoPlayer src="https://www.youtube.com/embed/1gI_HGDgG7c" />
 
       <h1>VIMEO</h1>
-      <AtomVideoPlayer src="https://vimeo.com/54289199" />
+      <AtomVideoPlayer
+        timeOffset={3}
+        timeLimit={5}
+        src="https://vimeo.com/54289199"
+      />
 
       <h1>Adaptative streaming</h1>
       <AtomVideoPlayer src="https://media-frontend.yams-pro.mpi-internal.com/api/v1/yams-frontend/statics/vo/surf.mp4/hls.m3u8" />

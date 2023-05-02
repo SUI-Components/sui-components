@@ -23,6 +23,7 @@ const Step = forwardRef(
       step,
       icon,
       visitedIcon,
+      showLabel,
       currentIcon,
       hasConnector: hasConnectorProp,
       onClick
@@ -81,6 +82,7 @@ const Step = forwardRef(
             label={label}
             step={step}
             steps={steps}
+            showLabel={showLabel}
             current={current}
             visited={visited}
             icon={icon || iconContext}
@@ -114,6 +116,8 @@ Step.propTypes = {
   children: PropTypes.node,
   /** the number of the step in the list **/
   step: naturalNumber,
+  /** show label or not */
+  showLabel: PropTypes.bool,
   /** the text label of the step **/
   label: PropTypes.string,
   /** stepper points to that step or not **/

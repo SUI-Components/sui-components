@@ -23,6 +23,7 @@ const MoleculeStepper = forwardRef(
       justifyContent = JUSTIFY_CONTENT.LEGACY,
       labels = [],
       steps,
+      showLabel = true,
       step,
       icon,
       visitedIcon,
@@ -57,7 +58,12 @@ const MoleculeStepper = forwardRef(
           hasConnector={hasConnector}
           onChange={onChange}
         >
-          <Stepper steps={steps} step={step} labels={labels}>
+          <Stepper
+            showLabel={showLabel}
+            steps={steps}
+            step={step}
+            labels={labels}
+          >
             {children}
           </Stepper>
         </StepsProvider>
@@ -84,6 +90,8 @@ MoleculeStepper.propTypes = {
   justifyContent: PropTypes.oneOf(Object.values(JUSTIFY_CONTENT)),
   /** an array of step tags if there is no children declared **/
   labels: PropTypes.arrayOf(PropTypes.string),
+  /** show or not the label **/
+  showLabel: PropTypes.bool,
   /** number of steps needed to be inner created **/
   steps: naturalNumber,
   /** current step position **/

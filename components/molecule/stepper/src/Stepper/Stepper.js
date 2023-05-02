@@ -10,6 +10,7 @@ const Stepper = ({
   children,
   steps: stepsNumber,
   step: currentStep,
+  showLabel,
   labels = []
 }) => {
   const {
@@ -46,6 +47,7 @@ const Stepper = ({
       <Step
         key={index}
         steps={stepsNumber}
+        showLabel={showLabel}
         step={index + 1}
         visited={index + 1 < currentStep}
         current={currentStep === index + 1}
@@ -59,6 +61,7 @@ Stepper.displayName = 'Stepper'
 Stepper.propTypes = {
   children: PropTypes.node,
   labels: PropTypes.arrayOf(PropTypes.string),
+  showLabel: PropTypes.bool,
   steps: naturalNumber,
   step: naturalNumber
 }

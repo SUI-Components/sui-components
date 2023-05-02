@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.10.0 (2023-05-02)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add configurable time limit to youtube, hls and native videos ([3648daf](https://github.com/SUI-Components/sui-components/commit/3648daf66d0d6dab494dd644cf4c532a6b0241bf))
+* **components/atom/videoPlayer:** Add vimeo time limit ([925745a](https://github.com/SUI-Components/sui-components/commit/925745a099bffd795bd06d7f8772550f1cc91816))
+
+
+
 # 1.9.0 (2023-05-02)
 
 

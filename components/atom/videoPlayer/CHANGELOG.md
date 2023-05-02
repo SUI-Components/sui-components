@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.9.0 (2023-05-02)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add offset parameter to determine the start time of the video ([5e9e48e](https://github.com/SUI-Components/sui-components/commit/5e9e48e3d4853afe38cdf0c5c9554c50a36f90c2))
+
+
+
 # 1.8.0 (2023-04-28)
 
 

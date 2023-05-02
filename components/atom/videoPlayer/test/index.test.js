@@ -145,7 +145,7 @@ describe('AtomVideoPlayer', () => {
     it('should start the video at the expected time if offset param is passed', () => {
       // Given
       const props = {
-        offset: 10,
+        timeOffset: 10,
         src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
       }
 
@@ -156,6 +156,22 @@ describe('AtomVideoPlayer', () => {
       const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
       expect(iframeNode.src).to.include('start=10')
+    })
+
+    it('should end the video at the expected time if limit param is passed', () => {
+      // Given
+      const props = {
+        timeLimit: 15,
+        src: 'https://www.youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = component.getByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include('end=15')
     })
   })
 
@@ -223,7 +239,7 @@ describe('AtomVideoPlayer', () => {
     it('should start the video at the expected time if offset param is passed', () => {
       // Given
       const props = {
-        offset: '25',
+        timeOffset: '25',
         src: 'https://vimeo.com/54289199'
       }
 
@@ -303,7 +319,7 @@ describe('AtomVideoPlayer', () => {
 
       // Then
       const {src} = await component.findByTestId('videosrc')
-      expect(src).to.eql('data:video/mp4;base64,ZmFrZVZpZGVv')
+      expect(src).to.include('data:video/mp4;base64,ZmFrZVZpZGVv')
     })
 
     it('should display controls by default', () => {
@@ -350,7 +366,7 @@ describe('AtomVideoPlayer', () => {
     it('should start the video at the expected time if offset param is passed', async () => {
       // Given
       const props = {
-        offset: '15',
+        timeOffset: '15',
         src: 'https://cdn.coverr.co/videos/coverr-boat-in-the-sea-5656/1080p.mp4'
       }
 
@@ -360,6 +376,21 @@ describe('AtomVideoPlayer', () => {
       // Then
       const {src} = await component.findByTestId('videosrc')
       expect(src).to.include('#t=15')
+    })
+
+    it('should end the video at the expected time if limit param is passed', async () => {
+      // Given
+      const props = {
+        timeLimit: '20',
+        src: 'https://cdn.coverr.co/videos/coverr-boat-in-the-sea-5656/1080p.mp4'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const {src} = await component.findByTestId('videosrc')
+      expect(src).to.include('#t=0,20')
     })
   })
 })

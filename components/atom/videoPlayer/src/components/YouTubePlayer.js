@@ -2,13 +2,14 @@ import PropTypes from 'prop-types'
 
 import {toQueryString} from '@s-ui/js/lib/string'
 
-import useYouTubeProperties from '../hooks/useYouTubeProperties.js'
+import useYouTubeProperties from '../hooks/youtube/useYouTubeProperties.js'
 import {BASE_CLASS, YOUTUBE_DEFAULT_TITLE} from '../settings/index.js'
 
 const YouTubePlayer = ({
   autoPlay,
   controls,
-  offset,
+  timeLimit,
+  timeOffset,
   src,
   title = YOUTUBE_DEFAULT_TITLE
 }) => {
@@ -17,7 +18,8 @@ const YouTubePlayer = ({
   const params = toQueryString({
     autoplay: autoPlay ? '1' : '0',
     controls: controls ? '1' : '0',
-    start: offset || '0'
+    start: timeOffset || '0',
+    end: timeLimit
   })
 
   const videoSrc = `${getEmbeddableUrl(src)}?${params}`
@@ -38,7 +40,8 @@ const YouTubePlayer = ({
 YouTubePlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
-  offset: PropTypes.number,
+  timeLimit: PropTypes.number,
+  timeOffset: PropTypes.number,
   src: PropTypes.string,
   title: PropTypes.string
 }

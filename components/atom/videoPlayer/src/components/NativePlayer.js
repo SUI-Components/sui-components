@@ -8,11 +8,16 @@ import {BASE_CLASS, NATIVE_DEFAULT_TITLE} from '../settings/index.js'
 const NativePlayer = ({
   autoPlay,
   controls,
+  offset,
   src,
   title = NATIVE_DEFAULT_TITLE
 }) => {
   const videoNode = useRef(null)
-  const videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
+  let videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
+
+  if (videoSrc !== null && offset) {
+    videoSrc = `${videoSrc}#t=${offset}`
+  }
 
   return (
     <div className={`${BASE_CLASS}-nativePlayer`}>
@@ -33,6 +38,7 @@ const NativePlayer = ({
 NativePlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  offset: PropTypes.number,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
   title: PropTypes.string
 }

@@ -15,6 +15,7 @@ const DefaultStep = ({
   visited,
   icon,
   visitedIcon,
+  showLabel,
   currentIcon
 }) => {
   const resultingIcon = getIcon({
@@ -39,7 +40,7 @@ const DefaultStep = ({
             }
           })}
       >
-        {getLabel({steps, step, design, label, current})}
+        {showLabel && getLabel({steps, step, design, label, current})}
       </div>
     </>
   )
@@ -54,6 +55,8 @@ DefaultStep.propTypes = {
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   /** different look and feels **/
   design: PropTypes.oneOf(Object.values(DESIGN)),
+  /** show label or not */
+  showLabel: PropTypes.bool,
   /** the number of the step in the list **/
   step: naturalNumber,
   /** number of steps needed to be inner created **/

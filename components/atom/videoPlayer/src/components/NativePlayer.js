@@ -2,22 +2,21 @@ import {useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import useGetBlobAsVideoSrcEffect from '../hooks/useGetBlobAsVideoSrcEffect.js'
+import useGetBlobAsVideoSrcEffect from '../hooks/native/useGetBlobAsVideoSrcEffect.js'
+import useGetSrcWithMediaFragments from '../hooks/native/useGetSrcWithMediaFragments.js'
 import {BASE_CLASS, NATIVE_DEFAULT_TITLE} from '../settings/index.js'
 
 const NativePlayer = ({
   autoPlay,
   controls,
-  offset,
+  timeLimit,
+  timeOffset,
   src,
   title = NATIVE_DEFAULT_TITLE
 }) => {
   const videoNode = useRef(null)
   let videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
-
-  if (videoSrc !== null && offset) {
-    videoSrc = `${videoSrc}#t=${offset}`
-  }
+  videoSrc = useGetSrcWithMediaFragments({videoSrc, timeOffset, timeLimit})
 
   return (
     <div className={`${BASE_CLASS}-nativePlayer`}>
@@ -38,7 +37,8 @@ const NativePlayer = ({
 NativePlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
-  offset: PropTypes.number,
+  timeLimit: PropTypes.number,
+  timeOffset: PropTypes.number,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
   title: PropTypes.string
 }

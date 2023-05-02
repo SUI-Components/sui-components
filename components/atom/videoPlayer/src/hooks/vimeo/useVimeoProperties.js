@@ -1,4 +1,4 @@
-import {VIMEO} from '../settings/players.js'
+import {VIMEO} from '../../settings/players.js'
 
 const useVimeoProperties = () => {
   const getEmbeddableUrl = src => {

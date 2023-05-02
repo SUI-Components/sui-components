@@ -2,7 +2,7 @@ import {
   YOUTUBE,
   YOUTUBE_SHORT_URL,
   YOUTUBE_STANDARD_URL
-} from '../settings/players.js'
+} from '../../settings/players.js'
 
 const useYouTubeProperties = () => {
   const getEmbeddableUrl = src => {

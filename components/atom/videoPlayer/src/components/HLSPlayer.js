@@ -10,6 +10,7 @@ import {BASE_CLASS, HLS_DEFAULT_TITLE} from '../settings/index.js'
 const HLSPlayer = ({
   autoPlay,
   controls,
+  muted,
   hlsConfig,
   timeLimit,
   timeOffset,
@@ -43,6 +44,7 @@ const HLSPlayer = ({
         onPlaying={startTimeLimitInterval}
         onPause={stopTimeLimitInterval}
         controls={controls}
+        muted={muted}
         className={`${BASE_CLASS}-hlsPlayerVideo`}
         title={title}
         ref={playerRef}
@@ -56,6 +58,7 @@ const HLSPlayer = ({
 HLSPlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  muted: PropTypes.bool,
   hlsConfig: PropTypes.object,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,

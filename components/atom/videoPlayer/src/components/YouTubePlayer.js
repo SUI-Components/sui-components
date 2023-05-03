@@ -8,6 +8,7 @@ import {BASE_CLASS, YOUTUBE_DEFAULT_TITLE} from '../settings/index.js'
 const YouTubePlayer = ({
   autoPlay,
   controls,
+  muted,
   timeLimit,
   timeOffset,
   src,
@@ -19,7 +20,8 @@ const YouTubePlayer = ({
     autoplay: autoPlay ? '1' : '0',
     controls: controls ? '1' : '0',
     start: timeOffset || '0',
-    end: timeLimit
+    end: timeLimit,
+    mute: muted ? '1' : '0'
   })
 
   const videoSrc = `${getEmbeddableUrl(src)}?${params}`
@@ -40,6 +42,7 @@ const YouTubePlayer = ({
 YouTubePlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  muted: PropTypes.bool,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
   src: PropTypes.string,

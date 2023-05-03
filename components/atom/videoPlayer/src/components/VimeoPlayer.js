@@ -11,6 +11,7 @@ import {BASE_CLASS, VIMEO_DEFAULT_TITLE} from '../settings/index.js'
 const VimeoPlayer = ({
   autoPlay,
   controls,
+  muted,
   timeLimit,
   timeOffset,
   src,
@@ -18,8 +19,9 @@ const VimeoPlayer = ({
 }) => {
   const {getEmbeddableUrl} = useVimeoProperties()
   const params = toQueryString({
+    autoplay: autoPlay ? '1' : '0',
     controls: controls ? '1' : '0',
-    autoplay: autoPlay ? '1' : '0'
+    muted: muted ? '1' : '0'
   })
   const time = `#t=${timeOffset}`
   const videoSrc = `${getEmbeddableUrl(src)}?${params}${time}`
@@ -48,6 +50,7 @@ const VimeoPlayer = ({
 VimeoPlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  muted: PropTypes.bool,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
   src: PropTypes.string,

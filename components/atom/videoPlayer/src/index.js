@@ -7,12 +7,20 @@ import {BASE_CLASS} from './settings/index.js'
 
 const AtomVideoPlayer = forwardRef(
   (
-    {autoPlay = false, controls = true, src = '', timeLimit, timeOffset},
+    {
+      autoPlay = false,
+      controls = true,
+      muted = false,
+      src = '',
+      timeLimit,
+      timeOffset
+    },
     forwardedRef
   ) => {
     const [Component, props] = useVideoPlayer({
       autoPlay,
       controls,
+      muted,
       src,
       timeLimit,
       timeOffset
@@ -30,6 +38,7 @@ AtomVideoPlayer.displayName = 'AtomVideoPlayer'
 AtomVideoPlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  muted: PropTypes.bool,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)])

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.62.0 (2023-05-03)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** onToggle callback prop was overding the defined inside the componen ([397c17c](https://github.com/SUI-Components/sui-components/commit/397c17cdc3c81d28c872485a5bce2db284a7338e))
+
+
+
 # 1.61.0 (2023-05-02)
 
 

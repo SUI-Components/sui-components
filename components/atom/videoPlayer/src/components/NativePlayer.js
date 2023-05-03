@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -18,6 +18,14 @@ const NativePlayer = ({
   const videoNode = useRef(null)
   let videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
   videoSrc = useGetSrcWithMediaFragments({videoSrc, timeOffset, timeLimit})
+
+  useEffect(() => {
+    if (autoPlay) {
+      videoNode.current.play()
+    } else {
+      videoNode.current.pause()
+    }
+  }, [autoPlay])
 
   return (
     <div className={`${BASE_CLASS}-nativePlayer`}>

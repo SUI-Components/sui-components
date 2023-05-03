@@ -1,15 +1,22 @@
-import {forwardRef} from 'react'
+import {forwardRef, useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
+import useScrollAutoplayEffect from './hooks/useScrollAutoplayEffect.js'
 import useVideoPlayer from './hooks/useVideoPlayer.js'
-import {BASE_CLASS} from './settings/index.js'
+import {
+  AUTOPLAY_DEFAULT_VALUE,
+  AUTOPLAY_OPTIONS,
+  BASE_CLASS,
+  INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION
+} from './settings/index.js'
 
 const AtomVideoPlayer = forwardRef(
   (
     {
-      autoPlay = false,
+      autoPlay = AUTOPLAY_DEFAULT_VALUE,
       controls = true,
+      intersectionObserverConfiguration = INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION,
       muted = false,
       src = '',
       timeLimit,
@@ -25,9 +32,25 @@ const AtomVideoPlayer = forwardRef(
       timeLimit,
       timeOffset
     })
+
+    const componentRef = useRef(null)
+    const ref = forwardedRef || componentRef
+
+    const autoPlayState = useScrollAutoplayEffect({
+      autoPlay,
+      intersectionObserverConfiguration,
+      muted,
+      ref
+    })
+
     return (
-      <div ref={forwardedRef} className={BASE_CLASS}>
-        <Component {...props} />
+      <div ref={ref} className={BASE_CLASS}>
+        <Component
+          {...{
+            ...props,
+            autoPlay: autoPlayState
+          }}
+        />
       </div>
     )
   }
@@ -36,7 +59,12 @@ const AtomVideoPlayer = forwardRef(
 AtomVideoPlayer.displayName = 'AtomVideoPlayer'
 
 AtomVideoPlayer.propTypes = {
-  autoPlay: PropTypes.bool,
+  autoPlay: PropTypes.oneOf(AUTOPLAY_OPTIONS),
+  intersectionObserverConfiguration: PropTypes.shape({
+    root: PropTypes.instanceOf(Element),
+    rootMargin: PropTypes.string,
+    threshold: PropTypes.number
+  }),
   controls: PropTypes.bool,
   muted: PropTypes.bool,
   timeLimit: PropTypes.number,

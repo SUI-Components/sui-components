@@ -23,7 +23,7 @@ export default () => {
       <input
         type="file"
         accept="video/*"
-        onChange={e => {
+        onChange={event => {
           setSelectedFile(event.target.files[0])
         }}
       />

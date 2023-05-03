@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2023-05-03)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add feature to autoplay videos when they are on the viewport ([fa306d3](https://github.com/SUI-Components/sui-components/commit/fa306d3b45c213fd195d4d050047f4f13ed18dbc))
+
+
+
 # 1.11.0 (2023-05-03)
 
 

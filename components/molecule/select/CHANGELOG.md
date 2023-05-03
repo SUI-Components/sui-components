@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.63.0 (2023-05-03)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** pass the moleculeSelect ref down to the childrens ([b4fe4b0](https://github.com/SUI-Components/sui-components/commit/b4fe4b07528289c479e8b4dcdfbda664d8df6600))
+
+
+
 # 1.62.0 (2023-05-03)
 
 

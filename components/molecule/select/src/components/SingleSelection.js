@@ -60,7 +60,7 @@ const MoleculeSelectSingleSelection = props => {
         id={id}
         isOpen={isOpen}
         value={optionsData[value] || ''}
-        onClick={onToggle}
+        onClick={ev => onToggle(ev, {isOpen: !isOpen})}
         leftIcon={leftIcon}
         iconArrowDown={iconArrowDown}
         placeholder={placeholder}

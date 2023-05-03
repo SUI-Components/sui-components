@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2023-05-03)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add muted prop to define if the player should be muted by default ([5c88663](https://github.com/SUI-Components/sui-components/commit/5c886632c2b069e27d95125c03f2640837b9f15a))
+
+
+
 # 1.10.0 (2023-05-02)
 
 

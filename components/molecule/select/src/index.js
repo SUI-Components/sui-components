@@ -48,8 +48,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     noResults,
     refMoleculeSelect: refMoleculeSelectFromProps,
     'aria-label': ariaLabel,
-    onSearch,
-    ...selectProps
+    onSearch
   } = props
 
   const refOptions = useRef({})
@@ -221,8 +220,8 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
           refMoleculeSelect={refMoleculeSelect}
           optionsData={refOptions.current}
           isOpen={isOpenState}
+          {...props}
           onToggle={handleToggle}
-          {...selectProps}
         >
           {numOptions > 0 ? extendedChildren : noResults}
         </Select>

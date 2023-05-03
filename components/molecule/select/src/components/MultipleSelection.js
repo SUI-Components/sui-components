@@ -84,7 +84,7 @@ const MoleculeSelectFieldMultiSelection = props => {
       <MoleculeInputSelect
         id={id}
         tags={tags}
-        onClick={onToggle}
+        onClick={ev => onToggle(ev, {isOpen: !isOpen})}
         tagsCloseIcon={iconCloseTag}
         iconArrowDown={iconArrowDown}
         onChangeTags={handleChangeTags}

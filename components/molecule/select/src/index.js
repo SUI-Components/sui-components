@@ -48,7 +48,8 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     noResults,
     refMoleculeSelect: refMoleculeSelectFromProps,
     'aria-label': ariaLabel,
-    onSearch
+    onSearch,
+    ...selectProps
   } = props
 
   const refOptions = useRef({})
@@ -82,13 +83,24 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
 
   const className = getClassName({state, errorState, focus, disabled})
 
-  const closeList = useCallback((ev, {isOutsideEvent = false}) => {
-    setIsOpenState(false)
-    if (!isOutsideEvent) {
-      ev.preventDefault()
-      ev.stopPropagation()
-    }
-  }, [])
+  const handleToggle = useCallback(
+    (ev, {isOpen, isOutsideEvent} = {isOutsideEvent: false}) => {
+      setIsOpenState(isOpen !== undefined ? isOpen : !isOpenState)
+      typeof onToggle === 'function' && onToggle(ev, {isOpen})
+      if (!isOutsideEvent) {
+        ev.preventDefault()
+        ev.stopPropagation()
+      }
+    },
+    [isOpenState, onToggle]
+  )
+
+  const closeList = useCallback(
+    (ev, {isOutsideEvent = false}) => {
+      handleToggle(ev, {isOpen: false, isOutsideEvent})
+    },
+    [handleToggle]
+  )
 
   const handleOutsideClick = useCallback(
     ev => {
@@ -150,18 +162,11 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     isOpenState && setTimeout(() => focusSearchInput())
   }, [isOpenState, focusSearchInput])
 
-  const handleToggle = (ev, {isOpen} = {}) => {
-    setIsOpenState(isOpen !== undefined ? isOpen : !isOpenState)
-    typeof onToggle === 'function' && onToggle(ev, {isOpen})
-    ev.preventDefault()
-    ev.stopPropagation()
-  }
-
   const handleKeyDown = ev => {
     ev.persist()
     const isEnabledKey = ENABLED_KEYS.includes(ev.key)
     if (!isOpenState && isEnabledKey) {
-      setIsOpenState(!isOpenState)
+      handleToggle(ev, {isOpen: !isOpenState})
       setTimeout(() => focusFirstOption(ev))
     } else if (ev.key === 'Escape') {
       closeList(ev, {isOutsideEvent: true})
@@ -217,7 +222,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
           optionsData={refOptions.current}
           isOpen={isOpenState}
           onToggle={handleToggle}
-          {...props}
+          {...selectProps}
         >
           {numOptions > 0 ? extendedChildren : noResults}
         </Select>

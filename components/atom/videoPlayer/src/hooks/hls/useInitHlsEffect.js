@@ -12,12 +12,6 @@ const useInitHlsEffect = ({
   useEffect(() => {
     let hls
 
-    const startOffsetConfig = timeOffset
-      ? {
-          startPosition: timeOffset
-        }
-      : {}
-
     function _initPlayer() {
       if (hls !== undefined) {
         hls.destroy()
@@ -25,8 +19,7 @@ const useInitHlsEffect = ({
 
       const newHls = new Hls({
         enableWorker: false,
-        ...hlsConfig,
-        ...startOffsetConfig
+        ...hlsConfig
       })
 
       if (playerRef.current !== null) {
@@ -37,6 +30,8 @@ const useInitHlsEffect = ({
         newHls.loadSource(`${src}`)
 
         newHls.on(Hls.Events.MANIFEST_PARSED, () => {
+          if (timeOffset) playerRef.current.currentTime = timeOffset
+
           if (autoPlay) {
             /* eslint-disable no-console */
             playerRef?.current

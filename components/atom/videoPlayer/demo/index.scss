@@ -1,0 +1,7 @@
+@import '../src/index.scss';
+.DemoVideoPlayer {
+  max-width: 500px;
+  &Component {
+    margin-top: 32px;
+  }
+}

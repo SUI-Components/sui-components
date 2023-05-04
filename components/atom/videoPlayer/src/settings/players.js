@@ -1,8 +1,3 @@
-import HLSPlayer from '../components/HLSPlayer.js'
-import NativePlayer from '../components/NativePlayer.js'
-import VimeoPlayer from '../components/VimeoPlayer.js'
-import YouTubePlayer from '../components/YouTubePlayer.js'
-
 export const YOUTUBE_EMBEDDABLE_URL = 'https://www.youtube.com/embed/'
 export const YOUTUBE_STANDARD_URL = 'youtube.com/watch?v='
 export const YOUTUBE_SHORT_URL = 'youtu.be/'
@@ -10,21 +5,21 @@ export const YOUTUBE_SHORT_URL = 'youtu.be/'
 export const HLS = {
   FILE_FORMATS: ['m3u8'],
   VIDEO_TYPE: 'hls',
-  PLAYER_COMPONENT: HLSPlayer
+  PLAYER_COMPONENT: 'HLSPlayer'
 }
 
 export const NATIVE = {
   INSTANCE_TYPE: Blob,
   FILE_FORMATS: ['mp4', 'ogg', 'webm'],
   VIDEO_TYPE: 'native',
-  PLAYER_COMPONENT: NativePlayer
+  PLAYER_COMPONENT: 'NativePlayer'
 }
 
 export const VIMEO = {
   EMBEDDABLE_URL: 'https://player.vimeo.com/video/',
   SRC_PATTERNS: ['https://vimeo.com/'],
   VIDEO_TYPE: 'vimeo',
-  PLAYER_COMPONENT: VimeoPlayer
+  PLAYER_COMPONENT: 'VimeoPlayer'
 }
 
 export const YOUTUBE = {
@@ -35,7 +30,7 @@ export const YOUTUBE = {
     YOUTUBE_SHORT_URL
   ],
   VIDEO_TYPE: 'youtube',
-  PLAYER_COMPONENT: YouTubePlayer
+  PLAYER_COMPONENT: 'YouTubePlayer'
 }
 
 export const DETECTION_TYPES = {

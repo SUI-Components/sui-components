@@ -1,4 +1,4 @@
-import {forwardRef, useRef} from 'react'
+import {forwardRef, Suspense, useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -17,6 +17,7 @@ const AtomVideoPlayer = forwardRef(
     {
       autoPlay = AUTOPLAY_DEFAULT_VALUE,
       controls = true,
+      fallbackComponent = null,
       intersectionObserverConfiguration = INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION,
       muted = false,
       src = '',
@@ -46,12 +47,14 @@ const AtomVideoPlayer = forwardRef(
 
     return (
       <div ref={ref} className={BASE_CLASS}>
-        <Component
-          {...{
-            ...props,
-            autoPlay: autoPlayState
-          }}
-        />
+        <Suspense fallback={fallbackComponent}>
+          <Component
+            {...{
+              ...props,
+              autoPlay: autoPlayState
+            }}
+          />
+        </Suspense>
       </div>
     )
   }
@@ -61,16 +64,17 @@ AtomVideoPlayer.displayName = 'AtomVideoPlayer'
 
 AtomVideoPlayer.propTypes = {
   autoPlay: PropTypes.oneOf(AUTOPLAY_OPTIONS),
+  controls: PropTypes.bool,
+  fallbackComponent: PropTypes.node,
   intersectionObserverConfiguration: PropTypes.shape({
     root: PropTypes.instanceOf(Element),
     rootMargin: PropTypes.string,
     threshold: PropTypes.number
   }),
-  controls: PropTypes.bool,
   muted: PropTypes.bool,
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
   timeLimit: PropTypes.number,
-  timeOffset: PropTypes.number,
-  src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)])
+  timeOffset: PropTypes.number
 }
 
 export default AtomVideoPlayer

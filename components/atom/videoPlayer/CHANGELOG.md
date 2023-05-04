@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.14.0 (2023-05-04)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add component demo ([362a5bc](https://github.com/SUI-Components/sui-components/commit/362a5bccfc842a06bf394e3d4f7575d794385e9b))
+
+
+
 # 1.13.0 (2023-05-04)
 
 

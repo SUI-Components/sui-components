@@ -2,7 +2,7 @@
 
 ## About this component
 
-![Preview of the videoplayer demo](./assets/preview.png)
+![Preview of the videoplayer demo](./assets/preview.jpg)
 
 This component allows to play any video natively supported by the browser, served over the HLS protocol, or hosted on YouTube or VIMEO.
 It offers a unique interface to configure the behaviour and settings of the player, which applies regardless of the video type received on the src parameter.

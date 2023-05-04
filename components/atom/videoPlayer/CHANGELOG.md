@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2023-05-04)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Export autoplay types from index.js ([ebe4898](https://github.com/SUI-Components/sui-components/commit/ebe48981f3cfe4344f6f55063a7baed48ecfb21d))
+
+
+
 # 1.12.0 (2023-05-03)
 
 

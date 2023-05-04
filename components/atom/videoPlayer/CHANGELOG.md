@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2023-05-04)
+
+
+### Performance Improvements
+
+* **components/atom/videoPlayer:** Load players using react lazy to improve performance ([e4c88a8](https://github.com/SUI-Components/sui-components/commit/e4c88a88070c548b09c59651b7e540208770bb0d))
+
+
+
 # 1.14.0 (2023-05-04)
 
 

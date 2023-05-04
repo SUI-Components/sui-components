@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import useScrollAutoplayEffect from './hooks/useScrollAutoplayEffect.js'
 import useVideoPlayer from './hooks/useVideoPlayer.js'
 import {
+  AUTOPLAY,
   AUTOPLAY_DEFAULT_VALUE,
   AUTOPLAY_OPTIONS,
   BASE_CLASS,
@@ -73,3 +74,4 @@ AtomVideoPlayer.propTypes = {
 }
 
 export default AtomVideoPlayer
+export {AUTOPLAY}

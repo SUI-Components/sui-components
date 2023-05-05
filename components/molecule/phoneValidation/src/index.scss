@@ -1,0 +1,115 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-input/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+
+.sui-MoleculePhoneValidation {
+  display: flex;
+  flex-direction: column;
+  gap: $m-l;
+  position: relative;
+
+  &-input {
+    border-radius: $bdrs-l;
+    border: 1px solid $c-gray-light;
+    display: flex;
+    height: 40px;
+
+    &.splitted {
+      border: none;
+      gap: $m-s;
+    }
+
+    &-phone {
+      border: none;
+      outline: none;
+      width: 100%;
+
+      &Container {
+        align-items: center;
+        display: flex;
+
+        &.splitted {
+          border-radius: $bdrs-l;
+          border: 1px solid $c-gray-light;
+          width: 100%;
+        }
+      }
+    }
+
+    &-prefix {
+      align-items: center;
+      background-color: $c-gray-light-5;
+      border-radius: $bdrs-l;
+      display: flex;
+      gap: $p-m;
+      justify-content: center;
+      padding: $p-m $p-l;
+
+      &.splitted {
+        background-color: transparent;
+        border: 1px solid $c-gray-light;
+      }
+
+      &-flag {
+        font-size: $fz-l;
+      }
+
+      &-code {
+        align-items: center;
+        color: $c-gray;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        padding: 0 $m-m;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-dropdown {
+    background-color: $c-white;
+    border-radius: $bdrs-l;
+    border: 1px solid $c-gray-light;
+    box-sizing: border-box;
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    z-index: 1;
+
+    &-option {
+      align-items: center;
+      display: flex;
+
+      &-flag {
+        font-size: $fz-l;
+      }
+      &-label {
+        font-weight: $fw-regular;
+        margin-left: $m-m;
+
+        &.selected {
+          font-weight: $fw-bold;
+        }
+      }
+
+      &-code {
+        font-weight: $fw-regular;
+        margin-left: $m-s;
+      }
+    }
+  }
+
+  &-label {
+    font-size: $fz-s;
+    font-weight: $fw-semi-bold;
+    margin: 0;
+  }
+
+  &-info {
+    font-size: $fz-xs;
+  }
+}

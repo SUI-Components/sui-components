@@ -27,7 +27,7 @@ describe('MoleculePhoneValidation', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
-      value: '123456789',
+      phone: '',
       onChange: () => {},
       prefixes
     }
@@ -44,7 +44,7 @@ describe('MoleculePhoneValidation', () => {
   it('should NOT render null', () => {
     // Given
     const props = {
-      value: '123456789',
+      phone: '',
       onChange: () => {},
       prefixes
     }
@@ -61,7 +61,7 @@ describe('MoleculePhoneValidation', () => {
     // Given
     const props = {
       className: 'extended-classNames',
-      value: '123456789',
+      phone: '',
       onChange: () => {},
       prefixes
     }

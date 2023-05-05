@@ -1,8 +1,6 @@
 # MoleculePhoneValidation
 
-> Custom input component to
-
-<!-- ![](./assets/preview.png) -->
+> Custom input component to handle phone validation. Gives the user a prefix selector and a phone number input. It also handles the phone number validation and the prefix selection.
 
 ## Installation
 
@@ -19,7 +17,23 @@ $ npm install @s-ui/react-molecule-phone-validation
 ```js
 import MoleculePhoneValidation from '@s-ui/react-molecule-phone-validation'
 
-return <MoleculePhoneValidation />
+const [phone, setPhone] = useState('')
+const icon = <IconArrowDown size="16" />
+const prefixes = [
+  {value: 'ES', label: 'España', countryCode: '+34'},
+  {value: 'FR', label: 'Francia', countryCode: '+33'},
+  {value: 'PT', label: 'Portugal', countryCode: '+351'},
+  {value: 'AD', label: 'Andorra', countryCode: '+376'}
+]
+
+return (
+  <MoleculePhoneValidation
+    phone={phone}
+    setPhone={setPhone}
+    dropdownIcon={icon}
+    prefixes={prefixes}
+  />
+)
 ```
 
 #### Import the styles (Sass)
@@ -28,5 +42,3 @@ return <MoleculePhoneValidation />
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-molecule-phone-validation/lib/index';
 ```
-
-> **Find full description and more examples in the [demo page](#).**

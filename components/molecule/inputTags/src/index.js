@@ -38,6 +38,7 @@ const MoleculeInputTags = forwardRef(
       allowDuplicates = true,
       readOnly,
       name,
+      responsive = true,
       ...restProps
     },
     forwardedRef
@@ -137,7 +138,7 @@ const MoleculeInputTags = forwardRef(
               })}
               label={label}
               size={atomTagSizes.SMALL}
-              responsive
+              responsive={responsive}
               readOnly={readOnly}
               disabled={disabled}
             />
@@ -216,7 +217,10 @@ MoleculeInputTags.propTypes = {
   allowDuplicates: PropTypes.bool,
 
   /* input name */
-  name: PropTypes.string
+  name: PropTypes.string,
+
+  /* true for make responsive layout (default). Keeps large tag size in mobile */
+  responsive: PropTypes.bool
 }
 
 export default MoleculeInputTags

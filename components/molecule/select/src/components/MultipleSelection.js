@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {Children, cloneElement, useMemo, useState} from 'react'
 
 import {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
@@ -35,6 +35,8 @@ const MoleculeSelectFieldMultiSelection = props => {
   const [focusedFirstOption, setFocusedFirstOption] = useState(false)
   const {hasSearch, isFirstOptionFocused, inputSearch} = useDropdown()
 
+  const isFull = maxTags && tags?.length >= maxTags
+
   const handleMultiSelection = (ev, {value: valueOptionSelected}) => {
     const handleToggle = ev => {
       const {key} = ev
@@ -50,11 +52,9 @@ const MoleculeSelectFieldMultiSelection = props => {
 
     const addToValues = () => [...values, valueOptionSelected]
 
-    const isFull = () => maxTags && tags?.length >= maxTags
-
     if (isValueSelectedAlreadySelected()) {
       onChange(ev, {value: removeFromValues()})
-    } else if (!isFull()) {
+    } else if (!isFull) {
       onChange(ev, {value: addToValues()})
     }
     handleToggle(ev)
@@ -78,6 +78,18 @@ const MoleculeSelectFieldMultiSelection = props => {
       focusedFirstOption && setTimeout(() => inputSearch?.focus())
     }
   }
+
+  const extendedChildren = useMemo(
+    () =>
+      Children.toArray(children)
+        .filter(Boolean)
+        .map(child => {
+          return cloneElement(child, {
+            disabled: !values.includes(child.props.value) && isFull
+          })
+        }),
+    [children, isFull, values]
+  )
 
   return (
     <>
@@ -110,7 +122,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         onKeyDown={handleKeyDown}
         value={values}
       >
-        {children}
+        {extendedChildren}
       </MoleculeDropdownList>
     </>
   )

@@ -7,6 +7,7 @@ import AtomIcon, {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES
 } from '@s-ui/react-atom-icon'
+import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 import {getFlagEmoji, phoneValidationType} from './settings.js'
@@ -24,6 +25,7 @@ export default function MoleculePhoneValidation({
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedPrefix, setSelectedPrefix] = useState(prefixes[0])
   const modalRef = useRef(null)
+  const inputPrefixRef = useRef(null)
 
   const baseClass = cx(
     {
@@ -32,9 +34,17 @@ export default function MoleculePhoneValidation({
     BASE_CLASS
   )
 
+  const isUserClickingOutside = event =>
+    modalRef.current &&
+    !modalRef.current.contains(
+      event.target &&
+        inputPrefixRef.current &&
+        !inputPrefixRef.current.contains(event.target)
+    )
+
   useEffect(() => {
     const handleClickOutside = event => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+      if (isUserClickingOutside(event)) {
         setShowDropdown(false)
       }
     }
@@ -54,6 +64,7 @@ export default function MoleculePhoneValidation({
     <div className={baseClass}>
       <div className={`${baseClass}-input`}>
         <div
+          ref={inputPrefixRef}
           className={`${baseClass}-input-prefix`}
           testId="molecule-phone-validation-input-prefix"
           onClick={() => setShowDropdown(!showDropdown)}
@@ -96,39 +107,40 @@ export default function MoleculePhoneValidation({
           />
         </div>
       </div>
-      {showDropdown && (
-        <div ref={modalRef} className={`${baseClass}-dropdown`}>
-          {prefixes.map(prefix => {
-            return (
-              <MoleculeDropdownOption
-                key={prefix.countryCode}
-                onClick={() => {
-                  setSelectedPrefix(prefix)
-                  setShowDropdown(false)
-                }}
-              >
-                <div className={`${baseClass}-dropdown-option`}>
-                  <span className={`${baseClass}-dropdown-option-flag`}>
-                    {getFlagEmoji(prefix.value)}
-                  </span>
-                  <span
-                    className={
-                      prefix === selectedPrefix
-                        ? `${baseClass}-dropdown-option-label selected`
-                        : `${baseClass}-dropdown-option-label`
-                    }
-                  >
-                    {prefix.label}
-                  </span>
-                  <span className={`${baseClass}-dropdown-option-code`}>
-                    ({prefix.countryCode})
-                  </span>
-                </div>
-              </MoleculeDropdownOption>
-            )
-          })}
-        </div>
-      )}
+
+      <MoleculeDropdownList ref={modalRef} visible={showDropdown}>
+        {prefixes.map(prefix => {
+          return (
+            <MoleculeDropdownOption
+              value={prefix.value}
+              selected={selectedPrefix}
+              key={prefix.countryCode}
+              onClick={() => {
+                setSelectedPrefix(prefix)
+                setShowDropdown(false)
+              }}
+            >
+              <div className={`${baseClass}-dropdown-option`}>
+                <span className={`${baseClass}-dropdown-option-flag`}>
+                  {getFlagEmoji(prefix.value)}
+                </span>
+                <span
+                  className={
+                    prefix === selectedPrefix
+                      ? `${baseClass}-dropdown-option-label selected`
+                      : `${baseClass}-dropdown-option-label`
+                  }
+                >
+                  {prefix.label}
+                </span>
+                <span className={`${baseClass}-dropdown-option-code`}>
+                  ({prefix.countryCode})
+                </span>
+              </div>
+            </MoleculeDropdownOption>
+          )
+        })}
+      </MoleculeDropdownList>
     </div>
   )
 }

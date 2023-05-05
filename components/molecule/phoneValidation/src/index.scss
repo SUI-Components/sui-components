@@ -2,6 +2,7 @@
 @import '~@s-ui/react-atom-input/lib/index';
 @import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-dropdown-option/lib/index';
+@import '~@s-ui/react-molecule-dropdown-list/lib/index';
 
 .sui-MoleculePhoneValidation {
   display: flex;
@@ -71,15 +72,6 @@
   }
 
   &-dropdown {
-    background-color: $c-white;
-    border-radius: $bdrs-l;
-    border: 1px solid $c-gray-light;
-    box-sizing: border-box;
-    position: absolute;
-    top: 45px;
-    width: 100%;
-    z-index: 1;
-
     &-option {
       align-items: center;
       display: flex;

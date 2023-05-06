@@ -7,7 +7,9 @@ import AtomIcon, {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES
 } from '@s-ui/react-atom-icon'
-import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
+import MoleculeDropdownList, {
+  moleculeDropdownListDesigns
+} from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 import {getFlagEmoji, phoneValidationType} from './settings.js'
@@ -107,40 +109,47 @@ export default function MoleculePhoneValidation({
           />
         </div>
       </div>
-
-      <MoleculeDropdownList ref={modalRef} visible={showDropdown}>
-        {prefixes.map(prefix => {
-          return (
-            <MoleculeDropdownOption
-              value={prefix.value}
-              selected={selectedPrefix}
-              key={prefix.countryCode}
-              onClick={() => {
-                setSelectedPrefix(prefix)
-                setShowDropdown(false)
-              }}
-            >
-              <div className={`${baseClass}-dropdown-option`}>
-                <span className={`${baseClass}-dropdown-option-flag`}>
-                  {getFlagEmoji(prefix.value)}
-                </span>
-                <span
-                  className={
-                    prefix === selectedPrefix
-                      ? `${baseClass}-dropdown-option-label selected`
-                      : `${baseClass}-dropdown-option-label`
-                  }
+      {showDropdown && (
+        <div className={`${baseClass}-dropdown`}>
+          <MoleculeDropdownList
+            design={moleculeDropdownListDesigns.FLAT}
+            ref={modalRef}
+            visible={true}
+          >
+            {prefixes.map(prefix => {
+              return (
+                <MoleculeDropdownOption
+                  value={prefix.value}
+                  selected={selectedPrefix}
+                  key={prefix.countryCode}
+                  onClick={() => {
+                    setSelectedPrefix(prefix)
+                    setShowDropdown(false)
+                  }}
                 >
-                  {prefix.label}
-                </span>
-                <span className={`${baseClass}-dropdown-option-code`}>
-                  ({prefix.countryCode})
-                </span>
-              </div>
-            </MoleculeDropdownOption>
-          )
-        })}
-      </MoleculeDropdownList>
+                  <div className={`${baseClass}-dropdown-option`}>
+                    <span className={`${baseClass}-dropdown-option-flag`}>
+                      {getFlagEmoji(prefix.value)}
+                    </span>
+                    <span
+                      className={
+                        prefix === selectedPrefix
+                          ? `${baseClass}-dropdown-option-label selected`
+                          : `${baseClass}-dropdown-option-label`
+                      }
+                    >
+                      {prefix.label}
+                    </span>
+                    <span className={`${baseClass}-dropdown-option-code`}>
+                      ({prefix.countryCode})
+                    </span>
+                  </div>
+                </MoleculeDropdownOption>
+              )
+            })}
+          </MoleculeDropdownList>
+        </div>
+      )}
     </div>
   )
 }

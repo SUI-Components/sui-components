@@ -72,6 +72,17 @@
   }
 
   &-dropdown {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    z-index: 1;
+    border: 1px solid $c-gray-light;
+    border-radius: $bdrs-l;
+
+    & > ul {
+      border-radius: $bdrs-l;
+    }
+
     &-option {
       align-items: center;
       display: flex;

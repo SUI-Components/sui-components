@@ -7,6 +7,8 @@ import AtomIcon, {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES
 } from '@s-ui/react-atom-icon'
+import AtomInput from '@s-ui/react-atom-input'
+import {TYPES} from '@s-ui/react-atom-input/lib/config.js'
 import MoleculeDropdownList, {
   moleculeDropdownListDesigns
 } from '@s-ui/react-molecule-dropdown-list'
@@ -85,27 +87,27 @@ export default function MoleculePhoneValidation({
           <p className={`${baseClass}-input-prefix-code`}>
             {selectedPrefix.countryCode}
           </p>
-          <input
-            className={`${baseClass}-input-phone`}
-            type="tel"
-            maxLength={maxLength}
+          <AtomInput
             value={
-              phone.split(' ')[1]
+              phone.toString().split(' ')[1]
                 ? phone
+                    .toString()
                     .split(' ')[1]
                     .replace(/\s/g, '')
                     .match(/.{1,3}/g)
                     .join(' ')
                 : ''
             }
-            onChange={e =>
-              setPhone(
-                `${selectedPrefix.countryCode} ${e.target.value.replace(
-                  /\s/g,
-                  ''
-                )}`
-              )
-            }
+            type={TYPES.TEL}
+            onChange={e => {
+              const formattedPhone = `${e.target.value
+                .toString()
+                .replace(/\s/g, '')}`
+              if (isNaN(formattedPhone)) return
+              setPhone(`${selectedPrefix.countryCode} ${formattedPhone}`)
+            }}
+            maxLength={maxLength}
+            noBorder
           />
         </div>
       </div>

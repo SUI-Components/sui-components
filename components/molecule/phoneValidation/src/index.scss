@@ -27,8 +27,13 @@
       width: 100%;
 
       &Container {
+        width: 100%;
         align-items: center;
         display: flex;
+
+        & > input {
+          background: none;
+        }
 
         &.splitted {
           border-radius: $bdrs-l;

@@ -27,7 +27,8 @@ const MoleculeSelectFieldMultiSelection = props => {
     optionsData = {},
     selectSize,
     tabIndex,
-    maxTags
+    maxTags,
+    responsive
   } = props
 
   const tags = values.map(value => optionsData[value])
@@ -99,7 +100,10 @@ const MoleculeSelectFieldMultiSelection = props => {
         maxTags={maxTags}
         value=""
       >
-        <MoleculeInputTags inputMode={inputTypes.NONE} />
+        <MoleculeInputTags
+          responsive={responsive}
+          inputMode={inputTypes.NONE}
+        />
       </MoleculeInputSelect>
       {hasSearch && <Search />}
       <MoleculeDropdownList

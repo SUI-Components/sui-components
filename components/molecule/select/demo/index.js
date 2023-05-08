@@ -227,6 +227,7 @@ const Demo = () => {
             iconArrowDown={<IconArrowDown />}
             searchIcon={<IconSearch />}
             hasSearch
+            responsive={false}
             onSearch={({value}) => setQuery(value)}
             searchPlaceholder="Search a country..."
             noResults={

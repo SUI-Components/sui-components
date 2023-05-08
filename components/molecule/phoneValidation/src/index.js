@@ -14,20 +14,20 @@ import MoleculeDropdownList, {
 } from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-import {getFlagEmoji, phoneValidationType} from './settings.js'
+import {getFlagEmoji, MASKLISTS, phoneValidationType} from './settings.js'
 
 const BASE_CLASS = 'sui-MoleculePhoneValidation'
 
 export default function MoleculePhoneValidation({
   dropdownIcon,
-  maxLength = 11,
-  phone,
+  phone = '',
   prefixes = [],
   setPhone,
+  placeholder,
   type = phoneValidationType.DEFAULT
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
-  const [selectedPrefix, setSelectedPrefix] = useState(prefixes[0])
+  const [selectedPrefix, setSelectedPrefix] = useState({})
   const modalRef = useRef(null)
   const inputPrefixRef = useRef(null)
 
@@ -88,25 +88,22 @@ export default function MoleculePhoneValidation({
             {selectedPrefix.countryCode}
           </p>
           <AtomInput
-            value={
-              phone.toString().split(' ')[1]
-                ? phone
-                    .toString()
-                    .split(' ')[1]
-                    .replace(/\s/g, '')
-                    .match(/.{1,3}/g)
-                    .join(' ')
-                : ''
-            }
-            type={TYPES.TEL}
+            value={phone
+              .toString()
+              .substring(
+                selectedPrefix.countryCode?.replace('+', '').length,
+                phone.length
+              )}
+            pattern={MASKLISTS[selectedPrefix.value]}
+            placeholder={placeholder}
+            type={TYPES.MASK}
             onChange={e => {
-              const formattedPhone = `${e.target.value
-                .toString()
-                .replace(/\s/g, '')}`
-              if (isNaN(formattedPhone)) return
-              setPhone(`${selectedPrefix.countryCode} ${formattedPhone}`)
+              setPhone(
+                `${selectedPrefix.countryCode?.replace('+', '')}${
+                  e.target.value
+                }`
+              )
             }}
-            maxLength={maxLength}
             noBorder
           />
         </div>
@@ -160,8 +157,8 @@ MoleculePhoneValidation.displayName = 'MoleculePhoneValidation'
 
 MoleculePhoneValidation.propTypes = {
   dropdownIcon: PropTypes.node,
-  maxLength: PropTypes.number,
   phone: PropTypes.string,
+  placeholder: PropTypes.string,
   prefixes: PropTypes.array,
   setPhone: PropTypes.func,
   type: PropTypes.oneOf(Object.values(phoneValidationType))

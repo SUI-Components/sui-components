@@ -1,4 +1,4 @@
-export function getFlagEmoji(countryCode) {
+export function getFlagEmoji(countryCode = '') {
   const codePoints = countryCode
     .toUpperCase()
     .split('')
@@ -9,4 +9,8 @@ export function getFlagEmoji(countryCode) {
 export const phoneValidationType = {
   DEFAULT: 'default',
   SPLITTED: 'splitted'
+}
+
+export const MASKLISTS = {
+  ES: '(1[0-2]|0[1-9])/(1[5-9]|2d)'
 }

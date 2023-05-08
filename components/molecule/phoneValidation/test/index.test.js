@@ -74,4 +74,52 @@ describe('MoleculePhoneValidation', () => {
     // Then
     expect(findClassName(container.innerHTML)).to.be.null
   })
+
+  // it('should render properly with no props given', () => {
+  //   // Given
+  //   const props = {}
+
+  //   // When
+  //   const {container} = setup(props)
+
+  //   // Then
+  //   expect(container.innerHTML).to.be.a('string')
+  //   expect(container.innerHTML).to.not.have.lengthOf(0)
+  // })
+
+  // it('should set initial value when passed a value with no prefix', () => {
+  //   const phone = '606060606'
+  //   // Given
+  //   const props = {
+  //     setPhone: () => {},
+  //     phone,
+  //     prefixes,
+  //     placeholder: 'hola'
+  //   }
+
+  //   // When
+  //   const {getByPlaceholderText} = setup(props)
+
+  //   // Then
+  //   const input = getByPlaceholderText('hola')
+  //   expect(input.value).to.be.equal(phone)
+  // })
+
+  // it('should set initial value when passed a value with prefix', () => {
+  //   const phone = '34606060606'
+  //   // Given
+  //   const props = {
+  //     setPhone: () => {},
+  //     phone,
+  //     prefixes,
+  //     placeholder: 'hola'
+  //   }
+
+  //   // When
+  //   const {getByPlaceholderText} = setup(props)
+
+  //   // Then
+  //   const input = getByPlaceholderText('hola')
+  //   expect(input.value).to.be.equal(phone.split(' ')[1])
+  // })
 })

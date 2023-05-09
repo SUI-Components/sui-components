@@ -694,6 +694,7 @@ describe(json.name, () => {
       } = actual
 
       // Then
+      console.log(expected)
       expect(Object.keys(others).length).to.equal(0)
       expect(Object.keys(actual)).to.have.members(Object.keys(expected))
       Object.entries(expected).forEach(([expectedKey, expectedValue]) => {

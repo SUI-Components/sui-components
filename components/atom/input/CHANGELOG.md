@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.26.0 (2023-05-09)
+
+
+### Features
+
+* **components/atom/input:** Add mask ([6c3952a](https://github.com/SUI-Components/sui-components/commit/6c3952aebd71893164e56ee75e9a5e5d9641f387))
+
+
+
 # 5.25.0 (2023-01-10)
 
 

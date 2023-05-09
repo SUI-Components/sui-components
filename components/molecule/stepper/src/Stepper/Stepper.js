@@ -35,6 +35,7 @@ const Stepper = ({
         currentIcon={currentIcon}
         hasConnector={hasConnector}
         onChange={onChange}
+        showLabel={showLabel}
       >
         {children}
       </Injector>

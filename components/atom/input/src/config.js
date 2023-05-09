@@ -6,19 +6,21 @@ export const COMPONENT = 'Input'
 
 export const BASE = `${PREFIX}-${CATEGORY}${COMPONENT}`
 
+export const BASE_CLASS_ITEM = `${BASE}-item`
+export const BASE_CLASS_AREA_FOCUSABLE = `${BASE}-area-focusable`
 export const BASE_CLASS = `${BASE}-input`
 
 // Enums
 export const TYPES = {
   DATE: 'date',
+  EMAIL: 'email',
   MASK: 'mask',
+  NONE: 'none',
   NUMBER: 'number',
   PASSWORD: 'password',
   SUI_PASSWORD: 'sui-password',
   TEXT: 'text',
-  TEL: 'tel',
-  EMAIL: 'email',
-  NONE: 'none'
+  TEL: 'tel'
 }
 
 export const SIZES = {
@@ -60,9 +62,14 @@ export const getClassNames = ({
     hideInput && `${BASE_CLASS}--hidden`,
     noBorder && `${BASE_CLASS}--noBorder`,
     readOnly && `${BASE_CLASS}--readOnly`,
-    errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`,
+    errorState && `${BASE_CLASS}--status-${INPUT_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--status-${INPUT_STATES.SUCCESS}`,
+    state && `${BASE_CLASS}--status-${state}`,
     shape && `${BASE_CLASS}-shape-${shape}`
   )
 }
+
+export const isFunction = fn => typeof fn === 'function'
+
+export const isValidSize = charSize =>
+  Number.isInteger(charSize) && charSize >= 0

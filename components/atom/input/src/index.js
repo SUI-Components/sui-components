@@ -1,23 +1,70 @@
 import {forwardRef} from 'react'
 
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import Input, {inputSizes, inputStates} from './Input/index.js'
-import Mask from './Mask/index.js'
-import Password from './Password/index.js'
-import {INPUT_SHAPES, TYPES} from './config.js'
+import Input from './Input/index.js'
+import {
+  BASE,
+  INPUT_SHAPES,
+  INPUT_STATES,
+  isValidSize,
+  SIZES,
+  TYPES
+} from './config.js'
+import {checkIfValidNumberInput} from './helper.js'
 
-const AtomInput = forwardRef(({type, ...props}, ref) => {
-  switch (type) {
-    case 'sui-password':
-      return <Password ref={ref} {...props} />
-    case 'mask':
-      return <Mask ref={ref} {...props} />
-
-    default:
-      return <Input ref={ref} {...props} type={type} />
+const AtomInput = forwardRef(
+  (
+    {
+      type,
+      shape,
+      charsSize,
+      size = SIZES.MEDIUM,
+      noBorder,
+      errorState,
+      state,
+      disabled,
+      readOnly,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <span
+        className={cx(
+          BASE,
+          shape && `${BASE}-shape-${shape}`,
+          size && `${BASE}-size-${size}`,
+          noBorder && `${BASE}-borderless`,
+          disabled && `${BASE}--is-disabled`,
+          readOnly && `${BASE}--is-read-only`,
+          isValidSize(charsSize) && `${BASE}--has-charSize`,
+          errorState && `${BASE}--status-${INPUT_STATES.ERROR}`,
+          errorState === false && `${BASE}--status-${INPUT_STATES.SUCCESS}`,
+          state && `${BASE}--status-${state}`
+        )}
+      >
+        <Input
+          ref={ref}
+          {...{
+            disabled,
+            readOnly,
+            type,
+            noBorder,
+            errorState,
+            state,
+            charsSize,
+            shape,
+            size,
+            ...(type === 'number' && {onKeyDown: checkIfValidNumberInput}),
+            ...props
+          }}
+        />
+      </span>
+    )
   }
-})
+)
 
 AtomInput.propTypes = {
   /** native types (text, date, ...), 'sui-password' */
@@ -78,7 +125,7 @@ AtomInput.propTypes = {
   disabled: PropTypes.bool,
 
   /** 's' or 'm', default: 'm' */
-  size: PropTypes.oneOf(Object.values(inputSizes)),
+  size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** width of input based in number of characters (native "size" attribute) */
   charsSize: PropTypes.number,
@@ -108,7 +155,7 @@ AtomInput.propTypes = {
   errorState: PropTypes.bool,
 
   /** 'success', 'error' or 'alert' */
-  state: PropTypes.oneOf(Object.values(inputStates)),
+  state: PropTypes.oneOf(Object.values(INPUT_STATES)),
 
   /** value of the control */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -132,7 +179,13 @@ AtomInput.propTypes = {
   inputMode: PropTypes.string,
 
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
-  shape: PropTypes.string
+  shape: PropTypes.string,
+
+  /** Wether to hide the input border or not */
+  noBorder: PropTypes.bool,
+
+  /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
+  readOnly: PropTypes.bool
 }
 
 AtomInput.displayName = 'AtomInput'
@@ -140,8 +193,8 @@ AtomInput.displayName = 'AtomInput'
 export default AtomInput
 
 export {
-  inputSizes,
-  inputStates,
+  SIZES as inputSizes,
+  INPUT_STATES as inputStates,
   TYPES as inputTypes,
   INPUT_SHAPES as inputShapes
 }

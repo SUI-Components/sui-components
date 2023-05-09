@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 2.10.0 (2023-05-09)
+
+
+### Features
+
+* **components/molecule/progressSteps/demo:** add showLabel prop to CompressedProgressBar demo ([a1ce258](https://github.com/SUI-Components/sui-components/commit/a1ce25875e1211c0bbf38bb983049e5a20159e19))
+* **components/molecule/progressSteps:** add showLabel prop to ProgressSteps component ([6ab2f16](https://github.com/SUI-Components/sui-components/commit/6ab2f162bb0d48ec6b34268c29b37895c73e7991))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 2.9.0 (2022-06-23)
 
 

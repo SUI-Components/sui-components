@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2023-05-09)
+
+
+### Bug Fixes
+
+* **components/molecule/stepper:** add showLabel prop to Injector ([bc9093e](https://github.com/SUI-Components/sui-components/commit/bc9093ec240f4ef3a613dacb006dde970ece3326))
+
+
+
 # 2.5.0 (2023-05-02)
 
 

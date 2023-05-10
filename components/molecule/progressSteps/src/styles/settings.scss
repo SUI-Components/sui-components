@@ -1,5 +1,7 @@
 @import '~@s-ui/react-molecule-stepper/lib/styles/settings.scss';
 
+$o-progress-steps: visible !default;
+
 // Colors
 $c-progress-steps-bar: $c-stepper !default;
 $c-progress-steps-label: $c-stepper-label !default;

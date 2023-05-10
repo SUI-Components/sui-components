@@ -8,7 +8,7 @@ $class-icon: '#{$base-class}--Icon';
   color: $c-atom-checkbox;
   &#{$base-class}--native-disabled {
     #{$class-icon} {
-      padding: 0;
+      padding: 4px;
       cursor: default;
       align-items: center;
       border-width: 1.5px;

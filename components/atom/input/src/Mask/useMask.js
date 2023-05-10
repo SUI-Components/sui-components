@@ -23,7 +23,9 @@ const useMask = ({
     {...mask},
     {
       onAccept: (value, maskRef, event, ...args) =>
-        isFunction(onChange) && onChange(event, {value, maskRef, ...args}),
+        isFunction(onChange) &&
+        maskedValue !== '' &&
+        onChange(event, {value, maskRef, ...args}),
       onComplete: (value, maskRef, event, ...args) =>
         isFunction(onComplete) && onComplete(event, {value, maskRef, ...args})
     }

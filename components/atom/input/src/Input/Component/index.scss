@@ -7,77 +7,29 @@ $class-read-only: '#{$base-class-input}--readOnly';
   -webkit-appearance: none;
 
   @include sui-atom-input-input;
-  border-radius: $bdrs-atom-input;
+  background-color: transparent;
   min-height: auto;
   text-overflow: $tov-atom-input-placeholder;
-  &--charsSize {
+  padding-left: 0;
+  padding-right: 0;
+  border: 0 solid transparent;
+  &#{$base-class-input}--charsSize {
     width: inherit;
   }
 
-  &--hidden {
+  &#{$base-class-input}--hidden {
     display: none;
-  }
-
-  &--readOnly {
-    background: $bgc-atom-input-read-only;
-    border: $bd-atom-input-read-only;
-    color: $c-atom-input-read-only;
-  }
-
-  @include atom-input-shape-wrapper(
-    $base-class,
-    $base-class-input,
-    $bdrs-atom-input-shapes,
-    $sizes-atom-input,
-    $bdrs-atom-input,
-    $h-atom-input--m
-  );
-
-  &#{$base-class-input}--noBorder,
-  &#{$base-class-input}--noBorder:disabled {
-    border: 0;
-    &:focus {
-      border: 0;
-      box-shadow: none;
-      outline: 0;
-    }
   }
 
   &::placeholder {
     color: $c-atom-input-placeholder;
   }
 
-  &:disabled {
-    pointer-events: none;
-
-    &:not(#{$class-read-only}) {
-      -webkit-text-fill-color: $c-atom-input-disabled;
-
-      background: $bgc-atom-input-disabled;
-      border: $bd-atom-input-disabled;
-      color: $c-atom-input-disabled;
-    }
-  }
-
   &:focus {
-    @include sui-atom-input-input-focus;
+    box-shadow: none;
   }
-
-  @each $type, $attr in $sizes-atom-input {
-    &-size-#{$type} {
-      height: $attr;
-      min-height: $attr;
-    }
-  }
-
-  @each $state, $color in $states-atom-input {
-    &.sui-AtomInput-input--#{$state} {
-      border-color: $color;
-
-      &:focus {
-        box-shadow: $bxsh-atom-input-size $color;
-      }
-    }
+  &:focus-visible {
+    outline: 0;
   }
 
   &[type='number'] {

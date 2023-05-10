@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.27.0 (2023-05-10)
+
+
+### Bug Fixes
+
+* **components/atom/input:** Fix execute function when value is empty ([6f75ed5](https://github.com/SUI-Components/sui-components/commit/6f75ed5f665b6a9f74086253a1e608f41d2e886b))
+
+
+
 # 5.26.0 (2023-05-09)
 
 

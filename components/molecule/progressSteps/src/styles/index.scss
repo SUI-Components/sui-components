@@ -9,6 +9,7 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
   display: flex;
   flex-direction: column;
   gap: 8px;
+  overflow: $o-progress-steps;
   #{$base-class-stepper} {
     max-width: $mw-progress-steps-path;
     #{$base-class-stepper-bar} {

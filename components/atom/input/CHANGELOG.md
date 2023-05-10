@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 5.28.0 (2023-05-10)
+
+
+### Features
+
+* **components/atom/input:** Add missing export ([6af2be0](https://github.com/SUI-Components/sui-components/commit/6af2be0ab946ff793a2a7d5b37649cb1cb28710a))
+* **components/atom/input:** Add styles ([5e0b688](https://github.com/SUI-Components/sui-components/commit/5e0b68825f592212879d73a28e8a45ae9ebd984e))
+* **components/atom/input:** Fix missing type ([af5a0da](https://github.com/SUI-Components/sui-components/commit/af5a0daad917dfb864ff1699c4f76c13190f4ad1))
+
+
+
 # 5.27.0 (2023-05-10)
 
 

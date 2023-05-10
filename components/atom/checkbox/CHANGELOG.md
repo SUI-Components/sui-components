@@ -1,11 +1,35 @@
 # CHANGELOG
 
+# 3.3.0 (2023-05-10)
+
+
+### Features
+
+* **components/atom/checkbox:** add iconSize prop ([46187e7](https://github.com/SUI-Components/sui-components/commit/46187e79976781930897d4152629843387af11b8))
+* **components/atom/checkbox:** undo css change ([b75631c](https://github.com/SUI-Components/sui-components/commit/b75631cacb028b829e6926f6cc6f6d6b2c2e24e0))
+
+
+
+# 3.2.0 (2022-10-15)
+
+
+### Bug Fixes
+
+* **components/atom/checkbox:** return handler name properly ([bffe849](https://github.com/SUI-Components/sui-components/commit/bffe8498d600babcb1d719ab25a6bf0faead6fed))
+
+
+
 # 3.2.0 (2022-10-14)
 
 
 ### Bug Fixes
 
 * **components/atom/checkbox:** return handler name properly ([e699c8f](https://github.com/SUI-Components/sui-components/commit/e699c8f46f67e237d8371e7011f58125cace5ca2))
+
+
+### Features
+
+* **components/atom/checkbox:** allow onChange to be executed in no native checkboxes ([f891a32](https://github.com/SUI-Components/sui-components/commit/f891a325750d59aa4967a8a22a48a239c36e235d))
 
 
 

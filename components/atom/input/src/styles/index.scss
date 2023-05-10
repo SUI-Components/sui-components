@@ -1,5 +1,111 @@
 $base-class: '.sui-AtomInput';
-
+$base-class-area-focusable: '.sui-AtomInput-area-focusable';
 @import '../Input/Component/index';
 @import '../Input/Wrappers/index';
 @import '../Password/index';
+
+#{$base-class} {
+  display: flex;
+  align-items: stretch;
+  flex-grow: 1;
+
+  #{$base-class}-item {
+    border: $bd-atom-input-base;
+    &:first-child {
+      border-bottom-left-radius: $bdrs-atom-input;
+      border-top-left-radius: $bdrs-atom-input;
+      border-left-width: $bdw-s;
+    }
+    &:last-child {
+      border-bottom-right-radius: $bdrs-atom-input;
+      border-top-right-radius: $bdrs-atom-input;
+      border-right-width: $bdw-s;
+    }
+  }
+
+  &:not(#{$base-class}--has-charSize) {
+    #{$base-class-area-focusable} {
+      flex-grow: 1;
+    }
+  }
+
+  @each $shapeMapKey, $shapeMapValue in $bdrs-atom-input-shapes {
+    &#{$base-class}-shape-#{$shapeMapKey} {
+      #{$base-class}-item {
+        &:first-child {
+          border-bottom-left-radius: $shapeMapValue;
+          border-top-left-radius: $shapeMapValue;
+        }
+        &:last-child {
+          border-bottom-right-radius: $shapeMapValue;
+          border-top-right-radius: $shapeMapValue;
+        }
+      }
+    }
+  }
+
+  #{$base-class-area-focusable} {
+    display: flex;
+    padding-left: $pl-atom-input;
+    padding-right: $pr-atom-input;
+    background: $bgc-atom-input;
+    gap: math.div($p-l, 2);
+    &:focus-within {
+      border: $bd-atom-input-focus;
+      box-shadow: $bxsh-atom-input;
+      outline: 0 none;
+    }
+  }
+
+  @each $state, $color in $states-atom-input {
+    &#{$base-class}--status-#{$state} {
+      #{$base-class}-item {
+        border-color: $color;
+      }
+    }
+  }
+
+  &#{$base-class}--is-read-only {
+    #{$base-class-area-focusable} {
+      background: $bgc-atom-input-read-only;
+      border: $bd-atom-input-read-only;
+      color: $c-atom-input-read-only;
+    }
+  }
+
+  &#{$base-class}--is-disabled {
+    #{$base-class-area-focusable} {
+      pointer-events: none;
+    }
+    &:not(#{$base-class}--is-read-only) {
+      #{$base-class-area-focusable} {
+        -webkit-text-fill-color: $c-atom-input-disabled;
+        background: $bgc-atom-input-disabled;
+        color: $c-atom-input-disabled;
+      }
+    }
+  }
+
+  @each $type, $attr in $sizes-atom-input {
+    &#{$base-class}-size-#{$type} {
+      height: $attr;
+      min-height: $attr;
+    }
+  }
+
+  &#{$base-class}-borderless {
+    &,
+    &#{$base-class}--is-disabled:not(#{$base-class}--is-read-only) {
+      #{$base-class}-item {
+        border-width: 0;
+      }
+      #{$base-class-area-focusable} {
+        padding-left: $pl-atom-input + $bdw-s;
+        padding-right: $pr-atom-input + $bdw-s;
+        &:focus-within {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

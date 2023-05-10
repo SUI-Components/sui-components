@@ -33,6 +33,7 @@ const AtomCheckbox = forwardRef(
       indeterminate: indeterminateProp,
       indeterminateIcon: IndeterminateIcon,
       icon: IconProp,
+      iconSize,
       name: nameProp,
       onChange: onChangeFromProps,
       status,
@@ -161,7 +162,7 @@ const AtomCheckbox = forwardRef(
         />
         <CheckboxIcon
           disabled={disabled}
-          size={size}
+          size={iconSize || size}
           status={status}
           checked={checked}
           indeterminate={indeterminate}
@@ -220,6 +221,9 @@ AtomCheckbox.propTypes = {
 
   /** mandatory icon shown not depending on its state. Change it depending on the checkbox state to emulate the behavior. **/
   icon: PropTypes.elementType,
+
+  /* Determine the size of the icon. */
+  iconSize: PropTypes.string,
 
   /* onChange callback */
   onChange: PropTypes.func,

@@ -37,7 +37,8 @@ const ArticleNoCollapse = ({className, icon, showText, hideText, height}) => {
         </div>
       </DemoWrapper>
       <Paragraph>
-        The component is set to not collapsible, regardless of contents' height
+        The component is set to not collapse once expanded, regardless of
+        contents' height
       </Paragraph>
       <br />
       <br />

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.11.0 (2023-05-10)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** Add overflow: hidden to stepper container to prevent horizon ([989de28](https://github.com/SUI-Components/sui-components/commit/989de28cf35122e65c8edcf9f7f7d95d8a209304))
+* **components/molecule/progressSteps:** use a variable to set the overflow property value ([25f26f0](https://github.com/SUI-Components/sui-components/commit/25f26f0c54e4afc8f1f43e98b37cc34e6f2cd907))
+
+
+
 # 2.10.0 (2023-05-09)
 
 

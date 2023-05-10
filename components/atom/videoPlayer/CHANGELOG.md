@@ -1,5 +1,50 @@
 # CHANGELOG
 
+# 1.15.0 (2023-05-04)
+
+
+### Performance Improvements
+
+* **components/atom/videoPlayer:** Load players using react lazy to improve performance ([e4c88a8](https://github.com/SUI-Components/sui-components/commit/e4c88a88070c548b09c59651b7e540208770bb0d))
+
+
+
+# 1.14.0 (2023-05-04)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add component demo ([362a5bc](https://github.com/SUI-Components/sui-components/commit/362a5bccfc842a06bf394e3d4f7575d794385e9b))
+
+
+
+# 1.13.0 (2023-05-04)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Export autoplay types from index.js ([ebe4898](https://github.com/SUI-Components/sui-components/commit/ebe48981f3cfe4344f6f55063a7baed48ecfb21d))
+
+
+
+# 1.12.0 (2023-05-03)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add feature to autoplay videos when they are on the viewport ([fa306d3](https://github.com/SUI-Components/sui-components/commit/fa306d3b45c213fd195d4d050047f4f13ed18dbc))
+
+
+
+# 1.11.0 (2023-05-03)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add muted prop to define if the player should be muted by default ([5c88663](https://github.com/SUI-Components/sui-components/commit/5c886632c2b069e27d95125c03f2640837b9f15a))
+
+
+
 # 1.10.0 (2023-05-02)
 
 

@@ -143,6 +143,44 @@ describe(json.name, () => {
       await waitFor(() => sinon.assert.callCount(spy, 1))
       sinon.assert.calledWith(spy, {value: 'abc'})
     })
+
+    it('should call the onToggle callback when input clicked', async () => {
+      const spy = sinon.spy()
+
+      const props = {
+        onToggle: (ev, {isOpen}) => spy(isOpen)
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const textBox = getByRole('textbox')
+
+      textBox.focus()
+      fireEvent.click(textBox)
+
+      // Then
+      await waitFor(() => sinon.assert.callCount(spy, 1))
+      sinon.assert.calledWith(spy, true)
+    })
+
+    it('should call the onToggle callback when enter key pressed', async () => {
+      const spy = sinon.spy()
+
+      const props = {
+        onToggle: (ev, {isOpen}) => spy(isOpen)
+      }
+
+      // When
+      const {getByRole} = setup(props)
+      const textBox = getByRole('textbox')
+
+      textBox.focus()
+      fireEvent.keyDown(textBox, {key: 'Enter'})
+
+      // Then
+      await waitFor(() => sinon.assert.callCount(spy, 1))
+      sinon.assert.calledWith(spy, true)
+    })
   })
 
   describe('moleculeSelectDropdownListSizes', () => {

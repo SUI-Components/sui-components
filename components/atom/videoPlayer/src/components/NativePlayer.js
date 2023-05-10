@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -9,6 +9,7 @@ import {BASE_CLASS, NATIVE_DEFAULT_TITLE} from '../settings/index.js'
 const NativePlayer = ({
   autoPlay,
   controls,
+  muted,
   timeLimit,
   timeOffset,
   src,
@@ -18,11 +19,20 @@ const NativePlayer = ({
   let videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
   videoSrc = useGetSrcWithMediaFragments({videoSrc, timeOffset, timeLimit})
 
+  useEffect(() => {
+    if (autoPlay) {
+      videoNode.current.play()
+    } else {
+      videoNode.current.pause()
+    }
+  }, [autoPlay])
+
   return (
     <div className={`${BASE_CLASS}-nativePlayer`}>
       <video
         autoPlay={autoPlay}
         className={`${BASE_CLASS}-nativePlayerVideo`}
+        muted={muted}
         ref={videoNode}
         title={title}
         controls={controls}
@@ -37,6 +47,7 @@ const NativePlayer = ({
 NativePlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
+  muted: PropTypes.bool,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),

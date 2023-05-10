@@ -41,6 +41,7 @@ const getLabel = (index, keys) => {
 const CompressedProgressBarArticle = ({className}) => {
   const [isCompressed, setIsCompressed] = useState(true)
   const [isVertical, setIsVertical] = useState(false)
+  const [hasLabel, setHasLabel] = useState(true)
   const [step, setStep] = useState(1)
   const setStatus = useCallback(
     step => {
@@ -97,10 +98,19 @@ const CompressedProgressBarArticle = ({className}) => {
           />
         </Cell>
         <Cell>
+          <RadioButton
+            value={hasLabel}
+            onClick={() => setHasLabel(!hasLabel)}
+            checked={hasLabel}
+            label="hasLabel"
+          />
+        </Cell>
+        <Cell>
           <MoleculeProgressSteps
             iconStepDone={iconFillCheck}
             compressed={isCompressed}
             vertical={isVertical}
+            showLabel={hasLabel}
           >
             {Object.values(configBasic).map(({label, content, icon}, index) => (
               <MoleculeProgressStep

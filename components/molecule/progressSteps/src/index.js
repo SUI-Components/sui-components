@@ -28,7 +28,8 @@ const MoleculeProgressSteps = ({
   compressed,
   progressBarJustifyContent = PROGRESS_BAR_JUSTIFY_CONTENT.LEGACY,
   contentStyle = CONTENT_STYLE.FIXED,
-  onChange
+  onChange,
+  showLabel = true
 }) => {
   const [step, setStep] = useState()
 
@@ -87,6 +88,7 @@ const MoleculeProgressSteps = ({
               : moleculeStepperAlignment.HORIZONTAL
           }
           onChange={onChangeHandler}
+          showLabel={showLabel}
         >
           {Children.toArray(children)
             .filter(Boolean)
@@ -148,7 +150,10 @@ MoleculeProgressSteps.propTypes = {
     Object.values(PROGRESS_BAR_JUSTIFY_CONTENT)
   ),
   /** callback fired every time page changes **/
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+
+  /** show label or not */
+  showLabel: PropTypes.bool
 }
 
 export default MoleculeProgressSteps

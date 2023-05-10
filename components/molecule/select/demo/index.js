@@ -227,6 +227,36 @@ const Demo = () => {
             iconArrowDown={<IconArrowDown />}
             searchIcon={<IconSearch />}
             hasSearch
+            responsive={false}
+            onSearch={({value}) => setQuery(value)}
+            searchPlaceholder="Search a country..."
+            noResults={
+              <div className="DemoMoleculeSelect-noResults">
+                No results found...
+              </div>
+            }
+            multiselection
+          >
+            {countriesList
+              .filter(country => country.includes(query))
+              .map((country, i) => (
+                <MoleculeSelectOption key={i} value={country}>
+                  {country}
+                </MoleculeSelectOption>
+              ))}
+          </MoleculeSelectWithState>
+        </div>
+
+        <div className={CLASS_DEMO_SECTION}>
+          <h3>With onToggle callback</h3>
+          <MoleculeSelectWithState
+            placeholder="Select some countries..."
+            onChange={(_, {value}) => console.log(value)}
+            onToggle={(_, {isOpen}) => console.log(isOpen)}
+            iconCloseTag={<IconCloseTag />}
+            iconArrowDown={<IconArrowDown />}
+            searchIcon={<IconSearch />}
+            hasSearch
             onSearch={({value}) => setQuery(value)}
             searchPlaceholder="Search a country..."
             noResults={

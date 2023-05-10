@@ -1,5 +1,33 @@
 # CHANGELOG
 
+# 1.64.0 (2023-05-08)
+
+
+### Features
+
+* **components/molecule/select/demo:** Add responsive prop to MoleculeSelectFieldMultiSelection demo ([df1c094](https://github.com/SUI-Components/sui-components/commit/df1c094d91e072cb343edc20676648eb3e6e843d))
+* **components/molecule/select:** Add responsive prop to MoleculeSelectFieldMultiSelection ([6212691](https://github.com/SUI-Components/sui-components/commit/62126917c38b409cb8e974513a17b0d18223923e))
+
+
+
+# 1.63.0 (2023-05-03)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** pass the moleculeSelect ref down to the childrens ([b4fe4b0](https://github.com/SUI-Components/sui-components/commit/b4fe4b07528289c479e8b4dcdfbda664d8df6600))
+
+
+
+# 1.62.0 (2023-05-03)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** onToggle callback prop was overding the defined inside the componen ([397c17c](https://github.com/SUI-Components/sui-components/commit/397c17cdc3c81d28c872485a5bce2db284a7338e))
+
+
+
 # 1.61.0 (2023-05-02)
 
 

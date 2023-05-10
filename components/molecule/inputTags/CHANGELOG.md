@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.27.0 (2023-05-05)
+
+
+### Features
+
+* **components/molecule/inputTags:** add a possibility to change responsive prop value ([c772d6e](https://github.com/SUI-Components/sui-components/commit/c772d6eb382ffd9a3609e9556a2889b17b159651))
+
+
+
 # 2.26.0 (2023-01-10)
 
 

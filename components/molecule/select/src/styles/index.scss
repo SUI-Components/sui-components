@@ -28,7 +28,6 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
     }
     &-container {
       align-items: center;
-      border: $bd-select;
       border-radius: $bdrs-select;
       cursor: pointer;
       display: flex;
@@ -46,7 +45,6 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
           -webkit-text-fill-color: $c-molecule-select-disabled;
 
           background: $bg-molecule-select-disabled;
-          border: $bd-molecule-select-disabled;
           color: $c-molecule-select-disabled;
         }
 
@@ -93,7 +91,6 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
     #{$class-input} {
       &-container {
         @include sui-atom-input-select-focus;
-        border: $bd-molecule-select-focus;
 
         .sui-AtomInput-input,
         .sui-AtomInput--withTags {

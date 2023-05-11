@@ -24,6 +24,7 @@ const MoleculeCollapsible = ({
   children,
   height = MIN_HEIGHT,
   icon,
+  isCollapsible = true,
   showText,
   hideText,
   withGradient = true,
@@ -46,9 +47,9 @@ const MoleculeCollapsible = ({
   }
 
   useEffect(() => {
-    if (!childrenHeight) return
-    setShowButton(childrenHeight >= height)
-  }, [childrenHeight, height, setShowButton])
+    if (!childrenHeight || collapsed) return
+    setShowButton(isCollapsible && childrenHeight >= height)
+  }, [childrenHeight, collapsed, height, isCollapsible, setShowButton])
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
     [COLLAPSED_CLASS]: collapsed
@@ -118,6 +119,10 @@ MoleculeCollapsible.propTypes = {
    * Icon to be added on the right of the content
    */
   icon: PropTypes.node.isRequired,
+  /**
+   * When expanded, make it collapsible (default) or not
+   */
+  isCollapsible: PropTypes.bool,
   /**
    * Text to show when content is collapsed
    */

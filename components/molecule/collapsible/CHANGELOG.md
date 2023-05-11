@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2023-05-10)
+
+
+### Features
+
+* **components/molecule/collapsible:** add isCollapsible boolean prop to molecule/collapsible ([34e6d84](https://github.com/SUI-Components/sui-components/commit/34e6d849dcf313ad14f5531d1368466b3693776f))
+
+
+
 # 1.19.0 (2023-04-18)
 
 

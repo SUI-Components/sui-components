@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.29.0 (2023-05-11)
+
+
+### Bug Fixes
+
+* **components/atom/input:** Rollback atom input ([03aaf36](https://github.com/SUI-Components/sui-components/commit/03aaf360419397e4ac546ae89b71283eac541afc))
+
+
+
 # 5.28.0 (2023-05-10)
 
 

@@ -37,6 +37,7 @@ $base-class: '.sui-MoleculeStepper';
         &-horizontal {
           position: relative;
           gap: $sz-base;
+          overflow: $o-stepper-compressed;
         }
       }
     }

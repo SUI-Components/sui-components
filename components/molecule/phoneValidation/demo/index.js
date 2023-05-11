@@ -10,14 +10,7 @@ import {
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import MoleculePhoneValidation from '../src/index.js'
-import {phoneValidationType} from '../src/settings.js'
-
-const prefixes = [
-  {value: 'ES', label: 'España', countryCode: '+34'},
-  {value: 'FR', label: 'Francia', countryCode: '+33'},
-  {value: 'PT', label: 'Portugal', countryCode: '+351'},
-  {value: 'AD', label: 'Andorra', countryCode: '+376'}
-]
+import {phoneValidationType, PREFIXES} from '../src/settings.js'
 
 export const icon = (
   <AtomIcon>
@@ -39,7 +32,7 @@ export default () => {
           phone={phone}
           setPhone={setPhone}
           dropdownIcon={icon}
-          prefixes={prefixes}
+          prefixes={PREFIXES}
         />
       </Article>
       <br />
@@ -50,7 +43,7 @@ export default () => {
           phone={phone}
           setPhone={setPhone}
           dropdownIcon={icon}
-          prefixes={prefixes}
+          prefixes={PREFIXES}
         />
       </Article>
     </div>

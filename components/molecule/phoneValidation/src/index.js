@@ -94,7 +94,7 @@ export default function MoleculePhoneValidation({
                 selectedPrefix.countryCode?.replace('+', '').length,
                 phone.length
               )}
-            pattern={MASKLISTS[selectedPrefix.value]}
+            mask={MASKLISTS[selectedPrefix.value]}
             placeholder={placeholder}
             type={TYPES.MASK}
             onChange={e => {

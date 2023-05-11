@@ -12,5 +12,16 @@ export const phoneValidationType = {
 }
 
 export const MASKLISTS = {
-  ES: '(1[0-2]|0[1-9])/(1[5-9]|2d)'
+  ES: {mask: '000 000 000'},
+  FR: {mask: '0 00 00 00 00'},
+  PT: {mask: '000 000 000'},
+  AD: {mask: '000 000 000'},
+  default: {mask: '000 000 000'}
 }
+
+export const PREFIXES = [
+  {value: 'ES', label: 'España', countryCode: '+34'},
+  {value: 'FR', label: 'Francia', countryCode: '+33'},
+  {value: 'PT', label: 'Portugal', countryCode: '+351'},
+  {value: 'AD', label: 'Andorra', countryCode: '+376'}
+]

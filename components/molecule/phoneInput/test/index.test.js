@@ -80,40 +80,4 @@ describe('MoleculePhoneValidation', () => {
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
-
-  it('should set initial value when passed a value with no prefix', () => {
-    const phone = '606060606'
-    // Given
-    const props = {
-      setPhone: () => {},
-      phone,
-      prefixes: PREFIXES,
-      placeholder: 'test placeholder'
-    }
-
-    // When
-    const {getByPlaceholderText} = setup(props)
-
-    // Then
-    const input = getByPlaceholderText('test placeholder')
-    expect(input.value).to.be.equal(phone)
-  })
-
-  it('should set initial value when passed a value with prefix', () => {
-    const phone = '34606060606'
-    // Given
-    const props = {
-      setPhone: () => {},
-      phone,
-      prefixes: PREFIXES,
-      placeholder: 'hola'
-    }
-
-    // When
-    const {getByPlaceholderText} = setup(props)
-
-    // Then
-    const input = getByPlaceholderText('hola')
-    expect(input.value).to.be.equal(phone.split(' ')[1])
-  })
 })

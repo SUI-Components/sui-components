@@ -2,12 +2,22 @@ import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
+import {SIZES} from '../config.js'
 import Input from '../Input/Component/index.js'
 import useMask from './useMask.js'
 
 const MaskInput = forwardRef(
   (
-    {name, onChange, onComplete, mask, value, defaultValue, ...props},
+    {
+      name,
+      onChange,
+      onComplete,
+      mask,
+      value,
+      defaultValue,
+      size = SIZES.MEDIUM,
+      ...props
+    },
     forwardedRef
   ) => {
     const {maskedValue, ref} = useMask({
@@ -19,7 +29,9 @@ const MaskInput = forwardRef(
       forwardedRef
     })
 
-    return <Input ref={ref} id={name} value={maskedValue} {...props} />
+    return (
+      <Input ref={ref} id={name} size={size} value={maskedValue} {...props} />
+    )
   }
 )
 
@@ -37,7 +49,9 @@ MaskInput.propTypes = {
   /* Event launched on every input change */
   onChange: PropTypes.func,
   /* Event fired every onChange which completes teh mask */
-  onComplete: PropTypes.func
+  onComplete: PropTypes.func,
+  /* Size of the input */
+  size: PropTypes.oneOf(Object.values(SIZES))
 }
 
 export default MaskInput

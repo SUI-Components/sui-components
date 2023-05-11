@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-molecule-phone-validation
+$ npm install @s-ui/react-molecule-phone-input
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install @s-ui/react-molecule-phone-validation
 #### Import package and use the component
 
 ```js
-import MoleculePhoneValidation from '@s-ui/react-molecule-phone-validation'
+import MoleculePhoneInput from '@s-ui/react-molecule-phone-input'
 
 const [phone, setPhone] = useState('')
 const icon = <IconArrowDown size="16" />
@@ -40,5 +40,5 @@ return (
 
 ```css
 @import '~@s-ui/theme/lib/index';
-@import '~@s-ui/react-molecule-phone-validation/lib/index';
+@import '~@s-ui/react-molecule-phone-input/lib/index';
 ```

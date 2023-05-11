@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-molecule-phone-validation",
+  "name": "@s-ui/react-molecule-phone-input",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",

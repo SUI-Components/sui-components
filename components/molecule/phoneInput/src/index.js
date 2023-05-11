@@ -16,9 +16,9 @@ import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
 import {getFlagEmoji, phoneValidationType} from './settings.js'
 
-const BASE_CLASS = 'sui-MoleculePhoneValidation'
+const BASE_CLASS = 'sui-MoleculePhoneInput'
 
-export default function MoleculePhoneValidation({
+export default function MoleculePhoneInput({
   dropdownIcon,
   phone = '',
   prefixes = [],
@@ -70,7 +70,6 @@ export default function MoleculePhoneValidation({
         <div
           ref={inputPrefixRef}
           className={`${baseClass}-input-prefix`}
-          testId="molecule-phone-validation-input-prefix"
           onClick={() => setShowDropdown(!showDropdown)}
         >
           <span className={`${baseClass}-input-prefix-flag`}>
@@ -94,7 +93,7 @@ export default function MoleculePhoneValidation({
                 selectedPrefix.countryCode?.replace('+', '').length,
                 phone.length
               )}
-            mask={selectedPrefix.mask}
+            mask={selectedPrefix.mask || '000 000 000'}
             placeholder={placeholder}
             type={TYPES.MASK}
             onChange={e => {
@@ -153,9 +152,9 @@ export default function MoleculePhoneValidation({
   )
 }
 
-MoleculePhoneValidation.displayName = 'MoleculePhoneValidation'
+MoleculePhoneInput.displayName = 'MoleculePhoneInput'
 
-MoleculePhoneValidation.propTypes = {
+MoleculePhoneInput.propTypes = {
   dropdownIcon: PropTypes.node,
   phone: PropTypes.string,
   placeholder: PropTypes.string,

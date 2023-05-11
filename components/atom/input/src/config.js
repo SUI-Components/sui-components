@@ -43,6 +43,8 @@ export const INPUT_SHAPES = {
 
 export const noop = () => null
 
+export const isFunction = fn => typeof fn === 'function'
+
 export const getClassNames = ({
   size,
   charsSize,

@@ -30,6 +30,7 @@ $base-class: '.sui-MoleculeStepper';
       // do your magic
     }
     &-compressed {
+      overflow: hidden;
       &#{$base-class}--alignment {
         &-vertical {
           row-gap: $sz-base;
@@ -37,7 +38,6 @@ $base-class: '.sui-MoleculeStepper';
         &-horizontal {
           position: relative;
           gap: $sz-base;
-          overflow: $o-stepper-compressed;
         }
       }
     }

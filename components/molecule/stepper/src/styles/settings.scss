@@ -1,7 +1,5 @@
 @use 'sass:math';
 
-$o-stepper-compressed: visible !default;
-
 // Colors
 $c-stepper: $c-gray-light-2 !default; // $c-progress-steps-bar
 $c-stepper-label: $c-gray-dark-2 !default; // $c-progress-steps-label

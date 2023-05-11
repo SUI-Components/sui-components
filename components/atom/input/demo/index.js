@@ -166,7 +166,7 @@ const TypeDemo = () => {
             'MASK',
             {
               type: inputTypes.MASK,
-              mask: {mask: 'ES00 0000 0000 00 0000000000'},
+              mask: 'ES00 0000 0000 00 0000000000',
               placeholder: 'ES00 0000 0000 00 0000000000',
               charsSize: 31
             },

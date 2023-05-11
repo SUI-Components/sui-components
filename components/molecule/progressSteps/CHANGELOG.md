@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.12.0 (2023-05-11)
+
+
+### Bug Fixes
+
+* **components/molecule/progressSteps:** fix ProgressSteps styles ([8b70ac3](https://github.com/SUI-Components/sui-components/commit/8b70ac3a16bdde884fe513e52d90440501b52004))
+
+
+
 # 2.11.0 (2023-05-10)
 
 

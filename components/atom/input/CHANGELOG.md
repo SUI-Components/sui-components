@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 5.30.0 (2023-05-11)
+
+
+### Features
+
+* **components/atom/input:** Add component size and fix bug in usemask ([9ea1518](https://github.com/SUI-Components/sui-components/commit/9ea151883c373e6d7dc042dada46965b32c25f6a))
+* **components/atom/input:** Mask working ([6b2bac7](https://github.com/SUI-Components/sui-components/commit/6b2bac7d401dcd0695f590b4c1bd22a78a2f79b2))
+
+
+
 # 5.29.0 (2023-05-11)
 
 

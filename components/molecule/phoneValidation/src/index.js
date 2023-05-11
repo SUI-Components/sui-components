@@ -14,7 +14,7 @@ import MoleculeDropdownList, {
 } from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-import {getFlagEmoji, MASKLISTS, phoneValidationType} from './settings.js'
+import {getFlagEmoji, phoneValidationType} from './settings.js'
 
 const BASE_CLASS = 'sui-MoleculePhoneValidation'
 
@@ -94,7 +94,7 @@ export default function MoleculePhoneValidation({
                 selectedPrefix.countryCode?.replace('+', '').length,
                 phone.length
               )}
-            mask={MASKLISTS[selectedPrefix.value]}
+            mask={selectedPrefix.mask}
             placeholder={placeholder}
             type={TYPES.MASK}
             onChange={e => {

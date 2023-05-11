@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.7.0 (2023-05-11)
+
+
+### Bug Fixes
+
+* **components/molecule/stepper:** change styles ([3bcb7ad](https://github.com/SUI-Components/sui-components/commit/3bcb7ad229acd603a22392fffcc35edb41a7cee9))
+* **components/molecule/stepper:** fix styles of compressed horizontal stepper ([e92f741](https://github.com/SUI-Components/sui-components/commit/e92f7418e7cd3f40ace84fa5a8d22e075ae1ed6e))
+
+
+
 # 2.6.0 (2023-05-09)
 
 

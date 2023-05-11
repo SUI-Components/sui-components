@@ -1,56 +1,34 @@
-$base-class-addon: '#{$base-class}--withAddon';
+#{$base-class}--withAddon {
+  align-items: center;
+  background-color: $bgc-atom-input-addon;
+  border-color: $bdc-atom-input-addon;
+  border-style: solid;
+  color: $c-atom-input-addon;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: center;
+  line-height: inherit;
+  padding-left: $p-atom-input-addon-left;
+  padding-right: $p-atom-input-addon-right;
 
-#{$base-class} {
-  #{$base-class-addon} {
-    align-items: center;
-    background-color: $bgc-atom-input-addon;
-    border-color: $bdc-atom-input-addon;
-    border-style: solid;
-    color: $c-atom-input-addon;
+  &--right {
+    border-width: $bdw-atom-input-addon-right;
+  }
+
+  &--left {
+    border-width: $bdw-atom-input-addon-left;
+  }
+
+  &Wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    line-height: inherit;
-    padding-left: $p-atom-input-addon-left;
-    padding-right: $p-atom-input-addon-right;
-    width: auto;
-
-    &#{$base-class-addon}--right {
-      border-left-width: 0;
-    }
-
-    &#{$base-class-addon}--left {
-      border-right-width: 0;
-    }
-  }
-  @each $state, $color in $states-atom-input {
-    &#{$base-class}--status-#{$state} {
-      #{$base-class}-item {
-        &#{$base-class-addon} {
-          border-color: $bdc-atom-input-addon;
-          &#{$base-class-addon}--right {
-            border-left-color: $color;
-          }
-          &#{$base-class-addon}--left {
-            border-right-color: $color;
-          }
-        }
-      }
-    }
-  }
-  @each $state, $color in $states-atom-input {
-    &#{$base-class}--status-#{$state} {
-      #{$base-class}-item {
-        &#{$base-class-addon} {
-          border-color: $bdc-atom-input-addon;
-          &#{$base-class-addon}--right {
-            border-left-color: $color;
-          }
-          &#{$base-class-addon}--left {
-            border-right-color: $color;
-          }
-        }
-      }
-    }
+    @include atom-input-shape-wrapper(
+      $base-class,
+      #{'.sui-AtomInput--withAddonWrapper'},
+      $bdrs-atom-input-shapes,
+      $sizes-atom-input,
+      $bdrs-atom-input,
+      $h-atom-input--m
+    );
   }
 }

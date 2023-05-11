@@ -1,14 +1,21 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {INPUT_SHAPES, SIZES} from '../../../config.js'
-import {ADDON_TYPES, getClassName} from './config.js'
+import {ADDON_TYPES, BASE_CLASS_ADDON_WRAPPER, getClassName} from './config.js'
 
 const InputAddon = ({leftAddon, rightAddon, shape, size, children}) => {
   if (!(leftAddon || rightAddon)) {
     return children
   }
   return (
-    <>
+    <div
+      className={cx(
+        BASE_CLASS_ADDON_WRAPPER,
+        shape && `${BASE_CLASS_ADDON_WRAPPER}-shape-${shape}`,
+        size && `${BASE_CLASS_ADDON_WRAPPER}-size-${size}`
+      )}
+    >
       {leftAddon && (
         <span className={getClassName({type: ADDON_TYPES.LEFT, shape})}>
           {leftAddon}
@@ -20,7 +27,7 @@ const InputAddon = ({leftAddon, rightAddon, shape, size, children}) => {
           {rightAddon}
         </span>
       )}
-    </>
+    </div>
   )
 }
 

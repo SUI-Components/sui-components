@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.7.0 (2023-05-12)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownOption:** do not use a default prop for innerRef ([ac10ad2](https://github.com/SUI-Components/sui-components/commit/ac10ad29e5c89621af7f07eacdb6b920cddf1e89))
+
+
+
 # 2.6.0 (2023-04-26)
 
 

@@ -10,7 +10,7 @@ import {
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import MoleculePhoneInput from '../src/index.js'
-import {phoneValidationType, PREFIXES} from '../src/settings.js'
+import {PREFIXES} from '../src/settings.js'
 
 export const icon = (
   <AtomIcon>
@@ -19,7 +19,11 @@ export const icon = (
 )
 
 export default () => {
-  const [phone, setPhone] = useState('606949670')
+  const [phone, setPhone] = useState('666666666')
+
+  const setphonenow = (_, {value}) => {
+    setPhone(value)
+  }
 
   return (
     <div className="sui-StudioPreview">
@@ -29,24 +33,25 @@ export default () => {
       <Article>
         <H2>Default</H2>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setphonenow}
           dropdownIcon={icon}
-          placeholder="Phone"
+          placeholder="612 345 678"
           prefixes={PREFIXES}
+          initialSelectedPrefix={PREFIXES[0]}
         />
       </Article>
       <br />
-      <Article>
+      {/* <Article>
         <H2>Splitted</H2>
         <MoleculePhoneInput
-          type={phoneValidationType.SPLITTED}
           phone={phone}
           setPhone={setPhone}
           dropdownIcon={icon}
+          placeholder="612 345 678"
           prefixes={PREFIXES}
         />
-      </Article>
+      </Article> */}
     </div>
   )
 }

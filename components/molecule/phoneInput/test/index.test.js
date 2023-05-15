@@ -10,12 +10,21 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import {AntDesignIcon} from '@s-ui/documentation-library'
+import AtomIcon from '@s-ui/react-atom-icon'
+
 import Component from '../src/index.js'
 import {PREFIXES} from '../src/settings.js'
 
 chai.use(chaiDOM)
 
-describe('MoleculePhoneValidation', () => {
+export const icon = (
+  <AtomIcon>
+    <AntDesignIcon icon={'AiOutlineDown'} style={{fill: 'currentColor'}} />
+  </AtomIcon>
+)
+
+describe('MoleculePhoneInput', () => {
   const setup = setupEnvironment(Component)
 
   it('should render without crashing', () => {
@@ -79,5 +88,41 @@ describe('MoleculePhoneValidation', () => {
     // Then
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+
+  it('should render properly with phone prop given', () => {
+    // Given
+    const props = {
+      phone: '666666666',
+      setPhone: () => {},
+      dropdownIcon: icon,
+      placeholder: 'Phone',
+      prefixes: {PREFIXES}
+    }
+
+    // When
+    const {container} = setup(props)
+
+    // Then
+    expect(container.innerHTML).to.be.a('string')
+    expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+
+  it('should set phone as initial value', () => {
+    // Given
+    const props = {
+      phone: '666666666',
+      setPhone: () => {},
+      dropdownIcon: icon,
+      placeholder: 'Phone',
+      prefixes: {PREFIXES},
+      initialSelectedPrefix: PREFIXES[0]
+    }
+
+    // When
+    const {getByDisplayValue} = setup(props)
+
+    // Then
+    expect(getByDisplayValue('666666')).to.be.ok
   })
 })

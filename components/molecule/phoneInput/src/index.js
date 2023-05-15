@@ -20,14 +20,15 @@ const BASE_CLASS = 'sui-MoleculePhoneInput'
 
 export default function MoleculePhoneInput({
   dropdownIcon,
-  phone = '',
+  value = '',
   prefixes = [],
-  setPhone,
+  onChange,
   placeholder,
+  initialSelectedPrefix = {},
   type = phoneValidationType.DEFAULT
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
-  const [selectedPrefix, setSelectedPrefix] = useState({})
+  const [selectedPrefix, setSelectedPrefix] = useState(initialSelectedPrefix)
   const modalRef = useRef(null)
   const inputPrefixRef = useRef(null)
 
@@ -59,11 +60,6 @@ export default function MoleculePhoneInput({
     }
   }, [baseClass])
 
-  useEffect(() => {
-    phone && setPhone(`${selectedPrefix.countryCode} ${phone.split(' ')[1]}`)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedPrefix])
-
   return (
     <div className={baseClass}>
       <div className={`${baseClass}-input`}>
@@ -87,22 +83,11 @@ export default function MoleculePhoneInput({
             {selectedPrefix.countryCode}
           </p>
           <AtomInput
-            value={phone
-              .toString()
-              .substring(
-                selectedPrefix.countryCode?.replace('+', '').length,
-                phone.length
-              )}
+            value={value}
             mask={selectedPrefix.mask || '000 000 000'}
             placeholder={placeholder}
             type={TYPES.MASK}
-            onChange={e => {
-              setPhone(
-                `${selectedPrefix.countryCode?.replace('+', '')}${
-                  e.target.value
-                }`
-              )
-            }}
+            onChange={onChange}
             noBorder
           />
         </div>
@@ -156,9 +141,15 @@ MoleculePhoneInput.displayName = 'MoleculePhoneInput'
 
 MoleculePhoneInput.propTypes = {
   dropdownIcon: PropTypes.node,
-  phone: PropTypes.string,
+  value: PropTypes.string,
   placeholder: PropTypes.string,
   prefixes: PropTypes.array,
-  setPhone: PropTypes.func,
-  type: PropTypes.oneOf(Object.values(phoneValidationType))
+  onChange: PropTypes.func,
+  type: PropTypes.oneOf(Object.values(phoneValidationType)),
+  initialSelectedPrefix: PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+    countryCode: PropTypes.string,
+    mask: PropTypes.string
+  })
 }

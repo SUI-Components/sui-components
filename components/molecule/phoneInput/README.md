@@ -1,4 +1,4 @@
-# MoleculePhoneValidation
+# MoleculePhoneInput
 
 > Custom input component to handle phone validation. Gives the user a prefix selector and a phone number input. It also handles the phone number validation and the prefix selection.
 
@@ -27,7 +27,7 @@ const prefixes = [
 ]
 
 return (
-  <MoleculePhoneValidation
+  <MoleculePhoneInput
     phone={phone}
     setPhone={setPhone}
     dropdownIcon={icon}

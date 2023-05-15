@@ -64,14 +64,11 @@
       &-code {
         align-items: center;
         color: $c-gray;
+        font-size: $fz-m;
         display: flex;
         margin: 0;
         padding: 0;
         padding: 0 $m-m;
-      }
-
-      &:hover {
-        cursor: pointer;
       }
     }
   }
@@ -98,6 +95,7 @@
       &-label {
         font-weight: $fw-regular;
         margin-left: $m-m;
+        font-size: $fz-m;
 
         &.selected {
           font-weight: $fw-bold;

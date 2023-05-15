@@ -17,25 +17,28 @@ const useMask = ({
   const [value] = useControlledState(argValue, argDefaultValue)
   const {
     ref: refInput,
-    value: maskedValue = '',
+    value: maskedValue,
     setValue
   } = useIMask(
     {...mask},
     {
-      onAccept: (value, maskRef, event, ...args) =>
-        isFunction(onChange) &&
-        maskedValue !== '' &&
-        onChange(event, {value, maskRef, ...args}),
+      onAccept: (value, maskRef, event, ...args) => {
+        isFunction(onChange) && onChange(event, {value, maskRef, ...args})
+      },
       onComplete: (value, maskRef, event, ...args) =>
         isFunction(onComplete) && onComplete(event, {value, maskRef, ...args})
     }
   )
   const ref = useMergeRefs(refInput, forwardedRef)
-  useEffect(
-    () => value !== maskedValue && setValue(maskedValue),
-    [argValue, setValue, maskedValue, value]
-  )
-  return Object.assign([maskedValue, ref], {maskedValue, ref})
+
+  useEffect(() => {
+    value !== maskedValue && setValue(maskedValue)
+  }, [argValue, setValue, maskedValue, value])
+  return Object.assign([maskedValue, ref, setValue], {
+    maskedValue,
+    ref,
+    setValue
+  })
 }
 
 export default useMask

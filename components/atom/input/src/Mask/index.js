@@ -2,6 +2,8 @@ import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
+import useMount from '@s-ui/react-hooks/lib/useMount'
+
 import {SIZES} from '../config.js'
 import Input from '../Input/Component/index.js'
 import useMask from './useMask.js'
@@ -20,7 +22,11 @@ const MaskInput = forwardRef(
     },
     forwardedRef
   ) => {
-    const {maskedValue, ref} = useMask({
+    const {
+      ref,
+      value: maskedValue,
+      setValue
+    } = useMask({
       value,
       defaultValue,
       mask,
@@ -28,9 +34,12 @@ const MaskInput = forwardRef(
       onComplete,
       forwardedRef
     })
+    useMount(() => {
+      setValue(maskedValue)
+    })
 
     return (
-      <Input ref={ref} id={name} size={size} value={maskedValue} {...props} />
+      <Input ref={ref} id={name} value={maskedValue} size={size} {...props} />
     )
   }
 )

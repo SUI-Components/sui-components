@@ -232,14 +232,15 @@ $base-class: '.sui-AtomSwitch';
         padding-top: $p-s;
 
         #{$base-class}-inputContainer {
+          border-width: $bdw-atom-switch-input-container-large;
           height: $h-atom-switch-input-container-large;
           min-width: $w-atom-switch-large;
           width: $w-atom-switch-large;
 
           #{$base-class}-circle {
             border-radius: $w-atom-switch-large * 0.5;
-            height: $h-atom-switch-input-container-large - 2px;
-            width: $h-atom-switch-input-container-large - 2px;
+            height: $h-atom-switch-circle-large - 2px;
+            width: $w-atom-switch-circle-large - 2px;
           }
           &--right {
             #{$base-class}-circle {

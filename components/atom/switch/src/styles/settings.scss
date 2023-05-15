@@ -21,9 +21,11 @@ $p-atom-switch-container: $p-s !default;
 $h-atom-switch-large: $sz-base * 4 !default;
 $h-atom-switch-container-large: $h-atom-switch-large + 10px !default;
 $w-atom-switch-large: $sz-base * 7 !default;
+$h-atom-switch-circle-large: $h-atom-switch-large !default;
 $w-atom-switch-circle-large: $h-atom-switch-large !default;
 $m-atom-switch-circle-large--active: $w-atom-switch-large -
   $w-atom-switch-circle-large !default;
+$bdw-atom-switch-input-container-large: $bdw-s !default;
 $h-atom-switch-input-container-large: $h-atom-switch-large !default;
 
 $c-atom-switch--active: color-variation($c-primary, 1) !default;

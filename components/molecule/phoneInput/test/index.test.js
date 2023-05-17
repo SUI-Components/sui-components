@@ -10,6 +10,8 @@ import ReactDOM from 'react-dom'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import userEvents from '@testing-library/user-event'
+
 import {AntDesignIcon} from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
@@ -88,5 +90,34 @@ describe('MoleculePhoneInput', () => {
     // Then
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+
+  it('should render properly with phone prop given', () => {
+    // Given
+    const props = {
+      value: '666666666'
+    }
+
+    // When
+    const {container} = setup(props)
+
+    // Then
+    expect(container.innerHTML).to.be.a('string')
+    expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+
+  it('should change input givena new value', () => {
+    // Given
+    const props = {
+      value: '666666666'
+    }
+    const {container} = setup(props)
+    const input = container.querySelector('input')
+
+    // When
+    userEvents.type(input, '6666')
+
+    // Then
+    expect(input.value).to.be.equal('6666')
   })
 })

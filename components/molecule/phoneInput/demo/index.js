@@ -42,7 +42,7 @@ export default () => {
         />
       </Article>
       <br />
-      {/* <Article>
+      <Article>
         <H2>Splitted</H2>
         <MoleculePhoneInput
           phone={phone}
@@ -51,7 +51,7 @@ export default () => {
           placeholder="612 345 678"
           prefixes={PREFIXES}
         />
-      </Article> */}
+      </Article>
     </div>
   )
 }

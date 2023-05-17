@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 1.65.0 (2023-05-11)
+
+
+
 # 1.64.0 (2023-05-08)
 
 
@@ -7,6 +11,7 @@
 
 * **components/molecule/select/demo:** Add responsive prop to MoleculeSelectFieldMultiSelection demo ([df1c094](https://github.com/SUI-Components/sui-components/commit/df1c094d91e072cb343edc20676648eb3e6e843d))
 * **components/molecule/select:** Add responsive prop to MoleculeSelectFieldMultiSelection ([6212691](https://github.com/SUI-Components/sui-components/commit/62126917c38b409cb8e974513a17b0d18223923e))
+* **components/molecule/select:** Disable options when tag limit is exeeded ([a17ed60](https://github.com/SUI-Components/sui-components/commit/a17ed607e3552534c9529b2e12ed598203eaabac))
 
 
 

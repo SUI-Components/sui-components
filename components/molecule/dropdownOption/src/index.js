@@ -49,7 +49,7 @@ const MoleculeDropdownOption = forwardRef(
     },
     forwardedRef
   ) => {
-    const ref = useMergeRefs(innerRef, forwardedRef)
+    const ref = useMergeRefs(innerRef || createRef(), forwardedRef)
     const [innerSelected, setInnerSelected] = useControlledState(
       selected,
       defaultSelected
@@ -205,8 +205,7 @@ MoleculeDropdownOption.defaultProps = {
   disabled: false,
   onSelect: () => {},
   defaultSelected: false,
-  selectKey: 'Enter',
-  innerRef: createRef()
+  selectKey: 'Enter'
 }
 export default MoleculeDropdownOption
 export {handlersFactory}

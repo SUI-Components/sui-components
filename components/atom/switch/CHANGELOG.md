@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.30.0 (2023-05-15)
+
+
+### Features
+
+* **components/atom/switch:** add scss tokens to fit motor theme ([4cb4367](https://github.com/SUI-Components/sui-components/commit/4cb4367024c64a77469eca099e4820852d674f52))
+* **components/atom/switch:** add tokens for large version of atom switch ([d003883](https://github.com/SUI-Components/sui-components/commit/d003883f00c72519f63dd30c5f9f0ed73b4d8496))
+
+
+
 # 1.29.0 (2022-11-17)
 
 

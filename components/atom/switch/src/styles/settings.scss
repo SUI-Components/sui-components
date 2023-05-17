@@ -11,6 +11,7 @@ $h-atom-switch-input-container-small: $h-atom-switch-small !default;
 $h-atom-switch-default: $sz-base * 3 !default;
 $h-atom-switch-container-default: $h-atom-switch-default + 10px !default;
 $w-atom-switch-default: $sz-base * 5 !default;
+$h-atom-switch-circle-default: $h-atom-switch-default !default;
 $w-atom-switch-circle-default: $h-atom-switch-default !default;
 $m-atom-switch-circle-default--active: $w-atom-switch-default -
   $w-atom-switch-circle-default !default;
@@ -20,9 +21,11 @@ $p-atom-switch-container: $p-s !default;
 $h-atom-switch-large: $sz-base * 4 !default;
 $h-atom-switch-container-large: $h-atom-switch-large + 10px !default;
 $w-atom-switch-large: $sz-base * 7 !default;
+$h-atom-switch-circle-large: $h-atom-switch-large !default;
 $w-atom-switch-circle-large: $h-atom-switch-large !default;
 $m-atom-switch-circle-large--active: $w-atom-switch-large -
   $w-atom-switch-circle-large !default;
+$bdw-atom-switch-input-container-large: $bdw-s !default;
 $h-atom-switch-input-container-large: $h-atom-switch-large !default;
 
 $c-atom-switch--active: color-variation($c-primary, 1) !default;
@@ -30,7 +33,8 @@ $c-atom-switch--active-shadow: rgba($c-black, 0.2);
 $c-atom-switch--default: color-variation($c-gray, 3) !default;
 $c-atom-switch-circle: $c-white;
 
-$bd-atom-switch-default: $bdw-s solid
+$bdw-atom-switch-default: $bdw-s !default;
+$bd-atom-switch-default: $bdw-atom-switch-default solid
   color-variation($c-atom-switch--default, $c-dark-step) !default;
 $bxsh-atom-switch-container: 0 0 4px 0 transparent !default;
 

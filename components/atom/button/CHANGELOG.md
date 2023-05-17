@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.90.0 (2023-05-17)
+
+
+### Features
+
+* **components/atom/button:** button inner inherits text decoration ([1d752e4](https://github.com/SUI-Components/sui-components/commit/1d752e4d9fec57b27add358d1168d5599951a783))
+
+
+
 # 1.89.0 (2022-08-18)
 
 

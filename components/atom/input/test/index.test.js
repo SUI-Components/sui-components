@@ -358,6 +358,29 @@ describe(json.name, () => {
       expect(value).to.equal('ES12 3456 7890 12 3456789012')
     })
 
+    it('should format value given a valid mask and a valid value', () => {
+      const value = 'ES1234567890123456789012'
+      // Given
+      const props = {
+        className: 'extended-classNames',
+        type: pkg.inputTypes.MASK,
+        mask: {mask: 'ES00 0000 0000 00 0000000000'},
+        placeholder: 'ES00 0000 0000 00 0000000000',
+        charsSize: 31,
+        value
+      }
+      const findSentence = str => string =>
+        string.match(new RegExp(`S*${str}S*`))
+      // When
+      const {container} = setup(props)
+      const findClassName = findSentence(props.className)
+      const input = container.querySelector('input')
+
+      // Then
+      expect(findClassName(container.innerHTML)).to.be.null
+      expect(input.value).to.equal('ES12 3456 7890 12 3456789012')
+    })
+
     it('should execute custom onChange function only when value exists', () => {
       let value = ''
       // Given

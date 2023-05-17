@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 5.31.0 (2023-05-17)
+
+
+### Bug Fixes
+
+* **components/atom/input:** Fix useMask not setting initial value ([43c1d4c](https://github.com/SUI-Components/sui-components/commit/43c1d4c46686065a2dc80c277e4c19acb19a6d5b))
+
+
+### Features
+
+* **components/atom/input/demo:** Update demo ([48a7ba8](https://github.com/SUI-Components/sui-components/commit/48a7ba87010cfca36361225fdfa62efce1184210))
+* **components/atom/input:** Fix import name ([ae69d40](https://github.com/SUI-Components/sui-components/commit/ae69d40cb8020d9168f50d9edbc8a3271ef178f6))
+
+
+
 # 5.30.0 (2023-05-11)
 
 

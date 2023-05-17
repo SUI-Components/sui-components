@@ -72,6 +72,7 @@ $base-class: '.sui-AtomButton';
     display: inline-flex;
     height: 100%;
     pointer-events: none;
+    text-decoration: inherit;
   }
 
   &--loading {

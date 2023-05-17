@@ -8,7 +8,6 @@ import Password from './Password/index.js'
 import {INPUT_SHAPES, TYPES} from './config.js'
 
 const AtomInput = forwardRef(({type, ...props}, ref) => {
-  console.log('AtomInput', props.value)
   switch (type) {
     case 'sui-password':
       return <Password ref={ref} {...props} />

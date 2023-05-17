@@ -1,10 +1,10 @@
 import {forwardRef} from 'react'
+import {IMaskMixin} from 'react-imask'
 
 import PropTypes from 'prop-types'
 
-import {SIZES} from '../config.js'
+import {isFunction, SIZES} from '../config.js'
 import Input from '../Input/Component/index.js'
-import useMask from './useMask.js'
 
 const MaskInput = forwardRef(
   (
@@ -15,22 +15,32 @@ const MaskInput = forwardRef(
       mask,
       value,
       defaultValue,
+      placeholder,
       size = SIZES.MEDIUM,
       ...props
     },
     forwardedRef
   ) => {
-    const {maskedValue, ref} = useMask({
-      value,
-      defaultValue,
-      mask,
-      onChange,
-      onComplete,
-      forwardedRef
+    const MaskedStyledInput = IMaskMixin(({inputRef, value, ...props}) => {
+      return (
+        <Input ref={inputRef} id={name} size={size} value={value} {...props} />
+      )
     })
 
     return (
-      <Input ref={ref} id={name} size={size} value={maskedValue} {...props} />
+      <MaskedStyledInput
+        mask={mask?.mask}
+        value={value}
+        ref={forwardedRef}
+        placeholder={placeholder}
+        onAccept={(value, maskRef, event, ...args) =>
+          isFunction(onChange) && onChange(event, {value, maskRef, ...args})
+        }
+        onComplete={(value, maskRef, event, ...args) =>
+          isFunction(onComplete) && onComplete(event, {value, maskRef, ...args})
+        }
+        {...props}
+      />
     )
   }
 )
@@ -50,6 +60,8 @@ MaskInput.propTypes = {
   onChange: PropTypes.func,
   /* Event fired every onChange which completes teh mask */
   onComplete: PropTypes.func,
+  /* Placeholder of the input */
+  placeholder: PropTypes.string,
   /* Size of the input */
   size: PropTypes.oneOf(Object.values(SIZES))
 }

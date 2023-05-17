@@ -1,8 +1,8 @@
 @import '~@s-ui/theme/lib/index';
-@import '~@s-ui/react-atom-input/lib/index';
-@import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-dropdown-option/lib/index';
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
+@import '~@s-ui/react-atom-input/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
 
 .sui-MoleculePhoneInput {
   display: flex;
@@ -86,20 +86,12 @@
     }
 
     &-option {
-      align-items: center;
-      display: flex;
-
       &-flag {
         font-size: $fz-l;
       }
       &-label {
-        font-weight: $fw-regular;
         margin-left: $m-m;
         font-size: $fz-m;
-
-        &.selected {
-          font-weight: $fw-bold;
-        }
       }
 
       &-code {

@@ -39,17 +39,14 @@ export default function MoleculePhoneInput({
     BASE_CLASS
   )
 
-  const isUserClickingOutside = event =>
-    modalRef.current &&
-    !modalRef.current.contains(
-      event.target &&
-        inputPrefixRef.current &&
-        !inputPrefixRef.current.contains(event.target)
-    )
-
+  // Close dropdown when click outside
   useEffect(() => {
     const handleClickOutside = event => {
-      if (isUserClickingOutside(event)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target) &&
+        !inputPrefixRef.current.contains(event.target)
+      ) {
         setShowDropdown(false)
       }
     }
@@ -58,7 +55,7 @@ export default function MoleculePhoneInput({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [baseClass])
+  }, [modalRef])
 
   return (
     <div className={baseClass}>
@@ -103,7 +100,7 @@ export default function MoleculePhoneInput({
               return (
                 <MoleculeDropdownOption
                   value={prefix.value}
-                  selected={selectedPrefix}
+                  selected={selectedPrefix.value === prefix.value}
                   key={prefix.countryCode}
                   onClick={() => {
                     setSelectedPrefix(prefix)
@@ -114,13 +111,7 @@ export default function MoleculePhoneInput({
                     <span className={`${baseClass}-dropdown-option-flag`}>
                       {getFlagEmoji(prefix.value)}
                     </span>
-                    <span
-                      className={
-                        prefix === selectedPrefix
-                          ? `${baseClass}-dropdown-option-label selected`
-                          : `${baseClass}-dropdown-option-label`
-                      }
-                    >
+                    <span className={`${baseClass}-dropdown-option-label`}>
                       {prefix.label}
                     </span>
                     <span className={`${baseClass}-dropdown-option-code`}>

@@ -1,10 +1,9 @@
 import {forwardRef} from 'react'
-import {IMaskMixin} from 'react-imask'
 
 import PropTypes from 'prop-types'
 
 import {isFunction, SIZES} from '../config.js'
-import Input from '../Input/Component/index.js'
+import IMask from './IMask.js'
 
 const MaskInput = forwardRef(
   (
@@ -21,16 +20,11 @@ const MaskInput = forwardRef(
     },
     forwardedRef
   ) => {
-    const MaskedStyledInput = IMaskMixin(({inputRef, value, ...props}) => {
-      return (
-        <Input ref={inputRef} id={name} size={size} value={value} {...props} />
-      )
-    })
-
     return (
-      <MaskedStyledInput
+      <IMask
         mask={mask?.mask}
         value={value}
+        size={size}
         ref={forwardedRef}
         placeholder={placeholder}
         onAccept={(value, maskRef, event, ...args) =>

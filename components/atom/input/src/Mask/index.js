@@ -3,7 +3,7 @@ import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import {isFunction, SIZES} from '../config.js'
-import IMask from './IMask.js'
+import IMask from './iMask.js'
 
 const MaskInput = forwardRef(
   (

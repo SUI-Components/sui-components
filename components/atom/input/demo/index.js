@@ -169,7 +169,7 @@ const TypeDemo = () => {
               mask: {mask: 'ES00 0000 0000 00 0000000000'},
               placeholder: 'ES00 0000 0000 00 0000000000',
               charsSize: 31,
-              value: 'ES00 1000 0000 00 0000000000'
+              value: 'ES1234567890123456789012'
             },
             {
               description: (

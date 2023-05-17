@@ -16,7 +16,7 @@ import {AntDesignIcon} from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import Component from '../src/index.js'
-import {PREFIXES} from '../src/settings.js'
+import {getFlagEmoji, PREFIXES} from '../src/settings.js'
 
 chai.use(chaiDOM)
 
@@ -119,5 +119,94 @@ describe('MoleculePhoneInput', () => {
 
     // Then
     expect(input.value).to.be.equal('6666')
+  })
+
+  it('should show all options when prefix clicked with names', () => {
+    // Given
+    const props = {
+      value: '666666666',
+      prefixes: PREFIXES
+    }
+
+    const {container} = setup(props)
+    const prefix = container.querySelector(
+      'div.sui-MoleculePhoneInput-input-prefix'
+    )
+    // When
+    userEvents.click(prefix)
+
+    // Then
+    const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
+    expect(options.length).to.be.equal(PREFIXES.length)
+    PREFIXES.forEach((prefix, index) => {
+      expect(options[index].textContent).to.contain(prefix.label)
+    })
+  })
+
+  it('should change selected prefix when option clicked', () => {
+    // Given
+    const props = {
+      value: '666666666',
+      prefixes: PREFIXES,
+      initialSelectedPrefix: PREFIXES[0]
+    }
+
+    const {container} = setup(props)
+    const prefix = container.querySelector(
+      'div.sui-MoleculePhoneInput-input-prefix'
+    )
+    // When
+    userEvents.click(prefix)
+    const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
+    const firstOption = options[0]
+    firstOption.click()
+
+    // Then
+    expect(prefix.textContent).to.contain(getFlagEmoji(PREFIXES[0].value))
+  })
+
+  it('should add selected class to the selected option', () => {
+    // Given
+    const props = {
+      value: '666666666',
+      prefixes: PREFIXES,
+      initialSelectedPrefix: PREFIXES[0]
+    }
+
+    const {container} = setup(props)
+    const prefix = container.querySelector(
+      'div.sui-MoleculePhoneInput-input-prefix'
+    )
+    // When
+    prefix.click()
+    const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
+    const firstOption = options[0]
+    firstOption.click()
+    // Then
+    expect(firstOption.classList.contains('is-selected')).to.be.true
+  })
+
+  it('should close options when clicked outside', () => {
+    // Given
+    const props = {
+      value: '666666666',
+      prefixes: PREFIXES,
+      initialSelectedPrefix: PREFIXES[0]
+    }
+
+    const {container} = setup(props)
+    const prefix = container.querySelector(
+      'div.sui-MoleculePhoneInput-input-prefix'
+    )
+    // When
+    prefix.click()
+    const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
+    expect(options.length).to.be.equal(PREFIXES.length)
+
+    const outside = container.querySelector('div.sui-MoleculePhoneInput')
+    userEvents.click(outside)
+
+    // Then
+    expect(container.querySelector('.sui-MoleculeDropdown')).to.be.null
   })
 })

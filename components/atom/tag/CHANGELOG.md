@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.50.0 (2023-05-18)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** substitute outline for border property in outline tag styles ([7780fd2](https://github.com/SUI-Components/sui-components/commit/7780fd298c4590d627fa5d41b81bf06a34e4f6aa))
+
+
+
 # 2.49.0 (2022-11-24)
 
 

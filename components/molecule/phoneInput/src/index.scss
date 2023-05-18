@@ -86,6 +86,8 @@
     }
 
     &-option {
+      display: flex;
+      align-items: center;
       &-flag {
         font-size: $fz-l;
       }

@@ -16,7 +16,7 @@ import {AntDesignIcon} from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import Component from '../src/index.js'
-import {getFlagEmoji, PREFIXES} from '../src/settings.js'
+import {PREFIXES} from '../src/settings.js'
 
 chai.use(chaiDOM)
 
@@ -159,11 +159,14 @@ describe('MoleculePhoneInput', () => {
     // When
     userEvents.click(prefix)
     const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
+    const selectedPrefixLabel = container.querySelector(
+      '.sui-MoleculePhoneInput-input-prefix-code'
+    )
     const firstOption = options[0]
     firstOption.click()
 
     // Then
-    expect(prefix.textContent).to.contain(getFlagEmoji(PREFIXES[0].value))
+    expect(selectedPrefixLabel.textContent).to.be.equal(PREFIXES[0].countryCode)
   })
 
   it('should add selected class to the selected option', () => {

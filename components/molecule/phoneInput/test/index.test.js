@@ -239,4 +239,20 @@ describe('MoleculePhoneInput', () => {
     expect(phoneValue).to.be.equal('6666666')
     expect(phonePrefix).to.be.equal(PREFIXES[0].countryCode)
   })
+
+  it('should add error class when error', () => {
+    // Given
+    const props = {
+      value: '',
+      prefixes: PREFIXES,
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: () => {},
+      hasError: true
+    }
+
+    const {container} = setup(props)
+    const input = container.querySelector('.sui-MoleculePhoneInput--error')
+
+    expect(input).to.not.be.null
+  })
 })

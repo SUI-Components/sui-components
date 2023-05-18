@@ -25,6 +25,7 @@ export default function MoleculePhoneInput({
   prefixes = [],
   onChange,
   placeholder,
+  hasError,
   initialSelectedPrefix = {},
   type = phoneValidationType.DEFAULT
 }) {
@@ -35,7 +36,8 @@ export default function MoleculePhoneInput({
 
   const baseClass = cx(
     {
-      [`splitted`]: type === phoneValidationType.SPLITTED
+      [`splitted`]: type === phoneValidationType.SPLITTED,
+      [`${BASE_CLASS}--error`]: hasError
     },
     BASE_CLASS
   )
@@ -154,5 +156,6 @@ MoleculePhoneInput.propTypes = {
     label: PropTypes.string,
     countryCode: PropTypes.string,
     mask: PropTypes.string
-  })
+  }),
+  hasError: PropTypes.bool
 }

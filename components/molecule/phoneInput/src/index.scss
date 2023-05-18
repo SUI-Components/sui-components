@@ -16,6 +16,10 @@
     display: flex;
     height: 40px;
 
+    &.sui-MoleculePhoneInput--error {
+      border-color: $c-error;
+    }
+
     &.splitted {
       border: none;
       gap: $m-s;
@@ -39,6 +43,10 @@
           border-radius: $bdrs-l;
           border: 1px solid $c-gray-light;
           width: 100%;
+
+          &.sui-MoleculePhoneInput--error {
+            border-color: $c-error;
+          }
         }
       }
     }
@@ -55,6 +63,10 @@
       &.splitted {
         background-color: transparent;
         border: 1px solid $c-gray-light;
+
+        &.sui-MoleculePhoneInput--error {
+          border-color: $c-error;
+        }
       }
 
       &-flag {

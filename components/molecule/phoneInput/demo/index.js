@@ -5,6 +5,7 @@ import {
   Article,
   H1,
   H2,
+  H3,
   Paragraph
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
@@ -31,7 +32,7 @@ export default () => {
       <Paragraph>Telephone type input with prefixes in a dropdown.</Paragraph>
       <br />
       <Article>
-        <H2>Default</H2>
+        <H2>Default component</H2>
         <MoleculePhoneInput
           value={phone}
           onChange={onValueChange}
@@ -43,7 +44,17 @@ export default () => {
       </Article>
       <br />
       <Article>
-        <H2>Splitted</H2>
+        <H2>Types</H2>
+        <H3>Default</H3>
+        <MoleculePhoneInput
+          phone={phone}
+          setPhone={setPhone}
+          dropdownIcon={icon}
+          placeholder="612 345 678"
+          type={phoneValidationType.DEFAULT}
+          prefixes={PREFIXES}
+        />
+        <H3>Splitted</H3>
         <MoleculePhoneInput
           phone={phone}
           setPhone={setPhone}
@@ -51,6 +62,38 @@ export default () => {
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}
           prefixes={PREFIXES}
+        />
+      </Article>
+      <Article>
+        <H2>States</H2>
+        <H3>Default</H3>
+        <MoleculePhoneInput
+          phone={phone}
+          setPhone={setPhone}
+          dropdownIcon={icon}
+          placeholder="612 345 678"
+          type={phoneValidationType.DEFAULT}
+          prefixes={PREFIXES}
+        />
+        <H3>Error</H3>
+        <MoleculePhoneInput
+          phone={phone}
+          setPhone={setPhone}
+          dropdownIcon={icon}
+          placeholder="612 345 678"
+          type={phoneValidationType.DEFAULT}
+          prefixes={PREFIXES}
+          hasError
+        />
+        <br />
+        <MoleculePhoneInput
+          phone={phone}
+          setPhone={setPhone}
+          dropdownIcon={icon}
+          placeholder="612 345 678"
+          type={phoneValidationType.SPLITTED}
+          prefixes={PREFIXES}
+          hasError
         />
       </Article>
     </div>

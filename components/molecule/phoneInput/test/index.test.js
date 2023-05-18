@@ -148,7 +148,8 @@ describe('MoleculePhoneInput', () => {
     const props = {
       value: '666666666',
       prefixes: PREFIXES,
-      initialSelectedPrefix: PREFIXES[0]
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: () => {}
     }
 
     const {container} = setup(props)
@@ -170,7 +171,8 @@ describe('MoleculePhoneInput', () => {
     const props = {
       value: '666666666',
       prefixes: PREFIXES,
-      initialSelectedPrefix: PREFIXES[0]
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: () => {}
     }
 
     const {container} = setup(props)
@@ -191,7 +193,8 @@ describe('MoleculePhoneInput', () => {
     const props = {
       value: '666666666',
       prefixes: PREFIXES,
-      initialSelectedPrefix: PREFIXES[0]
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: () => {}
     }
 
     const {container} = setup(props)
@@ -208,5 +211,29 @@ describe('MoleculePhoneInput', () => {
 
     // Then
     expect(container.querySelector('.sui-MoleculeDropdown')).to.be.null
+  })
+
+  it('should expose value and prefix in the onChange function', () => {
+    let phoneValue = '666'
+    let phonePrefix = ''
+    // Given
+    const props = {
+      value: phoneValue,
+      prefixes: PREFIXES,
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: (_, {value, prefix}) => {
+        phoneValue = value
+        phonePrefix = prefix
+      }
+    }
+
+    const {container} = setup(props)
+    const input = container.querySelector('input')
+    // When
+    userEvents.type(input, '6666')
+
+    // Then
+    expect(phoneValue).to.be.equal('6666666')
+    expect(phonePrefix).to.be.equal(PREFIXES[0].countryCode)
   })
 })

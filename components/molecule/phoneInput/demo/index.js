@@ -52,6 +52,7 @@ export default () => {
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
+          initialSelectedPrefix={PREFIXES[1]}
           prefixes={PREFIXES}
         />
         <H3>Splitted</H3>
@@ -61,6 +62,7 @@ export default () => {
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}
+          initialSelectedPrefix={PREFIXES[0]}
           prefixes={PREFIXES}
         />
       </Article>
@@ -73,6 +75,7 @@ export default () => {
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
+          initialSelectedPrefix={PREFIXES[1]}
           prefixes={PREFIXES}
         />
         <H3>Error</H3>
@@ -82,6 +85,7 @@ export default () => {
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
+          initialSelectedPrefix={PREFIXES[2]}
           prefixes={PREFIXES}
           hasError
         />
@@ -92,6 +96,7 @@ export default () => {
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}
+          initialSelectedPrefix={PREFIXES[1]}
           prefixes={PREFIXES}
           hasError
         />

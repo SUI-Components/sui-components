@@ -47,8 +47,8 @@ export default () => {
         <H2>Types</H2>
         <H3>Default</H3>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}

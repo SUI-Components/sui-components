@@ -58,7 +58,7 @@ export default function MoleculePhoneInput({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [modalRef])
+  }, [])
 
   return (
     <div className={baseClass}>

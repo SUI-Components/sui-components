@@ -28,8 +28,8 @@ const prefixes = [
 
 return (
   <MoleculePhoneInput
-    phone={phone}
-    setPhone={setPhone}
+    value={phone}
+    onChange={setPhone}
     dropdownIcon={icon}
     prefixes={prefixes}
   />

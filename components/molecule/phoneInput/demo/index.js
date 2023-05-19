@@ -56,8 +56,8 @@ export default () => {
         />
         <H3>Splitted</H3>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}
@@ -68,8 +68,8 @@ export default () => {
         <H2>States</H2>
         <H3>Default</H3>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
@@ -77,8 +77,8 @@ export default () => {
         />
         <H3>Error</H3>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
@@ -87,8 +87,8 @@ export default () => {
         />
         <br />
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}

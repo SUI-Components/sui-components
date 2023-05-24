@@ -1,0 +1,99 @@
+$base-name: 'sui-PrimitiveTypography';
+$base-class: '.#{$base-name}';
+
+$base-class-font-size: '#{$base-class}-fontSize';
+$base-class-font-family: '#{$base-class}-fontFamily';
+$base-class-font-weight: '#{$base-class}-fontWeight';
+$base-class-font-style: '#{$base-class}-fontStyle';
+$base-class-font-stretch: '#{$base-class}-fontStretch';
+$base-class-letter-spacing: '#{$base-class}-letterSpacing';
+$base-class-line-height: '#{$base-class}-lineHeight';
+$base-class-text-decoration-line: '#{$base-class}-textDecorationLine';
+$base-class-linked: '#{$base-class}-linked';
+$base-class-blurred: '#{$base-class}-blurred';
+
+#{$base-class} {
+  transition: color $duration-normal ease-in-out,
+    text-shadow $duration-normal ease-in-out;
+
+  &#{$base-class-linked} {
+    all: unset;
+    cursor: pointer;
+  }
+
+  &#{$base-class-font-size}- {
+    @each $fz-key, $fz-value in $fz-primitive-typography {
+      &#{$fz-key} {
+        font-size: $fz-value;
+      }
+    }
+  }
+
+  &#{$base-class-font-family}- {
+    @each $ff-key, $ff-value in $ff-primitive-typography {
+      &#{$ff-key} {
+        font-family: $ff-value;
+      }
+    }
+  }
+
+  &#{$base-class-font-weight}- {
+    @each $fw-key, $fw-value in $fw-primitive-typography {
+      &#{$fw-key} {
+        font-weight: $fw-value;
+      }
+    }
+  }
+
+  &#{$base-class-font-style}- {
+    @each $fs-key, $fs-value in $fs-primitive-typography {
+      &#{$fs-key} {
+        font-style: $fs-value;
+      }
+    }
+  }
+
+  &#{$base-class-font-stretch}- {
+    @each $fst-key, $fst-value in $fst-primitive-typography {
+      &#{$fst-key} {
+        font-stretch: $fst-value;
+      }
+    }
+  }
+
+  &#{$base-class-letter-spacing}- {
+    @each $ls-key, $ls-value in $ls-primitive-typography {
+      &#{$ls-key} {
+        letter-spacing: $ls-value;
+      }
+    }
+  }
+
+  &#{$base-class-line-height}- {
+    @each $lh-key, $lh-value in $lh-primitive-typography {
+      &#{$lh-key} {
+        line-height: $lh-value;
+      }
+    }
+  }
+
+  &#{$base-class-text-decoration-line}- {
+    @each $tdl-key, $tdl-value in $tdl-primitive-typography {
+      &#{$tdl-key} {
+        text-decoration-line: $tdl-value;
+      }
+    }
+  }
+
+  &#{$base-class-blurred}- {
+    transition: 1s;
+    &true {
+      color: transparent;
+      text-shadow: 0 0 0.5em $c-black, 0 0 0.5em $c-black;
+    }
+    &false {
+      color: black;
+      text-shadow: 0 0 0 $c-black, 0 0 0 $c-black;
+    }
+  }
+}

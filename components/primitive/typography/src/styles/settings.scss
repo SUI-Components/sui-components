@@ -1,0 +1,84 @@
+$fz-primitive-typography: (
+  'xxs': $fz-xxs,
+  'xs': $fz-xs,
+  's': $fz-s,
+  'm': $fz-m,
+  'l': $fz-l,
+  'xl': $fz-xl,
+  'xxl': $fz-xxl,
+  'xxxl': $fz-xxxl,
+  'giant': $fz-giant,
+  'xgiant': 32px,
+  // extra
+  'xxgiant': 40px,
+  // extra
+  'xxxgiant': 48px // extra
+);
+
+$ff-primitive-typography: (
+  sans-serif: $ff-sans-serif
+);
+
+$lh-primitive-typography: (
+  'xxs': $lh-xxs,
+  'xs': $lh-xs,
+  's': $lh-s,
+  'm': $lh-m,
+  'l': $lh-l,
+  'xl': $lh-xl,
+  'xxl': $lh-xxl,
+  'xxxl': $lh-xxxl,
+  'giant': $lh-giant,
+  'xgiant': 40px,
+  // extra
+  'xxgiant': 56px,
+  // extra
+  'xxxgiant': 64px // extra
+);
+
+$fw-primitive-typography: (
+  'thin': 100,
+  'extra-light': 200,
+  'light': $fw-light,
+  'regular': $fw-regular,
+  'medium': 500,
+  'semi-bold': $fw-semi-bold,
+  'bold': $fw-bold,
+  'extra-bold': 800,
+  'black': 900
+);
+
+$fs-primitive-typography: (
+  'italic': italic,
+  'oblique': oblique
+);
+
+$fst-primitive-typography: (
+  'ultra-condensed': ultra-condensed,
+  'extra-condensed': extra-condensed,
+  'condensed': condensed,
+  'semi-condensed': semi-condensed,
+  'normal': normal,
+  'semi-expanded': semi-expanded,
+  'expanded': expanded,
+  'extra-expanded': extra-expanded,
+  'ultra-expanded': ultra-expanded
+);
+
+$tdl-primitive-typography: (
+  'underline': underline,
+  'overline': overline,
+  'line-through': line-through
+);
+
+$ls-primitive-typography: (
+  'xxs': $ls-xxs,
+  'xs': $ls-xs,
+  's': $ls-s,
+  'm': $ls-m,
+  'l': $ls-l,
+  'xl': $ls-xl,
+  'xxl': $ls-xxl,
+  'xxxl': $ls-xxxl,
+  'giant': $ls-giant
+);

@@ -1,0 +1,13 @@
+{
+  "name": "@s-ui/react-primitive-typography-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo for @s-ui/react-primitive-typography",
+  "dependencies": {
+    "@s-ui/react-primitive-polymorphic-element": "1",
+    "lodash.merge": "4.6.2"
+  },
+  "devDependencies": {
+    "lorem-ipsum": "2.0.4"
+  }
+}

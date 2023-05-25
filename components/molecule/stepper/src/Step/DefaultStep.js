@@ -30,18 +30,20 @@ const DefaultStep = ({
   return (
     <>
       <div className={cx(`${BASE_CLASS_STEP}Icon`)}>{resultingIcon}</div>
-      <div
-        className={cx(`${BASE_CLASS_STEP}Label`)}
-        {...(design === DESIGN.COMPRESSED &&
-          current &&
-          alignment === ALIGNMENT.HORIZONTAL && {
-            style: {
-              marginLeft: `calc(-${(step - 1) * 100}% - ${(step - 1) * 8}px)`
-            }
-          })}
-      >
-        {showLabel && getLabel({steps, step, design, label, current})}
-      </div>
+      {showLabel && (
+        <div
+          className={cx(`${BASE_CLASS_STEP}Label`)}
+          {...(design === DESIGN.COMPRESSED &&
+            current &&
+            alignment === ALIGNMENT.HORIZONTAL && {
+              style: {
+                marginLeft: `calc(-${(step - 1) * 100}% - ${(step - 1) * 8}px)`
+              }
+            })}
+        >
+          {getLabel({steps, step, design, label, current})}
+        </div>
+      )}
     </>
   )
 }

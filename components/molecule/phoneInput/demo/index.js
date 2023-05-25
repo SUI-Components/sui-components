@@ -52,15 +52,17 @@ export default () => {
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
+          initialSelectedPrefix={PREFIXES[1]}
           prefixes={PREFIXES}
         />
         <H3>Splitted</H3>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}
+          initialSelectedPrefix={PREFIXES[0]}
           prefixes={PREFIXES}
         />
       </Article>
@@ -68,30 +70,33 @@ export default () => {
         <H2>States</H2>
         <H3>Default</H3>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
+          initialSelectedPrefix={PREFIXES[1]}
           prefixes={PREFIXES}
         />
         <H3>Error</H3>
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
+          initialSelectedPrefix={PREFIXES[2]}
           prefixes={PREFIXES}
           hasError
         />
         <br />
         <MoleculePhoneInput
-          phone={phone}
-          setPhone={setPhone}
+          value={phone}
+          onChange={setPhone}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}
+          initialSelectedPrefix={PREFIXES[1]}
           prefixes={PREFIXES}
           hasError
         />

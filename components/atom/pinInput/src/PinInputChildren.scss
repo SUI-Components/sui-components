@@ -8,4 +8,10 @@
   > .sui-PinInputField {
     margin: 0 math.div($m-pin-input-children, 2);
   }
+
+  @each $justify-key, $justify-value in $justify-pin-input-field {
+    &--justify-#{$justify-key} {
+      justify-content: $justify-value;
+    }
+  }
 }

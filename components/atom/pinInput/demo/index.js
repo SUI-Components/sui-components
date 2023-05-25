@@ -4,6 +4,7 @@ import ArticleAutoFocus from './ArticleAutoFocus.js'
 import ArticleChildren from './ArticleChildren.js'
 import ArticleDefault from './ArticleDefault.js'
 import ArticleDisabled from './ArticleDisabled.js'
+import ArticleJustifyContent from './ArticleJustifyContent.js'
 import ArticleLength from './ArticleLength.js'
 import ArticleMask from './ArticleMask.js'
 import ArticlePassword from './ArticlePassword.js'
@@ -48,6 +49,8 @@ export default () => {
         <ArticleChildren className={CLASS_SECTION} />
         <br />
         <ArticleReferenced className={CLASS_SECTION} />
+        <br />
+        <ArticleJustifyContent className={CLASS_SECTION} />
       </div>
     </div>
   )

@@ -23,6 +23,13 @@ $s-pin-input-field: (
   xxsmall: $p-base * 2
 ) !default;
 
+$justify-pin-input-field: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between
+) !default;
+
 $pin-input-field-status: (
   error: $c-error,
   success: $c-success,

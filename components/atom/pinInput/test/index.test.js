@@ -35,6 +35,7 @@ describe(json.name, () => {
       'PinInputField',
       'pinInputMask',
       'pinInputSizes',
+      'pinInputJustifyContent',
       'pinInputStatus',
       'getPinInputValueType',
       'default'
@@ -47,6 +48,7 @@ describe(json.name, () => {
       pinInputSizes,
       pinInputStatus,
       getPinInputValueType,
+      pinInputJustifyContent,
       default: AtomPinInput,
       ...others
     } = library
@@ -2122,6 +2124,42 @@ describe(json.name, () => {
       // When
       const {pinInputStatus: actual} = library
       const {ERROR, SUCCESS, ALERT, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('pinInputJustifyContent', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {pinInputJustifyContent: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        FLEX_START: 'start',
+        CENTER: 'center',
+        FLEX_END: 'end',
+        SPACE_BETWEEN: 'between'
+      }
+
+      // When
+      const {pinInputJustifyContent: actual} = library
+      const {FLEX_START, CENTER, FLEX_END, SPACE_BETWEEN, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

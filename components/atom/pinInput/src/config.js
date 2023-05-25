@@ -20,6 +20,13 @@ export const MASK = {
   ALPHANUMERIC: '[A-Za-z0-9]'
 }
 
+export const JUSTIFY_CONTENT = {
+  FLEX_START: 'start',
+  CENTER: 'center',
+  FLEX_END: 'end',
+  SPACE_BETWEEN: 'between'
+}
+
 export const valueChecker =
   ({length = 1, mask}) =>
   (value = '') => {

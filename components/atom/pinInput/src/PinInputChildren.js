@@ -1,11 +1,19 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {BASE_CLASSNAME} from './config.js'
 import PinInputField from './PinInputField.js'
 
-const CLASSNAME = `${BASE_CLASSNAME}FieldsWrapper`
-
-const PinInputChildren = ({autoFocus = false, length, children}) => {
+const PinInputChildren = ({
+  autoFocus = false,
+  length,
+  children,
+  justifyContent
+}) => {
+  const CLASSNAME = cx(`${BASE_CLASSNAME}FieldsWrapper`, {
+    [`${BASE_CLASSNAME}FieldsWrapper--justify-${justifyContent}`]:
+      justifyContent
+  })
   if (children) return children
   return (
     <div className={CLASSNAME}>
@@ -27,7 +35,9 @@ PinInputChildren.propTypes = {
   /** number of input */
   length: PropTypes.number,
   /** children to be rendered */
-  children: PropTypes.node
+  children: PropTypes.node,
+  /** justify content */
+  justifyContent: PropTypes.string
 }
 
 export default PinInputChildren

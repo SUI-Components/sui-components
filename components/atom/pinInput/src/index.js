@@ -10,7 +10,14 @@ import {
   actions as pinInputActions,
   usePinInputReducer
 } from './reducer/index.js'
-import {BASE_CLASSNAME, getValueType, MASK, SIZES, STATUS} from './config.js'
+import {
+  BASE_CLASSNAME,
+  getValueType,
+  JUSTIFY_CONTENT,
+  MASK,
+  SIZES,
+  STATUS
+} from './config.js'
 import PinInputChildren from './PinInputChildren.js'
 import {PinInputContextProvider} from './PinInputContext.js'
 import PinInputField from './PinInputField.js'
@@ -31,6 +38,7 @@ const PinInput = forwardRef(
       mask,
       onChange,
       placeholder = '',
+      justifyContent,
       size = SIZES.MEDIUM,
       status,
       value,
@@ -104,7 +112,11 @@ const PinInput = forwardRef(
           targetRef={innerRef}
           value={innerValue}
         >
-          <PinInputChildren length={length} autoFocus={autoFocus}>
+          <PinInputChildren
+            justifyContent={justifyContent}
+            length={length}
+            autoFocus={autoFocus}
+          >
             {children}
           </PinInputChildren>
         </PinInputContextProvider>
@@ -137,6 +149,8 @@ PinInput.propTypes = {
   isOneTimeCode: PropTypes.bool,
   /** true to make the input type password false for text */
   isPassword: PropTypes.bool,
+  /** set the justify content of the input (FLEX_START, CENTER, FLEX_END) */
+  justifyContent: PropTypes.string,
   /** defines the number of cells */
   length: PropTypes.number,
   /** name of the custom mask (NUMBER, ALPHABETIC, ALPHANUMERIC) */
@@ -165,5 +179,6 @@ export {
   MASK as pinInputMask,
   SIZES as pinInputSizes,
   STATUS as pinInputStatus,
-  getValueType as getPinInputValueType
+  getValueType as getPinInputValueType,
+  JUSTIFY_CONTENT as pinInputJustifyContent
 }

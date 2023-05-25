@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.8.0 (2023-05-25)
+
+
+### Bug Fixes
+
+* **components/molecule/stepper:** Hide label height ([c7edf3f](https://github.com/SUI-Components/sui-components/commit/c7edf3fea015a1e0ae04e5d29f7cdb81d51fadaa))
+
+
+
 # 2.7.0 (2023-05-11)
 
 

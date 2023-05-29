@@ -20,7 +20,7 @@ export const icon = (
 )
 
 export default () => {
-  const [phone, setPhone] = useState('666666666')
+  const [phone, setPhone] = useState('')
 
   const onValueChange = (_, {value}) => {
     setPhone(value)
@@ -48,7 +48,7 @@ export default () => {
         <H3>Default</H3>
         <MoleculePhoneInput
           value={phone}
-          onChange={setPhone}
+          onChange={onValueChange}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
@@ -58,7 +58,7 @@ export default () => {
         <H3>Splitted</H3>
         <MoleculePhoneInput
           value={phone}
-          onChange={setPhone}
+          onChange={onValueChange}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}
@@ -71,7 +71,7 @@ export default () => {
         <H3>Default</H3>
         <MoleculePhoneInput
           value={phone}
-          onChange={setPhone}
+          onChange={onValueChange}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
@@ -81,7 +81,7 @@ export default () => {
         <H3>Error</H3>
         <MoleculePhoneInput
           value={phone}
-          onChange={setPhone}
+          onChange={onValueChange}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.DEFAULT}
@@ -92,7 +92,7 @@ export default () => {
         <br />
         <MoleculePhoneInput
           value={phone}
-          onChange={setPhone}
+          onChange={onValueChange}
           dropdownIcon={icon}
           placeholder="612 345 678"
           type={phoneValidationType.SPLITTED}

@@ -86,14 +86,14 @@ export default function MoleculePhoneInput({
             {selectedPrefix.countryCode}
           </p>
           <AtomInput
-            value={value}
+            value={value.toString()}
             mask={selectedPrefix.mask || '000 000 000'}
             placeholder={placeholder}
             type={TYPES.MASK}
             onChange={(e, {value}) => {
               onChange(e, {
                 prefix: selectedPrefix.countryCode, // remove spaces from value
-                value: value.replace(/\s/g, '')
+                value: value.toString().replace(/\s/g, '')
               })
             }}
             noBorder

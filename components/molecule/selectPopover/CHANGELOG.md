@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.38.0 (2023-05-30)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add new variables: custom wrapper select icon ([9367eaa](https://github.com/SUI-Components/sui-components/commit/9367eaaf61f46f337f07d8d8351e2f8c5c21dc2d))
+* **components/molecule/selectPopover:** update variable name ([4e55943](https://github.com/SUI-Components/sui-components/commit/4e559432bd4ac9efe31ff5ed690f4de30962daa4))
+
+
+
 # 1.37.0 (2022-10-24)
 
 

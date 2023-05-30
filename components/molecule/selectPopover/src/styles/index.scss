@@ -98,12 +98,12 @@ $base-class: '.sui-MoleculeSelectPopover ';
 
   &--hasCustomWrapper {
     #{$self}-selectIcon {
-      transform: $trf--select-popover-select-icon-has-custom-wrapper !important;
+      transform: $trf-select-popover-select-icon-has-custom-wrapper !important;
     }
 
     .is-open {
       #{$self}-selectIcon {
-        transform: $trf--select-popover-select-icon-has-custom-wrapper--is-open !important;
+        transform: $trf-select-popover-select-icon-has-custom-wrapper--is-open !important;
       }
     }
   }

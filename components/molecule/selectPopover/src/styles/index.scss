@@ -68,7 +68,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
     border-radius: $bdrs-select-popover-content;
     box-shadow: $bxsh-select-popover;
     margin-top: $m-m;
-    position: absolute;
+    position: $p-select-popover;
     min-width: $w-select-popover;
     z-index: $z-select-popover-select-popover;
 
@@ -80,11 +80,11 @@ $base-class: '.sui-MoleculeSelectPopover ';
 
     // placements
     &--right {
-      left: 0;
+      left: $l-select-popover--right;
     }
 
     &--left {
-      right: 0;
+      right: $r-select-popover--left;
     }
   }
 
@@ -98,7 +98,13 @@ $base-class: '.sui-MoleculeSelectPopover ';
 
   &--hasCustomWrapper {
     #{$self}-selectIcon {
-      transform: rotate(-90deg) !important;
+      transform: $trf--select-popover-select-icon-has-custom-wrapper !important;
+    }
+
+    .is-open {
+      #{$self}-selectIcon {
+        transform: $trf--select-popover-select-icon-has-custom-wrapper--is-open !important;
+      }
     }
   }
 

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.2.0 (2023-05-30)
+
+
+### Bug Fixes
+
+* **components/molecule/phoneInput:** Fix phone input demo not working ([05e4a0d](https://github.com/SUI-Components/sui-components/commit/05e4a0dc674f70d80ba523b595b28e0c4782c271))
+
+
+### Features
+
+* **components/molecule/phoneInput/demo:** Make demos random ([3f0cfdf](https://github.com/SUI-Components/sui-components/commit/3f0cfdf66c56bfa3a9fdcca3ac7a09069ed8dc1b))
+
+
+
 # 1.1.0 (2023-05-19)
 
 

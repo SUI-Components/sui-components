@@ -101,7 +101,7 @@ export async function callbackUploadPhotoHandler(
   if (callbackUploadPhoto) {
     try {
       const response = await callbackUploadPhoto(blob, oldUrl)
-      return response.url
+      return response
     } catch (e) {}
   }
 }
@@ -150,7 +150,7 @@ export const prepareFiles = ({
             ])
             setCorruptedFileError(errorText)
           } else {
-            const url = await callbackUploadPhotoHandler(
+            const {url, ...restProps} = await callbackUploadPhotoHandler(
               blob,
               callbackUploadPhoto
             )
@@ -171,7 +171,8 @@ export const prepareFiles = ({
                 },
                 preview: croppedBase64,
                 rotation,
-                url
+                url,
+                ...restProps
               })
             }
           }

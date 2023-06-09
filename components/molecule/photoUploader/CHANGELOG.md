@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.25.0 (2023-06-09)
+
+
+### Bug Fixes
+
+* **components/molecule/photoUploader:** Add fallback for those implementations that not returns a re ([12b0ed3](https://github.com/SUI-Components/sui-components/commit/12b0ed3ff7834cbbcedd956c14ad63ead89087bb))
+
+
+
 # 2.24.0 (2023-06-09)
 
 

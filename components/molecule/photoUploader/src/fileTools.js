@@ -104,6 +104,7 @@ export async function callbackUploadPhotoHandler(
       return response
     } catch (e) {}
   }
+  return {}
 }
 
 export const prepareFiles = ({

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.24.0 (2023-06-09)
+
+
+### Features
+
+* **components/molecule/photoUploader:** Allow pass extra params when a photo is uploaded ([7985400](https://github.com/SUI-Components/sui-components/commit/7985400c0c9f5df2c35e6bf25b4544de86216f8b))
+
+
+
 # 2.23.0 (2023-03-27)
 
 

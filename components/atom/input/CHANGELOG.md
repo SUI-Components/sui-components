@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 5.33.0 (2023-06-14)
+
+
+### Bug Fixes
+
+* **components/atom/input:** Change null name variable ([062936c](https://github.com/SUI-Components/sui-components/commit/062936c583f0ddbf277c83f7c18e865e1790b839))
+* **components/atom/input:** Remove id ([dbc9c43](https://github.com/SUI-Components/sui-components/commit/dbc9c435d137c00630f6546324c111e43e1093f1))
+
+
+
 # 5.32.0 (2023-05-19)
 
 

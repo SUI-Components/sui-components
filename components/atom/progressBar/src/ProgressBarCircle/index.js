@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {SIZES, STATUS} from '../settings.js'
+import {LINE_CAPS, SIZES, STATUS} from '../settings.js'
 import Circle from './Circle/index.js'
 import Indicator from './Indicator.js'
 import {BASE_CLASS_NAME, SIZE_TO_WIDTH_LINE_MAP} from './settings.js'
@@ -15,6 +15,7 @@ const ProgressBarCircle = ({
   hideIndicator,
   children,
   outerStrokeWidth,
+  strokeLineCaps
 }) => {
   const circleWidth = SIZE_TO_WIDTH_LINE_MAP[size]
 
@@ -34,6 +35,7 @@ const ProgressBarCircle = ({
         strokeWidth={circleWidth}
         size={size}
         outerStrokeWidth={outerStrokeWidth}
+        strokeLineCaps={strokeLineCaps}
       />
       {!hideIndicator && (
         <Indicator
@@ -69,6 +71,10 @@ ProgressBarCircle.propTypes = {
 
   /** Hide the indicator */
   hideIndicator: PropTypes.bool,
+
+  /** The shape of the end of line, it can be "round" or "square" */
+  strokeLineCaps: PropTypes.oneOf(Object.values(LINE_CAPS)),
+
   /** When progress stroke is bigger than main one, it would be double in width  */
   outerStrokeWidth: PropTypes.bool,
 
@@ -79,6 +85,7 @@ ProgressBarCircle.propTypes = {
 ProgressBarCircle.defaultProps = {
   isAnimatedOnChange: false,
   outerStrokeWidth: false,
+  strokeLineCaps: LINE_CAPS.SQUARE,
   status: STATUS.PROGRESS,
   hideIndicator: false,
   size: SIZES.LARGE

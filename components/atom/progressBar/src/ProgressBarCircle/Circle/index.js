@@ -13,6 +13,7 @@ const Circle = ({
   size,
   withAnimation,
   outerStrokeWidth,
+  strokeLineCaps
 }) => {
   const [currentPercentage, setCurrentPercentage] = useState(percentage)
   const [transitionTime, setTransitionTime] = useState(0)
@@ -70,7 +71,7 @@ const Circle = ({
           [`${baseClassName}-path--${modifier}`]: !!modifier
         })}
         {...getPathStyles({percentage, strokeWidth})}
-        strokeLinecap="square"
+        strokeLinecap={strokeLineCaps}
         strokeWidth={outerStrokeWidth ? strokeWidth * 2 : strokeWidth}
         fillOpacity="0"
       />
@@ -91,6 +92,8 @@ Circle.propTypes = {
   withAnimation: PropTypes.bool,
   /** When progress stroke is bigger than main one, it would be double in width  */
   outerStrokeWidth: PropTypes.bool,
+  /** The shape of the end of line, it can be "round" or "square" */
+  strokeLineCaps: PropTypes.string.isRequired,
   /** size of the circle [small, large]  */
   size: PropTypes.oneOf(Object.values(SIZES)).isRequired
 }

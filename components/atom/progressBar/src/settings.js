@@ -13,6 +13,11 @@ export const SIZES = {
   LARGE: 'large'
 }
 
+export const LINE_CAPS = {
+  ROUND: 'round',
+  SQUARE: 'square'
+}
+
 export const STATUS = {
   LOADING: 'loading',
   PROGRESS: 'progress',

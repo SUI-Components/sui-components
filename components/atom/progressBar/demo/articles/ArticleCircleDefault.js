@@ -15,6 +15,7 @@ import {
 } from '@s-ui/documentation-library'
 
 import AtomProgressBar, {
+  atomProgressBarLineCaps,
   atomProgressBarSizes,
   atomProgressBarStatus,
   atomProgressBarTypes
@@ -26,9 +27,12 @@ const ArticleCircleDefault = ({className}) => {
   const [isAnimated, setIsAnimated] = useState(true)
   const [hideIndicator, setHideIndicator] = useState()
   const [indicatorBottom, setIndicatorBottom] = useState()
+  const [strokeLineCaps, setStrokeLineCaps] = useState('square')
+  const [outerStrokeWidth, setOuterStrokeWidth] = useState()
   const [indicatorTotal, setIndicatorTotal] = useState()
   const [status, setStatus] = useState()
   const [size, setSize] = useState()
+
   return (
     <Article className={className}>
       <H2 id="circle-progress-bar">Circle Progress Bar</H2>
@@ -102,6 +106,38 @@ const ArticleCircleDefault = ({className}) => {
           />
         </Cell>
         <Cell>
+          <Label>strokeLineCaps</Label>
+        </Cell>
+        <Cell>
+          <Label>outerStrokeWidth</Label>
+        </Cell>
+        <Cell>
+          <RadioButtonGroup
+            value={strokeLineCaps}
+            onChange={(event, value) => setStrokeLineCaps(value)}
+          >
+            {[
+              ['undefined', undefined],
+              ...Object.entries(atomProgressBarLineCaps)
+            ].map(([, atomProgressBarLineCapsValue]) => (
+              <RadioButton
+                key={`${atomProgressBarLineCapsValue}`}
+                label={`${atomProgressBarLineCapsValue}`}
+                value={atomProgressBarLineCapsValue}
+                checked={strokeLineCaps === atomProgressBarLineCapsValue}
+              />
+            ))}
+          </RadioButtonGroup>
+        </Cell>
+        <Cell>
+          <RadioButton
+            onClick={() => setOuterStrokeWidth(!outerStrokeWidth)}
+            label={outerStrokeWidth ? 'true' : 'false'}
+            checked={outerStrokeWidth}
+          />
+        </Cell>
+
+        <Cell>
           <Label>status</Label>
         </Cell>
         <Cell>
@@ -156,6 +192,8 @@ const ArticleCircleDefault = ({className}) => {
             hideIndicator={hideIndicator}
             indicatorBottom={indicatorBottom}
             indicatorTotal={indicatorTotal}
+            strokeLineCaps={strokeLineCaps}
+            outerStrokeWidth={outerStrokeWidth}
           />
         </Cell>
       </Grid>

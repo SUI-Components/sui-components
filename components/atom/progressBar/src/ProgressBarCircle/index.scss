@@ -27,6 +27,14 @@ $base-class-circle: '#{$base-class}Circle';
     height: $h-atom-circle-progress-bar-circle-large;
     width: $w-atom-circle-progress-bar-circle-large;
   }
+  &--xl {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: $fz-atom-circle-progress-bar-text-xl--inner;
+    height: $h-atom-circle-progress-bar-circle-xl;
+    width: $w-atom-circle-progress-bar-circle-xl;
+  }
 
   &--error {
     align-items: center;
@@ -59,6 +67,13 @@ $base-class-circle: '#{$base-class}Circle';
       height: $h-atom-circle-progress-bar-circle-large;
       width: $w-atom-circle-progress-bar-circle-large;
     }
+    &--xl {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: $h-atom-circle-progress-bar-circle-xl;
+      width: $w-atom-circle-progress-bar-circle-xl;
+    }
 
     &--error {
       display: flex;
@@ -84,6 +99,10 @@ $base-class-circle: '#{$base-class}Circle';
     &--large {
       height: $h-atom-circle-progress-bar-circle-large;
       width: $w-atom-circle-progress-bar-circle-large;
+    }
+    &--xl {
+      height: $h-atom-circle-progress-bar-circle-xl;
+      width: $w-atom-circle-progress-bar-circle-xl;
     }
   }
 

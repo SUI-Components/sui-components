@@ -11,7 +11,8 @@ const Circle = ({
   percentage,
   strokeWidth,
   size,
-  withAnimation
+  withAnimation,
+  outerStrokeWidth,
 }) => {
   const [currentPercentage, setCurrentPercentage] = useState(percentage)
   const [transitionTime, setTransitionTime] = useState(0)
@@ -30,7 +31,7 @@ const Circle = ({
   )
 
   const getPathStyles = ({percentage, strokeWidth}) => {
-    const radius = 50 - strokeWidth / 2
+    const radius = 50 - (outerStrokeWidth ? strokeWidth : strokeWidth / 2)
     const d = `M 50,50 m 0,-${radius}
      a ${radius},${radius} 0 1 1 0,${2 * radius}
      a ${radius},${radius} 0 1 1 0,-${2 * radius}`
@@ -70,7 +71,7 @@ const Circle = ({
         })}
         {...getPathStyles({percentage, strokeWidth})}
         strokeLinecap="square"
-        strokeWidth={strokeWidth}
+        strokeWidth={outerStrokeWidth ? strokeWidth * 2 : strokeWidth}
         fillOpacity="0"
       />
     </svg>
@@ -88,6 +89,8 @@ Circle.propTypes = {
   strokeWidth: PropTypes.node.isRequired,
   /** boolean to activate/desactivate animations */
   withAnimation: PropTypes.bool,
+  /** When progress stroke is bigger than main one, it would be double in width  */
+  outerStrokeWidth: PropTypes.bool,
   /** size of the circle [small, large]  */
   size: PropTypes.oneOf(Object.values(SIZES)).isRequired
 }

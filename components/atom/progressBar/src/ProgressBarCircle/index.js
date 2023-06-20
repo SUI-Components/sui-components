@@ -13,7 +13,8 @@ const ProgressBarCircle = ({
   size,
   isAnimatedOnChange,
   hideIndicator,
-  children
+  children,
+  outerStrokeWidth,
 }) => {
   const circleWidth = SIZE_TO_WIDTH_LINE_MAP[size]
 
@@ -32,6 +33,7 @@ const ProgressBarCircle = ({
         withAnimation={isAnimatedOnChange}
         strokeWidth={circleWidth}
         size={size}
+        outerStrokeWidth={outerStrokeWidth}
       />
       {!hideIndicator && (
         <Indicator
@@ -67,12 +69,16 @@ ProgressBarCircle.propTypes = {
 
   /** Hide the indicator */
   hideIndicator: PropTypes.bool,
+  /** When progress stroke is bigger than main one, it would be double in width  */
+  outerStrokeWidth: PropTypes.bool,
+
   /** Component to render inside the circle instead of the current progress */
   children: PropTypes.node
 }
 
 ProgressBarCircle.defaultProps = {
   isAnimatedOnChange: false,
+  outerStrokeWidth: false,
   status: STATUS.PROGRESS,
   hideIndicator: false,
   size: SIZES.LARGE

@@ -213,6 +213,7 @@ describe(json.name, () => {
 
       // When
       const {atomProgressBarSizes: actual} = library
+      console.log('🚀 ~ file: index.test.js:216 ~ it ~ actual:', actual)
 
       // Then
       expect(actual).to.be.an('object')
@@ -230,7 +231,7 @@ describe(json.name, () => {
 
       // When
       const {atomProgressBarSizes: actual} = library
-      const {XL, LARGE, MEDIUM, SMALL, ...others} = actual
+      const {EXTRA_LARGE, LARGE, MEDIUM, SMALL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

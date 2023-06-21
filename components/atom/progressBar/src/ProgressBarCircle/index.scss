@@ -27,13 +27,13 @@ $base-class-circle: '#{$base-class}Circle';
     height: $h-atom-circle-progress-bar-circle-large;
     width: $w-atom-circle-progress-bar-circle-large;
   }
-  &--xl {
+  &--extraLarge {
     align-items: center;
     display: flex;
     justify-content: center;
-    font-size: $fz-atom-circle-progress-bar-text-xl--inner;
-    height: $h-atom-circle-progress-bar-circle-xl;
-    width: $w-atom-circle-progress-bar-circle-xl;
+    font-size: $fz-atom-circle-progress-bar-text--extraLarge;
+    height: $h-atom-circle-progress-bar-circle-extraLarge;
+    width: $w-atom-circle-progress-bar-circle-extraLarge;
   }
 
   &--error {
@@ -67,12 +67,12 @@ $base-class-circle: '#{$base-class}Circle';
       height: $h-atom-circle-progress-bar-circle-large;
       width: $w-atom-circle-progress-bar-circle-large;
     }
-    &--xl {
+    &--extraLarge {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: $h-atom-circle-progress-bar-circle-xl;
-      width: $w-atom-circle-progress-bar-circle-xl;
+      height: $h-atom-circle-progress-bar-circle-extraLarge;
+      width: $w-atom-circle-progress-bar-circle-extraLarge;
     }
 
     &--error {
@@ -100,9 +100,9 @@ $base-class-circle: '#{$base-class}Circle';
       height: $h-atom-circle-progress-bar-circle-large;
       width: $w-atom-circle-progress-bar-circle-large;
     }
-    &--xl {
-      height: $h-atom-circle-progress-bar-circle-xl;
-      width: $w-atom-circle-progress-bar-circle-xl;
+    &--extraLarge {
+      height: $h-atom-circle-progress-bar-circle-extraLarge;
+      width: $w-atom-circle-progress-bar-circle-extraLarge;
     }
   }
 

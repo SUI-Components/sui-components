@@ -7,7 +7,7 @@ export const TYPES = {
 }
 
 export const SIZES = {
-  XL: 'xl',
+  EXTRA_LARGE: 'extraLarge',
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large'

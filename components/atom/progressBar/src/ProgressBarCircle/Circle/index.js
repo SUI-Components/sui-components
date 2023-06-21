@@ -93,7 +93,7 @@ Circle.propTypes = {
   /** When progress stroke is bigger than main one, it would be double in width  */
   outerStrokeWidth: PropTypes.bool,
   /** The shape of the end of line, it can be "round" or "square" */
-  strokeLineCap: PropTypes.string.isRequired,
+  strokeLineCap: PropTypes.string,
   /** size of the circle [small, large]  */
   size: PropTypes.oneOf(Object.values(SIZES)).isRequired
 }

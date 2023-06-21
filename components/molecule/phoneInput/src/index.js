@@ -34,6 +34,11 @@ export default function MoleculePhoneInput({
   const [isLandLine, setIsLandLine] = useState(false)
   const modalRef = useRef(null)
   const inputPrefixRef = useRef(null)
+  const inputMask = selectedPrefix && {
+    mask: isLandLine
+      ? selectedPrefix.mask.landlineMask
+      : selectedPrefix.mask.mobileMask
+  }
 
   const baseClass = cx(
     {
@@ -60,6 +65,19 @@ export default function MoleculePhoneInput({
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  const handlePhoneChange = (e, {value}) => {
+    if (selectedPrefix.landlinePrefixs.includes(value[0])) {
+      setIsLandLine(true)
+    } else {
+      setIsLandLine(false)
+    }
+
+    onChange(e, {
+      prefix: selectedPrefix.countryCode, // remove spaces from value
+      value: value.toString().replace(/\s/g, '')
+    })
+  }
 
   return (
     <div className={baseClass}>
@@ -92,25 +110,10 @@ export default function MoleculePhoneInput({
           )}
           <AtomInput
             value={value.toString()}
-            mask={
-              selectedPrefix && {
-                mask: isLandLine
-                  ? selectedPrefix.mask.landlineMask
-                  : selectedPrefix.mask.mobileMask
-              }
-            }
+            mask={inputMask}
             placeholder={placeholder}
             type={TYPES.MASK}
-            onChange={(e, {value}) => {
-              selectedPrefix.landlinePrefixs.includes(value[0])
-                ? setIsLandLine(true)
-                : setIsLandLine(false)
-
-              onChange(e, {
-                prefix: selectedPrefix.countryCode, // remove spaces from value
-                value: value.toString().replace(/\s/g, '')
-              })
-            }}
+            onChange={handlePhoneChange}
             noBorder
           />
         </div>

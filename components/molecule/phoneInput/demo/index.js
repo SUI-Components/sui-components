@@ -15,7 +15,14 @@ export default () => {
   return (
     <div className="sui-StudioPreview">
       <H1>Phone Input Demo</H1>
-      <Paragraph>Telephone type input with prefixes in a dropdown.</Paragraph>
+      <Paragraph>
+        Telephone type input with prefixes in a dropdown.
+        <strong>
+          PhoneInput checks if the number's prefix matches a landline format and
+          formats it accordingly for mobile or landline use.
+        </strong>
+      </Paragraph>
+
       <br />
       <ArticleDefault icon={<AtomIcon />} />
       <br />

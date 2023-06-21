@@ -222,7 +222,7 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
-        XL: 'xl',
+        EXTRA_LARGE: 'extraLarge',
         LARGE: 'large',
         MEDIUM: 'medium',
         SMALL: 'small'

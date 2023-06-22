@@ -26,13 +26,19 @@ export default function MoleculePhoneInput({
   onChange,
   placeholder,
   hasError,
-  initialSelectedPrefix = {},
+  initialSelectedPrefix = prefixes[0],
   type = phoneValidationType.DEFAULT
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedPrefix, setSelectedPrefix] = useState(initialSelectedPrefix)
+  const [isLandLine, setIsLandLine] = useState(false)
   const modalRef = useRef(null)
   const inputPrefixRef = useRef(null)
+  const inputMask = selectedPrefix && {
+    mask: isLandLine
+      ? selectedPrefix.mask.landlineMask
+      : selectedPrefix.mask.mobileMask
+  }
 
   const baseClass = cx(
     {
@@ -60,6 +66,20 @@ export default function MoleculePhoneInput({
     }
   }, [])
 
+  const handlePhoneChange = (e, {value}) => {
+    if (selectedPrefix.landlinePrefixs.includes(value[0])) {
+      setIsLandLine(true)
+    } else {
+      setIsLandLine(false)
+    }
+
+    typeof onChange === 'function' &&
+      onChange(e, {
+        prefix: selectedPrefix.countryCode, // remove spaces from value
+        value: value.toString().replace(/\s/g, '')
+      })
+  }
+
   return (
     <div className={baseClass}>
       <div className={`${baseClass}-input`}>
@@ -68,12 +88,14 @@ export default function MoleculePhoneInput({
           className={`${baseClass}-input-prefix`}
           onClick={() => setShowDropdown(!showDropdown)}
         >
-          <img
-            height={24}
-            width={24}
-            className={`${baseClass}-input-prefix-flag`}
-            src={flagIcons[selectedPrefix.value]}
-          />
+          {selectedPrefix && (
+            <img
+              height={24}
+              width={24}
+              className={`${baseClass}-input-prefix-flag`}
+              src={flagIcons[selectedPrefix?.value]}
+            />
+          )}
           <AtomIcon
             size={ATOM_ICON_SIZES.medium}
             color={ATOM_ICON_COLORS.currentColor}
@@ -82,20 +104,17 @@ export default function MoleculePhoneInput({
           </AtomIcon>
         </div>
         <div className={`${baseClass}-input-phoneContainer`}>
-          <p className={`${baseClass}-input-prefix-code`}>
-            {selectedPrefix.countryCode}
-          </p>
+          {selectedPrefix && (
+            <p className={`${baseClass}-input-prefix-code`}>
+              {selectedPrefix.countryCode}
+            </p>
+          )}
           <AtomInput
             value={value.toString()}
-            mask={selectedPrefix.mask || '000 000 000'}
+            mask={inputMask}
             placeholder={placeholder}
             type={TYPES.MASK}
-            onChange={(e, {value}) => {
-              onChange(e, {
-                prefix: selectedPrefix.countryCode, // remove spaces from value
-                value: value.toString().replace(/\s/g, '')
-              })
-            }}
+            onChange={handlePhoneChange}
             noBorder
           />
         </div>

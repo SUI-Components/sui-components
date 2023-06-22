@@ -125,7 +125,8 @@ describe('MoleculePhoneInput', () => {
     // Given
     const props = {
       value: '666666666',
-      prefixes: PREFIXES
+      prefixes: PREFIXES,
+      onChange: () => {}
     }
 
     const {container} = setup(props)
@@ -236,7 +237,7 @@ describe('MoleculePhoneInput', () => {
     userEvents.type(input, '6666')
 
     // Then
-    expect(phoneValue).to.be.equal('6666666')
+    expect(input.value).to.be.equal('666 666 6')
     expect(phonePrefix).to.be.equal(PREFIXES[0].countryCode)
   })
 
@@ -254,5 +255,28 @@ describe('MoleculePhoneInput', () => {
     const input = container.querySelector('.sui-MoleculePhoneInput--error')
 
     expect(input).to.not.be.null
+  })
+
+  it('Should apply different mask given a land line value', () => {
+    let phoneValue = '937988421'
+    let phonePrefix = ''
+
+    // Given
+    const props = {
+      value: phoneValue,
+      prefixes: {PREFIXES},
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: (_, {value, prefix}) => {
+        phoneValue = value
+        phonePrefix = prefix
+      }
+    }
+
+    const {container} = setup(props)
+    const input = container.querySelector('input')
+
+    // Then
+    expect(input.value).to.be.equal('93 798 84 21')
+    expect(phonePrefix).to.be.equal(PREFIXES[0].countryCode)
   })
 })

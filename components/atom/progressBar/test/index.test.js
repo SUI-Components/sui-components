@@ -27,6 +27,7 @@ describe(json.name, () => {
       'atomProgressBarSizes',
       'atomProgressBarStatus',
       'atomProgressBarLineCaps',
+      'atomProgressBarStrokeSizes',
       'default'
     ]
 
@@ -36,6 +37,7 @@ describe(json.name, () => {
       atomProgressBarSizes,
       atomProgressBarStatus,
       atomProgressBarLineCaps,
+      atomProgressBarStrokeSizes,
       default: AtomProgressBar,
       ...others
     } = library
@@ -213,7 +215,6 @@ describe(json.name, () => {
 
       // When
       const {atomProgressBarSizes: actual} = library
-      console.log('🚀 ~ file: index.test.js:216 ~ it ~ actual:', actual)
 
       // Then
       expect(actual).to.be.an('object')

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2023-06-22)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Add landline handler ([04c22f1](https://github.com/SUI-Components/sui-components/commit/04c22f13057572589a9d39a5c8fb800593ed0faa))
+
+
+
 # 1.2.0 (2023-05-30)
 
 

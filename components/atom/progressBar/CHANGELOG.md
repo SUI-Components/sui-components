@@ -1,5 +1,22 @@
 # CHANGELOG
 
+# 2.10.0 (2023-06-22)
+
+
+### Features
+
+* **components/atom/progressBar/demo:** Update Demo ([21a648a](https://github.com/SUI-Components/sui-components/commit/21a648aa5f6fbf030da2da8864235472a9b842dc))
+* **components/atom/progressBar/demo:** Update Demo ([43b1419](https://github.com/SUI-Components/sui-components/commit/43b14191ea0cfcf3177cda82592846ee6a9beaa6))
+* **components/atom/progressBar:** Add new XL size for progress bar ([7cd5b47](https://github.com/SUI-Components/sui-components/commit/7cd5b47c7c169ab9060e569c6e83b4749af380a1))
+* **components/atom/progressBar:** Add OuterStrokeWidth prop ([c133e03](https://github.com/SUI-Components/sui-components/commit/c133e03f8f0c74d8a2f17033a1ee57fb0c6cea3e))
+* **components/atom/progressBar:** Add Round LineCap option ([030a828](https://github.com/SUI-Components/sui-components/commit/030a828ea13a320a2da30aec647b06c589474c4b))
+* **components/atom/progressBar:** Add stroke sizes to settings ([b5cb4b1](https://github.com/SUI-Components/sui-components/commit/b5cb4b1a75fd7b572949bea2f9a0ce40ffee273f))
+* **components/atom/progressBar:** Replace OuterStroke with Stroke sizes ([e940f83](https://github.com/SUI-Components/sui-components/commit/e940f8321b6222c3063f771580f50cb4dec9f877))
+* **components/atom/progressBar:** Update test ([3003f0e](https://github.com/SUI-Components/sui-components/commit/3003f0e7a61041fb11dba64fa4a30e6ed2216f04))
+* **components/atom/progressBar:** Update Tests ([1c51dde](https://github.com/SUI-Components/sui-components/commit/1c51ddecd4140cd087a13eb3e29b2483e06bbaf3))
+
+
+
 # 2.9.0 (2022-10-06)
 
 

@@ -15,8 +15,10 @@ import {
 } from '@s-ui/documentation-library'
 
 import AtomProgressBar, {
+  atomProgressBarLineCaps,
   atomProgressBarSizes,
   atomProgressBarStatus,
+  atomProgressBarStrokeSizes,
   atomProgressBarTypes
 } from '../../src/index.js'
 import {getShuffledValue} from '../settings.js'
@@ -26,9 +28,13 @@ const ArticleCircleDefault = ({className}) => {
   const [isAnimated, setIsAnimated] = useState(true)
   const [hideIndicator, setHideIndicator] = useState()
   const [indicatorBottom, setIndicatorBottom] = useState()
+  const [strokeLineCap, setStrokeLineCap] = useState('square')
+  const [mainStrokeSize, setMainStrokeSize] = useState()
+  const [progressStrokeSize, setProgressStrokeSize] = useState()
   const [indicatorTotal, setIndicatorTotal] = useState()
   const [status, setStatus] = useState()
   const [size, setSize] = useState()
+
   return (
     <Article className={className}>
       <H2 id="circle-progress-bar">Circle Progress Bar</H2>
@@ -101,6 +107,51 @@ const ArticleCircleDefault = ({className}) => {
             checked={indicatorTotal}
           />
         </Cell>
+
+        <Cell>
+          <Label>mainStrokeSize</Label>
+        </Cell>
+        <Cell>
+          <Label>progressStrokeSize</Label>
+        </Cell>
+
+        <Cell>
+          <RadioButtonGroup
+            value={mainStrokeSize}
+            onChange={(event, value) => setMainStrokeSize(value)}
+          >
+            {[
+              ['undefined', undefined],
+              ...Object.entries(atomProgressBarStrokeSizes)
+            ].map(([, atomProgressBarStrokeSizesValue]) => (
+              <RadioButton
+                key={`${atomProgressBarStrokeSizesValue}`}
+                label={`${atomProgressBarStrokeSizesValue}`}
+                value={atomProgressBarStrokeSizesValue}
+                checked={mainStrokeSize === atomProgressBarStrokeSizesValue}
+              />
+            ))}
+          </RadioButtonGroup>
+        </Cell>
+        <Cell>
+          <RadioButtonGroup
+            value={progressStrokeSize}
+            onChange={(event, value) => setProgressStrokeSize(value)}
+          >
+            {[
+              ['undefined', undefined],
+              ...Object.entries(atomProgressBarStrokeSizes)
+            ].map(([, atomProgressBarStrokeSizesValue]) => (
+              <RadioButton
+                key={`${atomProgressBarStrokeSizesValue}`}
+                label={`${atomProgressBarStrokeSizesValue}`}
+                value={atomProgressBarStrokeSizesValue}
+                checked={progressStrokeSize === atomProgressBarStrokeSizesValue}
+              />
+            ))}
+          </RadioButtonGroup>
+        </Cell>
+
         <Cell>
           <Label>status</Label>
         </Cell>
@@ -143,6 +194,27 @@ const ArticleCircleDefault = ({className}) => {
             ))}
           </RadioButtonGroup>
         </Cell>
+        <Cell>
+          <Label>strokeLineCap</Label>
+        </Cell>
+        <Cell>
+          <RadioButtonGroup
+            value={strokeLineCap}
+            onChange={(event, value) => setStrokeLineCap(value)}
+          >
+            {[
+              ['undefined', undefined],
+              ...Object.entries(atomProgressBarLineCaps)
+            ].map(([, atomProgressBarLineCapsValue]) => (
+              <RadioButton
+                key={`${atomProgressBarLineCapsValue}`}
+                label={`${atomProgressBarLineCapsValue}`}
+                value={atomProgressBarLineCapsValue}
+                checked={strokeLineCap === atomProgressBarLineCapsValue}
+              />
+            ))}
+          </RadioButtonGroup>
+        </Cell>
         <Cell span={2}>
           <Label>result</Label>
         </Cell>
@@ -156,6 +228,9 @@ const ArticleCircleDefault = ({className}) => {
             hideIndicator={hideIndicator}
             indicatorBottom={indicatorBottom}
             indicatorTotal={indicatorTotal}
+            strokeLineCap={strokeLineCap}
+            mainStrokeSize={mainStrokeSize}
+            progressStrokeSize={progressStrokeSize}
           />
         </Cell>
       </Grid>

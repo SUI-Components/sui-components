@@ -7,9 +7,21 @@ export const TYPES = {
 }
 
 export const SIZES = {
+  EXTRA_LARGE: 'extraLarge',
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large'
+}
+
+export const STROKE_SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
+
+export const LINE_CAPS = {
+  ROUND: 'round',
+  SQUARE: 'square'
 }
 
 export const STATUS = {

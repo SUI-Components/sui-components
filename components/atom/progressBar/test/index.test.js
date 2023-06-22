@@ -26,6 +26,8 @@ describe(json.name, () => {
       'atomProgressBarTypes',
       'atomProgressBarSizes',
       'atomProgressBarStatus',
+      'atomProgressBarLineCaps',
+      'atomProgressBarStrokeSizes',
       'default'
     ]
 
@@ -34,6 +36,8 @@ describe(json.name, () => {
       atomProgressBarTypes,
       atomProgressBarSizes,
       atomProgressBarStatus,
+      atomProgressBarLineCaps,
+      atomProgressBarStrokeSizes,
       default: AtomProgressBar,
       ...others
     } = library
@@ -220,6 +224,7 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
+        EXTRA_LARGE: 'extraLarge',
         LARGE: 'large',
         MEDIUM: 'medium',
         SMALL: 'small'
@@ -227,7 +232,7 @@ describe(json.name, () => {
 
       // When
       const {atomProgressBarSizes: actual} = library
-      const {LARGE, MEDIUM, SMALL, ...others} = actual
+      const {EXTRA_LARGE, LARGE, MEDIUM, SMALL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

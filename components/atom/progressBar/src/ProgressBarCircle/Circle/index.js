@@ -9,10 +9,10 @@ const Circle = ({
   baseClassName,
   modifier,
   percentage,
-  strokeWidth,
   size,
   withAnimation,
-  outerStrokeWidth,
+  mainStrokeWidth,
+  progressStrokeWidth,
   strokeLineCap
 }) => {
   const [currentPercentage, setCurrentPercentage] = useState(percentage)
@@ -31,8 +31,14 @@ const Circle = ({
     [currentPercentage, percentage]
   )
 
+  const getRadius = () => {
+    return mainStrokeWidth === progressStrokeWidth
+      ? 50 - mainStrokeWidth / 2
+      : 50 - Math.max(...[progressStrokeWidth, mainStrokeWidth]) / 2
+  }
+
   const getPathStyles = ({percentage, strokeWidth}) => {
-    const radius = 50 - (outerStrokeWidth ? strokeWidth : strokeWidth / 2)
+    const radius = getRadius()
     const d = `M 50,50 m 0,-${radius}
      a ${radius},${radius} 0 1 1 0,${2 * radius}
      a ${radius},${radius} 0 1 1 0,-${2 * radius}`
@@ -62,17 +68,17 @@ const Circle = ({
         className={cx(`${baseClassName}-trail`, {
           [`${baseClassName}-trail--${modifier}`]: !!modifier
         })}
-        {...getPathStyles({percentage: 100, strokeWidth})}
-        strokeWidth={strokeWidth}
+        {...getPathStyles({percentage: 100, strokeWidth: mainStrokeWidth})}
+        strokeWidth={mainStrokeWidth}
         fillOpacity="0"
       />
       <path
         className={cx(`${baseClassName}-path`, {
           [`${baseClassName}-path--${modifier}`]: !!modifier
         })}
-        {...getPathStyles({percentage, strokeWidth})}
+        {...getPathStyles({percentage, strokeWidth: progressStrokeWidth})}
         strokeLinecap={strokeLineCap}
-        strokeWidth={outerStrokeWidth ? strokeWidth * 2 : strokeWidth}
+        strokeWidth={progressStrokeWidth}
         fillOpacity="0"
       />
     </svg>
@@ -90,8 +96,10 @@ Circle.propTypes = {
   strokeWidth: PropTypes.node.isRequired,
   /** boolean to activate/desactivate animations */
   withAnimation: PropTypes.bool,
-  /** When progress stroke is bigger than main one, it would be double in width  */
-  outerStrokeWidth: PropTypes.bool,
+  /** The size of the progress stroke, by default it is undefined, it can be "small", "medium" or "large" */
+  progressStrokeWidth: PropTypes.literal,
+  /** The size of the main stroke, by default it is undefined, it can be "small", "medium" or "large" */
+  mainStrokeWidth: PropTypes.literal,
   /** The shape of the end of line, it can be "round" or "square" */
   strokeLineCap: PropTypes.string,
   /** size of the circle [small, large]  */

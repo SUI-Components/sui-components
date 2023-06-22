@@ -10,3 +10,9 @@ export const SIZE_TO_WIDTH_LINE_MAP = {
   [SIZES.MEDIUM]: 8,
   [SIZES.SMALL]: 8
 }
+
+export const STROKE_SIZE_MAP = {
+  [SIZES.LARGE]: 18,
+  [SIZES.MEDIUM]: 12,
+  [SIZES.SMALL]: 6
+}

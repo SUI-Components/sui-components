@@ -13,6 +13,12 @@ export const SIZES = {
   LARGE: 'large'
 }
 
+export const STROKE_SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
+}
+
 export const LINE_CAPS = {
   ROUND: 'round',
   SQUARE: 'square'

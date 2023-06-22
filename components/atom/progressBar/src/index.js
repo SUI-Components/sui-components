@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import ProgressBarCircle from './ProgressBarCircle/index.js'
 import ProgressBarLine from './ProgressBarLine/index.js'
-import {LINE_CAPS, SIZES, STATUS, TYPES} from './settings.js'
+import {LINE_CAPS, SIZES, STATUS, STROKE_SIZES, TYPES} from './settings.js'
 
 const AtomProgressBar = ({type, size, ...props}) => {
   switch (type) {
@@ -31,6 +31,7 @@ AtomProgressBar.defaultProps = {
 export default AtomProgressBar
 export {
   LINE_CAPS as atomProgressBarLineCaps,
+  STROKE_SIZES as atomProgressBarStrokeSizes,
   SIZES as atomProgressBarSizes,
   STATUS as atomProgressBarStatus,
   TYPES as atomProgressBarTypes

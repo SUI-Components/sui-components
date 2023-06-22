@@ -18,6 +18,7 @@ import AtomProgressBar, {
   atomProgressBarLineCaps,
   atomProgressBarSizes,
   atomProgressBarStatus,
+  atomProgressBarStrokeSizes,
   atomProgressBarTypes
 } from '../../src/index.js'
 import {getShuffledValue} from '../settings.js'
@@ -28,7 +29,8 @@ const ArticleCircleDefault = ({className}) => {
   const [hideIndicator, setHideIndicator] = useState()
   const [indicatorBottom, setIndicatorBottom] = useState()
   const [strokeLineCap, setStrokeLineCap] = useState('square')
-  const [outerStrokeWidth, setOuterStrokeWidth] = useState()
+  const [mainStrokeSize, setMainStrokeSize] = useState()
+  const [progressStrokeSize, setProgressStrokeSize] = useState()
   const [indicatorTotal, setIndicatorTotal] = useState()
   const [status, setStatus] = useState()
   const [size, setSize] = useState()
@@ -105,36 +107,49 @@ const ArticleCircleDefault = ({className}) => {
             checked={indicatorTotal}
           />
         </Cell>
+
         <Cell>
-          <Label>strokeLineCap</Label>
+          <Label>mainStrokeSize</Label>
         </Cell>
         <Cell>
-          <Label>outerStrokeWidth</Label>
+          <Label>progressStrokeSize</Label>
         </Cell>
+
         <Cell>
           <RadioButtonGroup
-            value={strokeLineCap}
-            onChange={(event, value) => setStrokeLineCap(value)}
+            value={mainStrokeSize}
+            onChange={(event, value) => setMainStrokeSize(value)}
           >
             {[
               ['undefined', undefined],
-              ...Object.entries(atomProgressBarLineCaps)
-            ].map(([, atomProgressBarLineCapsValue]) => (
+              ...Object.entries(atomProgressBarStrokeSizes)
+            ].map(([, atomProgressBarStrokeSizesValue]) => (
               <RadioButton
-                key={`${atomProgressBarLineCapsValue}`}
-                label={`${atomProgressBarLineCapsValue}`}
-                value={atomProgressBarLineCapsValue}
-                checked={strokeLineCap === atomProgressBarLineCapsValue}
+                key={`${atomProgressBarStrokeSizesValue}`}
+                label={`${atomProgressBarStrokeSizesValue}`}
+                value={atomProgressBarStrokeSizesValue}
+                checked={mainStrokeSize === atomProgressBarStrokeSizesValue}
               />
             ))}
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButton
-            onClick={() => setOuterStrokeWidth(!outerStrokeWidth)}
-            label={outerStrokeWidth ? 'true' : 'false'}
-            checked={outerStrokeWidth}
-          />
+          <RadioButtonGroup
+            value={progressStrokeSize}
+            onChange={(event, value) => setProgressStrokeSize(value)}
+          >
+            {[
+              ['undefined', undefined],
+              ...Object.entries(atomProgressBarStrokeSizes)
+            ].map(([, atomProgressBarStrokeSizesValue]) => (
+              <RadioButton
+                key={`${atomProgressBarStrokeSizesValue}`}
+                label={`${atomProgressBarStrokeSizesValue}`}
+                value={atomProgressBarStrokeSizesValue}
+                checked={progressStrokeSize === atomProgressBarStrokeSizesValue}
+              />
+            ))}
+          </RadioButtonGroup>
         </Cell>
 
         <Cell>
@@ -179,6 +194,27 @@ const ArticleCircleDefault = ({className}) => {
             ))}
           </RadioButtonGroup>
         </Cell>
+        <Cell>
+          <Label>strokeLineCap</Label>
+        </Cell>
+        <Cell>
+          <RadioButtonGroup
+            value={strokeLineCap}
+            onChange={(event, value) => setStrokeLineCap(value)}
+          >
+            {[
+              ['undefined', undefined],
+              ...Object.entries(atomProgressBarLineCaps)
+            ].map(([, atomProgressBarLineCapsValue]) => (
+              <RadioButton
+                key={`${atomProgressBarLineCapsValue}`}
+                label={`${atomProgressBarLineCapsValue}`}
+                value={atomProgressBarLineCapsValue}
+                checked={strokeLineCap === atomProgressBarLineCapsValue}
+              />
+            ))}
+          </RadioButtonGroup>
+        </Cell>
         <Cell span={2}>
           <Label>result</Label>
         </Cell>
@@ -193,7 +229,8 @@ const ArticleCircleDefault = ({className}) => {
             indicatorBottom={indicatorBottom}
             indicatorTotal={indicatorTotal}
             strokeLineCap={strokeLineCap}
-            outerStrokeWidth={outerStrokeWidth}
+            mainStrokeSize={mainStrokeSize}
+            progressStrokeSize={progressStrokeSize}
           />
         </Cell>
       </Grid>

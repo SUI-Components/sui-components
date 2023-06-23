@@ -12,6 +12,7 @@ const MoleculeSelectFieldMultiSelection = props => {
   /* eslint-disable react/prop-types */
   const {
     children,
+    disabled,
     isOpen,
     onToggle,
     onChange,
@@ -95,6 +96,7 @@ const MoleculeSelectFieldMultiSelection = props => {
   return (
     <>
       <MoleculeInputSelect
+        disabled={disabled}
         id={id}
         tags={tags}
         onClick={ev => onToggle(ev, {isOpen: !isOpen})}

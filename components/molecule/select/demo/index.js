@@ -248,6 +248,34 @@ const Demo = () => {
         </div>
 
         <div className={CLASS_DEMO_SECTION}>
+          <h3>With Search multiple selection disabled</h3>
+          <MoleculeSelectWithState
+            placeholder="Select a Country..."
+            hasSearch
+            onSearch={({value}) => setQuerySingle(value)}
+            searchPlaceholder="Search a country..."
+            searchIcon={<IconSearch />}
+            noResults={
+              <div className="DemoMoleculeSelect-noResults">
+                No results found...
+              </div>
+            }
+            onChange={(_, {value}) => console.log(value)}
+            iconArrowDown={<IconArrowDown />}
+            multiselection
+            disabled
+          >
+            {countriesList
+              .filter(country => country.includes(querySingle))
+              .map((country, i) => (
+                <MoleculeSelectOption key={i} value={country}>
+                  {country}
+                </MoleculeSelectOption>
+              ))}
+          </MoleculeSelectWithState>
+        </div>
+
+        <div className={CLASS_DEMO_SECTION}>
           <h3>With onToggle callback</h3>
           <MoleculeSelectWithState
             placeholder="Select some countries..."

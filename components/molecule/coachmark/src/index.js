@@ -2,7 +2,13 @@ import Joyride, {ACTIONS, EVENTS, LIFECYCLE, STATUS} from 'react-joyride'
 
 import PropTypes from 'prop-types'
 
-import {STEP_BEACON_PLACEMENT_TYPES, STEP_PLACEMENT_TYPES} from './settings.js'
+import {
+  DEFAULT_SCROLL_DURATION,
+  DEFAULT_SCROLL_OFFSET,
+  DEFAULT_SPOTLIGHT_PADDING,
+  STEP_BEACON_PLACEMENT_TYPES,
+  STEP_PLACEMENT_TYPES
+} from './settings.js'
 
 const MoleculeCoachmark = ({
   steps,
@@ -20,13 +26,13 @@ const MoleculeCoachmark = ({
   hideBackButton = false,
   hideCloseButton = false,
   run = true,
-  scrollOffset = 20,
-  scrollDuration = 300,
+  scrollOffset = DEFAULT_SCROLL_OFFSET,
+  scrollDuration = DEFAULT_SCROLL_DURATION,
   scrollToFirstStep = false,
   showProgress = false,
   shopSkipButton = false,
   spotlightClicks = false,
-  spotlightPadding = 10,
+  spotlightPadding = DEFAULT_SPOTLIGHT_PADDING,
   stepIndex,
   styles
 }) => {
@@ -44,7 +50,12 @@ const MoleculeCoachmark = ({
       disableScrollParentFix={disableScrollParentFix}
       floaterProps={floaterProps}
       {...(getHelpers && {getHelpers})}
-      styles={styles}
+      styles={{
+        options: {
+          zIndex: 9999,
+          ...styles
+        }
+      }}
       hideBackButton={hideBackButton}
       hideCloseButton={hideCloseButton}
       run={run}

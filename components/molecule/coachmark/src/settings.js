@@ -21,3 +21,7 @@ export const STEP_BEACON_PLACEMENT_TYPES = {
   right: 'right',
   top: 'top'
 }
+
+export const DEFAULT_SCROLL_OFFSET = 20
+export const DEFAULT_SCROLL_DURATION = 300
+export const DEFAULT_SPOTLIGHT_PADDING = 10

@@ -1,6 +1,8 @@
 # MoleculeCoachmark
 
-`MoleculeCoachmark` is a wrapper of the [react-joyride](https://react-joyride.com/) library in order to create smooth guided tours in the apps to explain new features to the users
+`MoleculeCoachmark` is a wrapper of the [react-joyride](https://react-joyride.com/) library in order to create smooth guided tours in the apps to explain new features to the users.
+
+For more information on how to use the provided props, visit the [react-joyride documentation site](https://docs.react-joyride.com/)
 
 ## Installation
 
@@ -17,7 +19,7 @@ $ npm install @s-ui/react-molecule-coachmark
 ```js
 import MoleculeCoachmark from '@s-ui/react-molecule-coachmark'
 
-return (<MoleculeCoachmark />)
+return <MoleculeCoachmark {...props} />
 ```
 
 #### Import the styles (Sass)
@@ -27,6 +29,5 @@ return (<MoleculeCoachmark />)
 /* @import 'your theme'; */
 @import '~@s-ui/react-molecule-coachmark/lib/index';
 ```
-
 
 > **Find full description and more examples in the [demo page](#).**

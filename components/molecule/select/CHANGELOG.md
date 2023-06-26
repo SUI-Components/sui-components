@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.66.0 (2023-06-26)
+
+
+### Features
+
+* **components/molecule/select:** pass down disabled prop to multiselect component ([f61a177](https://github.com/SUI-Components/sui-components/commit/f61a177a289edaed1d41022dc99239dbc2e88446))
+
+
+
 # 1.65.0 (2023-05-11)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2023-06-27)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Expose landline ([6e46a0e](https://github.com/SUI-Components/sui-components/commit/6e46a0e636a5825992026ca8ae48d9927a009e91))
+
+
+
 # 1.3.0 (2023-06-22)
 
 

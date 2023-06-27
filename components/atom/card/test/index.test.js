@@ -181,12 +181,14 @@ describe(json.name, () => {
       const expected = {
         S: 's',
         M: 'm',
-        L: 'l'
+        L: 'l',
+        XL: 'xl',
+        XXL: 'xxl'
       }
 
       // When
       const {atomCardRounded: actual} = library
-      const {S, M, L, ...others} = actual
+      const {S, M, L, XL, XXL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

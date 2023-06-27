@@ -8,8 +8,9 @@ import {
   atomButtonShapes,
   atomButtonSizes
 } from '@s-ui/react-atom-button'
+import Injector from '@s-ui/react-primitive-injector'
 
-import Tooltip from './Tooltip/index.js'
+import DefaultTooltip from './Tooltip/index.js'
 import {
   DEFAULT_SCROLL_DURATION,
   DEFAULT_SCROLL_OFFSET,
@@ -46,7 +47,8 @@ const MoleculeCoachmark = ({
   spotlightPadding = DEFAULT_SPOTLIGHT_PADDING,
   stepIndex,
   steps,
-  styles
+  styles,
+  tooltipComponent: CustomTooltipComponent
 }) => {
   return (
     <Joyride
@@ -81,13 +83,20 @@ const MoleculeCoachmark = ({
         },
         ...styles.components
       }}
+      // eslint-disable-next-line react/no-unstable-nested-components
       tooltipComponent={props => (
-        <Tooltip
+        <Injector
           {...props}
           defaultTooltipOptions={defaultTooltipOptions}
           showProgress={showProgress}
           hideBackButton={hideBackButton}
-        />
+        >
+          {CustomTooltipComponent ? (
+            <CustomTooltipComponent />
+          ) : (
+            <DefaultTooltip />
+          )}
+        </Injector>
       )}
     />
   )
@@ -166,7 +175,8 @@ MoleculeCoachmark.propTypes = {
       title: PropTypes.node
     })
   ),
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  tooltipComponent: PropTypes.node
 }
 
 export {ACTIONS as moleculeCoachmarkActions}

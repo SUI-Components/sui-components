@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+
 import Component from '../src/index.js'
 
 chai.use(chaiDOM)

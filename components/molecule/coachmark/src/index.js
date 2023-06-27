@@ -29,7 +29,7 @@ const MoleculeCoachmark = ({
   defaultTooltipOptions,
   disableCloseOnEsc = false,
   disableOverlay = false,
-  disableOverlayClose = false,
+  disableOverlayClose = true,
   disableScrolling = false,
   disableScrollParentFix = false,
   floaterProps,
@@ -79,9 +79,9 @@ const MoleculeCoachmark = ({
       styles={{
         options: {
           zIndex: DEFAULT_Z_INDEX,
-          ...styles.options
+          ...styles?.options
         },
-        ...styles.components
+        ...styles?.components
       }}
       // eslint-disable-next-line react/no-unstable-nested-components
       tooltipComponent={props => (

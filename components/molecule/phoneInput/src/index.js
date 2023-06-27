@@ -76,7 +76,8 @@ export default function MoleculePhoneInput({
     typeof onChange === 'function' &&
       onChange(e, {
         prefix: selectedPrefix.countryCode, // remove spaces from value
-        value: value.toString().replace(/\s/g, '')
+        value: value.toString().replace(/\s/g, ''),
+        isLandLine
       })
   }
 

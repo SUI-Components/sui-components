@@ -3,9 +3,18 @@ import Joyride, {ACTIONS, EVENTS, LIFECYCLE, STATUS} from 'react-joyride'
 import PropTypes from 'prop-types'
 
 import {
+  atomButtonColors,
+  atomButtonDesigns,
+  atomButtonShapes,
+  atomButtonSizes
+} from '@s-ui/react-atom-button'
+
+import {
   DEFAULT_SCROLL_DURATION,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SPOTLIGHT_PADDING,
+  DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS,
+  DEFAULT_Z_INDEX,
   STEP_BEACON_PLACEMENT_TYPES,
   STEP_PLACEMENT_TYPES
 } from './settings.js'
@@ -77,6 +86,26 @@ MoleculeCoachmark.propTypes = {
   callback: PropTypes.fn,
   continuous: PropTypes.bool,
   debug: PropTypes.bool,
+
+  /* When a tooltip component is not passed as a props, 
+    the default tooltip should be set up to see the coachmark */
+  defaultTooltipOptions: PropTypes.shape({
+    badge: PropTypes.node,
+    image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
+    closeIcon: PropTypes.node,
+    actionButtons: PropTypes.arrayOf([
+      PropTypes.shape({
+        id: PropTypes.oneOf([
+          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK,
+          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT
+        ]),
+        color: PropTypes.oneOf([Object.values(atomButtonColors)]),
+        design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
+        size: PropTypes.oneOf([Object.values(atomButtonSizes)]),
+        shape: PropTypes.oneOf([atomButtonShapes])
+      })
+    ])
+  }),
   disableCloseOnEsc: PropTypes.bool,
   disableOverlay: PropTypes.bool,
   disableOverlayClose: PropTypes.bool,
@@ -86,6 +115,14 @@ MoleculeCoachmark.propTypes = {
   getHelpers: PropTypes.func,
   hideBackButton: PropTypes.bool,
   hideCloseButton: PropTypes.bool,
+  locale: PropTypes.shape({
+    back: PropTypes.string,
+    close: PropTypes.string,
+    last: PropTypes.string,
+    next: PropTypes.string,
+    open: PropTypes.string,
+    skip: PropTypes.string
+  }),
   run: PropTypes.bool,
   scrollOffset: PropTypes.number,
   scrollDuration: PropTypes.number,
@@ -94,12 +131,16 @@ MoleculeCoachmark.propTypes = {
   shopSkipButton: PropTypes.bool,
   spotlightClicks: PropTypes.bool,
   spotlightPadding: PropTypes.number,
+
+  /* When using stepIndex, the controlled mode is activated,
+   should be controlled with the callback prop */
   stepIndex: PropTypes.number,
   steps: PropTypes.arrayOf(
     PropTypes.shape({
-      target: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+      target: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+        .isRequired,
       heading: PropTypes.node,
-      content: PropTypes.node,
+      content: PropTypes.node.isRequired,
       disableBeacon: PropTypes.bool,
       event: PropTypes.func,
       isFixed: PropTypes.bool,
@@ -119,5 +160,6 @@ export {ACTIONS as moleculeCoachmarkActions}
 export {EVENTS as moleculeCoachmarkEvents}
 export {STATUS as moleculeCoachmarkStatus}
 export {LIFECYCLE as moleculeCoachmarkLifeCycle}
+export {DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS as moleculeCoachmarkActionButtonIds}
 
 export default MoleculeCoachmark

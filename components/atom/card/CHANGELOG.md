@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2023-06-27)
+
+
+### Features
+
+* **components/atom/card:** Add xl & xxl border radious atom card config ([#2583](https://github.com/SUI-Components/sui-components/issues/2583)) ([57cf685](https://github.com/SUI-Components/sui-components/commit/57cf68529770824df7ff975f604d4ff1229d4879))
+
+
+
 # 1.24.0 (2022-10-06)
 
 

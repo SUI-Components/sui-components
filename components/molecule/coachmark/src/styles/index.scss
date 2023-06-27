@@ -1,0 +1,66 @@
+$base-class: '.sui-MoleculeCoachmark';
+
+#{$base-class} {
+  &-tooltip {
+    background-color: $bgc-molecule-coachmark-tooltip;
+    border-radius: $brds-molecule-coachmark-tooltip;
+    padding: $p-molecule-coachmark-tooltip;
+    max-width: $maw-molecule-coachmark-tooltip;
+    min-width: $mih-molecule-coachmark-tooltip;
+
+    &Buttons {
+      margin-left: auto;
+    }
+
+    &Content {
+      display: flex;
+      gap: $g-molecule-coachmark-tooltip-content;
+    }
+
+    &Image {
+      align-self: center;
+      height: 100%;
+      width: 100%;
+
+      &Container {
+        align-self: center;
+        display: flex;
+        flex: $fx-molecule-coachmark-tooltip-image-container;
+      }
+    }
+
+    &Header {
+      align-items: center;
+      display: flex;
+      margin: $m-molecule-coachmark-tooltip-header;
+    }
+
+    &HeadingText {
+      color: $c-primary;
+      font-size: $fz-molecule-coachmark-tooltip-heading-text;
+      font-weight: $fw-molecule-coachmark-tooltip-heading-text;
+      margin: $m-molecule-coachmark-tooltip-heading-text;
+    }
+
+    &BodyText {
+      color: $c-primary;
+      font-size: $fz-molecule-coachmark-tooltip-body-text;
+      margin: $m-molecule-coachmark-tooltip-body-text;
+    }
+
+    &CloseButton {
+      margin-left: auto;
+    }
+
+    &Footer {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &StepCounter {
+      font-size: $fz-molecule-coachmark-tooltip-step-counter;
+      font-weight: $fw-molecule-coachmark-tooltip-step-counter;
+    }
+  }
+}

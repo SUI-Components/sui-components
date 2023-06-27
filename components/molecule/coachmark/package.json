@@ -19,6 +19,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@s-ui/react-atom-badge": "1",
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-icon": "1",
+    "@s-ui/react-atom-image": "2",
     "react-joyride": "2"
   }
 }

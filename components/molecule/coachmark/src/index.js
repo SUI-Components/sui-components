@@ -9,6 +9,7 @@ import {
   atomButtonSizes
 } from '@s-ui/react-atom-button'
 
+import Tooltip from './Tooltip/index.js'
 import {
   DEFAULT_SCROLL_DURATION,
   DEFAULT_SCROLL_OFFSET,
@@ -20,11 +21,11 @@ import {
 } from './settings.js'
 
 const MoleculeCoachmark = ({
-  steps,
   beaconComponent,
   callback,
   continuous = true,
   debug = false,
+  defaultTooltipOptions,
   disableCloseOnEsc = false,
   disableOverlay = false,
   disableOverlayClose = false,
@@ -34,20 +35,21 @@ const MoleculeCoachmark = ({
   getHelpers = null,
   hideBackButton = false,
   hideCloseButton = false,
+  locale,
   run = true,
-  scrollOffset = DEFAULT_SCROLL_OFFSET,
   scrollDuration = DEFAULT_SCROLL_DURATION,
+  scrollOffset = DEFAULT_SCROLL_OFFSET,
   scrollToFirstStep = false,
-  showProgress = false,
   shopSkipButton = false,
+  showProgress = false,
   spotlightClicks = false,
   spotlightPadding = DEFAULT_SPOTLIGHT_PADDING,
   stepIndex,
+  steps,
   styles
 }) => {
   return (
     <Joyride
-      steps={steps}
       beaconComponent={beaconComponent}
       callback={callback}
       continuous={continuous}
@@ -59,23 +61,34 @@ const MoleculeCoachmark = ({
       disableScrollParentFix={disableScrollParentFix}
       floaterProps={floaterProps}
       {...(getHelpers && {getHelpers})}
-      styles={{
-        options: {
-          zIndex: 9999,
-          ...styles
-        }
-      }}
       hideBackButton={hideBackButton}
       hideCloseButton={hideCloseButton}
+      locale={locale}
       run={run}
-      scrollOffset={scrollOffset}
       scrollDuration={scrollDuration}
+      scrollOffset={scrollOffset}
       scrollToFirstStep={scrollToFirstStep}
-      showProgress={showProgress}
       shopSkipButton={shopSkipButton}
+      showProgress={showProgress}
       spotlightClicks={spotlightClicks}
       spotlightPadding={spotlightPadding}
       stepIndex={stepIndex}
+      steps={steps}
+      styles={{
+        options: {
+          zIndex: DEFAULT_Z_INDEX,
+          ...styles.options
+        },
+        ...styles.components
+      }}
+      tooltipComponent={props => (
+        <Tooltip
+          {...props}
+          defaultTooltipOptions={defaultTooltipOptions}
+          showProgress={showProgress}
+          hideBackButton={hideBackButton}
+        />
+      )}
     />
   )
 }

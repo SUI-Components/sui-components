@@ -10,7 +10,9 @@ export const CLASS_LINK = `${BASE_CLASS}-link`
 export const BORDER_RADIUS = {
   S: 's',
   M: 'm',
-  L: 'l'
+  L: 'l',
+  XL: 'xl',
+  XXL: 'xxl'
 }
 
 export const ELEVATION = {

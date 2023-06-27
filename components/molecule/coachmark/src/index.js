@@ -124,7 +124,7 @@ MoleculeCoachmark.propTypes = {
         color: PropTypes.oneOf([Object.values(atomButtonColors)]),
         design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
         size: PropTypes.oneOf([Object.values(atomButtonSizes)]),
-        shape: PropTypes.oneOf([atomButtonShapes])
+        shape: PropTypes.oneOf([Object.values(atomButtonShapes)])
       })
     ])
   }),

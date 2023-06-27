@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import AtomButton, {
   atomButtonColors,
   atomButtonDesigns,
+  atomButtonShapes,
   atomButtonSizes
 } from '@s-ui/react-atom-button'
 import AtomImage from '@s-ui/react-atom-image'
@@ -125,7 +126,21 @@ const Tooltip = ({
 
 Tooltip.propTypes = {
   defaultTooltipOptions: PropTypes.shape({
-    badge: PropTypes.node
+    badge: PropTypes.node,
+    image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
+    closeIcon: PropTypes.node,
+    actionButtons: PropTypes.arrayOf([
+      PropTypes.shape({
+        id: PropTypes.oneOf([
+          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK,
+          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT
+        ]),
+        color: PropTypes.oneOf([Object.values(atomButtonColors)]),
+        design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
+        size: PropTypes.oneOf([Object.values(atomButtonSizes)]),
+        shape: PropTypes.oneOf([Object.values(atomButtonShapes)])
+      })
+    ])
   }),
   hideBackButton: PropTypes.bool,
   index: PropTypes.number,

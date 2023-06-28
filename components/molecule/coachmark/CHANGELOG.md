@@ -1,5 +1,22 @@
 # CHANGELOG
 
+# 0.3.0 (2023-06-28)
+
+
+### Features
+
+* **components/molecule/coachmark:** add new settings ([a83e204](https://github.com/SUI-Components/sui-components/commit/a83e204769c5e3a7306fe4b540ad32f6f7ebedad))
+* **components/molecule/coachmark:** avoid crashes with empty styles ([55d6939](https://github.com/SUI-Components/sui-components/commit/55d6939ee142b431f15b2974d799fa0227d98976))
+* **components/molecule/coachmark:** create default tooltip component and style it ([1e463f1](https://github.com/SUI-Components/sui-components/commit/1e463f13bddd32d93316d5f57bb56fb4815f0b42))
+* **components/molecule/coachmark:** install dependencies ([fd06b12](https://github.com/SUI-Components/sui-components/commit/fd06b1285dca418f8ead736e70051829fe973a8b))
+* **components/molecule/coachmark:** sort props and include default tooltip component ([17c9834](https://github.com/SUI-Components/sui-components/commit/17c98346c719f65753b158f4bd4ed8c2acfc2393))
+* **components/molecule/coachmark:** update defaultTooltipOptions props ([92b999d](https://github.com/SUI-Components/sui-components/commit/92b999def37cf2556af58fcfd00ee64d62a61ee6))
+* **components/molecule/coachmark:** update props ([c165a82](https://github.com/SUI-Components/sui-components/commit/c165a825e701ef4721a8017271ea338ebe4c0692))
+* **components/molecule/coachmark:** update readme ([fcde153](https://github.com/SUI-Components/sui-components/commit/fcde153b31b0bbdd745d8ae9019cf457c267436a))
+* **components/molecule/coachmark:** use injector to pass down props to the tooltip ([0d41664](https://github.com/SUI-Components/sui-components/commit/0d416644775e775248715ae784a9a59b9728933f))
+
+
+
 # 0.2.0 (2023-06-26)
 
 

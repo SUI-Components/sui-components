@@ -1,5 +1,8 @@
 @import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-icon/lib/index.scss';
+@import '~@s-ui/react-atom-button/lib/index.scss';
+@import '~@s-ui/react-atom-badge/lib/index.scss';
+@import '~@s-ui/react-atom-image/lib/index.scss';
 
-.react-MoleculeCoachmark {
-  // Do your magic
-}
+@import './styles/settings.scss';
+@import './styles/index.scss';

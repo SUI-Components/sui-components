@@ -30,4 +30,8 @@ return <MoleculeCoachmark {...props} />
 @import '~@s-ui/react-molecule-coachmark/lib/index';
 ```
 
+### Overwriting styles
+
+Overwriting styles is possible thanks to the `styles` prop. [Here you can find a list](https://github.com/gilbarbara/react-joyride/blob/3e08384415a831b20ce21c8423b6c271ad419fbf/src/styles.js) of possible properties to be overwritten
+
 > **Find full description and more examples in the [demo page](#).**

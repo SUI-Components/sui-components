@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.67.0 (2023-07-11)
+
+
+### Features
+
+* **components/molecule/select:** Add tagSize and inputSize props to MoleculeSelectFieldMultiSelecti ([ce96d9b](https://github.com/SUI-Components/sui-components/commit/ce96d9ba50148900cfa4dcd58b7faba69d973ba6))
+* **components/molecule/select:** delete unnecessary inputSize prop ([8d6563d](https://github.com/SUI-Components/sui-components/commit/8d6563d0619996aeef1b42c3beb30d11e6f3dff3))
+
+
+
 # 1.66.0 (2023-06-26)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.28.0 (2023-07-11)
+
+
+### Features
+
+* **components/molecule/inputTags:** add tagSize prop to MoleculeInputTags ([1668de0](https://github.com/SUI-Components/sui-components/commit/1668de0723eeabf4401fd2368bccc60ee1f020be))
+
+
+
 # 2.27.0 (2023-05-05)
 
 

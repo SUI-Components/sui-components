@@ -21,9 +21,9 @@ import {closeIcon} from '../settings.js'
 const ArticleSize = ({className}) => {
   return (
     <Article className={className}>
-      <H2>Sizes</H2>
+      <H2>Input's Sizes</H2>
       <Paragraph>
-        Use the prop <Code>size</Code> (enum) to define the InputTag size. The
+        Use the prop <Code>size</Code> (enum) to define the input's size. The
         values are under the <Code>moleculeInputTagsInputSizes</Code> exported
         enum
       </Paragraph>

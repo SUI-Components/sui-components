@@ -24,6 +24,7 @@ const MoleculeSelectFieldMultiSelection = props => {
     keysSelection,
     id,
     size,
+    tagSize,
     required,
     optionsData = {},
     selectSize,
@@ -117,6 +118,7 @@ const MoleculeSelectFieldMultiSelection = props => {
         <MoleculeInputTags
           responsive={responsive}
           inputMode={inputTypes.NONE}
+          tagSize={tagSize}
         />
       </MoleculeInputSelect>
       {hasSearch && <Search />}

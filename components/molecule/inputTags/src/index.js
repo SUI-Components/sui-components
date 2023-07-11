@@ -27,6 +27,7 @@ const MoleculeInputTags = forwardRef(
       onChangeTags,
       optionsData,
       size = inputSizes.MEDIUM,
+      tagSize = atomTagSizes.SMALL,
       defaultTags = [],
       tags: tagsFromProps,
       tagsCloseIcon,
@@ -137,7 +138,7 @@ const MoleculeInputTags = forwardRef(
                 label
               })}
               label={label}
-              size={atomTagSizes.SMALL}
+              size={tagSize}
               responsive={responsive}
               readOnly={readOnly}
               disabled={disabled}
@@ -172,7 +173,10 @@ MoleculeInputTags.propTypes = {
   errorState: PropTypes.bool,
 
   /** Tag size */
-  size: PropTypes.oneOf(Object.values(atomTagSizes)),
+  tagSize: PropTypes.oneOf(Object.values(atomTagSizes)),
+
+  /** Input size */
+  size: PropTypes.oneOf(Object.values(inputSizes)),
 
   /* close icon to be displayed on tags */
   tagsCloseIcon: PropTypes.node.isRequired,
@@ -224,4 +228,8 @@ MoleculeInputTags.propTypes = {
 }
 
 export default MoleculeInputTags
-export {inputSizes, inputSizes as moleculeInputTagsInputSizes}
+export {
+  inputSizes,
+  inputSizes as moleculeInputTagsInputSizes,
+  atomTagSizes as moleculeInputTagsSizes
+}

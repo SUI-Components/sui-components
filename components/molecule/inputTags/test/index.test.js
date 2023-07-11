@@ -24,6 +24,7 @@ describe(json.name, () => {
     const libraryExportedMembers = [
       'inputSizes',
       'moleculeInputTagsInputSizes',
+      'moleculeInputTagsSizes',
       'default'
     ]
 
@@ -31,6 +32,7 @@ describe(json.name, () => {
     const {
       inputSizes,
       moleculeInputTagsInputSizes,
+      moleculeInputTagsSizes,
       default: MoleculeInputTags,
       ...others
     } = library

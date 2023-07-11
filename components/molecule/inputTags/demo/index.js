@@ -6,6 +6,7 @@ import ArticleHandlers from './articles/ArticleHandlers.js'
 import ArticleMaxTagsAndAllowDuplicates from './articles/ArticleMaxTagsAndAllowDuplicates.js'
 import ArticleSemantic from './articles/ArticleSemantic.js'
 import ArticleSize from './articles/ArticleSize.js'
+import ArticleTagsSize from './articles/ArticleTagsSize.js'
 import {CLASS_DEMO_SECTION} from './settings.js'
 
 import './index.scss'
@@ -23,6 +24,8 @@ const Demo = () => {
       <ArticleDisableReadOnly className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleSize className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleTagsSize className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleHandlers className={CLASS_DEMO_SECTION} />
       <br />

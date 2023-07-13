@@ -28,7 +28,9 @@ const useDetectVideoType = () => {
 
         case DETECTION_TYPES.SRC_PATTERN:
           if (
-            TYPE_DESCRIPTION.SRC_PATTERNS.some(pattern => src.includes(pattern))
+            TYPE_DESCRIPTION.SRC_PATTERNS.some(
+              pattern => typeof src === 'string' && src.includes(pattern)
+            )
           )
             return true
           break

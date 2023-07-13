@@ -4,6 +4,7 @@ export const YOUTUBE_SHORT_URL = 'youtu.be/'
 
 export const HLS = {
   FILE_FORMATS: ['m3u8'],
+  SRC_PATTERNS: ['yams-hls'],
   VIDEO_TYPE: 'hls',
   PLAYER_COMPONENT: 'HLSPlayer'
 }
@@ -42,6 +43,10 @@ export const DETECTION_TYPES = {
 export const DETECTABLE_VIDEO_TYPES = [
   {
     DETECTION_TYPE: DETECTION_TYPES.FILE_EXTENSION,
+    TYPE_DESCRIPTION: HLS
+  },
+  {
+    DETECTION_TYPE: DETECTION_TYPES.SRC_PATTERN,
     TYPE_DESCRIPTION: HLS
   },
   {

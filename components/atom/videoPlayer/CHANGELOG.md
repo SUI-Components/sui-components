@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.16.0 (2023-07-13)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add a new pattern to detect hls videos coming from YAMS ([b4ee36e](https://github.com/SUI-Components/sui-components/commit/b4ee36e77cd65bab00965f1af657b96d9a8d5ad8))
+* **components/atom/videoPlayer:** Change how src patterns are verified to avoid crashes ([c20f360](https://github.com/SUI-Components/sui-components/commit/c20f3602ec02d0d0a78e7d76734b6f010895b7d4))
+
+
+
 # 1.15.0 (2023-05-04)
 
 

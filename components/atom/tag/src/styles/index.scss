@@ -249,7 +249,20 @@ $base-class: '.sui-AtomTag';
 
       @if $bgc-hover or $c-hover {
         &:not([aria-disabled='true']) {
-          &:hover,
+          &:hover {
+            @media (hover: hover) and (pointer: fine) {
+              background-color: $bgc-hover;
+              border-color: $bdc-hover;
+              color: $c-hover;
+              &#{$self}--outline {
+                background-color: $bgc;
+                border-color: $bgc;
+                color: $c;
+                fill: $c;
+              }
+            }
+          }
+
           &:active {
             background-color: $bgc-hover;
             border-color: $bdc-hover;

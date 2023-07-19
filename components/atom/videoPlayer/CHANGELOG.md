@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2023-07-19)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Expose useDetectVideoType hook and UNKNOWN constant ([4d0d5ec](https://github.com/SUI-Components/sui-components/commit/4d0d5ec53eca94c7073bc2a1ecabc16b862a383d))
+
+
+
 # 1.16.0 (2023-07-13)
 
 

@@ -111,7 +111,7 @@ $base-class: '.sui-AtomTag';
     }
 
     &#{$self}--outline {
-      outline-color: $c-atom-tag-actionable-invert;
+      border-color: $c-atom-tag-actionable-invert;
       color: $c-atom-tag-actionable-invert;
       fill: $c-atom-tag-actionable-invert;
 
@@ -197,7 +197,7 @@ $base-class: '.sui-AtomTag';
 
   &--outline {
     background-color: $bgc-atom-tag-outline;
-    outline: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
+    border: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
   }
 
   @each $name, $type in $atom-tag-types {

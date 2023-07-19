@@ -1,11 +1,6 @@
-import {
-  Article,
-  Cell,
-  Grid,
-  H1,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, H1, H2, Paragraph} from '@s-ui/documentation-library'
+
+import ArticleDefaultTooltipVariants from './ArticleDefaultTooltipVariants.js'
 
 import './index.scss'
 
@@ -29,15 +24,7 @@ const Demo = () => {
           </Paragraph>
         </Article>
 
-        <Article>
-          <H2>Default tooltip variants</H2>
-          <Paragraph>
-            The variants to set the configuration for the default tooltip
-          </Paragraph>
-          <Grid cols={6} gutter={[8, 8]}>
-            <Cell>Hola</Cell>
-          </Grid>
-        </Article>
+        <ArticleDefaultTooltipVariants />
       </div>
     </div>
   )

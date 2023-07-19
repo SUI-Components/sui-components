@@ -94,7 +94,14 @@ $base-class: '.sui-AtomTag';
     }
 
     &:not([aria-disabled='true']) {
-      &:hover,
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          background-color: $bgc-atom-tag-actionable--hover;
+          color: $c-atom-tag-actionable;
+          cursor: pointer;
+          fill: $c-atom-tag-actionable;
+        }
+      }
       &:active {
         background-color: $bgc-atom-tag-actionable--hover;
         color: $c-atom-tag-actionable;
@@ -109,7 +116,13 @@ $base-class: '.sui-AtomTag';
       fill: $c-atom-tag-actionable-invert;
 
       &:not([aria-disabled='true']) {
-        &:hover,
+        &:hover {
+          @media (hover: hover) and (pointer: fine) {
+            background-color: $bgc-atom-tag-actionable-invert--hover;
+            color: $c-atom-tag-actionable-invert--hover;
+            fill: $c-atom-tag-actionable-invert--hover;
+          }
+        }
         &:active {
           background-color: $bgc-atom-tag-actionable-invert--hover;
           color: $c-atom-tag-actionable-invert--hover;
@@ -236,7 +249,20 @@ $base-class: '.sui-AtomTag';
 
       @if $bgc-hover or $c-hover {
         &:not([aria-disabled='true']) {
-          &:hover,
+          &:hover {
+            @media (hover: hover) and (pointer: fine) {
+              background-color: $bgc-hover;
+              border-color: $bdc-hover;
+              color: $c-hover;
+              &#{$self}--outline {
+                background-color: $bgc;
+                border-color: $bgc;
+                color: $c;
+                fill: $c;
+              }
+            }
+          }
+
           &:active {
             background-color: $bgc-hover;
             border-color: $bdc-hover;

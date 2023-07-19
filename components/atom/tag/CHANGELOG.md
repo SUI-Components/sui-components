@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.51.0 (2023-07-19)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** hover mobile devices ([6cfeaf2](https://github.com/SUI-Components/sui-components/commit/6cfeaf2cb06fca8509fb718f680ebfb7f361d417))
+* **components/atom/tag:** hover mobile devices for tag type ([0654428](https://github.com/SUI-Components/sui-components/commit/06544289c04c84404bf0ceab02f98160fb36641e))
+
+
+
 # 2.50.0 (2023-05-18)
 
 

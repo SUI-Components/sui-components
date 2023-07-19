@@ -2,6 +2,7 @@ import {forwardRef, Suspense, useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
+import useDetectVideoType from './hooks/useDetectVideoType.js'
 import useScrollAutoplayEffect from './hooks/useScrollAutoplayEffect.js'
 import useVideoPlayer from './hooks/useVideoPlayer.js'
 import {
@@ -9,7 +10,8 @@ import {
   AUTOPLAY_DEFAULT_VALUE,
   AUTOPLAY_OPTIONS,
   BASE_CLASS,
-  INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION
+  INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION,
+  UNKNOWN
 } from './settings/index.js'
 
 const AtomVideoPlayer = forwardRef(
@@ -78,4 +80,4 @@ AtomVideoPlayer.propTypes = {
 }
 
 export default AtomVideoPlayer
-export {AUTOPLAY}
+export {AUTOPLAY, UNKNOWN, useDetectVideoType}

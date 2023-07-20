@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.52.0 (2023-07-20)
+
+
+### Bug Fixes
+
+* **components/atom/tag:** force release ([e2f3d36](https://github.com/SUI-Components/sui-components/commit/e2f3d36db9758a2eb04d4be2563f474bed6abe75))
+
+
+
 # 2.51.0 (2023-07-19)
 
 

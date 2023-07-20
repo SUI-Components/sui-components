@@ -40,8 +40,9 @@ const Tooltip = ({
           <div className={`${BASE_CLASS}-tooltipCloseButton`}>
             <AtomButton
               color={atomButtonColors.NEUTRAL}
-              design={atomButtonDesigns.LINK}
+              design={atomButtonDesigns.FLAT}
               size={atomButtonSizes.SMALL}
+              shape={atomButtonShapes.CIRCULAR}
               leftIcon={defaultTooltipOptions.closeIcon}
               {...skipProps}
             />

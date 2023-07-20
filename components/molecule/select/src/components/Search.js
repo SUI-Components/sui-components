@@ -1,36 +1,21 @@
-import {useState} from 'react'
-
 import AtomInput, {inputTypes} from '@s-ui/react-atom-input'
 
 import {useDropdown} from '../config.js'
 import {getClassSearch} from './config.js'
 
 export default function Search(props) {
-  const [value, setValue] = useState('')
-
-  const {
-    setInputRef,
-    isOpen,
-    focusFirstOption,
-    onSearch,
-    searchPlaceholder,
-    searchIcon
-  } = useDropdown()
-
-  const handleKeyDown = ev => {
-    setTimeout(() => focusFirstOption(ev))
-  }
+  const {setInputRef, isOpen, onSearch, searchPlaceholder, searchIcon} =
+    useDropdown()
 
   const onChange = (_ev, {value}) => {
-    setValue(value)
     typeof onSearch === 'function' && setTimeout(() => onSearch({value}))
   }
 
   return (
-    <div className={getClassSearch(isOpen)} onKeyDown={handleKeyDown}>
+    <div className={getClassSearch(isOpen)}>
       <AtomInput
         type={inputTypes.TEXT}
-        value={value}
+        value={setInputRef?.current?.value}
         reference={setInputRef}
         onChange={onChange}
         placeholder={searchPlaceholder}

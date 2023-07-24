@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.18.0 (2023-07-24)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Avoid using deps without depending on them ([5a63bb5](https://github.com/SUI-Components/sui-components/commit/5a63bb5acb1e8d0ac608b7b309e72ef81ffc8fb9))
+* **components/atom/videoPlayer:** Modify video player to allow playing large videos by referencing ([1611209](https://github.com/SUI-Components/sui-components/commit/161120973f5f79a819266ab49216e92037587019))
+
+
+
 # 1.17.0 (2023-07-19)
 
 

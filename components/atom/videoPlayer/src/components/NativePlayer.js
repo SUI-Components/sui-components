@@ -10,6 +10,7 @@ const NativePlayer = ({
   autoPlay,
   controls,
   muted,
+  onLoadVideo,
   timeLimit,
   timeOffset,
   src,
@@ -27,6 +28,11 @@ const NativePlayer = ({
     }
   }, [autoPlay])
 
+  const onLoadedMetadata = () => {
+    const {duration, videoHeight, videoWidth} = videoNode.current
+    onLoadVideo({duration, videoHeight, videoWidth})
+  }
+
   return (
     <div className={`${BASE_CLASS}-nativePlayer`}>
       <video
@@ -36,6 +42,7 @@ const NativePlayer = ({
         ref={videoNode}
         title={title}
         controls={controls}
+        onLoadedMetadata={onLoadedMetadata}
       >
         {videoSrc !== null && <source data-testid="videosrc" src={videoSrc} />}
         Your browser does not support the video tag.
@@ -48,6 +55,7 @@ NativePlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
   muted: PropTypes.bool,
+  onLoadVideo: PropTypes.func,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),

@@ -95,6 +95,7 @@ $base-class: '.sui-AtomTag';
 
     &:not([aria-disabled='true']) {
       &:hover {
+        -webkit-tap-highlight-color: transparent;
         @media (hover: hover) and (pointer: fine) {
           background-color: $bgc-atom-tag-actionable--hover;
           color: $c-atom-tag-actionable;
@@ -117,6 +118,7 @@ $base-class: '.sui-AtomTag';
 
       &:not([aria-disabled='true']) {
         &:hover {
+          -webkit-tap-highlight-color: transparent;
           @media (hover: hover) and (pointer: fine) {
             background-color: $bgc-atom-tag-actionable-invert--hover;
             color: $c-atom-tag-actionable-invert--hover;

@@ -6,15 +6,15 @@ const useGetBlobAsVideoSrcEffect = ({src, videoNode}) => {
   useEffect(() => {
     if (videoSrc !== null) return
 
-    const reader = new FileReader()
+    const objectUrl = URL.createObjectURL(src)
+    setVideoSrc(objectUrl)
+    videoNode.current?.load()
 
-    reader.onload = function (e) {
-      setVideoSrc(e.target.result)
-      videoNode.current?.load()
+    return () => {
+      window.URL.revokeObjectURL(objectUrl)
+      setVideoSrc(null)
     }
-
-    reader.readAsDataURL(src)
-  }, [src, videoNode, videoSrc])
+  }, [src, videoNode])
 
   return videoSrc
 }

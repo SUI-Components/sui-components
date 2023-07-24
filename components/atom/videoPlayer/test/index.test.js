@@ -368,7 +368,7 @@ describe('AtomVideoPlayer', () => {
 
       // Then
       const {src} = await component.findByTestId('videosrc')
-      expect(src).to.include('data:video/mp4;base64,ZmFrZVZpZGVv')
+      expect(src).to.include('blob:')
     })
 
     it('should display controls by default', async () => {

@@ -37,6 +37,7 @@ const VimeoPlayer = ({
   })
 
   const {loadVideoMetadata} = useVideoMetadata({
+    src,
     onLoadVideo
   })
 

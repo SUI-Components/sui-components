@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import useGetBlobAsVideoSrcEffect from '../hooks/native/useGetBlobAsVideoSrcEffect.js'
 import useGetSrcWithMediaFragments from '../hooks/native/useGetSrcWithMediaFragments.js'
 import {BASE_CLASS, NATIVE_DEFAULT_TITLE} from '../settings/index.js'
+import {NATIVE} from '../settings/players.js'
 
 const NativePlayer = ({
   autoPlay,
@@ -30,7 +31,13 @@ const NativePlayer = ({
 
   const onLoadedMetadata = () => {
     const {duration, videoHeight, videoWidth} = videoNode.current
-    onLoadVideo({duration, videoHeight, videoWidth})
+    onLoadVideo({
+      src,
+      type: NATIVE.VIDEO_TYPE,
+      duration,
+      videoHeight,
+      videoWidth
+    })
   }
 
   return (

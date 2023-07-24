@@ -4,7 +4,7 @@ const useGetBlobAsVideoSrcEffect = ({src, videoNode}) => {
   const [videoSrc, setVideoSrc] = useState(typeof src === 'string' ? src : null)
 
   useEffect(() => {
-    if (videoSrc !== null) return
+    if (typeof src === 'string') return
 
     const objectUrl = URL.createObjectURL(src)
     setVideoSrc(objectUrl)

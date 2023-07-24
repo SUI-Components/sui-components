@@ -11,6 +11,7 @@ import {
   AUTOPLAY_OPTIONS,
   BASE_CLASS,
   INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION,
+  NO_OP,
   UNKNOWN
 } from './settings/index.js'
 
@@ -22,6 +23,7 @@ const AtomVideoPlayer = forwardRef(
       fallbackComponent = null,
       intersectionObserverConfiguration = INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION,
       muted = false,
+      onLoadVideo = NO_OP,
       src = '',
       timeLimit,
       timeOffset
@@ -32,6 +34,7 @@ const AtomVideoPlayer = forwardRef(
       autoPlay,
       controls,
       muted,
+      onLoadVideo,
       src,
       timeLimit,
       timeOffset
@@ -74,6 +77,7 @@ AtomVideoPlayer.propTypes = {
     threshold: PropTypes.number
   }),
   muted: PropTypes.bool,
+  onLoadVideo: PropTypes.func,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number

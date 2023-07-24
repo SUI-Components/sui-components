@@ -1,20 +1,34 @@
+import {useEffect} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {toQueryString} from '@s-ui/js/lib/string'
 
 import useYouTubeProperties from '../hooks/youtube/useYouTubeProperties.js'
 import {BASE_CLASS, YOUTUBE_DEFAULT_TITLE} from '../settings/index.js'
+import {YOUTUBE} from '../settings/players.js'
 
 const YouTubePlayer = ({
   autoPlay,
   controls,
   muted,
+  onLoadVideo,
+  src,
   timeLimit,
   timeOffset,
-  src,
   title = YOUTUBE_DEFAULT_TITLE
 }) => {
   const {getEmbeddableUrl} = useYouTubeProperties()
+
+  useEffect(() => {
+    onLoadVideo({
+      src,
+      type: YOUTUBE.VIDEO_TYPE,
+      duration: null,
+      videoWidth: null,
+      videoHeight: null
+    })
+  }, [])
 
   const params = toQueryString({
     autoplay: autoPlay ? '1' : '0',
@@ -43,6 +57,7 @@ YouTubePlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
   muted: PropTypes.bool,
+  onLoadVideo: PropTypes.func,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
   src: PropTypes.string,

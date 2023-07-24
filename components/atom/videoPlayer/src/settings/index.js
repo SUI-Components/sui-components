@@ -16,3 +16,4 @@ export const INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION = {
   rootMargin: '0% 0% -25% 0%',
   threshold: 1
 }
+export const NO_OP = () => null

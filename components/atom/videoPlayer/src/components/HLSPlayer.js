@@ -11,6 +11,7 @@ const HLSPlayer = ({
   autoPlay,
   controls,
   muted,
+  onLoadVideo,
   hlsConfig,
   timeLimit,
   timeOffset,
@@ -22,6 +23,7 @@ const HLSPlayer = ({
   useInitHlsEffect({
     autoPlay,
     hlsConfig,
+    onLoadVideo,
     playerRef,
     src,
     timeOffset
@@ -59,6 +61,7 @@ HLSPlayer.propTypes = {
   autoPlay: PropTypes.bool,
   controls: PropTypes.bool,
   muted: PropTypes.bool,
+  onLoadVideo: PropTypes.func,
   hlsConfig: PropTypes.object,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,

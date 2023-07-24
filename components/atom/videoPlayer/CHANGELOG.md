@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.19.0 (2023-07-24)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add a callback to retrieve video metadata ([b58aa08](https://github.com/SUI-Components/sui-components/commit/b58aa085ab3b56ad83ae6331913c6ee7c4867f65))
+* **components/atom/videoPlayer:** Add more details to the retrieved metadata ([0ec718b](https://github.com/SUI-Components/sui-components/commit/0ec718bad3a704a4f4ff07637815bf5a6255a682))
+* **components/atom/videoPlayer:** Add on load video for VIMEO videos ([df4dd45](https://github.com/SUI-Components/sui-components/commit/df4dd4559a74063ef8f222a61e0d136e63b501a7))
+
+
+
 # 1.18.0 (2023-07-24)
 
 

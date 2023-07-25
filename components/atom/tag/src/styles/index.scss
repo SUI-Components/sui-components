@@ -17,7 +17,6 @@ $base-class: '.sui-AtomTag';
   padding: $p-atom-tag-m;
   position: relative;
   white-space: nowrap;
-  -webkit-tap-highlight-color: $thc-atom-tag;
 
   &--isFitted {
     margin: 0;
@@ -88,6 +87,7 @@ $base-class: '.sui-AtomTag';
     cursor: pointer;
     fill: $c-atom-tag-actionable;
     text-decoration: none;
+    -webkit-tap-highlight-color: $thc-atom-tag-actionable;
 
     &[aria-disabled='true'] {
       cursor: default;

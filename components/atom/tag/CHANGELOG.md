@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.53.0 (2023-07-25)
+
+
+### Features
+
+* **components/atom/tag:** Change the default tap highlight color for Chrome mobile ([d15306a](https://github.com/SUI-Components/sui-components/commit/d15306a255c05f03e2bce6a86e81860f4e9a1678))
+* **Root:** move webkit-tap-highlight-color property to sui-AtomTag-actionable class ([0f071c4](https://github.com/SUI-Components/sui-components/commit/0f071c48b42d02e40bc5483b66f22b5538e000b8))
+* **Root:** move webkit-tap-highlight-color to the base-class ([187d0c0](https://github.com/SUI-Components/sui-components/commit/187d0c01f65ead3a99d046a9b6889be37e14003e))
+
+
+
 # 2.52.0 (2023-07-20)
 
 

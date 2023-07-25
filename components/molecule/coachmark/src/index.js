@@ -104,9 +104,16 @@ const MoleculeCoachmark = ({
 
 MoleculeCoachmark.displayName = 'MoleculeCoachmark'
 MoleculeCoachmark.propTypes = {
+  /** A React component or function to be used instead the default Beacon. Can be a custom component */
   beaconComponent: PropTypes.node,
+
+  /** It will be called when Joyride's state changes. it returns a single parameter with the state */
   callback: PropTypes.fn,
+
+  /** The tour is played sequentially with the Next button. */
   continuous: PropTypes.bool,
+
+  /** Log Joyride's actions to the console. */
   debug: PropTypes.bool,
 
   /* When a tooltip component is not passed as a props, 
@@ -128,15 +135,35 @@ MoleculeCoachmark.propTypes = {
       })
     ])
   }),
+
+  /** Disable closing the tooltip on ESC. */
   disableCloseOnEsc: PropTypes.bool,
+
+  /** Don't show the overlay. */
   disableOverlay: PropTypes.bool,
+
+  /** Don't close the tooltip when clicking the overlay. */
   disableOverlayClose: PropTypes.bool,
+
+  /** Disable auto scrolling between steps. */
   disableScrolling: PropTypes.bool,
+
+  /** Disable the fix to handle "unused" overflow parents */
   disableScrollParentFix: PropTypes.bool,
+
+  /** Options to be passed to react-floater. */
   floaterProps: PropTypes.object,
+
+  /** Get the store methods to control the tour programmatically. prev, next, go, close, skip, reset, info */
   getHelpers: PropTypes.func,
+
+  /** Hide the "back" button. */
+
   hideBackButton: PropTypes.bool,
+  /** Hide the "close" button. */
+
   hideCloseButton: PropTypes.bool,
+  /** The strings used in the tooltip. */
   locale: PropTypes.shape({
     back: PropTypes.string,
     close: PropTypes.string,
@@ -145,18 +172,35 @@ MoleculeCoachmark.propTypes = {
     open: PropTypes.string,
     skip: PropTypes.string
   }),
+
+  /** Run/stop the tour. */
   run: PropTypes.bool,
+
+  /** The scroll distance from the element scrollTop value. */
   scrollOffset: PropTypes.number,
+
+  /** The duration for scroll to element. */
   scrollDuration: PropTypes.number,
+
+  /** Scroll the page for the first step. */
   scrollToFirstStep: PropTypes.bool,
+
+  /** Display the tour progress in the next button */
   showProgress: PropTypes.bool,
+
+  /** Display a button to skip the tour. */
   shopSkipButton: PropTypes.bool,
+
+  /** Allow mouse and touch events thru the spotlight. */
   spotlightClicks: PropTypes.bool,
+
+  /** The padding of the spotlight. */
   spotlightPadding: PropTypes.number,
 
-  /* When using stepIndex, the controlled mode is activated,
-   should be controlled with the callback prop */
+  /**  When using stepIndex, the controlled mode is activated, should be controlled with the callback prop */
   stepIndex: PropTypes.number,
+
+  /** The tour's steps. */
   steps: PropTypes.arrayOf(
     PropTypes.shape({
       target: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
@@ -174,8 +218,12 @@ MoleculeCoachmark.propTypes = {
       styles: PropTypes.object,
       title: PropTypes.node
     })
-  ),
+  ).isRequired,
+
+  /** Override the styling of the Tooltip globally */
   styles: PropTypes.object,
+
+  /** A React component or function to be used instead the default Tooltip excluding the arrow. */
   tooltipComponent: PropTypes.node
 }
 

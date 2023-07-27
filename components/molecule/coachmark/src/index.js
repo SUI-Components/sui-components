@@ -116,7 +116,7 @@ MoleculeCoachmark.propTypes = {
   /** Log Joyride's actions to the console. */
   debug: PropTypes.bool,
 
-  /* Adition tooltip options to be passed down as props wether the tooltip is custom or default */
+  /* Additional tooltip options to be passed down as props specifying whether the tooltip is custom or default */
   tooltipOptions: PropTypes.shape({
     badge: PropTypes.node,
     actionButtons: PropTypes.arrayOf([

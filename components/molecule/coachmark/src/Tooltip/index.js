@@ -37,15 +37,8 @@ const Tooltip = ({
         ) : null}
 
         {tooltipOptions.closeIcon ? (
-          <div className={`${BASE_CLASS}-tooltipCloseButton`}>
-            <AtomButton
-              color={atomButtonColors.NEUTRAL}
-              design={atomButtonDesigns.FLAT}
-              size={atomButtonSizes.SMALL}
-              shape={atomButtonShapes.CIRCULAR}
-              leftIcon={tooltipOptions.closeIcon}
-              {...skipProps}
-            />
+          <div className={`${BASE_CLASS}-tooltipCloseButton`} {...skipProps}>
+            {tooltipOptions.closeIcon}
           </div>
         ) : null}
       </header>

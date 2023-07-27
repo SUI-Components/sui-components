@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 0.5.0 (2023-07-27)
+
+
+### Features
+
+* **components/molecule/coachmark:** rename prop and allow passing negative prop to the action butto ([a826c7b](https://github.com/SUI-Components/sui-components/commit/a826c7bd6ac1df5ef5abebeb0aaeeeb45ee7a182))
+* **components/molecule/coachmark:** rename prop and update documentation ([4b1c7e0](https://github.com/SUI-Components/sui-components/commit/4b1c7e02a6b0618f94b204b522411cc0f15b38b1))
+
+
+
 # 0.4.0 (2023-07-25)
 
 

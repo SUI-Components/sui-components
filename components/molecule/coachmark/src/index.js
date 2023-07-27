@@ -26,7 +26,7 @@ const MoleculeCoachmark = ({
   callback,
   continuous = true,
   debug = false,
-  defaultTooltipOptions,
+  tooltipOptions,
   disableCloseOnEsc = false,
   disableOverlay = false,
   disableOverlayClose = true,
@@ -87,7 +87,7 @@ const MoleculeCoachmark = ({
       tooltipComponent={props => (
         <Injector
           {...props}
-          defaultTooltipOptions={defaultTooltipOptions}
+          tooltipOptions={tooltipOptions}
           showProgress={showProgress}
           hideBackButton={hideBackButton}
         >
@@ -116,12 +116,9 @@ MoleculeCoachmark.propTypes = {
   /** Log Joyride's actions to the console. */
   debug: PropTypes.bool,
 
-  /* When a tooltip component is not passed as a props, 
-    the default tooltip should be set up to see the coachmark */
-  defaultTooltipOptions: PropTypes.shape({
+  /* Adition tooltip options to be passed down as props wether the tooltip is custom or default */
+  tooltipOptions: PropTypes.shape({
     badge: PropTypes.node,
-    image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
-    closeIcon: PropTypes.node,
     actionButtons: PropTypes.arrayOf([
       PropTypes.shape({
         id: PropTypes.oneOf([
@@ -131,9 +128,14 @@ MoleculeCoachmark.propTypes = {
         color: PropTypes.oneOf([Object.values(atomButtonColors)]),
         design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
         size: PropTypes.oneOf([Object.values(atomButtonSizes)]),
-        shape: PropTypes.oneOf([Object.values(atomButtonShapes)])
+        shape: PropTypes.oneOf([Object.values(atomButtonShapes)]),
+        isNegative: PropTypes.bool
       })
-    ])
+    ]),
+    closeIcon: PropTypes.node,
+    image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
+    // Flexible props to configurate your custom tooltip
+    optionalProps: PropTypes.object
   }),
 
   /** Disable closing the tooltip on ESC. */

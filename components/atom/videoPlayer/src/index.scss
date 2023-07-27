@@ -35,6 +35,6 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 
   &-youtubePlayer {
     @include atom-videoplayer-external-player;
-    padding: $sixteenByNineAspectRatio 0 0 0;
+    padding: $fourByThreeAspectRatio 0 0 0;
   }
 }

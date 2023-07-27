@@ -15,7 +15,7 @@ import {
 } from '../settings.js'
 
 const Tooltip = ({
-  defaultTooltipOptions = {},
+  tooltipOptions = {},
   index,
   isLastStep,
   primaryProps,
@@ -30,20 +30,20 @@ const Tooltip = ({
   return (
     <div className={`${BASE_CLASS}-tooltip`} {...tooltipProps}>
       <header className={`${BASE_CLASS}-tooltipHeader`}>
-        {defaultTooltipOptions.badge ? (
+        {tooltipOptions.badge ? (
           <div className={`${BASE_CLASS}-tooltipBadge`}>
-            {defaultTooltipOptions.badge}
+            {tooltipOptions.badge}
           </div>
         ) : null}
 
-        {defaultTooltipOptions.closeIcon ? (
+        {tooltipOptions.closeIcon ? (
           <div className={`${BASE_CLASS}-tooltipCloseButton`}>
             <AtomButton
               color={atomButtonColors.NEUTRAL}
               design={atomButtonDesigns.FLAT}
               size={atomButtonSizes.SMALL}
               shape={atomButtonShapes.CIRCULAR}
-              leftIcon={defaultTooltipOptions.closeIcon}
+              leftIcon={tooltipOptions.closeIcon}
               {...skipProps}
             />
           </div>
@@ -51,22 +51,20 @@ const Tooltip = ({
       </header>
 
       <div className={`${BASE_CLASS}-tooltipContent`}>
-        {defaultTooltipOptions.image ? (
+        {tooltipOptions.image ? (
           <div className={`${BASE_CLASS}-tooltipImageContainer`}>
             <div className={`${BASE_CLASS}-tooltipImage`}>
               <AtomImage
-                src={defaultTooltipOptions.image.url}
-                alt={defaultTooltipOptions.image.alt}
+                src={tooltipOptions.image.url}
+                alt={tooltipOptions.image.alt}
               />
             </div>
           </div>
         ) : null}
 
         <div className={`${BASE_CLASS}-tooltipTexts`}>
-          {step.heading && (
-            <h1 className={`${BASE_CLASS}-tooltipHeadingText`}>
-              {step.heading}
-            </h1>
+          {step.title && (
+            <h1 className={`${BASE_CLASS}-tooltipHeadingText`}>{step.title}</h1>
           )}
           <p className={`${BASE_CLASS}-tooltipBodyText`}>{step.content}</p>
         </div>
@@ -80,9 +78,9 @@ const Tooltip = ({
         )}
 
         <div className={`${BASE_CLASS}-tooltipButtons`}>
-          {defaultTooltipOptions?.actionButtons
-            ? defaultTooltipOptions.actionButtons.map(
-                ({id, color, size, design, shape}) => {
+          {tooltipOptions?.actionButtons
+            ? tooltipOptions.actionButtons.map(
+                ({id, color, size, design, shape, isNegative}) => {
                   const isBackButton =
                     DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK === id
                   const isNextButton =
@@ -111,6 +109,7 @@ const Tooltip = ({
                       design={design}
                       size={size}
                       shape={shape}
+                      negative={isNegative}
                       {...buttonProps}
                     >
                       {getButtonText()}
@@ -126,10 +125,18 @@ const Tooltip = ({
 }
 
 Tooltip.propTypes = {
-  defaultTooltipOptions: PropTypes.shape({
+  backProps: PropTypes.object,
+  hideBackButton: PropTypes.bool,
+  index: PropTypes.number,
+  isLastStep: PropTypes.bool,
+  primaryProps: PropTypes.object,
+  showBadge: PropTypes.bool,
+  showProgress: PropTypes.bool,
+  size: PropTypes.number,
+  skipProps: PropTypes.object,
+  step: PropTypes.object,
+  tooltipOptions: PropTypes.shape({
     badge: PropTypes.node,
-    image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
-    closeIcon: PropTypes.node,
     actionButtons: PropTypes.arrayOf([
       PropTypes.shape({
         id: PropTypes.oneOf([
@@ -139,20 +146,14 @@ Tooltip.propTypes = {
         color: PropTypes.oneOf([Object.values(atomButtonColors)]),
         design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
         size: PropTypes.oneOf([Object.values(atomButtonSizes)]),
-        shape: PropTypes.oneOf([Object.values(atomButtonShapes)])
+        shape: PropTypes.oneOf([Object.values(atomButtonShapes)]),
+        isNegative: PropTypes.bool
       })
-    ])
+    ]),
+    closeIcon: PropTypes.node,
+    image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
+    optionalProps: PropTypes.object
   }),
-  hideBackButton: PropTypes.bool,
-  index: PropTypes.number,
-  isLastStep: PropTypes.bool,
-  primaryProps: PropTypes.object,
-  backProps: PropTypes.object,
-  showBadge: PropTypes.bool,
-  showProgress: PropTypes.bool,
-  size: PropTypes.number,
-  skipProps: PropTypes.object,
-  step: PropTypes.object,
   tooltipProps: PropTypes.object
 }
 

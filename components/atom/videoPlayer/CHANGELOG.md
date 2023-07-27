@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2023-07-27)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Apply minor visual adjustments to the video player ([48c6b7d](https://github.com/SUI-Components/sui-components/commit/48c6b7dbf241b629bff335f5ae1edff7673054f0))
+
+
+
 # 1.19.0 (2023-07-24)
 
 

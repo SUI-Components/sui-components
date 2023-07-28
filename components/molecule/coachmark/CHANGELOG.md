@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.6.0 (2023-07-28)
+
+
+### Features
+
+* **components/molecule/coachmark:** adjust minor ux changes ([058e1bb](https://github.com/SUI-Components/sui-components/commit/058e1bb365b199a26b262216f03bc6885979e611))
+
+
+
 # 0.5.0 (2023-07-27)
 
 

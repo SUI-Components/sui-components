@@ -115,7 +115,7 @@ const ArticleDefaultTooltipVariants = () => {
 
       <MoleculeCoachmark
         run={runTour}
-        defaultTooltipOptions={{
+        tooltipOptions={{
           image,
           badge,
           closeIcon,

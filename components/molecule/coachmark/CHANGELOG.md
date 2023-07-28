@@ -1,10 +1,16 @@
 # CHANGELOG
 
+# 0.7.0 (2023-07-28)
+
+
+
 # 0.6.0 (2023-07-28)
 
 
 ### Features
 
+* **components/molecule/coachmark/demo:** adapt demo to the new changes ([a6c3f58](https://github.com/SUI-Components/sui-components/commit/a6c3f58c5d841235524607e3a0b06aef2aac9547))
+* **components/molecule/coachmark:** add copyright notice ([723c73a](https://github.com/SUI-Components/sui-components/commit/723c73a5c1578e1d3aa7f7ac52afb70857bfc36e))
 * **components/molecule/coachmark:** adjust minor ux changes ([058e1bb](https://github.com/SUI-Components/sui-components/commit/058e1bb365b199a26b262216f03bc6885979e611))
 
 

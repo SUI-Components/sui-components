@@ -10,26 +10,26 @@ import {moleculeCoachmarkActionButtonIds} from '../src/index.js'
 export const COACHMARK_STEPS_CONTENT = [
   {
     target: '.sui-molecule-coachmark-step-1',
-    heading: 'Tooltip example with all elements',
+    title: 'Tooltip example with all elements',
     content:
       'It has a badge, a close button, a heading, a description, an image on the side, a progress indicator and action buttons to continue the tour.',
     disableBeacon: true
   },
   {
     target: '.sui-molecule-coachmark-step-2',
-    heading: 'It has the same elements than the previous...',
+    title: 'It has the same elements than the previous...',
     content:
       'But we have removed the progress indicator and now it has a back button available'
   },
   {
     target: '.sui-molecule-coachmark-step-3',
-    heading: 'Antoher variant buddy',
+    title: 'Antoher variant buddy',
     content:
       'Whoop! Now there is only visible a heading, description, a close icon, a badge and a next button '
   },
   {
     target: '.sui-molecule-coachmark-step-4',
-    heading: 'Less stuff in here',
+    title: 'Less stuff in here',
     content: 'Only heading, description and next button'
   },
   {

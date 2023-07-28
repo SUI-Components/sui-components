@@ -20,6 +20,7 @@ import {phoneValidationType} from './settings.js'
 const BASE_CLASS = 'sui-MoleculePhoneInput'
 
 export default function MoleculePhoneInput({
+  dropdownCloseIcon,
   dropdownIcon,
   value = '',
   prefixes = [],
@@ -101,7 +102,7 @@ export default function MoleculePhoneInput({
             size={ATOM_ICON_SIZES.medium}
             color={ATOM_ICON_COLORS.currentColor}
           >
-            {dropdownIcon}
+            {showDropdown ? dropdownCloseIcon : dropdownIcon}
           </AtomIcon>
         </div>
         <div className={`${baseClass}-input-phoneContainer`}>
@@ -165,6 +166,7 @@ export default function MoleculePhoneInput({
 MoleculePhoneInput.displayName = 'MoleculePhoneInput'
 
 MoleculePhoneInput.propTypes = {
+  dropdownCloseIcon: PropTypes.node,
   dropdownIcon: PropTypes.node,
   value: PropTypes.string,
   placeholder: PropTypes.string,

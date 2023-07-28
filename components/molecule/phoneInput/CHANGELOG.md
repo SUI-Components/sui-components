@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.6.0 (2023-07-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Expose formatted value ([fbd922d](https://github.com/SUI-Components/sui-components/commit/fbd922d64631c682e81464fb99e155c22f29de88))
+
+
+
 # 1.5.0 (2023-07-28)
 
 

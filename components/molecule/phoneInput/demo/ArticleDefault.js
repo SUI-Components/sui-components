@@ -7,7 +7,7 @@ import {Article, H2} from '@s-ui/documentation-library'
 import MoleculePhoneInput from '../src/index.js'
 import {PREFIXES} from '../src/settings.js'
 
-export default function ArticleDefault({icon}) {
+export default function ArticleDefault({openIcon, closeIcon}) {
   const [phone, setPhone] = useState('')
 
   const onValueChange = (_, {value}) => {
@@ -20,9 +20,10 @@ export default function ArticleDefault({icon}) {
       <MoleculePhoneInput
         value={phone}
         onChange={onValueChange}
-        dropdownIcon={icon}
+        dropdownIcon={openIcon}
         placeholder="612 345 678"
         prefixes={PREFIXES}
+        dropdownCloseIcon={closeIcon}
         initialSelectedPrefix={PREFIXES[0]}
       />
     </Article>
@@ -30,5 +31,6 @@ export default function ArticleDefault({icon}) {
 }
 
 ArticleDefault.propTypes = {
-  icon: PropTypes.element
+  openIcon: PropTypes.element,
+  closeIcon: PropTypes.element
 }

@@ -279,4 +279,29 @@ describe('MoleculePhoneInput', () => {
     expect(input.value).to.be.equal('93 798 84 21')
     expect(phonePrefix).to.be.equal(PREFIXES[0].countryCode)
   })
+
+  it('Should expose formatted value', () => {
+    let phoneValue = '606949670'
+    let formattedPhoneValue = ''
+
+    // Given
+    const props = {
+      value: phoneValue,
+      prefixes: {PREFIXES},
+      initialSelectedPrefix: PREFIXES[0],
+      setFormattedValue: value => {
+        formattedPhoneValue = value
+      },
+      onChange: (_, {value}) => {
+        phoneValue = value
+      }
+    }
+
+    const {container} = setup(props)
+    const input = container.querySelector('input')
+
+    // Then
+    expect(input.value).to.be.equal('606 949 670')
+    expect(formattedPhoneValue).to.be.equal('606 949 670')
+  })
 })

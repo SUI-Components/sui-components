@@ -5,9 +5,15 @@ import ArticleDefault from './ArticleDefault.js'
 import ArticleStates from './ArticleStates.js'
 import ArticleTypes from './ArticleTypes.js'
 
-export const icon = (
+export const openIcon = (
   <AtomIcon>
     <AntDesignIcon icon={'AiOutlineDown'} style={{fill: 'currentColor'}} />
+  </AtomIcon>
+)
+
+export const closeIcon = (
+  <AtomIcon>
+    <AntDesignIcon icon={'AiOutlineUp'} style={{fill: 'currentColor'}} />
   </AtomIcon>
 )
 
@@ -24,11 +30,11 @@ export default () => {
       </Paragraph>
 
       <br />
-      <ArticleDefault icon={<AtomIcon />} />
+      <ArticleDefault openIcon={openIcon} closeIcon={closeIcon} />
       <br />
-      <ArticleTypes icon={<AtomIcon />} />
+      <ArticleTypes openIcon={openIcon} closeIcon={closeIcon} />
       <br />
-      <ArticleStates icon={<AtomIcon />} />
+      <ArticleStates openIcon={openIcon} closeIcon={closeIcon} />
     </div>
   )
 }

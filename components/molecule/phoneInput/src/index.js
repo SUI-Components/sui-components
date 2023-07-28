@@ -23,6 +23,7 @@ export default function MoleculePhoneInput({
   dropdownCloseIcon,
   dropdownIcon,
   value = '',
+  setFormattedValue,
   prefixes = [],
   onChange,
   placeholder,
@@ -73,6 +74,8 @@ export default function MoleculePhoneInput({
     } else {
       setIsLandLine(false)
     }
+
+    typeof setFormattedValue === 'function' && setFormattedValue(value)
 
     typeof onChange === 'function' &&
       onChange(e, {
@@ -172,6 +175,7 @@ MoleculePhoneInput.propTypes = {
   placeholder: PropTypes.string,
   prefixes: PropTypes.array,
   onChange: PropTypes.func,
+  setFormattedValue: PropTypes.func,
   type: PropTypes.oneOf(Object.values(phoneValidationType)),
   initialSelectedPrefix: PropTypes.shape({
     value: PropTypes.string,

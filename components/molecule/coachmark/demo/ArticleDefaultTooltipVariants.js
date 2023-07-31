@@ -4,12 +4,12 @@ import {Article, Cell, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
 import MoleculeCoachmark, {moleculeCoachmarkActions} from '../src/index.js'
+import CloseIcon from './CloseIcon.js'
 import {
   COACHMARK_STEPS,
   COACHMARK_STEPS_CONTENT,
   exampleActionButtons,
   exampleBadge,
-  exampleCloseIcon,
   exampleImage
 } from './config.js'
 
@@ -17,7 +17,7 @@ const ArticleDefaultTooltipVariants = () => {
   const [runTour, setRunTour] = useState(false)
   const [showProgress, setShowProgress] = useState(true)
   const [badge, setBadge] = useState(exampleBadge)
-  const [closeIcon, setCloseIcon] = useState(exampleCloseIcon)
+  const [closeIcon, setCloseIcon] = useState(<CloseIcon />)
   const [image, setImage] = useState(exampleImage)
   const [actionButtons, setActionButtons] = useState(exampleActionButtons)
 
@@ -32,7 +32,7 @@ const ArticleDefaultTooltipVariants = () => {
     if (index === FIRST) {
       setShowProgress(true)
       setImage(exampleImage)
-      setCloseIcon(exampleCloseIcon)
+      setCloseIcon(<CloseIcon />)
       setActionButtons([...exampleActionButtons])
       setBadge(exampleBadge)
     }

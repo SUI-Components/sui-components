@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2023-07-31)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Make the video player compatible with ssr ([ec21149](https://github.com/SUI-Components/sui-components/commit/ec211491e16f20551c5cec2506343ee898c87afd))
+
+
+
 # 1.20.0 (2023-07-27)
 
 

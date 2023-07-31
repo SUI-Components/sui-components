@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react'
 
+const isNotBlobType = src => typeof src === 'string'
 const useGetBlobAsVideoSrcEffect = ({src, videoNode}) => {
-  const [videoSrc, setVideoSrc] = useState(typeof src === 'string' ? src : null)
+  const [videoSrc, setVideoSrc] = useState(isNotBlobType(src) ? src : null)
 
   useEffect(() => {
-    if (typeof src === 'string' || !window) return
+    if (isNotBlobType(src)) return
 
     const objectUrl = URL.createObjectURL(src)
     setVideoSrc(objectUrl)

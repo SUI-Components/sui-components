@@ -78,7 +78,7 @@ AtomVideoPlayer.propTypes = {
   }),
   muted: PropTypes.bool,
   onLoadVideo: PropTypes.func,
-  src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number
 }

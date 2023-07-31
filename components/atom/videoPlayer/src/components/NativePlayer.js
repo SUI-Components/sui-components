@@ -65,7 +65,7 @@ NativePlayer.propTypes = {
   onLoadVideo: PropTypes.func,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
-  src: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Blob)]),
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string
 }
 

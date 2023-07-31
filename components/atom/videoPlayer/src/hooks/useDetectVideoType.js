@@ -23,7 +23,11 @@ const useDetectVideoType = () => {
           break
 
         case DETECTION_TYPES.SRC_INSTANCE_TYPE:
-          if (src instanceof TYPE_DESCRIPTION.INSTANCE_TYPE) return true
+          if (
+            TYPE_DESCRIPTION.INSTANCE_TYPE &&
+            src instanceof TYPE_DESCRIPTION.INSTANCE_TYPE
+          )
+            return true
           break
 
         case DETECTION_TYPES.SRC_PATTERN:

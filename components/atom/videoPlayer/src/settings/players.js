@@ -1,3 +1,5 @@
+import {BLOB_TYPE} from './index.js'
+
 export const YOUTUBE_EMBEDDABLE_URL = 'https://www.youtube.com/embed/'
 export const YOUTUBE_STANDARD_URL = 'youtube.com/watch?v='
 export const YOUTUBE_SHORT_URL = 'youtu.be/'
@@ -10,7 +12,7 @@ export const HLS = {
 }
 
 export const NATIVE = {
-  INSTANCE_TYPE: Blob,
+  INSTANCE_TYPE: BLOB_TYPE,
   FILE_FORMATS: ['mp4', 'ogg', 'webm'],
   VIDEO_TYPE: 'native',
   PLAYER_COMPONENT: 'NativePlayer'

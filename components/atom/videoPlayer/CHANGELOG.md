@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2023-08-01)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Avoid directly checking window value ([3769054](https://github.com/SUI-Components/sui-components/commit/3769054de1f0cfb326712767b64222ccb29fc247))
+
+
+
 # 1.21.0 (2023-07-31)
 
 

@@ -20,7 +20,6 @@ const DemoPlayer = ({src}) => {
   const [muted, setMuted] = useState(false)
   const [timeLimit, setTimeLimit] = useState(0)
   const [timeOffset, setTimeOffset] = useState(0)
-
   return (
     <>
       <H2>Autoplay</H2>

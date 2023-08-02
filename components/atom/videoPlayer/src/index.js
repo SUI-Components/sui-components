@@ -42,7 +42,6 @@ const AtomVideoPlayer = forwardRef(
 
     const componentRef = useRef(null)
     const ref = forwardedRef || componentRef
-
     const autoPlayState = useScrollAutoplayEffect({
       autoPlay,
       intersectionObserverConfiguration,
@@ -51,12 +50,13 @@ const AtomVideoPlayer = forwardRef(
     })
 
     return (
-      <div ref={ref} className={BASE_CLASS}>
+      <div className={BASE_CLASS}>
         <Suspense fallback={fallbackComponent}>
           <Component
             {...{
               ...props,
-              autoPlay: autoPlayState
+              autoPlay: autoPlayState,
+              ref
             }}
           />
         </Suspense>

@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 
 const isNotBlobType = src => typeof src === 'string'
-const useGetBlobAsVideoSrcEffect = ({src, videoNode}) => {
+const useGetBlobAsVideoSrcEffect = ({src, playerRef}) => {
   const [videoSrc, setVideoSrc] = useState(isNotBlobType(src) ? src : null)
 
   useEffect(() => {
@@ -9,13 +9,13 @@ const useGetBlobAsVideoSrcEffect = ({src, videoNode}) => {
 
     const objectUrl = URL.createObjectURL(src)
     setVideoSrc(objectUrl)
-    videoNode.current?.load()
+    playerRef.current?.load()
 
     return () => {
       window.URL.revokeObjectURL(objectUrl)
       setVideoSrc(null)
     }
-  }, [src, videoNode])
+  }, [src, playerRef])
 
   return videoSrc
 }

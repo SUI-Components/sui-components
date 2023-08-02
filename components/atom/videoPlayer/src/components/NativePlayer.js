@@ -1,62 +1,75 @@
-import {useEffect, useRef} from 'react'
+import {forwardRef, useEffect, useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
 import useGetBlobAsVideoSrcEffect from '../hooks/native/useGetBlobAsVideoSrcEffect.js'
 import useGetSrcWithMediaFragments from '../hooks/native/useGetSrcWithMediaFragments.js'
+import useImperativeApi from '../hooks/useImperativeApi.js'
 import {BASE_CLASS, NATIVE_DEFAULT_TITLE} from '../settings/index.js'
 import {NATIVE} from '../settings/players.js'
 
-const NativePlayer = ({
-  autoPlay,
-  controls,
-  muted,
-  onLoadVideo,
-  timeLimit,
-  timeOffset,
-  src,
-  title = NATIVE_DEFAULT_TITLE
-}) => {
-  const videoNode = useRef(null)
-  let videoSrc = useGetBlobAsVideoSrcEffect({src, videoNode})
-  videoSrc = useGetSrcWithMediaFragments({videoSrc, timeOffset, timeLimit})
-
-  useEffect(() => {
-    if (autoPlay) {
-      videoNode.current.play()
-    } else {
-      videoNode.current.pause()
-    }
-  }, [autoPlay])
-
-  const onLoadedMetadata = () => {
-    const {duration, videoHeight, videoWidth} = videoNode.current
-    onLoadVideo({
+const NativePlayer = forwardRef(
+  (
+    {
+      autoPlay,
+      controls,
+      muted,
+      onLoadVideo,
+      timeLimit,
+      timeOffset,
       src,
-      type: NATIVE.VIDEO_TYPE,
-      duration,
-      videoHeight,
-      videoWidth
-    })
-  }
+      title = NATIVE_DEFAULT_TITLE
+    },
+    forwardedRef
+  ) => {
+    const playerRef = useRef(null)
+    let videoSrc = useGetBlobAsVideoSrcEffect({src, playerRef})
+    videoSrc = useGetSrcWithMediaFragments({videoSrc, timeOffset, timeLimit})
 
-  return (
-    <div className={`${BASE_CLASS}-nativePlayer`}>
-      <video
-        autoPlay={autoPlay}
-        className={`${BASE_CLASS}-nativePlayerVideo`}
-        muted={muted}
-        ref={videoNode}
-        title={title}
-        controls={controls}
-        onLoadedMetadata={onLoadedMetadata}
-      >
-        {videoSrc !== null && <source data-testid="videosrc" src={videoSrc} />}
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  )
-}
+    useEffect(() => {
+      if (autoPlay) {
+        playerRef.current.play()
+      } else {
+        playerRef.current.pause()
+      }
+    }, [autoPlay])
+
+    useImperativeApi({
+      ref: forwardedRef,
+      getCurrentTime: () => Promise.resolve(playerRef.current.currentTime)
+    })
+
+    const onLoadedMetadata = () => {
+      const {duration, videoHeight, videoWidth} = playerRef.current
+      onLoadVideo({
+        src,
+        type: NATIVE.VIDEO_TYPE,
+        duration,
+        videoHeight,
+        videoWidth
+      })
+    }
+
+    return (
+      <div className={`${BASE_CLASS}-nativePlayer`}>
+        <video
+          autoPlay={autoPlay}
+          className={`${BASE_CLASS}-nativePlayerVideo`}
+          muted={muted}
+          ref={playerRef}
+          title={title}
+          controls={controls}
+          onLoadedMetadata={onLoadedMetadata}
+        >
+          {videoSrc !== null && (
+            <source data-testid="videosrc" src={videoSrc} />
+          )}
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    )
+  }
+)
 
 NativePlayer.propTypes = {
   autoPlay: PropTypes.bool,

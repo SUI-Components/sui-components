@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2023-08-02)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add imperative handle to know the current video position ([5f6409b](https://github.com/SUI-Components/sui-components/commit/5f6409b8cd8b0a2b96becd59dc61e75422a97466))
+
+
+
 # 1.22.0 (2023-08-01)
 
 

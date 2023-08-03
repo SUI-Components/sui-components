@@ -11,7 +11,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
-import {fireEvent} from '@testing-library/react'
+import {fireEvent, waitFor} from '@testing-library/react'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
@@ -256,7 +256,7 @@ describe(json.name, () => {
       )
     })
 
-    it('should call onSlide handler when changing the slide index', () => {
+    it('should call onSlide handler when changing the slide index', async () => {
       // Given
       const spy = sinon.spy()
       const elementsText = [
@@ -286,7 +286,7 @@ describe(json.name, () => {
       rerender(<Component {...{...props, slide: 0}} />)
 
       // Then
-      sinon.assert.called(spy)
+      await waitFor(() => sinon.assert.called(spy))
       sinon.assert.calledOnce(spy)
       sinon.assert.calledWith(
         spy,

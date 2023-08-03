@@ -7,7 +7,7 @@ import {Article, H2, H3} from '@s-ui/documentation-library'
 import MoleculePhoneInput from '../src/index.js'
 import {phoneValidationType, PREFIXES} from '../src/settings.js'
 
-export default function ArticleStates({icon}) {
+export default function ArticleStates({openIcon, closeIcon}) {
   const [defaultPhone, setDefaultPhone] = useState('')
   const [errorPhone, setErrorPhone] = useState('')
 
@@ -26,7 +26,8 @@ export default function ArticleStates({icon}) {
       <MoleculePhoneInput
         value={defaultPhone}
         onChange={onDefaultPhoneChange}
-        dropdownIcon={icon}
+        dropdownIcon={openIcon}
+        dropdownCloseIcon={closeIcon}
         placeholder="612 345 678"
         type={phoneValidationType.DEFAULT}
         initialSelectedPrefix={PREFIXES[1]}
@@ -36,7 +37,8 @@ export default function ArticleStates({icon}) {
       <MoleculePhoneInput
         value={errorPhone}
         onChange={onErrorPhoneChange}
-        dropdownIcon={icon}
+        dropdownIcon={openIcon}
+        dropdownCloseIcon={closeIcon}
         placeholder="612 345 678"
         type={phoneValidationType.DEFAULT}
         initialSelectedPrefix={PREFIXES[2]}
@@ -47,7 +49,8 @@ export default function ArticleStates({icon}) {
       <MoleculePhoneInput
         value={errorPhone}
         onChange={onErrorPhoneChange}
-        dropdownIcon={icon}
+        dropdownIcon={openIcon}
+        dropdownCloseIcon={closeIcon}
         placeholder="612 345 678"
         type={phoneValidationType.SPLITTED}
         initialSelectedPrefix={PREFIXES[1]}
@@ -59,5 +62,6 @@ export default function ArticleStates({icon}) {
 }
 
 ArticleStates.propTypes = {
-  icon: PropTypes.element
+  openIcon: PropTypes.element,
+  closeIcon: PropTypes.element
 }

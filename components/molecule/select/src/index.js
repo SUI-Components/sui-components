@@ -196,7 +196,6 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
     hasSearch,
     setInputRef,
     isOpen: isOpenState,
-    focusFirstOption,
     inputSearch,
     onSearch,
     isFirstOptionFocused,

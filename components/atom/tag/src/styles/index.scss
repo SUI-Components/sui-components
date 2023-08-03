@@ -87,6 +87,7 @@ $base-class: '.sui-AtomTag';
     cursor: pointer;
     fill: $c-atom-tag-actionable;
     text-decoration: none;
+    -webkit-tap-highlight-color: $thc-atom-tag-actionable;
 
     &[aria-disabled='true'] {
       cursor: default;
@@ -94,7 +95,14 @@ $base-class: '.sui-AtomTag';
     }
 
     &:not([aria-disabled='true']) {
-      &:hover,
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          background-color: $bgc-atom-tag-actionable--hover;
+          color: $c-atom-tag-actionable;
+          cursor: pointer;
+          fill: $c-atom-tag-actionable;
+        }
+      }
       &:active {
         background-color: $bgc-atom-tag-actionable--hover;
         color: $c-atom-tag-actionable;
@@ -104,12 +112,18 @@ $base-class: '.sui-AtomTag';
     }
 
     &#{$self}--outline {
-      outline-color: $c-atom-tag-actionable-invert;
+      border-color: $c-atom-tag-actionable-invert;
       color: $c-atom-tag-actionable-invert;
       fill: $c-atom-tag-actionable-invert;
 
       &:not([aria-disabled='true']) {
-        &:hover,
+        &:hover {
+          @media (hover: hover) and (pointer: fine) {
+            background-color: $bgc-atom-tag-actionable-invert--hover;
+            color: $c-atom-tag-actionable-invert--hover;
+            fill: $c-atom-tag-actionable-invert--hover;
+          }
+        }
         &:active {
           background-color: $bgc-atom-tag-actionable-invert--hover;
           color: $c-atom-tag-actionable-invert--hover;
@@ -184,7 +198,7 @@ $base-class: '.sui-AtomTag';
 
   &--outline {
     background-color: $bgc-atom-tag-outline;
-    outline: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
+    border: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
   }
 
   @each $name, $type in $atom-tag-types {
@@ -236,7 +250,20 @@ $base-class: '.sui-AtomTag';
 
       @if $bgc-hover or $c-hover {
         &:not([aria-disabled='true']) {
-          &:hover,
+          &:hover {
+            @media (hover: hover) and (pointer: fine) {
+              background-color: $bgc-hover;
+              border-color: $bdc-hover;
+              color: $c-hover;
+              &#{$self}--outline {
+                background-color: $bgc;
+                border-color: $bgc;
+                color: $c;
+                fill: $c;
+              }
+            }
+          }
+
           &:active {
             background-color: $bgc-hover;
             border-color: $bdc-hover;

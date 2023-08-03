@@ -1,5 +1,24 @@
 # CHANGELOG
 
+# 1.6.0 (2023-07-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Expose formatted value ([fbd922d](https://github.com/SUI-Components/sui-components/commit/fbd922d64631c682e81464fb99e155c22f29de88))
+
+
+
+# 1.5.0 (2023-07-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** add icons for the two dropdown states ([54afec8](https://github.com/SUI-Components/sui-components/commit/54afec8c202f633b2f490c052b68e00172376cb4))
+* **components/molecule/phoneInput:** naming ([5b20850](https://github.com/SUI-Components/sui-components/commit/5b20850f993ad6dbd9f3cb5864b0bac009125a67))
+
+
+
 # 1.4.0 (2023-06-27)
 
 

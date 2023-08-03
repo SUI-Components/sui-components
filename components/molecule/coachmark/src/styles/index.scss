@@ -36,19 +36,20 @@ $base-class: '.sui-MoleculeCoachmark';
     }
 
     &HeadingText {
-      color: $c-primary;
+      color: $c-molecule-coachmark-tooltip-heading-text;
       font-size: $fz-molecule-coachmark-tooltip-heading-text;
       font-weight: $fw-molecule-coachmark-tooltip-heading-text;
       margin: $m-molecule-coachmark-tooltip-heading-text;
     }
 
     &BodyText {
-      color: $c-primary;
+      color: $c-molecule-coachmark-tooltip-body-text;
       font-size: $fz-molecule-coachmark-tooltip-body-text;
       margin: $m-molecule-coachmark-tooltip-body-text;
     }
 
     &CloseButton {
+      cursor: pointer;
       margin-left: auto;
     }
 
@@ -59,6 +60,7 @@ $base-class: '.sui-MoleculeCoachmark';
     }
 
     &StepCounter {
+      color: $c-molecule-coachmark-tooltip-stepper-text;
       font-size: $fz-molecule-coachmark-tooltip-step-counter;
       font-weight: $fw-molecule-coachmark-tooltip-step-counter;
     }

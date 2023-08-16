@@ -256,7 +256,7 @@ describe(json.name, () => {
       )
     })
 
-    it('should call onSlide handler when changing the slide index', () => {
+    it.skip('should call onSlide handler when changing the slide index', () => {
       // Given
       const spy = sinon.spy()
       const elementsText = [

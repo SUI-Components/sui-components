@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.7.0 (2023-08-16)
+
+
+### Bug Fixes
+
+* **components/atom/tooltip:** fix security issue ([7c4e028](https://github.com/SUI-Components/sui-components/commit/7c4e02855234b695e6489ae33b3a72c4a7fbf743))
+
+
+
 # 2.6.0 (2022-10-18)
 
 

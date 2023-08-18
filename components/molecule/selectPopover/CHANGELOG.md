@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.39.0 (2023-08-18)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add render action customizable section ([8bb7016](https://github.com/SUI-Components/sui-components/commit/8bb7016208ce40496d36792b6cc5d04b3d55b8a0))
+
+
+
 # 1.38.0 (2023-05-30)
 
 

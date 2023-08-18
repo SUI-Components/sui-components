@@ -1,4 +1,4 @@
-import {forwardRef, Suspense, useRef} from 'react'
+import {createRef, forwardRef, Suspense, useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -28,7 +28,7 @@ const AtomVideoPlayer = forwardRef(
       timeLimit,
       timeOffset
     },
-    forwardedRef
+    forwardedRef = createRef()
   ) => {
     const [Component, props] = useVideoPlayer({
       autoPlay,
@@ -41,22 +41,21 @@ const AtomVideoPlayer = forwardRef(
     })
 
     const componentRef = useRef(null)
-    const ref = forwardedRef || componentRef
     const autoPlayState = useScrollAutoplayEffect({
       autoPlay,
       intersectionObserverConfiguration,
       muted,
-      ref
+      ref: componentRef
     })
 
     return (
-      <div className={BASE_CLASS}>
+      <div ref={componentRef} className={BASE_CLASS}>
         <Suspense fallback={fallbackComponent}>
           <Component
             {...{
               ...props,
               autoPlay: autoPlayState,
-              ref
+              ref: forwardedRef
             }}
           />
         </Suspense>

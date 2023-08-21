@@ -88,11 +88,9 @@ const Demo = () => {
           {content}
         </MoleculeModal.Content>
         {!actionsAreHidden && (
-          <MoleculeModal.Footer>
-            <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-              {actions}
-            </div>
-          </MoleculeModal.Footer>
+          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+            {actions}
+          </div>
         )}
       </MoleculeModal>
     )

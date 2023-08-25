@@ -22,6 +22,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   innerRefInput: refInput = {},
   inputMode,
   isOpen,
+  maxLength,
+  minLength,
   onChange,
   onChangeTags,
   onClear,
@@ -106,6 +108,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         inputMode={inputMode}
         isOpen={isOpen}
         isVisibleClear={!disabled && tags.length}
+        maxLength={maxLength}
+        minLength={minLength}
         noBorder
         onChange={handleChange}
         onChangeTags={handleChangeTags}

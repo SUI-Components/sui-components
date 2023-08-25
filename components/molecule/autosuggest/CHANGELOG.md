@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.68.0 (2023-08-25)
+
+
+### Features
+
+* **components/molecule/autosuggest:** Add maxLength and minLength on multiselection ([c01c9d5](https://github.com/SUI-Components/sui-components/commit/c01c9d56023f5552f91af951cd3fa41aba595b02))
+
+
+
 # 2.67.0 (2022-11-15)
 
 

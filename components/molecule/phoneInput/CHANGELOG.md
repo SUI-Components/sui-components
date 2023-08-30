@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2023-08-30)
+
+
+### Features
+
+* **components/molecule/phoneInput:** add visiblePrefixes prop to decide wether is the option enable ([6f219dd](https://github.com/SUI-Components/sui-components/commit/6f219dd1ee94db2ff762d2abc066ab867866991b))
+
+
+
 # 1.6.0 (2023-07-28)
 
 

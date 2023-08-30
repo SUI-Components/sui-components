@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 1.15.0 (2023-08-30)
+
+
+### Features
+
+* **components/atom/table:** add token to enable table header border bottom ([4465b47](https://github.com/SUI-Components/sui-components/commit/4465b475afc8cebe68cba237ad7ea6a054648638))
+* **components/atom/table:** rename token ([8ead055](https://github.com/SUI-Components/sui-components/commit/8ead055d15b2e6f632cd8493ae48986a4d91d432))
+* **components/atom/table:** rename token using emmet convention ([2076a28](https://github.com/SUI-Components/sui-components/commit/2076a28e5c3bbb893f73ff22eb461091e4211951))
+* **components/atom/table:** replace none with zero ([c5dda6d](https://github.com/SUI-Components/sui-components/commit/c5dda6d5e9dce2750277463385f9a8e51d850323))
+* **components/atom/table:** replace zero to none ([439f028](https://github.com/SUI-Components/sui-components/commit/439f028d1d0f04bf0ea7088c1239e16826c9db6d))
+
+
+
 # 1.14.0 (2022-10-06)
 
 

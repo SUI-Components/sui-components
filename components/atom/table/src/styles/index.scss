@@ -18,6 +18,7 @@ $base-class: '.react-AtomTable';
     font-weight: $fw-regular;
     text-align: left;
     color: $c-atom-table-header-cell;
+    border-bottom: $bdb-atom-table-header-cell;
   }
 
   &-row {

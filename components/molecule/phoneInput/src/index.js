@@ -29,7 +29,8 @@ export default function MoleculePhoneInput({
   placeholder,
   hasError,
   initialSelectedPrefix = prefixes[0],
-  type = phoneValidationType.DEFAULT
+  type = phoneValidationType.DEFAULT,
+  visiblePrefixes = true
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedPrefix, setSelectedPrefix] = useState(initialSelectedPrefix)
@@ -101,12 +102,14 @@ export default function MoleculePhoneInput({
               src={flagIcons[selectedPrefix?.value]}
             />
           )}
-          <AtomIcon
-            size={ATOM_ICON_SIZES.medium}
-            color={ATOM_ICON_COLORS.currentColor}
-          >
-            {showDropdown ? dropdownCloseIcon : dropdownIcon}
-          </AtomIcon>
+          {visiblePrefixes && (
+            <AtomIcon
+              size={ATOM_ICON_SIZES.medium}
+              color={ATOM_ICON_COLORS.currentColor}
+            >
+              {showDropdown ? dropdownCloseIcon : dropdownIcon}
+            </AtomIcon>
+          )}
         </div>
         <div className={`${baseClass}-input-phoneContainer`}>
           {selectedPrefix && (
@@ -124,12 +127,12 @@ export default function MoleculePhoneInput({
           />
         </div>
       </div>
-      {showDropdown && (
+      {showDropdown && visiblePrefixes && (
         <div className={`${baseClass}-dropdown`}>
           <MoleculeDropdownList
             design={moleculeDropdownListDesigns.FLAT}
             ref={modalRef}
-            visible={true}
+            visible={visiblePrefixes}
           >
             {prefixes.map(prefix => {
               return (
@@ -183,5 +186,6 @@ MoleculePhoneInput.propTypes = {
     countryCode: PropTypes.string,
     mask: PropTypes.string
   }),
-  hasError: PropTypes.bool
+  hasError: PropTypes.bool,
+  visiblePrefixes: PropTypes.bool
 }

@@ -52,6 +52,8 @@ const Demo = () => {
   const [renderSelect, setRenderSelect] = useState(false)
   const [overlayType, setOverlayType] = useState(selectPopoverOverlayTypes.NONE)
   const [hasCustomRenderActions, setCustomRenderActions] = useState(false)
+  const [hasForceClosePopover, setHasForceClosePopover] = useState(false)
+  const [forceClosePopover, setForceClosePopover] = useState(false)
 
   const overlayContentRef = useRef()
 
@@ -63,6 +65,11 @@ const Demo = () => {
       checked: item.id === target.id ? !item.checked : item.checked
     }))
     setUnconfirmedItems(newItems)
+
+    if (hasForceClosePopover) {
+      setItems(newItems)
+      setForceClosePopover(true)
+    }
   }
 
   const handleClose = () => {
@@ -71,6 +78,8 @@ const Demo = () => {
 
   const handleOpen = () => {
     hasEvents && window.alert('Popover opened!')
+
+    hasForceClosePopover && setForceClosePopover(false)
   }
 
   const renderContentWrapper = ({actions, content, isOpen, setIsOpen}) => {
@@ -234,6 +243,16 @@ const Demo = () => {
             customRenderActions
           </label>
         </div>
+        <div>
+          <label>
+            <input
+              type="checkbox"
+              checked={hasForceClosePopover}
+              onChange={ev => setHasForceClosePopover(ev.target.checked)}
+            />
+            Force close popover
+          </label>
+        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
@@ -247,6 +266,7 @@ const Demo = () => {
           }}
           renderContentWrapper={customContentWrapper && renderContentWrapper}
           renderSelect={renderSelect && <button>Now I'm a button!</button>}
+          forceClosePopover={forceClosePopover}
           fullWidth={isFullWidth}
           hideActions={actionsAreHidden}
           iconArrowDown={IconArrowDown}

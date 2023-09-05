@@ -39,6 +39,7 @@ const MoleculeSelectPopover = ({
   customButtonText,
   customButtonOptions,
   children,
+  forceClosePopover = false,
   fullWidth,
   hideActions,
   iconArrowDown: IconArrowDown,
@@ -72,6 +73,8 @@ const MoleculeSelectPopover = ({
 
   const hasOverlay =
     Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
+
+  useEffect(() => forceClosePopover && setIsOpen(false), [forceClosePopover])
 
   useEffect(() => {
     /**
@@ -298,6 +301,7 @@ MoleculeSelectPopover.propTypes = {
     negative: PropTypes.bool
   }),
   children: PropTypes.node.isRequired,
+  forceClosePopover: PropTypes.bool,
   fullWidth: PropTypes.bool,
   hideActions: PropTypes.bool,
   iconArrowDown: PropTypes.elementType.isRequired,

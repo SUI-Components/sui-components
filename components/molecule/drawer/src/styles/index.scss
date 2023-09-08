@@ -13,8 +13,7 @@ $base-class: '.sui-MoleculeDrawer';
 
   &-content {
     $this: &;
-    border-top-left-radius: $bdtlrs-molecule-drawer-content;
-    border-top-right-radius: $bdtrrs-molecule-drawer-content;
+
     z-index: $z-molecule-drawer;
     position: absolute;
     background-color: $bgc-molecule-drawer;
@@ -37,21 +36,29 @@ $base-class: '.sui-MoleculeDrawer';
         top: 0;
         left: 0;
         transform: translateX(-100%);
+        border-top-right-radius: $bdtrrs-molecule-drawer-content;
+        border-bottom-right-radius: $bdbrrs-molecule-drawer-content;
       }
       &-right {
         top: 0;
         right: 0;
         transform: translateX(100%);
+        border-top-left-radius: $bdtlrs-molecule-drawer-content;
+        border-bottom-left-radius: $bdblrs-molecule-drawer-content;
       }
       &-top {
         top: 0;
         left: 0;
         transform: translateY(-100%);
+        border-bottom-left-radius: $bdblrs-molecule-drawer-content;
+        border-bottom-right-radius: $bdbrrs-molecule-drawer-content;
       }
       &-bottom {
         bottom: 0;
         left: 0;
         transform: translateY(100%);
+        border-top-left-radius: $bdtlrs-molecule-drawer-content;
+        border-top-right-radius: $bdtrrs-molecule-drawer-content;
       }
     }
 

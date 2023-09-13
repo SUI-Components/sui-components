@@ -7,6 +7,7 @@ import {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
 import Injector from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
+import {SPACED} from './config.js'
 import {BASE_CLASS} from './settings.js'
 
 const getGroupPosition =
@@ -26,13 +27,31 @@ const MoleculeButtonGroup = ({
   negative,
   groupPositions,
   onClick,
+  spaced,
   ...props
 }) => {
   const numChildren = children.length
+
   const getGroupPositionByIndex = getGroupPosition({
     groupPositions,
     numChildren
   })
+
+  const CLASS_SPACED_MEDIUM = `${BASE_CLASS}--spaced-${SPACED.MEDIUM}`
+  const CLASS_SPACED_LARGE = `${BASE_CLASS}--spaced-${SPACED.LARGE}`
+
+  const getClassSpaced = ({spaced}) => {
+    if (spaced === SPACED.MEDIUM) {
+      return CLASS_SPACED_MEDIUM
+    }
+    if (spaced === SPACED.LARGE) {
+      return CLASS_SPACED_LARGE
+    }
+    return CLASS_SPACED_MEDIUM
+  }
+
+  const CLASS_SPACED = getClassSpaced({spaced})
+
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
@@ -46,6 +65,7 @@ const MoleculeButtonGroup = ({
           design={design}
           groupPosition={groupPosition}
           fullWidth={fullWidth}
+          spaced={spaced}
           onClick={onClick}
         >
           {child}
@@ -53,7 +73,13 @@ const MoleculeButtonGroup = ({
       )
     })
   return (
-    <Poly className={cx(BASE_CLASS, fullWidth && `${BASE_CLASS}--fullWidth`)}>
+    <Poly
+      className={cx(
+        BASE_CLASS,
+        fullWidth && `${BASE_CLASS}--fullWidth`,
+        spaced && CLASS_SPACED
+      )}
+    >
       {extendedChildren}
     </Poly>
   )
@@ -90,7 +116,9 @@ MoleculeButtonGroup.propTypes = {
   /**
    * common click handler fired every inner button is triggered.
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+
+  spaced: PropTypes.oneOf(Object.values(SPACED))
 }
 
 MoleculeButtonGroup.defaultProps = {
@@ -105,5 +133,6 @@ export default MoleculeButtonGroup
 
 export {
   atomButtonDesigns as moleculeButtonGroupDesigns,
-  atomButtonSizes as moleculeButtonGroupSizes
+  atomButtonSizes as moleculeButtonGroupSizes,
+  SPACED as moleculeButtonGroupSpaced
 }

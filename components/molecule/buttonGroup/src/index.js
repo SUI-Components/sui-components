@@ -118,6 +118,9 @@ MoleculeButtonGroup.propTypes = {
    */
   onClick: PropTypes.func,
 
+  /**
+   *  configure the gap between the buttons of the group
+   **/
   spaced: PropTypes.oneOf(Object.values(SPACED))
 }
 

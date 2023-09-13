@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 2.11.0 (2023-09-13)
+
+
+### Features
+
+* **components/molecule/buttonGroup/demo:** add demo for new spaced prop ([6375165](https://github.com/SUI-Components/sui-components/commit/63751650b618b36c4852d2fcb887656871b4d914))
+* **components/molecule/buttonGroup:** add comment for spaced prop ([52d873e](https://github.com/SUI-Components/sui-components/commit/52d873e7f1a7810f9fc57bee8325d5e9a08446ed))
+* **components/molecule/buttonGroup:** add export to test ([6dcd558](https://github.com/SUI-Components/sui-components/commit/6dcd5589f970d8edee0adeeece9ac7cf05fab678))
+* **components/molecule/buttonGroup:** add moleculeButtonGroupSpaced at test ([76b960b](https://github.com/SUI-Components/sui-components/commit/76b960b9d5d8381117bfc8845064c845935e0e59))
+* **components/molecule/buttonGroup:** add prop for spaced between items of buttonGroup ([28bde38](https://github.com/SUI-Components/sui-components/commit/28bde387dbc6dff260970a7517904750453639a6))
+
+
+
 # 2.10.0 (2022-10-06)
 
 

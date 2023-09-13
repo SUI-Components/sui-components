@@ -6,4 +6,12 @@ $base-class: '.sui-MoleculeButtonGroup';
   &--fullWidth {
     display: flex;
   }
+
+  &--spaced-medium {
+    gap: $g-m;
+  }
+
+  &--spaced-large {
+    gap: $g-l;
+  }
 }

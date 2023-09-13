@@ -35,6 +35,7 @@ describe(json.name, () => {
     const {
       moleculeButtonGroupSizes,
       moleculeButtonGroupDesigns,
+      moleculeButtonGroupSpaced,
       default: MoleculeButtonGroup,
       ...others
     } = library

@@ -262,12 +262,13 @@ describe(json.name, () => {
       const expected = {
         LOADING: 'loading',
         PROGRESS: 'progress',
-        ERROR: 'error'
+        ERROR: 'error',
+        SUCCESS: 'success'
       }
 
       // When
       const {atomProgressBarStatus: actual} = library
-      const {LOADING, PROGRESS, ERROR, ...others} = actual
+      const {LOADING, PROGRESS, ERROR, SUCCESS, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

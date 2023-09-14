@@ -27,5 +27,6 @@ export const LINE_CAPS = {
 export const STATUS = {
   LOADING: 'loading',
   PROGRESS: 'progress',
-  ERROR: 'error'
+  ERROR: 'error',
+  SUCCESS: 'success'
 }

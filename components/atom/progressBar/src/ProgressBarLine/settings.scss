@@ -25,6 +25,7 @@ $trsdu-progress-exrta-bar: 500ms !default;
 $c-atom-line-progress-bar-status--progress: $c-primary !default;
 $c-atom-line-progress-bar-status--error: $c-alert !default;
 $c-atom-line-progress-bar-status--loading: $c-gray-lightest !default;
+$c-atom-line-progress-bar-status--success: $c-success !default;
 
 $size-atom-line-progress-bar: (
   small: $sz-base * 0.5,

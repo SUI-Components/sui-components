@@ -1,4 +1,7 @@
 $bg-progress-bar: $c-gray-lightest !default;
+$bg-progress-bar--success: $bg-progress-bar !default;
+$bg-progress-bar--loading: $bg-progress-bar !default;
+$bg-progress-bar--error: $bg-progress-bar !default;
 $bc-progress-bar: $c-gray-light !default;
 $c-progress-bar-fill: $c-primary !default;
 
@@ -6,6 +9,9 @@ $trsdu-progress-bar: 500ms !default;
 $trstf-progress-bar: linear !default;
 
 $bd-line-progress-container: $bdw-s solid $bc-progress-bar !default;
+$bd-line-progress-container--success: $bd-line-progress-container !default;
+$bd-line-progress-container--loading: $bd-line-progress-container !default;
+$bd-line-progress-container--error: $bd-line-progress-container !default;
 $bd-line-double-progress-container: $bdw-s solid $bc-progress-bar !default;
 
 $br-progress-container: $bdrs-l !default;

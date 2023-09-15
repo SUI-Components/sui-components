@@ -15,6 +15,19 @@ $base-class-line: '#{$base-class}Line';
     }
   }
   &-container {
+    &--error {
+      background: $bg-progress-bar--error;
+      border: $bd-line-progress-container--error;
+    }
+    &--loading {
+      background: $bg-progress-bar--loading;
+      border: $bd-line-progress-container--loading;
+    }
+    &--success {
+      background: $bg-progress-bar--success;
+      border: $bd-line-progress-container--success;
+    }
+
     background: $bg-progress-bar;
     border: $bd-line-progress-container;
     border-radius: $bdrs-progress-container;

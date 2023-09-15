@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.12.0 (2023-09-15)
+
+
+### Features
+
+* **components/atom/progressBar:** Allow customizing the progress bar depending on its status ([9e8ef44](https://github.com/SUI-Components/sui-components/commit/9e8ef44f754e90afcd0c02e12c2b0d46fa38fccc))
+
+
+
 # 2.11.0 (2023-09-14)
 
 

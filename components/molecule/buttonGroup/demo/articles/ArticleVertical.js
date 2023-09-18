@@ -12,7 +12,7 @@ const ArticleVertical = ({className}) => {
       <Paragraph>Vertical layout for Buttons</Paragraph>
       <Grid gutter={[8, 8]} cols={2}>
         <Cell>
-          <MoleculeButtonGroup vertical spaced>
+          <MoleculeButtonGroup isVertical spaced>
             <AtomButton>A</AtomButton>
             <AtomButton>B</AtomButton>
             <AtomButton>C</AtomButton>
@@ -23,7 +23,7 @@ const ArticleVertical = ({className}) => {
   )
 }
 
-ArticleVertical.displayName = 'ArticleSize'
+ArticleVertical.displayName = 'ArticleVertical'
 
 ArticleVertical.propTypes = {
   className: PropTypes.string

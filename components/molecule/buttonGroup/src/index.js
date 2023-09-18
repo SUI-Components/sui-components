@@ -28,7 +28,7 @@ const MoleculeButtonGroup = ({
   groupPositions,
   onClick,
   spaced,
-  vertical,
+  isVertical,
   ...props
 }) => {
   const numChildren = children.length
@@ -79,7 +79,7 @@ const MoleculeButtonGroup = ({
         BASE_CLASS,
         fullWidth && `${BASE_CLASS}--fullWidth`,
         spaced && CLASS_SPACED,
-        vertical && `${BASE_CLASS}--vertical`
+        isVertical && `${BASE_CLASS}--vertical`
       )}
     >
       {extendedChildren}
@@ -126,7 +126,7 @@ MoleculeButtonGroup.propTypes = {
   spaced: PropTypes.oneOf(Object.values(SPACED)),
 
   /** buttons should have a vertical layout */
-  vertical: PropTypes.bool
+  isVertical: PropTypes.bool
 }
 
 MoleculeButtonGroup.defaultProps = {

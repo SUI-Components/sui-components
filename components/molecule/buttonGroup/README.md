@@ -67,10 +67,10 @@ import AtomButtom, {atomButtonGroupPositions} from '@s-ui/react-atom-button'
 </MoleculeButtonGroup>
 ```
 
-### Vertical
+### Vertical Layout
 
 ```js
-<MoleculeButtonGroup type="secondary" vertical>
+<MoleculeButtonGroup type="secondary" isVertical>
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>

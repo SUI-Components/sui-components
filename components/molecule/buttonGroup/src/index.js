@@ -28,6 +28,7 @@ const MoleculeButtonGroup = ({
   groupPositions,
   onClick,
   spaced,
+  vertical,
   ...props
 }) => {
   const numChildren = children.length
@@ -77,7 +78,8 @@ const MoleculeButtonGroup = ({
       className={cx(
         BASE_CLASS,
         fullWidth && `${BASE_CLASS}--fullWidth`,
-        spaced && CLASS_SPACED
+        spaced && CLASS_SPACED,
+        vertical && `${BASE_CLASS}--vertical`
       )}
     >
       {extendedChildren}
@@ -119,9 +121,12 @@ MoleculeButtonGroup.propTypes = {
   onClick: PropTypes.func,
 
   /**
-   *  configure the gap between the buttons of the group
+   * configure the gap between the buttons of the group
    **/
-  spaced: PropTypes.oneOf(Object.values(SPACED))
+  spaced: PropTypes.oneOf(Object.values(SPACED)),
+
+  /** buttons should have a vertical layout */
+  vertical: PropTypes.bool
 }
 
 MoleculeButtonGroup.defaultProps = {

@@ -67,4 +67,14 @@ import AtomButtom, {atomButtonGroupPositions} from '@s-ui/react-atom-button'
 </MoleculeButtonGroup>
 ```
 
+### Vertical Layout
+
+```js
+<MoleculeButtonGroup type="secondary" isVertical>
+  <AtomButtom>A</AtomButtom>
+  <AtomButtom>B</AtomButtom>
+  <AtomButtom>C</AtomButtom>
+</MoleculeButtonGroup>
+```
+
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/buttonGroup).**

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 2.12.0 (2023-09-18)
+
+
+### Features
+
+* **components/molecule/buttonGroup/demo:** add demo for vertical prop ([41a35de](https://github.com/SUI-Components/sui-components/commit/41a35de8b49a76f6b743ca00adbe0a30ab4e6083))
+* **components/molecule/buttonGroup:** add vertical prop ([3f5ef91](https://github.com/SUI-Components/sui-components/commit/3f5ef91940a8a7c9e3be4382627680afb91b7ae7))
+* **components/molecule/buttonGroup:** shift prop to isVertical ([4bdbd91](https://github.com/SUI-Components/sui-components/commit/4bdbd91f3de5b740e377961b4c716499e8da01cd))
+* **components/molecule/buttonGroup:** update readme with vertical prop ([2964d69](https://github.com/SUI-Components/sui-components/commit/2964d69095340bc20e9cc43199b0721d11c03cd7))
+
+
+
 # 2.11.0 (2023-09-13)
 
 

@@ -43,4 +43,15 @@ $base-class: '.sui-AtomSpinner';
       background-color: $bgc;
     }
   }
+
+  @each $name, $sizes in $atom-spinner-sizes {
+    $size: map-get($sizes, size);
+
+    &--#{'' + $name} {
+      .sui-AtomSpinner-loader {
+        height: $size;
+        width: $size;
+      }
+    }
+  }
 }

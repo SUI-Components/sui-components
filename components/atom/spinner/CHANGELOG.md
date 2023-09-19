@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.4.0 (2023-09-19)
+
+
+### Features
+
+* **components/atom/spinner:** Add sizing to the atom/spinner component ([76d032b](https://github.com/SUI-Components/sui-components/commit/76d032b9bfbe5bcbf1f288c09ca8145f15bd0d85))
+
+
+
 # 2.3.0 (2022-10-06)
 
 

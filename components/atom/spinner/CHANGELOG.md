@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2023-09-20)
+
+
+### Bug Fixes
+
+* **components/atom/spinner:** Add class to fix spinner overlay ([905ec11](https://github.com/SUI-Components/sui-components/commit/905ec1168a72ad75d5d842279042e91f2208b373))
+
+
+
 # 2.4.0 (2023-09-19)
 
 

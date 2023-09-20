@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.41.0 (2023-09-20)
+
+
+### Bug Fixes
+
+* **components/molecule/selectPopover:** Prepare component to work with React 18 ([8ddc1f1](https://github.com/SUI-Components/sui-components/commit/8ddc1f1e4e2e00b732d57bbd93a8ce0e563a1861))
+
+
+
 # 1.40.0 (2023-09-05)
 
 

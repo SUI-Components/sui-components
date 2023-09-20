@@ -74,7 +74,9 @@ const MoleculeSelectPopover = ({
   const hasOverlay =
     Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
 
-  useEffect(() => forceClosePopover && setIsOpen(false), [forceClosePopover])
+  useEffect(() => {
+    forceClosePopover && setIsOpen(false)
+  }, [forceClosePopover])
 
   useEffect(() => {
     /**

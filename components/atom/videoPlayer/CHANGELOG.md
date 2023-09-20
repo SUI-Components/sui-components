@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.24.0 (2023-09-20)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add new kind of youtube video urls ([f04f36d](https://github.com/SUI-Components/sui-components/commit/f04f36d69a792632ff194ef18d1cbc95b0d76e0c))
+* **components/atom/videoPlayer:** Adjust refs to make the scroll autoplay work again ([9d50c72](https://github.com/SUI-Components/sui-components/commit/9d50c727f114998803280b0321741bf0c1d5d262))
+
+
+
 # 1.23.0 (2023-08-02)
 
 

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.9.0 (2023-09-20)
+
+
+### Features
+
+* **components/molecule/accordion:** new tokens for molecule accordion header styles ([3fc4c0c](https://github.com/SUI-Components/sui-components/commit/3fc4c0c5089fca22ffbb8235e15ace3424f734b1))
+* **components/molecule/accordion:** preserve backwards compatibility ([2eca93e](https://github.com/SUI-Components/sui-components/commit/2eca93eb297eb6c95dac4b4fad0296740b2a7e65))
+
+
+
 # 2.8.0 (2022-12-15)
 
 

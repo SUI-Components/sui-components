@@ -13,10 +13,12 @@ $bdw-accordion-item: $bdw-s !default;
 $h-accordion-item-button: $h-accordion-tab-btn !default;
 $p-accordion-item-button: $p-accordion-tab-btn !default;
 $p-accordion-item-header: $p-accordion-title !default;
+$p-accordion-item-header-icon: $sz-base !default;
 $sz-accordion-item-icon: $sz-accordion-tab-icon !default;
 $p-accordion-item-panel: $p-accordion-tab-content !default;
 
 // Typography
+$lh-molecule-accordion-header: $lh-base !default;
 $fz-molecule-accordion-header: $fz-base !default;
 $ff-molecule-accordion-header: $ff-molecule-accordion-title;
-$fw-molecule-accordion-header: $fw-molecule-accordion-title;
+$fw-molecule-accordion-header: $fw-molecule-accordion-title !default;

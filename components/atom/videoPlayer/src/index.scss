@@ -16,6 +16,11 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 }
 
 .sui-AtomVideoPlayer {
+  align-items: center;
+  background: $c-black;
+  display: flex;
+  height: 100%;
+
   &-nativePlayer {
     &Video {
       width: 100%;

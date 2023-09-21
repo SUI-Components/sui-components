@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2023-09-21)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Apply styles to video player ([d9c616d](https://github.com/SUI-Components/sui-components/commit/d9c616dfdc662137c278593cde0b016d84530659))
+
+
+
 # 1.24.0 (2023-09-20)
 
 

@@ -6,6 +6,7 @@ import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticleReferenced from './articles/ArticleForwardRef.js'
 import ArticleLenght from './articles/ArticleLength.js'
 import ArticleMask from './articles/ArticleMask.js'
+import ArticleOnlyInput from './articles/ArticleOnlyInput.js'
 import ArticlePassword from './articles/ArticlePassword.js'
 import ArticlePlaceHolder from './articles/ArticlePlaceholder.js'
 import ArticleSizes from './articles/ArticleSizes.js'
@@ -47,6 +48,8 @@ export default () => {
         <ArticleStatus />
         <br />
         <ArticleReferenced />
+        <br />
+        <ArticleOnlyInput />
       </div>
     </div>
   )

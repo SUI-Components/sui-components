@@ -1,7 +1,7 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-molecule-dropdown-option/lib/index';
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
-@import '~@s-ui/react-atom-input/lib/index';
+@import '~@s-ui/react-molecule-input-field/lib/index';
 @import '~@s-ui/react-atom-button/lib/index';
 
 .sui-MoleculePhoneInput {
@@ -44,8 +44,20 @@
           border: 1px solid $c-gray-light;
           width: 100%;
 
+          & .sui-AtomInput-input--noBorder {
+            border-width: 1px 0;
+            border-style: solid;
+            border-color: $c-gray-light;
+          }
+
           &.sui-MoleculePhoneInput--error {
             border-color: $c-error;
+
+            & .sui-AtomInput-input--noBorder {
+              border-width: 1px 0;
+              border-style: solid;
+              border-color: $c-error;
+            }
           }
         }
       }

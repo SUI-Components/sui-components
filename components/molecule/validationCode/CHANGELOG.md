@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.8.0 (2023-09-22)
+
+
+### Features
+
+* **components/molecule/validationCode/demo:** add demo ([2948da1](https://github.com/SUI-Components/sui-components/commit/2948da13c5a04d9956392e3d781643c1db0b2cb0))
+* **components/molecule/validationCode:** avoid to render header and footer nodes if no header or fo ([8f923fa](https://github.com/SUI-Components/sui-components/commit/8f923fa1961df8589c68cc6f544c021394dfcae7))
+* **Root:** Delete undefined dependencies ([c145905](https://github.com/SUI-Components/sui-components/commit/c145905350328925ba6fda2a462d7f8b508c8ea0))
+* **Root:** Merge commit ([d3735d0](https://github.com/SUI-Components/sui-components/commit/d3735d0644332e674d5a5b6291680697f0d6f7c4))
+
+
+
 # 1.7.0 (2022-06-23)
 
 

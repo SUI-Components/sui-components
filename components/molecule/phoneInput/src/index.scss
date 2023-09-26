@@ -37,6 +37,19 @@
 
         & > input {
           background: none;
+
+          &.sui-AtomInput-input--noBorder {
+            position: relative;
+          }
+        }
+
+        & span.sui-AtomValidationText {
+          position: absolute;
+          left: 0;
+        }
+        & span.sui-AtomHelpText {
+          position: absolute;
+          left: 0;
         }
 
         &.splitted {

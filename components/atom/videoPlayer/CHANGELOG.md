@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2023-09-26)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add title prop to the video player ([4cf963f](https://github.com/SUI-Components/sui-components/commit/4cf963f46d6cb09c9a8840bab83971541d2fa09b))
+
+
+
 # 1.26.0 (2023-09-26)
 
 

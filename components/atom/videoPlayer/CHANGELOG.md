@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.26.0 (2023-09-26)
+
+
+### Features
+
+* **components/atom/videoPlayer:** ajust center position video in video player ([271c72d](https://github.com/SUI-Components/sui-components/commit/271c72de743213642d8530e741fb51474bd6e4c4))
+
+
+
 # 1.25.0 (2023-09-21)
 
 

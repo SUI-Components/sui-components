@@ -19,6 +19,7 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
   align-items: center;
   background: $c-black;
   display: flex;
+  justify-content: center;
   height: 100%;
 
   &-nativePlayer {

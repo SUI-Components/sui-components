@@ -26,6 +26,7 @@ const AtomVideoPlayer = forwardRef(
       onLoadVideo = NO_OP,
       src = '',
       timeLimit,
+      title,
       timeOffset
     },
     forwardedRef = createRef()
@@ -37,6 +38,7 @@ const AtomVideoPlayer = forwardRef(
       onLoadVideo,
       src,
       timeLimit,
+      title,
       timeOffset
     })
 
@@ -79,6 +81,7 @@ AtomVideoPlayer.propTypes = {
   onLoadVideo: PropTypes.func,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   timeLimit: PropTypes.number,
+  title: PropTypes.string,
   timeOffset: PropTypes.number
 }
 

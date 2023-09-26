@@ -32,7 +32,12 @@ export default function ArticleStates({openIcon, closeIcon}) {
         type={phoneValidationType.DEFAULT}
         initialSelectedPrefix={PREFIXES[1]}
         prefixes={PREFIXES}
+        helpText="The format should be numbers"
       />
+
+      <br />
+      <br />
+
       <H3>Error</H3>
       <MoleculePhoneInput
         value={errorPhone}
@@ -44,8 +49,11 @@ export default function ArticleStates({openIcon, closeIcon}) {
         initialSelectedPrefix={PREFIXES[2]}
         prefixes={PREFIXES}
         hasError
+        errorText="Incorrect format"
       />
       <br />
+      <br />
+
       <MoleculePhoneInput
         value={errorPhone}
         onChange={onErrorPhoneChange}
@@ -56,6 +64,7 @@ export default function ArticleStates({openIcon, closeIcon}) {
         initialSelectedPrefix={PREFIXES[1]}
         prefixes={PREFIXES}
         hasError
+        errorText="Incorrect format"
       />
     </Article>
   )

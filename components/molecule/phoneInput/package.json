@@ -9,12 +9,11 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/react-atom-input": "5",
-    "@s-ui/react-molecule-dropdown-option": "2",
-    "@s-ui/react-molecule-dropdown-list": "2",
-    "@s-ui/react-atom-icon": "1",
-    "@s-ui/react-atom-button": "1",
     "@s-ui/component-dependencies": "latest",
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-molecule-dropdown-list": "2",
+    "@s-ui/react-molecule-dropdown-option": "2",
+    "@s-ui/react-molecule-input-field": "4",
     "rendered-country-flags": "1"
   },
   "peerDependencies": {

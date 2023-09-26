@@ -1,7 +1,7 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-molecule-dropdown-option/lib/index';
 @import '~@s-ui/react-molecule-dropdown-list/lib/index';
-@import '~@s-ui/react-atom-input/lib/index';
+@import '~@s-ui/react-molecule-input-field/lib/index';
 @import '~@s-ui/react-atom-button/lib/index';
 
 .sui-MoleculePhoneInput {
@@ -12,7 +12,7 @@
 
   &-input {
     border-radius: $bdrs-l;
-    border: 1px solid $c-gray-light;
+    border: $bdw-s solid $c-gray-light;
     display: flex;
     height: 40px;
 
@@ -37,15 +37,40 @@
 
         & > input {
           background: none;
+
+          &.sui-AtomInput-input--noBorder {
+            position: relative;
+          }
+        }
+
+        & span.sui-AtomValidationText {
+          position: absolute;
+          left: 0;
+        }
+        & span.sui-AtomHelpText {
+          position: absolute;
+          left: 0;
         }
 
         &.splitted {
           border-radius: $bdrs-l;
-          border: 1px solid $c-gray-light;
+          border: $bdw-s solid $c-gray-light;
           width: 100%;
+
+          & .sui-AtomInput-input--noBorder {
+            border-width: $bdw-s 0;
+            border-style: solid;
+            border-color: $c-gray-light;
+          }
 
           &.sui-MoleculePhoneInput--error {
             border-color: $c-error;
+
+            & .sui-AtomInput-input--noBorder {
+              border-width: $bdw-s 0;
+              border-style: solid;
+              border-color: $c-error;
+            }
           }
         }
       }
@@ -62,7 +87,7 @@
 
       &.splitted {
         background-color: transparent;
-        border: 1px solid $c-gray-light;
+        border: $bdw-s solid $c-gray-light;
 
         &.sui-MoleculePhoneInput--error {
           border-color: $c-error;
@@ -90,7 +115,7 @@
     top: 45px;
     width: 100%;
     z-index: 1;
-    border: 1px solid $c-gray-light;
+    border: $bdw-s solid $c-gray-light;
     border-radius: $bdrs-l;
 
     & > ul {

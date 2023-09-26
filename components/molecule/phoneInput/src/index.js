@@ -4,32 +4,34 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import flagIcons from 'rendered-country-flags'
 
-import AtomIcon, {
-  ATOM_ICON_COLORS,
-  ATOM_ICON_SIZES
-} from '@s-ui/react-atom-icon'
-import AtomInput from '@s-ui/react-atom-input'
 import {TYPES} from '@s-ui/react-atom-input/lib/config.js'
 import MoleculeDropdownList, {
   moleculeDropdownListDesigns
 } from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 import {phoneValidationType} from './settings.js'
 
 const BASE_CLASS = 'sui-MoleculePhoneInput'
 
+export {PREFIXES} from './settings.js'
 export default function MoleculePhoneInput({
+  alertText,
+  autoHideHelpText = false,
   dropdownCloseIcon,
   dropdownIcon,
-  value = '',
-  setFormattedValue,
-  prefixes = [],
+  errorText,
+  hasError,
+  helpText,
   onChange,
   placeholder,
-  hasError,
+  prefixes = [],
   initialSelectedPrefix = prefixes[0],
+  setFormattedValue,
+  successText,
   type = phoneValidationType.DEFAULT,
+  value = '',
   visiblePrefixes = true
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
@@ -102,14 +104,7 @@ export default function MoleculePhoneInput({
               src={flagIcons[selectedPrefix?.value]}
             />
           )}
-          {visiblePrefixes && (
-            <AtomIcon
-              size={ATOM_ICON_SIZES.medium}
-              color={ATOM_ICON_COLORS.currentColor}
-            >
-              {showDropdown ? dropdownCloseIcon : dropdownIcon}
-            </AtomIcon>
-          )}
+          {visiblePrefixes && (showDropdown ? dropdownCloseIcon : dropdownIcon)}
         </div>
         <div className={`${baseClass}-input-phoneContainer`}>
           {selectedPrefix && (
@@ -117,13 +112,20 @@ export default function MoleculePhoneInput({
               {selectedPrefix.countryCode}
             </p>
           )}
-          <AtomInput
-            value={value.toString()}
+          <MoleculeInputField
+            {...{
+              alertText,
+              autoHideHelpText,
+              errorText,
+              helpText,
+              placeholder,
+              successText
+            }}
             mask={inputMask}
-            placeholder={placeholder}
-            type={TYPES.MASK}
-            onChange={handlePhoneChange}
             noBorder
+            onChange={handlePhoneChange}
+            type={TYPES.MASK}
+            value={value.toString()}
           />
         </div>
       </div>
@@ -187,5 +189,18 @@ MoleculePhoneInput.propTypes = {
     mask: PropTypes.string
   }),
   hasError: PropTypes.bool,
-  visiblePrefixes: PropTypes.bool
+  visiblePrefixes: PropTypes.bool,
+  /** Boolean to decide if helptext should be auto hide */
+  autoHideHelpText: PropTypes.bool,
+  /** Success message to display when success state  */
+  successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Error message to display when error state  */
+  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Alert message to display when alert state  */
+  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Help Text to display */
+  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 }

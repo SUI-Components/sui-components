@@ -12,7 +12,7 @@
 
   &-input {
     border-radius: $bdrs-l;
-    border: 1px solid $c-gray-light;
+    border: $bdw-s solid $c-gray-light;
     display: flex;
     height: 40px;
 
@@ -54,11 +54,11 @@
 
         &.splitted {
           border-radius: $bdrs-l;
-          border: 1px solid $c-gray-light;
+          border: $bdw-s solid $c-gray-light;
           width: 100%;
 
           & .sui-AtomInput-input--noBorder {
-            border-width: 1px 0;
+            border-width: $bdw-s 0;
             border-style: solid;
             border-color: $c-gray-light;
           }
@@ -67,7 +67,7 @@
             border-color: $c-error;
 
             & .sui-AtomInput-input--noBorder {
-              border-width: 1px 0;
+              border-width: $bdw-s 0;
               border-style: solid;
               border-color: $c-error;
             }
@@ -87,7 +87,7 @@
 
       &.splitted {
         background-color: transparent;
-        border: 1px solid $c-gray-light;
+        border: $bdw-s solid $c-gray-light;
 
         &.sui-MoleculePhoneInput--error {
           border-color: $c-error;
@@ -115,7 +115,7 @@
     top: 45px;
     width: 100%;
     z-index: 1;
-    border: 1px solid $c-gray-light;
+    border: $bdw-s solid $c-gray-light;
     border-radius: $bdrs-l;
 
     & > ul {

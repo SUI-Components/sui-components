@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.13.0 (2023-09-27)
+
+
+### Features
+
+* **components/molecule/buttonGroup:** add unset as value in groupPositions prop ([ad564ae](https://github.com/SUI-Components/sui-components/commit/ad564ae80875a394ca169c0a13e79c7d04158a22))
+
+
+
 # 2.12.0 (2023-09-18)
 
 

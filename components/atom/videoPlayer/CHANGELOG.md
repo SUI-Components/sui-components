@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.28.0 (2023-09-27)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Set video player width to 100% by default ([4a3ba26](https://github.com/SUI-Components/sui-components/commit/4a3ba265f39dee4b6eabae2ccd7ceac67a436c2a))
+
+
+
 # 1.27.0 (2023-09-26)
 
 

@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.9.0 (2023-09-27)
+
+
+### Bug Fixes
+
+* **components/molecule/phoneInput:** fix version of phoneInput ([1dc2b00](https://github.com/SUI-Components/sui-components/commit/1dc2b002e90555ba4b8e8642f77ccc96a4c6d71b))
+
+
+### Features
+
+* **components/molecule/phoneInput:** fix styles for input with help text ([29edd48](https://github.com/SUI-Components/sui-components/commit/29edd48724f4efed3173ae29ec3cf7b965504497))
+* **components/molecule/phoneInput:** Replace atom input by molecule input ([4a17fdb](https://github.com/SUI-Components/sui-components/commit/4a17fdba855a44b3ad564d337458973ff4d6a189))
+
+
+
 # 1.7.0 (2023-08-30)
 
 

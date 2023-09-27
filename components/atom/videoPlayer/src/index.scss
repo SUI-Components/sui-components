@@ -5,6 +5,7 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 
 @mixin atom-videoplayer-external-player {
   position: relative;
+  width: 100%;
 
   &Frame {
     height: 100%;

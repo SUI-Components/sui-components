@@ -11,11 +11,15 @@ import {SPACED} from './config.js'
 import {BASE_CLASS} from './settings.js'
 
 const getGroupPosition =
-  ({groupPositions, numChildren}) =>
+  ({groupPositions, numChildren, spaced}) =>
   index => {
-    if (index === 0) return groupPositions.FIRST
-    if (index === numChildren - 1) return groupPositions.LAST
-    return groupPositions.MIDDLE
+    if (spaced) {
+      return groupPositions.UNSET
+    } else {
+      if (index === 0) return groupPositions.FIRST
+      if (index === numChildren - 1) return groupPositions.LAST
+      return groupPositions.MIDDLE
+    }
   }
 
 const MoleculeButtonGroup = ({
@@ -25,7 +29,12 @@ const MoleculeButtonGroup = ({
   size,
   design,
   negative,
-  groupPositions,
+  groupPositions = {
+    FIRST: 'first',
+    MIDDLE: 'middle',
+    LAST: 'last',
+    UNSET: 'unset'
+  },
   onClick,
   spaced,
   isVertical,
@@ -34,6 +43,7 @@ const MoleculeButtonGroup = ({
   const numChildren = children.length
 
   const getGroupPositionByIndex = getGroupPosition({
+    spaced,
     groupPositions,
     numChildren
   })
@@ -127,14 +137,6 @@ MoleculeButtonGroup.propTypes = {
 
   /** buttons should have a vertical layout */
   isVertical: PropTypes.bool
-}
-
-MoleculeButtonGroup.defaultProps = {
-  groupPositions: {
-    FIRST: 'first',
-    MIDDLE: 'middle',
-    LAST: 'last'
-  }
 }
 
 export default MoleculeButtonGroup

@@ -241,6 +241,32 @@ describe('MoleculePhoneInput', () => {
     expect(phonePrefix).to.be.equal(PREFIXES[0].countryCode)
   })
 
+  it('should call onPrefixChange when prefix changes value', () => {
+    const phoneValue = '666'
+    let phonePrefix = ''
+    // Given
+    const props = {
+      value: phoneValue,
+      prefixes: PREFIXES,
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: () => {},
+      onPrefixChange: prefix => (phonePrefix = prefix)
+    }
+
+    const {container} = setup(props)
+    const prefix = container.querySelector(
+      'div.sui-MoleculePhoneInput-input-prefix'
+    )
+    // When
+    prefix.click()
+    const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
+    const option = options[1]
+    option.click()
+
+    // Then
+    expect(phonePrefix).to.be.equal(PREFIXES[1])
+  })
+
   it('should add error class when error', () => {
     // Given
     const props = {

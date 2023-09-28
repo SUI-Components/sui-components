@@ -12,6 +12,10 @@ $h-molecule-phone-input: 40px;
   gap: $m-l;
   position: relative;
 
+  &.withLabel {
+    padding-top: $p-xl;
+  }
+
   &-input {
     border-radius: $bdrs-l;
     border: $bdw-s solid $c-gray-light;
@@ -45,13 +49,18 @@ $h-molecule-phone-input: 40px;
           }
         }
 
+        & span.sui-AtomHelpText,
         & span.sui-AtomValidationText {
-          position: absolute;
+          bottom: -$m-s;
           left: 0;
+          position: absolute;
+          transform: translate(0, 100%);
         }
-        & span.sui-AtomHelpText {
-          position: absolute;
+
+        & .sui-MoleculeField-labelContainer {
           left: 0;
+          position: absolute;
+          top: 0;
         }
 
         &.splitted {

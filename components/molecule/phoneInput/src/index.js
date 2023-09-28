@@ -25,6 +25,7 @@ export default function MoleculePhoneInput({
   hasError,
   helpText,
   id,
+  label,
   name,
   onChange,
   placeholder,
@@ -51,8 +52,9 @@ export default function MoleculePhoneInput({
 
   const baseClass = cx(
     {
-      [`splitted`]: type === phoneValidationType.SPLITTED,
-      [`${BASE_CLASS}--error`]: hasError
+      splitted: type === phoneValidationType.SPLITTED,
+      [`${BASE_CLASS}--error`]: hasError,
+      withLabel: !!label
     },
     BASE_CLASS
   )
@@ -116,12 +118,13 @@ export default function MoleculePhoneInput({
           <MoleculeInputField
             {...{
               ...props,
-              name,
-              id,
               alertText,
               autoHideHelpText,
               errorText,
               helpText,
+              id,
+              label,
+              name,
               placeholder,
               successText
             }}
@@ -213,5 +216,8 @@ MoleculePhoneInput.propTypes = {
   name: PropTypes.string,
 
   /** Id to set in the input tag */
-  id: PropTypes.string
+  id: PropTypes.string,
+
+  /** Label to set in the molecule field */
+  label: PropTypes.string
 }

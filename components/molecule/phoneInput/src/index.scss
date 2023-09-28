@@ -1,8 +1,10 @@
-@import '~@s-ui/theme/lib/index';
-@import '~@s-ui/react-molecule-dropdown-option/lib/index';
-@import '~@s-ui/react-molecule-dropdown-list/lib/index';
-@import '~@s-ui/react-molecule-input-field/lib/index';
-@import '~@s-ui/react-atom-button/lib/index';
+@import '~@s-ui/theme/lib/index.scss';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index.scss';
+@import '~@s-ui/react-molecule-dropdown-list/lib/index.scss';
+@import '~@s-ui/react-molecule-input-field/lib/index.scss';
+@import '~@s-ui/react-atom-button/lib/index.scss';
+
+$h-molecule-phone-input: 40px;
 
 .sui-MoleculePhoneInput {
   display: flex;
@@ -14,7 +16,7 @@
     border-radius: $bdrs-l;
     border: $bdw-s solid $c-gray-light;
     display: flex;
-    height: 40px;
+    height: $h-molecule-phone-input;
 
     &.sui-MoleculePhoneInput--error {
       border-color: $c-error;
@@ -57,20 +59,8 @@
           border: $bdw-s solid $c-gray-light;
           width: 100%;
 
-          & .sui-AtomInput-input--noBorder {
-            border-width: $bdw-s 0;
-            border-style: solid;
-            border-color: $c-gray-light;
-          }
-
           &.sui-MoleculePhoneInput--error {
             border-color: $c-error;
-
-            & .sui-AtomInput-input--noBorder {
-              border-width: $bdw-s 0;
-              border-style: solid;
-              border-color: $c-error;
-            }
           }
         }
       }

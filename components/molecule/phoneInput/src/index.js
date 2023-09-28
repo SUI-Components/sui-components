@@ -4,7 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import flagIcons from 'rendered-country-flags'
 
-import {TYPES} from '@s-ui/react-atom-input/lib/config.js'
+import {inputSizes, inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList, {
   moleculeDropdownListDesigns
 } from '@s-ui/react-molecule-dropdown-list'
@@ -24,6 +24,8 @@ export default function MoleculePhoneInput({
   errorText,
   hasError,
   helpText,
+  id,
+  name,
   onChange,
   placeholder,
   prefixes = [],
@@ -32,7 +34,8 @@ export default function MoleculePhoneInput({
   successText,
   type = phoneValidationType.DEFAULT,
   value = '',
-  visiblePrefixes = true
+  visiblePrefixes: visiblePrefixesProp = true,
+  ...props
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedPrefix, setSelectedPrefix] = useState(initialSelectedPrefix)
@@ -44,6 +47,7 @@ export default function MoleculePhoneInput({
       ? selectedPrefix.mask.landlineMask
       : selectedPrefix.mask.mobileMask
   }
+  const visiblePrefixes = visiblePrefixesProp && prefixes.length > 1
 
   const baseClass = cx(
     {
@@ -72,18 +76,15 @@ export default function MoleculePhoneInput({
   }, [])
 
   const handlePhoneChange = (e, {value}) => {
-    if (selectedPrefix.landlinePrefixs.includes(value[0])) {
-      setIsLandLine(true)
-    } else {
-      setIsLandLine(false)
-    }
+    setIsLandLine(selectedPrefix.landlinePrefixs.includes(value[0]))
 
     typeof setFormattedValue === 'function' && setFormattedValue(value)
 
     typeof onChange === 'function' &&
       onChange(e, {
-        prefix: selectedPrefix.countryCode, // remove spaces from value
-        value: value.toString().replace(/\s/g, ''),
+        name: name ?? id,
+        prefix: selectedPrefix.countryCode,
+        value: value.toString().replace(/\s/g, ''), // remove spaces from value
         isLandLine
       })
   }
@@ -114,6 +115,9 @@ export default function MoleculePhoneInput({
           )}
           <MoleculeInputField
             {...{
+              ...props,
+              name,
+              id,
               alertText,
               autoHideHelpText,
               errorText,
@@ -124,7 +128,8 @@ export default function MoleculePhoneInput({
             mask={inputMask}
             noBorder
             onChange={handlePhoneChange}
-            type={TYPES.MASK}
+            size={inputSizes.SMALL}
+            type={inputTypes.MASK}
             value={value.toString()}
           />
         </div>
@@ -202,5 +207,11 @@ MoleculePhoneInput.propTypes = {
   alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Help Text to display */
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Name to set in the input tag */
+  name: PropTypes.string,
+
+  /** Id to set in the input tag */
+  id: PropTypes.string
 }

@@ -43,10 +43,10 @@ $h-molecule-phone-input: 40px;
 
         & > input {
           background: none;
+        }
 
-          &.sui-AtomInput-input--noBorder {
-            position: relative;
-          }
+        & .sui-AtomInput-input {
+          position: relative;
         }
 
         & span.sui-AtomHelpText,
@@ -60,7 +60,7 @@ $h-molecule-phone-input: 40px;
         & .sui-MoleculeField-labelContainer {
           left: 0;
           position: absolute;
-          top: -$m-s;
+          top: 0;
         }
 
         &.splitted {

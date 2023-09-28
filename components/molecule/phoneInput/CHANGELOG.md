@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2023-09-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Update positioning input phone ([1d463ea](https://github.com/SUI-Components/sui-components/commit/1d463ea292e67390a968f7037b46bfc98f3d7f7c))
+
+
+
 # 1.11.0 (2023-09-28)
 
 

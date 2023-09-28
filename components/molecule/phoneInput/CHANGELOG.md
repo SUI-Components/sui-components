@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.10.0 (2023-09-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Add label to phone input ([aac67ba](https://github.com/SUI-Components/sui-components/commit/aac67ba396cb78d752d774087a9ed0b0e050c97b))
+* **components/molecule/phoneInput:** Update phone input desplegable ([b5ec16d](https://github.com/SUI-Components/sui-components/commit/b5ec16d74d932294d3006c8629b601f2a74d04a8))
+* **components/molecule/phoneInput:** Update top position ([08410fb](https://github.com/SUI-Components/sui-components/commit/08410fbf2dc2ca7ba557ff98be15196c36d69739))
+
+
+
 # 1.9.0 (2023-09-27)
 
 

@@ -53,7 +53,7 @@ export default function MoleculePhoneInput({
   const baseClass = cx(
     {
       splitted: type === phoneValidationType.SPLITTED,
-      [`${BASE_CLASS}--error`]: hasError,
+      [`${BASE_CLASS}--error`]: hasError || !!errorText,
       withLabel: !!label
     },
     BASE_CLASS

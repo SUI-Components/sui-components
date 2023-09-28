@@ -22,6 +22,7 @@ const MaskInput = forwardRef(
   ) => {
     return (
       <IMask
+        name={name}
         mask={mask?.mask}
         value={value}
         size={size}

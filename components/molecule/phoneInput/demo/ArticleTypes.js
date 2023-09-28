@@ -33,6 +33,18 @@ export default function ArticleTypes({openIcon, closeIcon}) {
         initialSelectedPrefix={PREFIXES[1]}
         prefixes={PREFIXES}
       />
+      <H3>Label</H3>
+      <MoleculePhoneInput
+        value={splittedPhone}
+        onChange={onSplittedPhoneChange}
+        dropdownIcon={openIcon}
+        dropdownCloseIcon={closeIcon}
+        placeholder="612 345 678"
+        label="Type here your phone"
+        type={phoneValidationType.SPLITTED}
+        initialSelectedPrefix={PREFIXES[0]}
+        prefixes={PREFIXES}
+      />
       <H3>Splitted</H3>
       <MoleculePhoneInput
         value={splittedPhone}

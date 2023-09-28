@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2023-09-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** update has error phone input ([62b93e4](https://github.com/SUI-Components/sui-components/commit/62b93e40a607237cdb180085e610e2a9393c3a0c))
+
+
+
 # 1.10.0 (2023-09-28)
 
 

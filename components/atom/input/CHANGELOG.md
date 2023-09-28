@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.34.0 (2023-09-28)
+
+
+### Features
+
+* **components/atom/input:** Update atom input mask ([51e8d66](https://github.com/SUI-Components/sui-components/commit/51e8d66ee69a9f01806d0104574f56e5b4444b9c))
+
+
+
 # 5.33.0 (2023-06-14)
 
 

@@ -14,6 +14,7 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 import {phoneValidationType} from './settings.js'
 
 const BASE_CLASS = 'sui-MoleculePhoneInput'
+const NOOP = () => {}
 
 export {PREFIXES} from './settings.js'
 export default function MoleculePhoneInput({
@@ -28,6 +29,7 @@ export default function MoleculePhoneInput({
   label,
   name,
   onChange,
+  onPrefixChange = NOOP,
   placeholder,
   prefixes = [],
   initialSelectedPrefix = prefixes[0],
@@ -76,6 +78,11 @@ export default function MoleculePhoneInput({
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  useEffect(() => {
+    onPrefixChange(selectedPrefix)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedPrefix])
 
   const handlePhoneChange = (e, {value}) => {
     setIsLandLine(selectedPrefix.landlinePrefixs.includes(value[0]))
@@ -198,6 +205,7 @@ MoleculePhoneInput.propTypes = {
   }),
   hasError: PropTypes.bool,
   visiblePrefixes: PropTypes.bool,
+
   /** Boolean to decide if helptext should be auto hide */
   autoHideHelpText: PropTypes.bool,
   /** Success message to display when success state  */
@@ -219,5 +227,8 @@ MoleculePhoneInput.propTypes = {
   id: PropTypes.string,
 
   /** Label to set in the molecule field */
-  label: PropTypes.string
+  label: PropTypes.string,
+
+  /** Callback dispatch when selected prefix changes */
+  onPrefixChange: PropTypes.func
 }

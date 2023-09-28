@@ -60,7 +60,7 @@ $h-molecule-phone-input: 40px;
         & .sui-MoleculeField-labelContainer {
           left: 0;
           position: absolute;
-          top: 0;
+          top: -$m-s;
         }
 
         &.splitted {

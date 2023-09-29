@@ -24,10 +24,11 @@ const AtomVideoPlayer = forwardRef(
       intersectionObserverConfiguration = INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION,
       muted = false,
       onLoadVideo = NO_OP,
+      playsInline = false,
       src = '',
       timeLimit,
-      title,
-      timeOffset
+      timeOffset,
+      title
     },
     forwardedRef = createRef()
   ) => {
@@ -79,6 +80,7 @@ AtomVideoPlayer.propTypes = {
   }),
   muted: PropTypes.bool,
   onLoadVideo: PropTypes.func,
+  playsInline: PropTypes.bool,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   timeLimit: PropTypes.number,
   title: PropTypes.string,

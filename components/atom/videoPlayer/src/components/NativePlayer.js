@@ -15,6 +15,7 @@ const NativePlayer = forwardRef(
       controls,
       muted,
       onLoadVideo,
+      playsInline,
       timeLimit,
       timeOffset,
       src,
@@ -60,6 +61,7 @@ const NativePlayer = forwardRef(
           title={title}
           controls={controls}
           onLoadedMetadata={onLoadedMetadata}
+          playsInline={playsInline}
         >
           {videoSrc !== null && (
             <source data-testid="videosrc" src={videoSrc} />
@@ -76,6 +78,7 @@ NativePlayer.propTypes = {
   controls: PropTypes.bool,
   muted: PropTypes.bool,
   onLoadVideo: PropTypes.func,
+  playsInline: PropTypes.bool,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

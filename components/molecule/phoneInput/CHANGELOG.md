@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.16.0 (2023-09-29)
+
+
+### Features
+
+* **components/molecule/phoneInput:** try to use rendered flags ([6047b39](https://github.com/SUI-Components/sui-components/commit/6047b3967749e12a2417d411e22459dd6be60b38))
+
+
+
 # 1.15.0 (2023-09-29)
 
 

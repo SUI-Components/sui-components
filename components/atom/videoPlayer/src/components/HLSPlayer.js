@@ -15,6 +15,7 @@ const HLSPlayer = forwardRef(
       controls,
       muted,
       onLoadVideo,
+      playsInline,
       hlsConfig,
       timeLimit,
       timeOffset,
@@ -55,6 +56,7 @@ const HLSPlayer = forwardRef(
         <video
           onPlaying={startTimeLimitInterval}
           onPause={stopTimeLimitInterval}
+          playsInline={playsInline}
           controls={controls}
           muted={muted}
           className={`${BASE_CLASS}-hlsPlayerVideo`}
@@ -73,6 +75,7 @@ HLSPlayer.propTypes = {
   controls: PropTypes.bool,
   muted: PropTypes.bool,
   onLoadVideo: PropTypes.func,
+  playsInline: PropTypes.bool,
   hlsConfig: PropTypes.object,
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,

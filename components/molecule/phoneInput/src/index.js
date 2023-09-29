@@ -2,7 +2,6 @@ import {useEffect, useRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import flagIcons from 'rendered-country-flags'
 
 import {inputSizes, inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList, {
@@ -11,7 +10,8 @@ import MoleculeDropdownList, {
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
-import {phoneValidationType} from './settings.js'
+import COUNTRY_FLAGS from './countryFlags.js'
+import {FLAG_SIZE, phoneValidationType} from './settings.js'
 
 const BASE_CLASS = 'sui-MoleculePhoneInput'
 const NOOP = () => {}
@@ -108,10 +108,10 @@ export default function MoleculePhoneInput({
         >
           {selectedPrefix && (
             <img
-              height={24}
-              width={24}
+              height={FLAG_SIZE}
+              width={FLAG_SIZE}
               className={`${baseClass}-input-prefix-flag`}
-              src={flagIcons[selectedPrefix?.value]}
+              src={COUNTRY_FLAGS[selectedPrefix?.value]}
             />
           )}
           {visiblePrefixes && (showDropdown ? dropdownCloseIcon : dropdownIcon)}
@@ -164,10 +164,10 @@ export default function MoleculePhoneInput({
                 >
                   <div className={`${baseClass}-dropdown-option`}>
                     <img
-                      height={24}
-                      width={24}
+                      height={FLAG_SIZE}
+                      width={FLAG_SIZE}
                       className={`${baseClass}-dropdown-option-label`}
-                      src={flagIcons[prefix.value]}
+                      src={COUNTRY_FLAGS[prefix.value]}
                     />
                     <span className={`${baseClass}-dropdown-option-label`}>
                       {prefix.label}

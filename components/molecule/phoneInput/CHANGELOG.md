@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2023-09-29)
+
+
+### Features
+
+* **components/molecule/phoneInput:** change again to svg ([e435f36](https://github.com/SUI-Components/sui-components/commit/e435f36cd03d26d888d10b1fcee6447160db2775))
+
+
+
 # 1.16.0 (2023-09-29)
 
 

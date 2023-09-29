@@ -10,7 +10,6 @@ import MoleculeDropdownList, {
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
-import COUNTRY_FLAGS from './countryFlags.js'
 import {FLAG_SIZE, phoneValidationType} from './settings.js'
 
 const BASE_CLASS = 'sui-MoleculePhoneInput'
@@ -111,7 +110,7 @@ export default function MoleculePhoneInput({
               height={FLAG_SIZE}
               width={FLAG_SIZE}
               className={`${baseClass}-input-prefix-flag`}
-              src={COUNTRY_FLAGS[selectedPrefix?.value]}
+              src={selectedPrefix?.flag}
             />
           )}
           {visiblePrefixes && (showDropdown ? dropdownCloseIcon : dropdownIcon)}
@@ -167,7 +166,7 @@ export default function MoleculePhoneInput({
                       height={FLAG_SIZE}
                       width={FLAG_SIZE}
                       className={`${baseClass}-dropdown-option-label`}
-                      src={COUNTRY_FLAGS[prefix.value]}
+                      src={prefix.flag}
                     />
                     <span className={`${baseClass}-dropdown-option-label`}>
                       {prefix.label}

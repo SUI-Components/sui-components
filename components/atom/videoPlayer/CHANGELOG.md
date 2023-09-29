@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.30.0 (2023-09-29)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add fallbackWhileNotOnViewport prop to atom/viewPlayer ([7bbdf61](https://github.com/SUI-Components/sui-components/commit/7bbdf61f79c49847316058a75028ced717970b1a))
+
+
+
 # 1.29.0 (2023-09-29)
 
 

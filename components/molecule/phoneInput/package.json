@@ -13,7 +13,8 @@
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-molecule-dropdown-list": "2",
     "@s-ui/react-molecule-dropdown-option": "2",
-    "@s-ui/react-molecule-input-field": "4"
+    "@s-ui/react-molecule-input-field": "4",
+    "rendered-country-flags": "1.2.1"
   },
   "peerDependencies": {
     "@s-ui/theme": "8"

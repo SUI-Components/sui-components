@@ -21,6 +21,7 @@ const AtomVideoPlayer = forwardRef(
       autoPlay = AUTOPLAY_DEFAULT_VALUE,
       controls = true,
       fallbackComponent = null,
+      fallbackWhileNotOnViewport = false,
       intersectionObserverConfiguration = INTERSECTION_OBSERVER_DEFAULT_CONFIGURATION,
       muted = false,
       onLoadVideo = NO_OP,
@@ -52,17 +53,26 @@ const AtomVideoPlayer = forwardRef(
       ref: componentRef
     })
 
+    const needsToRenderFallbackComponent =
+      fallbackWhileNotOnViewport === true &&
+      autoPlay === AUTOPLAY.ON_VIEWPORT &&
+      !autoPlayState
+
     return (
       <div ref={componentRef} className={BASE_CLASS}>
-        <Suspense fallback={fallbackComponent}>
-          <Component
-            {...{
-              ...props,
-              autoPlay: autoPlayState,
-              ref: forwardedRef
-            }}
-          />
-        </Suspense>
+        {needsToRenderFallbackComponent ? (
+          fallbackComponent
+        ) : (
+          <Suspense fallback={fallbackComponent}>
+            <Component
+              {...{
+                ...props,
+                autoPlay: autoPlayState,
+                ref: forwardedRef
+              }}
+            />
+          </Suspense>
+        )}
       </div>
     )
   }
@@ -74,6 +84,7 @@ AtomVideoPlayer.propTypes = {
   autoPlay: PropTypes.oneOf(AUTOPLAY_OPTIONS),
   controls: PropTypes.bool,
   fallbackComponent: PropTypes.node,
+  fallbackWhileNotOnViewport: PropTypes.bool,
   intersectionObserverConfiguration: PropTypes.shape({
     root: PropTypes.instanceOf(Element),
     rootMargin: PropTypes.string,
@@ -84,8 +95,8 @@ AtomVideoPlayer.propTypes = {
   playsInline: PropTypes.bool,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   timeLimit: PropTypes.number,
-  title: PropTypes.string,
-  timeOffset: PropTypes.number
+  timeOffset: PropTypes.number,
+  title: PropTypes.string
 }
 
 export default AtomVideoPlayer

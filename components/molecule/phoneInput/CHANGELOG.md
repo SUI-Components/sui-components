@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2023-09-29)
+
+
+### Features
+
+* **components/molecule/phoneInput:** update use of flags ([d2b3977](https://github.com/SUI-Components/sui-components/commit/d2b3977bf7b2bf746b1a0d723408d9eb017bee96))
+
+
+
 # 1.14.0 (2023-09-29)
 
 

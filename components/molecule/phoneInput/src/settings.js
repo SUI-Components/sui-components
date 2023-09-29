@@ -1,3 +1,5 @@
+export const FLAG_SIZE = 24
+
 export const phoneValidationType = {
   DEFAULT: 'default',
   SPLITTED: 'splitted'

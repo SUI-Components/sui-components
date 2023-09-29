@@ -37,6 +37,7 @@ const AtomVideoPlayer = forwardRef(
       controls,
       muted,
       onLoadVideo,
+      playsInline,
       src,
       timeLimit,
       title,

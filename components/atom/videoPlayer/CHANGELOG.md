@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.29.0 (2023-09-29)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add playsInline prop to videoPlayer ([db34d74](https://github.com/SUI-Components/sui-components/commit/db34d742011ac635af6b48911c8e24345e897e23))
+* **components/atom/videoPlayer:** Pass prop ([9863346](https://github.com/SUI-Components/sui-components/commit/98633468fbc45d055de4dae9e8e3b35b773366ca))
+
+
+
 # 1.28.0 (2023-09-27)
 
 

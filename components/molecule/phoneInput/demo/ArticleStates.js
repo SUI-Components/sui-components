@@ -49,7 +49,7 @@ export default function ArticleStates({openIcon, closeIcon}) {
         initialSelectedPrefix={PREFIXES[2]}
         prefixes={PREFIXES}
         hasError
-        errorText="Incorrect format"
+        helpText="Incorrect format"
       />
       <br />
       <br />
@@ -64,7 +64,7 @@ export default function ArticleStates({openIcon, closeIcon}) {
         initialSelectedPrefix={PREFIXES[1]}
         prefixes={PREFIXES}
         hasError
-        errorText="Incorrect format"
+        helpText="Incorrect format"
       />
     </Article>
   )

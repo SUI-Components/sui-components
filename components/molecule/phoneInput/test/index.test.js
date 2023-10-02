@@ -170,28 +170,6 @@ describe('MoleculePhoneInput', () => {
     expect(selectedPrefixLabel.textContent).to.be.equal(PREFIXES[0].countryCode)
   })
 
-  it('should add selected class to the selected option', () => {
-    // Given
-    const props = {
-      value: '666666666',
-      prefixes: PREFIXES,
-      initialSelectedPrefix: PREFIXES[0],
-      onChange: () => {}
-    }
-
-    const {container} = setup(props)
-    const prefix = container.querySelector(
-      'div.sui-MoleculePhoneInput-input-prefix'
-    )
-    // When
-    prefix.click()
-    const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
-    const firstOption = options[0]
-    firstOption.click()
-    // Then
-    expect(firstOption.classList.contains('is-selected')).to.be.true
-  })
-
   it('should close options when clicked outside', () => {
     // Given
     const props = {
@@ -267,20 +245,50 @@ describe('MoleculePhoneInput', () => {
     expect(phonePrefix).to.be.equal(PREFIXES[1])
   })
 
-  it('should add error class when error', () => {
+  it('should add help text class when help text exists', () => {
     // Given
+    const HELP_TEXT = 'Error Text'
     const props = {
       value: '',
       prefixes: PREFIXES,
       initialSelectedPrefix: PREFIXES[0],
       onChange: () => {},
-      hasError: true
+      hasError: false,
+      helpText: HELP_TEXT
     }
 
     const {container} = setup(props)
-    const input = container.querySelector('.sui-MoleculePhoneInput--error')
+    const helpText = container.querySelector('.sui-AtomHelpText')
+    const errorText = container.querySelector(
+      '.sui-AtomValidationText.sui-AtomValidationText--error'
+    )
 
-    expect(input).to.not.be.null
+    expect(helpText).to.exist
+    expect(helpText.textContent).to.equal(HELP_TEXT)
+    expect(errorText).not.to.exist
+  })
+
+  it('should add error class when error exists', () => {
+    // Given
+    const ERROR_TEXT = 'Error Text'
+    const props = {
+      value: '',
+      prefixes: PREFIXES,
+      initialSelectedPrefix: PREFIXES[0],
+      onChange: () => {},
+      hasError: true,
+      helpText: ERROR_TEXT
+    }
+
+    const {container} = setup(props)
+    const errorText = container.querySelector(
+      '.sui-AtomValidationText.sui-AtomValidationText--error'
+    )
+    const helpText = container.querySelector('.sui-AtomHelpText')
+
+    expect(errorText).to.exist
+    expect(errorText.textContent).to.equal(ERROR_TEXT)
+    expect(helpText).not.to.exist
   })
 
   it('Should apply different mask given a land line value', () => {

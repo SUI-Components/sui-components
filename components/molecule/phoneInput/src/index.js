@@ -21,7 +21,6 @@ export default function MoleculePhoneInput({
   autoHideHelpText = false,
   dropdownCloseIcon,
   dropdownIcon,
-  errorText,
   hasError,
   helpText,
   id,
@@ -54,7 +53,7 @@ export default function MoleculePhoneInput({
   const baseClass = cx(
     {
       splitted: type === phoneValidationType.SPLITTED,
-      [`${BASE_CLASS}--error`]: hasError || !!errorText,
+      [`${BASE_CLASS}--error`]: hasError,
       withLabel: !!label
     },
     BASE_CLASS
@@ -126,14 +125,13 @@ export default function MoleculePhoneInput({
               ...props,
               alertText,
               autoHideHelpText,
-              errorText,
-              helpText,
               id,
               label,
               name,
               placeholder,
               successText
             }}
+            {...(hasError ? {errorText: helpText} : {helpText})}
             mask={inputMask}
             noBorder
             onChange={handlePhoneChange}
@@ -202,10 +200,12 @@ MoleculePhoneInput.propTypes = {
     countryCode: PropTypes.string,
     mask: PropTypes.string
   }),
+
+  /** Boolean to decide if the helptext should be displayed as an error or as explanatory text */
   hasError: PropTypes.bool,
   visiblePrefixes: PropTypes.bool,
 
-  /** Boolean to decide if helptext should be auto hide */
+  /** Boolean to decide if the helptext should be auto hide */
   autoHideHelpText: PropTypes.bool,
   /** Success message to display when success state  */
   successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

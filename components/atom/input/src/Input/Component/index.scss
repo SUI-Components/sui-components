@@ -14,6 +14,14 @@ $class-read-only: '#{$base-class-input}--readOnly';
     width: inherit;
   }
 
+  &-right-label {
+    border-right: none;
+  }
+
+  &-left-label {
+    border-left: none;
+  }
+
   &--hidden {
     display: none;
   }

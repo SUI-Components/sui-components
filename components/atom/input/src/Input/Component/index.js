@@ -33,6 +33,8 @@ const Input = forwardRef(
       state,
       type,
       value,
+      leftLabel,
+      rightLabel,
       charsSize,
       tabIndex,
       ariaLabel,
@@ -88,7 +90,9 @@ const Input = forwardRef(
       readOnly,
       errorState,
       state,
-      shape
+      shape,
+      leftLabel,
+      rightLabel
     })
 
     return (
@@ -204,6 +208,10 @@ Input.propTypes = {
   inputMode: PropTypes.string,
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
   shape: PropTypes.oneOf(Object.values(INPUT_SHAPES)),
+  /** Text to be rendered inside the component */
+  leftLabel: PropTypes.string,
+  /** Text to be rendered inside the component */
+  rightLabel: PropTypes.string,
   /** Nodes to be rendered inside the component */
   children: PropTypes.node
 }

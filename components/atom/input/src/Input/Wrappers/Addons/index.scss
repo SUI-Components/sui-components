@@ -20,6 +20,16 @@
     border-width: $bdw-atom-input-addon-left;
   }
 
+  &--rightLabel {
+    border-width: $bdw-atom-input-addon-right;
+    background: none;
+  }
+
+  &--leftLabel {
+    border-width: $bdw-atom-input-addon-left;
+    background: none;
+  }
+
   &Wrapper {
     display: flex;
     @include atom-input-shape-wrapper(

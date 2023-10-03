@@ -463,6 +463,27 @@ const BorderlessDemo = () => {
   )
 }
 
+const LabelDemo = () => {
+  return (
+    <Article>
+      <H2>Label</H2>
+      <Paragraph>
+        Input can be used with a label using the <Code>label</Code> prop.
+      </Paragraph>
+      <Grid cols={2} gutter={[8, 8]}>
+        <Cell>
+          <Label>Right Label</Label>
+          <AtomInput rightLabel="m2" />
+        </Cell>
+        <Cell>
+          <Label>Left Label</Label>
+          <AtomInput leftLabel="m2" />
+        </Cell>
+      </Grid>
+    </Article>
+  )
+}
+
 const StateDemo = () => {
   return (
     <Article>
@@ -603,6 +624,7 @@ const Demo = () => (
       <br />
       <SizeDemo />
       <br />
+      <LabelDemo />
       <DisabledReadOnlyDemo />
       <br />
       <AddonAndIconDemo />

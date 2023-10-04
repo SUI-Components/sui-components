@@ -28,10 +28,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.18.0
+          node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
       - name: Build dependencies
         run: |
@@ -50,12 +50,12 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.18.0
+          node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
       - name: Linting
         run: |
@@ -82,12 +82,12 @@ jobs:
       coverage_functions_covered_current: ${{ steps.coverage-current.outputs.coverage_functions_covered_current }}
       coverage_lines_covered_current: ${{ steps.coverage-current.outputs.coverage_lines_covered_current }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.18.0
+          node-version-file: '.nvmrc'
       - name: Install xvfb for headless testing
         run: sudo apt-get install xvfb
 
@@ -99,14 +99,14 @@ jobs:
           npm run phoenix:ci
           xvfb-run --auto-servernum npm run test -- --ci --coverage
       - name: Log Master Coverage
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         id: coverage-master
         with:
           script: |
             const script = require('./.github/SCRIPTS/exportCoverageFromMarkdownShields')
             await script({github, context, core, exec}, './README.md')
       - name: Log Current Coverage
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         id: coverage-current
         with:
           script: |
@@ -129,16 +129,16 @@ jobs:
     needs: [lint, testing]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.18.0
+          node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
       - name: Comment Coverage
         if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             const script = require('./.github/SCRIPTS/commentCoverage')
@@ -168,7 +168,7 @@ jobs:
             )
       - name: Update Coverage Badges
         if: github.event_name == 'push'
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             const script = require('./.github/SCRIPTS/updateCoverageBadges')
@@ -212,10 +212,10 @@ jobs:
       name: ${{ github.event_name != 'pull_request' && 'Production' || 'Preview'}}
       url: ${{ steps.deploy.outputs.url }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.18.0
+          node-version-file: '.nvmrc'
       - uses: actions/download-artifact@v2
         with:
           name: public-folder

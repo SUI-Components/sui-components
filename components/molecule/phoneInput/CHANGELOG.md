@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.19.0 (2023-10-10)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Remove unusued props ([5d6c226](https://github.com/SUI-Components/sui-components/commit/5d6c2262041cdceeb8dd779dd040acd13076c1c0))
+
+
+
 # 1.18.0 (2023-10-02)
 
 

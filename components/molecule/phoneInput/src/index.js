@@ -17,7 +17,6 @@ const NOOP = () => {}
 
 export {PREFIXES} from './settings.js'
 export default function MoleculePhoneInput({
-  alertText,
   autoHideHelpText = false,
   dropdownCloseIcon,
   dropdownIcon,
@@ -123,7 +122,6 @@ export default function MoleculePhoneInput({
           <MoleculeInputField
             {...{
               ...props,
-              alertText,
               autoHideHelpText,
               id,
               label,
@@ -209,12 +207,6 @@ MoleculePhoneInput.propTypes = {
   autoHideHelpText: PropTypes.bool,
   /** Success message to display when success state  */
   successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-
-  /** Error message to display when error state  */
-  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-
-  /** Alert message to display when alert state  */
-  alertText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 
   /** Help Text to display */
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

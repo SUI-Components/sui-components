@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.10.0 (2023-10-25)
+
+
+### Features
+
+* **components/molecule/accordion:** add new prop to define the label wrap behavior ([bd647e3](https://github.com/SUI-Components/sui-components/commit/bd647e353fbd19acd969011adb479200e87d3a34))
+* **components/molecule/accordion:** update test ([2c509fd](https://github.com/SUI-Components/sui-components/commit/2c509fd3ffda69763fab82d47a048c9703105445))
+* **components/molecule/accordion:** update test v2 ([e194b69](https://github.com/SUI-Components/sui-components/commit/e194b69c269ef32c412120f8a973e39b84b7b46a))
+
+
+
 # 2.9.0 (2023-09-20)
 
 

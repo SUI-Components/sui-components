@@ -70,3 +70,8 @@ export const HEADER_ICON_POSITION = {
   LEFT: 'left',
   RIGHT: 'right'
 }
+
+export const HEADER_LABEL_WRAPS = {
+  NO_WRAP: 'noWrap',
+  WRAP: 'wrap'
+}

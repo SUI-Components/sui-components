@@ -107,8 +107,13 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     font-family: $ff-molecule-accordion-header;
     overflow: hidden;
     text-align: inherit;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    &--wrap {
+      white-space: wrap;
+    }
+    &--noWrap {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
   #{$base-class-item-header}ButtonContent,
   #{$base-class-item-header}Icon {

@@ -443,8 +443,8 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
-        NO_WRAP: 'wrap',
-        WRAP: 'noWrap'
+        NO_WRAP: 'noWrap',
+        WRAP: 'wrap'
       }
 
       // When

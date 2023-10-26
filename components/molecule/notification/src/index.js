@@ -30,7 +30,7 @@ const MoleculeNotification = ({
   autoClose: autoCloseTiming = AUTO_CLOSE.short,
   onClose = EMPTY_METHOD,
   effect = true,
-  buttons,
+  buttons = [],
   children,
   icon,
   position = POSITION.relative,
@@ -131,9 +131,9 @@ const MoleculeNotification = ({
             </div>
           )}
         </div>
-        {buttons && (
+        {buttons.length ? (
           <div className={`${CLASS}-buttonsContainer`}>{getButtons()}</div>
-        )}
+        ) : null}
       </div>
     )
   }

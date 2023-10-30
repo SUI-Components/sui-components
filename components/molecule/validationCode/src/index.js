@@ -103,21 +103,32 @@ const MoleculeValidationCode = forwardRef(
         : undefined
     }
 
+    const isHeaderless = !labelText && !deleteButtonTextLabel
+    const isFooterless = !Footer
+
     return (
       <div className={baseClass}>
-        <div className={`${baseClass}-header`}>
-          <p className={`${baseClass}-header-labelTitle`}>{labelText}</p>
-          {deleteButtonTextLabel && (
-            <AtomButton
-              onClick={onClearHandler}
-              design={atomButtonDesigns.FLAT}
-            >
-              {deleteButtonTextLabel}
-            </AtomButton>
-          )}
-        </div>
+        {!isHeaderless && (
+          <div className={`${baseClass}-header`}>
+            {labelText ? (
+              <p className={`${baseClass}-header-labelTitle`}>{labelText}</p>
+            ) : null}
+            {deleteButtonTextLabel && (
+              <AtomButton
+                onClick={onClearHandler}
+                design={atomButtonDesigns.FLAT}
+              >
+                {deleteButtonTextLabel}
+              </AtomButton>
+            )}
+          </div>
+        )}
         <div className={`${baseClass}-inputContainer`}>
-          <div className={`${baseClass}-inputContainer-pinInput`}>
+          <div
+            className={`${baseClass}-inputContainer-pinInput ${
+              isFooterless && `is-marginless`
+            }`}
+          >
             <PinInput
               autoFocus={autoFocus}
               disabled={disabled}
@@ -136,14 +147,16 @@ const MoleculeValidationCode = forwardRef(
             )}
           </div>
         </div>
-        <div className={`${baseClass}-footer`}>
-          <Footer
-            onSubmit={onHandler(onSend)}
-            onResend={onHandler(onResend)}
-            sendButtonTextLabel={sendButtonTextLabel}
-            resendButtonTextLabel={resendButtonTextLabel}
-          />
-        </div>
+        {!isFooterless && (
+          <div className={`${baseClass}-footer`}>
+            <Footer
+              onSubmit={onHandler(onSend)}
+              onResend={onHandler(onResend)}
+              sendButtonTextLabel={sendButtonTextLabel}
+              resendButtonTextLabel={resendButtonTextLabel}
+            />
+          </div>
+        )}
       </div>
     )
   }

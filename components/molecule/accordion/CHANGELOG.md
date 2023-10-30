@@ -1,5 +1,40 @@
 # CHANGELOG
 
+# 2.11.0 (2023-10-30)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix header content overflow ([1540311](https://github.com/SUI-Components/sui-components/commit/15403112fb4e887fc3f4eea9d5ceb8e7d165400d))
+
+
+### Features
+
+* **components/molecule/accordion:** add logic to width instead max-width ([43f99fd](https://github.com/SUI-Components/sui-components/commit/43f99fdee2ae0c2c616aa57f22aedb95a578464f))
+
+
+
+# 2.10.0 (2023-10-25)
+
+
+### Features
+
+* **components/molecule/accordion:** add new prop to define the label wrap behavior ([bd647e3](https://github.com/SUI-Components/sui-components/commit/bd647e353fbd19acd969011adb479200e87d3a34))
+* **components/molecule/accordion:** update test ([2c509fd](https://github.com/SUI-Components/sui-components/commit/2c509fd3ffda69763fab82d47a048c9703105445))
+* **components/molecule/accordion:** update test v2 ([e194b69](https://github.com/SUI-Components/sui-components/commit/e194b69c269ef32c412120f8a973e39b84b7b46a))
+
+
+
+# 2.9.0 (2023-09-20)
+
+
+### Features
+
+* **components/molecule/accordion:** new tokens for molecule accordion header styles ([3fc4c0c](https://github.com/SUI-Components/sui-components/commit/3fc4c0c5089fca22ffbb8235e15ace3424f734b1))
+* **components/molecule/accordion:** preserve backwards compatibility ([2eca93e](https://github.com/SUI-Components/sui-components/commit/2eca93eb297eb6c95dac4b4fad0296740b2a7e65))
+
+
+
 # 2.8.0 (2022-12-15)
 
 

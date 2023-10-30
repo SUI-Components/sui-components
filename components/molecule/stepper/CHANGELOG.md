@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.9.0 (2023-10-24)
+
+
+### Bug Fixes
+
+* **components/molecule/stepper:** fix minimum error label wich brokes the page when translating it v ([08fc86e](https://github.com/SUI-Components/sui-components/commit/08fc86ef7847b9286bfbaa4ebe3b5d9e04c7679c))
+
+
+
 # 2.8.0 (2023-05-25)
 
 

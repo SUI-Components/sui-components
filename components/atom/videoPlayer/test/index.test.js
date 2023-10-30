@@ -76,6 +76,23 @@ describe('AtomVideoPlayer', () => {
       await component.findByTitle(YOUTUBE_DEFAULT_TITLE)
     })
 
+    it('should embed the youtube video player even if embeddable url does not have protocol or www', async () => {
+      // Given
+      const props = {
+        src: 'youtube.com/embed/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = await component.findByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include(
+        'https://www.youtube.com/embed/1gI_HGDgG7c'
+      )
+    })
+
     it('should convert standard youtube urls to embedable urls', async () => {
       // Given
       const props = {
@@ -97,6 +114,23 @@ describe('AtomVideoPlayer', () => {
       // Given
       const props = {
         src: 'https://youtu.be/1gI_HGDgG7c'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const iframeNode = await component.findByTitle(YOUTUBE_DEFAULT_TITLE)
+      // check that the iframe src is the embedable url
+      expect(iframeNode.src).to.include(
+        'https://www.youtube.com/embed/1gI_HGDgG7c'
+      )
+    })
+
+    it('should convert readable-kind youtube urls to embeddable urls', async () => {
+      // Given
+      const props = {
+        src: 'http://www.youtube.com/v/1gI_HGDgG7c'
       }
 
       // When
@@ -368,7 +402,7 @@ describe('AtomVideoPlayer', () => {
 
       // Then
       const {src} = await component.findByTestId('videosrc')
-      expect(src).to.include('data:video/mp4;base64,ZmFrZVZpZGVv')
+      expect(src).to.include('blob:')
     })
 
     it('should display controls by default', async () => {

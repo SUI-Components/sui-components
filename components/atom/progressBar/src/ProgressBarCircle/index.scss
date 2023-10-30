@@ -116,6 +116,10 @@ $base-class-circle: '#{$base-class}Circle';
     &--loading {
       stroke: $c-atom-circle-progress-bar-trail--loading;
     }
+
+    &--success {
+      stroke: $c-atom-circle-progress-bar-trail--success;
+    }
   }
 
   &-path {

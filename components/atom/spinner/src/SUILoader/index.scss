@@ -3,13 +3,10 @@
 #{$base-class} {
   &-loader {
     border-radius: $bdrs-rounded;
-    height: $sz-atom-spinner-oval;
     left: 0;
     margin: 0 auto;
     position: absolute;
     right: 0;
-    top: calc(50% - #{$sz-atom-spinner});
-    width: $sz-atom-spinner-oval;
     z-index: $z-atom-spinner-loader;
   }
 }
@@ -18,11 +15,27 @@
   $loaderColorOne: map-get($type, loaderColorOne);
   $loaderColorTwo: map-get($type, loaderColorTwo);
 
-  @include animation-atom-spinner($name, $loaderColorOne, $loaderColorTwo);
+  @each $sizeName, $sizes in $atom-spinner-sizes {
+    $size: map-get($sizes, size);
 
-  .sui-AtomSpinner--#{'' + $name} {
-    & .sui-AtomSpinner-loader {
-      animation: atom-spinner-#{$name} 1.5s ease-in-out infinite;
+    @include animation-atom-spinner(
+      $name,
+      $loaderColorOne,
+      $loaderColorTwo,
+      $sizeName,
+      $size
+    );
+
+    .sui-AtomSpinner--#{'' + $name}-#{'' + $sizeName} {
+      $size: map-get($sizes, size);
+      $totalSize: $size * 2;
+
+      & .sui-AtomSpinner-loader {
+        animation: atom-spinner-#{$name}-#{$sizeName} 1.5s ease-in-out infinite;
+        height: $size;
+        top: calc(50% - #{$totalSize});
+        width: $size;
+      }
     }
   }
 }

@@ -1,5 +1,127 @@
 # CHANGELOG
 
+# 1.30.0 (2023-09-29)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add fallbackWhileNotOnViewport prop to atom/viewPlayer ([7bbdf61](https://github.com/SUI-Components/sui-components/commit/7bbdf61f79c49847316058a75028ced717970b1a))
+
+
+
+# 1.29.0 (2023-09-29)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add playsInline prop to videoPlayer ([db34d74](https://github.com/SUI-Components/sui-components/commit/db34d742011ac635af6b48911c8e24345e897e23))
+* **components/atom/videoPlayer:** Pass prop ([9863346](https://github.com/SUI-Components/sui-components/commit/98633468fbc45d055de4dae9e8e3b35b773366ca))
+
+
+
+# 1.28.0 (2023-09-27)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Set video player width to 100% by default ([4a3ba26](https://github.com/SUI-Components/sui-components/commit/4a3ba265f39dee4b6eabae2ccd7ceac67a436c2a))
+
+
+
+# 1.27.0 (2023-09-26)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add title prop to the video player ([4cf963f](https://github.com/SUI-Components/sui-components/commit/4cf963f46d6cb09c9a8840bab83971541d2fa09b))
+
+
+
+# 1.26.0 (2023-09-26)
+
+
+### Features
+
+* **components/atom/videoPlayer:** ajust center position video in video player ([271c72d](https://github.com/SUI-Components/sui-components/commit/271c72de743213642d8530e741fb51474bd6e4c4))
+
+
+
+# 1.25.0 (2023-09-21)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Apply styles to video player ([d9c616d](https://github.com/SUI-Components/sui-components/commit/d9c616dfdc662137c278593cde0b016d84530659))
+
+
+
+# 1.24.0 (2023-09-20)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add new kind of youtube video urls ([f04f36d](https://github.com/SUI-Components/sui-components/commit/f04f36d69a792632ff194ef18d1cbc95b0d76e0c))
+* **components/atom/videoPlayer:** Adjust refs to make the scroll autoplay work again ([9d50c72](https://github.com/SUI-Components/sui-components/commit/9d50c727f114998803280b0321741bf0c1d5d262))
+
+
+
+# 1.23.0 (2023-08-02)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add imperative handle to know the current video position ([5f6409b](https://github.com/SUI-Components/sui-components/commit/5f6409b8cd8b0a2b96becd59dc61e75422a97466))
+
+
+
+# 1.22.0 (2023-08-01)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Avoid directly checking window value ([3769054](https://github.com/SUI-Components/sui-components/commit/3769054de1f0cfb326712767b64222ccb29fc247))
+
+
+
+# 1.21.0 (2023-07-31)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Make the video player compatible with ssr ([ec21149](https://github.com/SUI-Components/sui-components/commit/ec211491e16f20551c5cec2506343ee898c87afd))
+
+
+
+# 1.20.0 (2023-07-27)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Apply minor visual adjustments to the video player ([48c6b7d](https://github.com/SUI-Components/sui-components/commit/48c6b7dbf241b629bff335f5ae1edff7673054f0))
+
+
+
+# 1.19.0 (2023-07-24)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Add a callback to retrieve video metadata ([b58aa08](https://github.com/SUI-Components/sui-components/commit/b58aa085ab3b56ad83ae6331913c6ee7c4867f65))
+* **components/atom/videoPlayer:** Add more details to the retrieved metadata ([0ec718b](https://github.com/SUI-Components/sui-components/commit/0ec718bad3a704a4f4ff07637815bf5a6255a682))
+* **components/atom/videoPlayer:** Add on load video for VIMEO videos ([df4dd45](https://github.com/SUI-Components/sui-components/commit/df4dd4559a74063ef8f222a61e0d136e63b501a7))
+
+
+
+# 1.18.0 (2023-07-24)
+
+
+### Features
+
+* **components/atom/videoPlayer:** Avoid using deps without depending on them ([5a63bb5](https://github.com/SUI-Components/sui-components/commit/5a63bb5acb1e8d0ac608b7b309e72ef81ffc8fb9))
+* **components/atom/videoPlayer:** Modify video player to allow playing large videos by referencing ([1611209](https://github.com/SUI-Components/sui-components/commit/161120973f5f79a819266ab49216e92037587019))
+
+
+
 # 1.17.0 (2023-07-19)
 
 

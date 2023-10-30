@@ -2,32 +2,40 @@ import {useEffect, useRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import flagIcons from 'rendered-country-flags'
 
-import AtomIcon, {
-  ATOM_ICON_COLORS,
-  ATOM_ICON_SIZES
-} from '@s-ui/react-atom-icon'
-import AtomInput from '@s-ui/react-atom-input'
-import {TYPES} from '@s-ui/react-atom-input/lib/config.js'
+import {inputSizes, inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList, {
   moleculeDropdownListDesigns
 } from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
+import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
-import {phoneValidationType} from './settings.js'
+import {FLAG_SIZE, phoneValidationType} from './settings.js'
 
 const BASE_CLASS = 'sui-MoleculePhoneInput'
+const NOOP = () => {}
 
+export {PREFIXES} from './settings.js'
 export default function MoleculePhoneInput({
+  autoHideHelpText = false,
+  dropdownCloseIcon,
   dropdownIcon,
-  value = '',
-  prefixes = [],
-  onChange,
-  placeholder,
   hasError,
+  helpText,
+  id,
+  label,
+  name,
+  onChange,
+  onPrefixChange = NOOP,
+  placeholder,
+  prefixes = [],
   initialSelectedPrefix = prefixes[0],
-  type = phoneValidationType.DEFAULT
+  setFormattedValue,
+  successText,
+  type = phoneValidationType.DEFAULT,
+  value = '',
+  visiblePrefixes: visiblePrefixesProp = true,
+  ...props
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
   const [selectedPrefix, setSelectedPrefix] = useState(initialSelectedPrefix)
@@ -39,11 +47,13 @@ export default function MoleculePhoneInput({
       ? selectedPrefix.mask.landlineMask
       : selectedPrefix.mask.mobileMask
   }
+  const visiblePrefixes = visiblePrefixesProp && prefixes.length > 1
 
   const baseClass = cx(
     {
-      [`splitted`]: type === phoneValidationType.SPLITTED,
-      [`${BASE_CLASS}--error`]: hasError
+      splitted: type === phoneValidationType.SPLITTED,
+      [`${BASE_CLASS}--error`]: hasError,
+      withLabel: !!label
     },
     BASE_CLASS
   )
@@ -66,17 +76,21 @@ export default function MoleculePhoneInput({
     }
   }, [])
 
+  useEffect(() => {
+    onPrefixChange(selectedPrefix)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedPrefix])
+
   const handlePhoneChange = (e, {value}) => {
-    if (selectedPrefix.landlinePrefixs.includes(value[0])) {
-      setIsLandLine(true)
-    } else {
-      setIsLandLine(false)
-    }
+    setIsLandLine(selectedPrefix.landlinePrefixs.includes(value[0]))
+
+    typeof setFormattedValue === 'function' && setFormattedValue(value)
 
     typeof onChange === 'function' &&
       onChange(e, {
-        prefix: selectedPrefix.countryCode, // remove spaces from value
-        value: value.toString().replace(/\s/g, ''),
+        name: name ?? id,
+        prefix: selectedPrefix.countryCode,
+        value: value.toString().replace(/\s/g, ''), // remove spaces from value
         isLandLine
       })
   }
@@ -91,18 +105,13 @@ export default function MoleculePhoneInput({
         >
           {selectedPrefix && (
             <img
-              height={24}
-              width={24}
+              height={FLAG_SIZE}
+              width={FLAG_SIZE}
               className={`${baseClass}-input-prefix-flag`}
-              src={flagIcons[selectedPrefix?.value]}
+              src={selectedPrefix?.flag}
             />
           )}
-          <AtomIcon
-            size={ATOM_ICON_SIZES.medium}
-            color={ATOM_ICON_COLORS.currentColor}
-          >
-            {dropdownIcon}
-          </AtomIcon>
+          {visiblePrefixes && (showDropdown ? dropdownCloseIcon : dropdownIcon)}
         </div>
         <div className={`${baseClass}-input-phoneContainer`}>
           {selectedPrefix && (
@@ -110,22 +119,32 @@ export default function MoleculePhoneInput({
               {selectedPrefix.countryCode}
             </p>
           )}
-          <AtomInput
-            value={value.toString()}
+          <MoleculeInputField
+            {...{
+              ...props,
+              autoHideHelpText,
+              id,
+              label,
+              name,
+              placeholder,
+              successText
+            }}
+            {...(hasError ? {errorText: helpText} : {helpText})}
             mask={inputMask}
-            placeholder={placeholder}
-            type={TYPES.MASK}
-            onChange={handlePhoneChange}
             noBorder
+            onChange={handlePhoneChange}
+            size={inputSizes.SMALL}
+            type={inputTypes.MASK}
+            value={value.toString()}
           />
         </div>
       </div>
-      {showDropdown && (
+      {showDropdown && visiblePrefixes && (
         <div className={`${baseClass}-dropdown`}>
           <MoleculeDropdownList
             design={moleculeDropdownListDesigns.FLAT}
             ref={modalRef}
-            visible={true}
+            visible={visiblePrefixes}
           >
             {prefixes.map(prefix => {
               return (
@@ -140,10 +159,10 @@ export default function MoleculePhoneInput({
                 >
                   <div className={`${baseClass}-dropdown-option`}>
                     <img
-                      height={24}
-                      width={24}
+                      height={FLAG_SIZE}
+                      width={FLAG_SIZE}
                       className={`${baseClass}-dropdown-option-label`}
-                      src={flagIcons[prefix.value]}
+                      src={prefix.flag}
                     />
                     <span className={`${baseClass}-dropdown-option-label`}>
                       {prefix.label}
@@ -165,11 +184,13 @@ export default function MoleculePhoneInput({
 MoleculePhoneInput.displayName = 'MoleculePhoneInput'
 
 MoleculePhoneInput.propTypes = {
+  dropdownCloseIcon: PropTypes.node,
   dropdownIcon: PropTypes.node,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   prefixes: PropTypes.array,
   onChange: PropTypes.func,
+  setFormattedValue: PropTypes.func,
   type: PropTypes.oneOf(Object.values(phoneValidationType)),
   initialSelectedPrefix: PropTypes.shape({
     value: PropTypes.string,
@@ -177,5 +198,28 @@ MoleculePhoneInput.propTypes = {
     countryCode: PropTypes.string,
     mask: PropTypes.string
   }),
-  hasError: PropTypes.bool
+
+  /** Boolean to decide if the helptext should be displayed as an error or as explanatory text */
+  hasError: PropTypes.bool,
+  visiblePrefixes: PropTypes.bool,
+
+  /** Boolean to decide if the helptext should be auto hide */
+  autoHideHelpText: PropTypes.bool,
+  /** Success message to display when success state  */
+  successText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Help Text to display */
+  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+
+  /** Name to set in the input tag */
+  name: PropTypes.string,
+
+  /** Id to set in the input tag */
+  id: PropTypes.string,
+
+  /** Label to set in the molecule field */
+  label: PropTypes.string,
+
+  /** Callback dispatch when selected prefix changes */
+  onPrefixChange: PropTypes.func
 }

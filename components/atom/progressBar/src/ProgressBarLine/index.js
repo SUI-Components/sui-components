@@ -41,7 +41,10 @@ const ProgressBarLine = ({
       {!hideIndicator && !indicatorBottom && indicatorTopElement}
       <div
         className={cx(CLASS_CONTAINER_BAR, {
-          [`${CLASS_CONTAINER_BAR}--size-${size}`]: size
+          [`${CLASS_CONTAINER_BAR}--size-${size}`]: size,
+          [`${CLASS_CONTAINER_BAR}--success`]: status === STATUS.SUCCESS,
+          [`${CLASS_CONTAINER_BAR}--error`]: status === STATUS.ERROR,
+          [`${CLASS_CONTAINER_BAR}--loading`]: status === STATUS.LOADING
         })}
       >
         {percentageArray.map((percentageValue, currentIndex, array) => {

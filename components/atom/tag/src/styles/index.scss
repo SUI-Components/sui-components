@@ -87,6 +87,7 @@ $base-class: '.sui-AtomTag';
     cursor: pointer;
     fill: $c-atom-tag-actionable;
     text-decoration: none;
+    -webkit-tap-highlight-color: $thc-atom-tag-actionable;
 
     &[aria-disabled='true'] {
       cursor: default;

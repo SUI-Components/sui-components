@@ -31,6 +31,10 @@ $base-class: '.sui-MoleculeValidationCode';
       justify-content: flex-start;
       margin-bottom: $m-xl;
       width: fit-content;
+
+      &.is-marginless {
+        margin-bottom: 0;
+      }
     }
   }
 

@@ -10,11 +10,13 @@ $ npm install @s-ui/react-molecule-button-group --save
 
 ## Usage
 
-Having the proper elements imported 
+Having the proper elements imported
 
 ```js
-import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
-import AtomButtom, { atomButtonGroupPositions } from '@s-ui/react-atom-button'
+import MoleculeButtonGroup, {
+  moleculeButtonGroupSpaced
+} from '@s-ui/react-molecule-button-group'
+import AtomButtom, {atomButtonGroupPositions} from '@s-ui/react-atom-button'
 ```
 
 ### Basic usage
@@ -48,7 +50,27 @@ import AtomButtom, { atomButtonGroupPositions } from '@s-ui/react-atom-button'
 ### Specifying Group Positions Values
 
 ```js
-<MoleculeButtonGroup type="secondary" groupPositions={atomButtonGroupPositions} >
+<MoleculeButtonGroup type="secondary" groupPositions={atomButtonGroupPositions}>
+  <AtomButtom>A</AtomButtom>
+  <AtomButtom>B</AtomButtom>
+  <AtomButtom>C</AtomButtom>
+</MoleculeButtonGroup>
+```
+
+### Spaced
+
+```js
+<MoleculeButtonGroup type="secondary" spaced={moleculeButtonGroupSpaced.LARGE}>
+  <AtomButtom>A</AtomButtom>
+  <AtomButtom>B</AtomButtom>
+  <AtomButtom>C</AtomButtom>
+</MoleculeButtonGroup>
+```
+
+### Vertical Layout
+
+```js
+<MoleculeButtonGroup type="secondary" isVertical>
   <AtomButtom>A</AtomButtom>
   <AtomButtom>B</AtomButtom>
   <AtomButtom>C</AtomButtom>

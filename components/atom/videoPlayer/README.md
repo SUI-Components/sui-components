@@ -55,7 +55,7 @@ The behaviour of the player can be customized by setting the following propertie
 | timeOffset | number | Second on which the video will start to be played. This is intended to skip a number of seconds from a video and start playing it from a specific position | No | undefined |
 | src | string or Blob | Video to be played. It can be a remote URL or a Blob instance (it works with a File instance too, as it is an extension from Blobs) | No | `''` |
 | fallbackComponent | Node | A component to be shown while the player and required libraries are being loaded using React lazy | No | `null` |
-
+| onLoadVideo | function | Returns a basic object containing the video duration, video width and video height. NOT SUPPORTED for YouTube videos. | No | `() => null` |
 
 ## Other exported objects
 

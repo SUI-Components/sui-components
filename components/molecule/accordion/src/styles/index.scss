@@ -100,27 +100,32 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     box-sizing: inherit;
     width: 100%;
     height: 100%;
-    line-height: 1.15;
+    line-height: $lh-molecule-accordion-header;
     color: $c-accordion-item-header;
     font-weight: $fw-molecule-accordion-header;
-    font-size: $fz-base;
+    font-size: $fz-molecule-accordion-header;
     font-family: $ff-molecule-accordion-header;
     overflow: hidden;
     text-align: inherit;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    &--wrap {
+      white-space: wrap;
+    }
+    &--noWrap {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
   #{$base-class-item-header}ButtonContent,
   #{$base-class-item-header}Icon {
     color: $c-accordion-item-header;
   }
   #{$base-class-item-header-icon} {
-    padding: $sz-base;
+    padding: $p-accordion-item-header-icon;
     color: $c-accordion-item-header-icon;
   }
 }
 #{$base-class-item-header}ButtonContainer {
-  width: 100%;
+  width: calc(100% - ($p-accordion-title * 2));
   height: 100%;
   display: flex;
   align-items: center;

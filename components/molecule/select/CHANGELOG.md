@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.68.0 (2023-07-20)
+
+
+### Bug Fixes
+
+* **components/molecule/select:** Use onChange callback instead of onKeyDown for input changes ([dc4cc82](https://github.com/SUI-Components/sui-components/commit/dc4cc828c8c7ca310f86f9470c1cc271ff571a9e))
+
+
+
 # 1.67.0 (2023-07-11)
 
 

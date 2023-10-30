@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.9.0 (2023-09-12)
+
+
+### Features
+
+* **components/molecule/drawer:** update rounded borders in all positions ([e524425](https://github.com/SUI-Components/sui-components/commit/e52442503f29f4290870ec303eccd2394bf13fcf))
+
+
+
 # 4.8.0 (2023-04-12)
 
 

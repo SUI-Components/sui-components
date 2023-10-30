@@ -10,7 +10,6 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import usePortal from '@s-ui/react-hook-use-portal'
 
 import {
@@ -20,6 +19,7 @@ import {
   PLACEMENTS,
   SIZES
 } from './config.js'
+import RenderActions from './RenderActions.js'
 
 function usePrevious(value) {
   const ref = useRef()
@@ -39,6 +39,7 @@ const MoleculeSelectPopover = ({
   customButtonText,
   customButtonOptions,
   children,
+  forceClosePopover = false,
   fullWidth,
   hideActions,
   iconArrowDown: IconArrowDown,
@@ -55,6 +56,7 @@ const MoleculeSelectPopover = ({
   placement,
   renderContentWrapper: renderContentWrapperProp,
   renderSelect: renderSelectProp,
+  renderActions: renderActionsProp,
   selectText,
   size = 'm',
   title
@@ -71,6 +73,10 @@ const MoleculeSelectPopover = ({
 
   const hasOverlay =
     Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
+
+  useEffect(() => {
+    forceClosePopover && setIsOpen(false)
+  }, [forceClosePopover])
 
   useEffect(() => {
     /**
@@ -111,15 +117,6 @@ const MoleculeSelectPopover = ({
     const openEvent = isOpen ? onOpen : onClose
     openEvent()
   }, [isOpen, onClose, onOpen, previousIsOpen, placement])
-
-  const selectClassName = cx(
-    `${BASE_CLASS}-select`,
-    `${BASE_CLASS}-select--${size}`,
-    {
-      'is-open': isOpen,
-      'is-selected': isSelected
-    }
-  )
 
   const handleOnAccept = () => {
     setIsOpen(false)
@@ -167,30 +164,6 @@ const MoleculeSelectPopover = ({
     setIsOpen(true)
   }
 
-  const renderActions = () => (
-    <>
-      {customButtonText ? (
-        <Button onClick={handleOnCustomAction} {...customButtonOptions}>
-          {customButtonText}
-        </Button>
-      ) : null}
-      {cancelButtonText ? (
-        <Button
-          onClick={handleCancelButtonClick}
-          design={atomButtonDesigns.FLAT}
-          {...cancelButtonOptions}
-        >
-          {cancelButtonText}
-        </Button>
-      ) : null}
-      {acceptButtonText ? (
-        <Button onClick={handleOnAccept} {...acceptButtonOptions}>
-          {acceptButtonText}
-        </Button>
-      ) : null}
-    </>
-  )
-
   const renderProp = (render, props) => {
     return typeof render === 'function'
       ? render(props)
@@ -203,7 +176,10 @@ const MoleculeSelectPopover = ({
   const renderSelect = () => {
     const newSelectProps = {
       ref: selectRef,
-      className: selectClassName,
+      className: cx(`${BASE_CLASS}-select`, `${BASE_CLASS}-select--${size}`, {
+        'is-open': isOpen,
+        'is-selected': isSelected
+      }),
       onClick: handleOpenToggle
     }
 
@@ -223,7 +199,13 @@ const MoleculeSelectPopover = ({
     }
 
     return (
-      <div className={selectClassName} {...newSelectProps}>
+      <div
+        className={cx(`${BASE_CLASS}-select`, `${BASE_CLASS}-select--${size}`, {
+          'is-open': isOpen,
+          'is-selected': isSelected
+        })}
+        {...newSelectProps}
+      >
         <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
         <div className={`${BASE_CLASS}-selectIcon`}>
           <IconArrowDown />
@@ -234,7 +216,21 @@ const MoleculeSelectPopover = ({
 
   const renderContentWrapper = () => {
     const pieces = {
-      actions: renderActions(),
+      actions: (
+        <RenderActions
+          onCustomAction={handleOnCustomAction}
+          customButtonText={customButtonText}
+          customButtonOptions={customButtonOptions}
+          onCancel={handleCancelButtonClick}
+          cancelButtonText={cancelButtonText}
+          cancelButtonOptions={cancelButtonOptions}
+          onAccept={handleOnAccept}
+          acceptButtonOptions={acceptButtonOptions}
+          acceptButtonText={acceptButtonText}
+        >
+          {renderActionsProp}
+        </RenderActions>
+      ),
       content: children,
       contentWrapperRef, // required for `handleClickOutside` to work
       isOpen,
@@ -255,37 +251,34 @@ const MoleculeSelectPopover = ({
       pieces.isOpen && (
         <div className={popoverClassName} ref={contentWrapperRef}>
           <div className={`${BASE_CLASS}-popoverContent`}>{pieces.content}</div>
-          {!hideActions && (
-            <div className={`${BASE_CLASS}-popoverActionBar`}>
-              {pieces.actions}
-            </div>
-          )}
+          {!hideActions && pieces.actions}
         </div>
       )
     )
   }
 
-  const classNames = cx(
-    BASE_CLASS,
-    fullWidth && `${BASE_CLASS}--fullWidth`,
-    isDisabled && 'is-disabled',
-    renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`
-  )
-
-  const overlayClassNames = cx(
-    `${BASE_CLASS}-overlay`,
-    `${BASE_CLASS}-overlay--${overlayType}`
-  )
-
   return (
     <>
-      <div className={classNames} title={title}>
+      <div
+        className={cx(
+          BASE_CLASS,
+          fullWidth && `${BASE_CLASS}--fullWidth`,
+          isDisabled && 'is-disabled',
+          renderContentWrapperProp && `${BASE_CLASS}--hasCustomWrapper`
+        )}
+        title={title}
+      >
         {renderSelect()}
         {renderContentWrapper()}
       </div>
       {hasOverlay && (
         <Portal as={Fragment} isOpen={isOpen}>
-          <div className={overlayClassNames} />
+          <div
+            className={cx(
+              `${BASE_CLASS}-overlay`,
+              `${BASE_CLASS}-overlay--${overlayType}`
+            )}
+          />
         </Portal>
       )}
     </>
@@ -310,6 +303,7 @@ MoleculeSelectPopover.propTypes = {
     negative: PropTypes.bool
   }),
   children: PropTypes.node.isRequired,
+  forceClosePopover: PropTypes.bool,
   fullWidth: PropTypes.bool,
   hideActions: PropTypes.bool,
   iconArrowDown: PropTypes.elementType.isRequired,
@@ -331,6 +325,7 @@ MoleculeSelectPopover.propTypes = {
   ]),
   renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+  renderActions: PropTypes.node,
   selectText: PropTypes.string.isRequired,
   size: PropTypes.string,
   title: PropTypes.string
@@ -340,5 +335,6 @@ export default MoleculeSelectPopover
 export {
   OVERLAY_TYPES as selectPopoverOverlayTypes,
   PLACEMENTS as selectPopoverPlacements,
-  SIZES as selectPopoverSizes
+  SIZES as selectPopoverSizes,
+  RenderActions
 }

@@ -1,5 +1,34 @@
 # CHANGELOG
 
+# 1.41.0 (2023-09-20)
+
+
+### Bug Fixes
+
+* **components/molecule/selectPopover:** Prepare component to work with React 18 ([8ddc1f1](https://github.com/SUI-Components/sui-components/commit/8ddc1f1e4e2e00b732d57bbd93a8ce0e563a1861))
+
+
+
+# 1.40.0 (2023-09-05)
+
+
+### Features
+
+* **components/molecule/selectPopover/demo:** Don not wrap actions with MoleculeModalFooter ([9019c9a](https://github.com/SUI-Components/sui-components/commit/9019c9a9f67e5623d1818ca05b56a40b2178b16a))
+* **components/molecule/selectPopover/demo:** remove unneeded node ([51af938](https://github.com/SUI-Components/sui-components/commit/51af9389309cf3f3a1765cf984257a191998be6c))
+* **components/molecule/selectPopover:** force close popover behavior ([68e2f1b](https://github.com/SUI-Components/sui-components/commit/68e2f1b9f06cd68ed2be091c31677198a5d0f4d9))
+
+
+
+# 1.39.0 (2023-08-18)
+
+
+### Features
+
+* **components/molecule/selectPopover:** add render action customizable section ([8bb7016](https://github.com/SUI-Components/sui-components/commit/8bb7016208ce40496d36792b6cc5d04b3d55b8a0))
+
+
+
 # 1.38.0 (2023-05-30)
 
 

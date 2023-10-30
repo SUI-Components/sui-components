@@ -1,5 +1,39 @@
 # CHANGELOG
 
+# 2.13.0 (2023-09-27)
+
+
+### Features
+
+* **components/molecule/buttonGroup:** add unset as value in groupPositions prop ([ad564ae](https://github.com/SUI-Components/sui-components/commit/ad564ae80875a394ca169c0a13e79c7d04158a22))
+
+
+
+# 2.12.0 (2023-09-18)
+
+
+### Features
+
+* **components/molecule/buttonGroup/demo:** add demo for vertical prop ([41a35de](https://github.com/SUI-Components/sui-components/commit/41a35de8b49a76f6b743ca00adbe0a30ab4e6083))
+* **components/molecule/buttonGroup:** add vertical prop ([3f5ef91](https://github.com/SUI-Components/sui-components/commit/3f5ef91940a8a7c9e3be4382627680afb91b7ae7))
+* **components/molecule/buttonGroup:** shift prop to isVertical ([4bdbd91](https://github.com/SUI-Components/sui-components/commit/4bdbd91f3de5b740e377961b4c716499e8da01cd))
+* **components/molecule/buttonGroup:** update readme with vertical prop ([2964d69](https://github.com/SUI-Components/sui-components/commit/2964d69095340bc20e9cc43199b0721d11c03cd7))
+
+
+
+# 2.11.0 (2023-09-13)
+
+
+### Features
+
+* **components/molecule/buttonGroup/demo:** add demo for new spaced prop ([6375165](https://github.com/SUI-Components/sui-components/commit/63751650b618b36c4852d2fcb887656871b4d914))
+* **components/molecule/buttonGroup:** add comment for spaced prop ([52d873e](https://github.com/SUI-Components/sui-components/commit/52d873e7f1a7810f9fc57bee8325d5e9a08446ed))
+* **components/molecule/buttonGroup:** add export to test ([6dcd558](https://github.com/SUI-Components/sui-components/commit/6dcd5589f970d8edee0adeeece9ac7cf05fab678))
+* **components/molecule/buttonGroup:** add moleculeButtonGroupSpaced at test ([76b960b](https://github.com/SUI-Components/sui-components/commit/76b960b9d5d8381117bfc8845064c845935e0e59))
+* **components/molecule/buttonGroup:** add prop for spaced between items of buttonGroup ([28bde38](https://github.com/SUI-Components/sui-components/commit/28bde387dbc6dff260970a7517904750453639a6))
+
+
+
 # 2.10.0 (2022-10-06)
 
 

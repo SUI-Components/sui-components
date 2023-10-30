@@ -50,6 +50,18 @@ $atom-spinner-overlay-types: (
   )
 ) !default;
 
+$sz-atom-spinner-oval: $sz-icon-s !default;
+$sz-atom-spinner-small: $sz-icon-xs !default;
+
+$atom-spinner-sizes: (
+  small: (
+    size: $sz-atom-spinner-small
+  ),
+  medium: (
+    size: $sz-atom-spinner-oval
+  )
+) !default;
+
 %spinner-layer {
   bottom: 0;
   content: '';

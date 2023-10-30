@@ -12,6 +12,7 @@ import {
   getParentClassName,
   OVERLAY_TYPES,
   removeParentClass,
+  SIZES,
   TYPES
 } from './settings.js'
 
@@ -22,6 +23,7 @@ const AtomSpinner = forwardRef(
       isDelayed: isDelayedFromProps = false,
       loader = <SUILoader />,
       overlayType = OVERLAY_TYPES.LIGHT,
+      size = SIZES.MEDIUM,
       type = TYPES.SECTION
     },
     forwardedRef
@@ -32,6 +34,7 @@ const AtomSpinner = forwardRef(
     useEffect(() => {
       const parentClassName = getParentClassName({
         overlayType,
+        size,
         type
       })
       const parentNodeClassList = refSpinner.current.parentNode.classList
@@ -47,7 +50,7 @@ const AtomSpinner = forwardRef(
         clearTimeout(timer)
         removeParentClass(parentNodeClassList)(parentClassName)
       }
-    }, [isDelayed, overlayType, type])
+    }, [isDelayed, overlayType, size, type])
 
     return (
       <div ref={refSpinner} className="sui-AtomSpinner-content">
@@ -56,6 +59,7 @@ const AtomSpinner = forwardRef(
           loader={loader}
           overlayType={overlayType}
           ref={forwardedRef}
+          size={size}
           type={type}
         >
           {children}
@@ -86,6 +90,12 @@ AtomSpinner.propTypes = {
    * 'TRANSPARENT'
    */
   overlayType: PropTypes.oneOf(Object.values(OVERLAY_TYPES)),
+
+  /**
+   * Possible options:
+   * 'SMALL' and 'MEDIUM'
+   */
+  size: PropTypes.oneOf(Object.values(SIZES)),
 
   /**
    * Possible options:

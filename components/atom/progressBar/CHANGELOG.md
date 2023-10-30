@@ -1,5 +1,24 @@
 # CHANGELOG
 
+# 2.12.0 (2023-09-15)
+
+
+### Features
+
+* **components/atom/progressBar:** Allow customizing the progress bar depending on its status ([9e8ef44](https://github.com/SUI-Components/sui-components/commit/9e8ef44f754e90afcd0c02e12c2b0d46fa38fccc))
+
+
+
+# 2.11.0 (2023-09-14)
+
+
+### Features
+
+* **components/atom/progressBar:** Add a success type for progress bar ([cc5fc9f](https://github.com/SUI-Components/sui-components/commit/cc5fc9f54a5b2664c475ef359dfa9eac002c61e6))
+* **components/atom/progressBar:** Include success status in progress bar circle ([bbe1e32](https://github.com/SUI-Components/sui-components/commit/bbe1e32c584bb303d23358fa8813a32afaec03f2))
+
+
+
 # 2.10.0 (2023-06-22)
 
 

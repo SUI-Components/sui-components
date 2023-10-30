@@ -2,9 +2,12 @@ import {useEffect} from 'react'
 
 import Hls from 'hls.js'
 
+import {HLS} from '../../settings/players.js'
+
 const useInitHlsEffect = ({
   autoPlay,
   hlsConfig,
+  onLoadVideo,
   playerRef,
   src,
   timeOffset
@@ -30,6 +33,17 @@ const useInitHlsEffect = ({
         newHls.loadSource(`${src}`)
 
         newHls.on(Hls.Events.MANIFEST_PARSED, () => {
+          playerRef.current.onloadedmetadata = () => {
+            const {duration, videoHeight, videoWidth} = playerRef.current
+            onLoadVideo({
+              src,
+              type: HLS.VIDEO_TYPE,
+              duration,
+              videoHeight,
+              videoWidth
+            })
+          }
+
           if (timeOffset) playerRef.current.currentTime = timeOffset
 
           if (autoPlay) {

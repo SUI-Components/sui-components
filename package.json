@@ -4,8 +4,8 @@
   "description": "Mono repo, multi package containing all SUI components.",
   "private": true,
   "engines": {
-    "node": "16",
-    "npm": "7 || 8"
+    "node": "18",
+    "npm": "8"
   },
   "workspaces": [
     "components/**"

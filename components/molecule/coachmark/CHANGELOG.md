@@ -1,5 +1,42 @@
 # CHANGELOG
 
+# 0.7.0 (2023-07-28)
+
+
+
+# 0.6.0 (2023-07-28)
+
+
+### Features
+
+* **components/molecule/coachmark/demo:** adapt demo to the new changes ([a6c3f58](https://github.com/SUI-Components/sui-components/commit/a6c3f58c5d841235524607e3a0b06aef2aac9547))
+* **components/molecule/coachmark:** add copyright notice ([723c73a](https://github.com/SUI-Components/sui-components/commit/723c73a5c1578e1d3aa7f7ac52afb70857bfc36e))
+* **components/molecule/coachmark:** adjust minor ux changes ([058e1bb](https://github.com/SUI-Components/sui-components/commit/058e1bb365b199a26b262216f03bc6885979e611))
+
+
+
+# 0.5.0 (2023-07-27)
+
+
+### Features
+
+* **components/molecule/coachmark:** rename prop and allow passing negative prop to the action butto ([a826c7b](https://github.com/SUI-Components/sui-components/commit/a826c7bd6ac1df5ef5abebeb0aaeeeb45ee7a182))
+* **components/molecule/coachmark:** rename prop and update documentation ([4b1c7e0](https://github.com/SUI-Components/sui-components/commit/4b1c7e02a6b0618f94b204b522411cc0f15b38b1))
+
+
+
+# 0.4.0 (2023-07-25)
+
+
+### Features
+
+* **components/molecule/coachmark/demo:** add article ([043b635](https://github.com/SUI-Components/sui-components/commit/043b635174cc54143d69407b8d49855a9d1d6b66))
+* **components/molecule/coachmark/demo:** show different shapes of the default tooltip in a tour ([7d9b661](https://github.com/SUI-Components/sui-components/commit/7d9b661c429910363fd6b7d7a5fb94efb4e20580))
+* **components/molecule/coachmark:** add props docs from react joyride ([d017228](https://github.com/SUI-Components/sui-components/commit/d01722819ba15a892ed0baecb03dd8df6e2ba9b5))
+* **components/molecule/coachmark:** replace design and shape for the default tooltip close button ([2969729](https://github.com/SUI-Components/sui-components/commit/2969729d2f5609072da9caf061a110097493d882))
+
+
+
 # 0.3.0 (2023-06-28)
 
 

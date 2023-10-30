@@ -1,20 +1,21 @@
 import {useEffect, useState} from 'react'
 
-const useGetBlobAsVideoSrcEffect = ({src, videoNode}) => {
-  const [videoSrc, setVideoSrc] = useState(typeof src === 'string' ? src : null)
+const isNotBlobType = src => typeof src === 'string'
+const useGetBlobAsVideoSrcEffect = ({src, playerRef}) => {
+  const [videoSrc, setVideoSrc] = useState(isNotBlobType(src) ? src : null)
 
   useEffect(() => {
-    if (videoSrc !== null) return
+    if (isNotBlobType(src)) return
 
-    const reader = new FileReader()
+    const objectUrl = URL.createObjectURL(src)
+    setVideoSrc(objectUrl)
+    playerRef.current?.load()
 
-    reader.onload = function (e) {
-      setVideoSrc(e.target.result)
-      videoNode.current?.load()
+    return () => {
+      window.URL.revokeObjectURL(objectUrl)
+      setVideoSrc(null)
     }
-
-    reader.readAsDataURL(src)
-  }, [src, videoNode, videoSrc])
+  }, [src, playerRef])
 
   return videoSrc
 }

@@ -1,6 +1,10 @@
+import {BLOB_TYPE} from './index.js'
+
 export const YOUTUBE_EMBEDDABLE_URL = 'https://www.youtube.com/embed/'
-export const YOUTUBE_STANDARD_URL = 'youtube.com/watch?v='
-export const YOUTUBE_SHORT_URL = 'youtu.be/'
+export const YOUTUBE_EMBEDDABLE_URL_PATTERN = 'youtube.com/embed/'
+export const YOUTUBE_STANDARD_URL_PATTERN = 'youtube.com/watch?v='
+export const YOUTUBE_SHORT_URL_PATTERN = 'youtu.be/'
+export const YOUTUBE_READABLE_URL_PATTERN = 'youtube.com/v/'
 
 export const HLS = {
   FILE_FORMATS: ['m3u8'],
@@ -10,7 +14,7 @@ export const HLS = {
 }
 
 export const NATIVE = {
-  INSTANCE_TYPE: Blob,
+  INSTANCE_TYPE: BLOB_TYPE,
   FILE_FORMATS: ['mp4', 'ogg', 'webm'],
   VIDEO_TYPE: 'native',
   PLAYER_COMPONENT: 'NativePlayer'
@@ -26,9 +30,10 @@ export const VIMEO = {
 export const YOUTUBE = {
   EMBEDDABLE_URL: YOUTUBE_EMBEDDABLE_URL,
   SRC_PATTERNS: [
-    YOUTUBE_EMBEDDABLE_URL,
-    YOUTUBE_STANDARD_URL,
-    YOUTUBE_SHORT_URL
+    YOUTUBE_EMBEDDABLE_URL_PATTERN,
+    YOUTUBE_STANDARD_URL_PATTERN,
+    YOUTUBE_SHORT_URL_PATTERN,
+    YOUTUBE_READABLE_URL_PATTERN
   ],
   VIDEO_TYPE: 'youtube',
   PLAYER_COMPONENT: 'YouTubePlayer'

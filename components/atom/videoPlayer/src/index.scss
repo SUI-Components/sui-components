@@ -5,6 +5,7 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 
 @mixin atom-videoplayer-external-player {
   position: relative;
+  width: 100%;
 
   &Frame {
     height: 100%;
@@ -16,6 +17,12 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 }
 
 .sui-AtomVideoPlayer {
+  align-items: center;
+  background: $c-black;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
   &-nativePlayer {
     &Video {
       width: 100%;
@@ -35,6 +42,6 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 
   &-youtubePlayer {
     @include atom-videoplayer-external-player;
-    padding: $sixteenByNineAspectRatio 0 0 0;
+    padding: $fourByThreeAspectRatio 0 0 0;
   }
 }

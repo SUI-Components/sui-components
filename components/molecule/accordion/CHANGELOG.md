@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.11.0 (2023-10-30)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix header content overflow ([1540311](https://github.com/SUI-Components/sui-components/commit/15403112fb4e887fc3f4eea9d5ceb8e7d165400d))
+
+
+### Features
+
+* **components/molecule/accordion:** add logic to width instead max-width ([43f99fd](https://github.com/SUI-Components/sui-components/commit/43f99fdee2ae0c2c616aa57f22aedb95a578464f))
+
+
+
 # 2.10.0 (2023-10-25)
 
 

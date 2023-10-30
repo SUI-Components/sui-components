@@ -6,6 +6,7 @@ import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticleHeight from './articles/ArticleHeight.js'
 import ArticleIcon from './articles/ArticleIcon.js'
+import ArticleLabelWrap from './articles/ArticleLabelWrap.js'
 import ArticleSpacing from './articles/ArticleSpacing.js'
 import ArticleTransition from './articles/ArticleTransition.js'
 import {CLASS_SECTION} from './settings.js'
@@ -37,6 +38,8 @@ const Demo = () => {
       <ArticleDisabled className={CLASS_SECTION} />
       <br />
       <ArticleCustom className={CLASS_SECTION} />
+      <br />
+      <ArticleLabelWrap className={CLASS_SECTION} />
     </div>
   )
 }

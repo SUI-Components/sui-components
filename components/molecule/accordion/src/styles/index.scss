@@ -107,8 +107,14 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     font-family: $ff-molecule-accordion-header;
     overflow: hidden;
     text-align: inherit;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    &--wrap {
+      white-space: wrap;
+      text-wrap: balance;
+    }
+    &--noWrap {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
   #{$base-class-item-header}ButtonContent,
   #{$base-class-item-header}Icon {
@@ -120,7 +126,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   }
 }
 #{$base-class-item-header}ButtonContainer {
-  width: 100%;
+  width: calc(100% - #{$pi-accordion-title * 2});
   height: 100%;
   display: flex;
   align-items: center;

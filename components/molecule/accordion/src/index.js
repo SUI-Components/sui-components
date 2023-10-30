@@ -15,6 +15,7 @@ import {
   BASE_CLASS,
   BEHAVIOR,
   HEADER_ICON_POSITION,
+  HEADER_LABEL_WRAPS,
   SPACING
 } from './settings.js'
 
@@ -30,6 +31,7 @@ const MoleculeAccordion = forwardRef(
       animationDuration = ANIMATION_DURATION.NORMAL,
       headerIconExpanded,
       headerIconCollapsed,
+      headerLabelWrap = HEADER_LABEL_WRAPS.NO_WRAP,
       headerIconPosition = HEADER_ICON_POSITION.RIGHT,
       maxHeight = 0
     },
@@ -49,6 +51,7 @@ const MoleculeAccordion = forwardRef(
           headerIconExpanded={headerIconExpanded}
           headerIconCollapsed={headerIconCollapsed}
           headerIconPosition={headerIconPosition}
+          headerLabelWrap={headerLabelWrap}
           maxHeight={maxHeight}
         >
           {children}
@@ -88,7 +91,9 @@ MoleculeAccordion.propTypes = {
   /** The header Icon element collapsed **/
   headerIconCollapsed: PropTypes.node,
   /** where the icon is header positioned */
-  headerIconPosition: PropTypes.oneOf(Object.values(HEADER_ICON_POSITION))
+  headerIconPosition: PropTypes.oneOf(Object.values(HEADER_ICON_POSITION)),
+  /** Defines the wrap behavior of the header label */
+  headerLabelWrap: PropTypes.oneOf(Object.values(HEADER_LABEL_WRAPS))
 }
 
 export {
@@ -99,7 +104,8 @@ export {
   AccordionItemPanel as MoleculeAccordionItemPanel,
   BEHAVIOR as moleculeAccordionBehavior,
   ANIMATION_DURATION as moleculeAccordionAnimationDuration,
-  HEADER_ICON_POSITION as moleculeAccordionHeaderIconPosition
+  HEADER_ICON_POSITION as moleculeAccordionHeaderIconPosition,
+  HEADER_LABEL_WRAPS as moleculeAccordionHeaderLabelWraps
 }
 
 export default MoleculeAccordion

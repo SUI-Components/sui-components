@@ -1,5 +1,62 @@
 # CHANGELOG
 
+# 2.14.0 (2023-10-30)
+
+
+### Features
+
+* **components/molecule/accordion:** preserve backward compatibility ([22aa1d7](https://github.com/SUI-Components/sui-components/commit/22aa1d7cc27d7e65a55b625411e6c3598254597a))
+
+
+
+# 2.13.0 (2023-10-30)
+
+
+### Features
+
+* **components/molecule/accordion:** add text-wrap balance property to use if brower support it ([ba68b3d](https://github.com/SUI-Components/sui-components/commit/ba68b3d29677a763f69f8210560b43c382b8ca80))
+
+
+
+# 2.12.0 (2023-10-30)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix interpolation ([0881a2d](https://github.com/SUI-Components/sui-components/commit/0881a2deb815c3bea127cc5c25b854740cac4a25))
+
+
+### Features
+
+* **components/molecule/accordion:** update interpolation definition ([d34ec27](https://github.com/SUI-Components/sui-components/commit/d34ec2722ad17a0ebddbe03224db79a63293f27d))
+
+
+
+# 2.11.0 (2023-10-30)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix header content overflow ([1540311](https://github.com/SUI-Components/sui-components/commit/15403112fb4e887fc3f4eea9d5ceb8e7d165400d))
+
+
+### Features
+
+* **components/molecule/accordion:** add logic to width instead max-width ([43f99fd](https://github.com/SUI-Components/sui-components/commit/43f99fdee2ae0c2c616aa57f22aedb95a578464f))
+
+
+
+# 2.10.0 (2023-10-25)
+
+
+### Features
+
+* **components/molecule/accordion:** add new prop to define the label wrap behavior ([bd647e3](https://github.com/SUI-Components/sui-components/commit/bd647e353fbd19acd969011adb479200e87d3a34))
+* **components/molecule/accordion:** update test ([2c509fd](https://github.com/SUI-Components/sui-components/commit/2c509fd3ffda69763fab82d47a048c9703105445))
+* **components/molecule/accordion:** update test v2 ([e194b69](https://github.com/SUI-Components/sui-components/commit/e194b69c269ef32c412120f8a973e39b84b7b46a))
+
+
+
 # 2.9.0 (2023-09-20)
 
 

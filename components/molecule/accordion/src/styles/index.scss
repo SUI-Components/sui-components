@@ -109,6 +109,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
     text-align: inherit;
     &--wrap {
       white-space: wrap;
+      text-wrap: balance;
     }
     &--noWrap {
       text-overflow: ellipsis;

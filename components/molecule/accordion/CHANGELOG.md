@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.12.0 (2023-10-30)
+
+
+### Bug Fixes
+
+* **components/molecule/accordion:** fix interpolation ([0881a2d](https://github.com/SUI-Components/sui-components/commit/0881a2deb815c3bea127cc5c25b854740cac4a25))
+
+
+### Features
+
+* **components/molecule/accordion:** update interpolation definition ([d34ec27](https://github.com/SUI-Components/sui-components/commit/d34ec2722ad17a0ebddbe03224db79a63293f27d))
+
+
+
 # 2.11.0 (2023-10-30)
 
 

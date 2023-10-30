@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.14.0 (2023-10-30)
+
+
+### Features
+
+* **components/molecule/accordion:** preserve backward compatibility ([22aa1d7](https://github.com/SUI-Components/sui-components/commit/22aa1d7cc27d7e65a55b625411e6c3598254597a))
+
+
+
 # 2.13.0 (2023-10-30)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.13.0 (2023-10-30)
+
+
+### Features
+
+* **components/molecule/accordion:** add text-wrap balance property to use if brower support it ([ba68b3d](https://github.com/SUI-Components/sui-components/commit/ba68b3d29677a763f69f8210560b43c382b8ca80))
+
+
+
 # 2.12.0 (2023-10-30)
 
 

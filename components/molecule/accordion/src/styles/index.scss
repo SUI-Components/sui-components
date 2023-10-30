@@ -131,6 +131,7 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   align-items: center;
   background-color: $bgc-accordion-item-header;
   padding: $p-accordion-item-header;
+  max-width: calc(100% - ($p-accordion-title * 2));
 }
 
 #{$base-class-item-header-icon}Default {

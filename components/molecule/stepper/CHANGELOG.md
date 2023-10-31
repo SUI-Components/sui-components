@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.10.0 (2023-10-31)
+
+
+### Bug Fixes
+
+* **components/molecule/stepper:** minor ([33ebec0](https://github.com/SUI-Components/sui-components/commit/33ebec0d5dc7b0995e9f02f46083a731dcdc0a55))
+* **components/molecule/stepper:** minor corner case ([19e8bfa](https://github.com/SUI-Components/sui-components/commit/19e8bfa433736efd2e3f4c5c740670b801f928e7))
+
+
+
 # 2.9.0 (2023-10-24)
 
 

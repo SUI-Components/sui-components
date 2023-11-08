@@ -26,6 +26,8 @@ const Input = forwardRef(
       name,
       onBlur,
       onFocus,
+      onPaste,
+      onCopy,
       placeholder,
       reference,
       size,
@@ -103,6 +105,8 @@ const Input = forwardRef(
         name={name}
         onChange={changeHandler}
         onFocus={onFocus}
+        onPaste={onPaste}
+        onCopy={onCopy}
         onBlur={onBlur}
         onKeyDown={handleKeyDown}
         onKeyPress={onKeyPress}
@@ -149,6 +153,10 @@ Input.propTypes = {
   onChange: PropTypes.func,
   /* onFocus callback */
   onFocus: PropTypes.func,
+  /* onPaste callback */
+  onPaste: PropTypes.func,
+  /* onCopy callback */
+  onCopy: PropTypes.func,
   /* onEnter callback */
   onEnter: PropTypes.func,
   /* key(s) to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.35.0 (2023-11-08)
+
+
+### Features
+
+* **components/atom/input:** Add onPaste & onCopy cb to atom input ([d149d5f](https://github.com/SUI-Components/sui-components/commit/d149d5f5d4f6e7f8e7e419ea20df52cb987353bc))
+
+
+
 # 5.34.0 (2023-09-28)
 
 

@@ -21,7 +21,7 @@ const ArticleDesign = ({className}) => {
           These are the available <Code>design</Code> types of bagdes, which are
           solid by default.
         </Paragraph>
-        <Grid cols={9} gutter={10} style={{width: 600}}>
+        <Grid cols={8} gutter={10} style={{width: 600}}>
           <Cell>
             <Label>Solid</Label>
           </Cell>

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.36.0 (2023-11-17)
+
+
+### Features
+
+* **components/atom/input:** Add padding right to input password ([a0c8949](https://github.com/SUI-Components/sui-components/commit/a0c8949702885b203e24a59f96c2beb42a2d2b59))
+
+
+
 # 5.35.0 (2023-11-08)
 
 

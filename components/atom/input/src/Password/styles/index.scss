@@ -4,9 +4,14 @@ $base-class-password: '#{$base-class-input}-password';
   position: relative;
   width: 100%;
 
+  & > input {
+    padding-right: $pr-atom-input-password;
+  }
+
   &--toggleButton {
     color: $c-atom-input-password-toggle-button;
     cursor: pointer;
+    display: flex;
     position: absolute;
     right: $r-atom-input-password-toggle-button;
     top: 50%;

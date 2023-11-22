@@ -39,20 +39,17 @@ const TypeDeprecatedArticle = () => {
       <H2>TYPES</H2>
       <H4>Correct usage</H4>
       <Paragraph>
-        HTML button <Code>type</Code> attribute is used for specifying the
-        behavior of button.
+        HTML button <Code>type</Code> attribute is used for specifying the behavior of button.
       </Paragraph>
       <Paragraph>
-        <Strong>Tip</Strong>: Always specify the type attribute for the button
-        element. Different browsers may use different default types for the
-        button element
+        <Strong>Tip</Strong>: Always specify the type attribute for the button element. Different browsers may use
+        different default types for the button element
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         {Object.entries({
           button: 'The button is a clickable button',
           submit: 'The button is a submit button (submits form-data)',
-          reset:
-            'The button is a reset button (resets the form-data to its initial values)'
+          reset: 'The button is a reset button (resets the form-data to its initial values)'
         }).map(([key, value]) => (
           <Fragment key={key}>
             <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
@@ -66,22 +63,10 @@ const TypeDeprecatedArticle = () => {
       <form onSubmit={handleSubmit}>
         <Grid cols={3} gutter={[8, 8]}>
           <Cell span={3}>
-            <Input
-              fullWidth
-              type="text"
-              id="fname"
-              name="fname"
-              placeholder="first name"
-            />
+            <Input fullWidth type="text" id="fname" name="fname" placeholder="first name" />
           </Cell>
           <Cell span={3}>
-            <Input
-              fullWidth
-              type="text"
-              id="lname"
-              name="lname"
-              placeholder="Last name"
-            />
+            <Input fullWidth type="text" id="lname" name="lname" placeholder="Last name" />
           </Cell>
           <Cell>
             <AtomButton fullWidth type="submit">
@@ -101,13 +86,10 @@ const TypeDeprecatedArticle = () => {
         </Grid>
       </form>
       <H4 deprecated>Deprecated usage</H4>
+      <Paragraph>Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'</Paragraph>
       <Paragraph>
-        Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
-      </Paragraph>
-      <Paragraph>
-        This prop should <Bold>NEVER</Bold> be combined with <Code>color</Code>{' '}
-        and <Code>design</Code> props. It causes unexpected behaviors. This prop
-        is priorized over the 2 others previously mentioned.
+        This prop should <Bold>NEVER</Bold> be combined with <Code>color</Code> and <Code>design</Code> props. It causes
+        unexpected behaviors. This prop is priorized over the 2 others previously mentioned.
       </Paragraph>
       <Grid gutter={[8, 8]} cols={atomButtonTypes.length + 1}>
         {stackMap(

@@ -54,9 +54,7 @@ const ArticleIsFullHeight = ({className}) => {
               border: '1px solid grey'
             })}
           >
-            <Panel isFullHeight>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </Panel>
+            <Panel isFullHeight>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Panel>
             <Panel isFullHeight>Lorem ipsum dolor sit amet</Panel>
           </div>
           <div
@@ -80,9 +78,7 @@ const ArticleIsFullHeight = ({className}) => {
               border: '1px solid grey'
             })}
           >
-            <Panel>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </Panel>
+            <Panel>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Panel>
             <Panel>Lorem ipsum dolor sit amet</Panel>
           </div>
           <div

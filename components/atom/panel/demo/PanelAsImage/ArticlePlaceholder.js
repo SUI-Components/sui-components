@@ -14,10 +14,7 @@ const ArticlePlaceholder = ({className}) => {
       </Paragraph>
       <div style={{backgroundColor: 'white'}}>
         <div style={{width: '100px', margin: 'auto'}}>
-          <AtomPanel
-            src="https://satyr.io/100/a3a3a3?delay=3g"
-            color={atomPanelColors.BASE}
-          >
+          <AtomPanel src="https://satyr.io/100/a3a3a3?delay=3g" color={atomPanelColors.BASE}>
             <div style={{height: '100px'}} />
           </AtomPanel>
         </div>

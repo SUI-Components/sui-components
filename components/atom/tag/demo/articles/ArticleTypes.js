@@ -3,16 +3,7 @@ import {useState} from 'react'
 import AtomTag, {atomTagDesigns} from 'components/atom/tag/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
 const noop = () => null
 
@@ -44,8 +35,7 @@ const ArticleTypes = ({className, icon, closeIcon}) => {
     <Article className={className}>
       <H2>Types</H2>
       <Paragraph>
-        Use the <Code>type</Code> in order to color it as desired from a high
-        order component.
+        Use the <Code>type</Code> in order to color it as desired from a high order component.
       </Paragraph>
 
       <Grid cols={5} gutter={[8, 8]} style={{maxWidth: 500}}>
@@ -62,12 +52,7 @@ const ArticleTypes = ({className, icon, closeIcon}) => {
                 <Label>{label}</Label>
               </Cell>
               <Cell>
-                <RadioButton
-                  value={value}
-                  label={String(value)}
-                  onClick={() => action(val => !val)}
-                  fullWidth
-                />
+                <RadioButton value={value} label={String(value)} onClick={() => action(val => !val)} fullWidth />
               </Cell>
             </Grid>
           </Cell>

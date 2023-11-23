@@ -95,8 +95,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -312,8 +311,7 @@ describe(json.name, () => {
 
       // When
       const {moleculeNotificationAlignItems: actual} = library
-      const {BASELINE, CENTER, FLEX_START, FLEX_END, STRETCH, ...others} =
-        actual
+      const {BASELINE, CENTER, FLEX_START, FLEX_END, STRETCH, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

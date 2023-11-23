@@ -1,21 +1,10 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import AtomIcon, {
-  ATOM_ICON_COLORS,
-  ATOM_ICON_SIZES
-} from '@s-ui/react-atom-icon'
+import AtomIcon, {ATOM_ICON_COLORS, ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import ActionButtonWrapper from './ActionButtonWrapper.js'
-import {
-  BASE_CLASS,
-  CLASSES,
-  COLOR_CLASSES,
-  COLORS,
-  MODIFIERS,
-  SIZES,
-  STYLES
-} from './config.js'
+import {BASE_CLASS, CLASSES, COLOR_CLASSES, COLORS, MODIFIERS, SIZES, STYLES} from './config.js'
 
 const AtomActionButton = ({
   children,
@@ -60,10 +49,7 @@ const AtomActionButton = ({
   return (
     <ActionButtonWrapper {...buttonProps} className={classNames}>
       <div className={`${BASE_CLASS}-icon`}>
-        <AtomIcon
-          size={ATOM_ICON_SIZES.medium}
-          color={ATOM_ICON_COLORS.currentColor}
-        >
+        <AtomIcon size={ATOM_ICON_SIZES.medium} color={ATOM_ICON_COLORS.currentColor}>
           {icon}
         </AtomIcon>
       </div>

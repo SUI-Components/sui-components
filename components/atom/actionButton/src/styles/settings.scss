@@ -3,17 +3,11 @@ $bdsz-atom-action-button-icon-outline: $bdw-s;
 $c-atom-action-button-neutral: color-variation($c-gray, 2);
 
 $c-atom-action-button-accent-active: color-variation($c-accent, -2) !default;
-$c-atom-action-button-neutral-active: color-variation(
-  $c-atom-action-button-neutral,
-  -2
-) !default;
+$c-atom-action-button-neutral-active: color-variation($c-atom-action-button-neutral, -2) !default;
 $c-atom-action-button-primary-active: color-variation($c-primary, -2) !default;
 
 $c-atom-action-button-accent-disabled: color-variation($c-accent, 4) !default;
-$c-atom-action-button-neutral-disabled: color-variation(
-  $c-atom-action-button-neutral,
-  4
-) !default;
+$c-atom-action-button-neutral-disabled: color-variation($c-atom-action-button-neutral, 4) !default;
 $c-atom-action-button-primary-disabled: color-variation($c-primary, 4) !default;
 
 $c-atom-action-button-accent-hover: color-variation($c-accent, 1) !default;
@@ -25,10 +19,7 @@ $c-atom-action-button-neutral-hover-2: color-variation($c-gray, 5) !default;
 $c-atom-action-button-primary-hover-2: color-variation($c-primary, 4) !default;
 
 $c-atom-action-button-accent-icon-bg: color-variation($c-accent, 3) !default;
-$c-atom-action-button-neutral-icon-bg: color-variation(
-  $c-atom-action-button-neutral,
-  3
-) !default;
+$c-atom-action-button-neutral-icon-bg: color-variation($c-atom-action-button-neutral, 3) !default;
 $c-atom-action-button-primary-icon-bg: color-variation($c-primary, 3) !default;
 
 $c-atom-action-button-colors: (

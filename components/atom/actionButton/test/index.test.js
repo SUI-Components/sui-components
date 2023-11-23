@@ -79,8 +79,7 @@ describe(json.name, () => {
     it.skip('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -211,8 +210,7 @@ describe(json.name, () => {
 
       // When
       const {atomActionButtonStyles: actual} = library
-      const {FILLED_NEGATIVE, FILLED_POSITIVE, OUTLINE, FLAT, ...others} =
-        actual
+      const {FILLED_NEGATIVE, FILLED_POSITIVE, OUTLINE, FLAT, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

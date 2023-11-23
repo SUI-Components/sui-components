@@ -15,11 +15,7 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import {
-  MoleculeModal,
-  MoleculeModalContent,
-  MoleculeModalFooter
-} from '../src/index.js'
+import {MoleculeModal, MoleculeModalContent, MoleculeModalFooter} from '../src/index.js'
 import LoremIpsum from './LoremIpsum.js'
 
 const PROPS = {
@@ -120,107 +116,60 @@ const ArticleModal = ({className}) => {
     <>
       <Paragraph>
         Molecule Modal also provides its <Code>MoleculeModalContainer</Code> and
-        <Code>MoleculeModalFooter</Code> as Inner components in order to
-        compound it on its children. User can pass its children ant it will
-        automatically be included in a <Code>MoleculeModalContent</Code>{' '}
-        Component. In case of using the combination of the Content and Footer,
-        you should combine your children with the <Code>isContentless</Code>{' '}
-        boolean prop (default false) in order not to wrap your children on a
-        container twice.
+        <Code>MoleculeModalFooter</Code> as Inner components in order to compound it on its children. User can pass its
+        children ant it will automatically be included in a <Code>MoleculeModalContent</Code> Component. In case of
+        using the combination of the Content and Footer, you should combine your children with the{' '}
+        <Code>isContentless</Code> boolean prop (default false) in order not to wrap your children on a container twice.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={mode}
-            onChange={onChangeModeHandler}
-            fullWidth
-          >
+          <RadioButtonGroup value={mode} onChange={onChangeModeHandler} fullWidth>
             {Object.entries(PROPS).map(([modeKey, modeValue]) => (
-              <RadioButton
-                key={`${modeKey}`}
-                value={modeKey}
-                label={modeKey}
-                checked={mode === modeKey}
-              />
+              <RadioButton key={`${modeKey}`} value={modeKey} label={modeKey} checked={mode === modeKey} />
             ))}
           </RadioButtonGroup>
         </Cell>
       </Grid>
       <Paragraph>
-        <Code>enableContentScroll</Code> is a boolean prop used to prevent the
-        scrolling only in case of having a MoleculeModalContainer
+        <Code>enableContentScroll</Code> is a boolean prop used to prevent the scrolling only in case of having a
+        MoleculeModalContainer
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
           <Label>enableContentScroll</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={enableContentScroll}
-            onChange={onChangeEnableContentScrollHandler}
-          >
-            <RadioButton
-              value
-              label="true"
-              checked={enableContentScroll === true}
-            />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={enableContentScroll === false}
-            />
+          <RadioButtonGroup value={enableContentScroll} onChange={onChangeEnableContentScrollHandler}>
+            <RadioButton value label="true" checked={enableContentScroll === true} />
+            <RadioButton value={false} label="false" checked={enableContentScroll === false} />
           </RadioButtonGroup>
         </Cell>
       </Grid>
       <Paragraph>
-        <Code>withoutIdentation</Code> is a boolean prop which removes the
-        innecesary inner content padding.
+        <Code>withoutIdentation</Code> is a boolean prop which removes the innecesary inner content padding.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
           <Label>withoutIdentation</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={withoutIdentation}
-            onChange={onChangeWithoutIdentationHandler}
-          >
-            <RadioButton
-              value
-              label="true"
-              checked={withoutIdentation === true}
-            />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={withoutIdentation === false}
-            />
+          <RadioButtonGroup value={withoutIdentation} onChange={onChangeWithoutIdentationHandler}>
+            <RadioButton value label="true" checked={withoutIdentation === true} />
+            <RadioButton value={false} label="false" checked={withoutIdentation === false} />
           </RadioButtonGroup>
         </Cell>
       </Grid>
       <Paragraph>
-        <Code>isPageScrollable</Code> is a boolean prop that if false removes
-        the scroll of the body.
+        <Code>isPageScrollable</Code> is a boolean prop that if false removes the scroll of the body.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
           <Label>isPageScrollable</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={isPageScrollable}
-            onChange={onChangeisPageScrollableHandler}
-          >
-            <RadioButton
-              value
-              label="true"
-              checked={isPageScrollable === true}
-            />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={isPageScrollable === false}
-            />
+          <RadioButtonGroup value={isPageScrollable} onChange={onChangeisPageScrollableHandler}>
+            <RadioButton value label="true" checked={isPageScrollable === true} />
+            <RadioButton value={false} label="false" checked={isPageScrollable === false} />
           </RadioButtonGroup>
         </Cell>
       </Grid>
@@ -230,10 +179,7 @@ const ArticleModal = ({className}) => {
   return (
     <Article className={className}>
       <H2>Default</H2>
-      <Paragraph>
-        All Other extra components are using combinations of this
-        base-component.
-      </Paragraph>
+      <Paragraph>All Other extra components are using combinations of this base-component.</Paragraph>
       <Paragraph>
         It can be controlled using the <Code>isOpen</Code> boolean prop.
       </Paragraph>

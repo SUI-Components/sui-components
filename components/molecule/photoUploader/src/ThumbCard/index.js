@@ -34,21 +34,16 @@ const ThumbCard = ({
   })
 
   const imageThumbClass = cx(IMAGE_THUMB_CARD_CLASS_NAME, {
-    [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]:
-      outputImageAspectRatioDisabled
+    [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled
   })
 
   return (
     <div className={THUMB_CARD_CLASS_NAME}>
-      <div className={counterClass}>
-        {index === 0 ? mainPhotoLabel : index + 1}
-      </div>
+      <div className={counterClass}>{index === 0 ? mainPhotoLabel : index + 1}</div>
       <div className={CONTAINER_THUMB_CARD_CLASS_NAME}>
         {hasErrors ? (
           <div className={`${ICON_THUMB_CARD_CLASS_NAME}`}>
-            <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>
-              {rejectPhotosIcon}
-            </AtomIcon>
+            <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{rejectPhotosIcon}</AtomIcon>
           </div>
         ) : (
           <img src={image.preview} className={imageThumbClass} />
@@ -56,24 +51,15 @@ const ThumbCard = ({
       </div>
       <Content file={image} index={index} />
       <div className={ACTION_THUMB_CARD_CLASS_NAME}>
-        <div
-          className={BUTTON_THUMB_CARD_CLASS_NAME}
-          onClick={() => callbackDeleteItem(index)}
-        >
+        <div className={BUTTON_THUMB_CARD_CLASS_NAME} onClick={() => callbackDeleteItem(index)}>
           <AtomIcon size={iconSize}>{deleteIcon}</AtomIcon>
         </div>
         {hasErrors ? (
-          <div
-            className={BUTTON_THUMB_CARD_CLASS_NAME}
-            onClick={e => callbackRetryUpload(index)}
-          >
+          <div className={BUTTON_THUMB_CARD_CLASS_NAME} onClick={e => callbackRetryUpload(index)}>
             <AtomIcon size={iconSize}>{retryIcon}</AtomIcon>
           </div>
         ) : (
-          <div
-            className={BUTTON_THUMB_CARD_CLASS_NAME}
-            onClick={e => callbackRotateItem(index)}
-          >
+          <div className={BUTTON_THUMB_CARD_CLASS_NAME} onClick={e => callbackRotateItem(index)}>
             <AtomIcon size={iconSize}>{rotateIcon}</AtomIcon>
           </div>
         )}

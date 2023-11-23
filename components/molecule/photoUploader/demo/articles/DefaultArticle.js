@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  ListItem,
-  Paragraph,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 import MoleculePhotoUploader from '../../src/index.js'
 import {
@@ -45,14 +38,12 @@ const DefaultArticle = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        Every modification of the list will return a list of Blobs (jpeg
-        encoded!) to be uploaded on a server or whatever you like, and with the
-        Blob, some useful info:
+        Every modification of the list will return a list of Blobs (jpeg encoded!) to be uploaded on a server or
+        whatever you like, and with the Blob, some useful info:
       </Paragraph>
       <Paragraph>
-        Once uploaded into the component, all images will be resized if they are
-        exceeding the max resolution defined by props and/or cropped to fit a
-        given ratio. And JPEG encoded with a little bit of compression.
+        Once uploaded into the component, all images will be resized if they are exceeding the max resolution defined by
+        props and/or cropped to fit a given ratio. And JPEG encoded with a little bit of compression.
       </Paragraph>
       <UnorderedList>
         {[
@@ -61,21 +52,13 @@ const DefaultArticle = ({className}) => {
             'string',
             "if the image is one of the initially passed by props will contain an url, if it's undefined, it's a new image."
           ],
-          [
-            'id',
-            'string',
-            'you could pass an id to identify each image that was initially passed'
-          ],
+          ['id', 'string', 'you could pass an id to identify each image that was initially passed'],
           [
             'isNew',
             'boolean',
             "if it's a new uploaded image, will be true, if not, will be false and it will have an `url`."
           ],
-          [
-            'isModified',
-            'boolean',
-            'if an image of the initialPhotos, has been rotated, will be `isModified: true`'
-          ],
+          ['isModified', 'boolean', 'if an image of the initialPhotos, has been rotated, will be `isModified: true`'],
           [
             'hasErrors',
             'boolean',
@@ -115,9 +98,7 @@ const DefaultArticle = ({className}) => {
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}
         maxPhotos={_maxPhotos}
-        notificationErrorFormatPhotoUploaded={
-          _notificationErrorFormatPhotoUploaded
-        }
+        notificationErrorFormatPhotoUploaded={_notificationErrorFormatPhotoUploaded}
         rejectPhotosIcon={_rejectPhotosIcon}
         retryIcon={_retryErrorPhotosIcon}
         rotateIcon={_rotateIcon}

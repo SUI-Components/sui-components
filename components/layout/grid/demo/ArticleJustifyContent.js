@@ -1,19 +1,9 @@
 import {useState} from 'react'
 
-import LayoutGrid, {
-  LayoutGridItem,
-  LayoutGridJustifyContent
-} from 'components/layout/grid/src/index.js'
+import LayoutGrid, {LayoutGridItem, LayoutGridJustifyContent} from 'components/layout/grid/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
 import DemoBox from './demoBox.js'
 import DemoWrapper from './demoWrapper.js'
@@ -24,10 +14,9 @@ const ArticleJustifyContent = ({classname}) => {
     <Article className={classname}>
       <H2>Justify Content</H2>
       <Paragraph>
-        Use the <Code>justifyContent</Code> prop to distributes space between
-        and around content items. Valid values:
-        <Code>center</Code> <Code>flex-end</Code> <Code>flex-start</Code>{' '}
-        <Code>space-around</Code> <Code>space-between</Code>
+        Use the <Code>justifyContent</Code> prop to distributes space between and around content items. Valid values:
+        <Code>center</Code> <Code>flex-end</Code> <Code>flex-start</Code> <Code>space-around</Code>{' '}
+        <Code>space-between</Code>
       </Paragraph>
       <RadioButtonGroup
         value={justifyContentState}
@@ -35,11 +24,7 @@ const ArticleJustifyContent = ({classname}) => {
         onChange={(event, value) => setJustifyContentState(value)}
       >
         {Object.values(LayoutGridJustifyContent).map(justifyContent => (
-          <RadioButton
-            key={justifyContent}
-            value={justifyContent.toString()}
-            label={justifyContent}
-          />
+          <RadioButton key={justifyContent} value={justifyContent.toString()} label={justifyContent} />
         ))}
       </RadioButtonGroup>
       <div key={justifyContentState}>

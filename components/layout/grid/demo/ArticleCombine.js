@@ -3,15 +3,7 @@ import {useState} from 'react'
 import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  H4,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, H4, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
 import DemoBox from './demoBox.js'
 import DemoWrapper from './demoWrapper.js'
@@ -276,10 +268,7 @@ const ArticleCombine = ({classname}) => {
   return (
     <Article className={classname}>
       <H2>Combining Grids</H2>
-      <Paragraph>
-        Grids can be combined and nested in order to generate other extra
-        mutations of it.
-      </Paragraph>
+      <Paragraph>Grids can be combined and nested in order to generate other extra mutations of it.</Paragraph>
       <DemoWrapper>
         <LayoutGrid justifyContent="space-between">
           <LayoutGridItem colSpan={6}>
@@ -351,8 +340,7 @@ const ArticleCombine = ({classname}) => {
       <br />
       <H4>Side Bar</H4>
       <Paragraph>
-        The grid can be used for create multiple layouts in web pages and it can
-        be nested as much as needed.
+        The grid can be used for create multiple layouts in web pages and it can be nested as much as needed.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
@@ -375,8 +363,7 @@ const ArticleCombine = ({classname}) => {
       <br />
       <Sites.BarSite {...sideBars} />
       <Paragraph>
-        All possible multiples of 2 and 3 can become possible for columnation
-        combining nested grids.
+        All possible multiples of 2 and 3 can become possible for columnation combining nested grids.
       </Paragraph>
       <H4>Nesting for 8 columns</H4>
       <Sites.Nesting8 />

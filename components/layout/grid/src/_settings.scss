@@ -4,8 +4,7 @@ $layout-grid-breakpoints: $breakpoints;
 $layout-grid-columns: $grid-columns;
 $layout-grid-m-base: $m-base * 0.5 !default;
 
-$ac-layout-grid: flex-start flex-end center space-between space-around
-  space-evenly stretch;
+$ac-layout-grid: flex-start flex-end center space-between space-around space-evenly stretch;
 $ai-layout-grid: stretch space-around space-between center flex-start flex-end;
 $jc-layout-grid: flex-start center flex-end space-between space-around;
 

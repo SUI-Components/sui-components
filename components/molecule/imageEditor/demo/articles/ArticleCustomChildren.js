@@ -15,17 +15,11 @@ const ArticleCustomChildren = ({className}) => {
     <Article className={className}>
       <H2>Customise the layout using a custom Children</H2>
       <Paragraph>
-        The developer is able to change the default layout giving a custom
-        children. It had to contain the <Code>MoleculeImageEditorSliders</Code>{' '}
-        and <Code>MoleculeImageEditorCropper</Code>
+        The developer is able to change the default layout giving a custom children. It had to contain the{' '}
+        <Code>MoleculeImageEditorSliders</Code> and <Code>MoleculeImageEditorCropper</Code>
       </Paragraph>
 
-      <MoleculeImageEditor
-        onChange={setCroppedImage}
-        image={DEMO_IMAGE}
-        cropLabelText="Crop"
-        rotateLabelText="Rotate"
-      >
+      <MoleculeImageEditor onChange={setCroppedImage} image={DEMO_IMAGE} cropLabelText="Crop" rotateLabelText="Rotate">
         <CustomChildren />
       </MoleculeImageEditor>
       <H2>Result</H2>

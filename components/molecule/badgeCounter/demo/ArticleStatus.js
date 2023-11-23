@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Button,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Button, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeBadgeCounter, {moleculeBadgeCounterStatus} from '../src/index.js'
 
@@ -17,15 +9,11 @@ const ArticleStatus = ({className}) => {
     <Article className={className}>
       <H2>Status</H2>
       <Paragraph>
-        There are {Object.values(moleculeBadgeCounterStatus).length} different
-        defined status under the <Code>status</Code> enum prop (
-        {Object.values(moleculeBadgeCounterStatus).join(', ')}). You can get the
-        enum using the <Code>moleculeBadgeCounterStatus</Code> exported value.
+        There are {Object.values(moleculeBadgeCounterStatus).length} different defined status under the{' '}
+        <Code>status</Code> enum prop ({Object.values(moleculeBadgeCounterStatus).join(', ')}). You can get the enum
+        using the <Code>moleculeBadgeCounterStatus</Code> exported value.
       </Paragraph>
-      <Grid
-        cols={Object.values(moleculeBadgeCounterStatus).length}
-        gutter={[8, 8]}
-      >
+      <Grid cols={Object.values(moleculeBadgeCounterStatus).length} gutter={[8, 8]}>
         {Object.values(moleculeBadgeCounterStatus).map(statusValue => (
           <Cell key={statusValue}>
             <MoleculeBadgeCounter status={statusValue}>

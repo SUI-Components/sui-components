@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  Emphasis,
-  H1,
-  H2,
-  H3,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Code, Emphasis, H1, H2, H3, Paragraph} from '@s-ui/documentation-library'
 
 import TextArea from '../src/index.js'
 import {TEXTAREA_RESIZES, TEXTAREA_STATES} from '../src/settings.js'
@@ -34,9 +26,8 @@ export default () => {
     <div className="sui-StudioPreview">
       <H1>Textarea</H1>
       <Paragraph>
-        The Textarea component allows you to easily create multi-line text
-        inputs. AtomTextarea is a component that wraps a textarea displaying the
-        text passed in the `value` prop
+        The Textarea component allows you to easily create multi-line text inputs. AtomTextarea is a component that
+        wraps a textarea displaying the text passed in the `value` prop
       </Paragraph>
       <DemoWrapper>
         <Demo>

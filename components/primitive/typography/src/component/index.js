@@ -1,15 +1,14 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {DESIGN} from '../config.js'
 import PrimitiveTypography from '../index.js'
 
 const getDesign = ({design, displayName}) => {
-  const Component = forwardRef(
-    ({design: omittedDesign, ...props}, forwardedRef) => (
-      <PrimitiveTypography design={design} {...props} ref={forwardedRef} />
-    )
-  )
+  const Component = forwardRef(({design: omittedDesign, ...props}, forwardedRef) => (
+    <PrimitiveTypography design={design} {...props} ref={forwardedRef} />
+  ))
   Component.propTypes = {
     design: PropTypes.oneOf(Object.values(DESIGN))
   }
@@ -31,10 +30,7 @@ const Styles = Object.fromEntries(
     [DESIGN.CAPTION]: 'Caption',
     [DESIGN.SMALL]: 'Small',
     [DESIGN.CALLOUT]: 'Callout'
-  }).map(([design, name]) => [
-    name,
-    getDesign({design, displayName: `PrimitiveTypography${name}`})
-  ])
+  }).map(([design, name]) => [name, getDesign({design, displayName: `PrimitiveTypography${name}`})])
 )
 
 export default Styles

@@ -16,26 +16,20 @@ import {
 } from '@s-ui/documentation-library'
 
 import {StepsProvider} from '../../src/context/index.js'
-import {
-  moleculeStepperAlignment,
-  moleculeStepperDesign,
-  Step
-} from '../../src/index.js'
+import {moleculeStepperAlignment, moleculeStepperDesign, Step} from '../../src/index.js'
 
 const steps = 3
 
 const ArticleDefaultStep = ({className}) => {
-  const [alignment, setAlignment] = useState(
-    moleculeStepperAlignment.HORIZONTAL
-  )
+  const [alignment, setAlignment] = useState(moleculeStepperAlignment.HORIZONTAL)
   const [design, setDesign] = useState(moleculeStepperDesign.DEFAULT)
   const [step, setStep] = useState(Math.ceil(steps / 2))
   return (
     <Article className={className}>
       <H2>Default Step</H2>
       <Paragraph>
-        The package offers a default Step content but it can be customized also
-        using the <Code>children</Code> prop of the <Code>Step</Code> component.
+        The package offers a default Step content but it can be customized also using the <Code>children</Code> prop of
+        the <Code>Step</Code> component.
       </Paragraph>
       <Box
         style={{
@@ -49,14 +43,9 @@ const ArticleDefaultStep = ({className}) => {
             display: 'flex',
             gap: '8px',
             justifyContent: 'center',
-            width:
-              alignment === moleculeStepperAlignment.VERTICAL ? 'auto' : '100%',
-            alignItems:
-              alignment === moleculeStepperAlignment.VERTICAL
-                ? 'flex-start'
-                : 'unset',
-            flexDirection:
-              alignment === moleculeStepperAlignment.VERTICAL ? 'column' : 'row'
+            width: alignment === moleculeStepperAlignment.VERTICAL ? 'auto' : '100%',
+            alignItems: alignment === moleculeStepperAlignment.VERTICAL ? 'flex-start' : 'unset',
+            flexDirection: alignment === moleculeStepperAlignment.VERTICAL ? 'column' : 'row'
           }}
         >
           <StepsProvider alignment={alignment} design={design} steps={steps}>
@@ -88,20 +77,11 @@ const ArticleDefaultStep = ({className}) => {
           <Label>design</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            fullWidth
-            value={step}
-            onChange={(_, value) => value !== undefined && setStep(value)}
-          >
+          <RadioButtonGroup fullWidth value={step} onChange={(_, value) => value !== undefined && setStep(value)}>
             {Array(steps)
               .fill()
               .map((_, index) => (
-                <RadioButton
-                  key={index}
-                  value={index + 1}
-                  label={index + 1}
-                  checked={index + 1 === step}
-                />
+                <RadioButton key={index} value={index + 1} label={index + 1} checked={index + 1 === step} />
               ))}
           </RadioButtonGroup>
         </Cell>
@@ -111,34 +91,26 @@ const ArticleDefaultStep = ({className}) => {
             value={alignment}
             onChange={(_, value) => value !== undefined && setAlignment(value)}
           >
-            {Object.values(moleculeStepperAlignment).map(
-              moleculeStepperAlignmentValue => (
-                <RadioButton
-                  key={moleculeStepperAlignmentValue}
-                  value={moleculeStepperAlignmentValue}
-                  label={moleculeStepperAlignmentValue}
-                  checked={moleculeStepperAlignmentValue === alignment}
-                />
-              )
-            )}
+            {Object.values(moleculeStepperAlignment).map(moleculeStepperAlignmentValue => (
+              <RadioButton
+                key={moleculeStepperAlignmentValue}
+                value={moleculeStepperAlignmentValue}
+                label={moleculeStepperAlignmentValue}
+                checked={moleculeStepperAlignmentValue === alignment}
+              />
+            ))}
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            fullWidth
-            value={design}
-            onChange={(_, value) => value !== undefined && setDesign(value)}
-          >
-            {Object.values(moleculeStepperDesign).map(
-              moleculeStepperDesignValue => (
-                <RadioButton
-                  key={moleculeStepperDesignValue}
-                  value={moleculeStepperDesignValue}
-                  label={moleculeStepperDesignValue}
-                  checked={moleculeStepperDesignValue === design}
-                />
-              )
-            )}
+          <RadioButtonGroup fullWidth value={design} onChange={(_, value) => value !== undefined && setDesign(value)}>
+            {Object.values(moleculeStepperDesign).map(moleculeStepperDesignValue => (
+              <RadioButton
+                key={moleculeStepperDesignValue}
+                value={moleculeStepperDesignValue}
+                label={moleculeStepperDesignValue}
+                checked={moleculeStepperDesignValue === design}
+              />
+            ))}
           </RadioButtonGroup>
         </Cell>
       </Grid>

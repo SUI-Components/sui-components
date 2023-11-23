@@ -30,10 +30,8 @@ export const JUSTIFY_CONTENT = {
   /* Distributed alignment */
   SPACE_BETWEEN:
     'space-between' /* Distribute items evenly. The first item is flush with the start, the last is flush with the end */,
-  SPACE_AROUND:
-    'space-around' /* Distribute items evenly. Items have a half-size space on either end */,
-  SPACE_EVENLY:
-    'space-evenly' /* Distribute items evenly. Items have equal space around them */
+  SPACE_AROUND: 'space-around' /* Distribute items evenly. Items have a half-size space on either end */,
+  SPACE_EVENLY: 'space-evenly' /* Distribute items evenly. Items have equal space around them */
   // STRETCH:
   //   'stretch' /* Distribute items evenly. Stretch 'auto'-sized items to fit the container */
 }

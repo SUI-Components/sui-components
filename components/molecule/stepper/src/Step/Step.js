@@ -47,8 +47,7 @@ const Step = forwardRef(
     const innerRef = useRef()
     const ref = useMergeRefs(forwardedRef, innerRef, useContextRef)
     const As = as || asContext || 'li'
-    const hasConnector =
-      hasConnectorProp === undefined ? hasConnectorContext : hasConnectorProp
+    const hasConnector = hasConnectorProp === undefined ? hasConnectorContext : hasConnectorProp
     useContextUnRef(innerRef)
     const onClickHandler = event => {
       typeof onClick === 'function' && onClick(event, {step})

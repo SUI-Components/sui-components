@@ -25,8 +25,7 @@ const DemoDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        Drawer works as a controlled component under the <Code>isOpen</Code>{' '}
-        boolean prop.
+        Drawer works as a controlled component under the <Code>isOpen</Code> boolean prop.
       </Paragraph>
       <Box ref={ref} style={{backgroundColor: '#f5f5f5', height: 500}}>
         <div
@@ -59,11 +58,7 @@ const DemoDefault = ({className}) => {
           ref={drawerRef}
         >
           <H4>Drawer Content</H4>
-          <RadioButton
-            onClick={() => setIsOpen(!isOpen)}
-            checked={isOpen}
-            label="Close me!"
-          />
+          <RadioButton onClick={() => setIsOpen(!isOpen)} checked={isOpen} label="Close me!" />
           <Paragraph>Close me using the button or using ESC 'key'.</Paragraph>
         </MoleculeDrawer>
       </Box>
@@ -75,11 +70,7 @@ const DemoDefault = ({className}) => {
         }}
       >
         <RadioButton label="hidden" checked={showOverlay === false} value />
-        <RadioButton
-          label="shown"
-          checked={showOverlay === true}
-          value={false}
-        />
+        <RadioButton label="shown" checked={showOverlay === true} value={false} />
       </RadioButtonGroup>
       <Paragraph>User can also press 'ESC' key to close the Drawer.</Paragraph>
     </Article>

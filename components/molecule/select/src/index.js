@@ -20,14 +20,7 @@ import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-
 
 import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
 import MoleculeSelectSingleSelection from './components/SingleSelection.js'
-import {
-  DropdownContext,
-  ENABLED_KEYS,
-  getClassName,
-  getOptionData,
-  SELECT_STATES,
-  SELECTION_KEYS
-} from './config.js'
+import {DropdownContext, ENABLED_KEYS, getClassName, getOptionData, SELECT_STATES, SELECTION_KEYS} from './config.js'
 
 const useFunctionalRef = () => useReducer((_s, node) => node, null)
 
@@ -104,10 +97,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   const handleOutsideClick = useCallback(
     ev => {
       if (disabled) return
-      if (
-        refMoleculeSelect.current &&
-        !refMoleculeSelect.current.contains(ev.target)
-      ) {
+      if (refMoleculeSelect.current && !refMoleculeSelect.current.contains(ev.target)) {
         // outside click
         closeList(ev, {isOutsideEvent: true})
         setFocus(false)
@@ -118,9 +108,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
 
   const focusFirstOption = useCallback(
     ev => {
-      const options = refsMoleculeSelectOptions.current.map(option =>
-        getTarget(option.current)
-      )
+      const options = refsMoleculeSelectOptions.current.map(option => getTarget(option.current))
       options[0] && options[0].focus()
       ev.preventDefault()
       ev.stopPropagation()
@@ -139,9 +127,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
   )
 
   const isFirstOptionFocused = useCallback(() => {
-    const options = refsMoleculeSelectOptions.current.map(option =>
-      getTarget(option.current)
-    )
+    const options = refsMoleculeSelectOptions.current.map(option => getTarget(option.current))
 
     return document.activeElement === options[0]
   }, [refsMoleculeSelectOptions])
@@ -188,9 +174,7 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
       !hasSearch && setTimeout(() => focusFirstOption(ev))
     }
   }
-  const Select = multiselection
-    ? MoleculeSelectMultipleSelection
-    : MoleculeSelectSingleSelection
+  const Select = multiselection ? MoleculeSelectMultipleSelection : MoleculeSelectSingleSelection
 
   const context = {
     hasSearch,

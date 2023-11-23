@@ -15,10 +15,7 @@ const MoleculeTabsWithStateActive = ({
   onChange,
   ...props
 }) => {
-  const [activeTab, setActiveTab] = useControlledState(
-    activeTabIndexProp,
-    defaultActiveTabIndexProp
-  )
+  const [activeTab, setActiveTab] = useControlledState(activeTabIndexProp, defaultActiveTabIndexProp)
 
   const handleChange = (e, {numTab: tabIndex}) => {
     setActiveTab(tabIndex)
@@ -29,9 +26,7 @@ const MoleculeTabsWithStateActive = ({
     <MoleculeTabs {...props} onChange={handleChange}>
       {Children.toArray(children)
         .filter(Boolean)
-        .map((child, index) =>
-          cloneElement(child, {active: activeTab === index + 1})
-        )}
+        .map((child, index) => cloneElement(child, {active: activeTab === index + 1}))}
     </MoleculeTabs>
   )
 }

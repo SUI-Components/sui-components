@@ -14,10 +14,7 @@ import {
 } from '@s-ui/documentation-library'
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
-import MoleculeProgressSteps, {
-  MoleculeProgressStep,
-  moleculeProgressStepsStatuses
-} from '../src/index.js'
+import MoleculeProgressSteps, {MoleculeProgressStep, moleculeProgressStepsStatuses} from '../src/index.js'
 import {configWithIcons} from './config/index.js'
 
 const getStatus = (step, index) => {
@@ -49,22 +46,12 @@ const CustomIconsProgressStepsArticle = ({className}) => {
   return (
     <Article className={className}>
       <H2>Icons</H2>
-      <Paragraph>
-        The step Icons can be customized providing a react node to each
-        progress-step.
-      </Paragraph>
+      <Paragraph>The step Icons can be customized providing a react node to each progress-step.</Paragraph>
 
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={step}
-            onChange={(event, value) => setStatus(value || 0)}
-          >
-            {[
-              0,
-              ...Object.keys(configWithIcons),
-              Object.keys(configWithIcons).length + 1
-            ].map(stepValue => (
+          <RadioButtonGroup value={step} onChange={(event, value) => setStatus(value || 0)}>
+            {[0, ...Object.keys(configWithIcons), Object.keys(configWithIcons).length + 1].map(stepValue => (
               <RadioButton
                 key={`step ${parseInt(stepValue)}`}
                 value={parseInt(stepValue)}
@@ -81,26 +68,21 @@ const CustomIconsProgressStepsArticle = ({className}) => {
           <MoleculeProgressSteps
             iconStepDone={
               <AtomIcon size={ATOM_ICON_SIZES.large}>
-                <AntDesignIcon
-                  icon="AiFillCheckCircle"
-                  style={{color: 'currentColor'}}
-                />
+                <AntDesignIcon icon="AiFillCheckCircle" style={{color: 'currentColor'}} />
               </AtomIcon>
             }
           >
-            {Object.values(configWithIcons).map(
-              ({label, content, icon, iconActive}, index) => (
-                <MoleculeProgressStep
-                  key={index}
-                  label={label}
-                  status={getStatus(step, index)}
-                  icon={icon}
-                  iconActive={iconActive}
-                >
-                  {content}
-                </MoleculeProgressStep>
-              )
-            )}
+            {Object.values(configWithIcons).map(({label, content, icon, iconActive}, index) => (
+              <MoleculeProgressStep
+                key={index}
+                label={label}
+                status={getStatus(step, index)}
+                icon={icon}
+                iconActive={iconActive}
+              >
+                {content}
+              </MoleculeProgressStep>
+            ))}
           </MoleculeProgressSteps>
         </Cell>
       </Grid>

@@ -86,8 +86,7 @@ describe(json.name, () => {
         className: 'extended-classNames',
         iconStepDone: <svg />
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -118,18 +117,11 @@ describe(json.name, () => {
       ]
       const props = {
         iconStepDone: <svg />,
-        children: childrenPropsArray.map(
-          ({label, content, status, icon = <svg />}, index) => (
-            <MoleculeProgressStep
-              key={index}
-              label={label}
-              status={status}
-              icon={icon}
-            >
-              {content}
-            </MoleculeProgressStep>
-          )
-        )
+        children: childrenPropsArray.map(({label, content, status, icon = <svg />}, index) => (
+          <MoleculeProgressStep key={index} label={label} status={status} icon={icon}>
+            {content}
+          </MoleculeProgressStep>
+        ))
       }
 
       // When
@@ -165,18 +157,11 @@ describe(json.name, () => {
       const props = {
         iconStepDone: <svg />,
         compressed: true,
-        children: childrenPropsArray.map(
-          ({label, content, status, icon = <svg />}, index) => (
-            <MoleculeProgressStep
-              key={index}
-              label={label}
-              status={status}
-              icon={icon}
-            >
-              {content}
-            </MoleculeProgressStep>
-          )
-        )
+        children: childrenPropsArray.map(({label, content, status, icon = <svg />}, index) => (
+          <MoleculeProgressStep key={index} label={label} status={status} icon={icon}>
+            {content}
+          </MoleculeProgressStep>
+        ))
       }
 
       // When
@@ -225,8 +210,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -280,17 +264,12 @@ describe(json.name, () => {
       const props = {
         status: pkg.STATUSES.VISITED
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
-      const findStepClassName = findSentence(
-        'sui-MoleculeProgressSteps-path-step--visited'
-      )
-      const findBarClassName = findSentence(
-        'sui-MoleculeProgressSteps-path-bar--visited'
-      )
+      const findStepClassName = findSentence('sui-MoleculeProgressSteps-path-step--visited')
+      const findBarClassName = findSentence('sui-MoleculeProgressSteps-path-bar--visited')
       // Then
       expect(findStepClassName(container.innerHTML)).to.not.be.null
       expect(findBarClassName(container.innerHTML)).to.not.be.null
@@ -301,14 +280,11 @@ describe(json.name, () => {
       const props = {
         status: pkg.STATUSES.ACTIVE
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
-      const findStepClassName = findSentence(
-        'sui-MoleculeProgressSteps-path-step--active'
-      )
+      const findStepClassName = findSentence('sui-MoleculeProgressSteps-path-step--active')
       // Then
       expect(findStepClassName(container.innerHTML)).to.not.be.null
     })

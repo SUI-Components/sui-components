@@ -44,9 +44,7 @@ const getLabel = (index, keys) => {
 
 const DefaultProgressStepsArticle = ({className}) => {
   const [step, setStep] = useState(1)
-  const [contentType, setContentType] = useState(
-    moleculeProgressContentStyle.FIXED
-  )
+  const [contentType, setContentType] = useState(moleculeProgressContentStyle.FIXED)
 
   const setStatus = useCallback(
     step => {
@@ -58,18 +56,15 @@ const DefaultProgressStepsArticle = ({className}) => {
     <Article className={className}>
       <H2>ProgressSteps Content Type</H2>
       <Paragraph>
-        The progress steps content type can be custom using the{' '}
-        <Code>contentStyle</Code> enum prop. It must be provided using one of
-        the values defined under the <Code>moleculeProgressContentStyle</Code>{' '}
-        different enum values:
+        The progress steps content type can be custom using the <Code>contentStyle</Code> enum prop. It must be provided
+        using one of the values defined under the <Code>moleculeProgressContentStyle</Code> different enum values:
       </Paragraph>
       <UnorderedList>
         <ListItem>
           Content type values:
           <UnorderedList>
             <ListItem>
-              <Bold>FIXED</Bold>: All tabs have the size of the highest tab
-              content
+              <Bold>FIXED</Bold>: All tabs have the size of the highest tab content
             </ListItem>
             <ListItem>
               <Bold>FLUID</Bold>: Each tab is sized to fit its own content
@@ -80,15 +75,8 @@ const DefaultProgressStepsArticle = ({className}) => {
 
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={step}
-            onChange={(event, value) => setStatus(value || 0)}
-          >
-            {[
-              0,
-              ...Object.keys(configBasic),
-              Object.keys(configBasic).length + 1
-            ].map(stepValue => (
+          <RadioButtonGroup value={step} onChange={(event, value) => setStatus(value || 0)}>
+            {[0, ...Object.keys(configBasic), Object.keys(configBasic).length + 1].map(stepValue => (
               <RadioButton
                 key={`step ${parseInt(stepValue)}`}
                 value={parseInt(stepValue)}
@@ -102,10 +90,7 @@ const DefaultProgressStepsArticle = ({className}) => {
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={contentType}
-            onChange={(event, value) => setContentType(value)}
-          >
+          <RadioButtonGroup value={contentType} onChange={(event, value) => setContentType(value)}>
             <RadioButton
               value={moleculeProgressContentStyle.FIXED}
               checked={contentType === moleculeProgressContentStyle.FIXED}
@@ -119,17 +104,9 @@ const DefaultProgressStepsArticle = ({className}) => {
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <MoleculeProgressSteps
-            iconStepDone={iconFillCheck}
-            contentStyle={contentType}
-          >
+          <MoleculeProgressSteps iconStepDone={iconFillCheck} contentStyle={contentType}>
             {Object.values(configBasic).map(({label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={getStatus(step, index)}
-                icon={icon}
-              >
+              <MoleculeProgressStep key={index} label={label} status={getStatus(step, index)} icon={icon}>
                 {content}
               </MoleculeProgressStep>
             ))}

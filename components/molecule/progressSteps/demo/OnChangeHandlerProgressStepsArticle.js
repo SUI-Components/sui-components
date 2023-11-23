@@ -2,20 +2,9 @@ import {useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
-import MoleculeProgressSteps, {
-  MoleculeProgressStep,
-  moleculeProgressStepsStatuses
-} from '../src/index.js'
+import MoleculeProgressSteps, {MoleculeProgressStep, moleculeProgressStepsStatuses} from '../src/index.js'
 import {configBasic} from './config/index.js'
 import {iconFillCheck} from './Icons/index.js'
 
@@ -48,22 +37,12 @@ const OnChangeHandlerProgressStepsArticle = ({className}) => {
   return (
     <Article className={className}>
       <H2>onChange</H2>
-      <Paragraph>
-        By default the progressSteps is horizontal extended and stretched (100%
-        of its width)
-      </Paragraph>
+      <Paragraph>By default the progressSteps is horizontal extended and stretched (100% of its width)</Paragraph>
 
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={step}
-            onChange={(event, value) => setStatus(value || 0)}
-          >
-            {[
-              0,
-              ...Object.keys(configBasic),
-              Object.keys(configBasic).length + 1
-            ].map(stepValue => (
+          <RadioButtonGroup value={step} onChange={(event, value) => setStatus(value || 0)}>
+            {[0, ...Object.keys(configBasic), Object.keys(configBasic).length + 1].map(stepValue => (
               <RadioButton
                 key={`step ${parseInt(stepValue)}`}
                 value={parseInt(stepValue)}
@@ -84,12 +63,7 @@ const OnChangeHandlerProgressStepsArticle = ({className}) => {
             }}
           >
             {Object.values(configBasic).map(({label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={getStatus(step, index)}
-                icon={icon}
-              >
+              <MoleculeProgressStep key={index} label={label} status={getStatus(step, index)} icon={icon}>
                 {content}
               </MoleculeProgressStep>
             ))}

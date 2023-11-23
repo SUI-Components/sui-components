@@ -57,16 +57,13 @@ const JustifyContentProgressBarArticle = ({className}) => {
     <Article className={className}>
       <H2>ProgressSteps Bar Alignment</H2>
       <Paragraph>
-        The progress steps path alignment can be custom aligned using the{' '}
-        <Code>progressBarJustifyContent</Code> enum prop. It must be provided
-        using one of the values defined under the{' '}
-        <Code>moleculeProgressStepsJustifyContentBar</Code> different enum
-        values:
+        The progress steps path alignment can be custom aligned using the <Code>progressBarJustifyContent</Code> enum
+        prop. It must be provided using one of the values defined under the{' '}
+        <Code>moleculeProgressStepsJustifyContentBar</Code> different enum values:
       </Paragraph>
       <UnorderedList>
         <ListItem>
-          <Bold>LEGACY</Bold>: (default) step bars grow for getting the
-          full-width area covered.
+          <Bold>LEGACY</Bold>: (default) step bars grow for getting the full-width area covered.
         </ListItem>
         <ListItem>
           Positional alignment:
@@ -85,15 +82,8 @@ const JustifyContentProgressBarArticle = ({className}) => {
       </UnorderedList>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={step}
-            onChange={(event, value) => setStatus(value || 0)}
-          >
-            {[
-              0,
-              ...Object.keys(configBasic),
-              Object.keys(configBasic).length + 1
-            ].map(stepValue => (
+          <RadioButtonGroup value={step} onChange={(event, value) => setStatus(value || 0)}>
+            {[0, ...Object.keys(configBasic), Object.keys(configBasic).length + 1].map(stepValue => (
               <RadioButton
                 key={`step ${parseInt(stepValue)}`}
                 value={parseInt(stepValue)}
@@ -111,10 +101,7 @@ const JustifyContentProgressBarArticle = ({className}) => {
             value={justifyContentBarStatus}
             onChange={(event, value) => setJustifyContentBarStatus(value)}
           >
-            {[
-              undefined,
-              ...Object.values(moleculeProgressStepsJustifyContentBar)
-            ].map(justifyContentValue => (
+            {[undefined, ...Object.values(moleculeProgressStepsJustifyContentBar)].map(justifyContentValue => (
               <RadioButton
                 key={`${justifyContentValue}`}
                 value={justifyContentValue}
@@ -148,12 +135,7 @@ const JustifyContentProgressBarArticle = ({className}) => {
             vertical={isVertical}
           >
             {Object.values(configBasic).map(({label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={`${index}`}
-                label={label}
-                status={getStatus(step, index)}
-                icon={icon}
-              >
+              <MoleculeProgressStep key={`${index}`} label={label} status={getStatus(step, index)} icon={icon}>
                 {content}
               </MoleculeProgressStep>
             ))}

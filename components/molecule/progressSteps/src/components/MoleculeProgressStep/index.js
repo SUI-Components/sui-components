@@ -11,28 +11,14 @@ import {
   STATUSES
 } from './config.js'
 
-const MoleculeProgressStep = ({
-  status,
-  icon,
-  label,
-  numStep,
-  lastStep,
-  compressed,
-  onClick
-}) => {
+const MoleculeProgressStep = ({status, icon, label, numStep, lastStep, compressed, onClick}) => {
   const [CLASS_STEP_STATUS, CLASS_BAR_STATUS] = getStatusClass(status)
-  const bar = (
-    <hr onClick={onClick} className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
-  )
+  const bar = <hr onClick={onClick} className={cx(CLASS_BAR, CLASS_BAR_STATUS)} />
   return (
     <>
       {!compressed && (
         <div className={cx(CLASS_STEP, CLASS_STEP_STATUS)} onClick={onClick}>
-          {icon ? (
-            <div className={CLASS_STEP_ICON}>{icon}</div>
-          ) : (
-            <p className={CLASS_STEP_NUMBER}>{numStep}</p>
-          )}
+          {icon ? <div className={CLASS_STEP_ICON}>{icon}</div> : <p className={CLASS_STEP_NUMBER}>{numStep}</p>}
           <p className={CLASS_STEP_DESCRIPTION}>{label}</p>
         </div>
       )}

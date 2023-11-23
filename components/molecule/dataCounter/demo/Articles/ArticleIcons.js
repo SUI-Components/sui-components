@@ -31,22 +31,18 @@ const substractIcons = {
   AiOutlineArrowDown: <AntDesignIcon icon="AiOutlineArrowDown" />,
   AiOutlineLine: <AntDesignIcon icon="AiOutlineLine" />,
   AiOutlineDown: <AntDesignIcon icon="AiOutlineDown" />,
-  AiOutlineVerticalAlignBottom: (
-    <AntDesignIcon icon="AiOutlineVerticalAlignBottom" />
-  )
+  AiOutlineVerticalAlignBottom: <AntDesignIcon icon="AiOutlineVerticalAlignBottom" />
 }
 
 const ArticleIcons = ({className}) => {
-  const [iconSubstract, setIconSubstract] = useState(
-    Object.keys(substractIcons)[0]
-  )
+  const [iconSubstract, setIconSubstract] = useState(Object.keys(substractIcons)[0])
   const [iconAdd, setIconAdd] = useState(Object.keys(addIcons)[0])
   return (
     <Article className={className}>
       <H2>Icons</H2>
       <Paragraph>
-        Button Icons can be customized using <Code>addIcon</Code> and{' '}
-        <Code>substractIcon</Code> (react-node) props. fired.
+        Button Icons can be customized using <Code>addIcon</Code> and <Code>substractIcon</Code> (react-node) props.
+        fired.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
@@ -63,12 +59,7 @@ const ArticleIcons = ({className}) => {
             defaultValue="icon"
           >
             {Object.entries(substractIcons).map(([key, value]) => (
-              <RadioButton
-                key={key}
-                label={value}
-                value={key}
-                checked={iconSubstract === key}
-              />
+              <RadioButton key={key} label={value} value={key} checked={iconSubstract === key} />
             ))}
           </RadioButtonGroup>
         </Cell>
@@ -80,12 +71,7 @@ const ArticleIcons = ({className}) => {
             defaultValue="icon"
           >
             {Object.entries(addIcons).map(([key, value]) => (
-              <RadioButton
-                key={key}
-                label={value}
-                value={key}
-                checked={iconAdd === key}
-              />
+              <RadioButton key={key} label={value} value={key} checked={iconAdd === key} />
             ))}
           </RadioButtonGroup>
         </Cell>

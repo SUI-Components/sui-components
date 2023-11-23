@@ -13,8 +13,8 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Data Counter</H1>
       <Paragraph>
-        <Code>MoleculeDataCounter</Code> is an input type number controller we
-        can use to increase (+1) or decrease (-1) the value of such input.
+        <Code>MoleculeDataCounter</Code> is an input type number controller we can use to increase (+1) or decrease (-1)
+        the value of such input.
       </Paragraph>
       <ArticleState className={CLASS_SECTION} />
       <br />

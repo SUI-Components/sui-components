@@ -8,12 +8,7 @@ $base-class: '.sui-AtomSkeleton';
   width: 100%;
 
   &--wave {
-    background-image: linear-gradient(
-      90deg,
-      $bgc-skeleton,
-      $bgc-skeleton-highlight,
-      $bgc-skeleton
-    );
+    background-image: linear-gradient(90deg, $bgc-skeleton, $bgc-skeleton-highlight, $bgc-skeleton);
     background-size: 200px 100%;
     animation: wave $delay-skeleton-wave ease-in-out infinite;
   }

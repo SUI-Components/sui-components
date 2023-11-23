@@ -17,15 +17,8 @@ const ArticleDisabled = ({className}) => {
   return (
     <Article className={className}>
       <H2>Disabled</H2>
-      <Paragraph>
-        By setting the prop disabled to true we can disable the pinInput.
-      </Paragraph>
-      <RadioButton
-        value={disabled}
-        label="disabled"
-        checked={disabled}
-        onClick={() => setDisabled(!disabled)}
-      />
+      <Paragraph>By setting the prop disabled to true we can disable the pinInput.</Paragraph>
+      <RadioButton value={disabled} label="disabled" checked={disabled} onClick={() => setDisabled(!disabled)} />
       <br />
       <br />
       <MoleculeValidationCode

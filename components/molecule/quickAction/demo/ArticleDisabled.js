@@ -4,12 +4,7 @@ import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeQuickAction from '../src/index.js'
 
-const ArticleDisabled = ({
-  className,
-  handleOnClick,
-  getLeftIcon,
-  getRightIcon
-}) => {
+const ArticleDisabled = ({className, handleOnClick, getLeftIcon, getRightIcon}) => {
   return (
     <Article className={className}>
       <H2>Disabled</H2>

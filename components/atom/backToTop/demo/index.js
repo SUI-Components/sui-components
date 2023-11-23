@@ -1,14 +1,7 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 import {useEffect, useState} from 'react'
 
-import {
-  Article,
-  Button,
-  H1,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Button, H1, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 import useMountedState from '@s-ui/react-hooks/lib/useMountedState'
 
 import AtomBackToTop, {backToTopStyles} from '../src/index.js'
@@ -39,8 +32,8 @@ const Demo = () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Back To Top</H1>
         <Paragraph>
-          AtomBackToTop is a component that handles the scroll of a container
-          and that it will be displayed only when needed.
+          AtomBackToTop is a component that handles the scroll of a container and that it will be displayed only when
+          needed.
         </Paragraph>
         <div
           style={{
@@ -72,33 +65,15 @@ const Demo = () => {
             }}
             value={darkMode}
           >
-            <RadioButton
-              label="Light Mode"
-              value="light"
-              checked={darkMode === 'light'}
-            />
-            <RadioButton
-              label="Dark Mode"
-              value="dark"
-              checked={darkMode === 'dark'}
-            />
+            <RadioButton label="Light Mode" value="light" checked={darkMode === 'light'} />
+            <RadioButton label="Dark Mode" value="dark" checked={darkMode === 'dark'} />
           </RadioButtonGroup>
           <RadioButtonGroup
-            onChange={(event, value) =>
-              setElement(value === 'document' ? 'document' : 'articleElement')
-            }
+            onChange={(event, value) => setElement(value === 'document' ? 'document' : 'articleElement')}
             value={element}
           >
-            <RadioButton
-              label="document"
-              value="document"
-              checked={element === 'document'}
-            />
-            <RadioButton
-              label="article"
-              value="articleElement"
-              checked={element === 'articleElement'}
-            />
+            <RadioButton label="document" value="document" checked={element === 'document'} />
+            <RadioButton label="article" value="articleElement" checked={element === 'articleElement'} />
           </RadioButtonGroup>
           <RadioButtonGroup
             onChange={(event, value) => {
@@ -127,14 +102,9 @@ const Demo = () => {
             <LoremIpsum key={index} />
           ))}
           <AtomBackToTop
-            refContainer={
-              element === 'articleElement' ? articleElement : document
-            }
+            refContainer={element === 'articleElement' ? articleElement : document}
             {...{
-              style:
-                darkMode === 'light'
-                  ? backToTopStyles.LIGHT
-                  : backToTopStyles.DARK,
+              style: darkMode === 'light' ? backToTopStyles.LIGHT : backToTopStyles.DARK,
               ...(text && {textTop: 'TOP'}),
               ...(icon && {iconTop: IconTop})
             }}
@@ -142,8 +112,7 @@ const Demo = () => {
               (event, properties) => console.log('onScroll', properties) // eslint-disable-line no-console
             }
             onIsVisibleToggle={
-              (event, properties) =>
-                console.log('onIsVisibleToggle', properties) // eslint-disable-line no-console
+              (event, properties) => console.log('onIsVisibleToggle', properties) // eslint-disable-line no-console
             }
           />
         </Article>

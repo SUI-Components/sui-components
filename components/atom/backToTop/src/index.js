@@ -39,10 +39,7 @@ const AtomBackToTop = forwardRef(
     useEffect(() => {
       const container = getTarget(refContainer)
       const handleScroll = event => {
-        const [nextShow, properties] = calcBackToTopEngine(
-          refContainer,
-          minHeight
-        )
+        const [nextShow, properties] = calcBackToTopEngine(refContainer, minHeight)
         setShow(nextShow)
         typeof onScroll === 'function' && onScroll(event, {...properties, show})
         if (typeof onIsVisibleToggle === 'function' && show !== nextShow) {

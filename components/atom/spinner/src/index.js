@@ -6,15 +6,7 @@ import Injector from '@s-ui/react-primitive-injector'
 
 import SUILoader from './SUILoader/index.js'
 import DefaultSpinner from './DefaultSpinner.js'
-import {
-  addParentClass,
-  DELAY,
-  getParentClassName,
-  OVERLAY_TYPES,
-  removeParentClass,
-  SIZES,
-  TYPES
-} from './settings.js'
+import {addParentClass, DELAY, getParentClassName, OVERLAY_TYPES, removeParentClass, SIZES, TYPES} from './settings.js'
 
 const AtomSpinner = forwardRef(
   (

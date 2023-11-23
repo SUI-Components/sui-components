@@ -21,10 +21,7 @@ import {
 import AtomIcon from '@s-ui/react-atom-icon'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import AtomCheckbox, {
-  atomCheckboxSizes,
-  atomCheckboxStatus
-} from '../../src/index.js'
+import AtomCheckbox, {atomCheckboxSizes, atomCheckboxStatus} from '../../src/index.js'
 import {ICONS} from '../settings.js'
 
 const reloading =
@@ -64,10 +61,7 @@ const ArticlePlayground = ({className}) => {
     if (node) {
       const {checked: nodeChecked, indeterminate: nodeIndeterminate} = node
       const {checked: valueChecked, indeterminate: valueIndeterminate} = values
-      if (
-        valueChecked !== nodeChecked ||
-        valueIndeterminate !== nodeIndeterminate
-      ) {
+      if (valueChecked !== nodeChecked || valueIndeterminate !== nodeIndeterminate) {
         setValues({checked: nodeChecked, indeterminate: nodeIndeterminate})
       }
       if (outerHTML !== node.outerHTML) {
@@ -87,19 +81,13 @@ const ArticlePlayground = ({className}) => {
               <Label>name</Label>
             </Cell>
             <Cell>
-              <Input
-                value={name}
-                onChange={event => setName(event.target.value)}
-              />
+              <Input value={name} onChange={event => setName(event.target.value)} />
             </Cell>
             <Cell>
               <Label>value</Label>
             </Cell>
             <Cell>
-              <Input
-                value={value}
-                onChange={event => setValue(event.target.value)}
-              />
+              <Input value={value} onChange={event => setValue(event.target.value)} />
             </Cell>
           </Grid>
           <Grid cols={2} gutter={[0, 8]}>
@@ -118,16 +106,8 @@ const ArticlePlayground = ({className}) => {
                   }
                 }}
               >
-                <RadioButton
-                  value={[false, false]}
-                  label="false"
-                  checked={!defaultChecked && !defaultIndeterminate}
-                />
-                <RadioButton
-                  value={[true, false]}
-                  label="true"
-                  checked={defaultChecked}
-                />
+                <RadioButton value={[false, false]} label="false" checked={!defaultChecked && !defaultIndeterminate} />
+                <RadioButton value={[true, false]} label="true" checked={defaultChecked} />
               </RadioButtonGroup>
             </Cell>
             <Cell>
@@ -150,21 +130,9 @@ const ArticlePlayground = ({className}) => {
                   setState([checked, checked ? false : indeterminate])
                 }}
               >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={checked === undefined}
-                />
-                <RadioButton
-                  value={false}
-                  label="false"
-                  checked={checked === false}
-                />
-                <RadioButton
-                  value={true}
-                  label="true"
-                  checked={checked && !indeterminate}
-                />
+                <RadioButton value={undefined} label="undefined" checked={checked === undefined} />
+                <RadioButton value={false} label="false" checked={checked === false} />
+                <RadioButton value={true} label="true" checked={checked && !indeterminate} />
               </RadioButtonGroup>
             </Cell>
             <Cell>
@@ -173,21 +141,9 @@ const ArticlePlayground = ({className}) => {
                   setState([indeterminate ? false : checked, indeterminate])
                 }}
               >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={indeterminate === undefined}
-                />
-                <RadioButton
-                  value={false}
-                  label="false"
-                  checked={indeterminate === false}
-                />
-                <RadioButton
-                  value={true}
-                  label="true"
-                  checked={indeterminate && !checked}
-                />
+                <RadioButton value={undefined} label="undefined" checked={indeterminate === undefined} />
+                <RadioButton value={false} label="false" checked={indeterminate === false} />
+                <RadioButton value={true} label="true" checked={indeterminate && !checked} />
               </RadioButtonGroup>
             </Cell>
           </Grid>
@@ -201,11 +157,7 @@ const ArticlePlayground = ({className}) => {
                   setCheckedIcon(icon)
                 }}
               >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={checkedIcon === undefined}
-                />
+                <RadioButton value={undefined} label="undefined" checked={checkedIcon === undefined} />
                 <RadioButton
                   value="AiOutlineCheck"
                   label={<ICONS.AiOutlineCheck />}
@@ -227,11 +179,7 @@ const ArticlePlayground = ({className}) => {
                   setIndeterminateIcon(icon)
                 }}
               >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={indeterminateIcon === undefined}
-                />
+                <RadioButton value={undefined} label="undefined" checked={indeterminateIcon === undefined} />
                 <RadioButton
                   value="AiOutlineLine"
                   label={<ICONS.AiOutlineLine />}
@@ -253,11 +201,7 @@ const ArticlePlayground = ({className}) => {
                   setUncheckedIcon(icon)
                 }}
               >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={uncheckedIcon === undefined}
-                />
+                <RadioButton value={undefined} label="undefined" checked={uncheckedIcon === undefined} />
                 <RadioButton
                   value="AiOutlineClose"
                   label={<ICONS.AiOutlineClose />}
@@ -281,11 +225,7 @@ const ArticlePlayground = ({className}) => {
                   setSize(size)
                 }}
               >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={size === undefined}
-                />
+                <RadioButton value={undefined} label="undefined" checked={size === undefined} />
                 <RadioButton
                   value={atomCheckboxSizes.SMALL}
                   label={atomCheckboxSizes.SMALL}
@@ -307,11 +247,7 @@ const ArticlePlayground = ({className}) => {
                   setStatus(status)
                 }}
               >
-                <RadioButton
-                  value={undefined}
-                  label="undefined"
-                  checked={status === undefined}
-                />
+                <RadioButton value={undefined} label="undefined" checked={status === undefined} />
                 <RadioButton
                   value={atomCheckboxStatus.SUCCESS}
                   label={atomCheckboxStatus.SUCCESS}
@@ -346,15 +282,9 @@ const ArticlePlayground = ({className}) => {
               <Label>Reload</Label>
             </Cell>
             <Cell>
-              <Button
-                style={{display: 'flex', alignItems: 'center'}}
-                onClick={reload}
-              >
+              <Button style={{display: 'flex', alignItems: 'center'}} onClick={reload}>
                 <AtomIcon>
-                  <AntDesignIcon
-                    icon="AiOutlineReload"
-                    style={{color: 'currentColor'}}
-                  />
+                  <AntDesignIcon icon="AiOutlineReload" style={{color: 'currentColor'}} />
                 </AtomIcon>
               </Button>
             </Cell>
@@ -389,8 +319,7 @@ const ArticlePlayground = ({className}) => {
               <Label>Checked:</Label> <Code>{`${values.checked}`}</Code>
             </Cell>
             <Cell>
-              <Label>Indeterminate:</Label>{' '}
-              <Code>{`${values.indeterminate}`}</Code>
+              <Label>Indeterminate:</Label> <Code>{`${values.indeterminate}`}</Code>
             </Cell>
             <Cell>
               <Paragraph elementType="div">

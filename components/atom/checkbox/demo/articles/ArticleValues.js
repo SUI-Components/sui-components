@@ -2,18 +2,7 @@ import {Fragment} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  H3,
-  H4,
-  Label,
-  Paragraph,
-  Separator
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, H3, H4, Label, Paragraph, Separator} from '@s-ui/documentation-library'
 
 import AtomCheckbox, {atomCheckboxStatus} from '../../src/index.js'
 import {flexCenteredStyle, ICONS} from '../settings.js'
@@ -22,12 +11,11 @@ const ArticleValues = ({className}) => (
   <Article className={className}>
     <H2>Values</H2>
     <Paragraph>
-      checkbox have 3 different possible values combining the prop{' '}
-      <Code>checked</Code> and the boolean prop <Code>indeterminate</Code>
+      checkbox have 3 different possible values combining the prop <Code>checked</Code> and the boolean prop{' '}
+      <Code>indeterminate</Code>
     </Paragraph>
     <Paragraph>
-      For native checkbox look and feel purposes we have <Code>isNative</Code>{' '}
-      boolean prop also.
+      For native checkbox look and feel purposes we have <Code>isNative</Code> boolean prop also.
     </Paragraph>
     <Grid cols={4} gutter={[10, 10]}>
       <Cell span={4}>
@@ -64,10 +52,7 @@ const ArticleValues = ({className}) => (
           }).map(([label, props2], index2) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
-                <AtomCheckbox
-                  id={`${index1}-${index2}`}
-                  {...{...props1, ...props2}}
-                />
+                <AtomCheckbox id={`${index1}-${index2}`} {...{...props1, ...props2}} />
               </Cell>
             </Fragment>
           ))}
@@ -95,11 +80,7 @@ const ArticleValues = ({className}) => (
           }).map(([label, props2], index2) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
-                <AtomCheckbox
-                  id={`${index1}-${index2}`}
-                  {...{...props1, ...props2}}
-                  disabled
-                />
+                <AtomCheckbox id={`${index1}-${index2}`} {...{...props1, ...props2}} disabled />
               </Cell>
             </Fragment>
           ))}
@@ -127,11 +108,7 @@ const ArticleValues = ({className}) => (
           }).map(([label, props2], index2) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
-                <AtomCheckbox
-                  id={`${index1}-${index2}`}
-                  {...{...props1, ...props2}}
-                  readOnly
-                />
+                <AtomCheckbox id={`${index1}-${index2}`} {...{...props1, ...props2}} readOnly />
               </Cell>
             </Fragment>
           ))}
@@ -154,9 +131,7 @@ const ArticleValues = ({className}) => (
             native: {}
           }).map(([label, props1], index1) => (
             <Fragment key={index1}>
-              <Cell
-                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
-              >
+              <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
                 <Label>{label}</Label>
               </Cell>
               {Object.entries({
@@ -166,11 +141,7 @@ const ArticleValues = ({className}) => (
               }).map(([label, props2], index2) => (
                 <Fragment key={index2}>
                   <Cell style={flexCenteredStyle}>
-                    <AtomCheckbox
-                      id={`${index1}-${index2}`}
-                      {...{...props1, ...props2}}
-                      status={status}
-                    />
+                    <AtomCheckbox id={`${index1}-${index2}`} {...{...props1, ...props2}} status={status} />
                   </Cell>
                 </Fragment>
               ))}

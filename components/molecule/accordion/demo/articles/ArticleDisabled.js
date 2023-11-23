@@ -2,9 +2,7 @@ import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import Accordion, {
-  MoleculeAccordionItem as AccordionItem
-} from '../../src/index.js'
+import Accordion, {MoleculeAccordionItem as AccordionItem} from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 
 const ArticleDisabled = ({className}) => {
@@ -12,9 +10,8 @@ const ArticleDisabled = ({className}) => {
     <Article className={className}>
       <H2>Disabled</H2>
       <Paragraph>
-        If an AccordionItem is declared <Code>disabled</Code> using the disabled
-        (boolean) prop, it becomes unClickable and there is no way to trigger
-        its event.
+        If an AccordionItem is declared <Code>disabled</Code> using the disabled (boolean) prop, it becomes unClickable
+        and there is no way to trigger its event.
       </Paragraph>
       <Accordion behavior="multiple">
         <AccordionItem

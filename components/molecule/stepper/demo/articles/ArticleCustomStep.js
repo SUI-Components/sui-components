@@ -24,17 +24,14 @@ import TextCustomStep from '../customSteps/TextCustomStep/TextCustomStep.js'
 const steps = 5
 
 const ArticleCustomStep = ({className}) => {
-  const [alignment, setAlignment] = useState(
-    moleculeStepperAlignment.HORIZONTAL
-  )
+  const [alignment, setAlignment] = useState(moleculeStepperAlignment.HORIZONTAL)
   const [step, setStep] = useState(Math.ceil(steps / 2))
   return (
     <Article className={className}>
       <H2>Custom Step</H2>
       <Paragraph>
-        The provided Step component can be also customized giving a children to
-        its props. All the root elements given to the Step component will
-        receive the Step props in order to manage it for any purpose.
+        The provided Step component can be also customized giving a children to its props. All the root elements given
+        to the Step component will receive the Step props in order to manage it for any purpose.
       </Paragraph>
       <Grid cols={3} gutter={[8, 8]}>
         <Cell>
@@ -45,20 +42,11 @@ const ArticleCustomStep = ({className}) => {
         </Cell>
         <Cell />
         <Cell>
-          <RadioButtonGroup
-            fullWidth
-            value={step}
-            onChange={(_, value) => value !== undefined && setStep(value)}
-          >
+          <RadioButtonGroup fullWidth value={step} onChange={(_, value) => value !== undefined && setStep(value)}>
             {Array(steps)
               .fill()
               .map((_, index) => (
-                <RadioButton
-                  key={index}
-                  value={index + 1}
-                  label={index + 1}
-                  checked={index + 1 === step}
-                />
+                <RadioButton key={index} value={index + 1} label={index + 1} checked={index + 1 === step} />
               ))}
           </RadioButtonGroup>
         </Cell>
@@ -68,16 +56,14 @@ const ArticleCustomStep = ({className}) => {
             value={alignment}
             onChange={(_, value) => value !== undefined && setAlignment(value)}
           >
-            {Object.values(moleculeStepperAlignment).map(
-              moleculeStepperAlignmentValue => (
-                <RadioButton
-                  key={moleculeStepperAlignmentValue}
-                  value={moleculeStepperAlignmentValue}
-                  label={moleculeStepperAlignmentValue}
-                  checked={moleculeStepperAlignmentValue === alignment}
-                />
-              )
-            )}
+            {Object.values(moleculeStepperAlignment).map(moleculeStepperAlignmentValue => (
+              <RadioButton
+                key={moleculeStepperAlignmentValue}
+                value={moleculeStepperAlignmentValue}
+                label={moleculeStepperAlignmentValue}
+                checked={moleculeStepperAlignmentValue === alignment}
+              />
+            ))}
           </RadioButtonGroup>
         </Cell>
       </Grid>
@@ -99,25 +85,12 @@ const ArticleCustomStep = ({className}) => {
                 display: 'flex',
                 gap: '8px',
                 justifyContent: 'center',
-                width:
-                  alignment === moleculeStepperAlignment.VERTICAL
-                    ? 'auto'
-                    : '100%',
-                alignItems:
-                  alignment === moleculeStepperAlignment.VERTICAL
-                    ? 'flex-start'
-                    : 'unset',
-                flexDirection:
-                  alignment === moleculeStepperAlignment.VERTICAL
-                    ? 'column'
-                    : 'row'
+                width: alignment === moleculeStepperAlignment.VERTICAL ? 'auto' : '100%',
+                alignItems: alignment === moleculeStepperAlignment.VERTICAL ? 'flex-start' : 'unset',
+                flexDirection: alignment === moleculeStepperAlignment.VERTICAL ? 'column' : 'row'
               }}
             >
-              <StepsProvider
-                alignment={alignment}
-                design={undefined}
-                steps={steps}
-              >
+              <StepsProvider alignment={alignment} design={undefined} steps={steps}>
                 {Array(steps)
                   .fill()
                   .map((_, i) => (
@@ -152,25 +125,12 @@ const ArticleCustomStep = ({className}) => {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                width:
-                  alignment === moleculeStepperAlignment.VERTICAL
-                    ? 'auto'
-                    : '100%',
-                alignItems:
-                  alignment === moleculeStepperAlignment.VERTICAL
-                    ? 'flex-start'
-                    : 'unset',
-                flexDirection:
-                  alignment === moleculeStepperAlignment.VERTICAL
-                    ? 'column'
-                    : 'row'
+                width: alignment === moleculeStepperAlignment.VERTICAL ? 'auto' : '100%',
+                alignItems: alignment === moleculeStepperAlignment.VERTICAL ? 'flex-start' : 'unset',
+                flexDirection: alignment === moleculeStepperAlignment.VERTICAL ? 'column' : 'row'
               }}
             >
-              <StepsProvider
-                alignment={alignment}
-                design={undefined}
-                steps={steps}
-              >
+              <StepsProvider alignment={alignment} design={undefined} steps={steps}>
                 {Array(steps)
                   .fill()
                   .map((_, i) => (
@@ -194,10 +154,7 @@ const ArticleCustomStep = ({className}) => {
           </Box>
         </Cell>
       </Grid>
-      <Paragraph>
-        It also allows creating multiple different designs you can imagine. Be
-        creative! 😊
-      </Paragraph>
+      <Paragraph>It also allows creating multiple different designs you can imagine. Be creative! 😊</Paragraph>
     </Article>
   )
 }

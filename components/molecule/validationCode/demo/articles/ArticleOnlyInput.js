@@ -17,8 +17,8 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Only Input</H2>
       <Paragraph>
-        You can use only the input part of the component, by unsetting
-        labelText, deleteButtonTextLabel and footer props.
+        You can use only the input part of the component, by unsetting labelText, deleteButtonTextLabel and footer
+        props.
       </Paragraph>
       <div
         style={{
@@ -27,18 +27,9 @@ const ArticleDefault = ({className}) => {
           padding: '8px'
         }}
       >
-        <MoleculeValidationCode
-          onChange={onChangeHandler}
-          footer={null}
-          value={code}
-        />
+        <MoleculeValidationCode onChange={onChangeHandler} footer={null} value={code} />
       </div>
-      <Input
-        style={{textAlign: 'center'}}
-        value={code.filter(Boolean).join('')}
-        disabled
-        fullWidth
-      />
+      <Input style={{textAlign: 'center'}} value={code.filter(Boolean).join('')} disabled fullWidth />
     </Article>
   )
 }

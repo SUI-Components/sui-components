@@ -10,8 +10,8 @@ const ArticleAtomRadioButton = ({className}) => {
     <Article className={className}>
       <H2>With AtomRadioButton</H2>
       <Paragraph>
-        For this demo, you will need to implement the container
-        "MoleculeRadioButtonGroup" and the components "AtomRadioButton"
+        For this demo, you will need to implement the container "MoleculeRadioButtonGroup" and the components
+        "AtomRadioButton"
       </Paragraph>
       <br />
       <MoleculeRadioButtonGroup

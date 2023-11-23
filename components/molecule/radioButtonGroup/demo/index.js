@@ -18,8 +18,8 @@ const Demo = () => {
         <H1>Radio-button Group</H1>
         <H2>Use Cases</H2>
         <Paragraph>
-          "MoleculeRadioButtonGroup" is a container of several "AtomRadioButton"
-          or "MoleculeRadioButtonField" to simplify its use.
+          "MoleculeRadioButtonGroup" is a container of several "AtomRadioButton" or "MoleculeRadioButtonField" to
+          simplify its use.
         </Paragraph>
         <ArticleAtomRadioButton className={CLASS_SECTION} />
         <br />

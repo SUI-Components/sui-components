@@ -11,11 +11,9 @@ const ArticleOffset = ({classname}) => {
     <Article className={classname}>
       <H2>Offset</H2>
       <Paragraph>
-        The column can be moved n columns to its right under the props related
-        for that purpose. Use any of <Code>xxsOffset</Code>,{' '}
-        <Code>xsOffset</Code>, <Code>sOffset</Code>, <Code>mOffset</Code>,{' '}
-        <Code>lOffset</Code>, <Code>xlOffset</Code>, <Code>xxlOffset</Code> as
-        needed.
+        The column can be moved n columns to its right under the props related for that purpose. Use any of{' '}
+        <Code>xxsOffset</Code>, <Code>xsOffset</Code>, <Code>sOffset</Code>, <Code>mOffset</Code>, <Code>lOffset</Code>,{' '}
+        <Code>xlOffset</Code>, <Code>xxlOffset</Code> as needed.
       </Paragraph>
       <DemoWrapper>
         <LayoutGrid>

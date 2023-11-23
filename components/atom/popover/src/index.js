@@ -37,15 +37,10 @@ const AtomPopover = forwardRef(
     outRef
   ) => {
     const targetRef = useRef()
-    const [isVisibleState, setIsVisibleState] = useControlledState(
-      isVisible,
-      defaultIsVisible
-    )
+    const [isVisibleState, setIsVisibleState] = useControlledState(isVisible, defaultIsVisible)
     const handleToggle = ev => {
       setIsVisibleState(!isVisibleState)
-      isVisibleState
-        ? typeof onClose === 'function' && onClose(ev)
-        : typeof onOpen === 'function' && onOpen(ev)
+      isVisibleState ? typeof onClose === 'function' && onClose(ev) : typeof onOpen === 'function' && onOpen(ev)
     }
 
     return (
@@ -76,18 +71,11 @@ const AtomPopover = forwardRef(
             return (
               <>
                 {closeIcon && (
-                  <div
-                    className={`${BASE_CLASS}-closeIcon`}
-                    onClick={handleToggle}
-                  >
+                  <div className={`${BASE_CLASS}-closeIcon`} onClick={handleToggle}>
                     {closeIcon}
                   </div>
                 )}
-                {typeof Content === 'function' ? (
-                  <Content update={update} />
-                ) : (
-                  Content
-                )}
+                {typeof Content === 'function' ? <Content update={update} /> : Content}
               </>
             )
           }}

@@ -1,11 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {
-  ATOM_SKELETON_ANIMATIONS,
-  ATOM_SKELETON_VARIANTS,
-  BASE_CLASS
-} from './settings.js'
+import {ATOM_SKELETON_ANIMATIONS, ATOM_SKELETON_VARIANTS, BASE_CLASS} from './settings.js'
 
 export default function AtomSkeleton({
   count = 1,
@@ -25,12 +21,7 @@ export default function AtomSkeleton({
   return (
     <>
       {Array.from(Array(count).keys()).map(index => (
-        <span
-          {...others}
-          key={index}
-          className={className}
-          style={{...style, width, height}}
-        >
+        <span {...others} key={index} className={className} style={{...style, width, height}}>
           &zwnj;
         </span>
       ))}

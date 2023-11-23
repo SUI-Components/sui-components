@@ -4,8 +4,7 @@ import {useDropdown} from '../config.js'
 import {getClassSearch} from './config.js'
 
 export default function Search(props) {
-  const {setInputRef, isOpen, onSearch, searchPlaceholder, searchIcon} =
-    useDropdown()
+  const {setInputRef, isOpen, onSearch, searchPlaceholder, searchIcon} = useDropdown()
 
   const onChange = (_ev, {value}) => {
     typeof onSearch === 'function' && setTimeout(() => onSearch({value}))

@@ -18,13 +18,7 @@
   @each $sizeName, $sizes in $atom-spinner-sizes {
     $size: map-get($sizes, size);
 
-    @include animation-atom-spinner(
-      $name,
-      $loaderColorOne,
-      $loaderColorTwo,
-      $sizeName,
-      $size
-    );
+    @include animation-atom-spinner($name, $loaderColorOne, $loaderColorTwo, $sizeName, $size);
 
     .sui-AtomSpinner--#{'' + $name}-#{'' + $sizeName} {
       $size: map-get($sizes, size);

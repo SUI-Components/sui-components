@@ -59,8 +59,7 @@ const MoleculeCollapsible = ({
   })
   const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
     [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
-    [`${CONTAINER_BUTTON_CLASS}--alignButtonText-${alignButtonText}`]:
-      alignButtonText,
+    [`${CONTAINER_BUTTON_CLASS}--alignButtonText-${alignButtonText}`]: alignButtonText,
     [COLLAPSED_CLASS]: collapsed
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
@@ -72,19 +71,12 @@ const MoleculeCollapsible = ({
 
   return (
     <div className={wrapperClassName}>
-      <div
-        className={contentClassName}
-        style={{maxHeight: !showButton ? 'none' : containerHeight}}
-      >
+      <div className={contentClassName} style={{maxHeight: !showButton ? 'none' : containerHeight}}>
         <div ref={nodeCallback}>{children}</div>
       </div>
       {showButton && (
         <div className={containerClassName}>
-          <button
-            type="button"
-            className={BUTTON_CLASS}
-            onClick={toggleCollapse}
-          >
+          <button type="button" className={BUTTON_CLASS} onClick={toggleCollapse}>
             <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
               {collapsed ? showText : hideText}
               <span className={iconClassName}>{icon}</span>

@@ -13,13 +13,13 @@ const Demo = () => (
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <H1>Autosuggest</H1>
       <Paragraph>
-        This component should only be used when the input is writable (resulting
-        in a search of the <Code>DropdownList</Code> options)
+        This component should only be used when the input is writable (resulting in a search of the{' '}
+        <Code>DropdownList</Code> options)
       </Paragraph>
       <Paragraph>
-        In this demo, we only use the default size of <Code>DropdownList</Code>{' '}
-        and basic options of <Code>DropdownOption</Code> components. Keep in
-        mind, those two components has more possibilities if you need it.
+        In this demo, we only use the default size of <Code>DropdownList</Code> and basic options of{' '}
+        <Code>DropdownOption</Code> components. Keep in mind, those two components has more possibilities if you need
+        it.
       </Paragraph>
       <ArticleSingleSelection />
       <br />

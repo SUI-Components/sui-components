@@ -2,18 +2,9 @@ import {Fragment} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 
-import Accordion, {
-  MoleculeAccordionItem as AccordionItem
-} from '../../src/index.js'
+import Accordion, {MoleculeAccordionItem as AccordionItem} from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 
 const ArticleDemo = ({className}) => {
@@ -21,12 +12,12 @@ const ArticleDemo = ({className}) => {
     <Article className={className}>
       <H2>Spacing</H2>
       <Paragraph>
-        Every single AccordionItem (header-panel pair) can be wrapped as a non
-        logical element (Fragment) using the <Code>as</Code> prop.
+        Every single AccordionItem (header-panel pair) can be wrapped as a non logical element (Fragment) using the{' '}
+        <Code>as</Code> prop.
       </Paragraph>
       <Paragraph>
-        This can be used combined with the Compound Component principle to give
-        space between Items using a layoutGrid in the Accordion.
+        This can be used combined with the Compound Component principle to give space between Items using a layoutGrid
+        in the Accordion.
       </Paragraph>
       <Accordion behavior="multiple" as={Fragment}>
         <Grid cols={1} gutter={[8, 8]}>

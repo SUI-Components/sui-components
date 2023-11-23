@@ -1,11 +1,4 @@
-import {
-  Anchor,
-  Bold,
-  Code,
-  Emphasis,
-  H1,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Anchor, Bold, Code, Emphasis, H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleCloseOnEvent from './articles/ArticleCloseOnEvent.js'
 import ArticleCustom from './articles/ArticleCustom.js'
@@ -20,14 +13,11 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>usePortal</H1>
       <Paragraph>
-        The <Code>usePortal</Code> <Bold>hook</Bold> offers the possibility to
-        create a{' '}
-        <Anchor href="https://reactjs.org/docs/portals.html">Portal</Anchor> set
-        where is defined (default: document.body).
+        The <Code>usePortal</Code> <Bold>hook</Bold> offers the possibility to create a{' '}
+        <Anchor href="https://reactjs.org/docs/portals.html">Portal</Anchor> set where is defined (default:
+        document.body).
       </Paragraph>
-      <Emphasis>
-        * Portals will be displayed in a dark Box to identify them.
-      </Emphasis>
+      <Emphasis>* Portals will be displayed in a dark Box to identify them.</Emphasis>
       <br />
       <br />
       <ArticleDefault className={CLASS_SECTION} />

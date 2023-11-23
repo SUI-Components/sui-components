@@ -1,13 +1,5 @@
 /* eslint react/prop-types: 0 */
-import {
-  Anchor,
-  Code,
-  H1,
-  ListItem,
-  Paragraph,
-  Text,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Anchor, Code, H1, ListItem, Paragraph, Text, UnorderedList} from '@s-ui/documentation-library'
 
 import ArticleAnimation from './ArticleAnimation.js'
 import ArticleCloseIcon from './ArticleCloseIcon.js'
@@ -23,9 +15,8 @@ const Demo = () => (
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <H1>Modal</H1>
       <Paragraph>
-        Modal windows focus users' attention to inform them about a specific
-        interaction. They may require users to make a decision or warn them when
-        an error may have very significant consequences.
+        Modal windows focus users' attention to inform them about a specific interaction. They may require users to make
+        a decision or warn them when an error may have very significant consequences.
       </Paragraph>
 
       <Paragraph>The package also have:</Paragraph>

@@ -116,18 +116,12 @@ $skeleton-class: '#{$base-class}-skeleton';
     padding: 0;
 
     @include media-breakpoint-up(m) {
-      grid-template-columns: repeat(
-        auto-fit,
-        $w-photo-uploader-thumb-image-desktop
-      );
+      grid-template-columns: repeat(auto-fit, $w-photo-uploader-thumb-image-desktop);
       grid-gap: $gg-photo-uploader-thumb-image-desktop;
     }
 
     &--ratioDisabled {
-      grid-template-columns: repeat(
-        auto-fit,
-        $w-photo-uploader-thumb-image-desktop
-      );
+      grid-template-columns: repeat(auto-fit, $w-photo-uploader-thumb-image-desktop);
     }
   }
 
@@ -179,8 +173,7 @@ $skeleton-class: '#{$base-class}-skeleton';
 
     &-iconContainer {
       background-color: rgba($c-primary, 0.1);
-      border-radius: $bdrs-photo-uploader-thumb-card
-        $bdrs-photo-uploader-thumb-card 0 0;
+      border-radius: $bdrs-photo-uploader-thumb-card $bdrs-photo-uploader-thumb-card 0 0;
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -195,8 +188,7 @@ $skeleton-class: '#{$base-class}-skeleton';
     }
 
     &-image {
-      border-radius: $bdrs-photo-uploader-thumb-card
-        $bdrs-photo-uploader-thumb-card 0 0;
+      border-radius: $bdrs-photo-uploader-thumb-card $bdrs-photo-uploader-thumb-card 0 0;
       height: 100%;
       object-fit: cover;
       width: $w-photo-uploader-thumb-image;
@@ -211,8 +203,7 @@ $skeleton-class: '#{$base-class}-skeleton';
       }
 
       &Container {
-        border-radius: $bdrs-photo-uploader-thumb-card
-          $bdrs-photo-uploader-thumb-card 0 0;
+        border-radius: $bdrs-photo-uploader-thumb-card $bdrs-photo-uploader-thumb-card 0 0;
         display: flex;
         height: 100%;
       }

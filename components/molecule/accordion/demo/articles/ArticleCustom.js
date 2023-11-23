@@ -3,18 +3,7 @@ import JSONView from 'react-json-view'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Button,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  H4,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Button, Cell, Code, Grid, H2, H4, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import Accordion, {
   moleculeAccordionAnimationDuration,
@@ -38,8 +27,7 @@ const ArticleCustom = ({className}) => {
     zipcode: '',
     country: ''
   })
-  const setValue = event =>
-    setForm({...form, [event.target.name]: event.target.value})
+  const setValue = event => setForm({...form, [event.target.name]: event.target.value})
   const onChange = (event, {values, value, isExpanded}) => {
     console.log('onChange', event, {values, value, isExpanded}) // eslint-disable-line no-console
   }
@@ -73,29 +61,16 @@ const ArticleCustom = ({className}) => {
     setSteps([step])
   }
 
-  const {
-    name,
-    surname,
-    email,
-    username,
-    address1,
-    address2,
-    city,
-    state,
-    zipcode,
-    country
-  } = form
+  const {name, surname, email, username, address1, address2, city, state, zipcode, country} = form
 
-  const address = `${address1}${
-    address2 === '' ? '' : ` ${address2}`
-  } ${city} ${state} ${zipcode} ${country}`
+  const address = `${address1}${address2 === '' ? '' : ` ${address2}`} ${city} ${state} ${zipcode} ${country}`
 
   return (
     <Article className={className}>
       <H2>Custom</H2>
       <Paragraph>
-        You can use any of the existing Components provided (compound-components
-        pattern) in order to create your desired custom design.
+        You can use any of the existing Components provided (compound-components pattern) in order to create your
+        desired custom design.
       </Paragraph>
       <form onSubmit={handleSubmit}>
         <Grid cols={1} gutter={[8, 0]}>
@@ -120,11 +95,7 @@ const ArticleCustom = ({className}) => {
                   />
                 }
               >
-                <PanelCustom
-                  step={1}
-                  stepsNumber={3}
-                  onNext={() => setSteps([2])}
-                >
+                <PanelCustom step={1} stepsNumber={3} onNext={() => setSteps([2])}>
                   <Grid cols={2} gutter={[8, 0]}>
                     <Cell>
                       <Label htmlFor="name">Name</Label>
@@ -133,14 +104,7 @@ const ArticleCustom = ({className}) => {
                       <Label htmlFor="surname">Surname</Label>
                     </Cell>
                     <Cell>
-                      <Input
-                        id="name"
-                        type="text"
-                        placeholder="John"
-                        name="name"
-                        value={name}
-                        onChange={setValue}
-                      />
+                      <Input id="name" type="text" placeholder="John" name="name" value={name} onChange={setValue} />
                     </Cell>
                     <Cell>
                       <Input
@@ -195,12 +159,7 @@ const ArticleCustom = ({className}) => {
                   />
                 }
               >
-                <PanelCustom
-                  step={2}
-                  stepsNumber={3}
-                  onPrevious={() => setSteps([1])}
-                  onNext={() => setSteps([3])}
-                >
+                <PanelCustom step={2} stepsNumber={3} onPrevious={() => setSteps([1])} onNext={() => setSteps([3])}>
                   <Grid cols={2} gutter={[8, 8]}>
                     <Cell span={2}>
                       <Label htmlFor="address">Address line 1</Label>

@@ -68,10 +68,7 @@ LayoutGridItem.propTypes = {
   /***
    * Defines the number of columns an item should span
    */
-  colSpan: PropTypes.oneOfType([
-    PropTypes.oneOf(CELL_NUMBERS),
-    PropTypes.objectOf(PropTypes.oneOf(CELL_NUMBERS))
-  ]),
+  colSpan: PropTypes.oneOfType([PropTypes.oneOf(CELL_NUMBERS), PropTypes.objectOf(PropTypes.oneOf(CELL_NUMBERS))]),
   /**
    * Number of cells the component has to fill. It's applied for the `l` breakpoint and wider screens.
    */

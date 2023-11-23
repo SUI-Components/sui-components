@@ -1,16 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  H3,
-  Label,
-  Paragraph,
-  Small
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, H3, Label, Paragraph, Small} from '@s-ui/documentation-library'
 
 import AtomSwitch, {atomSwitchTypes} from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
@@ -19,8 +9,8 @@ const ArticleTypes = ({className}) => (
   <Article className={className}>
     <H2>Types</H2>
     <Paragraph>
-      This package gives 3 different <Code>type</Code> values provided under the{' '}
-      <Code>atomSwitchTypes</Code> exported variable.
+      This package gives 3 different <Code>type</Code> values provided under the <Code>atomSwitchTypes</Code> exported
+      variable.
     </Paragraph>
     <Grid cols={3}>
       {Object.values(atomSwitchTypes).map((type, index) => (
@@ -32,12 +22,8 @@ const ArticleTypes = ({className}) => (
       {Object.values(atomSwitchTypes).map((type, index) => (
         <Cell key={index} style={flexCenteredStyle}>
           <AtomSwitch
-            labelLeft={
-              type !== atomSwitchTypes.SINGLE ? 'labelLeft' : undefined
-            }
-            labelRight={
-              type !== atomSwitchTypes.SINGLE ? 'labelRight' : undefined
-            }
+            labelLeft={type !== atomSwitchTypes.SINGLE ? 'labelLeft' : undefined}
+            labelRight={type !== atomSwitchTypes.SINGLE ? 'labelRight' : undefined}
             label="label"
             name="name"
             type={type}
@@ -47,8 +33,8 @@ const ArticleTypes = ({className}) => (
     </Grid>
     <H3>Single type</H3>
     <Paragraph>
-      Single type switch has 3 behaviors, depending on the labels props you
-      fill. <Code>label</Code> <Code>labelLeft</Code> <Code>labelRight</Code>
+      Single type switch has 3 behaviors, depending on the labels props you fill. <Code>label</Code>{' '}
+      <Code>labelLeft</Code> <Code>labelRight</Code>
     </Paragraph>
     <Grid cols={3}>
       <Cell key="typeSingleCellLabel" style={flexCenteredStyle}>
@@ -68,18 +54,10 @@ const ArticleTypes = ({className}) => (
         <AtomSwitch label="label" name="name" type={atomSwitchTypes.SINGLE} />
       </Cell>
       <Cell key="typeSingleLeftCell" style={flexCenteredStyle}>
-        <AtomSwitch
-          labelLeft="labelLeft"
-          name="name"
-          type={atomSwitchTypes.SINGLE}
-        />
+        <AtomSwitch labelLeft="labelLeft" name="name" type={atomSwitchTypes.SINGLE} />
       </Cell>
       <Cell key="typeSingleRightCell" style={flexCenteredStyle}>
-        <AtomSwitch
-          labelRight="labelRight"
-          name="name"
-          type={atomSwitchTypes.SINGLE}
-        />
+        <AtomSwitch labelRight="labelRight" name="name" type={atomSwitchTypes.SINGLE} />
       </Cell>
     </Grid>
   </Article>

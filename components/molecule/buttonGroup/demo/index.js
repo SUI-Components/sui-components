@@ -14,10 +14,7 @@ const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <H1>Button Group</H1>
-      <Paragraph>
-        MoleculeButtonGroup is a component that wraps a group of buttons,
-        related in content.
-      </Paragraph>
+      <Paragraph>MoleculeButtonGroup is a component that wraps a group of buttons, related in content.</Paragraph>
       <ArticleDefault className={CLASS_SECTION} />
       <br />
       <ArticleDesign className={CLASS_SECTION} />

@@ -8,9 +8,8 @@ const SpanDemo = () => (
   <Article className={CLASS_SECTION}>
     <H2>Icons wrapped with span</H2>
     <Paragraph>
-      Some icons could be wrapped on a <Code>span</Code> tag so they could be
-      rendered by using setDangerouslySetInnerHTML for performance reasons. They
-      should be shown centered anyway:
+      Some icons could be wrapped on a <Code>span</Code> tag so they could be rendered by using
+      setDangerouslySetInnerHTML for performance reasons. They should be shown centered anyway:
     </Paragraph>
     <AtomButton
       leftIcon={

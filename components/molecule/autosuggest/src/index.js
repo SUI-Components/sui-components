@@ -44,15 +44,9 @@ const MoleculeAutosuggest = ({
   ...restProps
 }) => {
   const innerRefMoleculeAutosuggest = useRef()
-  const refMoleculeAutosuggest = useMergeRefs(
-    innerRefMoleculeAutosuggest,
-    refMoleculeAutosuggestFromProps
-  )
+  const refMoleculeAutosuggest = useMergeRefs(innerRefMoleculeAutosuggest, refMoleculeAutosuggestFromProps)
 
-  const [isOpenState, setIsOpenState, isControlled] = useControlledState(
-    isOpen,
-    !!isOpen
-  )
+  const [isOpenState, setIsOpenState, isControlled] = useControlledState(isOpen, !!isOpen)
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
@@ -131,8 +125,7 @@ const MoleculeAutosuggest = ({
       const currentElementFocused = getCurrentElementFocused()
       const isSomeOptionFocused = [...options].includes(currentElementFocused)
       if (keysCloseList.includes(key)) closeList(ev)
-      else if (key === 'ArrowDown' && !isSomeOptionFocused)
-        focusFirstOption(ev, {options})
+      else if (key === 'ArrowDown' && !isSomeOptionFocused) focusFirstOption(ev, {options})
       else if (isSomeOptionFocused) handleFocusIn(ev)
       if (key === 'Enter') {
         typeof onEnter === 'function' && onEnter(ev)
@@ -156,8 +149,7 @@ const MoleculeAutosuggest = ({
     setTimeout(() => {
       const currentElementFocused = getCurrentElementFocused()
       const focusOutFromOutside =
-        ![domInnerInput, ...options].includes(currentElementFocused) &&
-        !domContainer.contains(currentElementFocused)
+        ![domInnerInput, ...options].includes(currentElementFocused) && !domContainer.contains(currentElementFocused)
       if (focusOutFromOutside) {
         if (autoClose && isOpenState) {
           closeList(ev)

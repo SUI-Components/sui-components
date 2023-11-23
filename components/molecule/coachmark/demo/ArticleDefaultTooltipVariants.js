@@ -47,7 +47,6 @@ const ArticleDefaultTooltipVariants = () => {
 
     if (index === THIRD) {
       setImage(null)
-      setHeadImage(null)
       setActionButtons([exampleActionButtons[1]])
     }
 

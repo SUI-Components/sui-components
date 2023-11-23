@@ -75,8 +75,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -124,16 +123,7 @@ describe(json.name, () => {
 
       // When
       const {atomIconColors: actual} = library
-      const {
-        accent,
-        alert,
-        currentColor,
-        error,
-        primary,
-        success,
-        gray,
-        ...others
-      } = actual
+      const {accent, alert, currentColor, error, primary, success, gray, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)
@@ -171,15 +161,7 @@ describe(json.name, () => {
 
       // When
       const {atomIconSizes: actual} = library
-      const {
-        extraSmall,
-        small,
-        medium,
-        large,
-        extraLarge,
-        extraExtraLarge,
-        ...others
-      } = actual
+      const {extraSmall, small, medium, large, extraLarge, extraExtraLarge, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

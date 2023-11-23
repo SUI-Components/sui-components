@@ -4,8 +4,7 @@ $w-notification: 100% !default;
 $z-notification: 1000 !default;
 $mh-notification: 500px !default;
 $sz-notification-icon: $sz-icon-m !default;
-$ai-notification-content: stretch space-around space-between center flex-start
-  flex-end;
+$ai-notification-content: stretch space-around space-between center flex-start flex-end;
 $ai-notification-text: normal !default;
 $bdrs-notification-content: initial !default;
 $lh-notification-text: inherit !default;
@@ -36,31 +35,11 @@ $notification-type-colors: (
 ) !default;
 
 $notification-type-positive-colors: (
-  info:
-    color-variation(
-      map.get($notification-type-colors, 'info'),
-      $c-light-step * 2
-    ),
-  success:
-    color-variation(
-      map.get($notification-type-colors, 'success'),
-      $c-light-step * 2
-    ),
-  warning:
-    color-variation(
-      map.get($notification-type-colors, 'warning'),
-      $c-light-step * 2
-    ),
-  error:
-    color-variation(
-      map.get($notification-type-colors, 'error'),
-      $c-light-step * 2
-    ),
-  system:
-    color-variation(
-      map.get($notification-type-colors, 'system'),
-      $c-light-step * 2
-    )
+  info: color-variation(map.get($notification-type-colors, 'info'), $c-light-step * 2),
+  success: color-variation(map.get($notification-type-colors, 'success'), $c-light-step * 2),
+  warning: color-variation(map.get($notification-type-colors, 'warning'), $c-light-step * 2),
+  error: color-variation(map.get($notification-type-colors, 'error'), $c-light-step * 2),
+  system: color-variation(map.get($notification-type-colors, 'system'), $c-light-step * 2)
 ) !default;
 
 $notification-type-font-colors: (
@@ -94,10 +73,8 @@ $notification-effect-slide-top-in: top 0.5s ease-out !default;
 $notification-effect-slide-top-out: top 0.3s ease-in !default;
 $notification-effect-slide-bottom-in: bottom 0.5s ease-out !default;
 $notification-effect-slide-bottom-out: bottom 0.3s ease-in !default;
-$notification-effect-fade-in: opacity 0.5s ease-out 0.5s,
-  max-height 0.5s ease 0s !default;
-$notification-effect-fade-out: opacity 0.3s ease-in 0s,
-  max-height 0.5s ease 0.3s !default;
+$notification-effect-fade-in: opacity 0.5s ease-out 0.5s, max-height 0.5s ease 0s !default;
+$notification-effect-fade-out: opacity 0.3s ease-in 0s, max-height 0.5s ease 0.3s !default;
 
 @mixin notification-align-items($properties) {
   @each $value in $properties {

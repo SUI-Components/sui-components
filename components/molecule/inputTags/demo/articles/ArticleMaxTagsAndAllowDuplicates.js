@@ -11,12 +11,12 @@ const ArticleMaxTagsAndAllowDuplicates = ({className}) => {
     <Article className={className}>
       <H2>MaxTags and AllowDuplicates</H2>
       <Paragraph>
-        For indicating the max amount of tags contained in the component use the{' '}
-        <Code>maxTags</Code> (number) prop. Default undefined (infinite)
+        For indicating the max amount of tags contained in the component use the <Code>maxTags</Code> (number) prop.
+        Default undefined (infinite)
       </Paragraph>
       <Paragraph>
-        For indicating if a tag value can be repeated or not use the{' '}
-        <Code>allowDuplicates</Code> (boolean) prop. Default true
+        For indicating if a tag value can be repeated or not use the <Code>allowDuplicates</Code> (boolean) prop.
+        Default true
       </Paragraph>
       <MoleculeInputTags
         name="ArticleMaxTagsAndAllowDuplicates1"
@@ -37,8 +37,7 @@ const ArticleMaxTagsAndAllowDuplicates = ({className}) => {
   )
 }
 
-ArticleMaxTagsAndAllowDuplicates.displayName =
-  'ArticleMaxTagsAndAllowDuplicates'
+ArticleMaxTagsAndAllowDuplicates.displayName = 'ArticleMaxTagsAndAllowDuplicates'
 ArticleMaxTagsAndAllowDuplicates.propTypes = {
   className: PropTypes.string
 }

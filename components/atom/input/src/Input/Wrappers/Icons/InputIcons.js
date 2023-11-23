@@ -11,13 +11,7 @@ import {
   BASE_CLASS_ICON_RIGHT
 } from './config.js'
 
-const InputIcons = ({
-  leftIcon,
-  rightIcon,
-  onClickLeftIcon,
-  onClickRightIcon,
-  children
-}) => {
+const InputIcons = ({leftIcon, rightIcon, onClickLeftIcon, onClickRightIcon, children}) => {
   if (!(leftIcon || rightIcon)) {
     return children
   }
@@ -38,13 +32,9 @@ const InputIcons = ({
     >
       {leftIcon && (
         <span
-          className={cx(
-            BASE_CLASS_ICON_COMPONENT,
-            BASE_CLASS_ICON_COMPONENT_LEFT,
-            {
-              [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickLeftIcon
-            }
-          )}
+          className={cx(BASE_CLASS_ICON_COMPONENT, BASE_CLASS_ICON_COMPONENT_LEFT, {
+            [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickLeftIcon
+          })}
           onClick={handleLeftClick}
         >
           {leftIcon}
@@ -53,13 +43,9 @@ const InputIcons = ({
       {children}
       {rightIcon && (
         <span
-          className={cx(
-            BASE_CLASS_ICON_COMPONENT,
-            BASE_CLASS_ICON_COMPONENT_RIGHT,
-            {
-              [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickRightIcon
-            }
-          )}
+          className={cx(BASE_CLASS_ICON_COMPONENT, BASE_CLASS_ICON_COMPONENT_RIGHT, {
+            [BASE_CLASS_ICON_COMPONENT_HANDLER]: onClickRightIcon
+          })}
           onClick={handleRightClick}
         >
           {rightIcon}

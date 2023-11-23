@@ -5,12 +5,7 @@ import {
   FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS
 } from './config.js'
 
-export function formatToBase64({
-  file,
-  item,
-  options = FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS,
-  ...rest
-}) {
+export function formatToBase64({file, item, options = FORM_IMAGE_UPLOADER_DEFAULT_FORMAT_TO_BASE_64_OPTIONS, ...rest}) {
   if (file) {
     const reader = new window.FileReader()
     reader.readAsDataURL(file)
@@ -24,8 +19,7 @@ export function formatToBase64({
              *  Since Chrome 81, image EXIF orientation is respected by default.
              *  Latest Safari (13.1 as of now) is also working correctly.
              */
-            const browserAutoRotates =
-              getComputedStyle(document.body).imageOrientation == 'from-image' // eslint-disable-line
+            const browserAutoRotates = getComputedStyle(document.body).imageOrientation == 'from-image' // eslint-disable-line
 
             if (!browserAutoRotates) {
               switch (getExifOrientationResult) {
@@ -94,12 +88,7 @@ export function formatToBase64({
   }
 }
 
-export function resizeImage({
-  base64Image,
-  maxImageWidth,
-  maxImageHeight,
-  imageMimeType
-}) {
+export function resizeImage({base64Image, maxImageWidth, maxImageHeight, imageMimeType}) {
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('2d')
 
@@ -136,11 +125,7 @@ export function resizeImage({
           context.scale(scaleFactorWidth, scaleFactorWidth)
           context.translate(-canvas.width / 2, -canvas.height / 2)
         }
-        context.drawImage(
-          image,
-          (canvas.width - inputWidth) / 2,
-          (canvas.height - inputHeight) / 2
-        )
+        context.drawImage(image, (canvas.width - inputWidth) / 2, (canvas.height - inputHeight) / 2)
         resolve(canvas.toDataURL(imageMimeType, 1))
       } else {
         resolve(base64Image)
@@ -175,13 +160,7 @@ export function cropAndRotateImage({
 
   return new Promise((resolve, reject) => {
     image.onerror = () => {
-      reject(
-        new Error(
-          `Image load fails. Origin: ${
-            imageURL ? `URL ${imageURL}` : `File upload`
-          }`
-        )
-      )
+      reject(new Error(`Image load fails. Origin: ${imageURL ? `URL ${imageURL}` : `File upload`}`))
     }
     image.onload = () => {
       const inputWidth = image.naturalWidth
@@ -214,33 +193,21 @@ export function cropAndRotateImage({
 
       switch (rotation) {
         case 0:
-          context.translate(
-            (outputWidth - inputWidth) * 0.5,
-            (outputHeight - inputHeight) * 0.5
-          )
+          context.translate((outputWidth - inputWidth) * 0.5, (outputHeight - inputHeight) * 0.5)
           break
         case 90:
           context.rotate(0.5 * Math.PI)
-          context.translate(
-            (outputHeight - inputWidth) * 0.5,
-            -(outputWidth + inputHeight) * 0.5
-          )
+          context.translate((outputHeight - inputWidth) * 0.5, -(outputWidth + inputHeight) * 0.5)
 
           break
         case 180:
           context.rotate(Math.PI)
-          context.translate(
-            -(outputWidth + inputWidth) * 0.5,
-            -(outputHeight + inputHeight) * 0.5
-          )
+          context.translate(-(outputWidth + inputWidth) * 0.5, -(outputHeight + inputHeight) * 0.5)
 
           break
         case 270:
           context.rotate((270 * Math.PI) / 180)
-          context.translate(
-            -(outputHeight + inputWidth) * 0.5,
-            (outputWidth - inputHeight) * 0.5
-          )
+          context.translate(-(outputHeight + inputWidth) * 0.5, (outputWidth - inputHeight) * 0.5)
       }
 
       context.drawImage(image, 0, 0)
@@ -256,10 +223,7 @@ export function cropAndRotateImage({
  *
  * returns a new Blob and the original base64 string
  */
-export function base64ToBlob(
-  base64,
-  imageMimeType = DEFAULT_FILE_TYPE_EXPORTED
-) {
+export function base64ToBlob(base64, imageMimeType = DEFAULT_FILE_TYPE_EXPORTED) {
   var byteString = atob(base64.split(',')[1]) // eslint-disable-line
   const ab = new ArrayBuffer(byteString.length)
   const ia = new Uint8Array(ab)
@@ -267,9 +231,7 @@ export function base64ToBlob(
   for (let i = 0; i < byteString.length; i++) {
     ia[i] = byteString.charCodeAt(i)
   }
-  return new Promise(resolve =>
-    resolve({blob: new Blob([ia], {type: imageMimeType}), base64})
-  ) // eslint-disable-line
+  return new Promise(resolve => resolve({blob: new Blob([ia], {type: imageMimeType}), base64})) // eslint-disable-line
 }
 
 /**

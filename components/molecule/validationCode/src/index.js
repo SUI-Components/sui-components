@@ -34,22 +34,12 @@ const MoleculeValidationCode = forwardRef(
       resendButtonTextLabel,
       sendButtonTextLabel,
       size,
-      footer: Footer = ({
-        onSubmit,
-        onResend,
-        sendButtonTextLabel,
-        resendButtonTextLabel
-      }) => (
+      footer: Footer = ({onSubmit, onResend, sendButtonTextLabel, resendButtonTextLabel}) => (
         <>
           <AtomButton fullWidth onClick={onSubmit} isFitted>
             {sendButtonTextLabel}
           </AtomButton>
-          <AtomButton
-            design={atomButtonDesigns.FLAT}
-            fullWidth
-            onClick={onResend}
-            isFitted
-          >
+          <AtomButton design={atomButtonDesigns.FLAT} fullWidth onClick={onResend} isFitted>
             {resendButtonTextLabel}
           </AtomButton>
         </>
@@ -60,34 +50,25 @@ const MoleculeValidationCode = forwardRef(
     },
     forwardedRef
   ) => {
-    const [innerValue, setInnerValue] = useControlledState(
-      normalizeValue(value),
-      normalizeValue(defaultValue)
-    )
+    const [innerValue, setInnerValue] = useControlledState(normalizeValue(value), normalizeValue(defaultValue))
 
-    const arrayInnerValue =
-      innerValue.length > 0 ? innerValue.split(',') : innerValue
+    const arrayInnerValue = innerValue.length > 0 ? innerValue.split(',') : innerValue
 
-    const valueType = useMemo(
-      () => getPinInputValueType({value, defaultValue}),
-      [value, defaultValue]
-    )
+    const valueType = useMemo(() => getPinInputValueType({value, defaultValue}), [value, defaultValue])
 
     const onChangeHandler = (event, args) => {
       setInnerValue(`${args.innerValue}`)
       typeof onChange === 'function' &&
         onChange(event, {
           ...args,
-          value:
-            valueType === 'string' ? args.innerValue.join('') : args.innerValue
+          value: valueType === 'string' ? args.innerValue.join('') : args.innerValue
         })
     }
 
     const onClearHandler = event => {
       setInnerValue('')
       typeof onClear === 'function' && onClear(event)
-      typeof onChange === 'function' &&
-        onChange(event, {value: '', innerValue: []})
+      typeof onChange === 'function' && onChange(event, {value: '', innerValue: []})
     }
 
     const onHandler = handler => {
@@ -95,9 +76,7 @@ const MoleculeValidationCode = forwardRef(
         ? event => {
             handler(event, {
               value:
-                valueType === 'string'
-                  ? arrayInnerValue && arrayInnerValue.filter(Boolean).join('')
-                  : arrayInnerValue
+                valueType === 'string' ? arrayInnerValue && arrayInnerValue.filter(Boolean).join('') : arrayInnerValue
             })
           }
         : undefined
@@ -110,25 +89,16 @@ const MoleculeValidationCode = forwardRef(
       <div className={baseClass}>
         {!isHeaderless && (
           <div className={`${baseClass}-header`}>
-            {labelText ? (
-              <p className={`${baseClass}-header-labelTitle`}>{labelText}</p>
-            ) : null}
+            {labelText ? <p className={`${baseClass}-header-labelTitle`}>{labelText}</p> : null}
             {deleteButtonTextLabel && (
-              <AtomButton
-                onClick={onClearHandler}
-                design={atomButtonDesigns.FLAT}
-              >
+              <AtomButton onClick={onClearHandler} design={atomButtonDesigns.FLAT}>
                 {deleteButtonTextLabel}
               </AtomButton>
             )}
           </div>
         )}
         <div className={`${baseClass}-inputContainer`}>
-          <div
-            className={`${baseClass}-inputContainer-pinInput ${
-              isFooterless && `is-marginless`
-            }`}
-          >
+          <div className={`${baseClass}-inputContainer-pinInput ${isFooterless && `is-marginless`}`}>
             <PinInput
               autoFocus={autoFocus}
               disabled={disabled}
@@ -142,9 +112,7 @@ const MoleculeValidationCode = forwardRef(
               status={status}
               value={arrayInnerValue}
             />
-            {statusMessage !== undefined && (
-              <ValidationText text={statusMessage} type={status} />
-            )}
+            {statusMessage !== undefined && <ValidationText text={statusMessage} type={status} />}
           </div>
         </div>
         {!isFooterless && (

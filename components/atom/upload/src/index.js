@@ -37,10 +37,7 @@ const AtomUpload = ({
     const hasTextExplanation = Boolean(textExplanation)
     const hasButton = Boolean(Button)
     return (
-      <div
-        className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)}
-        {...getRootProps()}
-      >
+      <div className={cx(BASE_CLASS, `${BASE_CLASS}--${status}`)} {...getRootProps()}>
         <input type="hiden" {...getInputProps()} />
         <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
@@ -84,9 +81,7 @@ const AtomUpload = ({
         multiple={multiple}
         onDrop={onDrop(onFilesSelection)}
       >
-        {({getRootProps, getInputProps}) =>
-          renderStatusBlock(status, getRootProps, getInputProps)
-        }
+        {({getRootProps, getInputProps}) => renderStatusBlock(status, getRootProps, getInputProps)}
       </Dropzone>
     )
   )
@@ -146,10 +141,7 @@ AtomUpload.propTypes = {
    * Set accepted file types.
    * See https://github.com/okonet/attr-accept for more information.
    */
-  accept: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ])
+  accept: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])
 }
 
 export {STATUSES as uploadStatuses}

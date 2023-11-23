@@ -7,15 +7,7 @@ import usePopper from './usePopper.js'
 
 const useTooltip = ({isOpen, ...config} = {}) => {
   const [isVisible, setIsVisible] = useState(false)
-  const {
-    Portal,
-    onMouseEnter,
-    onMouseLeave,
-    portalRef,
-    open,
-    close,
-    triggerRef
-  } = usePortal({
+  const {Portal, onMouseEnter, onMouseLeave, portalRef, open, close, triggerRef} = usePortal({
     onMouseEnter: event => open(event),
     onMouseLeave: event => close(event),
     onOpen: () => setIsVisible(true),
@@ -24,10 +16,7 @@ const useTooltip = ({isOpen, ...config} = {}) => {
     ...config
   })
 
-  const {styles, attributes} = usePopper(
-    triggerRef.current,
-    isVisible ? portalRef.current : null
-  )
+  const {styles, attributes} = usePopper(triggerRef.current, isVisible ? portalRef.current : null)
 
   const Tooltip = useCallback(
     ({children, className, style = {}, ...props}) => {

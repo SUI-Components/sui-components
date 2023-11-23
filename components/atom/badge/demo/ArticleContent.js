@@ -1,17 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Bold,
-  Cell,
-  DevIcon,
-  Grid,
-  H2,
-  H4,
-  Label,
-  ListItem,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Bold, Cell, DevIcon, Grid, H2, H4, Label, ListItem, UnorderedList} from '@s-ui/documentation-library'
 
 import AtomBadge, {atomBadgeSizes} from '../src/index.js'
 
@@ -59,8 +48,8 @@ const ArticleContent = ({className}) => {
       <H4>Icons</H4>
       <UnorderedList>
         <ListItem>
-          <Bold>Icons are optional</Bold> and can be placed either on the right
-          or the left side, but never on both at the same time.
+          <Bold>Icons are optional</Bold> and can be placed either on the right or the left side, but never on both at
+          the same time.
         </ListItem>
         <ListItem>Small badges with background won't display icons</ListItem>
       </UnorderedList>
@@ -69,112 +58,46 @@ const ArticleContent = ({className}) => {
           <Label>Small</Label>
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconRight
-            size={atomBadgeSizes.SMALL}
-          />
+          <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.SMALL} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconLeft
-            size={atomBadgeSizes.SMALL}
-          />
+          <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.SMALL} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconRight
-            transparent
-            size={atomBadgeSizes.SMALL}
-          />
+          <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.SMALL} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconLeft
-            transparent
-            size={atomBadgeSizes.SMALL}
-          />
+          <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.SMALL} />
         </Cell>
         <Cell>
           <Label>Medium</Label>
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconRight
-            size={atomBadgeSizes.MEDIUM}
-          />
+          <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.MEDIUM} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconLeft
-            size={atomBadgeSizes.MEDIUM}
-          />
+          <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.MEDIUM} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconRight
-            transparent
-            size={atomBadgeSizes.MEDIUM}
-          />
+          <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.MEDIUM} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconLeft
-            transparent
-            size={atomBadgeSizes.MEDIUM}
-          />
+          <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.MEDIUM} />
         </Cell>
         <Cell>
           <Label>Large</Label>
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconRight
-            size={atomBadgeSizes.LARGE}
-          />
+          <AtomBadge label="label" icon={icon} iconRight size={atomBadgeSizes.LARGE} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconLeft
-            size={atomBadgeSizes.LARGE}
-          />
+          <AtomBadge label="label" icon={icon} iconLeft size={atomBadgeSizes.LARGE} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconRight
-            transparent
-            size={atomBadgeSizes.LARGE}
-          />
+          <AtomBadge label="label" icon={icon} iconRight transparent size={atomBadgeSizes.LARGE} />
         </Cell>
         <Cell>
-          <AtomBadge
-            label="label"
-            icon={icon}
-            iconLeft
-            transparent
-            size={atomBadgeSizes.LARGE}
-          />
+          <AtomBadge label="label" icon={icon} iconLeft transparent size={atomBadgeSizes.LARGE} />
         </Cell>
       </Grid>
     </Article>

@@ -58,10 +58,7 @@ const ArticleCircleDefault = ({className}) => {
         </Cell>
         <Cell span={2}>
           <Button onClick={() => setValue(getShuffledValue())}>
-            <AntDesignIcon
-              icon="AiOutlineRetweet"
-              style={{fill: 'currentColor'}}
-            />
+            <AntDesignIcon icon="AiOutlineRetweet" style={{fill: 'currentColor'}} />
           </Button>
         </Cell>
         <Cell>
@@ -116,39 +113,31 @@ const ArticleCircleDefault = ({className}) => {
         </Cell>
 
         <Cell>
-          <RadioButtonGroup
-            value={mainStrokeSize}
-            onChange={(event, value) => setMainStrokeSize(value)}
-          >
-            {[
-              ['undefined', undefined],
-              ...Object.entries(atomProgressBarStrokeSizes)
-            ].map(([, atomProgressBarStrokeSizesValue]) => (
-              <RadioButton
-                key={`${atomProgressBarStrokeSizesValue}`}
-                label={`${atomProgressBarStrokeSizesValue}`}
-                value={atomProgressBarStrokeSizesValue}
-                checked={mainStrokeSize === atomProgressBarStrokeSizesValue}
-              />
-            ))}
+          <RadioButtonGroup value={mainStrokeSize} onChange={(event, value) => setMainStrokeSize(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarStrokeSizes)].map(
+              ([, atomProgressBarStrokeSizesValue]) => (
+                <RadioButton
+                  key={`${atomProgressBarStrokeSizesValue}`}
+                  label={`${atomProgressBarStrokeSizesValue}`}
+                  value={atomProgressBarStrokeSizesValue}
+                  checked={mainStrokeSize === atomProgressBarStrokeSizesValue}
+                />
+              )
+            )}
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={progressStrokeSize}
-            onChange={(event, value) => setProgressStrokeSize(value)}
-          >
-            {[
-              ['undefined', undefined],
-              ...Object.entries(atomProgressBarStrokeSizes)
-            ].map(([, atomProgressBarStrokeSizesValue]) => (
-              <RadioButton
-                key={`${atomProgressBarStrokeSizesValue}`}
-                label={`${atomProgressBarStrokeSizesValue}`}
-                value={atomProgressBarStrokeSizesValue}
-                checked={progressStrokeSize === atomProgressBarStrokeSizesValue}
-              />
-            ))}
+          <RadioButtonGroup value={progressStrokeSize} onChange={(event, value) => setProgressStrokeSize(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarStrokeSizes)].map(
+              ([, atomProgressBarStrokeSizesValue]) => (
+                <RadioButton
+                  key={`${atomProgressBarStrokeSizesValue}`}
+                  label={`${atomProgressBarStrokeSizesValue}`}
+                  value={atomProgressBarStrokeSizesValue}
+                  checked={progressStrokeSize === atomProgressBarStrokeSizesValue}
+                />
+              )
+            )}
           </RadioButtonGroup>
         </Cell>
 
@@ -159,32 +148,22 @@ const ArticleCircleDefault = ({className}) => {
           <Label>size</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={status}
-            onChange={(event, value) => setStatus(value)}
-          >
-            {[
-              ['undefined', undefined],
-              ...Object.entries(atomProgressBarStatus)
-            ].map(([, atomProgressBarStatusValue]) => (
-              <RadioButton
-                key={`${atomProgressBarStatusValue}`}
-                label={`${atomProgressBarStatusValue}`}
-                value={atomProgressBarStatusValue}
-                checked={status === atomProgressBarStatusValue}
-              />
-            ))}
+          <RadioButtonGroup value={status} onChange={(event, value) => setStatus(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarStatus)].map(
+              ([, atomProgressBarStatusValue]) => (
+                <RadioButton
+                  key={`${atomProgressBarStatusValue}`}
+                  label={`${atomProgressBarStatusValue}`}
+                  value={atomProgressBarStatusValue}
+                  checked={status === atomProgressBarStatusValue}
+                />
+              )
+            )}
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={size}
-            onChange={(event, value) => setSize(value)}
-          >
-            {[
-              ['undefined', undefined],
-              ...Object.entries(atomProgressBarSizes)
-            ].map(([, atomProgressBarSizeValue]) => (
+          <RadioButtonGroup value={size} onChange={(event, value) => setSize(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarSizes)].map(([, atomProgressBarSizeValue]) => (
               <RadioButton
                 key={`${atomProgressBarSizeValue}`}
                 label={`${atomProgressBarSizeValue}`}
@@ -198,21 +177,17 @@ const ArticleCircleDefault = ({className}) => {
           <Label>strokeLineCap</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={strokeLineCap}
-            onChange={(event, value) => setStrokeLineCap(value)}
-          >
-            {[
-              ['undefined', undefined],
-              ...Object.entries(atomProgressBarLineCaps)
-            ].map(([, atomProgressBarLineCapsValue]) => (
-              <RadioButton
-                key={`${atomProgressBarLineCapsValue}`}
-                label={`${atomProgressBarLineCapsValue}`}
-                value={atomProgressBarLineCapsValue}
-                checked={strokeLineCap === atomProgressBarLineCapsValue}
-              />
-            ))}
+          <RadioButtonGroup value={strokeLineCap} onChange={(event, value) => setStrokeLineCap(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarLineCaps)].map(
+              ([, atomProgressBarLineCapsValue]) => (
+                <RadioButton
+                  key={`${atomProgressBarLineCapsValue}`}
+                  label={`${atomProgressBarLineCapsValue}`}
+                  value={atomProgressBarLineCapsValue}
+                  checked={strokeLineCap === atomProgressBarLineCapsValue}
+                />
+              )
+            )}
           </RadioButtonGroup>
         </Cell>
         <Cell span={2}>

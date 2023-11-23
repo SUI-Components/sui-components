@@ -1,10 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {
-  moleculeStepperAlignment,
-  moleculeStepperDesign
-} from '../../../src/index.js'
+import {moleculeStepperAlignment, moleculeStepperDesign} from '../../../src/index.js'
 
 const BASE_CLASS = 'dotCustomStep'
 

@@ -19,10 +19,7 @@ export const moleculeDropdownListSelectHandler = {
     (event, {value: valueHandled, selected: selectedHandled, ...args}) => {
       typeof onSelect === 'function' &&
         onSelect(event, {
-          value:
-            selectedHandled || value !== valueHandled
-              ? valueHandled
-              : undefined,
+          value: selectedHandled || value !== valueHandled ? valueHandled : undefined,
           selected: selectedHandled,
           ...args
         })

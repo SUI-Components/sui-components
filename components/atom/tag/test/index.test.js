@@ -84,8 +84,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames', label: 'label'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -340,8 +339,7 @@ describe(json.name, () => {
 
       // When
       const {atomTagLinkTypes: actual} = library
-      const {NOFOLLOW, NOOPENER, NOREFERRER, PREV, NEXT, TAG, ...others} =
-        actual
+      const {NOFOLLOW, NOOPENER, NOREFERRER, PREV, NEXT, TAG, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

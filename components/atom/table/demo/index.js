@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  Grid,
-  H1,
-  H2,
-  H3,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Code, Grid, H1, H2, H3, Paragraph} from '@s-ui/documentation-library'
 
 import AtomTable, {atomTableCellPadding} from '../src/index.js'
 import {contentBodyMook, contentFootMook, contentHeadMook} from './settings.js'
@@ -44,14 +36,8 @@ export default () => {
             <br />
             <Article>
               <H2>Table with thead, tbody and tfoot</H2>
-              <Paragraph>
-                Basic example with head, body and footer props.
-              </Paragraph>
-              <AtomTable
-                head={contentHeadMook}
-                body={contentBodyMook}
-                foot={contentFootMook}
-              />
+              <Paragraph>Basic example with head, body and footer props.</Paragraph>
+              <AtomTable head={contentHeadMook} body={contentBodyMook} foot={contentFootMook} />
             </Article>
             <br />
             <Article>
@@ -59,11 +45,7 @@ export default () => {
               <Paragraph>
                 The <Code>fullWidth</Code> prop adapt table to the parent width.
               </Paragraph>
-              <AtomTable
-                head={contentHeadMook}
-                body={contentBodyMook}
-                fullWidth
-              />
+              <AtomTable head={contentHeadMook} body={contentBodyMook} fullWidth />
             </Article>
             <br />
             <Article>
@@ -92,38 +74,24 @@ export default () => {
             <Article>
               <H2>Table with borderBottom</H2>
               <Paragraph>
-                The <Code>borderBottom</Code> prop adds a border bottom line on
-                each table row.
+                The <Code>borderBottom</Code> prop adds a border bottom line on each table row.
               </Paragraph>
-              <AtomTable
-                head={contentHeadMook}
-                body={contentBodyMook}
-                foot={contentFootMook}
-                fullWidth
-                borderBottom
-              />
+              <AtomTable head={contentHeadMook} body={contentBodyMook} foot={contentFootMook} fullWidth borderBottom />
             </Article>
             <br />
             <Article>
               <H2>Table with zebraStriped</H2>
               <Paragraph>
-                The <Code>zebraStriped</Code> prop adds a background color to
-                the even rows.
+                The <Code>zebraStriped</Code> prop adds a background color to the even rows.
               </Paragraph>
-              <AtomTable
-                head={contentHeadMook}
-                body={contentBodyMook}
-                foot={contentFootMook}
-                fullWidth
-                zebraStriped
-              />
+              <AtomTable head={contentHeadMook} body={contentBodyMook} foot={contentFootMook} fullWidth zebraStriped />
             </Article>
             <br />
             <Article>
               <H2>Table with onRowClick</H2>
               <Paragraph>
-                The <Code>onRowClick</Code> prop fires an event when a row is
-                clicked. Click in a row and see what happens! ;)
+                The <Code>onRowClick</Code> prop fires an event when a row is clicked. Click in a row and see what
+                happens! ;)
               </Paragraph>
               <AtomTable
                 head={contentHeadMook}
@@ -131,9 +99,7 @@ export default () => {
                 foot={contentFootMook}
                 fullWidth
                 zebraStriped
-                onRowClick={value =>
-                  alert(`You have clicked the row: ${value}`)
-                }
+                onRowClick={value => alert(`You have clicked the row: ${value}`)}
               />
             </Article>
           </Demo>

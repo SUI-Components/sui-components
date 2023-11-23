@@ -165,8 +165,7 @@ $base-class: '.sui-AtomSwitch';
     }
     #{$base-class}-icon-left {
       left: 0;
-      transition: color $atom-switch-transition-time ease-in-out
-        $atom-switch-transition-time;
+      transition: color $atom-switch-transition-time ease-in-out $atom-switch-transition-time;
       color: $bd-atom-switch-default;
     }
 
@@ -185,8 +184,7 @@ $base-class: '.sui-AtomSwitch';
         margin-left: $m-atom-switch-circle-default--active;
       }
       #{$base-class}-icon-right {
-        transition: color $atom-switch-transition-time ease-in-out
-          $atom-switch-transition-time;
+        transition: color $atom-switch-transition-time ease-in-out $atom-switch-transition-time;
       }
       #{$base-class}-icon-left {
         transition: color math.div($atom-switch-transition-time, 2) ease-in-out;

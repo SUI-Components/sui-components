@@ -2,16 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Button,
-  Cell,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Button, Cell, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import PinInput from '../src/index.js'
 import PinInputField from '../src/PinInputField.js'
@@ -48,14 +39,10 @@ const ArticleChildren = ({className}) => {
     ...getWeirdSumCombinationArray(possibleValues, columnIndex)
   ])
 
-  const [code, setCode] = useState(
-    `${Math.trunc(Math.random() * Math.pow(10, weirdColumns.length))}`
-  )
+  const [code, setCode] = useState(`${Math.trunc(Math.random() * Math.pow(10, weirdColumns.length))}`)
 
   const [cardCode] = useState(`${Math.trunc(Math.random() * Math.pow(10, 16))}`)
-  const [cardCVVCode] = useState(
-    `${Math.trunc(Math.random() * Math.pow(10, 3))}`
-  )
+  const [cardCVVCode] = useState(`${Math.trunc(Math.random() * Math.pow(10, 3))}`)
 
   const onChangeHandler = (event, args) => {
     setCode(args.value)
@@ -68,11 +55,7 @@ const ArticleChildren = ({className}) => {
       ...getWeirdSumCombinationArray(possibleValues, columnIndex)
     ]
     setWeirdColumns(newWeirdSumCombinationArray)
-    setCode(
-      `${Math.trunc(
-        Math.random() * Math.pow(10, newWeirdSumCombinationArray.length)
-      )}`
-    )
+    setCode(`${Math.trunc(Math.random() * Math.pow(10, newWeirdSumCombinationArray.length))}`)
   }
 
   return (
@@ -82,10 +65,7 @@ const ArticleChildren = ({className}) => {
 
       <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
 
-      <Paragraph>
-        We can customize children in the component using the PinInputField
-        component.
-      </Paragraph>
+      <Paragraph>We can customize children in the component using the PinInputField component.</Paragraph>
       <Grid cols={12} gutter={[8, 8]}>
         <Cell span={12}>
           <Label>Card Number</Label>
@@ -151,11 +131,7 @@ const ArticleChildren = ({className}) => {
           <Label>CVV</Label>
         </Cell>
         <Cell span={4}>
-          <PinInput
-            onChangeHandler={onChangeHandler}
-            defaultValue={cardCVVCode}
-            length={3}
-          />
+          <PinInput onChangeHandler={onChangeHandler} defaultValue={cardCVVCode} length={3} />
         </Cell>
       </Grid>
       <Paragraph>And many more...</Paragraph>
@@ -172,12 +148,7 @@ const ArticleChildren = ({className}) => {
                 </Cell>
               ))}
               <Cell span={12}>
-                <Input
-                  style={{textAlign: 'center'}}
-                  value={code}
-                  disabled
-                  fullWidth
-                />
+                <Input style={{textAlign: 'center'}} value={code} disabled fullWidth />
               </Cell>
             </Grid>
           </PinInput>

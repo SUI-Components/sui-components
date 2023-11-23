@@ -14,5 +14,4 @@ const delayedFilterOptions = query =>
     }, 500)
   })
 
-export const getAsyncCountriesFromQuery = async ({query}) =>
-  !query ? [] : delayedFilterOptions(query)
+export const getAsyncCountriesFromQuery = async ({query}) => (!query ? [] : delayedFilterOptions(query))

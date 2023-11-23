@@ -19,23 +19,17 @@ import {
 
 import AtomSkeleton from '../src/index.js'
 
-const loremIpsum =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet ...'
+const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet ...'
 
 const Content = ({placeholder}) => (
   <div>
     <H2>{placeholder ? <AtomSkeleton /> : 'Title H2'}</H2>
     <Grid cols={10} gutter={[8, 8]}>
       <Cell span={3}>
-        <img
-          style={{width: '100%', borderRadius: '50%'}}
-          src="https://via.placeholder.com/150"
-        />
+        <img style={{width: '100%', borderRadius: '50%'}} src="https://via.placeholder.com/150" />
       </Cell>
       <Cell span={7}>
-        <Paragraph>
-          {placeholder ? <AtomSkeleton count={3} /> : loremIpsum}
-        </Paragraph>
+        <Paragraph>{placeholder ? <AtomSkeleton count={3} /> : loremIpsum}</Paragraph>
       </Cell>
     </Grid>
   </div>
@@ -56,9 +50,7 @@ const ArticleDefault = ({className}) => {
       <br />
       <br />
       <Paragraph>–––</Paragraph>
-      <Paragraph>
-        It can also be used as placeholder of existent text content tags:
-      </Paragraph>
+      <Paragraph>It can also be used as placeholder of existent text content tags:</Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
           <H1>
@@ -112,11 +104,7 @@ const ArticleDefault = ({className}) => {
           <Label>skeleton enabled</Label>
         </Cell>
         <Cell>
-          <RadioButton
-            label="toogle"
-            checked={placeHolder}
-            onClick={() => setPlaceholder(!placeHolder)}
-          />
+          <RadioButton label="toogle" checked={placeHolder} onClick={() => setPlaceholder(!placeHolder)} />
         </Cell>
         <Cell>
           <Label>skeleton disabled</Label>

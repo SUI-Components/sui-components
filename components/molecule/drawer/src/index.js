@@ -60,8 +60,7 @@ const MoleculeDrawer = forwardRef(
           `${DRAWER_CONTENT_CLASS}--animationDuration-${animationDuration}`,
           `${DRAWER_CONTENT_CLASS}--state-${isOpen ? 'opened' : 'closed'}`,
           {
-            [`${DRAWER_CONTENT_CLASS}--placement`]:
-              typeof target === 'undefined'
+            [`${DRAWER_CONTENT_CLASS}--placement`]: typeof target === 'undefined'
           }
         )}
         ref={forwardedRef}
@@ -75,9 +74,7 @@ const MoleculeDrawer = forwardRef(
 MoleculeDrawer.displayName = 'MoleculeDrawer'
 MoleculeDrawer.propTypes = {
   /** Duration in seconds for open/close animation */
-  animationDuration: PropTypes.oneOf(
-    Object.values(moleculeDrawerAnimationDuration)
-  ),
+  animationDuration: PropTypes.oneOf(Object.values(moleculeDrawerAnimationDuration)),
   /** content **/
   children: PropTypes.node,
   /** Tells if the drawer is open or not */

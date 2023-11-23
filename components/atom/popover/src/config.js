@@ -51,8 +51,4 @@ export const getClassName = ({defaultClass, type}) => {
 }
 
 export const getChildrenAsReactNode = element =>
-  typeof element === 'string' ? (
-    <span key={1}>{element}</span>
-  ) : (
-    Children.only(element)
-  )
+  typeof element === 'string' ? <span key={1}>{element}</span> : Children.only(element)

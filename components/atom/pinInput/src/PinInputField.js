@@ -75,10 +75,7 @@ const PinInputField = forwardRef(({isFullWidth, ...props}, forwardedRef) => {
     }
   }
 
-  const inputModeMemoized = useMemo(
-    () => getInputMode({inputMode, mask}),
-    [mask, inputMode]
-  )
+  const inputModeMemoized = useMemo(() => getInputMode({inputMode, mask}), [mask, inputMode])
 
   return (
     <input

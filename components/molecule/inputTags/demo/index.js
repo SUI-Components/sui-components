@@ -16,8 +16,8 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Input Tags</H1>
       <Paragraph>
-        <Code>MoleculeInputTags</Code> is an <Code>AtomInput</Code> with the
-        behavior of adding/removing `AtomTag` as a list.
+        <Code>MoleculeInputTags</Code> is an <Code>AtomInput</Code> with the behavior of adding/removing `AtomTag` as a
+        list.
       </Paragraph>
       <ArticleDefault className={CLASS_DEMO_SECTION} />
       <br />

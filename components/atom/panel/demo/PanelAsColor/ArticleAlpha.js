@@ -17,16 +17,9 @@ const ArticleAlpha = ({className}) => {
         })}
       >
         {Object.values(atomPanelAlpha).map((alpha, idx) => (
-          <div
-            key={idx}
-            style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}
-          >
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
             <AtomPanel alpha={alpha} color={atomPanelColors.CONTRAST}>
-              <div
-                style={{height: '100px', width: '100px', lineHeight: '100px'}}
-              >
-                {alpha}
-              </div>
+              <div style={{height: '100px', width: '100px', lineHeight: '100px'}}>{alpha}</div>
             </AtomPanel>
           </div>
         ))}

@@ -7,18 +7,9 @@ export default (event, {type, onEnterKey}) => {
 
     // const allowedCharacter =
     //   /(^\d*$)|(Backspace|Tab|Delete|ArrowLeft|ArrowRight|Enter)/
-    const onEnterKeyArray = Array.isArray(onEnterKey)
-      ? onEnterKey
-      : [onEnterKey]
+    const onEnterKeyArray = Array.isArray(onEnterKey) ? onEnterKey : [onEnterKey]
     const allowedCharacter = new RegExp(
-      `(^\\d*$)|(${[
-        'Backspace',
-        'Tab',
-        'Delete',
-        'ArrowLeft',
-        'ArrowRight',
-        ...onEnterKeyArray
-      ].join('|')})`
+      `(^\\d*$)|(${['Backspace', 'Tab', 'Delete', 'ArrowLeft', 'ArrowRight', ...onEnterKeyArray].join('|')})`
     )
     return event.key.match(allowedCharacter)
   }

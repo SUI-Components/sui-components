@@ -2,14 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
 import MoleculeButtonGroup from '../../src/index.js'
@@ -36,9 +29,8 @@ const ArticleMode = ({className}) => {
     <Article className={className}>
       <H2>Mode</H2>
       <Paragraph>
-        The Button group can take profit of the value and the "selected" toggle
-        button for its behavior acting as a single selection mode (radio button
-        group) or a multi selection mode (checkbox group)
+        The Button group can take profit of the value and the "selected" toggle button for its behavior acting as a
+        single selection mode (radio button group) or a multi selection mode (checkbox group)
       </Paragraph>
       <Grid gutter={[8, 8]} cols={2}>
         <Cell>

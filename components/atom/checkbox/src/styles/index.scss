@@ -129,14 +129,7 @@ $class-icon: '#{$base-class}--Icon';
       &:checked {
         &::before {
           transform: scale(1);
-          clip-path: polygon(
-            10% 40%,
-            0% 55%,
-            50% 90%,
-            100% 10%,
-            85% 0%,
-            46% 65%
-          );
+          clip-path: polygon(10% 40%, 0% 55%, 50% 90%, 100% 10%, 85% 0%, 46% 65%);
         }
       }
       &:indeterminate {

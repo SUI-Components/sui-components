@@ -18,8 +18,7 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Checkbox</H1>
       <Paragraph>
-        The Checkbox component is used in forms when a user needs to select
-        multiple values from several options.
+        The Checkbox component is used in forms when a user needs to select multiple values from several options.
       </Paragraph>
       <ArticleDefault className={CLASS_SECTION} />
       <br />

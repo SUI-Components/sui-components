@@ -26,12 +26,7 @@ const ArticleCustomHeight = ({className, icon, showText, hideText, height}) => {
               maxWidth: 400
             }}
           >
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-              height={height}
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} height={height}>
               <Text />
             </MoleculeCollapsible>
           </div>

@@ -39,12 +39,7 @@ const applyRule = (node, addProps) => {
   )
 }
 
-const ReMountDebounced = ({
-  observe = [],
-  timeout = 100,
-  fallback = null,
-  children
-}) => {
+const ReMountDebounced = ({observe = [], timeout = 100, fallback = null, children}) => {
   const [isFiltering, setIsFiltering] = useState(false)
   useDebounce(() => setIsFiltering(false), timeout, [...observe])
   useEffect(() => {

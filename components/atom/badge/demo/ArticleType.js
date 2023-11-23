@@ -10,8 +10,7 @@ const ArticleType = ({className}) => {
       <H2>Type</H2>
       <div>
         <Paragraph>
-          These are the available <Code>types</Code> of badges, which are solid
-          by default.
+          These are the available <Code>types</Code> of badges, which are solid by default.
         </Paragraph>
         <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
         <AtomBadge label="error" type={atomBadgeTypes.ERROR} />

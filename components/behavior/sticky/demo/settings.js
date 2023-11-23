@@ -21,5 +21,4 @@ export const COLORS = {
   I: '#fffffc20'
 }
 
-export const getLoremParagraphs = (n, count) =>
-  new Array(n).fill().map(() => loremIpsum({count, units: 'words'}))
+export const getLoremParagraphs = (n, count) => new Array(n).fill().map(() => loremIpsum({count, units: 'words'}))

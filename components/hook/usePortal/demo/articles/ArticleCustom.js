@@ -10,8 +10,8 @@ const ArticleCustom = ({className}) => {
     <Article className={className}>
       <H2>Custom</H2>
       <Paragraph>
-        You can use the hook defining custom event handlers to extend its
-        functionalities to may other ways like creating tooltips.
+        You can use the hook defining custom event handlers to extend its functionalities to may other ways like
+        creating tooltips.
       </Paragraph>
       <Button {...bind}>button hovered</Button>
       <Tooltip className="sui-DemoTooltip">

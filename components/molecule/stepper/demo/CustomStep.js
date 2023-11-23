@@ -4,18 +4,7 @@ import {naturalNumber} from '../src/prop-types.js'
 import {ALIGNMENT, DESIGN} from '../src/settings.js'
 import DefaultStep from '../src/Step/DefaultStep.js'
 
-const CustomStep = ({
-  alignment,
-  design,
-  label,
-  step,
-  steps,
-  current,
-  visited,
-  icon,
-  visitedIcon,
-  currentIcon
-}) => {
+const CustomStep = ({alignment, design, label, step, steps, current, visited, icon, visitedIcon, currentIcon}) => {
   return (
     <DefaultStep
       alignment={alignment}

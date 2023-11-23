@@ -9,8 +9,7 @@ const ArticleScrollable = ({className, items}) => {
     <Article className={className}>
       <H2>Scrollable</H2>
       <Paragraph>
-        Breadcrumb can avoid the line break using the <Code>isScrollable</Code>{' '}
-        boolean prop.
+        Breadcrumb can avoid the line break using the <Code>isScrollable</Code> boolean prop.
       </Paragraph>
       <MoleculeBreadcrumb items={items} isScrollable />
     </Article>
@@ -21,9 +20,7 @@ ArticleScrollable.displayName = 'ArticleScrollable'
 
 ArticleScrollable.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({label: PropTypes.string, url: PropTypes.string})
-  )
+  items: PropTypes.arrayOf(PropTypes.shape({label: PropTypes.string, url: PropTypes.string}))
 }
 
 export default ArticleScrollable

@@ -7,11 +7,7 @@ import AtomIcon from './Icon.js'
 export default function LazyIcon({children, ...restOfProps}) {
   const [isIntersecting, outerRef] = useNearScreen()
 
-  return (
-    <AtomIcon {...restOfProps}>
-      {isIntersecting ? children : <svg ref={outerRef} />}
-    </AtomIcon>
-  )
+  return <AtomIcon {...restOfProps}>{isIntersecting ? children : <svg ref={outerRef} />}</AtomIcon>
 }
 
 LazyIcon.propTypes = {

@@ -28,10 +28,7 @@ export const pressedValue = ({checked, indeterminate}) => {
   return 'false'
 }
 
-export const getIsNative = (
-  {checked, indeterminate},
-  {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon}
-) => {
+export const getIsNative = ({checked, indeterminate}, {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon}) => {
   if (checked && !CheckedIcon && !Icon) return true
   else if (!checked && indeterminate && !IndeterminateIcon && !Icon) return true
   else if (!checked && !indeterminate && !UncheckedIcon && !Icon) return true
@@ -48,10 +45,7 @@ export const getReadOnly = ({readOnly, disabled, isNative}) => {
   return {}
 }
 
-export const getIcon = (
-  {isNative, checked, indeterminate},
-  {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon}
-) => {
+export const getIcon = ({isNative, checked, indeterminate}, {CheckedIcon, UncheckedIcon, IndeterminateIcon, Icon}) => {
   if (isNative) {
     return null
   }
@@ -66,10 +60,7 @@ export const getIcon = (
   return ResultingIcon
 }
 
-export const updateStatus = (
-  element,
-  {isIndeterminate = false, isChecked = false}
-) => {
+export const updateStatus = (element, {isIndeterminate = false, isChecked = false}) => {
   if (!element) {
     return
   }

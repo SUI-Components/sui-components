@@ -24,8 +24,8 @@ export default () => {
       <Paragraph>
         Telephone type input with prefixes in a dropdown.
         <strong>
-          PhoneInput checks if the number's prefix matches a landline format and
-          formats it accordingly for mobile or landline use.
+          PhoneInput checks if the number's prefix matches a landline format and formats it accordingly for mobile or
+          landline use.
         </strong>
       </Paragraph>
 

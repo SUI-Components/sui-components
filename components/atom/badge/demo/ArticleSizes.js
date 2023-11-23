@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomBadge, {atomBadgeSizes} from '../src/index.js'
 

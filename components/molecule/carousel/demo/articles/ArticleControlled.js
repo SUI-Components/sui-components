@@ -2,14 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
 import MoleculeCarousel from '../../src/index.js'
 
@@ -25,17 +18,12 @@ const ArticleControlled = ({className}) => {
     <Article className={className}>
       <H2>Controlled</H2>
       <Paragraph>
-        Take control of visible element using the <Code>slide</Code> (number)
-        prop
+        Take control of visible element using the <Code>slide</Code> (number) prop
       </Paragraph>
       <div>
         <RadioButtonGroup value={index} onChange={handleOnChange}>
           {new Array(4).fill('').map((_, currentIndex) => (
-            <RadioButton
-              checked={index === currentIndex}
-              label={`${currentIndex}`}
-              value={currentIndex}
-            />
+            <RadioButton checked={index === currentIndex} label={`${currentIndex}`} value={currentIndex} />
           ))}
         </RadioButtonGroup>
       </div>
@@ -48,22 +36,10 @@ const ArticleControlled = ({className}) => {
         onNext={handle('onNext')}
         onSlide={handle('onSlide')}
       >
-        <img
-          alt="1"
-          src="https://via.placeholder.com/300x90/808080/000000?text=Item 1"
-        />
-        <img
-          alt="2"
-          src="https://via.placeholder.com/300x80/808080/000000?text=Item 2"
-        />
-        <img
-          alt="3"
-          src="https://via.placeholder.com/300x100/808080/000000?text=Item 3"
-        />
-        <img
-          alt="4"
-          src="https://via.placeholder.com/300x80/808080/000000?text=Item 4"
-        />
+        <img alt="1" src="https://via.placeholder.com/300x90/808080/000000?text=Item 1" />
+        <img alt="2" src="https://via.placeholder.com/300x80/808080/000000?text=Item 2" />
+        <img alt="3" src="https://via.placeholder.com/300x100/808080/000000?text=Item 3" />
+        <img alt="4" src="https://via.placeholder.com/300x80/808080/000000?text=Item 4" />
       </MoleculeCarousel>
     </Article>
   )

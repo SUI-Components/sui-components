@@ -19,8 +19,8 @@ const ArticleDefault = ({className}) => {
       <Paragraph>Default style of InputComponent.</Paragraph>
       <PinInput onChangeHandler={onChangeHandler} defaultValue={code} />
       <Paragraph>
-        By default, it sets autocomplete="on-time-code" to its inner input
-        fields by the default true bolean prop <Code>isOneTimeCode</Code>.
+        By default, it sets autocomplete="on-time-code" to its inner input fields by the default true bolean prop{' '}
+        <Code>isOneTimeCode</Code>.
       </Paragraph>
     </Article>
   )

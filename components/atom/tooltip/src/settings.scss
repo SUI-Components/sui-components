@@ -15,14 +15,12 @@ $pt-atom-tooltip: $p-m !default;
 $pr-atom-tooltip: $p-m !default;
 $pb-atom-tooltip: $p-m !default;
 $pl-atom-tooltip: $p-m !default;
-$p-atom-tooltip: $pt-atom-tooltip $pr-atom-tooltip $pb-atom-tooltip
-  $pl-atom-tooltip !default;
+$p-atom-tooltip: $pt-atom-tooltip $pr-atom-tooltip $pb-atom-tooltip $pl-atom-tooltip !default;
 $mt-atom-tooltip: $m-m !default;
 $mb-atom-tooltip: $m-m !default;
 $ml-atom-tooltip: $m-m !default;
 $mr-atom-tooltip: $m-m !default;
-$m-atom-tooltip: $mt-atom-tooltip $mr-atom-tooltip $mb-atom-tooltip
-  $ml-atom-tooltip !default;
+$m-atom-tooltip: $mt-atom-tooltip $mr-atom-tooltip $mb-atom-tooltip $ml-atom-tooltip !default;
 $ta-atom-tooltip: left !default;
 $z-atom-tooltip: 1070 !default;
 

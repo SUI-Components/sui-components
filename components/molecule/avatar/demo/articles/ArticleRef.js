@@ -16,10 +16,7 @@ const ArticleRef = ({className}) => {
   return (
     <Article className={className}>
       <H2>forwardRef</H2>
-      <Paragraph>
-        The component is forward referenced so you can access easily to its
-        reference
-      </Paragraph>
+      <Paragraph>The component is forward referenced so you can access easily to its reference</Paragraph>
       <MoleculeAvatar ref={ref} />
       <br />
       <br />

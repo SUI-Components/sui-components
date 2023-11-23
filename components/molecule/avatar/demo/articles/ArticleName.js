@@ -12,9 +12,8 @@ const ArticleName = ({className}) => {
     <Article className={className}>
       <H2>Name</H2>
       <Paragraph>
-        Avatars containing simple characters can be created by passing a string
-        to the <Code>name</Code> prop. It will add the first characters of the 2
-        first words in capital letters.
+        Avatars containing simple characters can be created by passing a string to the <Code>name</Code> prop. It will
+        add the first characters of the 2 first words in capital letters.
       </Paragraph>
       <Input
         value={name}

@@ -6,14 +6,7 @@ import {getAttributes} from './settings.js'
 
 const AtomIcon = ({as, className, children, outerRef, title, ...props}) => {
   return (
-    <Poly
-      as={as}
-      className={className}
-      title={title}
-      ref={outerRef}
-      {...getAttributes(title)}
-      {...props}
-    >
+    <Poly as={as} className={className} title={title} ref={outerRef} {...getAttributes(title)} {...props}>
       {children}
     </Poly>
   )

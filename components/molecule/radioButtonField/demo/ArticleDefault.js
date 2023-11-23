@@ -2,14 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  Input,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, Input, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
 import MoleculeRadioButtonField from '../src/index.js'
 
@@ -20,9 +13,8 @@ const ArticleDefault = ({className, ...props}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        MoleculeRadioButtonField blends the RadioButton with the Field. User can
-        provide a <Code>label</Code> text that will appear surrounding the
-        radioButton element. This field element preserves its value under the{' '}
+        MoleculeRadioButtonField blends the RadioButton with the Field. User can provide a <Code>label</Code> text that
+        will appear surrounding the radioButton element. This field element preserves its value under the{' '}
         <Code>checked</Code> boolean prop.
       </Paragraph>
       <Input value={text} onChange={event => setText(event.target.value)} />
@@ -37,13 +29,9 @@ const ArticleDefault = ({className, ...props}) => {
       <br />
       <MoleculeRadioButtonField label={text} checked={checked} />
       <Paragraph>
-        You can also provide a node element as a label using the{' '}
-        <Code>nodeLabel</Code> (reactNode) prop.
+        You can also provide a node element as a label using the <Code>nodeLabel</Code> (reactNode) prop.
       </Paragraph>
-      <MoleculeRadioButtonField
-        nodeLabel={<Paragraph>nodeLabel paragraph</Paragraph>}
-        checked={checked}
-      />
+      <MoleculeRadioButtonField nodeLabel={<Paragraph>nodeLabel paragraph</Paragraph>} checked={checked} />
     </Article>
   )
 }

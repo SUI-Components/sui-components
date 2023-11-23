@@ -2,13 +2,7 @@ import PropTypes from 'prop-types'
 
 import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
-import {
-  ALPHA,
-  BORDER_RADIUS,
-  COLORS,
-  ELEVATION,
-  getClassNames
-} from './constants.js'
+import {ALPHA, BORDER_RADIUS, COLORS, ELEVATION, getClassNames} from './constants.js'
 
 const ColorPanel = function ({
   as = 'div',
@@ -19,11 +13,7 @@ const ColorPanel = function ({
   ...otherProps
 }) {
   return (
-    <PolymorphicElement
-      as={as}
-      id={id}
-      className={getClassNames({alpha, color, ...otherProps})}
-    >
+    <PolymorphicElement as={as} id={id} className={getClassNames({alpha, color, ...otherProps})}>
       {children}
     </PolymorphicElement>
   )

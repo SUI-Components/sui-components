@@ -21,8 +21,7 @@ const useTimeLimitCheck = ({timeLimit, timeOffset}) => {
 
       checkTimeLimitInterval.current = setInterval(() => {
         player.current.getCurrentTime().then(currentTime => {
-          const isTimeLimitReached =
-            currentTime >= timeLimit && timeLimit !== undefined
+          const isTimeLimitReached = currentTime >= timeLimit && timeLimit !== undefined
 
           if (isTimeLimitReached) {
             player.current.pause()

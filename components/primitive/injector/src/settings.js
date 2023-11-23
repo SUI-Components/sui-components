@@ -7,27 +7,20 @@ import PrimitiveInjector from './index.js'
 
 const isUpperCaseChar = char => char.length === 1 && char === char.toUpperCase()
 const isFunction = handler => typeof handler === 'function'
-const isHandler = propKey =>
-  propKey.startsWith('on') && isUpperCaseChar(propKey['on'.length])
+const isHandler = propKey => propKey.startsWith('on') && isUpperCaseChar(propKey['on'.length])
 
 export const combineHandler =
   (...handlers) =>
   (...args) =>
     handlers.filter(isFunction).forEach(handler => handler(...args))
 
-export const combineHandlers = (
-  ownProps,
-  childProps,
-  cHandler = combineHandler
-) =>
+export const combineHandlers = (ownProps, childProps, cHandler = combineHandler) =>
   Object.keys({...ownProps, ...childProps})
     .filter(isHandler)
     .reduce(
       (response, currentKey, index, combinedKeys) => ({
         ...response,
-        [currentKey]: cHandler(
-          ...[ownProps[currentKey], childProps[currentKey]].filter(isFunction)
-        )
+        [currentKey]: cHandler(...[ownProps[currentKey], childProps[currentKey]].filter(isFunction))
       }),
       {}
     )
@@ -47,12 +40,7 @@ export const combineClassNames = (...classNames) => cx(...classNames)
 export const combineProps = (
   {className: ownClassNames, style: ownStyle = {}, ...ownProps},
   {className: childClassNames, style: childStyle = {}, ...childProps},
-  {
-    combineHandlers: cHandlers,
-    combineStyles: cStyles,
-    combineClassNames: cClassNames,
-    combineHandler: cHandler
-  } = {
+  {combineHandlers: cHandlers, combineStyles: cStyles, combineClassNames: cClassNames, combineHandler: cHandler} = {
     combineHandler,
     combineHandlers,
     combineStyles,
@@ -76,22 +64,10 @@ export const inject = (children, settings = []) =>
     if (!isValidElement(child)) {
       return child
     } else if (isFragment(child)) {
-      return cloneElement(
-        child,
-        child?.props,
-        inject(child?.props.children, settings)
-      )
+      return cloneElement(child, child?.props, inject(child?.props.children, settings))
     } else if (child?.type === PrimitiveInjector) {
-      const {
-        proviso = () => true,
-        combine = combineProps,
-        children,
-        ...otherProps
-      } = child?.props || {}
-      return inject(children, [
-        {proviso, combine, props: otherProps},
-        ...settings
-      ])
+      const {proviso = () => true, combine = combineProps, children, ...otherProps} = child?.props || {}
+      return inject(children, [{proviso, combine, props: otherProps}, ...settings])
     } else {
       return cloneElement(
         child,

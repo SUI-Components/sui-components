@@ -10,8 +10,7 @@ const ArticleClassName = ({className}) => {
     <Article className={className}>
       <H2>className</H2>
       <Paragraph>
-        Injector will preserve every existing children className prop appending
-        the given prop to all of them.
+        Injector will preserve every existing children className prop appending the given prop to all of them.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0}}>
         <Injector className="injectorClassName">

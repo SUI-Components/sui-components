@@ -23,9 +23,7 @@ const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <H1>Slider</H1>
-      <Paragraph>
-        Component that works as an input that provides a slider a number
-      </Paragraph>
+      <Paragraph>Component that works as an input that provides a slider a number</Paragraph>
       <ArticleSliderDefault className={CLASS_SECTION} />
       <br />
       <ArticleSliderControlledState className={CLASS_SECTION} />
@@ -46,10 +44,7 @@ const Demo = () => {
       <br />
       <ArticleSliderFullWidth className={CLASS_SECTION} />
       <H1>Range</H1>
-      <Paragraph>
-        Component that works as an input that provides a slider a set of two
-        numbers (range)
-      </Paragraph>
+      <Paragraph>Component that works as an input that provides a slider a set of two numbers (range)</Paragraph>
       <ArticleRangeDefault className={CLASS_SECTION} />
       <br />
       <ArticleRangeControlledState className={CLASS_SECTION} />

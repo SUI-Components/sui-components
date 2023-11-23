@@ -4,9 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {inputSizes, inputTypes} from '@s-ui/react-atom-input'
-import MoleculeDropdownList, {
-  moleculeDropdownListDesigns
-} from '@s-ui/react-molecule-dropdown-list'
+import MoleculeDropdownList, {moleculeDropdownListDesigns} from '@s-ui/react-molecule-dropdown-list'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
@@ -43,9 +41,7 @@ export default function MoleculePhoneInput({
   const modalRef = useRef(null)
   const inputPrefixRef = useRef(null)
   const inputMask = selectedPrefix && {
-    mask: isLandLine
-      ? selectedPrefix.mask.landlineMask
-      : selectedPrefix.mask.mobileMask
+    mask: isLandLine ? selectedPrefix.mask.landlineMask : selectedPrefix.mask.mobileMask
   }
   const visiblePrefixes = visiblePrefixesProp && prefixes.length > 1
 
@@ -114,11 +110,7 @@ export default function MoleculePhoneInput({
           {visiblePrefixes && (showDropdown ? dropdownCloseIcon : dropdownIcon)}
         </div>
         <div className={`${baseClass}-input-phoneContainer`}>
-          {selectedPrefix && (
-            <p className={`${baseClass}-input-prefix-code`}>
-              {selectedPrefix.countryCode}
-            </p>
-          )}
+          {selectedPrefix && <p className={`${baseClass}-input-prefix-code`}>{selectedPrefix.countryCode}</p>}
           <MoleculeInputField
             {...{
               ...props,
@@ -141,11 +133,7 @@ export default function MoleculePhoneInput({
       </div>
       {showDropdown && visiblePrefixes && (
         <div className={`${baseClass}-dropdown`}>
-          <MoleculeDropdownList
-            design={moleculeDropdownListDesigns.FLAT}
-            ref={modalRef}
-            visible={visiblePrefixes}
-          >
+          <MoleculeDropdownList design={moleculeDropdownListDesigns.FLAT} ref={modalRef} visible={visiblePrefixes}>
             {prefixes.map(prefix => {
               return (
                 <MoleculeDropdownOption
@@ -164,12 +152,8 @@ export default function MoleculePhoneInput({
                       className={`${baseClass}-dropdown-option-label`}
                       src={prefix.flag}
                     />
-                    <span className={`${baseClass}-dropdown-option-label`}>
-                      {prefix.label}
-                    </span>
-                    <span className={`${baseClass}-dropdown-option-code`}>
-                      ({prefix.countryCode})
-                    </span>
+                    <span className={`${baseClass}-dropdown-option-label`}>{prefix.label}</span>
+                    <span className={`${baseClass}-dropdown-option-code`}>({prefix.countryCode})</span>
                   </div>
                 </MoleculeDropdownOption>
               )

@@ -4,11 +4,7 @@ import PropTypes from 'prop-types'
 import {Article, Cell, Grid, H1, H2, H3} from '@s-ui/documentation-library'
 import Spinner from '@s-ui/react-atom-spinner'
 
-import MoleculeThumbnail, {
-  moleculeThumbnailRatio,
-  moleculeThumbnailShape,
-  moleculeThumbnailSize
-} from '../src/index.js'
+import MoleculeThumbnail, {moleculeThumbnailRatio, moleculeThumbnailShape, moleculeThumbnailSize} from '../src/index.js'
 
 const Demo = ({children}) => {
   return <div style={{width: '100%', padding: 20}}>{children}</div>
@@ -29,8 +25,7 @@ DemoWrapper.propTypes = {
 const IMAGES = {
   FINAL: 'https://picsum.photos/4000?image=980',
   PLACEHOLDER: 'https://picsum.photos/50?image=980',
-  SKELETON:
-    'https://cdn1.iconfinder.com/data/icons/online-wireframes/32/Wireframe_Photo_Album_Picture-256.png',
+  SKELETON: 'https://cdn1.iconfinder.com/data/icons/online-wireframes/32/Wireframe_Photo_Album_Picture-256.png',
   BAD: 'https://pic__sum.pho__tos/50?image=980'
 }
 
@@ -45,10 +40,7 @@ const ImageNotFoundIcon = () => {
 const defaultErrorText = 'Image not found'
 
 export default () => {
-  const renderSizes = (
-    ratio = moleculeThumbnailRatio['1:1'],
-    shape = moleculeThumbnailShape.SQUARED
-  ) => (
+  const renderSizes = (ratio = moleculeThumbnailRatio['1:1'], shape = moleculeThumbnailShape.SQUARED) => (
     <Grid cols={4}>
       {Object.keys(moleculeThumbnailSize).map((label, idx) => (
         <Cell key={`render-sizes-${ratio}-${idx}`}>
@@ -159,10 +151,7 @@ export default () => {
           <br />
           <Article>
             <H2>Circled & ratio 1:1</H2>
-            {renderSizes(
-              moleculeThumbnailRatio['1:1'],
-              moleculeThumbnailShape.CIRCLED
-            )}
+            {renderSizes(moleculeThumbnailRatio['1:1'], moleculeThumbnailShape.CIRCLED)}
           </Article>
           <br />
           <Article>

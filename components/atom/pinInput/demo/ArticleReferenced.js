@@ -2,15 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import PinInput from '../src/index.js'
 
@@ -25,8 +17,8 @@ const ArticleReferenced = ({className}) => {
     <Article className={className}>
       <H2>Forward Referenced</H2>
       <Paragraph>
-        PinInput value is readed from a hidden input to get the full result of
-        the value and to be able to access it without having to transform data.
+        PinInput value is readed from a hidden input to get the full result of the value and to be able to access it
+        without having to transform data.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell span={2}>

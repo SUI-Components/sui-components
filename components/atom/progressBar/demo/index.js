@@ -11,8 +11,7 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Progress Bar</H1>
       <Paragraph>
-        A Progress bar is a visual representation of a specified wait time or
-        the current status of a process.
+        A Progress bar is a visual representation of a specified wait time or the current status of a process.
       </Paragraph>
       <ArticleTypes className={CLASS_SECTION} />
       <br />

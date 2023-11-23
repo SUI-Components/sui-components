@@ -4,11 +4,7 @@ import PropTypes from 'prop-types'
 import {LINE_CAPS, SIZES, STATUS} from '../settings.js'
 import Circle from './Circle/index.js'
 import Indicator from './Indicator.js'
-import {
-  BASE_CLASS_NAME,
-  SIZE_TO_WIDTH_LINE_MAP,
-  STROKE_SIZE_MAP
-} from './settings.js'
+import {BASE_CLASS_NAME, SIZE_TO_WIDTH_LINE_MAP, STROKE_SIZE_MAP} from './settings.js'
 
 const ProgressBarCircle = ({
   percentage,
@@ -22,19 +18,11 @@ const ProgressBarCircle = ({
   progressStrokeSize,
   strokeLineCap
 }) => {
-  const mainStrokeWidth =
-    STROKE_SIZE_MAP[mainStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
-  const progressStrokeWidth =
-    STROKE_SIZE_MAP[progressStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
+  const mainStrokeWidth = STROKE_SIZE_MAP[mainStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
+  const progressStrokeWidth = STROKE_SIZE_MAP[progressStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
 
   return (
-    <div
-      className={cx(
-        BASE_CLASS_NAME,
-        `${BASE_CLASS_NAME}--${size}`,
-        `${BASE_CLASS_NAME}--${status}`
-      )}
-    >
+    <div className={cx(BASE_CLASS_NAME, `${BASE_CLASS_NAME}--${size}`, `${BASE_CLASS_NAME}--${status}`)}>
       <Circle
         baseClassName={BASE_CLASS_NAME}
         mainStrokeWidth={mainStrokeWidth}
@@ -46,12 +34,7 @@ const ProgressBarCircle = ({
         withAnimation={isAnimatedOnChange}
       />
       {!hideIndicator && (
-        <Indicator
-          percentage={percentage}
-          size={size}
-          status={status}
-          errorIcon={errorIcon}
-        >
+        <Indicator percentage={percentage} size={size} status={status} errorIcon={errorIcon}>
           {children}
         </Indicator>
       )}

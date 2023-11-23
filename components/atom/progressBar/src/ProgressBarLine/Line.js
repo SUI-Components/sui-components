@@ -1,12 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {
-  BASE_CLASS_EXTRA_LINE,
-  BASE_CLASS_EXTRA_LINE_ANIMATED,
-  BASE_CLASS_LINE,
-  CLASS_BAR_ANIMATED
-} from './settings.js'
+import {BASE_CLASS_EXTRA_LINE, BASE_CLASS_EXTRA_LINE_ANIMATED, BASE_CLASS_LINE, CLASS_BAR_ANIMATED} from './settings.js'
 
 const Line = ({isAnimatedOnChange, percentage, className, isExtra}) => (
   <span

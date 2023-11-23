@@ -14,11 +14,7 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import AtomProgressBar, {
-  atomProgressBarSizes,
-  atomProgressBarStatus,
-  atomProgressBarTypes
-} from '../../src/index.js'
+import AtomProgressBar, {atomProgressBarSizes, atomProgressBarStatus, atomProgressBarTypes} from '../../src/index.js'
 import {getShuffledValue} from '../settings.js'
 
 const ArticleLinearDoubleDefault = ({className}) => {
@@ -52,10 +48,7 @@ const ArticleLinearDoubleDefault = ({className}) => {
         </Cell>
         <Cell span={2}>
           <Button onClick={() => setValue(getShuffledValue())}>
-            <AntDesignIcon
-              icon="AiOutlineRetweet"
-              style={{fill: 'currentColor'}}
-            />
+            <AntDesignIcon icon="AiOutlineRetweet" style={{fill: 'currentColor'}} />
           </Button>
         </Cell>
         <Cell>
@@ -108,32 +101,22 @@ const ArticleLinearDoubleDefault = ({className}) => {
           <Label>size</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={status}
-            onChange={(event, value) => setStatus(value)}
-          >
-            {[
-              ['undefined', undefined],
-              ...Object.entries(atomProgressBarStatus)
-            ].map(([, atomProgressBarStatusValue]) => (
-              <RadioButton
-                key={`${atomProgressBarStatusValue}`}
-                label={`${atomProgressBarStatusValue}`}
-                value={atomProgressBarStatusValue}
-                checked={status === atomProgressBarStatusValue}
-              />
-            ))}
+          <RadioButtonGroup value={status} onChange={(event, value) => setStatus(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarStatus)].map(
+              ([, atomProgressBarStatusValue]) => (
+                <RadioButton
+                  key={`${atomProgressBarStatusValue}`}
+                  label={`${atomProgressBarStatusValue}`}
+                  value={atomProgressBarStatusValue}
+                  checked={status === atomProgressBarStatusValue}
+                />
+              )
+            )}
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={size}
-            onChange={(event, value) => setSize(value)}
-          >
-            {[
-              ['undefined', undefined],
-              ...Object.entries(atomProgressBarSizes)
-            ].map(([, atomProgressBarSizeValue]) => (
+          <RadioButtonGroup value={size} onChange={(event, value) => setSize(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarSizes)].map(([, atomProgressBarSizeValue]) => (
               <RadioButton
                 key={`${atomProgressBarSizeValue}`}
                 label={`${atomProgressBarSizeValue}`}

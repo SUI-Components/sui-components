@@ -35,11 +35,7 @@ function getTouchCoordinatesFromEvent(e) {
 function getTranslationCSS(duration, ease, index, x, percentatge) {
   const easeCssText = ease !== '' ? `transition-timing-function: ${ease};` : ''
   const durationCssText = duration ? `transition-duration: ${duration}ms;` : ''
-  return `${easeCssText}${durationCssText}transform: ${translate(
-    index,
-    x,
-    percentatge
-  )};`
+  return `${easeCssText}${durationCssText}transform: ${translate(index, x, percentatge)};`
 }
 
 function cleanContainer(container) {
@@ -90,13 +86,7 @@ export default function slidy(containerDOMEl, options) {
    */
   function _translate(duration, ease = '', x = 0) {
     const percentatge = 100 / numOfSlides
-    slidesDOMEl.style.cssText = getTranslationCSS(
-      duration,
-      ease,
-      index,
-      x,
-      percentatge
-    )
+    slidesDOMEl.style.cssText = getTranslationCSS(duration, ease, index, x, percentatge)
   }
 
   /**
@@ -180,9 +170,7 @@ export default function slidy(containerDOMEl, options) {
        * @isOutOfBounds {Boolean}
        */
       const direction = deltaX < 0
-      const isOutOfBounds =
-        (direction === false && index === 0) ||
-        (direction === true && index === items - 1)
+      const isOutOfBounds = (direction === false && index === 0) || (direction === true && index === items - 1)
 
       /**
        * If the swipe is valid and we're not out of bounds or is infiniteLoop
@@ -283,11 +271,7 @@ export default function slidy(containerDOMEl, options) {
    */
   function destroy() {
     // remove all touch listeners
-    containerDOMEl.removeEventListener(
-      'touchstart',
-      onTouchstart,
-      EVENT_OPTIONS
-    )
+    containerDOMEl.removeEventListener('touchstart', onTouchstart, EVENT_OPTIONS)
     containerDOMEl.removeEventListener('touchmove', onTouchmove, EVENT_OPTIONS)
     containerDOMEl.removeEventListener('touchend', onTouchend, EVENT_OPTIONS)
     // remove transition listeners

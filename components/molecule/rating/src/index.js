@@ -3,14 +3,7 @@ import PropTypes from 'prop-types'
 
 import Star from './components/Star.js'
 import StarHover from './components/StarHover.js'
-import {
-  BASE_CLASS,
-  CLASS_CONTAINER_STARS,
-  CLASS_LABEL,
-  CLASS_LABEL_LINK,
-  CLASS_LINK,
-  SIZES
-} from './settings.js'
+import {BASE_CLASS, CLASS_CONTAINER_STARS, CLASS_LABEL, CLASS_LABEL_LINK, CLASS_LINK, SIZES} from './settings.js'
 
 const MoleculeRating = ({
   iconStar,
@@ -33,12 +26,7 @@ const MoleculeRating = ({
   })
 
   const labelLink = href ? (
-    <Link
-      className={CLASS_LABEL_LINK}
-      href={href}
-      target={target}
-      rel={target === '_blank' ? 'noopener' : undefined}
-    >
+    <Link className={CLASS_LABEL_LINK} href={href} target={target} rel={target === '_blank' ? 'noopener' : undefined}>
       {label}
     </Link>
   ) : (
@@ -51,15 +39,7 @@ const MoleculeRating = ({
         {!isHovered ? (
           new Array(numStars)
             .fill(0)
-            .map((_, index) => (
-              <Star
-                size={size}
-                key={index}
-                index={index}
-                value={value}
-                {...props}
-              />
-            ))
+            .map((_, index) => <Star size={size} key={index} index={index} value={value} {...props} />)
         ) : (
           <StarHover
             iconStar={iconStar}

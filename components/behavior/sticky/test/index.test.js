@@ -27,12 +27,7 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'BehaviorStickyScrollUp',
-      'BehaviorStickyProvider',
-      'BehaviorSticky',
-      'default'
-    ]
+    const libraryExportedMembers = ['BehaviorStickyScrollUp', 'BehaviorStickyProvider', 'BehaviorSticky', 'default']
 
     // When
     const {

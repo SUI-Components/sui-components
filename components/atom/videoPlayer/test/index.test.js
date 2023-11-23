@@ -88,9 +88,7 @@ describe('AtomVideoPlayer', () => {
       // Then
       const iframeNode = await component.findByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://www.youtube.com/embed/1gI_HGDgG7c'
-      )
+      expect(iframeNode.src).to.include('https://www.youtube.com/embed/1gI_HGDgG7c')
     })
 
     it('should convert standard youtube urls to embedable urls', async () => {
@@ -105,9 +103,7 @@ describe('AtomVideoPlayer', () => {
       // Then
       const iframeNode = await component.findByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://www.youtube.com/embed/1gI_HGDgG7c'
-      )
+      expect(iframeNode.src).to.include('https://www.youtube.com/embed/1gI_HGDgG7c')
     })
 
     it('should convert shared videos urls to embedable urls', async () => {
@@ -122,9 +118,7 @@ describe('AtomVideoPlayer', () => {
       // Then
       const iframeNode = await component.findByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://www.youtube.com/embed/1gI_HGDgG7c'
-      )
+      expect(iframeNode.src).to.include('https://www.youtube.com/embed/1gI_HGDgG7c')
     })
 
     it('should convert readable-kind youtube urls to embeddable urls', async () => {
@@ -139,9 +133,7 @@ describe('AtomVideoPlayer', () => {
       // Then
       const iframeNode = await component.findByTitle(YOUTUBE_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://www.youtube.com/embed/1gI_HGDgG7c'
-      )
+      expect(iframeNode.src).to.include('https://www.youtube.com/embed/1gI_HGDgG7c')
     })
 
     it('should avoid displaying controls if controls prop is set to false', async () => {
@@ -251,9 +243,7 @@ describe('AtomVideoPlayer', () => {
       // Then
       const iframeNode = await component.findByTitle(VIMEO_DEFAULT_TITLE)
       // check that the iframe src is the embedable url
-      expect(iframeNode.src).to.include(
-        'https://player.vimeo.com/video/54289199'
-      )
+      expect(iframeNode.src).to.include('https://player.vimeo.com/video/54289199')
     })
 
     it('should avoid displaying controls if controls prop is set to false', async () => {

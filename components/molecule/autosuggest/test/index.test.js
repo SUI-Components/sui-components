@@ -28,11 +28,7 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'MoleculeAutosuggestDropdownListSizes',
-      'MoleculeAutosuggestStates',
-      'default'
-    ]
+    const libraryExportedMembers = ['MoleculeAutosuggestDropdownListSizes', 'MoleculeAutosuggestStates', 'default']
 
     // When
     const {
@@ -77,8 +73,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -110,9 +105,7 @@ describe(json.name, () => {
         const ref = createRef()
 
         // When
-        const component = (
-          <Component {...props} refMoleculeAutosuggestInput={ref} />
-        )
+        const component = <Component {...props} refMoleculeAutosuggestInput={ref} />
         const div = document.createElement('div')
         ReactDOM.render(component, div)
 
@@ -157,18 +150,7 @@ describe(json.name, () => {
 
     it('should NOT render options if there is no value', () => {
       // Given
-      const values = [
-        '1a',
-        '1b',
-        '1c',
-        '1d',
-        '2a',
-        '2b',
-        '2c',
-        '3a',
-        '3b',
-        '4a'
-      ]
+      const values = ['1a', '1b', '1c', '1d', '2a', '2b', '2c', '3a', '3b', '4a']
       const props = {
         value: undefined,
         children: values.map(value => (
@@ -193,18 +175,7 @@ describe(json.name, () => {
 
     it('should render options if there is a value', () => {
       // Given
-      const values = [
-        '1a',
-        '1b',
-        '1c',
-        '1d',
-        '2a',
-        '2b',
-        '2c',
-        '3a',
-        '3b',
-        '4a'
-      ]
+      const values = ['1a', '1b', '1c', '1d', '2a', '2b', '2c', '3a', '3b', '4a']
       const props = {
         value: '1',
         children: values.map(value => (
@@ -235,18 +206,7 @@ describe(json.name, () => {
     })
     it('should render options even if there is NO option matching the value', () => {
       // Given
-      const values = [
-        '1a',
-        '1b',
-        '1c',
-        '1d',
-        '2a',
-        '2b',
-        '2c',
-        '3a',
-        '3b',
-        '4a'
-      ]
+      const values = ['1a', '1b', '1c', '1d', '2a', '2b', '2c', '3a', '3b', '4a']
       const props = {
         value: '5',
         children: values.map(value => (
@@ -278,18 +238,7 @@ describe(json.name, () => {
 
     it('should render options filtered if there is some options matching the value', () => {
       // Given
-      const values = [
-        '1a',
-        '1b',
-        '1c',
-        '1d',
-        '2a',
-        '2b',
-        '2c',
-        '3a',
-        '3b',
-        '4a'
-      ]
+      const values = ['1a', '1b', '1c', '1d', '2a', '2b', '2c', '3a', '3b', '4a']
       const props = {
         value: '2a',
         children: values.map(value => (
@@ -325,12 +274,7 @@ describe(json.name, () => {
           it('should change its inner value when typing', async () => {
             // Given
             const spy = sinon.spy()
-            const keyDownEvents = [
-              {key: 'a'},
-              {key: 's'},
-              {key: 'd'},
-              {key: 'f'}
-            ]
+            const keyDownEvents = [{key: 'a'}, {key: 's'}, {key: 'd'}, {key: 'f'}]
             const changeEvent = {target: {value: 'asdf'}}
             const values = [1, 2, 3]
             const props = {
@@ -349,9 +293,7 @@ describe(json.name, () => {
 
             // When
             const {getByRole, rerender} = setup(props)
-            keyDownEvents.forEach(keyDownEvent =>
-              fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
-            )
+            keyDownEvents.forEach(keyDownEvent => fireEvent.keyDown(getByRole('combobox'), keyDownEvent))
             fireEvent.change(getByRole('textbox'), changeEvent)
 
             // Then
@@ -362,9 +304,7 @@ describe(json.name, () => {
 
             rerender(<Component {...props} />)
 
-            expect(getByRole('textbox').value).to.equal(
-              changeEvent.target.value
-            )
+            expect(getByRole('textbox').value).to.equal(changeEvent.target.value)
             sinon.assert.called(spy)
           })
         })
@@ -373,12 +313,7 @@ describe(json.name, () => {
           it('should change its inner value when typing', async () => {
             // Given
             const spy = sinon.spy()
-            const keyDownEvents = [
-              {key: 'a'},
-              {key: 's'},
-              {key: 'd'},
-              {key: 'f'}
-            ]
+            const keyDownEvents = [{key: 'a'}, {key: 's'}, {key: 'd'}, {key: 'f'}]
             const changeEvent = {target: {value: 'asdf'}}
             const values = [1, 2, 3]
             const props = {
@@ -398,9 +333,7 @@ describe(json.name, () => {
 
             // When
             const {getByRole, rerender} = setup(props)
-            keyDownEvents.forEach(keyDownEvent =>
-              fireEvent.keyDown(getByRole('combobox'), keyDownEvent)
-            )
+            keyDownEvents.forEach(keyDownEvent => fireEvent.keyDown(getByRole('combobox'), keyDownEvent))
             fireEvent.change(getByRole('textbox'), changeEvent)
 
             // Then
@@ -411,9 +344,7 @@ describe(json.name, () => {
 
             rerender(<Component {...props} />)
 
-            expect(getByRole('textbox').value).to.equal(
-              changeEvent.target.value
-            )
+            expect(getByRole('textbox').value).to.equal(changeEvent.target.value)
             sinon.assert.called(spy)
           })
         })

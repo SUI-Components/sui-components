@@ -75,8 +75,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
 
   const handleChangeTags = (ev, {tags, value, ...args}) => {
     const isOpen = Boolean(value)
-    typeof onChangeTags === 'function' &&
-      onChangeTags(ev, {tags, value, ...args})
+    typeof onChangeTags === 'function' && onChangeTags(ev, {tags, value, ...args})
     typeof onToggle === 'function' && onToggle(ev, {isOpen})
     innerRefInput.current && innerRefInput.current.focus()
   }
@@ -145,7 +144,6 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   )
 }
 
-MoleculeAutosuggestFieldMultiSelection.displayName =
-  'MoleculeAutosuggestFieldMultiSelection'
+MoleculeAutosuggestFieldMultiSelection.displayName = 'MoleculeAutosuggestFieldMultiSelection'
 
 export default MoleculeAutosuggestFieldMultiSelection

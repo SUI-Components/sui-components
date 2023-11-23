@@ -6,13 +6,7 @@ import {Article, H2, H3} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
 import {MoleculeAutosuggestWithState} from '../config.js'
-import {
-  iconAlert,
-  iconClose,
-  iconError,
-  iconInfo,
-  iconSearch
-} from '../Icons/index.js'
+import {iconAlert, iconClose, iconError, iconInfo, iconSearch} from '../Icons/index.js'
 
 const ArticleSingleSelection = () => {
   return (
@@ -33,9 +27,7 @@ const ArticleSingleSelection = () => {
       <MoleculeAutosuggestWithState
         value="Luxembourg"
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         onClear={() => console.log('Clear pressed')}
         iconClear={iconClose}
       />
@@ -43,9 +35,7 @@ const ArticleSingleSelection = () => {
       <MoleculeAutosuggestWithState
         value="Luxembourg"
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         onClear={() => console.log('Clear pressed')}
         iconClear={iconClose}
         disabled
@@ -54,30 +44,20 @@ const ArticleSingleSelection = () => {
       <MoleculeAutosuggestWithState
         value="Luxembourg"
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         onClear={() => console.log('Clear pressed')}
         iconClear={iconClose}
         autoComplete="off"
       />
       <H3>With no clear icon</H3>
-      <MoleculeAutosuggestWithState
-        value="Luxembourg"
-        onChange={(_, {value}) => console.log(value)}
-      />
+      <MoleculeAutosuggestWithState value="Luxembourg" onChange={(_, {value}) => console.log(value)} />
       <H3>With no clear icon</H3>
-      <MoleculeAutosuggestWithState
-        value="Luxembourg"
-        onChange={(_, {value}) => console.log(value)}
-      />
+      <MoleculeAutosuggestWithState value="Luxembourg" onChange={(_, {value}) => console.log(value)} />
       <H3>with Success State</H3>
       <MoleculeAutosuggestWithState
         placeholder="Type a Country name..."
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         onClear={() => console.log('Clear pressed')}
         state={MoleculeAutosuggestStates.SUCCESS}
         iconClear={iconClose}
@@ -87,9 +67,7 @@ const ArticleSingleSelection = () => {
       <MoleculeAutosuggestWithState
         placeholder="Type a Country name..."
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         onClear={() => console.log('Clear pressed')}
         state={MoleculeAutosuggestStates.ERROR}
         iconClear={iconClose}
@@ -99,9 +77,7 @@ const ArticleSingleSelection = () => {
       <MoleculeAutosuggestWithState
         placeholder="Type a Country name..."
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         state={MoleculeAutosuggestStates.ALERT}
         onClear={() => console.log('Clear pressed')}
         iconClear={iconClose}
@@ -111,9 +87,7 @@ const ArticleSingleSelection = () => {
       <MoleculeAutosuggestWithState
         placeholder="Type a Country name..."
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         rightButton={<AtomButton>Submit</AtomButton>}
       />
       <H3>with Shape</H3>
@@ -121,9 +95,7 @@ const ArticleSingleSelection = () => {
         leftIcon={iconSearch}
         placeholder="Type a Country name..."
         onChange={(_, {value, ...args}) => console.log({value, ...args})}
-        onEnter={(_, {value, ...args} = {}) =>
-          console.log('onEnter', {value, ...args})
-        }
+        onEnter={(_, {value, ...args} = {}) => console.log('onEnter', {value, ...args})}
         onClear={() => console.log('Clear pressed')}
         iconClear={iconClose}
         shape="circle"

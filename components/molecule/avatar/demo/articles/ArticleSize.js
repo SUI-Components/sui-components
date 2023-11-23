@@ -1,16 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  ListItem,
-  Paragraph,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 import MoleculeAvatar, {MOLECULE_AVATAR_SIZES} from '../../src/index.js'
 
@@ -18,10 +8,7 @@ const ArticleSize = ({className}) => {
   return (
     <Article className={className}>
       <H2>Size</H2>
-      <Paragraph>
-        MoleculeAvatar provides {Object.keys(MOLECULE_AVATAR_SIZES).length}{' '}
-        different size values:
-      </Paragraph>
+      <Paragraph>MoleculeAvatar provides {Object.keys(MOLECULE_AVATAR_SIZES).length} different size values:</Paragraph>
       <UnorderedList>
         {Object.values(MOLECULE_AVATAR_SIZES)
           .reverse()
@@ -46,8 +33,7 @@ const ArticleSize = ({className}) => {
           ))}
       </Grid>
       <Paragraph>
-        All those values are accessible in <Code>MOLECULE_AVATAR_SIZES</Code>{' '}
-        enum.
+        All those values are accessible in <Code>MOLECULE_AVATAR_SIZES</Code> enum.
       </Paragraph>
     </Article>
   )

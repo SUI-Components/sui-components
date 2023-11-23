@@ -15,9 +15,8 @@ const Demo = () => (
   <main>
     <H1>Input Field</H1>
     <Paragraph>
-      The InputField component is an Input component wrapped with a Field. It
-      adds some more functionalities to a basic Input, such as a label text, a
-      caption and status behaviors.
+      The InputField component is an Input component wrapped with a Field. It adds some more functionalities to a basic
+      Input, such as a label text, a caption and status behaviors.
     </Paragraph>
     <WithPlaceholder />
     <br />
@@ -58,23 +57,14 @@ const WithPlaceholder = () => (
 const WithAddons = () => (
   <Article>
     <H2>With addons</H2>
-    <MoleculeInputFieldWithState
-      id="second"
-      leftAddon="http://"
-      rightAddon="@schibsted.com"
-      label="Description"
-    />
+    <MoleculeInputFieldWithState id="second" leftAddon="http://" rightAddon="@schibsted.com" label="Description" />
   </Article>
 )
 
 const WithHelpText = () => (
   <Article>
     <H2>With Information HelpText</H2>
-    <MoleculeInputFieldWithState
-      id="description-inline2"
-      label="Description"
-      helpText="Tu descripción en Latin"
-    />
+    <MoleculeInputFieldWithState id="description-inline2" label="Description" helpText="Tu descripción en Latin" />
   </Article>
 )
 
@@ -129,10 +119,7 @@ const WithAlertHelpText = () => (
 const WithoutLabel = () => (
   <Article>
     <H2>Without label</H2>
-    <MoleculeInputFieldWithState
-      id="notes"
-      value="In some place of La Mancha which name..."
-    />
+    <MoleculeInputFieldWithState id="notes" value="In some place of La Mancha which name..." />
   </Article>
 )
 

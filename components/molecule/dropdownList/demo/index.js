@@ -11,9 +11,7 @@ import './index.scss'
 const Demo = () => (
   <div className="sui-StudioPreview">
     <H1>Dropdown List</H1>
-    <Paragraph>
-      MoleculeDropdownList is a composition of DropdownOptions
-    </Paragraph>
+    <Paragraph>MoleculeDropdownList is a composition of DropdownOptions</Paragraph>
     <ArticleDefault className={CLASS_DEMO_SECTION} />
     <br />
     <ArticleDesign className={CLASS_DEMO_SECTION} />

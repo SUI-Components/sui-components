@@ -21,12 +21,7 @@ import Joyride, {ACTIONS, EVENTS, LIFECYCLE, STATUS} from 'react-joyride'
 
 import PropTypes from 'prop-types'
 
-import {
-  atomButtonColors,
-  atomButtonDesigns,
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
+import {atomButtonColors, atomButtonDesigns, atomButtonShapes, atomButtonSizes} from '@s-ui/react-atom-button'
 import Injector from '@s-ui/react-primitive-injector'
 
 import DefaultTooltip from './Tooltip/index.js'
@@ -110,11 +105,7 @@ const MoleculeCoachmark = ({
           showProgress={showProgress}
           hideBackButton={hideBackButton}
         >
-          {CustomTooltipComponent ? (
-            <CustomTooltipComponent />
-          ) : (
-            <DefaultTooltip />
-          )}
+          {CustomTooltipComponent ? <CustomTooltipComponent /> : <DefaultTooltip />}
         </Injector>
       )}
     />
@@ -140,10 +131,7 @@ MoleculeCoachmark.propTypes = {
     badge: PropTypes.node,
     actionButtons: PropTypes.arrayOf([
       PropTypes.shape({
-        id: PropTypes.oneOf([
-          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK,
-          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT
-        ]),
+        id: PropTypes.oneOf([DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK, DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT]),
         color: PropTypes.oneOf([Object.values(atomButtonColors)]),
         design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
         size: PropTypes.oneOf([Object.values(atomButtonSizes)]),
@@ -224,8 +212,7 @@ MoleculeCoachmark.propTypes = {
   /** The tour's steps. */
   steps: PropTypes.arrayOf(
     PropTypes.shape({
-      target: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
-        .isRequired,
+      target: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
       heading: PropTypes.node,
       content: PropTypes.node.isRequired,
       disableBeacon: PropTypes.bool,
@@ -233,9 +220,7 @@ MoleculeCoachmark.propTypes = {
       isFixed: PropTypes.bool,
       offset: PropTypes.number,
       placement: PropTypes.oneOf(Object.values(STEP_PLACEMENT_TYPES)),
-      placementBeacon: PropTypes.oneOf(
-        Object.values(STEP_BEACON_PLACEMENT_TYPES)
-      ),
+      placementBeacon: PropTypes.oneOf(Object.values(STEP_BEACON_PLACEMENT_TYPES)),
       styles: PropTypes.object,
       title: PropTypes.node
     })

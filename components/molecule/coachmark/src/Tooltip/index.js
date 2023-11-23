@@ -8,11 +8,7 @@ import AtomButton, {
 } from '@s-ui/react-atom-button'
 import AtomImage from '@s-ui/react-atom-image'
 
-import {
-  BASE_CLASS,
-  DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS,
-  MINIMUM_COACHMARK_STEPS
-} from '../settings.js'
+import {BASE_CLASS, DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS, MINIMUM_COACHMARK_STEPS} from '../settings.js'
 
 const Tooltip = ({
   tooltipOptions = {},
@@ -30,11 +26,7 @@ const Tooltip = ({
   return (
     <div className={`${BASE_CLASS}-tooltip`} {...tooltipProps}>
       <header className={`${BASE_CLASS}-tooltipHeader`}>
-        {tooltipOptions.badge ? (
-          <div className={`${BASE_CLASS}-tooltipBadge`}>
-            {tooltipOptions.badge}
-          </div>
-        ) : null}
+        {tooltipOptions.badge ? <div className={`${BASE_CLASS}-tooltipBadge`}>{tooltipOptions.badge}</div> : null}
 
         {tooltipOptions.closeIcon ? (
           <div className={`${BASE_CLASS}-tooltipCloseButton`} {...skipProps}>
@@ -47,69 +39,53 @@ const Tooltip = ({
         {tooltipOptions.image ? (
           <div className={`${BASE_CLASS}-tooltipImageContainer`}>
             <div className={`${BASE_CLASS}-tooltipImage`}>
-              <AtomImage
-                src={tooltipOptions.image.url}
-                alt={tooltipOptions.image.alt}
-              />
+              <AtomImage src={tooltipOptions.image.url} alt={tooltipOptions.image.alt} />
             </div>
           </div>
         ) : null}
 
         <div className={`${BASE_CLASS}-tooltipTexts`}>
-          {step.title && (
-            <h1 className={`${BASE_CLASS}-tooltipHeadingText`}>{step.title}</h1>
-          )}
+          {step.title && <h1 className={`${BASE_CLASS}-tooltipHeadingText`}>{step.title}</h1>}
           <p className={`${BASE_CLASS}-tooltipBodyText`}>{step.content}</p>
         </div>
       </div>
 
       <div className={`${BASE_CLASS}-tooltipFooter`}>
         {showProgress && totalSteps > MINIMUM_COACHMARK_STEPS && (
-          <p className={`${BASE_CLASS}-tooltipStepCounter`}>{`${
-            index + 1
-          }/${totalSteps}`}</p>
+          <p className={`${BASE_CLASS}-tooltipStepCounter`}>{`${index + 1}/${totalSteps}`}</p>
         )}
 
         <div className={`${BASE_CLASS}-tooltipButtons`}>
           {tooltipOptions?.actionButtons
-            ? tooltipOptions.actionButtons.map(
-                ({id, color, size, design, shape, isNegative}) => {
-                  const isBackButton =
-                    DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK === id
-                  const isNextButton =
-                    DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT === id
+            ? tooltipOptions.actionButtons.map(({id, color, size, design, shape, isNegative}) => {
+                const isBackButton = DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK === id
+                const isNextButton = DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT === id
 
-                  const isBackButtonHidden =
-                    (isBackButton && index === 0) ||
-                    (isBackButton && hideBackButton)
+                const isBackButtonHidden = (isBackButton && index === 0) || (isBackButton && hideBackButton)
 
-                  const getButtonText = () => {
-                    if (isNextButton) {
-                      return isLastStep ? step.locale.last : step.locale.next
-                    }
-
-                    return step.locale.back
+                const getButtonText = () => {
+                  if (isNextButton) {
+                    return isLastStep ? step.locale.last : step.locale.next
                   }
 
-                  const buttonProps =
-                    isBackButton && !isBackButtonHidden
-                      ? backProps
-                      : primaryProps
-
-                  return isBackButtonHidden ? null : (
-                    <AtomButton
-                      color={color}
-                      design={design}
-                      size={size}
-                      shape={shape}
-                      negative={isNegative}
-                      {...buttonProps}
-                    >
-                      {getButtonText()}
-                    </AtomButton>
-                  )
+                  return step.locale.back
                 }
-              )
+
+                const buttonProps = isBackButton && !isBackButtonHidden ? backProps : primaryProps
+
+                return isBackButtonHidden ? null : (
+                  <AtomButton
+                    color={color}
+                    design={design}
+                    size={size}
+                    shape={shape}
+                    negative={isNegative}
+                    {...buttonProps}
+                  >
+                    {getButtonText()}
+                  </AtomButton>
+                )
+              })
             : null}
         </div>
       </div>
@@ -132,10 +108,7 @@ Tooltip.propTypes = {
     badge: PropTypes.node,
     actionButtons: PropTypes.arrayOf([
       PropTypes.shape({
-        id: PropTypes.oneOf([
-          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK,
-          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT
-        ]),
+        id: PropTypes.oneOf([DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK, DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT]),
         color: PropTypes.oneOf([Object.values(atomButtonColors)]),
         design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
         size: PropTypes.oneOf([Object.values(atomButtonSizes)]),

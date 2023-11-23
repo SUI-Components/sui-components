@@ -1,14 +1,4 @@
-import {
-  AntDesignIcon,
-  Article,
-  Box,
-  Cell,
-  Code,
-  Grid,
-  H1,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {AntDesignIcon, Article, Box, Cell, Code, Grid, H1, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomIcon from '@s-ui/react-atom-icon'
@@ -32,14 +22,13 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Label</H1>
       <Paragraph>
-        The Label is the name of the associated field, that explains what is the
-        about. It should be clear, concise and short.
+        The Label is the name of the associated field, that explains what is the about. It should be clear, concise and
+        short.
       </Paragraph>
       <Article>
         <H2>Type</H2>
         <Paragraph>
-          You can select any of the avaliable predefined types using the{' '}
-          <Code>type</Code> prop.
+          You can select any of the avaliable predefined types using the <Code>type</Code> prop.
         </Paragraph>
         <Grid cols={labelTypes.length} gutter={[8, 8]}>
           {labelTypes.map(([key, value], index) => (
@@ -62,9 +51,8 @@ const Demo = () => {
       <Article>
         <H2>Inline</H2>
         <Paragraph>
-          <Code>inline</Code> prop can be used to define where teh element is
-          going to be inline positioned. The value options are 'left' and
-          'right'
+          <Code>inline</Code> prop can be used to define where teh element is going to be inline positioned. The value
+          options are 'left' and 'right'
         </Paragraph>
         <Grid cols={3} gutter={[8, 8]}>
           {[
@@ -73,18 +61,12 @@ const Demo = () => {
               key={1}
               checkedIcon={() => (
                 <AtomIcon>
-                  <AntDesignIcon
-                    icon="AiOutlineCheck"
-                    style={{color: 'currentColor'}}
-                  />
+                  <AntDesignIcon icon="AiOutlineCheck" style={{color: 'currentColor'}} />
                 </AtomIcon>
               )}
               intermediateIcon={() => (
                 <AtomIcon>
-                  <AntDesignIcon
-                    icon="AiOutlineLine"
-                    style={{color: 'currentColor'}}
-                  />
+                  <AntDesignIcon icon="AiOutlineLine" style={{color: 'currentColor'}} />
                 </AtomIcon>
               )}
             />,
@@ -112,25 +94,22 @@ const Demo = () => {
       <Article>
         <H2>FontSize</H2>
         <Paragraph>
-          The component provides 4 diferent sizes provided using the{' '}
-          <Code>fontSize</Code> prop
+          The component provides 4 diferent sizes provided using the <Code>fontSize</Code> prop
         </Paragraph>
         <Grid cols={5} gutter={[8, 8]}>
-          {[['default', undefined], ...Object.entries(AtomLabelFontSizes)].map(
-            ([key, value], index) => (
-              <Cell key={index} style={flexCenteredStyle}>
-                <Box>
-                  <AtomLabel
-                    name={`atomLabelName-${key}`}
-                    for={`labelName-${key}`}
-                    text={`Size ${value}`}
-                    fontSize={value}
-                  />
-                  <AtomInput />
-                </Box>
-              </Cell>
-            )
-          )}
+          {[['default', undefined], ...Object.entries(AtomLabelFontSizes)].map(([key, value], index) => (
+            <Cell key={index} style={flexCenteredStyle}>
+              <Box>
+                <AtomLabel
+                  name={`atomLabelName-${key}`}
+                  for={`labelName-${key}`}
+                  text={`Size ${value}`}
+                  fontSize={value}
+                />
+                <AtomInput />
+              </Box>
+            </Cell>
+          ))}
         </Grid>
       </Article>
     </div>

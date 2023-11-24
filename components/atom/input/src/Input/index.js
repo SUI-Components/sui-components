@@ -12,13 +12,15 @@ const BaseInput = forwardRef(
   (
     {
       button,
-      leftAddon,
-      rightAddon,
-      leftIcon,
-      rightIcon,
       children,
+      leftAddon,
+      leftIcon,
+      leftLabel,
       onClickLeftIcon,
       onClickRightIcon,
+      rightAddon,
+      rightIcon,
+      rightLabel,
       size = SIZES.MEDIUM,
       ...inputProps
     },
@@ -31,6 +33,8 @@ const BaseInput = forwardRef(
           rightAddon={rightAddon}
           shape={inputProps.shape}
           size={size}
+          rightLabel={rightLabel}
+          leftLabel={leftLabel}
         >
           <InputIcons
             leftIcon={leftIcon}
@@ -38,7 +42,13 @@ const BaseInput = forwardRef(
             onClickLeftIcon={onClickLeftIcon}
             onClickRightIcon={onClickRightIcon}
           >
-            <Input ref={forwardedRef} {...inputProps} size={size}>
+            <Input
+              ref={forwardedRef}
+              {...inputProps}
+              rightLabel={rightLabel}
+              leftLabel={leftLabel}
+              size={size}
+            >
               {children}
             </Input>
           </InputIcons>
@@ -57,10 +67,14 @@ BaseInput.propTypes = {
   leftAddon: PropTypes.any,
   /* Right addon component, text,... */
   rightAddon: PropTypes.any,
+  /* Right label component, text,... */
+  rightLabel: PropTypes.string,
   /* Left icon component */
   leftIcon: PropTypes.node,
   /* Left icon component */
   rightIcon: PropTypes.node,
+  /* Left label component, text,... */
+  leftLabel: PropTypes.string,
   /* Left icon click callback */
   onClickLeftIcon: PropTypes.func,
   /* Right icon click callback */

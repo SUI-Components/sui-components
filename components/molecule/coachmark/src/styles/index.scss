@@ -3,10 +3,20 @@ $base-class: '.sui-MoleculeCoachmark';
 #{$base-class} {
   &-tooltip {
     background-color: $bgc-molecule-coachmark-tooltip;
-    border-radius: $brds-molecule-coachmark-tooltip;
-    padding: $p-molecule-coachmark-tooltip;
     max-width: $maw-molecule-coachmark-tooltip;
     min-width: $mih-molecule-coachmark-tooltip;
+    border-radius: $brds-molecule-coachmark-tooltip;
+
+    &Container {
+      padding: $p-molecule-coachmark-tooltip;
+    }
+
+    &HeadImage {
+      height: $h-molecule-coachmark-tooltip-head-image;
+      border-top-left-radius: $brds-molecule-coachmark-tooltip;
+      border-top-right-radius: $brds-molecule-coachmark-tooltip;
+      overflow: hidden;
+    }
 
     &Buttons {
       margin-left: auto;
@@ -23,7 +33,7 @@ $base-class: '.sui-MoleculeCoachmark';
       width: 100%;
 
       &Container {
-        align-self: center;
+        align-self: $af-molecule-coachmark-tooltip-image-container;
         display: flex;
         flex: $fx-molecule-coachmark-tooltip-image-container;
       }

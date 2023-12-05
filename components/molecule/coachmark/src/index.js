@@ -1,16 +1,16 @@
-/* 
+/*
   MIT License
   Copyright (c) 2015, Gil Barbara
-  Permission is hereby granted, free of charge, to any person obtaining a copy 
-  of this software and associated documentation files (the "Software"), to deal 
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights to use,
   copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
   Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in all copies or substantial
   portions of the Software.
-  
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
   PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
   BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
@@ -21,12 +21,7 @@ import Joyride, {ACTIONS, EVENTS, LIFECYCLE, STATUS} from 'react-joyride'
 
 import PropTypes from 'prop-types'
 
-import {
-  atomButtonColors,
-  atomButtonDesigns,
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
+import {atomButtonColors, atomButtonDesigns, atomButtonShapes, atomButtonSizes} from '@s-ui/react-atom-button'
 import Injector from '@s-ui/react-primitive-injector'
 
 import DefaultTooltip from './Tooltip/index.js'
@@ -110,11 +105,7 @@ const MoleculeCoachmark = ({
           showProgress={showProgress}
           hideBackButton={hideBackButton}
         >
-          {CustomTooltipComponent ? (
-            <CustomTooltipComponent />
-          ) : (
-            <DefaultTooltip />
-          )}
+          {CustomTooltipComponent ? <CustomTooltipComponent /> : <DefaultTooltip />}
         </Injector>
       )}
     />
@@ -140,10 +131,7 @@ MoleculeCoachmark.propTypes = {
     badge: PropTypes.node,
     actionButtons: PropTypes.arrayOf([
       PropTypes.shape({
-        id: PropTypes.oneOf([
-          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK,
-          DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT
-        ]),
+        id: PropTypes.oneOf([DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.BACK, DEFAULT_TOOLTIP_ACTION_BUTTONS_IDS.NEXT]),
         color: PropTypes.oneOf([Object.values(atomButtonColors)]),
         design: PropTypes.oneOf([Object.values(atomButtonDesigns)]),
         size: PropTypes.oneOf([Object.values(atomButtonSizes)]),
@@ -152,6 +140,7 @@ MoleculeCoachmark.propTypes = {
       })
     ]),
     closeIcon: PropTypes.node,
+    headImage: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
     image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
     // Flexible props to configurate your custom tooltip
     optionalProps: PropTypes.object
@@ -224,8 +213,7 @@ MoleculeCoachmark.propTypes = {
   /** The tour's steps. */
   steps: PropTypes.arrayOf(
     PropTypes.shape({
-      target: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
-        .isRequired,
+      target: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
       heading: PropTypes.node,
       content: PropTypes.node.isRequired,
       disableBeacon: PropTypes.bool,
@@ -233,9 +221,7 @@ MoleculeCoachmark.propTypes = {
       isFixed: PropTypes.bool,
       offset: PropTypes.number,
       placement: PropTypes.oneOf(Object.values(STEP_PLACEMENT_TYPES)),
-      placementBeacon: PropTypes.oneOf(
-        Object.values(STEP_BEACON_PLACEMENT_TYPES)
-      ),
+      placementBeacon: PropTypes.oneOf(Object.values(STEP_BEACON_PLACEMENT_TYPES)),
       styles: PropTypes.object,
       title: PropTypes.node
     })

@@ -140,6 +140,7 @@ MoleculeCoachmark.propTypes = {
       })
     ]),
     closeIcon: PropTypes.node,
+    headImage: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
     image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
     // Flexible props to configurate your custom tooltip
     optionalProps: PropTypes.object

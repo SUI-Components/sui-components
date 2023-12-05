@@ -128,6 +128,7 @@ Tooltip.propTypes = {
       })
     ]),
     closeIcon: PropTypes.node,
+    headImage: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
     image: PropTypes.shape({url: PropTypes.string, alt: PropTypes.string}),
     optionalProps: PropTypes.object
   }),

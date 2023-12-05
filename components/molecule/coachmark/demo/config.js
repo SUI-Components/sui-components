@@ -1,9 +1,5 @@
 import Badge, {atomBadgeSizes} from '@s-ui/react-atom-badge'
-import {
-  atomButtonColors,
-  atomButtonDesigns,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
+import {atomButtonColors, atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
 
 import {moleculeCoachmarkActionButtonIds} from '../src/index.js'
 
@@ -18,14 +14,12 @@ export const COACHMARK_STEPS_CONTENT = [
   {
     target: '.sui-molecule-coachmark-step-2',
     title: 'It has the same elements than the previous...',
-    content:
-      'But we have removed the progress indicator and now it has a back button available'
+    content: 'But we have removed the progress indicator and now it has a back button available'
   },
   {
     target: '.sui-molecule-coachmark-step-3',
     title: 'Antoher variant buddy',
-    content:
-      'Whoop! Now there is only visible a heading, description, a close icon, a badge and a next button '
+    content: 'Whoop! Now there is only visible a heading, description, a close icon, a badge and a next button '
   },
   {
     target: '.sui-molecule-coachmark-step-4',
@@ -39,6 +33,11 @@ export const COACHMARK_STEPS_CONTENT = [
 ]
 
 export const exampleBadge = <Badge size={atomBadgeSizes.MEDIUM} label={'NEW'} />
+export const examlpeHeadImage = {
+  url: 'https://frtassets.fotocasa.es/ut/statics/img/background-login-legal.png',
+  alt: 'head image'
+}
+
 export const exampleImage = {
   url: 'https://s.ccdn.es/images/coches-net-PRO/anounce.svg',
   alt: 'announcement'

@@ -17,10 +17,7 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Checkbox Field</H1>
-        <Paragraph>
-          "MoleculeCheckboxField" is the combination of and "AtomCheckbox" and a
-          "MoleculeField"
-        </Paragraph>
+        <Paragraph>"MoleculeCheckboxField" is the combination of and "AtomCheckbox" and a "MoleculeField"</Paragraph>
         <ArticleWithHelpText className={CLASS_NAME} />
         <br />
         <ArticleWithLabelFullWidth className={CLASS_NAME} />

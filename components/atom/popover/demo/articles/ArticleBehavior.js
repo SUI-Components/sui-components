@@ -19,22 +19,14 @@ import {
   UnorderedList
 } from '@s-ui/documentation-library'
 
-import AtomPopover, {
-  atomPopoverPositions,
-  atomPopoverTriggers
-} from '../../src/index.js'
+import AtomPopover, {atomPopoverPositions, atomPopoverTriggers} from '../../src/index.js'
 
 const StatusDisplayer = ({value, values = []}) => (
   <Box fullWidth>
     <Grid cols={values.length} gutter={[8, 8]} style={{width: '100%'}}>
       {values.map((v, key) => (
         <Cell key={key} style={{display: 'flex', justifyContent: 'center'}}>
-          <Text
-            className={`blink${
-              value === v.value ? ' is-blinking' : ' is-unblinking'
-            }`}
-            fontWeight="semi-bold"
-          >
+          <Text className={`blink${value === v.value ? ' is-blinking' : ' is-unblinking'}`} fontWeight="semi-bold">
             {v.label}
           </Text>
         </Cell>
@@ -94,25 +86,13 @@ const BehaviorDisplayer = ({
             isVisible={isVisible}
             content={content}
             trigger={trigger}
-            onOpen={onHandle(
-              [trigger.toString().toUpperCase(), 'open'],
-              timeout(setVisible, ['in'])
-            )}
-            onClose={onHandle(
-              [trigger.toString().toUpperCase(), 'close'],
-              timeout(setVisible, ['out'])
-            )}
+            onOpen={onHandle([trigger.toString().toUpperCase(), 'open'], timeout(setVisible, ['in']))}
+            onClose={onHandle([trigger.toString().toUpperCase(), 'close'], timeout(setVisible, ['out']))}
             placement={atomPopoverPositions.TOP}
           >
             <Button
-              onFocus={onHandle(
-                [trigger.toString().toUpperCase(), 'focus'],
-                timeout(setFocus, ['in'], onFocus)
-              )}
-              onBlur={onHandle(
-                [trigger.toString().toUpperCase(), 'blur'],
-                timeout(setFocus, ['out'], onBlur)
-              )}
+              onFocus={onHandle([trigger.toString().toUpperCase(), 'focus'], timeout(setFocus, ['in'], onFocus))}
+              onBlur={onHandle([trigger.toString().toUpperCase(), 'blur'], timeout(setFocus, ['out'], onBlur))}
               onMouseEnter={onHandle(
                 [trigger.toString().toUpperCase(), 'hover in'],
                 timeout(setHover, ['in'], onMouseEnter)
@@ -178,70 +158,51 @@ const ArticleBehavior = ({className, content: Content}) => {
     <Article className={className}>
       <H2>Behavior</H2>
       <Paragraph>
-        The behavior of the tooltip can change using the <Code>trigger</Code>{' '}
-        prop. This is "<Bold>legacy</Bold>" by default but it can be changed ad
-        combined as an array of values. Popover is opened when the wrapped
-        element is clicked and trigger will define the closing behavior.
+        The behavior of the tooltip can change using the <Code>trigger</Code> prop. This is "<Bold>legacy</Bold>" by
+        default but it can be changed ad combined as an array of values. Popover is opened when the wrapped element is
+        clicked and trigger will define the closing behavior.
       </Paragraph>
       <Paragraph>The possible values are:</Paragraph>
       <UnorderedList>
         <ListItem>
-          <Label>legacy</Label>: (default) Legacy is a reactstrap special
-          trigger value (outside of bootstrap's spec/standard). Before
-          reactstrap correctly supported click and focus, it had a hybrid which
-          was very useful and has been brought back as trigger="legacy". One
-          advantage of the legacy trigger is that it allows the popover text to
-          be selected while also closing when clicking outside the triggering
-          element and popover itself.
+          <Label>legacy</Label>: (default) Legacy is a reactstrap special trigger value (outside of bootstrap's
+          spec/standard). Before reactstrap correctly supported click and focus, it had a hybrid which was very useful
+          and has been brought back as trigger="legacy". One advantage of the legacy trigger is that it allows the
+          popover text to be selected while also closing when clicking outside the triggering element and popover
+          itself.
         </ListItem>
         <ListItem>
-          <Label>click</Label>: Clicking on the triggering element makes this
-          popover appear. Clicking on it again will make it disappear. You can
-          select this text, but clicking away (somewhere other than the
-          triggering element) will not dismiss this popover.
+          <Label>click</Label>: Clicking on the triggering element makes this popover appear. Clicking on it again will
+          make it disappear. You can select this text, but clicking away (somewhere other than the triggering element)
+          will not dismiss this popover.
         </ListItem>
         <ListItem>
-          <Label>focus</Label>: Focusing on the trigging element makes this
-          popover appear. Blurring (clicking away) makes it disappear. You
-          cannot select this text as the popover will disappear when you try.
+          <Label>focus</Label>: Focusing on the trigging element makes this popover appear. Blurring (clicking away)
+          makes it disappear. You cannot select this text as the popover will disappear when you try.
         </ListItem>
         <ListItem>
-          <Label>hover</Label>: Hovering out the wrapped element will close the
-          AtomPopover.
+          <Label>hover</Label>: Hovering out the wrapped element will close the AtomPopover.
         </ListItem>
         <ListItem>
-          <Label>manual</Label>: User must define the behaviors that open &
-          close the popover manually (controlled-component).
+          <Label>manual</Label>: User must define the behaviors that open & close the popover manually
+          (controlled-component).
         </ListItem>
       </UnorderedList>
       <Paragraph>
-        All this possible trigger values are provided by{' '}
-        <Code>atomPopoverTriggers</Code> enum.
+        All this possible trigger values are provided by <Code>atomPopoverTriggers</Code> enum.
       </Paragraph>
       <Grid cols={5} gutter={[8, 0]}>
         <Cell>
-          <BehaviorDisplayer
-            content={<Content />}
-            trigger={atomPopoverTriggers.LEGACY}
-          />
+          <BehaviorDisplayer content={<Content />} trigger={atomPopoverTriggers.LEGACY} />
         </Cell>
         <Cell>
-          <BehaviorDisplayer
-            content={<Content />}
-            trigger={atomPopoverTriggers.CLICK}
-          />
+          <BehaviorDisplayer content={<Content />} trigger={atomPopoverTriggers.CLICK} />
         </Cell>
         <Cell>
-          <BehaviorDisplayer
-            content={<Content />}
-            trigger={atomPopoverTriggers.FOCUS}
-          />
+          <BehaviorDisplayer content={<Content />} trigger={atomPopoverTriggers.FOCUS} />
         </Cell>
         <Cell>
-          <BehaviorDisplayer
-            content={<Content />}
-            trigger={atomPopoverTriggers.HOVER}
-          />
+          <BehaviorDisplayer content={<Content />} trigger={atomPopoverTriggers.HOVER} />
         </Cell>
         <Cell>
           <BehaviorDisplayer
@@ -253,21 +214,18 @@ const ArticleBehavior = ({className, content: Content}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        The element wrapped must be focusable in some cases so it's necessary to
-        define an available element. Today's browsers define focus() on
-        HTMLElement, but an element won't actually take focus unless it's one
-        of:
+        The element wrapped must be focusable in some cases so it's necessary to define an available element. Today's
+        browsers define focus() on HTMLElement, but an element won't actually take focus unless it's one of:
       </Paragraph>
       <UnorderedList>
         <ListItem>HTMLAnchorElement/HTMLAreaElement with an href.</ListItem>
         <ListItem>
-          HTMLInputElement/HTMLSelectElement/HTMLTextAreaElement/HTMLButtonElement
-          but not with disabled (IE actually gives you an error if you try), and
-          file uploads have unusual behaviour for security reasons.
+          HTMLInputElement/HTMLSelectElement/HTMLTextAreaElement/HTMLButtonElement but not with disabled (IE actually
+          gives you an error if you try), and file uploads have unusual behaviour for security reasons.
         </ListItem>
         <ListItem>
-          HTMLIFrameElement (though focusing it doesn't do anything useful).
-          Other embedding elements also, maybe, I haven't tested them all.
+          HTMLIFrameElement (though focusing it doesn't do anything useful). Other embedding elements also, maybe, I
+          haven't tested them all.
         </ListItem>
         <ListItem>Any element with a tabindex.</ListItem>
       </UnorderedList>

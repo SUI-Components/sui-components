@@ -21,12 +21,7 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'inputSizes',
-      'moleculeInputTagsInputSizes',
-      'moleculeInputTagsSizes',
-      'default'
-    ]
+    const libraryExportedMembers = ['inputSizes', 'moleculeInputTagsInputSizes', 'moleculeInputTagsSizes', 'default']
 
     // When
     const {
@@ -74,8 +69,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

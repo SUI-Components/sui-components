@@ -2,16 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
 import MoleculeBadgeCounter, {moleculeBadgeCounterSizes} from '../src/index.js'
@@ -27,8 +18,8 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        By default, Bullet becomes a wrapper of what might be bulleted
-        (children). Its inner value is setted by <Code>label</Code> number prop.
+        By default, Bullet becomes a wrapper of what might be bulleted (children). Its inner value is setted by{' '}
+        <Code>label</Code> number prop.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
@@ -49,10 +40,7 @@ const ArticleDefault = ({className}) => {
         <Cell span={2}>
           <AtomButton
             leftIcon={
-              <MoleculeBadgeCounter
-                size={moleculeBadgeCounterSizes.MEDIUM}
-                label={label}
-              >
+              <MoleculeBadgeCounter size={moleculeBadgeCounterSizes.MEDIUM} label={label}>
                 {infoIcon}
               </MoleculeBadgeCounter>
             }
@@ -61,10 +49,7 @@ const ArticleDefault = ({className}) => {
           </AtomButton>
         </Cell>
       </Grid>
-      <Paragraph>
-        If the number of the bullet exceeds the maximum defined (99) it will
-        show the maximum.
-      </Paragraph>
+      <Paragraph>If the number of the bullet exceeds the maximum defined (99) it will show the maximum.</Paragraph>
     </Article>
   )
 }

@@ -11,13 +11,11 @@ const ArticleType = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        By default it is presented as an horizontal basic mode. The{' '}
-        <Code>MoleculeTabs</Code> element act as a wrapper of other different{' '}
-        <Code>MoleculeTab</Code> child elements. You can define wich one will be
-        the desired <Code>active</Code> (boolean) prop will be the predefined.
-        in case of defining more than 1, the active set tab will be the last
-        active defined. You can also use <Code>disable</Code> (boolean) prop to
-        make unreachable any of that tabs.
+        By default it is presented as an horizontal basic mode. The <Code>MoleculeTabs</Code> element act as a wrapper
+        of other different <Code>MoleculeTab</Code> child elements. You can define wich one will be the desired{' '}
+        <Code>active</Code> (boolean) prop will be the predefined. in case of defining more than 1, the active set tab
+        will be the last active defined. You can also use <Code>disable</Code> (boolean) prop to make unreachable any of
+        that tabs.
       </Paragraph>
       <MoleculeTabs>
         {Array(5)

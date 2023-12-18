@@ -16,10 +16,7 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Skeleton</H1>
-        <Paragraph>
-          Skeleton is used to display the loading state of a component while
-          avoiding layout shift.
-        </Paragraph>
+        <Paragraph>Skeleton is used to display the loading state of a component while avoiding layout shift.</Paragraph>
         <ArticleDefault className={CLASS_SECTION} />
         <br />
         <ArticleVariant className={CLASS_SECTION} />

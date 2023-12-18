@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomBadge from '../src/index.js'
 import {extendedColors} from './settings.js'
@@ -17,8 +10,8 @@ const ArticleCustomType = ({className}) => {
     <Article className={className}>
       <H2>Custom Types</H2>
       <Paragraph>
-        You can even define some other extra types defining your own vertical
-        custom types and looping this defined keys through scss.
+        You can even define some other extra types defining your own vertical custom types and looping this defined keys
+        through scss.
       </Paragraph>
       <Grid cols={4} gutter={[8, 0]}>
         <Cell>
@@ -42,11 +35,7 @@ const ArticleCustomType = ({className}) => {
           </Cell>
           {extendedColors.map(colorName => (
             <Cell key={colorName}>
-              <AtomBadge
-                label={`custom-${colorName}`}
-                type={colorName}
-                transparent
-              />
+              <AtomBadge label={`custom-${colorName}`} type={colorName} transparent />
             </Cell>
           ))}
           <Cell>
@@ -59,12 +48,7 @@ const ArticleCustomType = ({className}) => {
           </Cell>
           {extendedColors.map(colorName => (
             <Cell key={colorName}>
-              <AtomBadge
-                label={`custom-${colorName}`}
-                type={colorName}
-                transparent
-                design="soft"
-              />
+              <AtomBadge label={`custom-${colorName}`} type={colorName} transparent design="soft" />
             </Cell>
           ))}
           <Cell>
@@ -77,11 +61,7 @@ const ArticleCustomType = ({className}) => {
           </Cell>
           {extendedColors.map(colorName => (
             <Cell key={colorName}>
-              <AtomBadge
-                label={`custom-${colorName}`}
-                type={colorName}
-                design="soft"
-              />
+              <AtomBadge label={`custom-${colorName}`} type={colorName} design="soft" />
             </Cell>
           ))}
           <Cell>

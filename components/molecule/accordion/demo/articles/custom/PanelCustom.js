@@ -3,14 +3,7 @@ import PropTypes from 'prop-types'
 
 import {Button, Cell, Grid} from '@s-ui/documentation-library'
 
-const PanelCustom = ({
-  className,
-  children,
-  onNext,
-  onPrevious,
-  step,
-  stepsNumber
-}) => {
+const PanelCustom = ({className, children, onNext, onPrevious, step, stepsNumber}) => {
   return (
     <div className={cx('demo-panel-custom', className)} style={{padding: 8}}>
       <Grid cols={1} gutter={[8, 0]}>
@@ -24,11 +17,7 @@ const PanelCustom = ({
             <span />
           )}
           {onNext ? (
-            <Button
-              type="button"
-              onClick={onNext}
-              disabled={step === stepsNumber}
-            >
+            <Button type="button" onClick={onNext} disabled={step === stepsNumber}>
               →
             </Button>
           ) : (

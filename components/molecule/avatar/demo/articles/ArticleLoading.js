@@ -9,8 +9,7 @@ const ArticleLoading = ({className}) => {
     <Article className={className}>
       <H2>Loading</H2>
       <Paragraph>
-        The Avatar also has a <Code>isLoading</Code> (boolean) prop which
-        displays its skeleton.
+        The Avatar also has a <Code>isLoading</Code> (boolean) prop which displays its skeleton.
       </Paragraph>
       <MoleculeAvatar isLoading />
     </Article>

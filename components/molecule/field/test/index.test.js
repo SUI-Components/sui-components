@@ -69,8 +69,7 @@ describe(json.name, () => {
         className: 'extended-classNames',
         name: 'name'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -173,8 +172,7 @@ describe(json.name, () => {
         // Then
         expect(container.innerHTML).to.be.a('string')
         expect(container.innerHTML).to.not.have.lengthOf(0)
-        expect(container.querySelector(`[data-status="${props.status}"]`)).to
-          .not.be.null
+        expect(container.querySelector(`[data-status="${props.status}"]`)).to.not.be.null
         const statusTextElement = await findByText(props.statusText)
         expect(statusTextElement.innerHTML).to.equal(props.statusText)
       })
@@ -195,8 +193,7 @@ describe(json.name, () => {
         // Then
         expect(container.innerHTML).to.be.a('string')
         expect(container.innerHTML).to.not.have.lengthOf(0)
-        expect(container.querySelector(`[data-status="${status}"]`)).to.not.be
-          .null
+        expect(container.querySelector(`[data-status="${status}"]`)).to.not.be.null
         const successTextElement = await findByText(props.successText)
         expect(successTextElement.innerHTML).to.equal(props.successText)
       })
@@ -217,8 +214,7 @@ describe(json.name, () => {
         // Then
         expect(container.innerHTML).to.be.a('string')
         expect(container.innerHTML).to.not.have.lengthOf(0)
-        expect(container.querySelector(`[data-status="${props.status}"]`)).to
-          .not.be.null
+        expect(container.querySelector(`[data-status="${props.status}"]`)).to.not.be.null
         const statusTextElement = await findByText(props.statusText)
         expect(statusTextElement.innerHTML).to.equal(props.statusText)
       })
@@ -239,8 +235,7 @@ describe(json.name, () => {
         // Then
         expect(container.innerHTML).to.be.a('string')
         expect(container.innerHTML).to.not.have.lengthOf(0)
-        expect(container.querySelector(`[data-status="${status}"]`)).to.not.be
-          .null
+        expect(container.querySelector(`[data-status="${status}"]`)).to.not.be.null
         const errorTextElement = await findByText(props.errorText)
         expect(errorTextElement.innerHTML).to.equal(props.errorText)
       })
@@ -261,8 +256,7 @@ describe(json.name, () => {
         // Then
         expect(container.innerHTML).to.be.a('string')
         expect(container.innerHTML).to.not.have.lengthOf(0)
-        expect(container.querySelector(`[data-status="${props.status}"]`)).to
-          .not.be.null
+        expect(container.querySelector(`[data-status="${props.status}"]`)).to.not.be.null
         const statusTextElement = await findByText(props.statusText)
         expect(statusTextElement.innerHTML).to.equal(props.statusText)
       })
@@ -283,8 +277,7 @@ describe(json.name, () => {
         // Then
         expect(container.innerHTML).to.be.a('string')
         expect(container.innerHTML).to.not.have.lengthOf(0)
-        expect(container.querySelector(`[data-status="${status}"]`)).to.not.be
-          .null
+        expect(container.querySelector(`[data-status="${status}"]`)).to.not.be.null
         const alertTextElement = await findByText(props.alertText)
         expect(alertTextElement.innerHTML).to.equal(props.alertText)
       })

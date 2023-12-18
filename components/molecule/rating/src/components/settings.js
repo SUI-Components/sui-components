@@ -1,8 +1,4 @@
-import {
-  IconStarFilled,
-  IconStarHalfFilled,
-  IconStarOutline
-} from '../Icons/index.js'
+import {IconStarFilled, IconStarHalfFilled, IconStarOutline} from '../Icons/index.js'
 import {BASE_CLASS as ROOT_BASE_CLASS} from '../settings.js'
 
 export const BASE_CLASS = `${ROOT_BASE_CLASS}-Star`

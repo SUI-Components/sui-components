@@ -18,12 +18,8 @@ const ImageEditorSliders = ({
     <div className={`${baseClass}-slider`}>
       {(cropLabelIcon || cropLabelText) && (
         <div className={`${baseClass}-label`}>
-          {cropLabelIcon && (
-            <span className={`${baseClass}-labelIcon`}>{cropLabelIcon}</span>
-          )}
-          {cropLabelText && (
-            <span className={`${baseClass}-labelText`}>{cropLabelText}</span>
-          )}
+          {cropLabelIcon && <span className={`${baseClass}-labelIcon`}>{cropLabelIcon}</span>}
+          {cropLabelText && <span className={`${baseClass}-labelText`}>{cropLabelText}</span>}
         </div>
       )}
       <AtomSlider onChange={onZoomChange} defaultValue={zoom} hideMarks />
@@ -31,12 +27,8 @@ const ImageEditorSliders = ({
     <div className={`${baseClass}-slider`}>
       {(rotateLabelIcon || rotateLabelText) && (
         <div className={`${baseClass}-label`}>
-          {rotateLabelIcon && (
-            <span className={`${baseClass}-labelIcon`}>{rotateLabelIcon}</span>
-          )}
-          {rotateLabelText && (
-            <span className={`${baseClass}-labelText`}>{rotateLabelText}</span>
-          )}
+          {rotateLabelIcon && <span className={`${baseClass}-labelIcon`}>{rotateLabelIcon}</span>}
+          {rotateLabelText && <span className={`${baseClass}-labelText`}>{rotateLabelText}</span>}
         </div>
       )}
       <AtomSlider onChange={onRotateChange} defaultValue={rotation} hideMarks />

@@ -2,17 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph,
-  Small
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Input, Label, Paragraph, Small} from '@s-ui/documentation-library'
 
 import AtomSkeleton from '../src/index.js'
 
@@ -22,8 +12,7 @@ const ArticleCount = ({className}) => {
     <Article className={className}>
       <H2>Count</H2>
       <Paragraph>
-        The number of skeleton elements provided can be configured using the{' '}
-        <Code>count</Code> (integer) prop.
+        The number of skeleton elements provided can be configured using the <Code>count</Code> (integer) prop.
       </Paragraph>
       <Grid cols={2} gutter={[0, 8]}>
         <Cell>

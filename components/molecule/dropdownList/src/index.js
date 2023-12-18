@@ -6,14 +6,7 @@ import PropTypes from 'prop-types'
 import useDebounce from '@s-ui/react-hooks/lib/useDebounce'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {
-  BASE_CLASS,
-  CLASS_HIDDEN,
-  DEBOUNCE_TIME,
-  DESIGNS,
-  moleculeDropdownListSelectHandler,
-  SIZES
-} from './config.js'
+import {BASE_CLASS, CLASS_HIDDEN, DEBOUNCE_TIME, DESIGNS, moleculeDropdownListSelectHandler, SIZES} from './config.js'
 import ExtendedChildren from './ExtendedChildren.js'
 
 const MoleculeDropdownList = forwardRef(
@@ -38,14 +31,9 @@ const MoleculeDropdownList = forwardRef(
     const [typedWord, setTypedWord] = useState('')
     const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)
 
-    const classNames = cx(
-      BASE_CLASS,
-      `${BASE_CLASS}--design-${design}`,
-      `${BASE_CLASS}--${size}`,
-      {
-        [CLASS_HIDDEN]: !visible
-      }
-    )
+    const classNames = cx(BASE_CLASS, `${BASE_CLASS}--design-${design}`, `${BASE_CLASS}--${size}`, {
+      [CLASS_HIDDEN]: !visible
+    })
 
     const getFocusedOptionIndex = options => {
       const currentElementFocused = document.activeElement
@@ -64,21 +52,15 @@ const MoleculeDropdownList = forwardRef(
       const index = getFocusedOptionIndex(options)
       if (key === 'ArrowDown' || key === 'ArrowUp') {
         if (index >= 0 || index <= numOptions) {
-          if (key === 'ArrowDown' && index < numOptions - 1)
-            options[index + 1].focus()
+          if (key === 'ArrowDown' && index < numOptions - 1) options[index + 1].focus()
           if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
         }
       } else {
         setTypedWord(value => value + key.toLowerCase())
         const word = typedWord + key.toLowerCase()
         const optionToFocusOn =
-          Array.from(options).find(
-            (option, i) =>
-              i >= index && option.innerText.toLowerCase().indexOf(word) === 0
-          ) ||
-          Array.from(options).find(
-            option => option.innerText.toLowerCase().indexOf(word) === 0
-          )
+          Array.from(options).find((option, i) => i >= index && option.innerText.toLowerCase().indexOf(word) === 0) ||
+          Array.from(options).find(option => option.innerText.toLowerCase().indexOf(word) === 0)
         optionToFocusOn && optionToFocusOn.focus()
       }
       typeof onKeyDown === 'function' && onKeyDown(event)
@@ -94,23 +76,11 @@ const MoleculeDropdownList = forwardRef(
     if (!visible && !alwaysRender) return null
 
     return (
-      <ul
-        ref={ref}
-        tabIndex={0}
-        onKeyDown={handleKeyDown}
-        className={classNames}
-        role="listbox"
-        aria-label={ariaLabel}
-      >
+      <ul ref={ref} tabIndex={0} onKeyDown={handleKeyDown} className={classNames} role="listbox" aria-label={ariaLabel}>
         {Children.toArray(children)
           .filter(Boolean)
           .map((child, index) => (
-            <ExtendedChildren
-              key={index}
-              value={value}
-              onSelect={onSelect}
-              {...props}
-            >
+            <ExtendedChildren key={index} value={value} onSelect={onSelect} {...props}>
               {child}
             </ExtendedChildren>
           ))}

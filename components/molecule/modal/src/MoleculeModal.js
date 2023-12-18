@@ -1,12 +1,4 @@
-import {
-  Children,
-  cloneElement,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react'
+import {Children, cloneElement, forwardRef, useCallback, useEffect, useRef, useState} from 'react'
 import {createPortal} from 'react-dom'
 
 import cx from 'classnames'
@@ -120,11 +112,7 @@ const MoleculeModal = forwardRef(
     }
 
     const handleOutsideMouseUp = ev => {
-      if (
-        closeOnOutsideClick &&
-        shoudlCloseOnOutsideClick.current &&
-        ev.target === wrapperRef.current
-      ) {
+      if (closeOnOutsideClick && shoudlCloseOnOutsideClick.current && ev.target === wrapperRef.current) {
         closeModal(ev)
       }
     }
@@ -162,15 +150,7 @@ const MoleculeModal = forwardRef(
           <div className={dialogClassName}>
             {(iconClose || header) && (
               <HeaderRender
-                close={
-                  iconClose && (
-                    <Close
-                      icon={iconClose}
-                      onClick={closeModal}
-                      floating={floatingIconClose}
-                    />
-                  )
-                }
+                close={iconClose && <Close icon={iconClose} onClick={closeModal} floating={floatingIconClose} />}
                 header={header}
                 floatingIconClose={floatingIconClose}
               />

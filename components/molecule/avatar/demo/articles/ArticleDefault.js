@@ -9,8 +9,7 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        By default the <Code>MoleculeAvatar</Code> component adds a placeholder
-        buddy icon.
+        By default the <Code>MoleculeAvatar</Code> component adds a placeholder buddy icon.
       </Paragraph>
       <MoleculeAvatar />
     </Article>

@@ -2,16 +2,7 @@ import {useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 
 import MoleculeDropdownOption from '../src/index.js'
@@ -43,9 +34,8 @@ const ArticleHighLight = ({className}) => {
     <Article className={className}>
       <H2>HighLight</H2>
       <Paragraph>
-        The component can highlight some parts of a given children element using
-        the <Code>highlightQuery</Code> (string) prop. If the default children
-        value needs to be replaced somehow, use the <Code>highlightValue</Code>{' '}
+        The component can highlight some parts of a given children element using the <Code>highlightQuery</Code>{' '}
+        (string) prop. If the default children value needs to be replaced somehow, use the <Code>highlightValue</Code>{' '}
         (string) prop to get that effect.
       </Paragraph>
       <Grid cols={3} gutter={[8, 8]}>
@@ -76,27 +66,16 @@ const ArticleHighLight = ({className}) => {
           <Input value={value} onChange={handleValueChange} />
         </Cell>
         <Cell>
-          <Input
-            value={highlightValue}
-            onChange={event => setHighlightValue(event.target.value)}
-          />
+          <Input value={highlightValue} onChange={event => setHighlightValue(event.target.value)} />
         </Cell>
         <Cell>
-          <Input
-            value={highlightQuery}
-            onChange={event => setHighlightQuery(event.target.value)}
-          />
+          <Input value={highlightQuery} onChange={event => setHighlightQuery(event.target.value)} />
         </Cell>
         <Cell span={3}>
           <Label>Result</Label>
         </Cell>
         <Cell span={3}>
-          <Input
-            readOnly
-            value={JSON.stringify(data, null, 2)}
-            fullWidth
-            disabled
-          />
+          <Input readOnly value={JSON.stringify(data, null, 2)} fullWidth disabled />
         </Cell>
       </Grid>
     </Article>

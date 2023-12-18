@@ -42,17 +42,13 @@ const AtomTooltip = forwardRef(
     },
     forwardedRef
   ) => {
-    const [isVisibleState, setIsVisibleState] = useControlledState(
-      isVisible,
-      defaultIsVisible
-    )
+    const [isVisibleState, setIsVisibleState] = useControlledState(isVisible, defaultIsVisible)
     const toggleHandler = useCallback(
       event => {
         const newState = !isVisibleState
         newState
           ? typeof onOpen === 'function' && onOpen(event, {isVisible: newState})
-          : typeof onClose === 'function' &&
-            onClose(event, {isVisible: newState})
+          : typeof onClose === 'function' && onClose(event, {isVisible: newState})
         setIsVisibleState(newState)
         typeof onToggle === 'function' && onToggle(event, {isVisible: newState})
       },
@@ -60,9 +56,7 @@ const AtomTooltip = forwardRef(
     )
     const childrenRef = useRef()
     const deviceType = useMemo(
-      () =>
-        trigger !== undefined &&
-        new UAParser(navigator.userAgent).getDevice().type,
+      () => trigger !== undefined && new UAParser(navigator.userAgent).getDevice().type,
       [trigger]
     )
     const intersection = useIntersection(childrenRef, {threshold: 0})
@@ -85,10 +79,7 @@ const AtomTooltip = forwardRef(
             placementPrefix={PREFIX_PLACEMENT}
             target={childrenRef}
             toggle={toggleHandler}
-            trigger={
-              trigger ||
-              (['mobile', 'tablet'].includes(deviceType) ? 'legacy' : 'hover')
-            }
+            trigger={trigger || (['mobile', 'tablet'].includes(deviceType) ? 'legacy' : 'hover')}
           >
             {content}
           </Tooltip>
@@ -110,10 +101,7 @@ AtomTooltip.propTypes = {
   /** the tooltip content **/
   content: PropTypes.node,
 
-  delay: PropTypes.oneOfType([
-    PropTypes.shape({show: PropTypes.number, hide: PropTypes.number}),
-    PropTypes.number
-  ]),
+  delay: PropTypes.oneOfType([PropTypes.shape({show: PropTypes.number, hide: PropTypes.number}), PropTypes.number]),
   /** Uncontrolled (initial) value for the show pop over */
   defaultIsVisible: PropTypes.bool,
   /** shows the arrow if true (default true) **/

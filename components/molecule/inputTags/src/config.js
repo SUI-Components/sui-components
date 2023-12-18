@@ -6,9 +6,7 @@ export const CLASS_TAGS_SUCCESS = `${CLASS_TAGS}--success`
 export const CLASS_TAGS_DISABLED = `${CLASS_TAGS}--disabled`
 
 export const isDuplicate = (values, newValue) => {
-  const upperTags = values.map(val =>
-    typeof val === 'object' ? val.label.toUpperCase() : val.toUpperCase()
-  )
+  const upperTags = values.map(val => (typeof val === 'object' ? val.label.toUpperCase() : val.toUpperCase()))
   return upperTags.includes(newValue.toUpperCase())
 }
 

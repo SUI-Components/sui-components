@@ -2,10 +2,7 @@ import PropTypes from 'prop-types'
 
 import {Cell, Grid} from '@s-ui/documentation-library'
 
-import {
-  MoleculeImageEditorCropper,
-  MoleculeImageEditorSliders
-} from '../../src/index.js'
+import {MoleculeImageEditorCropper, MoleculeImageEditorSliders} from '../../src/index.js'
 
 const CustomChildren = ({
   image,

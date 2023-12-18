@@ -1,18 +1,11 @@
 import PropTypes from 'prop-types'
 
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
-import MoleculeNotification, {
-  BRDS_SIZE
-} from '@s-ui/react-molecule-notification'
+import MoleculeNotification, {BRDS_SIZE} from '@s-ui/react-molecule-notification'
 
 import {MOLECULE_NOTIFICATION_TYPE, NOTIFICATION_CLASS_NAME} from './config.js'
 
-const DragNotification = ({
-  icon,
-  onCloseCallback = () => {},
-  show = false,
-  text
-}) => {
+const DragNotification = ({icon, onCloseCallback = () => {}, show = false, text}) => {
   return (
     <>
       {show && (

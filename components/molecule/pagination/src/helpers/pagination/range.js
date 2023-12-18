@@ -13,15 +13,10 @@ const range = ({page, totalPages: totalPagesParam, showEdges, showPages}) => {
   const totalPages = showEdges ? totalPagesParam - 1 : totalPagesParam
   const _lowRange = lowRange({page, showEdges, showPages, totalPages})
   const _highRangeFixer = showPages > totalPages ? totalPages - 1 : showPages
-  const _highRange = showEdges
-    ? _lowRange + _highRangeFixer
-    : highRange({page, totalPages, showPages})
+  const _highRange = showEdges ? _lowRange + _highRangeFixer : highRange({page, totalPages, showPages})
 
-  const rangeNumItems =
-    _highRange === totalPages ? totalPages - _lowRange : showPages
-  return rangeNumItems > 0
-    ? [...Array.from(new Array(rangeNumItems), (_, i) => _lowRange + i + 1)]
-    : []
+  const rangeNumItems = _highRange === totalPages ? totalPages - _lowRange : showPages
+  return rangeNumItems > 0 ? [...Array.from(new Array(rangeNumItems), (_, i) => _lowRange + i + 1)] : []
 }
 
 export default range

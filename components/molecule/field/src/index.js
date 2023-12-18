@@ -4,9 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomHelpText from '@s-ui/react-atom-help-text'
-import AtomValidationText, {
-  AtomValidationTextTypes
-} from '@s-ui/react-atom-validation-text'
+import AtomValidationText, {AtomValidationTextTypes} from '@s-ui/react-atom-validation-text'
 
 import {
   BASE_CLASS,
@@ -67,47 +65,32 @@ const MoleculeField = ({
     status
   })
 
-  const {text: validationTextValue, status: validationTextStatus} =
-    useStatusValidationText({
-      successText,
-      errorText,
-      alertText,
-      status,
-      statusText
-    })
+  const {text: validationTextValue, status: validationTextStatus} = useStatusValidationText({
+    successText,
+    errorText,
+    alertText,
+    status,
+    statusText
+  })
 
   return (
     <div
       className={className}
       {...(validationTextStatus &&
-        Object.values(AtomValidationTextTypes).includes(
-          validationTextStatus
-        ) && {'data-status': validationTextStatus})}
+        Object.values(AtomValidationTextTypes).includes(validationTextStatus) && {'data-status': validationTextStatus})}
     >
       {(label || nodeLabel) && (
         <div className={CLASS_LABEL_CONTAINER}>
           {inline && extendedChildren}
-          <MoleculeLabel
-            type={typeValidationLabel}
-            name={name}
-            onClick={onClickLabel}
-          >
+          <MoleculeLabel type={typeValidationLabel} name={name} onClick={onClickLabel}>
             {label || nodeLabel}
           </MoleculeLabel>
         </div>
       )}
-      <div
-        className={cx(
-          CLASS_INPUT_CONTAINER,
-          isAligned && `${CLASS_INPUT_CONTAINER}--aligned`
-        )}
-      >
+      <div className={cx(CLASS_INPUT_CONTAINER, isAligned && `${CLASS_INPUT_CONTAINER}--aligned`)}>
         {!inline && extendedChildren}
         {!disabled && validationTextValue && (
-          <AtomValidationText
-            type={validationTextStatus}
-            text={validationTextValue}
-          />
+          <AtomValidationText type={validationTextStatus} text={validationTextValue} />
         )}
         {helpText && <AtomHelpText text={helpText} />}
       </div>
@@ -140,32 +123,16 @@ MoleculeField.propTypes = {
   name: PropTypes.string.isRequired,
 
   /** Success message to display when success state  */
-  successText: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.bool,
-    PropTypes.node
-  ]),
+  successText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool, PropTypes.node]),
 
   /** Error message to display when error state  */
-  errorText: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.bool,
-    PropTypes.node
-  ]),
+  errorText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool, PropTypes.node]),
 
   /** Error message to display when alert state  */
-  alertText: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.bool,
-    PropTypes.node
-  ]),
+  alertText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool, PropTypes.node]),
 
   /** Help Text to display */
-  helpText: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.bool,
-    PropTypes.node
-  ]),
+  helpText: PropTypes.oneOfType([PropTypes.element, PropTypes.bool, PropTypes.node]),
 
   /** Boolean to decide if elements should be set inline */
   inline: PropTypes.bool,

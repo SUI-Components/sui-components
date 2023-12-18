@@ -24,8 +24,7 @@ const ArticleTypes = ({className}) => {
     <Article className={className}>
       <H2>Types</H2>
       <Paragraph>
-        You can choose your progressBar using the <Code>type</Code> prop. It is
-        default configured an a Line type.
+        You can choose your progressBar using the <Code>type</Code> prop. It is default configured an a Line type.
       </Paragraph>
       <H4>Types under atomProgressBarTypes</H4>
       <UnorderedList>
@@ -51,10 +50,7 @@ const ArticleTypes = ({className}) => {
           {atomProgressBarTypes.LINE_DOUBLE_BAR}"): Linear Double Progress Bar
         </ListItem>
       </UnorderedList>
-      <Grid
-        cols={Object.values(atomProgressBarTypes).length + 1}
-        gutter={[8, 8]}
-      >
+      <Grid cols={Object.values(atomProgressBarTypes).length + 1} gutter={[8, 8]}>
         <Cell span={Object.values(atomProgressBarTypes).length + 1}>
           <Label>percentage value</Label>: {value}
         </Cell>
@@ -69,35 +65,29 @@ const ArticleTypes = ({className}) => {
             onChange={event => setValue(parseInt(event.target.value))}
           />
         </Cell>
-        {[
-          ['undefined', undefined],
-          ...Object.entries(atomProgressBarTypes)
-        ].map(([atomProgressBarTypeKey, atomProgressBarTypeValue]) => (
-          <Cell key={atomProgressBarTypeKey}>
-            <Label>{`${atomProgressBarTypeValue}`}</Label>
-          </Cell>
-        ))}
-        {[
-          ['undefined', undefined],
-          ...Object.entries(atomProgressBarTypes)
-        ].map(([atomProgressBarTypeKey, atomProgressBarTypeValue]) => (
-          <Cell
-            key={atomProgressBarTypeKey}
-            style={{display: 'flex', justifyContent: 'center'}}
-          >
-            <div style={{width: '100%'}}>
-              <AtomProgressBar
-                type={atomProgressBarTypeValue}
-                percentage={value}
-                {...(atomProgressBarTypeValue ===
-                  atomProgressBarTypes.LINE_DOUBLE_BAR && {
-                  mainBarPercentage: value / 2,
-                  extraBarPercentage: value
-                })}
-              />
-            </div>
-          </Cell>
-        ))}
+        {[['undefined', undefined], ...Object.entries(atomProgressBarTypes)].map(
+          ([atomProgressBarTypeKey, atomProgressBarTypeValue]) => (
+            <Cell key={atomProgressBarTypeKey}>
+              <Label>{`${atomProgressBarTypeValue}`}</Label>
+            </Cell>
+          )
+        )}
+        {[['undefined', undefined], ...Object.entries(atomProgressBarTypes)].map(
+          ([atomProgressBarTypeKey, atomProgressBarTypeValue]) => (
+            <Cell key={atomProgressBarTypeKey} style={{display: 'flex', justifyContent: 'center'}}>
+              <div style={{width: '100%'}}>
+                <AtomProgressBar
+                  type={atomProgressBarTypeValue}
+                  percentage={value}
+                  {...(atomProgressBarTypeValue === atomProgressBarTypes.LINE_DOUBLE_BAR && {
+                    mainBarPercentage: value / 2,
+                    extraBarPercentage: value
+                  })}
+                />
+              </div>
+            </Cell>
+          )
+        )}
       </Grid>
     </Article>
   )

@@ -2,16 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomTooltip, {AtomTooltipTriggers} from '../src/index.js'
 
@@ -24,8 +15,7 @@ const DelayArticle = ({className, trigger}) => {
     <Article className={className}>
       <H2>Delay</H2>
       <Paragraph>
-        AtomTooltip <Code>delay</Code> prop (in ms) for opening and closing the
-        tooltip
+        AtomTooltip <Code>delay</Code> prop (in ms) for opening and closing the tooltip
       </Paragraph>
       <Grid cols={3} gutter={[8, 8]}>
         <Cell>

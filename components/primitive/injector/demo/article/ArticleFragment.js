@@ -11,10 +11,7 @@ const ArticleFragment = ({className}) => {
   return (
     <Article className={className}>
       <H2>Fragment</H2>
-      <Paragraph>
-        Injector will keep the fragment and add the injected props to its
-        descendant recursively.
-      </Paragraph>
+      <Paragraph>Injector will keep the fragment and add the injected props to its descendant recursively.</Paragraph>
       <H3>using React.Fragment</H3>
       <Box style={{paddingLeft: 0, paddingRight: 0, display: 'flex'}}>
         <Injector prop="prop">

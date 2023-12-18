@@ -15,9 +15,8 @@ export default () => {
     <div className="sui-StudioPreview">
       <H1>MoleculeStepper</H1>
       <Paragraph>
-        Steppers display progress through a sequence of logical and numbered
-        steps. They may also be used for navigation. It provides a wizard-like
-        workflow.
+        Steppers display progress through a sequence of logical and numbered steps. They may also be used for
+        navigation. It provides a wizard-like workflow.
       </Paragraph>
       <ArticleDefault className={CLASS_SECTION} />
       <br />
@@ -27,8 +26,8 @@ export default () => {
       <br />
       <H1>MoleculeStep</H1>
       <Paragraph>
-        The package offers a default Step content but it can be customized also
-        using the <Code>children</Code> prop of the <Code>Step</Code> component.
+        The package offers a default Step content but it can be customized also using the <Code>children</Code> prop of
+        the <Code>Step</Code> component.
       </Paragraph>
       <Paragraph>It can be imported using:</Paragraph>
       <Paragraph>

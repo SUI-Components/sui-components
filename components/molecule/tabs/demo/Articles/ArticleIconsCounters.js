@@ -1,25 +1,13 @@
 import MoleculeTabs, {MoleculeTab} from 'components/molecule/tabs/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  AntDesignIcon,
-  Article,
-  Code,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {AntDesignIcon, Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import Content from '../components/Content.js'
 import {CLASS_DEMO_CONTENT_TAB} from '../config.js'
 
-const icons = [
-  'AiFillWindows',
-  'AiFillApple',
-  'AiFillHeart',
-  'AiFillChrome',
-  'AiFillIeCircle'
-]
+const icons = ['AiFillWindows', 'AiFillApple', 'AiFillHeart', 'AiFillChrome', 'AiFillIeCircle']
 
 const ArticleType = ({className}) => {
   return (
@@ -44,10 +32,7 @@ const ArticleType = ({className}) => {
               count={index + 1}
               icon={
                 <AtomIcon>
-                  <AntDesignIcon
-                    style={{color: 'currentColor'}}
-                    icon={icons[index]}
-                  />
+                  <AntDesignIcon style={{color: 'currentColor'}} icon={icons[index]} />
                 </AtomIcon>
               }
             >

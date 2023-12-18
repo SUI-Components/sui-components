@@ -2,21 +2,10 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph, RadioButton} from '@s-ui/documentation-library'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-import MoleculeDropdownList, {
-  moleculeDropdownListSelectHandler
-} from '../src/index.js'
+import MoleculeDropdownList, {moleculeDropdownListSelectHandler} from '../src/index.js'
 import {OPTIONS} from './config.js'
 
 const ArticleDefault = ({className}) => {
@@ -27,16 +16,13 @@ const ArticleDefault = ({className}) => {
   return (
     <Article className={className}>
       <H2>Default</H2>
-      <Paragraph>
-        The DropdownList component does not have a default behavior
-      </Paragraph>
+      <Paragraph>The DropdownList component does not have a default behavior</Paragraph>
       <Paragraph>
         The <Code>visible</Code> (boolean) prop is false by default.
       </Paragraph>
       <Paragraph>
-        The <Code>value</Code> (string/array) prop can handle the selected
-        option value(s) or delegate it to the inner DropdownOption element's
-        selected prop (boolean).
+        The <Code>value</Code> (string/array) prop can handle the selected option value(s) or delegate it to the inner
+        DropdownOption element's selected prop (boolean).
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
@@ -46,11 +32,7 @@ const ArticleDefault = ({className}) => {
           <Label>value</Label>
         </Cell>
         <Cell>
-          <RadioButton
-            checked={visible}
-            onClick={() => setVisible(!visible)}
-            label={visible ? 'hide' : 'show'}
-          />
+          <RadioButton checked={visible} onClick={() => setVisible(!visible)} label={visible ? 'hide' : 'show'} />
         </Cell>
         <Cell>
           <RadioButton
@@ -128,14 +110,10 @@ const ArticleDefault = ({className}) => {
           <Label>result:</Label>
         </Cell>
         <Cell>
-          <Paragraph elementType="div">
-            {JSON.stringify(`${singleState}`, null, 2)}
-          </Paragraph>
+          <Paragraph elementType="div">{JSON.stringify(`${singleState}`, null, 2)}</Paragraph>
         </Cell>
         <Cell>
-          <Paragraph elementType="div">
-            {JSON.stringify(multipleState, null, 2)}
-          </Paragraph>
+          <Paragraph elementType="div">{JSON.stringify(multipleState, null, 2)}</Paragraph>
         </Cell>
       </Grid>
     </Article>

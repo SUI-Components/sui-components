@@ -36,9 +36,7 @@ $molecule-select-popover-overlay-types: (
 ) !default;
 
 $trf-select-popover-select-icon-has-custom-wrapper: rotate(-90deg) !default;
-$trf-select-popover-select-icon-has-custom-wrapper--is-open: rotate(
-  -90deg
-) !default;
+$trf-select-popover-select-icon-has-custom-wrapper--is-open: rotate(-90deg) !default;
 $l-select-popover--right: 0 !default;
 $r-select-popover--left: 0 !default;
 $p-select-popover: absolute !default;

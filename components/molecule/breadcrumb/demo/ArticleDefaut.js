@@ -9,8 +9,8 @@ const ArticleDefault = ({className, items}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        MoleculeBreadcrumb must have valid <Code>items</Code>, which is an array
-        of elements (object) with label and url.
+        MoleculeBreadcrumb must have valid <Code>items</Code>, which is an array of elements (object) with label and
+        url.
       </Paragraph>
       <MoleculeBreadcrumb items={items} />
     </Article>
@@ -21,9 +21,7 @@ ArticleDefault.displayName = 'ArticleDefault'
 
 ArticleDefault.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({label: PropTypes.string, url: PropTypes.string})
-  )
+  items: PropTypes.arrayOf(PropTypes.shape({label: PropTypes.string, url: PropTypes.string}))
 }
 
 export default ArticleDefault

@@ -50,12 +50,7 @@ const getStyles = function ({src}) {
 
 const ImagePanel = function ({as = 'div', id, children, ...props}) {
   return (
-    <PolymorphicElement
-      as={as}
-      id={id}
-      className={getClassNames(props)}
-      style={getStyles(props)}
-    >
+    <PolymorphicElement as={as} id={id} className={getClassNames(props)} style={getStyles(props)}>
       {children}
     </PolymorphicElement>
   )

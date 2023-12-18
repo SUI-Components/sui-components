@@ -17,9 +17,8 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Notification</H1>
       <Paragraph>
-        Notifications offer users information on the system. The content may
-        confirm that an action has been performed correctly, warn the user of an
-        error or simply give information on certain circumstances.
+        Notifications offer users information on the system. The content may confirm that an action has been performed
+        correctly, warn the user of an error or simply give information on certain circumstances.
       </Paragraph>
       <ArticleDefault className={CLASS_SECTION} />
       <br />

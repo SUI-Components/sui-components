@@ -2,20 +2,9 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
-import Accordion, {
-  moleculeAccordionAnimationDuration,
-  MoleculeAccordionItem as AccordionItem
-} from '../../src/index.js'
+import Accordion, {moleculeAccordionAnimationDuration, MoleculeAccordionItem as AccordionItem} from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 
 const availableValues = {
@@ -49,61 +38,42 @@ const ArticleTransition = ({className}) => {
   const [values, setValues] = useState([])
   const onChange = (event, {values}) => {
     const nextValues =
-      values.length === 0
-        ? Object.values(availableValues).map(
-            availableValue => availableValue.id
-          )
-        : []
+      values.length === 0 ? Object.values(availableValues).map(availableValue => availableValue.id) : []
     setValues(nextValues)
   }
   return (
     <Article className={className}>
       <H2>Animation Duration</H2>
       <Paragraph>
-        You can customize the expanding-collapsing animation duration using the{' '}
-        <Code>animationDuration</Code> (number) value. The value must be
-        declared in milliseconds. The packages also provides the{' '}
-        <Code>moleculeAnimationDuration</Code> enum with{' '}
-        {Object.values(moleculeAccordionAnimationDuration).length} different
-        values.
+        You can customize the expanding-collapsing animation duration using the <Code>animationDuration</Code> (number)
+        value. The value must be declared in milliseconds. The packages also provides the{' '}
+        <Code>moleculeAnimationDuration</Code> enum with {Object.values(moleculeAccordionAnimationDuration).length}{' '}
+        different values.
       </Paragraph>
-      <Grid
-        cols={Object.values(moleculeAccordionAnimationDuration).length}
-        gutter={[8, 8]}
-      >
+      <Grid cols={Object.values(moleculeAccordionAnimationDuration).length} gutter={[8, 8]}>
         {Object.entries(moleculeAccordionAnimationDuration).map(
-          (
-            [moleculeAnimationDurationKey, moleculeAnimationDurationValue],
-            index
-          ) => (
+          ([moleculeAnimationDurationKey, moleculeAnimationDurationValue], index) => (
             <Cell key={index}>
               <Label>
-                moleculeAnimationDuration.{moleculeAnimationDurationKey}:{' '}
-                {moleculeAnimationDurationValue}ms
+                moleculeAnimationDuration.{moleculeAnimationDurationKey}: {moleculeAnimationDurationValue}ms
               </Label>
             </Cell>
           )
         )}
-        {Object.values(moleculeAccordionAnimationDuration).map(
-          (moleculeAnimationDuration, index) => (
-            <Cell key={index}>
-              <Accordion
-                onChange={onChange}
-                values={values}
-                animationDuration={moleculeAnimationDuration}
-              >
-                {Object.values(availableValues).map(availableValue => (
-                  <AccordionItem
-                    key={availableValue.id}
-                    value={availableValue.id}
-                    label={availableValue.label}
-                    content={availableValue.content}
-                  />
-                ))}
-              </Accordion>
-            </Cell>
-          )
-        )}
+        {Object.values(moleculeAccordionAnimationDuration).map((moleculeAnimationDuration, index) => (
+          <Cell key={index}>
+            <Accordion onChange={onChange} values={values} animationDuration={moleculeAnimationDuration}>
+              {Object.values(availableValues).map(availableValue => (
+                <AccordionItem
+                  key={availableValue.id}
+                  value={availableValue.id}
+                  label={availableValue.label}
+                  content={availableValue.content}
+                />
+              ))}
+            </Accordion>
+          </Cell>
+        ))}
       </Grid>
     </Article>
   )

@@ -43,12 +43,9 @@ const LayoutGrid = ({
 }) => {
   const classNames = cx(
     `${BASE_CLASS}`,
-    Object.values(ALIGN_CONTENT).includes(alignContent) &&
-      `${BASE_CLASS}--ac-${alignContent}`,
-    Object.values(ALIGN_ITEMS).includes(alignItems) &&
-      `${BASE_CLASS}--ai-${alignItems}`,
-    Object.values(JUSTIFY_CONTENT).includes(justifyContent) &&
-      `${BASE_CLASS}--jc-${justifyContent}`,
+    Object.values(ALIGN_CONTENT).includes(alignContent) && `${BASE_CLASS}--ac-${alignContent}`,
+    Object.values(ALIGN_ITEMS).includes(alignItems) && `${BASE_CLASS}--ai-${alignItems}`,
+    Object.values(JUSTIFY_CONTENT).includes(justifyContent) && `${BASE_CLASS}--jc-${justifyContent}`,
     getGutterClassNames(gutter),
     className
   )
@@ -112,10 +109,7 @@ LayoutGrid.propTypes = {
   /***
    * Defines the number of columns an item should span
    */
-  colSpan: PropTypes.oneOfType([
-    PropTypes.oneOf(CELL_NUMBERS),
-    PropTypes.objectOf(PropTypes.oneOf(CELL_NUMBERS))
-  ]),
+  colSpan: PropTypes.oneOfType([PropTypes.oneOf(CELL_NUMBERS), PropTypes.objectOf(PropTypes.oneOf(CELL_NUMBERS))]),
   /**
    * Number of cells the component has to fill. It's applied for the `l` breakpoint and wider screens.
    */

@@ -13,8 +13,7 @@ $base-class-linked: '#{$base-class}-linked';
 $base-class-blurred: '#{$base-class}-blurred';
 
 #{$base-class} {
-  transition: color $duration-normal ease-in-out,
-    text-shadow $duration-normal ease-in-out;
+  transition: color $duration-normal ease-in-out, text-shadow $duration-normal ease-in-out;
 
   &#{$base-class-linked} {
     all: unset;

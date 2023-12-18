@@ -2,17 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Button,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Button, Cell, Code, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeBadgeCounter from '../src/index.js'
 
@@ -26,11 +16,9 @@ const ArticleLabel = ({className}) => {
     <Article className={className}>
       <H2>Label</H2>
       <Paragraph>
-        Its inner value is setted by <Code>label</Code> number prop. It cannot
-        be higher to the defined <Code>labelMax</Code> number prop (default 99).
-        In case of being higher than the defined max, it will show the maximum
-        preceded by a '+' symbol, presenting that there are more than the
-        maximum defined value.
+        Its inner value is setted by <Code>label</Code> number prop. It cannot be higher to the defined{' '}
+        <Code>labelMax</Code> number prop (default 99). In case of being higher than the defined max, it will show the
+        maximum preceded by a '+' symbol, presenting that there are more than the maximum defined value.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
@@ -52,10 +40,7 @@ const ArticleLabel = ({className}) => {
           </MoleculeBadgeCounter>
         </Cell>
       </Grid>
-      <Paragraph>
-        If the number of the bullet exceeds the maximum defined (99) it will
-        show the maximum.
-      </Paragraph>
+      <Paragraph>If the number of the bullet exceeds the maximum defined (99) it will show the maximum.</Paragraph>
     </Article>
   )
 }

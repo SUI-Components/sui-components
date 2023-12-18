@@ -10,15 +10,11 @@ const ArticleActionable = ({className}) => {
     <Article className={className}>
       <H2>Actionable</H2>
       <Paragraph>
-        Actionable tags can be used as an anchor. Same as <Code>{'<a>'}</Code>{' '}
-        to define an interactivity with the component.
+        Actionable tags can be used as an anchor. Same as <Code>{'<a>'}</Code> to define an interactivity with the
+        component.
       </Paragraph>
       <AtomTag label="Navigation Tag" onClick={() => window.alert('click!')} />
-      <AtomTag
-        href="https://sui-components.now.sh/"
-        label="Anchor Tag"
-        target="_blank"
-      />
+      <AtomTag href="https://sui-components.now.sh/" label="Anchor Tag" target="_blank" />
       <AtomTag
         href="https://sui-components.now.sh/"
         icon={icon}
@@ -37,11 +33,7 @@ const ArticleActionable = ({className}) => {
       <Paragraph>
         With <Code>outline</Code> design.
       </Paragraph>
-      <AtomTag
-        design={atomTagDesigns.OUTLINE}
-        label="Navigation Tag"
-        onClick={() => window.alert('click!')}
-      />
+      <AtomTag design={atomTagDesigns.OUTLINE} label="Navigation Tag" onClick={() => window.alert('click!')} />
       <AtomTag
         design={atomTagDesigns.OUTLINE}
         href="https://sui-components.now.sh/"
@@ -68,12 +60,7 @@ const ArticleActionable = ({className}) => {
       <Paragraph>
         With <Code>disabled</Code> prop.
       </Paragraph>
-      <AtomTag
-        design={atomTagDesigns.OUTLINE}
-        label="Navigation Tag"
-        onClick={() => window.alert('click!')}
-        disabled
-      />
+      <AtomTag design={atomTagDesigns.OUTLINE} label="Navigation Tag" onClick={() => window.alert('click!')} disabled />
       <AtomTag
         design={atomTagDesigns.OUTLINE}
         href="https://sui-components.now.sh/"
@@ -100,12 +87,7 @@ const ArticleActionable = ({className}) => {
       <Paragraph>
         With <Code>readOnly</Code> prop.
       </Paragraph>
-      <AtomTag
-        design={atomTagDesigns.OUTLINE}
-        label="Navigation Tag"
-        onClick={() => window.alert('click!')}
-        readOnly
-      />
+      <AtomTag design={atomTagDesigns.OUTLINE} label="Navigation Tag" onClick={() => window.alert('click!')} readOnly />
       <AtomTag
         design={atomTagDesigns.OUTLINE}
         href="https://sui-components.now.sh/"
@@ -132,8 +114,7 @@ const ArticleActionable = ({className}) => {
       <Paragraph>–––––</Paragraph>
       <H2>With Value prop</H2>
       <Paragraph>
-        Use the <Code>value</Code> prop if the tag represents a value and want
-        it to be returned on the onClick handler
+        Use the <Code>value</Code> prop if the tag represents a value and want it to be returned on the onClick handler
       </Paragraph>
       <div>
         <AtomTag

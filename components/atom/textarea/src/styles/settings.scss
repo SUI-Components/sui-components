@@ -19,12 +19,4 @@ $c-atom-textarea-placeholder: initial !default;
 $w-atom-textarea: 100% !default;
 $rsz-atom-textarea: auto !default;
 
-$resizes-atom-textarea: (
-  auto,
-  both,
-  horizontal,
-  inherit,
-  initial,
-  none,
-  vertical
-);
+$resizes-atom-textarea: (auto, both, horizontal, inherit, initial, none, vertical);

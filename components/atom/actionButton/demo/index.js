@@ -15,18 +15,10 @@ import {
   Strong,
   Text
 } from '@s-ui/documentation-library'
-import AtomActionButton, {
-  atomActionButtonColors,
-  atomActionButtonSizes
-} from '@s-ui/react-atom-action-button'
+import AtomActionButton, {atomActionButtonColors, atomActionButtonSizes} from '@s-ui/react-atom-action-button'
 
 import ActionButtonCatalog from './ActionButtonCatalog.js'
-import {
-  CLASS_SECTION,
-  flexCenteredStyle,
-  handleSubmit,
-  icon
-} from './settings.js'
+import {CLASS_SECTION, flexCenteredStyle, handleSubmit, icon} from './settings.js'
 
 const Demo = () => {
   const [state, setState] = useState({content: 'button', link: false})
@@ -38,8 +30,8 @@ const Demo = () => {
         <H2>Colours</H2>
         <div>
           <Paragraph>
-            These are the available <Code>color</Code> of action buttons, which
-            are <Code>{atomActionButtonColors.PRIMARY}</Code> by default.
+            These are the available <Code>color</Code> of action buttons, which are{' '}
+            <Code>{atomActionButtonColors.PRIMARY}</Code> by default.
           </Paragraph>
           <ActionButtonCatalog icon={icon} />
         </div>
@@ -50,8 +42,7 @@ const Demo = () => {
         <Paragraph>Size of the icon</Paragraph>
         <div>
           <Paragraph>
-            We define 3 diferent sizes for action button exported as{' '}
-            <Code>atomActionButtonSizes</Code>
+            We define 3 diferent sizes for action button exported as <Code>atomActionButtonSizes</Code>
           </Paragraph>
           <Grid cols={3} gutter="10" style={{width: 600}}>
             <Cell style={flexCenteredStyle}>
@@ -85,55 +76,28 @@ const Demo = () => {
       <Article className={CLASS_SECTION}>
         <H2>Link buttons</H2>
         <Paragraph>
-          ActionButtons can also be used as anchor elements to redirect to a
-          different url once clicking on them. This can be done by adding the{' '}
-          <Code>link</Code> boolean prop combined with the href prop for the
-          destination url.
+          ActionButtons can also be used as anchor elements to redirect to a different url once clicking on them. This
+          can be done by adding the <Code>link</Code> boolean prop combined with the href prop for the destination url.
         </Paragraph>
         <div>
           <Grid cols={4} gutter="10" style={{width: 600}}>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-                link
-                title="button link"
-                target="_blank"
-                href="http://www.google.com"
-                icon={icon}
-              >
+              <AtomActionButton link title="button link" target="_blank" href="http://www.google.com" icon={icon}>
                 Button link
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-                link
-                href="http://www.google.com"
-                icon={icon}
-                style="outline"
-                title="button link"
-              >
+              <AtomActionButton link href="http://www.google.com" icon={icon} style="outline" title="button link">
                 Button link
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-                link
-                href="http://www.google.com"
-                icon={icon}
-                title="button link"
-                style="flat"
-              >
+              <AtomActionButton link href="http://www.google.com" icon={icon} title="button link" style="flat">
                 Button link
               </AtomActionButton>
             </Cell>
             <Cell style={flexCenteredStyle}>
-              <AtomActionButton
-                link
-                href="http://www.google.com"
-                icon={icon}
-                title="button link"
-                style="flat"
-                disabled
-              >
+              <AtomActionButton link href="http://www.google.com" icon={icon} title="button link" style="flat" disabled>
                 Button link disabled
               </AtomActionButton>
             </Cell>
@@ -144,13 +108,11 @@ const Demo = () => {
       <Article className={CLASS_SECTION}>
         <H2>Types</H2>
         <Paragraph>
-          HTML button <Code>type</Code> attribute is used for specifying the
-          behavior of button.
+          HTML button <Code>type</Code> attribute is used for specifying the behavior of button.
         </Paragraph>
         <Paragraph>
-          <Strong>Tip</Strong>: Always specify the type attribute for the button
-          element. Different browsers may use different default types for the
-          button element
+          <Strong>Tip</Strong>: Always specify the type attribute for the button element. Different browsers may use
+          different default types for the button element
         </Paragraph>
         <Grid cols={1} gutter={[8, 8]}>
           {Object.entries({
@@ -158,9 +120,7 @@ const Demo = () => {
             submit: 'The button is a submit button (submits form-data)'
           }).map(([key, value]) => (
             <Fragment key={key}>
-              <Cell
-                style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
-              >
+              <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
                 <Label>{key}</Label>: <Text>{value}</Text>
               </Cell>
             </Fragment>
@@ -171,22 +131,10 @@ const Demo = () => {
         <form onSubmit={handleSubmit}>
           <Grid cols={2} gutter={[8, 8]} style={{width: 200}}>
             <Cell span={2}>
-              <Input
-                fullWidth
-                type="text"
-                id="fname"
-                name="fname"
-                placeholder="first name"
-              />
+              <Input fullWidth type="text" id="fname" name="fname" placeholder="first name" />
             </Cell>
             <Cell span={2}>
-              <Input
-                fullWidth
-                type="text"
-                id="lname"
-                name="lname"
-                placeholder="Last name"
-              />
+              <Input fullWidth type="text" id="lname" name="lname" placeholder="Last name" />
             </Cell>
             <Cell>
               <AtomActionButton icon={icon} type="submit">

@@ -11,11 +11,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
 import json from '../package.json'
-import {
-  MAX_LABEL_LENGTH,
-  shouldRenderIcon,
-  truncateText
-} from '../src/config.js'
+import {MAX_LABEL_LENGTH, shouldRenderIcon, truncateText} from '../src/config.js'
 import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
@@ -27,21 +23,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'atomBadgeDesigns',
-      'atomBadgeTypes',
-      'atomBadgeSizes',
-      'default'
-    ]
+    const libraryExportedMembers = ['atomBadgeDesigns', 'atomBadgeTypes', 'atomBadgeSizes', 'default']
 
     // When
-    const {
-      atomBadgeDesigns,
-      atomBadgeTypes,
-      atomBadgeSizes,
-      default: AtomBadge,
-      ...others
-    } = library
+    const {atomBadgeDesigns, atomBadgeTypes, atomBadgeSizes, default: AtomBadge, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -82,8 +67,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames', label: 'label'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -156,17 +140,7 @@ describe(json.name, () => {
 
       // When
       const {atomBadgeTypes: actual} = library
-      const {
-        SUCCESS,
-        ERROR,
-        INFO,
-        ALERT,
-        NEW,
-        NEUTRAL,
-        PRIMARY,
-        SECONDARY,
-        ...others
-      } = actual
+      const {SUCCESS, ERROR, INFO, ALERT, NEW, NEUTRAL, PRIMARY, SECONDARY, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

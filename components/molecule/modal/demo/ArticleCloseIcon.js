@@ -59,16 +59,11 @@ const ArticleCloseIcon = ({className}) => {
       <H2>Icon</H2>
       <Button onClick={onChangeHandler}>Open modal</Button>
       <Paragraph>
-        The closing icon can be customized using the <Code>iconClose</Code>{' '}
-        (node) prop.
+        The closing icon can be customized using the <Code>iconClose</Code> (node) prop.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={icon}
-            onChange={onChangeIconHandler}
-            fullWidth
-          >
+          <RadioButtonGroup value={icon} onChange={onChangeIconHandler} fullWidth>
             {Object.values(icons).map(iconValue => (
               <RadioButton
                 key={`${iconValue}`}
@@ -85,8 +80,7 @@ const ArticleCloseIcon = ({className}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        The closing icon can be floating positioned also using the{' '}
-        <Code>floatingIconClose</Code> boolean prop.
+        The closing icon can be floating positioned also using the <Code>floatingIconClose</Code> boolean prop.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
@@ -94,16 +88,8 @@ const ArticleCloseIcon = ({className}) => {
         </Cell>
         <Cell>
           <RadioButtonGroup value={open} onChange={onChangeFloatingIconClose}>
-            <RadioButton
-              value
-              label="true"
-              checked={floatingIconClose === true}
-            />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={floatingIconClose === false}
-            />
+            <RadioButton value label="true" checked={floatingIconClose === true} />
+            <RadioButton value={false} label="false" checked={floatingIconClose === false} />
           </RadioButtonGroup>
         </Cell>
       </Grid>
@@ -121,11 +107,7 @@ const ArticleCloseIcon = ({className}) => {
       >
         <Grid cols={5} gutter={[8, 8]}>
           <Cell span={5}>
-            <RadioButtonGroup
-              value={icon}
-              onChange={onChangeIconHandler}
-              fullWidth
-            >
+            <RadioButtonGroup value={icon} onChange={onChangeIconHandler} fullWidth>
               {Object.values(icons).map(iconValue => (
                 <RadioButton
                   key={`${iconValue}`}

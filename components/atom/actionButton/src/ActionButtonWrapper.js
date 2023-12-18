@@ -14,12 +14,7 @@ const ActionButtonWrapper = ({
   if (isSubmit) attrs.type = 'submit'
   if (isButton) attrs.type = 'button'
   return link ? (
-    <Link
-      {...attrs}
-      href={href}
-      target={target}
-      rel={target === '_blank' ? 'noopener' : undefined}
-    >
+    <Link {...attrs} href={href} target={target} rel={target === '_blank' ? 'noopener' : undefined}>
       {children}
     </Link>
   ) : (

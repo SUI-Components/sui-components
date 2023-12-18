@@ -33,8 +33,7 @@ $c-atom-checkbox--success: $c-success !default;
 $c-atom-checkbox--error: $c-error !default;
 $c-atom-checkbox--alert: $c-alert !default;
 
-$status-atom-checkbox: success $c-atom-checkbox--success,
-  error $c-atom-checkbox--error, alert $c-atom-checkbox--alert !default;
+$status-atom-checkbox: success $c-atom-checkbox--success, error $c-atom-checkbox--error, alert $c-atom-checkbox--alert !default;
 
 $sz-icon: (
   small: (

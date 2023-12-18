@@ -2,21 +2,9 @@ import {useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Box,
-  H2,
-  H4,
-  Label,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Box, H2, H4, Label, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
-import {
-  MoleculeDrawer,
-  moleculeDrawerAnimationDuration,
-  moleculeDrawerSizes
-} from '../src/index.js'
+import {MoleculeDrawer, moleculeDrawerAnimationDuration, moleculeDrawerSizes} from '../src/index.js'
 
 const DemoAnimationDuration = ({className}) => {
   const noneRef = useRef()
@@ -30,15 +18,9 @@ const DemoAnimationDuration = ({className}) => {
     <Article className={className}>
       <H2>Animation Duration</H2>
       <Paragraph>
-        A client can configure{' '}
-        {Object.values(moleculeDrawerAnimationDuration).length} different
-        animation durations:
+        A client can configure {Object.values(moleculeDrawerAnimationDuration).length} different animation durations:
       </Paragraph>
-      <RadioButton
-        label={<Label>OPEN</Label>}
-        checked={opened}
-        onClick={() => setOpened(!opened)}
-      />
+      <RadioButton label={<Label>OPEN</Label>} checked={opened} onClick={() => setOpened(!opened)} />
       <br />
       <br />
       <Box

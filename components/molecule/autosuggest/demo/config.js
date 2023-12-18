@@ -22,14 +22,8 @@ export const MoleculeAutosuggestWithDynamicOptions = withDynamicOptions(
   MoleculeAutosuggestOption
 )(getAsyncCountriesFromQuery)
 
-export const MoleculeAutosuggestWithState = withStateValue(
-  MoleculeAutosuggestWithDynamicOptions
-)
+export const MoleculeAutosuggestWithState = withStateValue(MoleculeAutosuggestWithDynamicOptions)
 
-export const MoleculeAutosuggestWithStateTags = withStateValueTags(
-  MoleculeAutosuggestWithDynamicOptions
-)
+export const MoleculeAutosuggestWithStateTags = withStateValueTags(MoleculeAutosuggestWithDynamicOptions)
 
-export const MoleculeAutosuggestWithStateTagsLabels = withStateValueTags(
-  MoleculeAutosuggestField
-)
+export const MoleculeAutosuggestWithStateTagsLabels = withStateValueTags(MoleculeAutosuggestField)

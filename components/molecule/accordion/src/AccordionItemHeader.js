@@ -75,15 +75,11 @@ const AccordionItemHeader = forwardRef(
             ref: forwardedRef
           }),
           ...(!isHeadingElement && !isFragmentProp && {role: 'heading'}),
-          ...(!isHeadingElement &&
-            level &&
-            !isFragmentProp && {'aria-level': level}),
+          ...(!isHeadingElement && level && !isFragmentProp && {'aria-level': level}),
           ...(!isFragmentProp && {'data-expanded': isExpanded}),
           ...(!isFragmentProp && {
             style: {
-              transition: `border-radius 0s linear ${
-                isExpanded ? 0 : animationDuration
-              }ms`
+              transition: `border-radius 0s linear ${isExpanded ? 0 : animationDuration}ms`
             }
           })
         }}

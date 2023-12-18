@@ -21,8 +21,7 @@ import usePortal from '../../src/index.js'
 const ArticleCloseOnEvent = ({className}) => {
   // outside click
   const targetedOutsideClickRef = useRef()
-  const [isOpenTargetedOutsideClick, setIsOpenTargetedOutsideClick] =
-    useState(false)
+  const [isOpenTargetedOutsideClick, setIsOpenTargetedOutsideClick] = useState(false)
   const {Portal: PortalOutsideClick} = usePortal({
     hasCloseOnOutsideClick: true,
     target: targetedOutsideClickRef.current,
@@ -47,8 +46,7 @@ const ArticleCloseOnEvent = ({className}) => {
     <Article className={className}>
       <H2>Configured event listeners</H2>
       <Paragraph>
-        <Code>usePortal</Code> hook has 2 configuration properties for event
-        triggers:
+        <Code>usePortal</Code> hook has 2 configuration properties for event triggers:
       </Paragraph>
       <UnorderedList>
         <ListItem>
@@ -60,17 +58,15 @@ const ArticleCloseOnEvent = ({className}) => {
       </UnorderedList>
       <H3>hasCloseOnOutsideClick</H3>
       <Paragraph>
-        If the hook is configured with this feature enabled (true), the portal
-        will close on every single clicking event out of its own bounding area.
+        If the hook is configured with this feature enabled (true), the portal will close on every single clicking event
+        out of its own bounding area.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
           <RadioButton
             label="open"
             checked={isOpenTargetedOutsideClick}
-            onClick={() =>
-              setIsOpenTargetedOutsideClick(!isOpenTargetedOutsideClick)
-            }
+            onClick={() => setIsOpenTargetedOutsideClick(!isOpenTargetedOutsideClick)}
           />
         </Cell>
         <Cell>
@@ -84,16 +80,12 @@ const ArticleCloseOnEvent = ({className}) => {
       </PortalOutsideClick>
       <H3>hasCloseOnEsc</H3>
       <Paragraph>
-        If the hook is configured with this feature enabled (true), the portal
-        will close on every single 'Esc' keypress event.
+        If the hook is configured with this feature enabled (true), the portal will close on every single 'Esc' keypress
+        event.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButton
-            label="open"
-            checked={isOpenCloseOnEsc}
-            onClick={() => setIsOpenCloseOnEsc(!isOpenCloseOnEsc)}
-          />
+          <RadioButton label="open" checked={isOpenCloseOnEsc} onClick={() => setIsOpenCloseOnEsc(!isOpenCloseOnEsc)} />
         </Cell>
         <Cell>
           <div className="target" ref={targetedEscPressRef} />

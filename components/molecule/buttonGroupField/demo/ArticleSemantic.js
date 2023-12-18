@@ -28,16 +28,14 @@ export const ArticleSemantic = ({className}) => {
     <Article className={`${className}-section`}>
       <H2>Semantic Text</H2>
       <Paragraph>
-        These are semantical text props and in case of coinciding in the same
-        component, this is the priority order:
+        These are semantical text props and in case of coinciding in the same component, this is the priority order:
       </Paragraph>
       <UnorderedList>
         <ListItem>
           <Code>alertText:</Code> prop type string, used to show an alert.
         </ListItem>
         <ListItem>
-          <Code>successText:</Code> prop type string, used to show a success
-          text.
+          <Code>successText:</Code> prop type string, used to show a success text.
         </ListItem>
         <ListItem>
           <Code>errorText:</Code> prop type string, used to show an error text.
@@ -47,18 +45,14 @@ export const ArticleSemantic = ({className}) => {
         </ListItem>
       </UnorderedList>
       <Paragraph>
-        <Bold>Note</Bold>: <Code>helpText</Code> will always be shown, no matter
-        the priority order.
+        <Bold>Note</Bold>: <Code>helpText</Code> will always be shown, no matter the priority order.
       </Paragraph>
       <Grid cols={4} gutter={[8, 8]}>
         <Cell>
           <Input value={alertText} onChange={onChangeHandler(setAlertText)} />
         </Cell>
         <Cell>
-          <Input
-            value={successText}
-            onChange={onChangeHandler(setSuccessText)}
-          />
+          <Input value={successText} onChange={onChangeHandler(setSuccessText)} />
         </Cell>
         <Cell>
           <Input value={errorText} onChange={onChangeHandler(setErrorText)} />

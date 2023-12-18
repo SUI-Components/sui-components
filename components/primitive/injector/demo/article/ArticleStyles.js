@@ -10,15 +10,11 @@ const ArticleStyles = ({className}) => {
     <Article className={className}>
       <H2>styles</H2>
       <Paragraph>
-        Injector will combine existing children styles rule attribute over the
-        given styles prop to all of them.
+        Injector will combine existing children styles rule attribute over the given styles prop to all of them.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0}}>
         <Injector style={{fontSize: '2em', fontColor: 'red'}}>
-          <Child
-            name="result"
-            style={{fontSize: '3em', fontFamily: 'Helvetica'}}
-          />
+          <Child name="result" style={{fontSize: '3em', fontFamily: 'Helvetica'}} />
         </Injector>
       </Box>
     </Article>

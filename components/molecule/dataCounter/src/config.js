@@ -17,7 +17,5 @@ export const sizeConversor = {
 }
 
 export const moleculeDataCounterSizes = Object.fromEntries(
-  Object.entries(inputSizes).filter(([, value]) =>
-    Object.keys(sizeConversor).includes(value)
-  )
+  Object.entries(inputSizes).filter(([, value]) => Object.keys(sizeConversor).includes(value))
 )

@@ -3,15 +3,9 @@ import {Children, useEffect, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import MoleculeStepper, {
-  moleculeStepperAlignment,
-  moleculeStepperDesign,
-  Step
-} from '@s-ui/react-molecule-stepper'
+import MoleculeStepper, {moleculeStepperAlignment, moleculeStepperDesign, Step} from '@s-ui/react-molecule-stepper'
 
-import MoleculeProgressStep, {
-  STATUSES
-} from './components/MoleculeProgressStep/index.js'
+import MoleculeProgressStep, {STATUSES} from './components/MoleculeProgressStep/index.js'
 import {
   BASE_CLASS,
   CLASS_COMPRESSED,
@@ -77,16 +71,8 @@ const MoleculeProgressSteps = ({
               return label
             })}
           justifyContent={progressBarJustifyContent}
-          design={
-            compressed
-              ? moleculeStepperDesign.COMPRESSED
-              : moleculeStepperDesign.DEFAULT
-          }
-          alignment={
-            vertical
-              ? moleculeStepperAlignment.VERTICAL
-              : moleculeStepperAlignment.HORIZONTAL
-          }
+          design={compressed ? moleculeStepperDesign.COMPRESSED : moleculeStepperDesign.DEFAULT}
+          alignment={vertical ? moleculeStepperAlignment.VERTICAL : moleculeStepperAlignment.HORIZONTAL}
           onChange={onChangeHandler}
           showLabel={showLabel}
         >
@@ -146,9 +132,7 @@ MoleculeProgressSteps.propTypes = {
   contentStyle: PropTypes.oneOf(Object.values(CONTENT_STYLE)),
 
   /** justify the progressbar elements in its area following the element declared **/
-  progressBarJustifyContent: PropTypes.oneOf(
-    Object.values(PROGRESS_BAR_JUSTIFY_CONTENT)
-  ),
+  progressBarJustifyContent: PropTypes.oneOf(Object.values(PROGRESS_BAR_JUSTIFY_CONTENT)),
   /** callback fired every time page changes **/
   onChange: PropTypes.func,
 

@@ -3,15 +3,7 @@ import {useState} from 'react'
 import MoleculeTabs, {MoleculeTab} from 'components/molecule/tabs/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  H3,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, H3, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
 import Content from '../components/Content.js'
 import {CLASS_DEMO_CONTENT_TAB} from '../config.js'
@@ -24,9 +16,8 @@ const ArticleActiveTabs = ({className}) => {
     <Article className={className}>
       <H2>Controlled and uncontrolled active tabs</H2>
       <Paragraph>
-        Under <Code>activeTabIndex</Code> (number, default 1) developer can
-        control the active tab. Use the <Code>defaultActiveTabIndex</Code> for
-        defining the initial tab uncontrolled.
+        Under <Code>activeTabIndex</Code> (number, default 1) developer can control the active tab. Use the{' '}
+        <Code>defaultActiveTabIndex</Code> for defining the initial tab uncontrolled.
       </Paragraph>
       <H3>Uncontrolled</H3>
       <MoleculeTabs defaultActiveTabIndex={3}>
@@ -63,10 +54,7 @@ const ArticleActiveTabs = ({className}) => {
         {Array(tabsNumber)
           .fill(true)
           .map((v, index) => (
-            <RadioButton
-              value={index + 1}
-              checked={index + 1 === activeTabIndex}
-            >{`tab ${index + 1}`}</RadioButton>
+            <RadioButton value={index + 1} checked={index + 1 === activeTabIndex}>{`tab ${index + 1}`}</RadioButton>
           ))}
       </RadioButtonGroup>
       <MoleculeTabs

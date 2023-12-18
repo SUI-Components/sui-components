@@ -13,23 +13,13 @@ const ArticleSize = ({className, handleOnClick, getLeftIcon, getRightIcon}) => {
         These are the options for the prop <Code>size</Code>{' '}
       </Paragraph>
       <span>MEDIUM</span>
-      <MoleculeQuickAction
-        onClick={handleOnClick}
-        leftIcon={getLeftIcon()}
-        rightIcon={getRightIcon()}
-        size="medium"
-      >
+      <MoleculeQuickAction onClick={handleOnClick} leftIcon={getLeftIcon()} rightIcon={getRightIcon()} size="medium">
         Action
       </MoleculeQuickAction>
       <br />
       <br />
       <span>LARGE</span>
-      <MoleculeQuickAction
-        onClick={handleOnClick}
-        leftIcon={getLeftIcon()}
-        rightIcon={getRightIcon()}
-        size="large"
-      >
+      <MoleculeQuickAction onClick={handleOnClick} leftIcon={getLeftIcon()} rightIcon={getRightIcon()} size="large">
         Action
       </MoleculeQuickAction>
     </Article>

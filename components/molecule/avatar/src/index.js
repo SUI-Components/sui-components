@@ -4,17 +4,10 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomImage from '@s-ui/react-atom-image'
-import AtomSkeleton, {
-  ATOM_SKELETON_ANIMATIONS,
-  ATOM_SKELETON_VARIANTS
-} from '@s-ui/react-atom-skeleton'
+import AtomSkeleton, {ATOM_SKELETON_ANIMATIONS, ATOM_SKELETON_VARIANTS} from '@s-ui/react-atom-skeleton'
 import Injector from '@s-ui/react-primitive-injector'
 
-import AvatarBadge, {
-  AVATAR_BADGE_PLACEMENTS,
-  AVATAR_BADGE_SIZES,
-  AVATAR_BADGE_STATUSES
-} from './AvatarBadge/index.js'
+import AvatarBadge, {AVATAR_BADGE_PLACEMENTS, AVATAR_BADGE_SIZES, AVATAR_BADGE_STATUSES} from './AvatarBadge/index.js'
 import AvatarFallback from './AvatarFallback/index.js'
 import {AVATAR_SIZES, baseClassName} from './settings.js'
 
@@ -50,41 +43,15 @@ const MoleculeAvatar = forwardRef(
         return skeleton
       }
 
-      const fallback = (
-        <AvatarFallback
-          name={name}
-          size={size}
-          icon={fallbackIcon}
-          backgroundColor={fallbackColor}
-        />
-      )
+      const fallback = <AvatarFallback name={name} size={size} icon={fallbackIcon} backgroundColor={fallbackColor} />
 
       return (
         <>
-          {src ? (
-            <AtomImage
-              src={src}
-              alt={name}
-              errorIcon={fallback}
-              {...imageProps}
-            />
-          ) : (
-            fallback
-          )}
+          {src ? <AtomImage src={src} alt={name} errorIcon={fallback} {...imageProps} /> : fallback}
           {!isLoading && <Injector size={size}>{children}</Injector>}
         </>
       )
-    }, [
-      children,
-      fallbackColor,
-      fallbackIcon,
-      isLoading,
-      name,
-      size,
-      skeleton,
-      src,
-      imageProps
-    ])
+    }, [children, fallbackColor, fallbackIcon, isLoading, name, size, skeleton, src, imageProps])
 
     return (
       <span style={style} className={className} {...others} ref={forwardedRef}>

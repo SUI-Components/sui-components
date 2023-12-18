@@ -89,9 +89,7 @@ const MoleculeInputTags = forwardRef(
         let options
         if (allowDuplicates || !isDuplicate(tags, value)) {
           if (optionsData) {
-            options = optionsData.filter(
-              optionData => optionData.label === value
-            )[0]
+            options = optionsData.filter(optionData => optionData.label === value)[0]
           }
           nextTags.push(options || value)
         }
@@ -228,8 +226,4 @@ MoleculeInputTags.propTypes = {
 }
 
 export default MoleculeInputTags
-export {
-  inputSizes,
-  inputSizes as moleculeInputTagsInputSizes,
-  atomTagSizes as moleculeInputTagsSizes
-}
+export {inputSizes, inputSizes as moleculeInputTagsInputSizes, atomTagSizes as moleculeInputTagsSizes}

@@ -10,17 +10,7 @@ import {NATIVE} from '../settings/players.js'
 
 const NativePlayer = forwardRef(
   (
-    {
-      autoPlay,
-      controls,
-      muted,
-      onLoadVideo,
-      playsInline,
-      timeLimit,
-      timeOffset,
-      src,
-      title = NATIVE_DEFAULT_TITLE
-    },
+    {autoPlay, controls, muted, onLoadVideo, playsInline, timeLimit, timeOffset, src, title = NATIVE_DEFAULT_TITLE},
     forwardedRef
   ) => {
     const playerRef = useRef(null)
@@ -63,9 +53,7 @@ const NativePlayer = forwardRef(
           onLoadedMetadata={onLoadedMetadata}
           playsInline={playsInline}
         >
-          {videoSrc !== null && (
-            <source data-testid="videosrc" src={videoSrc} />
-          )}
+          {videoSrc !== null && <source data-testid="videosrc" src={videoSrc} />}
           Your browser does not support the video tag.
         </video>
       </div>

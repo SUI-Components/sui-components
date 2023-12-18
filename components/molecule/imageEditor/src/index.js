@@ -28,38 +28,23 @@ const MoleculeImageEditor = ({
   const [rotation, rotationSetter] = useState(0)
   const [zoom, zoomSetter] = useState(0)
 
-  const setCrop =
-    debouncingTime === undefined
-      ? cropSetter
-      : debounce(cropSetter, debouncingTime)
+  const setCrop = debouncingTime === undefined ? cropSetter : debounce(cropSetter, debouncingTime)
 
-  const setRotation =
-    debouncingTime === undefined
-      ? rotationSetter
-      : debounce(rotationSetter, debouncingTime)
+  const setRotation = debouncingTime === undefined ? rotationSetter : debounce(rotationSetter, debouncingTime)
 
-  const setZoom =
-    debouncingTime === undefined
-      ? zoomSetter
-      : debounce(zoomSetter, debouncingTime)
+  const setZoom = debouncingTime === undefined ? zoomSetter : debounce(zoomSetter, debouncingTime)
 
   const onCropComplete = useCallback(
     async (croppedArea, croppedAreaPixels, ...args) => {
       const cropCompleteHandler = async () => {
         const rotationDegrees = getRotationDegrees(rotation)
         onCropping(true)
-        const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(
-          image,
-          croppedAreaPixels,
-          rotationDegrees
-        )
+        const [croppedImageUrl, croppedImageBlobObject] = await getCroppedImg(image, croppedAreaPixels, rotationDegrees)
         onChange(croppedImageUrl, croppedImageBlobObject)
         onCropping(false)
       }
       const callback =
-        debouncingTime === undefined
-          ? cropCompleteHandler
-          : debounce(cropCompleteHandler, debouncingTime)
+        debouncingTime === undefined ? cropCompleteHandler : debounce(cropCompleteHandler, debouncingTime)
       await callback(croppedArea, croppedAreaPixels, ...args)
     },
     [rotation, onCropping, image, onChange, debouncingTime]
@@ -106,7 +91,4 @@ MoleculeImageEditor.propTypes = {
 
 export default MoleculeImageEditor
 
-export {
-  ImageEditorCropper as MoleculeImageEditorCropper,
-  ImageEditorSliders as MoleculeImageEditorSliders
-}
+export {ImageEditorCropper as MoleculeImageEditorCropper, ImageEditorSliders as MoleculeImageEditorSliders}

@@ -28,17 +28,11 @@ $base-class: '.sui-AtomTextarea';
   }
 
   &--short {
-    height: calc(
-      (#{$lh-atom-textarea} * #{$short-num-lines-atom-textarea}) + #{$p-atom-textarea +
-        $bdw-s} * 2
-    );
+    height: calc((#{$lh-atom-textarea} * #{$short-num-lines-atom-textarea}) + #{$p-atom-textarea + $bdw-s} * 2);
   }
 
   &--long {
-    height: calc(
-      (#{$lh-atom-textarea} * #{$long-num-lines-atom-textarea}) + #{$p-atom-textarea +
-        $bdw-s} * 2
-    );
+    height: calc((#{$lh-atom-textarea} * #{$long-num-lines-atom-textarea}) + #{$p-atom-textarea + $bdw-s} * 2);
   }
 
   @each $state, $color in $states-atom-input {

@@ -1,18 +1,13 @@
-import {
-  Article,
-  Code,
-  H2,
-  Paragraph,
-  UnorderedList,
-  ListItem
-} from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
+
+import {Article, Code, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
+
 import PrimitiveTypography, {
-  primitiveTypographyFontSize,
   primitiveTypographyFontFamily,
-  primitiveTypographyFontWeight,
-  primitiveTypographyFontStyle,
+  primitiveTypographyFontSize,
   primitiveTypographyFontStretch,
+  primitiveTypographyFontStyle,
+  primitiveTypographyFontWeight,
   primitiveTypographyLetterSpacing,
   primitiveTypographyLineHeight,
   primitiveTypographyTextDecoration
@@ -23,8 +18,8 @@ const ArticleStyles = ({className, lorem}) => {
     <Article className={className}>
       <H2>Styles</H2>
       <Paragraph>
-        The <Code>PrimitiveTypography</Code> can customize lots of text styles
-        by props in order to override the predefined design-variant pari given.
+        The <Code>PrimitiveTypography</Code> can customize lots of text styles by props in order to override the
+        predefined design-variant pari given.
       </Paragraph>
       <UnorderedList>
         <ListItem>
@@ -32,12 +27,9 @@ const ArticleStyles = ({className, lorem}) => {
           <UnorderedList>
             {Object.entries(primitiveTypographyFontSize).map(([key, value]) => (
               <ListItem key={key}>
-                <Code>primitiveTypographyFontSize.{key}</Code>:{' '}
-                <Code>"{value}"</Code>
+                <Code>primitiveTypographyFontSize.{key}</Code>: <Code>"{value}"</Code>
                 <br />
-                <PrimitiveTypography fontSize={value}>
-                  {lorem}
-                </PrimitiveTypography>
+                <PrimitiveTypography fontSize={value}>{lorem}</PrimitiveTypography>
               </ListItem>
             ))}
           </UnorderedList>
@@ -45,121 +37,85 @@ const ArticleStyles = ({className, lorem}) => {
         <ListItem>
           <Code>fontFamily</Code>: The css rule for font-family
           <UnorderedList>
-            {Object.entries(primitiveTypographyFontFamily).map(
-              ([key, value]) => (
-                <ListItem key={key}>
-                  <Code>primitiveTypographyFontFamily.{key}</Code>:{' '}
-                  <Code>"{value}"</Code>
-                  <br />
-                  <PrimitiveTypography fontFamily={value}>
-                    {lorem}
-                  </PrimitiveTypography>
-                </ListItem>
-              )
-            )}
+            {Object.entries(primitiveTypographyFontFamily).map(([key, value]) => (
+              <ListItem key={key}>
+                <Code>primitiveTypographyFontFamily.{key}</Code>: <Code>"{value}"</Code>
+                <br />
+                <PrimitiveTypography fontFamily={value}>{lorem}</PrimitiveTypography>
+              </ListItem>
+            ))}
           </UnorderedList>
         </ListItem>
         <ListItem>
           <Code>fontWeight</Code>: The css rule for font-weight
           <UnorderedList>
-            {Object.entries(primitiveTypographyFontWeight).map(
-              ([key, value]) => (
-                <ListItem key={key}>
-                  <Code>primitiveTypographyFontWeight.{key}</Code>:{' '}
-                  <Code>"{value}"</Code>
-                  <br />
-                  <PrimitiveTypography fontWeight={value}>
-                    {lorem}
-                  </PrimitiveTypography>
-                </ListItem>
-              )
-            )}
+            {Object.entries(primitiveTypographyFontWeight).map(([key, value]) => (
+              <ListItem key={key}>
+                <Code>primitiveTypographyFontWeight.{key}</Code>: <Code>"{value}"</Code>
+                <br />
+                <PrimitiveTypography fontWeight={value}>{lorem}</PrimitiveTypography>
+              </ListItem>
+            ))}
           </UnorderedList>
         </ListItem>
         <ListItem>
           <Code>fontStyle</Code>: The css rule for font-style
           <UnorderedList>
-            {Object.entries(primitiveTypographyFontStyle).map(
-              ([key, value]) => (
-                <ListItem key={key}>
-                  <Code>primitiveTypographyFontStyle.{key}</Code>:{' '}
-                  <Code>"{value}"</Code>
-                  <br />
-                  <PrimitiveTypography fontStyle={value}>
-                    {lorem}
-                  </PrimitiveTypography>
-                </ListItem>
-              )
-            )}
+            {Object.entries(primitiveTypographyFontStyle).map(([key, value]) => (
+              <ListItem key={key}>
+                <Code>primitiveTypographyFontStyle.{key}</Code>: <Code>"{value}"</Code>
+                <br />
+                <PrimitiveTypography fontStyle={value}>{lorem}</PrimitiveTypography>
+              </ListItem>
+            ))}
           </UnorderedList>
         </ListItem>
         <ListItem>
-          <Code>fontStretch</Code>: The css rule for font-stretch. (it only
-          works if the font has width-variant faces)
+          <Code>fontStretch</Code>: The css rule for font-stretch. (it only works if the font has width-variant faces)
           <UnorderedList>
-            {Object.entries(primitiveTypographyFontStretch).map(
-              ([key, value]) => (
-                <ListItem key={key}>
-                  <Code>primitiveTypographyFontStretch.{key}</Code>:{' '}
-                  <Code>"{value}"</Code>
-                  <br />
-                  <PrimitiveTypography fontStretch={value}>
-                    {lorem}
-                  </PrimitiveTypography>
-                </ListItem>
-              )
-            )}
+            {Object.entries(primitiveTypographyFontStretch).map(([key, value]) => (
+              <ListItem key={key}>
+                <Code>primitiveTypographyFontStretch.{key}</Code>: <Code>"{value}"</Code>
+                <br />
+                <PrimitiveTypography fontStretch={value}>{lorem}</PrimitiveTypography>
+              </ListItem>
+            ))}
           </UnorderedList>
         </ListItem>
         <ListItem>
           <Code>letterSpacing</Code>: The css rule for letter-spacing
           <UnorderedList>
-            {Object.entries(primitiveTypographyLetterSpacing).map(
-              ([key, value]) => (
-                <ListItem key={key}>
-                  <Code>primitiveTypographyLetterSpacing.{key}</Code>:{' '}
-                  <Code>"{value}"</Code>
-                  <br />
-                  <PrimitiveTypography letterSpacing={value}>
-                    {lorem}
-                  </PrimitiveTypography>
-                </ListItem>
-              )
-            )}
+            {Object.entries(primitiveTypographyLetterSpacing).map(([key, value]) => (
+              <ListItem key={key}>
+                <Code>primitiveTypographyLetterSpacing.{key}</Code>: <Code>"{value}"</Code>
+                <br />
+                <PrimitiveTypography letterSpacing={value}>{lorem}</PrimitiveTypography>
+              </ListItem>
+            ))}
           </UnorderedList>
         </ListItem>
         <ListItem>
           <Code>lineHeight</Code>: The css rule for line-height
           <UnorderedList>
-            {Object.entries(primitiveTypographyLineHeight).map(
-              ([key, value]) => (
-                <ListItem key={key}>
-                  <Code>primitiveTypographyLineHeight.{key}</Code>:{' '}
-                  <Code>"{value}"</Code>
-                  <br />
-                  <PrimitiveTypography lineHeight={value}>
-                    {lorem}
-                  </PrimitiveTypography>
-                </ListItem>
-              )
-            )}
+            {Object.entries(primitiveTypographyLineHeight).map(([key, value]) => (
+              <ListItem key={key}>
+                <Code>primitiveTypographyLineHeight.{key}</Code>: <Code>"{value}"</Code>
+                <br />
+                <PrimitiveTypography lineHeight={value}>{lorem}</PrimitiveTypography>
+              </ListItem>
+            ))}
           </UnorderedList>
         </ListItem>
         <ListItem>
           <Code>textDecorationLine</Code>: The css rule for text-decoration-line
           <UnorderedList>
-            {Object.entries(primitiveTypographyTextDecoration).map(
-              ([key, value]) => (
-                <ListItem key={key}>
-                  <Code>primitiveTypographyTextDecoration.{key}</Code>:{' '}
-                  <Code>"{value}"</Code>
-                  <br />
-                  <PrimitiveTypography textDecorationLine={value}>
-                    {lorem}
-                  </PrimitiveTypography>
-                </ListItem>
-              )
-            )}
+            {Object.entries(primitiveTypographyTextDecoration).map(([key, value]) => (
+              <ListItem key={key}>
+                <Code>primitiveTypographyTextDecoration.{key}</Code>: <Code>"{value}"</Code>
+                <br />
+                <PrimitiveTypography textDecorationLine={value}>{lorem}</PrimitiveTypography>
+              </ListItem>
+            ))}
           </UnorderedList>
         </ListItem>
       </UnorderedList>

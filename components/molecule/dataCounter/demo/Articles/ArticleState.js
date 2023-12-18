@@ -2,16 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  H4,
-  Input,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, H4, Input, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeDataCounter from '../../src/index.js'
 import {propsMessages} from '../settings.js'
@@ -24,13 +15,11 @@ const ArticleState = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        The dataCounter component can work as a stateless components using{' '}
-        <Code>value</Code> (number) prop or stateful component using{' '}
-        <Code>initialValue</Code> (number) prop.
+        The dataCounter component can work as a stateless components using <Code>value</Code> (number) prop or stateful
+        component using <Code>initialValue</Code> (number) prop.
       </Paragraph>
       <Paragraph>
-        in case of combining both of them, the most declarative (value) is
-        prioritized over initialValue
+        in case of combining both of them, the most declarative (value) is prioritized over initialValue
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
@@ -39,11 +28,7 @@ const ArticleState = ({className}) => {
         </Cell>
         <Cell>
           <H4>stateless (controlled)</H4>
-          <Input
-            value={stateLessValue}
-            type="number"
-            onChange={e => setStateLessValue(e.target.value)}
-          />
+          <Input value={stateLessValue} type="number" onChange={e => setStateLessValue(e.target.value)} />
         </Cell>
         <Cell>
           <MoleculeDataCounter
@@ -63,13 +48,9 @@ const ArticleState = ({className}) => {
         </Cell>
         <Cell span={2}>
           <Paragraph>
-            User can also edit the label using the <Code>label</Code> (string)
-            prop.
+            User can also edit the label using the <Code>label</Code> (string) prop.
           </Paragraph>
-          <Input
-            value={label}
-            onChange={event => setLabel(event.target.value)}
-          />
+          <Input value={label} onChange={event => setLabel(event.target.value)} />
         </Cell>
       </Grid>
     </Article>

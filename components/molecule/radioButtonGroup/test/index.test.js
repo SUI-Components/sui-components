@@ -69,8 +69,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -88,14 +87,7 @@ describe(json.name, () => {
         onChange: spyOnChange,
         defaultValue: [0],
         name: 'name',
-        children: values.map(v => (
-          <MoleculeRadioButtonField
-            key={v}
-            id={`${v}`}
-            value={v}
-            label={`${v}`}
-          />
-        ))
+        children: values.map(v => <MoleculeRadioButtonField key={v} id={`${v}`} value={v} label={`${v}`} />)
       }
 
       // When
@@ -110,11 +102,7 @@ describe(json.name, () => {
 
       // Then
       sinon.assert.callCount(spyOnChange, 1)
-      sinon.assert.calledWith(
-        spyOnChange,
-        sinon.match.truthy,
-        sinon.match({name: props.name, value: `${values[0]}`})
-      )
+      sinon.assert.calledWith(spyOnChange, sinon.match.truthy, sinon.match({name: props.name, value: `${values[0]}`}))
     })
   })
 })

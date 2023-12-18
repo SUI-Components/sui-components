@@ -14,43 +14,21 @@ import {
 } from './settings.js'
 
 const MoleculeThumbnail = props => {
-  const {
-    href,
-    size,
-    ratio,
-    shape,
-    target,
-    captionText,
-    linkFactory: Link,
-    ...propsImage
-  } = props
+  const {href, size, ratio, shape, target, captionText, linkFactory: Link, ...propsImage} = props
 
   const ImageCaption = () => (
     <div>
       <div className={cx(`${CONTAINER_IMAGE}`, `${CONTAINER_IMAGE}--${ratio}`)}>
         <AtomImage {...propsImage} />
       </div>
-      {captionText && (
-        <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>
-      )}
+      {captionText && <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>}
     </div>
   )
 
   return (
-    <figure
-      className={cx(
-        `${BASE_CLASS}`,
-        `${BASE_CLASS}--${size}`,
-        `${BASE_CLASS}--${shape}`
-      )}
-    >
+    <figure className={cx(`${BASE_CLASS}`, `${BASE_CLASS}--${size}`, `${BASE_CLASS}--${shape}`)}>
       {href ? (
-        <Link
-          className={LINK_CLASS}
-          href={href}
-          target={target}
-          rel={target === '_blank' ? 'noopener' : undefined}
-        >
+        <Link className={LINK_CLASS} href={href} target={target} rel={target === '_blank' ? 'noopener' : undefined}>
           <ImageCaption />
         </Link>
       ) : (

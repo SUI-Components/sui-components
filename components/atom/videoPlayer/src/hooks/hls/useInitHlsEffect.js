@@ -4,14 +4,7 @@ import Hls from 'hls.js'
 
 import {HLS} from '../../settings/players.js'
 
-const useInitHlsEffect = ({
-  autoPlay,
-  hlsConfig,
-  onLoadVideo,
-  playerRef,
-  src,
-  timeOffset
-}) => {
+const useInitHlsEffect = ({autoPlay, hlsConfig, onLoadVideo, playerRef, src, timeOffset}) => {
   useEffect(() => {
     let hls
 
@@ -50,11 +43,7 @@ const useInitHlsEffect = ({
             /* eslint-disable no-console */
             playerRef?.current
               ?.play()
-              .catch(() =>
-                console.log(
-                  'Unable to autoplay prior to user interaction with the dom.'
-                )
-              )
+              .catch(() => console.log('Unable to autoplay prior to user interaction with the dom.'))
           }
         })
       })

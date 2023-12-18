@@ -38,10 +38,7 @@ const MoleculeAccordion = forwardRef(
     forwardedRef
   ) => {
     return (
-      <Poly
-        as={As}
-        {...(!isFragment(<As />) && {ref: forwardedRef, className: BASE_CLASS})}
-      >
+      <Poly as={As} {...(!isFragment(<As />) && {ref: forwardedRef, className: BASE_CLASS})}>
         <AccordionProvider
           values={values}
           defaultValues={defaultValues}
@@ -77,13 +74,9 @@ MoleculeAccordion.propTypes = {
   /** the max height limit a panel can reach when its expanded **/
   maxHeight: PropTypes.number,
   /** The initial opened values **/
-  defaultValues: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ),
+  defaultValues: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   /** The opened values **/
-  values: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ),
+  values: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   /** handler fired everytime an item changes its collapsed/expanded state **/
   onChange: PropTypes.func,
   /** The header Icon element expanded **/

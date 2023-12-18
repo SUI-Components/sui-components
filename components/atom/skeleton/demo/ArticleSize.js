@@ -2,17 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph,
-  Small
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Input, Label, Paragraph, Small} from '@s-ui/documentation-library'
 
 import AtomSkeleton from '../src/index.js'
 
@@ -23,8 +13,7 @@ const ArticleSize = ({className}) => {
     <Article className={className}>
       <H2>Size</H2>
       <Paragraph>
-        Size can be customized using the <Code>width</Code> and{' '}
-        <Code>height</Code> props.
+        Size can be customized using the <Code>width</Code> and <Code>height</Code> props.
       </Paragraph>
       <Grid cols={2} gutter={[0, 8]}>
         <Cell>

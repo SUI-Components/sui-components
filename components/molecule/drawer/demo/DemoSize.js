@@ -41,18 +41,13 @@ const DemoSize = ({className}) => {
   return (
     <Article className={className}>
       <H2>Size</H2>
-      <Paragraph>
-        A client can configure {Object.values(moleculeDrawerSizes).length}{' '}
-        different sizes:
-      </Paragraph>
+      <Paragraph>A client can configure {Object.values(moleculeDrawerSizes).length} different sizes:</Paragraph>
       <UnorderedList>
         <ListItem>
-          <Bold>Auto</Bold>:(default) sets the width or height dependent to its
-          inner content.
+          <Bold>Auto</Bold>:(default) sets the width or height dependent to its inner content.
         </ListItem>
         <ListItem>
-          <Bold>M</Bold>: sets the width or height configurable under the{' '}
-          <Code>$w-molecule-drawer</Code> SCSS token.
+          <Bold>M</Bold>: sets the width or height configurable under the <Code>$w-molecule-drawer</Code> SCSS token.
         </ListItem>
         <ListItem>
           <Bold>FILL</Bold>: sets a full-viewport drawer.
@@ -101,9 +96,7 @@ const DemoSize = ({className}) => {
         <div ref={autoRef} style={{height: '33.3%', width: '100%'}}>
           <div style={{textAlign: 'right', padding: 8}}>
             <H4>Auto Content</H4>
-            <Paragraph>
-              Sets the width or height dependent to its inner content. (default)
-            </Paragraph>
+            <Paragraph>Sets the width or height dependent to its inner content. (default)</Paragraph>
           </div>
           <MoleculeDrawer
             isOpen={autoState}
@@ -123,8 +116,7 @@ const DemoSize = ({className}) => {
           <div style={{textAlign: 'right', padding: 8}}>
             <H4>M Content</H4>
             <Paragraph>
-              sets the width or height configurable under the{' '}
-              <Code>$w-molecule-drawer</Code> SCSS token
+              sets the width or height configurable under the <Code>$w-molecule-drawer</Code> SCSS token
             </Paragraph>
           </div>
           <MoleculeDrawer

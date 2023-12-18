@@ -48,13 +48,7 @@ const AtomCard = ({
   )
 
   return (
-    <div
-      className={classNames}
-      tabIndex={tabIndex}
-      role="button"
-      onClick={onClickHandler}
-      onKeyDown={redirectOnEnter}
-    >
+    <div className={classNames} tabIndex={tabIndex} role="button" onClick={onClickHandler} onKeyDown={redirectOnEnter}>
       {Media && (
         <div className={CLASS_MEDIA}>
           <Media />

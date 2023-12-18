@@ -17,9 +17,7 @@ import AtomIcon from '@s-ui/react-atom-icon'
 import MoleculeAvatar from '../../src/index.js'
 
 const ArticleImage = ({className}) => {
-  const [src, setSrc] = useState(
-    'https://randomuser.me/api/portraits/men/1.jpg'
-  )
+  const [src, setSrc] = useState('https://randomuser.me/api/portraits/men/1.jpg')
   const [brokenSrc, setBrokenSrc] = useState('https://brokenimagesrc')
   const [name, setName] = useState('John Doe')
   const [fallbackColorName, setFallbackColorName] = useState('John Doe')
@@ -53,9 +51,8 @@ const ArticleImage = ({className}) => {
       />
       <H2>FallbackIcon</H2>
       <Paragraph>
-        If the provided image fails on loading, the avatar will display the
-        buddy icon by default. You can also customize the icon displayed using
-        the <Code>fallbackIcon</Code> (react.node) prop.
+        If the provided image fails on loading, the avatar will display the buddy icon by default. You can also
+        customize the icon displayed using the <Code>fallbackIcon</Code> (react.node) prop.
       </Paragraph>
       <RadioButtonGroup
         value={fallbackIcon}
@@ -80,10 +77,7 @@ const ArticleImage = ({className}) => {
             value={iconValue}
             label={
               <AtomIcon>
-                <AntDesignIcon
-                  icon={iconValue}
-                  style={{color: 'currentColor'}}
-                />
+                <AntDesignIcon icon={iconValue} style={{color: 'currentColor'}} />
               </AtomIcon>
             }
           />
@@ -94,19 +88,15 @@ const ArticleImage = ({className}) => {
         fallbackIcon={
           fallbackIcon ? (
             <AtomIcon>
-              <AntDesignIcon
-                icon={fallbackIcon}
-                style={{color: 'currentColor'}}
-              />
+              <AntDesignIcon icon={fallbackIcon} style={{color: 'currentColor'}} />
             </AtomIcon>
           ) : undefined
         }
       />
       <H2>Fallback Name</H2>
       <Paragraph>
-        If the provided image fails on loading and the <Code>name</Code>{' '}
-        property is passed, the avatar will display the name initials with a
-        colored background.
+        If the provided image fails on loading and the <Code>name</Code> property is passed, the avatar will display the
+        name initials with a colored background.
       </Paragraph>
       <Input
         value={brokenSrc}
@@ -134,19 +124,15 @@ const ArticleImage = ({className}) => {
         fallbackIcon={
           fallbackIcon ? (
             <AtomIcon>
-              <AntDesignIcon
-                icon={fallbackIcon}
-                style={{color: 'currentColor'}}
-              />
+              <AntDesignIcon icon={fallbackIcon} style={{color: 'currentColor'}} />
             </AtomIcon>
           ) : undefined
         }
       />
       <H2>Fallback Color</H2>
       <Paragraph>
-        If the provided image fails on loading and the{' '}
-        <Code>fallbackColor</Code> property is passed, the background color of
-        the avatar will be colored with same background color as you passed.
+        If the provided image fails on loading and the <Code>fallbackColor</Code> property is passed, the background
+        color of the avatar will be colored with same background color as you passed.
       </Paragraph>
       <Input
         value={brokenSrc}
@@ -185,10 +171,7 @@ const ArticleImage = ({className}) => {
         fallbackIcon={
           fallbackIcon ? (
             <AtomIcon>
-              <AntDesignIcon
-                icon={fallbackIcon}
-                style={{color: 'currentColor'}}
-              />
+              <AntDesignIcon icon={fallbackIcon} style={{color: 'currentColor'}} />
             </AtomIcon>
           ) : undefined
         }

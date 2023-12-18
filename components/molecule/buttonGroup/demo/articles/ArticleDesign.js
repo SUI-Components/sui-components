@@ -14,9 +14,7 @@ import {
 } from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
-import MoleculeButtonGroup, {
-  moleculeButtonGroupDesigns
-} from '../../src/index.js'
+import MoleculeButtonGroup, {moleculeButtonGroupDesigns} from '../../src/index.js'
 import ButtonDesignByState from '../ButtonDesignByState.js'
 
 const ArticleDesign = ({className}) => {
@@ -24,24 +22,21 @@ const ArticleDesign = ({className}) => {
     <Article className={className}>
       <H2>Design and negative</H2>
       <Paragraph>
-        There are {Object.values(moleculeButtonGroupDesigns).length} different
-        designs available for grouping atomButtons. They are provided by
-        exported <Code>moleculeButtonGroupDesigns</Code> enum:
+        There are {Object.values(moleculeButtonGroupDesigns).length} different designs available for grouping
+        atomButtons. They are provided by exported <Code>moleculeButtonGroupDesigns</Code> enum:
       </Paragraph>
       <UnorderedList>
         {Object.entries(moleculeButtonGroupDesigns).map(
           ([moleculeButtonGroupDesignKey, moleculeButtonGroupDesignValue]) => (
             <ListItem key={moleculeButtonGroupDesignKey}>
-              <Code>{moleculeButtonGroupDesignKey}</Code>:{' '}
-              {moleculeButtonGroupDesignValue}
+              <Code>{moleculeButtonGroupDesignKey}</Code>: {moleculeButtonGroupDesignValue}
             </ListItem>
           )
         )}
       </UnorderedList>
       <Paragraph>
-        With the <Code>negative</Code> boolean prop we can provide an
-        alternative look an feel for each design (commonly used for dark mode or
-        dark backgrounds).
+        With the <Code>negative</Code> boolean prop we can provide an alternative look an feel for each design (commonly
+        used for dark mode or dark backgrounds).
       </Paragraph>
       <Grid cols={[8, 0]}>
         <Cell>
@@ -49,29 +44,18 @@ const ArticleDesign = ({className}) => {
         </Cell>
         <Cell>
           <Box color="#EFEFEF">
-            <Grid
-              gutter={[8, 8]}
-              cols={Object.values(moleculeButtonGroupDesigns).length}
-            >
+            <Grid gutter={[8, 8]} cols={Object.values(moleculeButtonGroupDesigns).length}>
               {Object.entries(moleculeButtonGroupDesigns).map(
-                ([
-                  moleculeButtonGroupDesignKey,
-                  moleculeButtonGroupDesignValue
-                ]) => (
+                ([moleculeButtonGroupDesignKey, moleculeButtonGroupDesignValue]) => (
                   <Cell key={moleculeButtonGroupDesignKey}>
                     <Label>{moleculeButtonGroupDesignValue}</Label>
                   </Cell>
                 )
               )}
               {Object.entries(moleculeButtonGroupDesigns).map(
-                ([
-                  moleculeButtonGroupDesignKey,
-                  moleculeButtonGroupDesignValue
-                ]) => (
+                ([moleculeButtonGroupDesignKey, moleculeButtonGroupDesignValue]) => (
                   <Cell key={moleculeButtonGroupDesignKey}>
-                    <MoleculeButtonGroup
-                      design={moleculeButtonGroupDesignValue}
-                    >
+                    <MoleculeButtonGroup design={moleculeButtonGroupDesignValue}>
                       <AtomButton>A</AtomButton>
                       <AtomButton>B</AtomButton>
                       <AtomButton>C</AtomButton>
@@ -80,15 +64,9 @@ const ArticleDesign = ({className}) => {
                 )
               )}
               {Object.entries(moleculeButtonGroupDesigns).map(
-                ([
-                  moleculeButtonGroupDesignKey,
-                  moleculeButtonGroupDesignValue
-                ]) => (
+                ([moleculeButtonGroupDesignKey, moleculeButtonGroupDesignValue]) => (
                   <Cell key={moleculeButtonGroupDesignKey}>
-                    <MoleculeButtonGroup
-                      design={moleculeButtonGroupDesignValue}
-                      negative
-                    >
+                    <MoleculeButtonGroup design={moleculeButtonGroupDesignValue} negative>
                       <AtomButton>A</AtomButton>
                       <AtomButton>B</AtomButton>
                       <AtomButton>C</AtomButton>
@@ -104,29 +82,18 @@ const ArticleDesign = ({className}) => {
         </Cell>
         <Cell>
           <Box mode="dark" color="#222">
-            <Grid
-              gutter={[8, 8]}
-              cols={Object.values(moleculeButtonGroupDesigns).length}
-            >
+            <Grid gutter={[8, 8]} cols={Object.values(moleculeButtonGroupDesigns).length}>
               {Object.entries(moleculeButtonGroupDesigns).map(
-                ([
-                  moleculeButtonGroupDesignKey,
-                  moleculeButtonGroupDesignValue
-                ]) => (
+                ([moleculeButtonGroupDesignKey, moleculeButtonGroupDesignValue]) => (
                   <Cell key={moleculeButtonGroupDesignKey}>
                     <Label>{moleculeButtonGroupDesignValue}</Label>
                   </Cell>
                 )
               )}
               {Object.entries(moleculeButtonGroupDesigns).map(
-                ([
-                  moleculeButtonGroupDesignKey,
-                  moleculeButtonGroupDesignValue
-                ]) => (
+                ([moleculeButtonGroupDesignKey, moleculeButtonGroupDesignValue]) => (
                   <Cell key={moleculeButtonGroupDesignKey}>
-                    <MoleculeButtonGroup
-                      design={moleculeButtonGroupDesignValue}
-                    >
+                    <MoleculeButtonGroup design={moleculeButtonGroupDesignValue}>
                       <AtomButton>A</AtomButton>
                       <AtomButton>B</AtomButton>
                       <AtomButton>C</AtomButton>
@@ -135,15 +102,9 @@ const ArticleDesign = ({className}) => {
                 )
               )}
               {Object.entries(moleculeButtonGroupDesigns).map(
-                ([
-                  moleculeButtonGroupDesignKey,
-                  moleculeButtonGroupDesignValue
-                ]) => (
+                ([moleculeButtonGroupDesignKey, moleculeButtonGroupDesignValue]) => (
                   <Cell key={moleculeButtonGroupDesignKey}>
-                    <MoleculeButtonGroup
-                      design={moleculeButtonGroupDesignValue}
-                      negative
-                    >
+                    <MoleculeButtonGroup design={moleculeButtonGroupDesignValue} negative>
                       <AtomButton>A</AtomButton>
                       <AtomButton>B</AtomButton>
                       <AtomButton>C</AtomButton>
@@ -155,9 +116,7 @@ const ArticleDesign = ({className}) => {
           </Box>
         </Cell>
       </Grid>
-      <Paragraph>
-        We an also combine different design of buttons on a group
-      </Paragraph>
+      <Paragraph>We an also combine different design of buttons on a group</Paragraph>
       <ButtonDesignByState />
     </Article>
   )

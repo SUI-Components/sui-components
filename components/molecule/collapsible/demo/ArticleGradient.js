@@ -26,11 +26,7 @@ const ArticleGradient = ({className, icon, showText, hideText}) => {
               maxWidth: 400
             }}
           >
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>
               <Text />
             </MoleculeCollapsible>
           </div>
@@ -47,12 +43,7 @@ const ArticleGradient = ({className, icon, showText, hideText}) => {
               maxWidth: 400
             }}
           >
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-              withGradient={false}
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} withGradient={false}>
               <Text />
             </MoleculeCollapsible>
           </div>

@@ -15,13 +15,9 @@ const MoleculeAutosuggestFieldWithDynamicOptions = withDynamicOptions(
   MoleculeAutosuggestOption
 )(getAsyncCountriesFromQuery)
 
-const MoleculeAutosuggestFieldWithState = withStateValue(
-  MoleculeAutosuggestFieldWithDynamicOptions
-)
+const MoleculeAutosuggestFieldWithState = withStateValue(MoleculeAutosuggestFieldWithDynamicOptions)
 
-const MoleculeAutosuggestFieldWithStateTags = withStateValueTags(
-  MoleculeAutosuggestFieldWithDynamicOptions
-)
+const MoleculeAutosuggestFieldWithStateTags = withStateValueTags(MoleculeAutosuggestFieldWithDynamicOptions)
 
 const BASE_CLASS_DEMO = 'DemoMoleculeAutosuggestField'
 const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`

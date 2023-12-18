@@ -11,15 +11,10 @@ export const getInitialPinInputReducerState = ({
 } = {}) => {
   const valueType = getValueType({value, defaultValue})
   const arrayValue = typeof value === 'string' ? value.split('') : value
-  const arrayDefaultValue =
-    typeof defaultValue === 'string' ? defaultValue.split('') : defaultValue
+  const arrayDefaultValue = typeof defaultValue === 'string' ? defaultValue.split('') : defaultValue
   let innerValue = value !== undefined ? arrayValue : arrayDefaultValue
 
-  innerValue = valueChecker({mask, length: innerValue.length})(
-    innerValue.filter(Boolean).join('')
-  )
-    ? innerValue
-    : []
+  innerValue = valueChecker({mask, length: innerValue.length})(innerValue.filter(Boolean).join('')) ? innerValue : []
 
   return {
     valueType,
@@ -44,10 +39,7 @@ const onChangeHandler = onChange => (event, state) => {
   const {innerValue, focusPosition, valueType} = state
   typeof onChange === 'function' &&
     onChange(event, {
-      value:
-        valueType === 'string'
-          ? innerValue.filter(Boolean).join('')
-          : innerValue,
+      value: valueType === 'string' ? innerValue.filter(Boolean).join('') : innerValue,
       key: innerValue[focusPosition],
       index: focusPosition,
       innerValue
@@ -80,9 +72,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
         isValidPayloadInnerValue &&
         !(
           innerValue?.length === payload?.innerValue?.length &&
-          innerValue.every(
-            (value, index) => value === payload.innerValue[index]
-          )
+          innerValue.every((value, index) => value === payload.innerValue[index])
         )
       ) {
         nextState = {
@@ -113,18 +103,14 @@ export const pinInputReducer = (state, {actionType, payload}) => {
           case 'ArrowLeft':
             nextState = {
               ...state,
-              focusPosition: elements[focusPosition - 1]
-                ? focusPosition - 1
-                : focusPosition
+              focusPosition: elements[focusPosition - 1] ? focusPosition - 1 : focusPosition
             }
             focusElement(elements[nextState.focusPosition])
             break
           case 'ArrowRight':
             nextState = {
               ...state,
-              focusPosition: elements[focusPosition + 1]
-                ? focusPosition + 1
-                : focusPosition
+              focusPosition: elements[focusPosition + 1] ? focusPosition + 1 : focusPosition
             }
             focusElement(elements[nextState.focusPosition])
             break
@@ -133,9 +119,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
             nextState = {
               ...state,
               innerValue: [...innerValue],
-              focusPosition: elements[focusPosition - 1]
-                ? focusPosition - 1
-                : focusPosition
+              focusPosition: elements[focusPosition - 1] ? focusPosition - 1 : focusPosition
             }
             onChange(event, nextState)
             break
@@ -166,9 +150,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
         nextState = {
           ...state,
           innerValue: isKeyChange ? [...innerValue] : innerValue,
-          focusPosition: elements[focusPosition + 1]
-            ? focusPosition + 1
-            : focusPosition
+          focusPosition: elements[focusPosition + 1] ? focusPosition + 1 : focusPosition
         }
         if (isKeyChange) {
           onChange(event, nextState)
@@ -179,9 +161,7 @@ export const pinInputReducer = (state, {actionType, payload}) => {
       }
       break
     case PIN_INPUT_ACTION_TYPES.SET_PIN_INPUT_FOCUS:
-      position = elements[payload.focusPosition]
-        ? payload.focusPosition
-        : focusPosition
+      position = elements[payload.focusPosition] ? payload.focusPosition : focusPosition
       nextState = {...state, focusPosition: position}
       focusElement(elements[position])
 

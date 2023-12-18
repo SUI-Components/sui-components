@@ -2,21 +2,9 @@ import {useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
-import MoleculeProgressSteps, {
-  MoleculeProgressStep,
-  moleculeProgressStepsStatuses
-} from '../src/index.js'
+import MoleculeProgressSteps, {MoleculeProgressStep, moleculeProgressStepsStatuses} from '../src/index.js'
 import {configBasic} from './config/index.js'
 import {iconFillCheck} from './Icons/index.js'
 
@@ -53,22 +41,14 @@ const CompressedProgressBarArticle = ({className}) => {
     <Article className={className}>
       <H2>Compressed</H2>
       <Paragraph>
-        The progress bar has also a compressed Look and feel specially designed
-        for small devices. It is the compressed mode and can be configured using
-        the <Code>compressed</Code> boolean prop (default undefined). It works
-        in vertical mode also.
+        The progress bar has also a compressed Look and feel specially designed for small devices. It is the compressed
+        mode and can be configured using the <Code>compressed</Code> boolean prop (default undefined). It works in
+        vertical mode also.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={step}
-            onChange={(event, value) => setStatus(value || 0)}
-          >
-            {[
-              0,
-              ...Object.keys(configBasic),
-              Object.keys(configBasic).length + 1
-            ].map(stepValue => (
+          <RadioButtonGroup value={step} onChange={(event, value) => setStatus(value || 0)}>
+            {[0, ...Object.keys(configBasic), Object.keys(configBasic).length + 1].map(stepValue => (
               <RadioButton
                 key={`step ${parseInt(stepValue)}`}
                 value={parseInt(stepValue)}
@@ -98,12 +78,7 @@ const CompressedProgressBarArticle = ({className}) => {
           />
         </Cell>
         <Cell>
-          <RadioButton
-            value={hasLabel}
-            onClick={() => setHasLabel(!hasLabel)}
-            checked={hasLabel}
-            label="hasLabel"
-          />
+          <RadioButton value={hasLabel} onClick={() => setHasLabel(!hasLabel)} checked={hasLabel} label="hasLabel" />
         </Cell>
         <Cell>
           <MoleculeProgressSteps
@@ -113,12 +88,7 @@ const CompressedProgressBarArticle = ({className}) => {
             showLabel={hasLabel}
           >
             {Object.values(configBasic).map(({label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={getStatus(step, index)}
-                icon={icon}
-              >
+              <MoleculeProgressStep key={index} label={label} status={getStatus(step, index)} icon={icon}>
                 {content}
               </MoleculeProgressStep>
             ))}

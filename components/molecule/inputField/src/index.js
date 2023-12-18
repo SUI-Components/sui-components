@@ -40,12 +40,7 @@ const MoleculeInputField = ({
       useContrastLabel={useContrastLabel}
       fullWidth={fullWidth}
     >
-      <AtomInput
-        id={id}
-        errorState={errorState}
-        state={inputState}
-        {...props}
-      />
+      <AtomInput id={id} errorState={errorState} state={inputState} {...props} />
     </MoleculeField>
   )
 }

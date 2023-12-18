@@ -20,15 +20,8 @@ const ArticleElevated = ({className}) => {
         }}
       >
         {Object.keys(atomPanelElevation).map((elevation, idx) => (
-          <div
-            key={idx}
-            style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}
-          >
-            <AtomPanel
-              src="https://picsum.photos/250/200"
-              elevation={atomPanelElevation[elevation]}
-              floating
-            >
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
+            <AtomPanel src="https://picsum.photos/250/200" elevation={atomPanelElevation[elevation]} floating>
               <div style={{height: '100px', width: '100px'}} />
             </AtomPanel>
             <span style={{color: 'grey'}}>{atomPanelElevation[elevation]}</span>

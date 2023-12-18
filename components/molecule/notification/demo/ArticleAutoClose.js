@@ -15,9 +15,7 @@ import {
   UnorderedList
 } from '@s-ui/documentation-library'
 
-import MoleculeNotification, {
-  moleculeNotificationAutoClose
-} from '../src/index.js'
+import MoleculeNotification, {moleculeNotificationAutoClose} from '../src/index.js'
 
 const ArticleAutoClose = ({className}) => {
   const [index, setIndex] = useState(0)
@@ -25,21 +23,15 @@ const ArticleAutoClose = ({className}) => {
     <Article className={className}>
       <H2>Auto-Close</H2>
       <Paragraph>
-        The component provides an <Code>autoClose</Code> (enum) prop in order to
-        set the desired autoclose behavior. The options can be selected using
-        the <Code>moleculeNotificationAutoClose</Code> enum.
+        The component provides an <Code>autoClose</Code> (enum) prop in order to set the desired autoclose behavior. The
+        options can be selected using the <Code>moleculeNotificationAutoClose</Code> enum.
       </Paragraph>
       <UnorderedList>
         {Object.entries(moleculeNotificationAutoClose).map(
-          ([
-            moleculeNotificationAutoCloseKey,
-            moleculeNotificationAutoCloseValue
-          ]) => (
+          ([moleculeNotificationAutoCloseKey, moleculeNotificationAutoCloseValue]) => (
             <ListItem key={moleculeNotificationAutoCloseKey}>
-              <Code>
-                moleculeNotificationAutoClose.{moleculeNotificationAutoCloseKey}
-              </Code>
-              : '{moleculeNotificationAutoCloseValue}'
+              <Code>moleculeNotificationAutoClose.{moleculeNotificationAutoCloseKey}</Code>: '
+              {moleculeNotificationAutoCloseValue}'
             </ListItem>
           )
         )}
@@ -49,24 +41,16 @@ const ArticleAutoClose = ({className}) => {
           <Button onClick={() => setIndex(index + 1)}>Reset</Button>
         </Cell>
         {Object.entries(moleculeNotificationAutoClose).map(
-          ([
-            moleculeNotificationAutoCloseKey,
-            moleculeNotificationAutoCloseValue
-          ]) => (
+          ([moleculeNotificationAutoCloseKey, moleculeNotificationAutoCloseValue]) => (
             <Cell key={moleculeNotificationAutoCloseKey}>
               <Label>{moleculeNotificationAutoCloseValue}</Label>
             </Cell>
           )
         )}
         {Object.entries(moleculeNotificationAutoClose).map(
-          ([
-            moleculeNotificationAutoCloseKey,
-            moleculeNotificationAutoCloseValue
-          ]) => (
+          ([moleculeNotificationAutoCloseKey, moleculeNotificationAutoCloseValue]) => (
             <Cell key={`${moleculeNotificationAutoCloseKey}-${index}`}>
-              <MoleculeNotification
-                autoClose={moleculeNotificationAutoCloseValue}
-              >
+              <MoleculeNotification autoClose={moleculeNotificationAutoCloseValue}>
                 {moleculeNotificationAutoCloseValue}
               </MoleculeNotification>
             </Cell>

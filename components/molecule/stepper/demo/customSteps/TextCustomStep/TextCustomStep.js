@@ -1,25 +1,12 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {
-  moleculeStepperAlignment,
-  moleculeStepperDesign
-} from '../../../src/index.js'
+import {moleculeStepperAlignment, moleculeStepperDesign} from '../../../src/index.js'
 import {naturalNumber} from '../../../src/prop-types.js'
 
 const BASE_CLASS = 'textCustomStep'
 
-const TextCustomStep = ({
-  alignment,
-  design,
-  label,
-  step,
-  steps,
-  current,
-  visited,
-  onPreviousClick,
-  onNextClick
-}) => {
+const TextCustomStep = ({alignment, design, label, step, steps, current, visited, onPreviousClick, onNextClick}) => {
   return (
     <span
       className={cx(BASE_CLASS, {
@@ -37,11 +24,7 @@ const TextCustomStep = ({
         disabled={step <= 1}
         {...(step > 1 && {onClick: onPreviousClick})}
       >
-        {alignment === moleculeStepperAlignment.HORIZONTAL ? (
-          <>&larr;</>
-        ) : (
-          <>&uarr;</>
-        )}
+        {alignment === moleculeStepperAlignment.HORIZONTAL ? <>&larr;</> : <>&uarr;</>}
       </button>
       <span className={`${BASE_CLASS}Container`}>
         <span className={`${BASE_CLASS}Pager`}>
@@ -55,11 +38,7 @@ const TextCustomStep = ({
         disabled={step >= steps}
         {...(step < steps && {onClick: onNextClick})}
       >
-        {alignment === moleculeStepperAlignment.HORIZONTAL ? (
-          <>&rarr;</>
-        ) : (
-          <>&darr;</>
-        )}
+        {alignment === moleculeStepperAlignment.HORIZONTAL ? <>&rarr;</> : <>&darr;</>}
       </button>
     </span>
   )

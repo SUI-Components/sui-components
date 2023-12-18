@@ -16,9 +16,7 @@ const AccordionItemHeaderIconDefault = forwardRef(
         [`${BASE_CLASS_ITEM_HEADER_ICON}Default--expanded`]: isExpanded
       })}
       style={{
-        transition: `transform ${animationDuration}ms ${
-          isExpanded ? 'ease-out' : 'ease-in'
-        }`
+        transition: `transform ${animationDuration}ms ${isExpanded ? 'ease-out' : 'ease-in'}`
       }}
     >
       {children}

@@ -53,10 +53,7 @@ class DynamicProgressBar extends Component {
     const {intervalTime, step, type, ...props} = this.props
     return (
       <div style={{background: 'white', padding: '10px'}}>
-        <button
-          style={{marginBottom: '10px', display: 'block'}}
-          onClick={this.handleClick}
-        >
+        <button style={{marginBottom: '10px', display: 'block'}} onClick={this.handleClick}>
           Start Progress
         </button>
         <AtomProgressBar percentage={percentage} type={type} {...props} />

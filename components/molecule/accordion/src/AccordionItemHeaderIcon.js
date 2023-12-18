@@ -10,21 +10,11 @@ import {BASE_CLASS_ITEM_HEADER_ICON} from './settings.js'
 
 const AccordionItemHeaderIcon = forwardRef(
   (
-    {
-      as = 'div',
-      children = <AccordionItemHeaderIconDefault />,
-      isExpanded,
-      disabled,
-      animationDuration
-    },
+    {as = 'div', children = <AccordionItemHeaderIconDefault />, isExpanded, disabled, animationDuration},
     forwardedRef
   ) => (
     <Poly as={as} ref={forwardedRef} className={BASE_CLASS_ITEM_HEADER_ICON}>
-      <Injector
-        disabled={disabled}
-        isExpanded={isExpanded}
-        animationDuration={animationDuration}
-      >
+      <Injector disabled={disabled} isExpanded={isExpanded} animationDuration={animationDuration}>
         {children}
       </Injector>
     </Poly>

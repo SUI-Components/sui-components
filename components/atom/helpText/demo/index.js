@@ -14,8 +14,8 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Help text</H1>
       <Paragraph>
-        Help Text is a feedback that the system gives users to make them clearly
-        understand which information is required
+        Help Text is a feedback that the system gives users to make them clearly understand which information is
+        required
       </Paragraph>
       <ArticleInput className={CLASS_SECTION} />
       <br />

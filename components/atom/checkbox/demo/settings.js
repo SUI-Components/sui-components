@@ -92,10 +92,7 @@ BsDot.propTypes = {
 }
 const BsFillEmojiSmileFill = ({as, size}) => (
   <AtomIcon as={as} size={size}>
-    <BootstrapIcon
-      icon="BsFillEmojiSmileFill"
-      style={{color: 'currentColor'}}
-    />
+    <BootstrapIcon icon="BsFillEmojiSmileFill" style={{color: 'currentColor'}} />
   </AtomIcon>
 )
 BsFillEmojiSmileFill.propTypes = {
@@ -104,10 +101,7 @@ BsFillEmojiSmileFill.propTypes = {
 }
 const BsFillEmojiNeutralFill = ({as, size}) => (
   <AtomIcon as={as} size={size}>
-    <BootstrapIcon
-      icon="BsFillEmojiNeutralFill"
-      style={{color: 'currentColor'}}
-    />
+    <BootstrapIcon icon="BsFillEmojiNeutralFill" style={{color: 'currentColor'}} />
   </AtomIcon>
 )
 BsFillEmojiNeutralFill.propTypes = {
@@ -116,10 +110,7 @@ BsFillEmojiNeutralFill.propTypes = {
 }
 const BsFillEmojiFrownFill = ({as, size}) => (
   <AtomIcon as={as} size={size}>
-    <BootstrapIcon
-      icon="BsFillEmojiFrownFill"
-      style={{color: 'currentColor'}}
-    />
+    <BootstrapIcon icon="BsFillEmojiFrownFill" style={{color: 'currentColor'}} />
   </AtomIcon>
 )
 BsFillEmojiFrownFill.propTypes = {
@@ -156,8 +147,7 @@ export const PROPS_STATUS = {
     indeterminate: false
   }
 }
-export const propsFromStatus = (status = PROPS_STATUS.UNCHECKED) =>
-  PROPS_STATUS[status]
+export const propsFromStatus = (status = PROPS_STATUS.UNCHECKED) => PROPS_STATUS[status]
 
 export const flexCenteredStyle = {
   display: 'flex',

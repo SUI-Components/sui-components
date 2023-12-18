@@ -24,11 +24,7 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'MoleculePhotoUploaderRotationDirection',
-      'MoleculePhotoUploaderActions',
-      'default'
-    ]
+    const libraryExportedMembers = ['MoleculePhotoUploaderRotationDirection', 'MoleculePhotoUploaderActions', 'default']
 
     // When
     const {
@@ -52,21 +48,18 @@ describe(json.name, () => {
         addPhotoTextSkeleton: 'addPhotoTextSkeleton',
         addPhotoTextButton: 'addPhotoTextButton',
         deleteIcon: IconElement,
-        dragPhotoDividerTextInitialContent:
-          'dragPhotoDividerTextInitialContent',
+        dragPhotoDividerTextInitialContent: 'dragPhotoDividerTextInitialContent',
         dragPhotoTextInitialContent: 'dragPhotoTextInitialContent',
         dragPhotosIcon: IconElement,
         dropPhotosHereText: 'dropPhotosHereText',
         errorCorruptedPhotoUploadedText: 'errorCorruptedPhotoUploadedText',
         errorFileExcededMaxSizeText: 'errorFileExcededMaxSizeText',
         errorFormatPhotoUploadedText: 'errorFormatPhotoUploadedText',
-        errorInitialPhotoDownloadErrorText:
-          'errorInitialPhotoDownloadErrorText',
+        errorInitialPhotoDownloadErrorText: 'errorInitialPhotoDownloadErrorText',
         infoIcon: IconElement,
         limitPhotosUploadedText: 'limitPhotosUploadedText',
         limitPhotosUploadedNotification: 'limitPhotosUploadedNotification',
-        notificationErrorFormatPhotoUploaded:
-          'notificationErrorFormatPhotoUploaded',
+        notificationErrorFormatPhotoUploaded: 'notificationErrorFormatPhotoUploaded',
         rejectPhotosIcon: IconElement,
         retryIcon: IconElement,
         rotateIcon: IconElement,
@@ -89,21 +82,18 @@ describe(json.name, () => {
         addPhotoTextSkeleton: 'addPhotoTextSkeleton',
         addPhotoTextButton: 'addPhotoTextButton',
         deleteIcon: IconElement,
-        dragPhotoDividerTextInitialContent:
-          'dragPhotoDividerTextInitialContent',
+        dragPhotoDividerTextInitialContent: 'dragPhotoDividerTextInitialContent',
         dragPhotoTextInitialContent: 'dragPhotoTextInitialContent',
         dragPhotosIcon: IconElement,
         dropPhotosHereText: 'dropPhotosHereText',
         errorCorruptedPhotoUploadedText: 'errorCorruptedPhotoUploadedText',
         errorFileExcededMaxSizeText: 'errorFileExcededMaxSizeText',
         errorFormatPhotoUploadedText: 'errorFormatPhotoUploadedText',
-        errorInitialPhotoDownloadErrorText:
-          'errorInitialPhotoDownloadErrorText',
+        errorInitialPhotoDownloadErrorText: 'errorInitialPhotoDownloadErrorText',
         infoIcon: IconElement,
         limitPhotosUploadedText: 'limitPhotosUploadedText',
         limitPhotosUploadedNotification: 'limitPhotosUploadedNotification',
-        notificationErrorFormatPhotoUploaded:
-          'notificationErrorFormatPhotoUploaded',
+        notificationErrorFormatPhotoUploaded: 'notificationErrorFormatPhotoUploaded',
         rejectPhotosIcon: IconElement,
         retryIcon: IconElement,
         rotateIcon: IconElement,
@@ -126,28 +116,24 @@ describe(json.name, () => {
         addPhotoTextButton: 'addPhotoTextButton',
         className: 'extended-classNames',
         deleteIcon: IconElement,
-        dragPhotoDividerTextInitialContent:
-          'dragPhotoDividerTextInitialContent',
+        dragPhotoDividerTextInitialContent: 'dragPhotoDividerTextInitialContent',
         dragPhotoTextInitialContent: 'dragPhotoTextInitialContent',
         dragPhotosIcon: IconElement,
         dropPhotosHereText: 'dropPhotosHereText',
         errorCorruptedPhotoUploadedText: 'errorCorruptedPhotoUploadedText',
         errorFileExcededMaxSizeText: 'errorFileExcededMaxSizeText',
         errorFormatPhotoUploadedText: 'errorFormatPhotoUploadedText',
-        errorInitialPhotoDownloadErrorText:
-          'errorInitialPhotoDownloadErrorText',
+        errorInitialPhotoDownloadErrorText: 'errorInitialPhotoDownloadErrorText',
         infoIcon: IconElement,
         limitPhotosUploadedText: 'limitPhotosUploadedText',
         limitPhotosUploadedNotification: 'limitPhotosUploadedNotification',
-        notificationErrorFormatPhotoUploaded:
-          'notificationErrorFormatPhotoUploaded',
+        notificationErrorFormatPhotoUploaded: 'notificationErrorFormatPhotoUploaded',
         rejectPhotosIcon: IconElement,
         retryIcon: IconElement,
         rotateIcon: IconElement,
         uploadingPhotosText: 'uploadingPhotosText'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -218,15 +204,7 @@ describe(json.name, () => {
 
       // When
       const {MoleculePhotoUploaderActions: actual} = library
-      const {
-        SORT,
-        DELETE,
-        ROTATE,
-        UPLOAD,
-        RETRY_UPLOAD,
-        INITIAL_LOAD,
-        ...others
-      } = actual
+      const {SORT, DELETE, ROTATE, UPLOAD, RETRY_UPLOAD, INITIAL_LOAD, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

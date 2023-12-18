@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2023-12-18)
+
+
+### Features
+
+* **components/molecule/collapsible:** improve callbacks ([cbd169a](https://github.com/SUI-Components/sui-components/commit/cbd169a343766a12c0a7c99b20490680603eb7f8))
+
+
+
 # 1.20.0 (2023-05-10)
 
 

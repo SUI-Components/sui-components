@@ -34,15 +34,35 @@ const MoleculeCollapsible = ({
   const [collapsed, setCollapsed] = useState(true)
   const [showButton, setShowButton] = useState(true)
   const [childrenHeight, setChildrenHeight] = useState(0)
+  const [minChildrenToShow, setMinChildrenToShow] = useState(1)
+  const [childrenToShow, setChildrenToShow] = useState(children.length)
 
   const nodeCallback = useCallback(node => {
     setChildrenHeight(node !== null ? node.getBoundingClientRect().height : 0)
+
+    if (node !== null && node.children.length > 0) {
+      let heightChildrenToShow = 0
+      let count = 0
+      while (count < node.children.length && heightChildrenToShow < height) {
+        const childHeight = node.children[count].offsetHeight
+        heightChildrenToShow += childHeight
+        ++count
+      }
+      setMinChildrenToShow(count)
+      setChildrenToShow(count)
+    }
   }, [])
 
   const toggleCollapse = () => {
     if (showButton) {
       setCollapsed(!collapsed)
-      ;(collapsed && onOpen()) || onClose()
+      if (collapsed) {
+        onOpen()
+        setChildrenToShow(children.length)
+      } else {
+        onClose()
+        setChildrenToShow(minChildrenToShow)
+      }
     }
   }
 
@@ -50,6 +70,7 @@ const MoleculeCollapsible = ({
     if (!childrenHeight || collapsed) return
     setShowButton(isCollapsible && childrenHeight >= height)
   }, [childrenHeight, collapsed, height, isCollapsible, setShowButton])
+
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
     [COLLAPSED_CLASS]: collapsed
@@ -59,8 +80,7 @@ const MoleculeCollapsible = ({
   })
   const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
     [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
-    [`${CONTAINER_BUTTON_CLASS}--alignButtonText-${alignButtonText}`]:
-      alignButtonText,
+    [`${CONTAINER_BUTTON_CLASS}--alignButtonText-${alignButtonText}`]: alignButtonText,
     [COLLAPSED_CLASS]: collapsed
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
@@ -69,22 +89,16 @@ const MoleculeCollapsible = ({
     [`${CONTENT_CLASS}--alignContainer-${alignContainer}`]: alignContainer
   })
   const containerHeight = collapsed ? `${height}px` : `${childrenHeight}px`
+  const childrenToRender = Array.isArray(children) ? children.slice(0, childrenToShow) : children
 
   return (
     <div className={wrapperClassName}>
-      <div
-        className={contentClassName}
-        style={{maxHeight: !showButton ? 'none' : containerHeight}}
-      >
-        <div ref={nodeCallback}>{children}</div>
+      <div className={contentClassName} style={{maxHeight: !showButton ? 'none' : containerHeight}}>
+        <div ref={nodeCallback}>{childrenToRender}</div>
       </div>
       {showButton && (
         <div className={containerClassName}>
-          <button
-            type="button"
-            className={BUTTON_CLASS}
-            onClick={toggleCollapse}
-          >
+          <button type="button" className={BUTTON_CLASS} onClick={toggleCollapse}>
             <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
               {collapsed ? showText : hideText}
               <span className={iconClassName}>{icon}</span>

@@ -7,6 +7,7 @@ import ArticleCustomHeight from './ArticleCustomHeight.js'
 import ArticleGradient from './ArticleGradient.js'
 import ArticleNoCollapse from './ArticleNoCollapse.js'
 import ArticleTransition from './ArticleTransition.js'
+import List from './List.js'
 
 const Demo = () => {
   const icon = GetIcon()
@@ -19,43 +20,28 @@ const Demo = () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>Collapsible</h1>
         <Paragraph>
-          The collapsible component allows the user to expand or collapse
-          content. We use this component to lightweight the content of a page or
-          section.
+          The collapsible component allows the user to expand or collapse content. We use this component to lightweight
+          the content of a page or section.
         </Paragraph>
         <ArticleAlignment icon={icon} showText={showText} hideText={hideText} />
         <br />
         <br />
-        <ArticleButtonTextAlignment
-          icon={icon}
-          showText={showText}
-          hideText={hideText}
-        />
+        <ArticleButtonTextAlignment icon={icon} showText={showText} hideText={hideText} />
         <br />
         <br />
         <ArticleGradient icon={icon} showText={showText} hideText={hideText} />
         <br />
         <br />
-        <ArticleTransition
-          icon={icon}
-          showText={showText}
-          hideText={hideText}
-        />
+        <ArticleTransition icon={icon} showText={showText} hideText={hideText} />
         <br />
         <br />
-        <ArticleCustomHeight
-          icon={icon}
-          showText={showText}
-          hideText={hideText}
-          height={height}
-        />
+        <ArticleCustomHeight icon={icon} showText={showText} hideText={hideText} height={height} />
         <br />
         <br />
-        <ArticleNoCollapse
-          icon={icon}
-          showText={showText}
-          hideText={hideText}
-        />
+        <ArticleNoCollapse icon={icon} showText={showText} hideText={hideText} />
+        <br />
+        <br />
+        <List icon={icon} showText={showText} hideText={hideText} />
       </div>
     </div>
   )

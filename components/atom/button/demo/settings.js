@@ -14,43 +14,23 @@ export const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 export const stackMap = (arr = [], ...mappingCallbacks) =>
   mappingCallbacks.flatMap(function (e, index) {
-    return this.map((value, innerIndex) =>
-      e(value, innerIndex + this.length * index)
-    )
+    return this.map((value, innerIndex) => e(value, innerIndex + this.length * index))
   }, arr)
 
-export const facebookIcon = (
-  <AntDesignIcon icon="AiFillFacebook" style={{color: 'currentColor'}} />
-)
-export const twitterIcon = (
-  <AntDesignIcon icon="AiOutlineTwitter" style={{color: 'currentColor'}} />
-)
-export const googleIcon = (
-  <AntDesignIcon icon="AiOutlineGoogle" style={{color: 'currentColor'}} />
-)
-export const youtubeIcon = (
-  <AntDesignIcon icon="AiFillYoutube" style={{color: 'currentColor'}} />
-)
-export const whatsappIcon = (
-  <AntDesignIcon icon="AiOutlineWhatsApp" style={{color: 'currentColor'}} />
-)
-export const instagramIcon = (
-  <AntDesignIcon icon="AiFillInstagram" style={{color: 'currentColor'}} />
-)
-export const starIcon = (
-  <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
-)
+export const facebookIcon = <AntDesignIcon icon="AiFillFacebook" style={{color: 'currentColor'}} />
+export const twitterIcon = <AntDesignIcon icon="AiOutlineTwitter" style={{color: 'currentColor'}} />
+export const googleIcon = <AntDesignIcon icon="AiOutlineGoogle" style={{color: 'currentColor'}} />
+export const youtubeIcon = <AntDesignIcon icon="AiFillYoutube" style={{color: 'currentColor'}} />
+export const whatsappIcon = <AntDesignIcon icon="AiOutlineWhatsApp" style={{color: 'currentColor'}} />
+export const instagramIcon = <AntDesignIcon icon="AiFillInstagram" style={{color: 'currentColor'}} />
+export const starIcon = <AntDesignIcon icon="AiFillStar" style={{color: 'currentColor'}} />
 
-export const atomButtonColorsIterator = Object.values(atomButtonColors)
-  .filter(color =>
-    ['primary', 'accent', 'neutral', 'success', 'alert', 'error'].includes(
-      color
-    )
-  )
-  .map((color, index) => [{color}, index])
+export const atomButtonColorsIterator = Object.entries(atomButtonColors)
+  .filter(([, color]) => ['primary', 'accent', 'neutral', 'success', 'alert', 'error'].includes(color))
+  .map(([key, color], index) => [{key, color}, index])
 
-export const atomButtonSocialColorsIterator = Object.values(atomButtonColors)
-  .filter(color =>
+export const atomButtonSocialColorsIterator = Object.entries(atomButtonColors)
+  .filter(([, color]) =>
     [
       'social-facebook',
       'social-twitter',
@@ -60,31 +40,29 @@ export const atomButtonSocialColorsIterator = Object.values(atomButtonColors)
       'social-instagram'
     ].includes(color)
   )
-  .map((color, index) => [{color}, index])
+  .map(([key, color], index) => [{key, color}, index])
 
-export const atomButtonDesignsIterator = Object.values(atomButtonDesigns).map(
-  (design, index) => [{design}, index]
-)
+export const atomButtonDesignsIterator = Object.entries(atomButtonDesigns).map(([designKey, designValue], index) => [
+  {key: designKey, design: designValue},
+  index
+])
 
-export const atomButtonElevationsIterator = Object.values(
-  atomButtonElevations
-).map((elevation, index) => [{elevation}, index])
+export const atomButtonElevationsIterator = Object.entries(atomButtonElevations).map(([key, elevation], index) => [
+  {key, elevation},
+  index
+])
 
-export const atomButtonSizesIterator = [
-  atomButtonSizes.SMALL,
-  undefined,
-  atomButtonSizes.LARGE
-].map((size, index) => [{size}, index])
+export const atomButtonSizesIterator = Object.entries(atomButtonSizes).map(([key, size], index) => [{key, size}, index])
 
-export const atomButtonAlignmentIterator = [
-  undefined,
-  atomButtonAlignment.LEFT,
-  atomButtonAlignment.RIGHT
-].map((alignment, index) => [{alignment}, index])
+export const atomButtonAlignmentIterator = Object.entries(atomButtonAlignment).map(([key, alignment], index) => [
+  {key, alignment},
+  index
+])
 
-export const atomButtonShapesIterator = Object.values(atomButtonShapes).map(
-  (shape, index) => [{shape}, index]
-)
+export const atomButtonShapesIterator = Object.entries(atomButtonShapes).map(([key, shape], index) => [
+  {key, shape},
+  index
+])
 
 export const socialIconsMapper = {
   'social-facebook': facebookIcon,

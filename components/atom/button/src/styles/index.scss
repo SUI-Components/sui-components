@@ -80,7 +80,7 @@ $base-class: '.sui-AtomButton';
       justify-content: center;
     }
 
-    #{$base-class}-text {
+    #{$base-class}-content {
       opacity: 0;
     }
   }
@@ -142,17 +142,8 @@ $base-class: '.sui-AtomButton';
         text-decoration-line: none;
 
         @include button-focused {
-          background: if(
-            length($pair) > 2,
-            nth($pair, 3),
-            color-variation($color, -1)
-          );
-
-          border-color: if(
-            length($pair) > 2,
-            nth($pair, 3),
-            color-variation($color, -1)
-          );
+          background: if(length($pair) > 2, nth($pair, 3), color-variation($color, -1));
+          border-color: if(length($pair) > 2, nth($pair, 3), color-variation($color, -1));
         }
 
         &#{$base-class}--negative {
@@ -179,11 +170,7 @@ $base-class: '.sui-AtomButton';
         text-decoration-line: none;
 
         @include button-focused {
-          background: if(
-            length($pair) > 2,
-            nth($pair, 4),
-            $bgc-atom-button-focused
-          );
+          background: if(length($pair) > 2, nth($pair, 4), $bgc-atom-button-focused);
 
           @if ($color != $c-atom-button-focused) {
             color: $c-atom-button-focused;
@@ -205,10 +192,7 @@ $base-class: '.sui-AtomButton';
       &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
         $c-atom-button-focused: color-variation($color, -1) !default;
         $c-atom-button-link-focused: $c-atom-button-focused !default;
-        $c-atom-button-focused-invert: color-variation(
-          $color-invert,
-          -1
-        ) !default;
+        $c-atom-button-focused-invert: color-variation($color-invert, -1) !default;
 
         color: $color;
         @include button-focused {

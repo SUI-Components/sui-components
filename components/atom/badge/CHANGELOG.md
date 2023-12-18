@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.29.0 (2023-12-05)
+
+
+### Features
+
+* **components/atom/badge:** Apply new linter ([cee78a4](https://github.com/SUI-Components/sui-components/commit/cee78a44bbc1418e94fcffe6490187de8b019c69))
+
+
+
 # 1.28.0 (2022-10-06)
 
 

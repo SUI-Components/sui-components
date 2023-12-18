@@ -64,6 +64,9 @@ $h-molecule-phone-input: 40px;
           transform: translate(0, 100%);
         }
 
+        & .sui-MoleculeField .sui-AtomInput-input {
+          font-size: $fz-molecule-phoneinput-input;
+        }
         & .sui-MoleculeField-labelContainer {
           left: 0;
           position: absolute;

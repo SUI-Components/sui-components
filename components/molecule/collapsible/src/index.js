@@ -35,14 +35,18 @@ const MoleculeCollapsible = ({
   const [showButton, setShowButton] = useState(true)
   const [childrenHeight, setChildrenHeight] = useState(0)
 
-  const nodeCallback = useCallback(node => {
-    setChildrenHeight(node !== null ? node.getBoundingClientRect().height : 0)
-  }, [])
+  const nodeCallback = useCallback(
+    node => {
+      setChildrenHeight(node !== null ? node.getBoundingClientRect().height : 0)
+    },
+    [children]
+  )
 
   const toggleCollapse = () => {
     if (showButton) {
       setCollapsed(!collapsed)
-      ;(collapsed && onOpen()) || onClose()
+      if (collapsed) onOpen()
+      else onClose()
     }
   }
 

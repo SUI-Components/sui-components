@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "use-ssr": "1.0.24",
-    "classnames": "2.2.5",
+    "classnames": "2.3.2",
     "@s-ui/react-hooks": "1"
   },
   "keywords": [

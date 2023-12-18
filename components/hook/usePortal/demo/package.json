@@ -9,7 +9,7 @@
   "dependencies": {
     "@popperjs/core": "2.11.6",
     "@s-ui/react-hooks": "1",
-    "react-fast-compare": "3.2.0"
+    "react-fast-compare": "3.2.2"
   },
   "keywords": [],
   "author": "",

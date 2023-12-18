@@ -4,6 +4,8 @@
 @import '~@s-ui/react-molecule-input-field/lib/index.scss';
 @import '~@s-ui/react-atom-button/lib/index.scss';
 
+@import './settings.scss';
+
 $h-molecule-phone-input: 40px;
 
 .sui-MoleculePhoneInput {
@@ -105,7 +107,7 @@ $h-molecule-phone-input: 40px;
       &-code {
         align-items: center;
         color: $c-gray;
-        font-size: $fz-m;
+        font-size: $fz-molecule-phoneinput-input-prefix-code;
         display: flex;
         margin: 0;
         padding: 0;
@@ -134,7 +136,7 @@ $h-molecule-phone-input: 40px;
       }
       &-label {
         margin-left: $m-m;
-        font-size: $fz-m;
+        font-size: $fz-molecule-phoneinput-dropdown-option-label;
       }
 
       &-code {
@@ -145,12 +147,12 @@ $h-molecule-phone-input: 40px;
   }
 
   &-label {
-    font-size: $fz-s;
+    font-size: $fz-molecule-phoneinput-label;
     font-weight: $fw-semi-bold;
     margin: 0;
   }
 
   &-info {
-    font-size: $fz-xs;
+    font-size: $fz-molecule-phoneinput-info;
   }
 }

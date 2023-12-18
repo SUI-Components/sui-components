@@ -13,6 +13,6 @@
   "dependencies": {
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-atom-spinner": "1",
-    "react-use": "15"
+    "react-use": "17"
   }
 }

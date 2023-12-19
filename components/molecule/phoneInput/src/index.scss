@@ -1,5 +1,9 @@
 @import '~@s-ui/theme/lib/index';
 
-@import './styles/settings.scss';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index.scss';
+@import '~@s-ui/react-molecule-dropdown-list/lib/index.scss';
+@import '~@s-ui/react-molecule-input-field/lib/index.scss';
+@import '~@s-ui/react-atom-button/lib/index.scss';
 
+@import './styles/settings.scss';
 @import './styles/index.scss';

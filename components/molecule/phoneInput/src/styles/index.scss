@@ -1,12 +1,11 @@
-@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index.scss';
+@import '~@s-ui/react-molecule-dropdown-list/lib/index.scss';
+@import '~@s-ui/react-molecule-input-field/lib/index.scss';
+@import '~@s-ui/react-atom-button/lib/index.scss';
 
-@import './styles/settings.scss';
+$base-class: '.sui-MoleculePhoneInput';
 
-@import './styles/index.scss';
-
-$h-molecule-phone-input: 40px;
-
-.sui-MoleculePhoneInput {
+#{$base-class} {
   display: flex;
   flex-direction: column;
   gap: $m-l;
@@ -63,7 +62,7 @@ $h-molecule-phone-input: 40px;
         }
 
         & .sui-MoleculeField .sui-AtomInput-input {
-          font-size: $fz-molecule-phoneinput-input;
+          font-size: $fz-molecule-phone-input-input;
         }
         & .sui-MoleculeField-labelContainer {
           left: 0;
@@ -108,7 +107,7 @@ $h-molecule-phone-input: 40px;
       &-code {
         align-items: center;
         color: $c-gray;
-        font-size: $fz-molecule-phoneinput-input-prefix-code;
+        font-size: $fz-molecule-phone-input-input-prefix-code;
         display: flex;
         margin: 0;
         padding: 0;
@@ -137,7 +136,7 @@ $h-molecule-phone-input: 40px;
       }
       &-label {
         margin-left: $m-m;
-        font-size: $fz-molecule-phoneinput-dropdown-option-label;
+        font-size: $fz-molecule-phone-input-dropdown-option-label;
       }
 
       &-code {
@@ -148,12 +147,12 @@ $h-molecule-phone-input: 40px;
   }
 
   &-label {
-    font-size: $fz-molecule-phoneinput-label;
+    font-size: $fz-molecule-phone-input-label;
     font-weight: $fw-semi-bold;
     margin: 0;
   }
 
   &-info {
-    font-size: $fz-molecule-phoneinput-info;
+    font-size: $fz-molecule-phone-input-info;
   }
 }

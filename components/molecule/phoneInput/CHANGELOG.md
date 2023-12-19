@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.20.0 (2023-12-19)
+
+
+### Features
+
+* **components/molecule/phoneInput:** fix lint ([2d6bad1](https://github.com/SUI-Components/sui-components/commit/2d6bad1f5e9e53e8258f5d6dba950ed4f7685de2))
+* **components/molecule/phoneInput:** parametrize font sizes ([75787b2](https://github.com/SUI-Components/sui-components/commit/75787b2f05e3c894ed65a5f9849549bbecad8bdb))
+* **components/molecule/phoneInput:** parametrize input font-size ([133d7f6](https://github.com/SUI-Components/sui-components/commit/133d7f6681bf272aebbab7a9da48148381a71c6c))
+
+
+
 # 1.19.0 (2023-10-10)
 
 

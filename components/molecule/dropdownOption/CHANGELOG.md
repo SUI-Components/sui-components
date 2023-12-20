@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.8.0 (2023-12-20)
+
+
+### Bug Fixes
+
+* **components/molecule/dropdownOption:** Use atom-checkbox v3 to unify versions ([4c8a366](https://github.com/SUI-Components/sui-components/commit/4c8a3666f60b238cbb2cc90efbce50de4e813ca1))
+
+
+
 # 2.7.0 (2023-05-12)
 
 

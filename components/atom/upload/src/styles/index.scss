@@ -48,10 +48,6 @@ $base-class: '.sui-AtomUpload';
     height: $h-atom-upload-icon;
     justify-content: center;
     width: $w-atom-upload-icon;
-
-    & > * {
-      width: 100%;
-    }
   }
 
   &--active {

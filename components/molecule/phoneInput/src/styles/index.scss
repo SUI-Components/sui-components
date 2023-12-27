@@ -1,8 +1,3 @@
-@import '~@s-ui/react-molecule-dropdown-option/lib/index.scss';
-@import '~@s-ui/react-molecule-dropdown-list/lib/index.scss';
-@import '~@s-ui/react-molecule-input-field/lib/index.scss';
-@import '~@s-ui/react-atom-button/lib/index.scss';
-
 $base-class: '.sui-MoleculePhoneInput';
 
 #{$base-class} {
@@ -64,6 +59,7 @@ $base-class: '.sui-MoleculePhoneInput';
         & .sui-MoleculeField .sui-AtomInput-input {
           font-size: $fz-molecule-phone-input-input;
         }
+
         & .sui-MoleculeField-labelContainer {
           left: 0;
           position: absolute;
@@ -131,9 +127,11 @@ $base-class: '.sui-MoleculePhoneInput';
     &-option {
       display: flex;
       align-items: center;
+
       &-flag {
         font-size: $fz-l;
       }
+
       &-label {
         margin-left: $m-m;
         font-size: $fz-molecule-phone-input-dropdown-option-label;

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2023-12-27)
+
+
+### Bug Fixes
+
+* **components/molecule/phoneInput:** add default to var and arrange structure ([baf5675](https://github.com/SUI-Components/sui-components/commit/baf5675b5231c03caf5f76224f833d303a6b479f))
+
+
+
 # 1.20.0 (2023-12-19)
 
 

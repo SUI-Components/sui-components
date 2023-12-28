@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2023-12-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Change to our S3 ([af6c317](https://github.com/SUI-Components/sui-components/commit/af6c317b917b9e1acfd197d40a221bbd33c308ae))
+
+
+
 # 1.21.0 (2023-12-27)
 
 

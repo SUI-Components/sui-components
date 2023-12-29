@@ -3,6 +3,7 @@ $class-atom-input: '.sui-AtomInput';
 $class-input: '#{$base-class}-input';
 $class-input-container: '#{$class-input}-container';
 $class-atom-input-input: '#{$class-atom-input}-input';
+$class-atom-input-with-tags: '#{$class-atom-input}--withTags';
 
 #{$base-class} {
   position: relative;
@@ -54,6 +55,9 @@ $class-atom-input-input: '#{$class-atom-input}-input';
 
   @each $state, $color in $states-atom-input {
     &#{$base-class}--#{$state} #{$class-atom-input-input} {
+      border-color: $color;
+    }
+    &#{$base-class}--#{$state} #{$class-atom-input-with-tags} {
       border-color: $color;
     }
   }

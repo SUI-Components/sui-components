@@ -21,6 +21,6 @@
   "dependencies": {
     "@s-ui/react-primitive-polymorphic-element": "1",
     "@s-ui/react-primitive-injector": "1",
-    "classnames": "2.2.5"
+    "classnames": "2.5.1"
   }
 }

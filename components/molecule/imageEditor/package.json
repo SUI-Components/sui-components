@@ -22,7 +22,7 @@
     "@s-ui/js": "2",
     "@s-ui/react-atom-slider": "1",
     "@s-ui/react-primitive-injector": "1",
-    "classnames": "2.2.5",
+    "classnames": "2.5.1",
     "react-easy-crop": "3.4.0"
   }
 }

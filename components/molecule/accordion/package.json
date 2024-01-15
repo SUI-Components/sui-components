@@ -13,7 +13,7 @@
     "@s-ui/react-hooks": "1",
     "@s-ui/react-primitive-injector": "1",
     "@s-ui/react-primitive-polymorphic-element": "1",
-    "react-use": "17.3.2"
+    "react-use": "17.4.3"
   },
   "keywords": [],
   "author": "",

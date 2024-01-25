@@ -2,26 +2,15 @@ import {useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
 import AtomSwitch from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
 
 const ArticleToggle = ({className}) => {
-  const [uncontrolledValueDemoState, setUncontrolledValueDemoState] =
-    useState(false)
-  const [controlledValueDemoState, setControlledValueDemoState] =
-    useState(false)
-  const [controlledValueDemoFocusState, setControlledValueDemoFocusState] =
-    useState(false)
+  const [uncontrolledValueDemoState, setUncontrolledValueDemoState] = useState(false)
+  const [controlledValueDemoState, setControlledValueDemoState] = useState(false)
+  const [controlledValueDemoFocusState, setControlledValueDemoFocusState] = useState(false)
   const uncontrolledAtomSwitch = useRef(null)
   const controlledAtomSwitch = useRef(null)
   const onButtonClick = (ref, action, value) => () => {
@@ -33,13 +22,12 @@ const ArticleToggle = ({className}) => {
     <Article className={className}>
       <H2>onToogle</H2>
       <Paragraph>
-        AtomSwitch component toggles its value when user fires an event click on
-        its circle element. It provides a <Code>onToggle</Code> prop handler
-        fired when the option is changed
+        AtomSwitch component toggles its value when user fires an event click on its circle element. It provides a{' '}
+        <Code>onToggle</Code> prop handler fired when the option is changed
       </Paragraph>
       <Paragraph>
-        When the element is focused we can also toggle it with the keyboard
-        pressing the 'enter ⏎' and the 'space bar' keys
+        When the element is focused we can also toggle it with the keyboard pressing the 'enter ⏎' and the 'space bar'
+        keys
       </Paragraph>
       <Grid cols={2}>
         <Cell>
@@ -90,10 +78,7 @@ const ArticleToggle = ({className}) => {
             </Cell>
             <Cell style={{...flexCenteredStyle}}>
               <AtomSwitch
-                onToggle={trigger(
-                  setControlledValueDemoState,
-                  !controlledValueDemoState
-                )}
+                onToggle={trigger(setControlledValueDemoState, !controlledValueDemoState)}
                 onFocus={trigger(setControlledValueDemoFocusState, true)}
                 onBlur={trigger(setControlledValueDemoFocusState, false)}
                 label="Controlled"

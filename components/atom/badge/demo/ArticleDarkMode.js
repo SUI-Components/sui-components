@@ -12,9 +12,7 @@ const ArticleDarkMode = ({className}) => {
         <Paragraph>
           There is no <Code>negative</Code> Prop for this component.
         </Paragraph>
-        <Paragraph>
-          This is how the Badges look like over dark backgrounds.
-        </Paragraph>
+        <Paragraph>This is how the Badges look like over dark backgrounds.</Paragraph>
         <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
         <AtomBadge label="error" type={atomBadgeTypes.ERROR} />
         <AtomBadge label="info" type={atomBadgeTypes.INFO} />
@@ -35,41 +33,13 @@ const ArticleDarkMode = ({className}) => {
       </div>
       <Paragraph>___</Paragraph>
       <div>
-        <AtomBadge
-          label="success"
-          type={atomBadgeTypes.SUCCESS}
-          design={atomBadgeDesigns.SOFT}
-        />
-        <AtomBadge
-          label="error"
-          type={atomBadgeTypes.ERROR}
-          design={atomBadgeDesigns.SOFT}
-        />
-        <AtomBadge
-          label="info"
-          type={atomBadgeTypes.INFO}
-          design={atomBadgeDesigns.SOFT}
-        />
-        <AtomBadge
-          label="alert"
-          type={atomBadgeTypes.ALERT}
-          design={atomBadgeDesigns.SOFT}
-        />
-        <AtomBadge
-          label="new"
-          type={atomBadgeTypes.NEW}
-          design={atomBadgeDesigns.SOFT}
-        />
-        <AtomBadge
-          label="neutral"
-          type={atomBadgeTypes.NEUTRAL}
-          design={atomBadgeDesigns.SOFT}
-        />
-        <AtomBadge
-          label="primary"
-          type={atomBadgeTypes.PRIMARY}
-          design={atomBadgeDesigns.SOFT}
-        />
+        <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} design={atomBadgeDesigns.SOFT} />
+        <AtomBadge label="error" type={atomBadgeTypes.ERROR} design={atomBadgeDesigns.SOFT} />
+        <AtomBadge label="info" type={atomBadgeTypes.INFO} design={atomBadgeDesigns.SOFT} />
+        <AtomBadge label="alert" type={atomBadgeTypes.ALERT} design={atomBadgeDesigns.SOFT} />
+        <AtomBadge label="new" type={atomBadgeTypes.NEW} design={atomBadgeDesigns.SOFT} />
+        <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} design={atomBadgeDesigns.SOFT} />
+        <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} design={atomBadgeDesigns.SOFT} />
       </div>
     </Article>
   )

@@ -73,10 +73,7 @@ const ProgressBarLine = ({
 ProgressBarLine.displayName = 'ProgressBarLine'
 
 ProgressBarLine.propTypes = {
-  percentage: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number)
-  ]),
+  percentage: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   /** Hide the indicator */
   hideIndicator: PropTypes.bool,
   /** If the indicator should be placed below the bar */

@@ -2,15 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeDropdownOption from '../src/index.js'
 import {CLASS_DEMO_OPTION, OPTIONS} from './config.js'
@@ -24,19 +16,14 @@ const ArticleBehavior = ({className}) => {
   }
 
   const handleSelectMultiple = (event, {value, selected}) => {
-    setMultipleData(
-      selected
-        ? [...multipleData, value]
-        : [...multipleData.filter(data => data !== value)]
-    )
+    setMultipleData(selected ? [...multipleData, value] : [...multipleData.filter(data => data !== value)])
   }
 
   return (
     <Article className={className}>
       <H2>Behavior</H2>
       <Paragraph>
-        Every single option works for single or multiple selection behavior
-        providing the right handler.
+        Every single option works for single or multiple selection behavior providing the right handler.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
@@ -70,20 +57,10 @@ const ArticleBehavior = ({className}) => {
           ))}
         </Cell>
         <Cell>
-          <Input
-            readOnly
-            disabled
-            fullWidth
-            value={JSON.stringify(singleData, null, 2)}
-          />
+          <Input readOnly disabled fullWidth value={JSON.stringify(singleData, null, 2)} />
         </Cell>
         <Cell>
-          <Input
-            readOnly
-            disabled
-            fullWidth
-            value={JSON.stringify(multipleData, null, 2)}
-          />
+          <Input readOnly disabled fullWidth value={JSON.stringify(multipleData, null, 2)} />
         </Cell>
       </Grid>
     </Article>

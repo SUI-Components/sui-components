@@ -22,9 +22,7 @@ $base-class: '.sui-MoleculeDrawer';
     &--animationDuration {
       transition-property: transform;
       transition-timing-function: linear;
-      @each $transition-duration-name,
-        $transition-duration-value in $trsdu-molecule-drawer-map
-      {
+      @each $transition-duration-name, $transition-duration-value in $trsdu-molecule-drawer-map {
         &-#{$transition-duration-name} {
           transition-duration: $transition-duration-value;
         }

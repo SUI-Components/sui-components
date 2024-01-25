@@ -12,13 +12,6 @@ export const CLOSE_KEYS_LIST = ['Escape']
 export const SELECT_KEYS_LIST = [' ', 'Enter']
 
 export const getIsTypeableKey = key => {
-  const keysEdit = [
-    'Backspace',
-    'Enter',
-    'Meta',
-    'Shift',
-    'ArrowLeft',
-    'ArrowRight'
-  ]
+  const keysEdit = ['Backspace', 'Enter', 'Meta', 'Shift', 'ArrowLeft', 'ArrowRight']
   return key.length === 1 || keysEdit.includes(key)
 }

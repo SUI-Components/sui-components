@@ -27,11 +27,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['MoleculeTextareaSizes', 'default']
 
     // When
-    const {
-      MoleculeTextareaSizes,
-      default: MoleculeTextAreaField,
-      ...others
-    } = library
+    const {MoleculeTextareaSizes, default: MoleculeTextAreaField, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -70,8 +66,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -98,15 +93,9 @@ describe(json.name, () => {
 
       // Then
       expect(getAllByText(props.label)).to.be.an('array').to.have.lengthOf(1)
-      expect(getAllByText(defaultHelpTextComputed))
-        .to.be.an('array')
-        .to.have.lengthOf(1)
-      expect(getAllByPlaceholderText(props.placeholder))
-        .to.be.an('array')
-        .to.have.lengthOf(1)
-      expect(getAllByText(props.successText))
-        .to.be.an('array')
-        .to.have.lengthOf(1)
+      expect(getAllByText(defaultHelpTextComputed)).to.be.an('array').to.have.lengthOf(1)
+      expect(getAllByPlaceholderText(props.placeholder)).to.be.an('array').to.have.lengthOf(1)
+      expect(getAllByText(props.successText)).to.be.an('array').to.have.lengthOf(1)
     })
 
     it('Writes text and character counter updates accordingly', () => {

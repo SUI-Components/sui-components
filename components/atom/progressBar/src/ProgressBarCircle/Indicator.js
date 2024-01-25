@@ -8,11 +8,7 @@ const Indicator = ({percentage, status, errorIcon, size, children}) => {
   if (status === STATUS.LOADING) return null
   return (
     <span
-      className={cx(
-        INDICATOR_CLASS_NAME,
-        `${INDICATOR_CLASS_NAME}--${status}`,
-        `${INDICATOR_CLASS_NAME}--${size}`
-      )}
+      className={cx(INDICATOR_CLASS_NAME, `${INDICATOR_CLASS_NAME}--${status}`, `${INDICATOR_CLASS_NAME}--${size}`)}
     >
       {status === STATUS.PROGRESS && (children || `${percentage}%`)}
       {status === STATUS.ERROR && errorIcon}

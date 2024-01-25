@@ -9,13 +9,10 @@ const useScrollAutoplayEffect = ({
   intersectionObserverConfiguration: {root, rootMargin, threshold}
 }) => {
   /* eslint no-console: "off" */
-  if (!muted && autoPlay !== AUTOPLAY.FALSE)
-    console.error('Autoplay is only available when muted is true')
+  if (!muted && autoPlay !== AUTOPLAY.FALSE) console.error('Autoplay is only available when muted is true')
 
   const observer = useRef(null)
-  const [autoPlayState, setAutoPlayState] = useState(
-    autoPlay !== AUTOPLAY.ON_VIEWPORT ? autoPlay : false
-  )
+  const [autoPlayState, setAutoPlayState] = useState(autoPlay !== AUTOPLAY.ON_VIEWPORT ? autoPlay : false)
 
   const callback = (entries, observer) => {
     entries.forEach(entry => {

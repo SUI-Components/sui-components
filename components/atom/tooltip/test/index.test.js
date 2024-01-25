@@ -104,16 +104,7 @@ describe(json.name, () => {
 
       // When
       const {AtomTooltipColors: actual} = library
-      const {
-        PRIMARY,
-        SECONDARY,
-        ACCENT,
-        NEUTRAL,
-        SUCCESS,
-        ALERT,
-        ERROR,
-        ...others
-      } = actual
+      const {PRIMARY, SECONDARY, ACCENT, NEUTRAL, SUCCESS, ALERT, ERROR, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

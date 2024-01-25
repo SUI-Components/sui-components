@@ -1,5 +1,43 @@
 # CHANGELOG
 
+# 1.23.0 (2024-01-25)
+
+
+### Bug Fixes
+
+* **components/molecule/phoneInput:** fix wrong padding ([6df4cf8](https://github.com/SUI-Components/sui-components/commit/6df4cf8b91e8814030f1eb5892f8491f840f1b46))
+
+
+
+# 1.22.0 (2023-12-28)
+
+
+### Features
+
+* **components/molecule/phoneInput:** Change to our S3 ([af6c317](https://github.com/SUI-Components/sui-components/commit/af6c317b917b9e1acfd197d40a221bbd33c308ae))
+
+
+
+# 1.21.0 (2023-12-27)
+
+
+### Bug Fixes
+
+* **components/molecule/phoneInput:** add default to var and arrange structure ([baf5675](https://github.com/SUI-Components/sui-components/commit/baf5675b5231c03caf5f76224f833d303a6b479f))
+
+
+
+# 1.20.0 (2023-12-19)
+
+
+### Features
+
+* **components/molecule/phoneInput:** fix lint ([2d6bad1](https://github.com/SUI-Components/sui-components/commit/2d6bad1f5e9e53e8258f5d6dba950ed4f7685de2))
+* **components/molecule/phoneInput:** parametrize font sizes ([75787b2](https://github.com/SUI-Components/sui-components/commit/75787b2f05e3c894ed65a5f9849549bbecad8bdb))
+* **components/molecule/phoneInput:** parametrize input font-size ([133d7f6](https://github.com/SUI-Components/sui-components/commit/133d7f6681bf272aebbab7a9da48148381a71c6c))
+
+
+
 # 1.19.0 (2023-10-10)
 
 

@@ -5,25 +5,10 @@ import PropTypes from 'prop-types'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import Input from '../Input/index.js'
-import {
-  BASE_CLASS_PASSWORD,
-  BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
-  PASSWORD,
-  TEXT
-} from './config.js'
+import {BASE_CLASS_PASSWORD, BASE_CLASS_PASSWORD_TOGGLE_BUTTON, PASSWORD, TEXT} from './config.js'
 
 const Password = forwardRef(
-  (
-    {
-      onChange,
-      pwShowLabel = 'show',
-      pwHideLabel = 'hide',
-      value,
-      defaultValue = '',
-      ...props
-    },
-    forwardedRef
-  ) => {
+  ({onChange, pwShowLabel = 'show', pwHideLabel = 'hide', value, defaultValue = '', ...props}, forwardedRef) => {
     const [type, setType] = useState(PASSWORD)
     const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
 
@@ -39,13 +24,7 @@ const Password = forwardRef(
 
     return (
       <div className={BASE_CLASS_PASSWORD}>
-        <Input
-          ref={forwardedRef}
-          {...props}
-          onChange={handleChange}
-          value={innerValue}
-          type={type}
-        />
+        <Input ref={forwardedRef} {...props} onChange={handleChange} value={innerValue} type={type} />
         <div onClick={toggle} className={BASE_CLASS_PASSWORD_TOGGLE_BUTTON}>
           {type === PASSWORD ? pwShowLabel : pwHideLabel}
         </div>

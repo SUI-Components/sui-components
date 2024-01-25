@@ -1,24 +1,11 @@
-import {
-  cloneElement,
-  Fragment,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react'
+import {cloneElement, Fragment, useCallback, useEffect, useRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import usePortal from '@s-ui/react-hook-use-portal'
 
-import {
-  BASE_CLASS,
-  getPlacement,
-  OVERLAY_TYPES,
-  PLACEMENTS,
-  SIZES
-} from './config.js'
+import {BASE_CLASS, getPlacement, OVERLAY_TYPES, PLACEMENTS, SIZES} from './config.js'
 import RenderActions from './RenderActions.js'
 
 function usePrevious(value) {
@@ -71,8 +58,7 @@ const MoleculeSelectPopover = ({
   const contentWrapperRef = useRef()
   const {Portal} = usePortal({target: overlayContentRef.current})
 
-  const hasOverlay =
-    Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
+  const hasOverlay = Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
 
   useEffect(() => {
     forceClosePopover && setIsOpen(false)
@@ -90,15 +76,10 @@ const MoleculeSelectPopover = ({
     }
 
     const getPopoverClassName = () => {
-      if (
-        isOpen &&
-        [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)
-      ) {
-        const {left, right} =
-          contentWrapperRef.current?.getBoundingClientRect() || {}
+      if (isOpen && [PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START].includes(placement)) {
+        const {left, right} = contentWrapperRef.current?.getBoundingClientRect() || {}
         const outFromTheLeftSide = left < 0
-        const outFromTheRightSide =
-          right > (window.innerWidth || document.documentElement.clientWidth)
+        const outFromTheRightSide = right > (window.innerWidth || document.documentElement.clientWidth)
 
         if (outFromTheRightSide) {
           return cx(`${popoverBaseClass}`, `${popoverBaseClass}--left`)
@@ -107,10 +88,7 @@ const MoleculeSelectPopover = ({
         }
       }
 
-      return cx(
-        `${popoverBaseClass}`,
-        `${popoverBaseClass}--${getPlacement(placement)}`
-      )
+      return cx(`${popoverBaseClass}`, `${popoverBaseClass}--${getPlacement(placement)}`)
     }
 
     setPopoverClassName(getPopoverClassName())
@@ -273,12 +251,7 @@ const MoleculeSelectPopover = ({
       </div>
       {hasOverlay && (
         <Portal as={Fragment} isOpen={isOpen}>
-          <div
-            className={cx(
-              `${BASE_CLASS}-overlay`,
-              `${BASE_CLASS}-overlay--${overlayType}`
-            )}
-          />
+          <div className={cx(`${BASE_CLASS}-overlay`, `${BASE_CLASS}-overlay--${overlayType}`)} />
         </Portal>
       )}
     </>
@@ -317,12 +290,7 @@ MoleculeSelectPopover.propTypes = {
   onOpen: PropTypes.func,
   overlayContentRef: PropTypes.object,
   overlayType: PropTypes.oneOf(Object.values(OVERLAY_TYPES)),
-  placement: PropTypes.oneOf([
-    PLACEMENTS.AUTO_END,
-    PLACEMENTS.AUTO_START,
-    PLACEMENTS.LEFT,
-    PLACEMENTS.RIGHT
-  ]),
+  placement: PropTypes.oneOf([PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START, PLACEMENTS.LEFT, PLACEMENTS.RIGHT]),
   renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderActions: PropTypes.node,

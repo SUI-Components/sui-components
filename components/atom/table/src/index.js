@@ -1,24 +1,9 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {
-  BASE_CLASS,
-  CELL_BASE_CLASS,
-  ROW_BASE_CLASS,
-  TABLE_CELL_PADDING,
-  TABLE_CELL_TYPE
-} from './settings.js'
+import {BASE_CLASS, CELL_BASE_CLASS, ROW_BASE_CLASS, TABLE_CELL_PADDING, TABLE_CELL_TYPE} from './settings.js'
 
-const AtomTable = ({
-  head = [],
-  body,
-  foot = [],
-  fullWidth,
-  cellPadding,
-  borderBottom,
-  onRowClick,
-  zebraStriped
-}) => {
+const AtomTable = ({head = [], body, foot = [], fullWidth, cellPadding, borderBottom, onRowClick, zebraStriped}) => {
   const hasHead = Boolean(head.length)
   const hasFoot = Boolean(foot.length)
   const isRowActionable = Boolean(onRowClick)
@@ -51,18 +36,9 @@ const AtomTable = ({
 
       <tbody>
         {body.map((row, index) => (
-          <tr
-            key={index}
-            className={rowClass}
-            {...(isRowActionable && {onClick: () => handleOnRowClick(index)})}
-          >
+          <tr key={index} className={rowClass} {...(isRowActionable && {onClick: () => handleOnRowClick(index)})}>
             {row.map((cell, index) => {
-              const {
-                type: Element = TABLE_CELL_TYPE.data,
-                content = '',
-                isNowrap,
-                colspan = 1
-              } = cell
+              const {type: Element = TABLE_CELL_TYPE.data, content = '', isNowrap, colspan = 1} = cell
               const cellClassName = cx(`${CELL_BASE_CLASS}`, {
                 [`${CELL_BASE_CLASS}--noWrap`]: isNowrap,
                 [`${CELL_BASE_CLASS}--${cellPadding}`]: Boolean(cellPadding),
@@ -70,11 +46,7 @@ const AtomTable = ({
               })
 
               return (
-                <Element
-                  key={index}
-                  className={cellClassName}
-                  colSpan={colspan}
-                >
+                <Element key={index} className={cellClassName} colSpan={colspan}>
                   {content}
                 </Element>
               )
@@ -149,8 +121,5 @@ AtomTable.propTypes = {
   zebraStriped: PropTypes.bool
 }
 
-export {
-  TABLE_CELL_TYPE as atomTableCellTypes,
-  TABLE_CELL_PADDING as atomTableCellPadding
-}
+export {TABLE_CELL_TYPE as atomTableCellTypes, TABLE_CELL_PADDING as atomTableCellPadding}
 export default AtomTable

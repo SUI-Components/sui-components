@@ -23,19 +23,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'backToTopStyles',
-      'backToTopScrollBehavior',
-      'default'
-    ]
+    const libraryExportedMembers = ['backToTopStyles', 'backToTopScrollBehavior', 'default']
 
     // When
-    const {
-      backToTopStyles,
-      backToTopScrollBehavior,
-      default: AtomBackToTop,
-      ...others
-    } = library
+    const {backToTopStyles, backToTopScrollBehavior, default: AtomBackToTop, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

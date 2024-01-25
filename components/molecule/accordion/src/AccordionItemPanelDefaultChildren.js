@@ -12,8 +12,7 @@ const AccordionItemPanelDefaultChildren = ({children}) => {
   )
 }
 
-AccordionItemPanelDefaultChildren.displayName =
-  'AccordionItemHeaderDefaultChildren'
+AccordionItemPanelDefaultChildren.displayName = 'AccordionItemHeaderDefaultChildren'
 
 AccordionItemPanelDefaultChildren.propTypes = {
   children: PropTypes.node

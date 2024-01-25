@@ -14,8 +14,7 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Tabs</H1>
       <Paragraph>
-        Basic component for tabs allowing versions with or without icons and
-        classic or highlighted variants
+        Basic component for tabs allowing versions with or without icons and classic or highlighted variants
       </Paragraph>
       <ArticleDefault className={CLASS_DEMO_SECTION} />
       <br />

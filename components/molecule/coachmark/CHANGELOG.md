@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 0.8.0 (2023-12-05)
+
+
+### Features
+
+* **components/molecule/coachmark/demo:** replace text by icon in the demo for the molecule coachmar ([b3204d7](https://github.com/SUI-Components/sui-components/commit/b3204d789249c33e4e210cc4d3650766ab3f75f5))
+* **components/molecule/coachmark:** Add head image feature ([34f6f88](https://github.com/SUI-Components/sui-components/commit/34f6f88390ec99b0ff9038bd2e2899425816566f))
+* **components/molecule/coachmark:** Update proptypes ([1261fc2](https://github.com/SUI-Components/sui-components/commit/1261fc24dda9b845dc754d9ba60bbcf99d7b5eb5))
+
+
+
 # 0.7.0 (2023-07-28)
 
 

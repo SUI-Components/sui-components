@@ -139,9 +139,4 @@ AtomInput.displayName = 'AtomInput'
 
 export default AtomInput
 
-export {
-  inputSizes,
-  inputStates,
-  TYPES as inputTypes,
-  INPUT_SHAPES as inputShapes
-}
+export {inputSizes, inputStates, TYPES as inputTypes, INPUT_SHAPES as inputShapes}

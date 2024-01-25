@@ -25,23 +25,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'inputTypes',
-      'inputSizes',
-      'inputStates',
-      'inputShapes',
-      'default'
-    ]
+    const libraryExportedMembers = ['inputTypes', 'inputSizes', 'inputStates', 'inputShapes', 'default']
 
     // When
-    const {
-      inputTypes,
-      inputSizes,
-      inputStates,
-      inputShapes,
-      default: AtomInput,
-      ...others
-    } = library
+    const {inputTypes, inputSizes, inputStates, inputShapes, default: AtomInput, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -78,8 +65,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -148,8 +134,7 @@ describe(json.name, () => {
         className: 'extended-classNames',
         type: pkg.inputTypes.NUMBER
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -319,8 +304,7 @@ describe(json.name, () => {
         className: 'extended-classNames',
         type: pkg.inputTypes.MASK
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -344,8 +328,7 @@ describe(json.name, () => {
           value = e.target.value
         }
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
       // When
       const {container} = setup(props)
       const findClassName = findSentence(props.className)
@@ -369,8 +352,7 @@ describe(json.name, () => {
         charsSize: 31,
         value
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
       // When
       const {container} = setup(props)
       const findClassName = findSentence(props.className)
@@ -395,8 +377,7 @@ describe(json.name, () => {
           value = e.target.value
         }
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -444,8 +425,7 @@ describe(json.name, () => {
         className: 'extended-classNames',
         type: pkg.inputTypes.MASK
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -461,13 +441,10 @@ describe(json.name, () => {
       it('should render without crashing', () => {
         // Given
         const testIdPrefix = 'testID'
-        const getTestID = position =>
-          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const getTestID = position => `${testIdPrefix} ${testIdPrefix}-${position}`
         const props = {
           leftAddon: <div data-testid={getTestID('leftAddon')}>leftAddon</div>,
-          rightAddon: (
-            <div data-testid={getTestID('rightAddon')}>rightAddon</div>
-          )
+          rightAddon: <div data-testid={getTestID('rightAddon')}>rightAddon</div>
         }
 
         // When
@@ -482,13 +459,10 @@ describe(json.name, () => {
       it('should NOT render null', () => {
         // Given
         const testIdPrefix = 'testID'
-        const getTestID = position =>
-          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const getTestID = position => `${testIdPrefix} ${testIdPrefix}-${position}`
         const props = {
           leftAddon: <div data-testid={getTestID('leftAddon')}>leftAddon</div>,
-          rightAddon: (
-            <div data-testid={getTestID('rightAddon')}>rightAddon</div>
-          )
+          rightAddon: <div data-testid={getTestID('rightAddon')}>rightAddon</div>
         }
 
         // When
@@ -502,17 +476,13 @@ describe(json.name, () => {
       it('should NOT extend classNames', () => {
         // Given
         const testIdPrefix = 'testID'
-        const getTestID = position =>
-          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const getTestID = position => `${testIdPrefix} ${testIdPrefix}-${position}`
         const props = {
           leftAddon: <div data-testid={getTestID('leftAddon')}>leftAddon</div>,
-          rightAddon: (
-            <div data-testid={getTestID('rightAddon')}>rightAddon</div>
-          ),
+          rightAddon: <div data-testid={getTestID('rightAddon')}>rightAddon</div>,
           className: 'extended-classNames'
         }
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -534,9 +504,7 @@ describe(json.name, () => {
         const {getAllByTestId} = setup(props)
 
         // Then
-        expect(getAllByTestId(testIdPrefix))
-          .to.be.an('array')
-          .to.have.lengthOf(2)
+        expect(getAllByTestId(testIdPrefix)).to.be.an('array').to.have.lengthOf(2)
       })
 
       it('given addon props should return it rendered with its own shape', () => {
@@ -594,8 +562,7 @@ describe(json.name, () => {
         const props = {
           button: <button data-testid={testId}>leftAddon</button>
         }
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -617,9 +584,7 @@ describe(json.name, () => {
         const {getAllByTestId} = setup(props)
 
         // Then
-        expect(getAllByTestId(testIdPrefix))
-          .to.be.an('array')
-          .to.have.lengthOf(2)
+        expect(getAllByTestId(testIdPrefix)).to.be.an('array').to.have.lengthOf(2)
       })
 
       it('given a button prop should return it rendered with its own shape', () => {
@@ -641,8 +606,7 @@ describe(json.name, () => {
       it('should render without crashing', () => {
         // Given
         const testIdPrefix = 'testID'
-        const getTestID = position =>
-          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const getTestID = position => `${testIdPrefix} ${testIdPrefix}-${position}`
         const props = {
           leftIcon: <svg data-testid={getTestID('leftAddon')} />,
           rightIcon: <svg data-testid={getTestID('rightAddon')} />
@@ -660,8 +624,7 @@ describe(json.name, () => {
       it('should NOT render null', () => {
         // Given
         const testIdPrefix = 'testID'
-        const getTestID = position =>
-          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const getTestID = position => `${testIdPrefix} ${testIdPrefix}-${position}`
         const props = {
           leftIcon: <svg data-testid={getTestID('leftAddon')} />,
           rightIcon: <svg data-testid={getTestID('rightAddon')} />
@@ -678,14 +641,12 @@ describe(json.name, () => {
       it('should NOT extend classNames', () => {
         // Given
         const testIdPrefix = 'testID'
-        const getTestID = position =>
-          `${testIdPrefix} ${testIdPrefix}-${position}`
+        const getTestID = position => `${testIdPrefix} ${testIdPrefix}-${position}`
         const props = {
           leftIcon: <svg data-testid={getTestID('leftAddon')} />,
           rightIcon: <svg data-testid={getTestID('rightAddon')} />
         }
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -723,9 +684,7 @@ describe(json.name, () => {
         const {getAllByTestId} = setup(props)
 
         // Then
-        expect(getAllByTestId(testIdPrefix))
-          .to.be.an('array')
-          .to.have.lengthOf(2)
+        expect(getAllByTestId(testIdPrefix)).to.be.an('array').to.have.lengthOf(2)
       })
 
       it('given a left and right icon, when pressing left Icon should fire onClickLeftIcon', () => {
@@ -805,18 +764,7 @@ describe(json.name, () => {
 
       // When
       const {inputTypes: actual} = library
-      const {
-        DATE,
-        MASK,
-        NUMBER,
-        PASSWORD,
-        SUI_PASSWORD,
-        TEXT,
-        TEL,
-        EMAIL,
-        NONE,
-        ...others
-      } = actual
+      const {DATE, MASK, NUMBER, PASSWORD, SUI_PASSWORD, TEXT, TEL, EMAIL, NONE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

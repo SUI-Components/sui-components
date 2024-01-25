@@ -11,9 +11,7 @@ export default () => {
   return (
     <div className="sui-StudioPreview">
       <H1>Badge Counter</H1>
-      <Paragraph>
-        Component used for warning the user about new content or updates
-      </Paragraph>
+      <Paragraph>Component used for warning the user about new content or updates</Paragraph>
       <ArticleDefault className={CLASS_SECTION} />
       <br />
       <ArticleSizes className={CLASS_SECTION} />

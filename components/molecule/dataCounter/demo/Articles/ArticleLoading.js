@@ -22,15 +22,9 @@ const ArticleLoading = ({className}) => {
       <H2>Loading</H2>
       <Paragraph>
         The dataCounter component provides an
-        <Code>isLoading</Code> (boolean) prop which blocks the last button
-        fired.
+        <Code>isLoading</Code> (boolean) prop which blocks the last button fired.
       </Paragraph>
-      <MoleculeDataCounter
-        label="label"
-        isLoading={isLoading}
-        onChange={consoleValueLoading}
-        {...propsMessages}
-      />
+      <MoleculeDataCounter label="label" isLoading={isLoading} onChange={consoleValueLoading} {...propsMessages} />
     </Article>
   )
 }

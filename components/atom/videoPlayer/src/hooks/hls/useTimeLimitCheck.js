@@ -18,21 +18,14 @@ const useTimeLimitCheck = ({playerRef, timeLimit, timeOffset}) => {
     checkTimeLimitInterval.current = setInterval(() => {
       const currentTime = playerRef.current?.currentTime
       const isPlaying = !playerRef.current?.paused
-      const isTimeLimitReached =
-        currentTime >= timeLimit && timeLimit !== undefined
+      const isTimeLimitReached = currentTime >= timeLimit && timeLimit !== undefined
 
       if (isPlaying && isTimeLimitReached) {
         playerRef.current?.pause()
         playerRef.current.currentTime = timeOffset || 0
       }
     }, ONE_SECOND)
-  }, [
-    checkTimeLimitInterval,
-    playerRef,
-    stopTimeLimitInterval,
-    timeLimit,
-    timeOffset
-  ])
+  }, [checkTimeLimitInterval, playerRef, stopTimeLimitInterval, timeLimit, timeOffset])
 
   useEffect(() => {
     return () => {

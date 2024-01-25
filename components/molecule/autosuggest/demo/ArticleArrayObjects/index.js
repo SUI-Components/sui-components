@@ -17,11 +17,9 @@ const ArticleArrayObjects = () => {
     <Article>
       <H2>Autosuggest with array objects</H2>
       <Paragraph>
-        This implementation allows you to use <Code>Autosuggest</Code> with an
-        array of objects. To check the selected values in the dropdown, it will
-        use a deep comparison. Changing the tags in <Code>onChangeTags</Code>{' '}
-        method returns an array of objects. If the tag is new, you will see a
-        string inside the array of objects.
+        This implementation allows you to use <Code>Autosuggest</Code> with an array of objects. To check the selected
+        values in the dropdown, it will use a deep comparison. Changing the tags in <Code>onChangeTags</Code> method
+        returns an array of objects. If the tag is new, you will see a string inside the array of objects.
       </Paragraph>
       <H3>Single selection</H3>
       <MoleculeAutosuggestField
@@ -34,9 +32,7 @@ const ArticleArrayObjects = () => {
           console.log('onChange', value)
           setSingleValue(value)
         }}
-        onChangeTags={(_, {tags, ...args}) =>
-          console.log('onChangeTags', {tags, ...args})
-        }
+        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
         onClear={() => {
           console.log('Clear pressed')
           setSingleValue(undefined)
@@ -92,9 +88,7 @@ const ArticleArrayObjects = () => {
       <MoleculeAutosuggestWithStateTags
         autoFocus
         placeholder="Type a Country name..."
-        onChangeTags={(_, {tags, ...args}) =>
-          console.log('onChangeTags', {tags, ...args})
-        }
+        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
         onClear={() => console.log('Clear pressed')}
         iconCloseTag={iconClose}
         iconClear={iconClose}

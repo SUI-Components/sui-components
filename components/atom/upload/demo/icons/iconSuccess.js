@@ -7,10 +7,7 @@ const IconSuccess = (
       />
     </defs>
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <g
-        id="Atoms/Icons/32/General/OK-Copy"
-        transform="translate(-8.000000, -8.000000)"
-      >
+      <g id="Atoms/Icons/32/General/OK-Copy" transform="translate(-8.000000, -8.000000)">
         <rect id="Save" x="0" y="0" width="96" height="96" />
         <mask id="mask-2" fill="white">
           <use xlinkHref="#path-1" />

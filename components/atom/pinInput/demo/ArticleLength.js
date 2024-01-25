@@ -2,14 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Button,
-  Cell,
-  Grid,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Button, Cell, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 
 import PinInput from '../src/index.js'
 
@@ -24,9 +17,7 @@ const ArticleLength = ({className}) => {
   return (
     <Article className={className}>
       <H2>Length</H2>
-      <Paragraph>
-        The element size is the same as the default value it's been provided.
-      </Paragraph>
+      <Paragraph>The element size is the same as the default value it's been provided.</Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell
           style={{

@@ -49,9 +49,7 @@ const DefaultArticle = ({className}) => {
   const [formState, setFormState] = useState(initialFormValues)
 
   const handlePhotosChange = ({file: {label}}, index) => {
-    setFormState(
-      formState.map((currentLabel, i) => (index === i ? {label} : currentLabel))
-    )
+    setFormState(formState.map((currentLabel, i) => (index === i ? {label} : currentLabel)))
   }
 
   // eslint-disable-next-line react/prop-types
@@ -59,9 +57,7 @@ const DefaultArticle = ({className}) => {
     <div className="demo-child-body">
       <MoleculeSelect
         value={formState[index]?.label}
-        onChange={(e, {value}) =>
-          handlePhotosChange({file: {...file, label: value}}, index)
-        }
+        onChange={(e, {value}) => handlePhotosChange({file: {...file, label: value}}, index)}
         iconArrowDown={_labelsArrowIcon()}
         placeholder={labelsPlaceholder}
       >
@@ -113,9 +109,7 @@ const DefaultArticle = ({className}) => {
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}
         maxPhotos={_maxPhotos}
-        notificationErrorFormatPhotoUploaded={
-          _notificationErrorFormatPhotoUploaded
-        }
+        notificationErrorFormatPhotoUploaded={_notificationErrorFormatPhotoUploaded}
         rejectPhotosIcon={_rejectPhotosIcon}
         retryIcon={_retryErrorPhotosIcon}
         rotateIcon={_rotateIcon}

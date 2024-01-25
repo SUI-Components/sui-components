@@ -1,13 +1,6 @@
 import {filterKeys} from './helpers.js'
 
-export const ACTIONABLE_ONLY_PROPS = [
-  'href',
-  'iconPlacement',
-  'target',
-  'actionable',
-  'linkFactory',
-  'rel'
-]
+export const ACTIONABLE_ONLY_PROPS = ['href', 'iconPlacement', 'target', 'actionable', 'linkFactory', 'rel']
 
 export const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
 
@@ -40,15 +33,13 @@ export const DESIGNS = {
  * Removes all actionable tag props from the react props
  * @return {Object}
  */
-export const getStandardProps = props =>
-  filterKeys(props, ACTIONABLE_ONLY_PROPS)
+export const getStandardProps = props => filterKeys(props, ACTIONABLE_ONLY_PROPS)
 
 /**
  * Removes all standard tag props from the react props
  * @return {Object}
  */
-export const getActionableProps = props =>
-  filterKeys(props, STANDARD_ONLY_PROPS)
+export const getActionableProps = props => filterKeys(props, STANDARD_ONLY_PROPS)
 
 export const isFunction = fn => typeof fn === 'function'
 

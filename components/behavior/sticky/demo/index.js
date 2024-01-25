@@ -1,15 +1,6 @@
 import cx from 'classnames'
 
-import {
-  Box,
-  Code,
-  H1,
-  H4,
-  ListItem,
-  Paragraph,
-  Separator,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Box, Code, H1, H4, ListItem, Paragraph, Separator, UnorderedList} from '@s-ui/documentation-library'
 
 import BehaviorSticky, {BehaviorStickyProvider} from '../src/index.js'
 import ArticleDefault from './articles/ArticleDefault.js'
@@ -33,12 +24,11 @@ const Demo = () => (
           <Code>BehaviorStickyProvider</Code>: a logical wrapper
         </ListItem>
         <ListItem>
-          <Code>BehaviorSticky</Code> (default): Sticky component like position:
-          sticky with options for elements bigger than the viewport.
+          <Code>BehaviorSticky</Code> (default): Sticky component like position: sticky with options for elements bigger
+          than the viewport.
         </ListItem>
         <ListItem>
-          <Code>BehaviorStickyScrollUp</Code> (default): component that is only
-          visible when scrolling up.
+          <Code>BehaviorStickyScrollUp</Code> (default): component that is only visible when scrolling up.
         </ListItem>
       </UnorderedList>
       <ArticleDefault className={CLASS_DEMO_SECTION} />
@@ -116,9 +106,7 @@ const Demo = () => (
           <LoremIpsum units="words" count={200} format="plain" />
         </Paragraph>
         <div>
-          <H4>
-            Previous text is just padding added to check the Sticky behavior
-          </H4>
+          <H4>Previous text is just padding added to check the Sticky behavior</H4>
           <Separator />
         </div>
       </Box>

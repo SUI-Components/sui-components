@@ -6,17 +6,7 @@ import MoleculeNotification, {
 } from 'components/molecule/notification/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  ListItem,
-  Paragraph,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 import {getButtons} from './utils.js'
 
@@ -25,13 +15,9 @@ const ArticleTypeAndVariation = ({className}) => {
     <Article className={className}>
       <H2>Type and Variation</H2>
       <Paragraph>
-        Notification admits the combination of <Code>type</Code> and{' '}
-        <Code>variation</Code> (enum) props.
+        Notification admits the combination of <Code>type</Code> and <Code>variation</Code> (enum) props.
       </Paragraph>
-      <Grid
-        cols={Object.keys(moleculeNotificationVariations).length + 1}
-        gutter={[8, 8]}
-      >
+      <Grid cols={Object.keys(moleculeNotificationVariations).length + 1} gutter={[8, 8]}>
         {Object.entries(moleculeNotificationTypes).map(
           ([moleculeNotificationTypeKey, moleculeNotificationTypeValue]) => (
             <Fragment key={moleculeNotificationTypeKey}>
@@ -39,19 +25,13 @@ const ArticleTypeAndVariation = ({className}) => {
                 <Label>{moleculeNotificationTypeValue}</Label>
               </Cell>
               {Object.entries(moleculeNotificationVariations).map(
-                ([
-                  moleculeNotificationVariationKey,
-                  moleculeNotificationVariationValue
-                ]) => (
+                ([moleculeNotificationVariationKey, moleculeNotificationVariationValue]) => (
                   <Cell key={moleculeNotificationVariationKey}>
                     <MoleculeNotification
                       autoClose="manual"
                       type={moleculeNotificationTypeValue}
                       variation={moleculeNotificationVariationValue}
-                      buttons={getButtons(
-                        moleculeNotificationVariationValue,
-                        moleculeNotificationTypeValue
-                      )}
+                      buttons={getButtons(moleculeNotificationVariationValue, moleculeNotificationTypeValue)}
                     >
                       type: {moleculeNotificationTypeValue}
                       <br />
@@ -70,10 +50,7 @@ const ArticleTypeAndVariation = ({className}) => {
         {Object.entries(moleculeNotificationTypes).map(
           ([moleculeNotificationTypeKey, moleculeNotificationTypeValue]) => (
             <ListItem key={moleculeNotificationTypeKey}>
-              <Code>
-                moleculeNotificationTypes.{moleculeNotificationTypeKey}
-              </Code>
-              : '{moleculeNotificationTypeValue}'
+              <Code>moleculeNotificationTypes.{moleculeNotificationTypeKey}</Code>: '{moleculeNotificationTypeValue}'
             </ListItem>
           )
         )}
@@ -81,10 +58,7 @@ const ArticleTypeAndVariation = ({className}) => {
       <Code>moleculeNotificationVariations</Code>
       <UnorderedList>
         {Object.entries(moleculeNotificationVariations).map(
-          ([
-            moleculeNotificationVariationKey,
-            moleculeNotificationVariationValue
-          ]) => (
+          ([moleculeNotificationVariationKey, moleculeNotificationVariationValue]) => (
             <ListItem key={moleculeNotificationVariationKey}>
               <Code>
                 moleculeNotificationVariations.

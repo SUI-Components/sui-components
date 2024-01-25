@@ -8,15 +8,7 @@ export default () => {
   const [value, setValue] = useState('Click the button')
 
   const onClick = () => {
-    const got = [
-      'Tyrion',
-      'Jon',
-      'Daenerys',
-      'Arya',
-      'Tywin',
-      'Brienne',
-      'Petyr'
-    ]
+    const got = ['Tyrion', 'Jon', 'Daenerys', 'Arya', 'Tywin', 'Brienne', 'Petyr']
     const random = Math.floor(Math.random() * got.length)
     const value = got[random]
     setValue(value)

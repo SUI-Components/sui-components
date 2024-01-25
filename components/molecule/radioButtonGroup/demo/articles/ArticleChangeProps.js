@@ -33,12 +33,7 @@ const ArticleChangeProps = ({className}) => {
         name="change-prop-from-state"
         value={value}
       >
-        <MoleculeRadioButtonField
-          id="john-change-prop-from-state"
-          value="john"
-          label="John"
-          helpText="John Lennon"
-        />
+        <MoleculeRadioButtonField id="john-change-prop-from-state" value="john" label="John" helpText="John Lennon" />
         <MoleculeRadioButtonField
           id="paul-change-prop-from-state"
           value="paul"
@@ -51,12 +46,7 @@ const ArticleChangeProps = ({className}) => {
           label="George"
           helpText="George Harrison"
         />
-        <MoleculeRadioButtonField
-          id="ringo-change-prop-from-state"
-          value="ringo"
-          label="Ringo"
-          helpText="Ringo Star"
-        />
+        <MoleculeRadioButtonField id="ringo-change-prop-from-state" value="ringo" label="Ringo" helpText="Ringo Star" />
       </MoleculeRadioButtonGroup>
     </Article>
   )

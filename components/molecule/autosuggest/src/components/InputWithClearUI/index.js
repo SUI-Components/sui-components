@@ -4,14 +4,7 @@ import Injector from '@s-ui/react-primitive-injector'
 
 import {CLASS_CONTAINER, CLASS_ICON_CLEAR} from './config.js'
 
-const InputWithClearUI = ({
-  onClickClear,
-  isVisibleClear,
-  iconClear,
-  rightIcon = <i />,
-  children,
-  ...props
-}) => {
+const InputWithClearUI = ({onClickClear, isVisibleClear, iconClear, rightIcon = <i />, children, ...props}) => {
   return (
     <div className={CLASS_CONTAINER}>
       <Injector

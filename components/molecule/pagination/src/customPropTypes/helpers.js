@@ -1,5 +1,4 @@
-const getMessageErrorNumber = ({propName, componentName}) =>
-  `${propName} in ${componentName} should be a number`
+const getMessageErrorNumber = ({propName, componentName}) => `${propName} in ${componentName} should be a number`
 
 const getMessageErrorPositive = ({propName, componentName}) =>
   `${propName} in ${componentName} should be a positive number`

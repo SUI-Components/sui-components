@@ -5,18 +5,8 @@ import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.j
 import {BEHAVIOR} from '../settings.js'
 import AccordionContext, {defaultAccordionContext} from './index.js'
 
-const AccordionProvider = ({
-  children,
-  values,
-  defaultValues,
-  onChange,
-  behavior,
-  ...props
-}) => {
-  const [stateValues, setStateValues] = useControlledState(
-    values,
-    defaultValues
-  )
+const AccordionProvider = ({children, values, defaultValues, onChange, behavior, ...props}) => {
+  const [stateValues, setStateValues] = useControlledState(values, defaultValues)
   return (
     <AccordionContext.Provider
       value={{
@@ -43,13 +33,9 @@ AccordionProvider.propTypes = {
   /** function fired everytime a panel toggles its status */
   onChange: PropTypes.func,
   /** The initial opened values **/
-  defaultValues: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ),
+  defaultValues: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   /** The opened values **/
-  values: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  )
+  values: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 }
 
 export default AccordionProvider

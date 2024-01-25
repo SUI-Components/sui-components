@@ -2,15 +2,7 @@ import {Fragment} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeInputTags, {moleculeInputTagsSizes} from '../../src/index.js'
 import Data from '../Data.js'
@@ -21,8 +13,8 @@ const ArticleTagsSize = ({className}) => {
     <Article className={className}>
       <H2>Tag's Sizes</H2>
       <Paragraph>
-        Use the prop <Code>tagSize</Code> (enum) to define the tags' size. The
-        values are under the <Code>moleculeInputTagsSizes</Code> exported enum
+        Use the prop <Code>tagSize</Code> (enum) to define the tags' size. The values are under the{' '}
+        <Code>moleculeInputTagsSizes</Code> exported enum
       </Paragraph>
       <Grid cols={6} gutter={[8, 8]}>
         {Object.values(moleculeInputTagsSizes).map(moleculeInputTagsSize => (

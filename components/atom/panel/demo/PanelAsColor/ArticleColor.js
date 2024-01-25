@@ -22,10 +22,7 @@ const ArticleColor = ({className}) => {
         }}
       >
         {Object.keys(atomPanelColors).map((color, idx) => (
-          <div
-            key={idx}
-            style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}
-          >
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
             <AtomPanel color={atomPanelColors[color]}>
               <div style={{height: '100px', width: '100px'}} />
             </AtomPanel>

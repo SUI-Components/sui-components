@@ -40,13 +40,7 @@ export const ToggleSwitchTypeRender = forwardRef(
           fullWidth
         })}
       >
-        {label && (
-          <AtomLabel
-            name={name}
-            text={label}
-            optionalText={labelOptionalText}
-          />
-        )}
+        {label && <AtomLabel name={name} text={label} optionalText={labelOptionalText} />}
         <div
           className={cx(suitClass({element: 'container'}), {
             [suitClass({
@@ -61,10 +55,7 @@ export const ToggleSwitchTypeRender = forwardRef(
           ref={ref}
         >
           <span
-            className={cx(
-              suitClass({element: 'text'}),
-              suitClass({element: 'left'})
-            )}
+            className={cx(suitClass({element: 'text'}), suitClass({element: 'left'}))}
             onClick={onToggle(false)}
             aria-disabled={disabled}
           >
@@ -85,21 +76,12 @@ export const ToggleSwitchTypeRender = forwardRef(
             {...(!disabled && {tabIndex: 0})}
             onClick={onToggle()}
           >
-            {
-              <div className={cx(suitClass({element: 'icon-left'}))}>
-                {iconLeft}
-              </div>
-            }
+            {<div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div>}
             <div className={cx(suitClass({element: 'circle'}))} />
-            <div className={cx(suitClass({element: 'icon-right'}))}>
-              {iconRight}
-            </div>
+            <div className={cx(suitClass({element: 'icon-right'}))}>{iconRight}</div>
           </button>
           <span
-            className={cx(
-              suitClass({element: 'text'}),
-              suitClass({element: 'right'})
-            )}
+            className={cx(suitClass({element: 'text'}), suitClass({element: 'right'}))}
             onClick={onToggle(true)}
             aria-disabled={disabled}
           >

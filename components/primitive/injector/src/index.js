@@ -1,20 +1,8 @@
 import PropTypes from 'prop-types'
 
-import {
-  combineClassNames,
-  combineHandler,
-  combineHandlers,
-  combineProps,
-  combineStyles,
-  inject
-} from './settings.js'
+import {combineClassNames, combineHandler, combineHandlers, combineProps, combineStyles, inject} from './settings.js'
 
-const PrimitiveInjector = ({
-  children,
-  combine = combineProps,
-  proviso = () => true,
-  ...props
-}) => {
+const PrimitiveInjector = ({children, combine = combineProps, proviso = () => true, ...props}) => {
   return inject(children, [{combine, proviso, props}])
 }
 
@@ -31,11 +19,4 @@ PrimitiveInjector.propTypes = {
 
 export default PrimitiveInjector
 
-export {
-  inject,
-  combineHandler,
-  combineHandlers,
-  combineStyles,
-  combineClassNames,
-  combineProps
-}
+export {inject, combineHandler, combineHandlers, combineStyles, combineClassNames, combineProps}

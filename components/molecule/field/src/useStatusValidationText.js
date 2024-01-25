@@ -7,13 +7,7 @@ const textStatusConverter = ({errorText, alertText, successText}) => {
   return undefined
 }
 
-const useStatusValidationText = ({
-  successText,
-  errorText,
-  alertText,
-  status,
-  statusText
-}) => {
+const useStatusValidationText = ({successText, errorText, alertText, status, statusText}) => {
   return {
     text: alertText || successText || errorText || statusText,
     status: status || textStatusConverter({alertText, successText, errorText})

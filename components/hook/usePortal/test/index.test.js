@@ -27,16 +27,7 @@ describe(json.name, () => {
   const BIND = 'bind'
   const OUTSIDE = 'outside'
   const Component = forwardRef(
-    (
-      {
-        hasCloseOnOutsideClick,
-        hasCloseOnEsc,
-        children,
-        isOpen: isOpenProps,
-        ...handlers
-      },
-      forwardedRef
-    ) => {
+    ({hasCloseOnOutsideClick, hasCloseOnEsc, children, isOpen: isOpenProps, ...handlers}, forwardedRef) => {
       const targetRef = useRef()
       const ref = useMergeRefs(forwardedRef, targetRef)
       const {Portal, isOpen, open, close, toggle, bind, onClick} = usePortal({
@@ -109,12 +100,8 @@ describe(json.name, () => {
       // When
       const {container, getByTestId, getByText} = setup(props)
       const portalContainerElement = getByTestId('portal-test-container')
-      const portalContainerOriginElement = getByTestId(
-        'portal-test-container-origin'
-      )
-      const portalContainerTargetElement = getByTestId(
-        'portal-test-container-target'
-      )
+      const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+      const portalContainerTargetElement = getByTestId('portal-test-container-target')
       const portalElement = getByText(props.children)
 
       // Then
@@ -141,12 +128,8 @@ describe(json.name, () => {
       // When
       const {container, getByTestId, getByText} = setup(props)
       const portalContainerElement = getByTestId('portal-test-container')
-      const portalContainerOriginElement = getByTestId(
-        'portal-test-container-origin'
-      )
-      const portalContainerTargetElement = getByTestId(
-        'portal-test-container-target'
-      )
+      const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+      const portalContainerTargetElement = getByTestId('portal-test-container-target')
       const portalElement = getByText(props.children)
 
       // Then
@@ -173,12 +156,8 @@ describe(json.name, () => {
       // When
       const {container, getByTestId} = setup(props)
       const portalContainerElement = getByTestId('portal-test-container')
-      const portalContainerOriginElement = getByTestId(
-        'portal-test-container-origin'
-      )
-      const portalContainerTargetElement = getByTestId(
-        'portal-test-container-target'
-      )
+      const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+      const portalContainerTargetElement = getByTestId('portal-test-container-target')
 
       // Then
       expect(container.innerHTML).to.be.a('string')
@@ -201,12 +180,8 @@ describe(json.name, () => {
       // When
       const {container, getByTestId, getByText} = setup(props)
       const portalContainerElement = getByTestId('portal-test-container')
-      const portalContainerOriginElement = getByTestId(
-        'portal-test-container-origin'
-      )
-      const portalContainerTargetElement = getByTestId(
-        'portal-test-container-target'
-      )
+      const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+      const portalContainerTargetElement = getByTestId('portal-test-container-target')
       const portalElement = getByText(props.children)
 
       // Then
@@ -240,12 +215,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -281,12 +252,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -322,12 +289,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -363,12 +326,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -384,9 +343,7 @@ describe(json.name, () => {
 
           // Then
           sinon.assert.callCount(spyOnOpen, 0)
-          await waitFor(() =>
-            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
-          )
+          await waitFor(() => expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100}))
           sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
           sinon.assert.callCount(spyOnClose, 0)
           expect(portalContainerTargetElement.innerHTML).to.be.a('string')
@@ -407,12 +364,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -428,9 +381,7 @@ describe(json.name, () => {
 
           // Then
           sinon.assert.callCount(spyOnOpen, 0)
-          await waitFor(() =>
-            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
-          )
+          await waitFor(() => expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100}))
           sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
           sinon.assert.callCount(spyOnClose, 0)
           expect(portalContainerTargetElement.innerHTML).to.be.a('string')
@@ -451,12 +402,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -472,9 +419,7 @@ describe(json.name, () => {
 
           // Then
           sinon.assert.callCount(spyOnOpen, 0)
-          await waitFor(() =>
-            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
-          )
+          await waitFor(() => expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100}))
           sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
           sinon.assert.callCount(spyOnClose, 0)
           expect(portalContainerTargetElement.innerHTML).to.be.a('string')
@@ -495,12 +440,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -536,12 +477,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -577,12 +514,8 @@ describe(json.name, () => {
           // When
           const {getByTestId, getByText} = setup(props)
           const portalContainerElement = getByTestId('portal-test-container')
-          const portalContainerOriginElement = getByTestId(
-            'portal-test-container-origin'
-          )
-          const portalContainerTargetElement = getByTestId(
-            'portal-test-container-target'
-          )
+          const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+          const portalContainerTargetElement = getByTestId('portal-test-container-target')
           // Then
           expect(portalContainerElement.innerHTML).to.be.a('string')
           expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -598,9 +531,7 @@ describe(json.name, () => {
 
           // Then
           sinon.assert.callCount(spyOnOpen, 0)
-          await waitFor(() =>
-            expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100})
-          )
+          await waitFor(() => expect(sinon.assert.callCount(spyOnOpen, 1), {interval: 100}))
           sinon.assert.calledWith(spyOnOpen, sinon.match.truthy)
           sinon.assert.callCount(spyOnClose, 0)
           expect(portalContainerTargetElement.innerHTML).to.be.a('string')
@@ -624,12 +555,8 @@ describe(json.name, () => {
         // When
         const {getByTestId} = setup(props)
         const portalContainerElement = getByTestId('portal-test-container')
-        const portalContainerOriginElement = getByTestId(
-          'portal-test-container-origin'
-        )
-        const portalContainerTargetElement = getByTestId(
-          'portal-test-container-target'
-        )
+        const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+        const portalContainerTargetElement = getByTestId('portal-test-container-target')
         // Then
         expect(portalContainerElement.innerHTML).to.be.a('string')
         expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -664,12 +591,8 @@ describe(json.name, () => {
         // When
         const {getByTestId} = setup(props)
         const portalContainerElement = getByTestId('portal-test-container')
-        const portalContainerOriginElement = getByTestId(
-          'portal-test-container-origin'
-        )
-        const portalContainerTargetElement = getByTestId(
-          'portal-test-container-target'
-        )
+        const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+        const portalContainerTargetElement = getByTestId('portal-test-container-target')
         // Then
         expect(portalContainerElement.innerHTML).to.be.a('string')
         expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -706,12 +629,8 @@ describe(json.name, () => {
         // When
         const {getByTestId} = setup(props)
         const portalContainerElement = getByTestId('portal-test-container')
-        const portalContainerOriginElement = getByTestId(
-          'portal-test-container-origin'
-        )
-        const portalContainerTargetElement = getByTestId(
-          'portal-test-container-target'
-        )
+        const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+        const portalContainerTargetElement = getByTestId('portal-test-container-target')
         // Then
         expect(portalContainerElement.innerHTML).to.be.a('string')
         expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -750,12 +669,8 @@ describe(json.name, () => {
         // When
         const {getByTestId, getByText} = setup(props)
         const portalContainerElement = getByTestId('portal-test-container')
-        const portalContainerOriginElement = getByTestId(
-          'portal-test-container-origin'
-        )
-        const portalContainerTargetElement = getByTestId(
-          'portal-test-container-target'
-        )
+        const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+        const portalContainerTargetElement = getByTestId('portal-test-container-target')
         // Then
         expect(portalContainerElement.innerHTML).to.be.a('string')
         expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -802,12 +717,8 @@ describe(json.name, () => {
         // When
         const {getByTestId, getByText} = setup(props)
         const portalContainerElement = getByTestId('portal-test-container')
-        const portalContainerOriginElement = getByTestId(
-          'portal-test-container-origin'
-        )
-        const portalContainerTargetElement = getByTestId(
-          'portal-test-container-target'
-        )
+        const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+        const portalContainerTargetElement = getByTestId('portal-test-container-target')
         // Then
         expect(portalContainerElement.innerHTML).to.be.a('string')
         expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)
@@ -855,12 +766,8 @@ describe(json.name, () => {
         // When
         const {getByTestId, getByText} = setup(props)
         const portalContainerElement = getByTestId('portal-test-container')
-        const portalContainerOriginElement = getByTestId(
-          'portal-test-container-origin'
-        )
-        const portalContainerTargetElement = getByTestId(
-          'portal-test-container-target'
-        )
+        const portalContainerOriginElement = getByTestId('portal-test-container-origin')
+        const portalContainerTargetElement = getByTestId('portal-test-container-target')
         // Then
         expect(portalContainerElement.innerHTML).to.be.a('string')
         expect(portalContainerElement.innerHTML).to.not.have.lengthOf(0)

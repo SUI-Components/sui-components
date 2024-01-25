@@ -47,11 +47,7 @@ const ComboCountries = () => {
   return (
     <div style={{display: 'flex'}}>
       <div style={{width: '50%', margin: '0 10px'}}>
-        <MoleculeSelectWithState
-          placeholder="Select a Region..."
-          onChange={handleChange}
-          iconArrowDown={iconArrowDown}
-        >
+        <MoleculeSelectWithState placeholder="Select a Region..." onChange={handleChange} iconArrowDown={iconArrowDown}>
           {regions.map(({code, text}, i) => (
             <MoleculeDropdownOption key={i} value={code}>
               {text}

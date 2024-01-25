@@ -1,12 +1,12 @@
 import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
-import {CLASS_SECTION} from './config.js'
-import {useLorem} from './LoremIpsum.js'
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDesign from './articles/ArticleDesign.js'
+import ArticleIsBlurred from './articles/ArticleIsBlurred.js'
 import ArticleLink from './articles/ArticleLink.js'
 import ArticleStyles from './articles/ArticleStyles.js'
-import ArticleIsBlurred from './articles/ArticleIsBlurred.js'
+import {CLASS_SECTION} from './config.js'
+import {useLorem} from './LoremIpsum.js'
 
 export default () => {
   const lorem = useLorem({format: 'plain', units: 'words', count: 50})
@@ -15,8 +15,8 @@ export default () => {
     <div className="sui-StudioPreview">
       <H1>PrimitiveTypography</H1>
       <Paragraph>
-        PrimitiveTypography is an element capable of rendering a specified html
-        tag or component when passed with the <Code>as</Code> property.
+        PrimitiveTypography is an element capable of rendering a specified html tag or component when passed with the{' '}
+        <Code>as</Code> property.
       </Paragraph>
       <ArticleDefault lorem={lorem} className={CLASS_SECTION} />
       <br />

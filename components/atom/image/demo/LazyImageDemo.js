@@ -1,12 +1,4 @@
-import {
-  Article,
-  Bold,
-  Code,
-  H2,
-  ListItem,
-  Paragraph,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Bold, Code, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 import AtomImage, {DECODING, FETCHPRIORITY, LOADING} from '../src/index.js'
 import {CLASS_SECTION, IMAGES} from './settings.js'
@@ -26,26 +18,22 @@ const LazyImageDemo = () => (
         <Code>src</Code>: Specifies the path to the image.
       </ListItem>
       <ListItem>
-        <Code>alt</Code>: Specifies an alternate text for the image, if the
-        image for some reason cannot be displayed.
+        <Code>alt</Code>: Specifies an alternate text for the image, if the image for some reason cannot be displayed.
       </ListItem>
       <ListItem>
-        <Code>decoding</Code>: Provides an image decoding hint to the browser,
-        `auto`, `async`, `sync`.
+        <Code>decoding</Code>: Provides an image decoding hint to the browser, `auto`, `async`, `sync`.
       </ListItem>
       <ListItem>
-        <Code>fetchpriority</Code>: Provides a hint of the relative priority to
-        use when fetching the image, `auto`, `high`, `low`.
+        <Code>fetchpriority</Code>: Provides a hint of the relative priority to use when fetching the image, `auto`,
+        `high`, `low`.
       </ListItem>
       <ListItem>
-        <Code>loading</Code>: Indicates how the browser should load the image,
-        `eager`, `eager`.
+        <Code>loading</Code>: Indicates how the browser should load the image, `eager`, `eager`.
       </ListItem>
     </UnorderedList>
     <Paragraph>
-      <Bold>Note</Bold>: Also, always specify the width and height of an image.
-      If width and height are not specified, the page might flicker while the
-      image loads.
+      <Bold>Note</Bold>: Also, always specify the width and height of an image. If width and height are not specified,
+      the page might flicker while the image loads.
     </Paragraph>
     <div style={{height: 300}}>
       <AtomImage

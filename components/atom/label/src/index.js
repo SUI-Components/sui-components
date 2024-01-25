@@ -2,25 +2,10 @@ import PropTypes from 'prop-types'
 
 import {FONT_SIZES, getClass, TYPES} from './settings.js'
 
-const AtomLabel = ({
-  name,
-  inline,
-  text,
-  optionalText,
-  type,
-  htmlFor,
-  fontSize,
-  onClick
-}) => (
-  <label
-    htmlFor={htmlFor || name}
-    className={getClass({type, inline, fontSize})}
-    onClick={onClick}
-  >
+const AtomLabel = ({name, inline, text, optionalText, type, htmlFor, fontSize, onClick}) => (
+  <label htmlFor={htmlFor || name} className={getClass({type, inline, fontSize})} onClick={onClick}>
     {text}
-    {optionalText && (
-      <span className="sui-AtomLabel-optionalText">{optionalText}</span>
-    )}
+    {optionalText && <span className="sui-AtomLabel-optionalText">{optionalText}</span>}
   </label>
 )
 

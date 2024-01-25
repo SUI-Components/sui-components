@@ -20,10 +20,8 @@ const Demo = () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Popover</H1>
         <Paragraph>
-          A popover is a transient view that shows on a content screen when a
-          user clicks on a control button or within a defined area. It is
-          generally used in big screens (tablet or bigger) and might be avoid
-          for mobile devices.
+          A popover is a transient view that shows on a content screen when a user clicks on a control button or within
+          a defined area. It is generally used in big screens (tablet or bigger) and might be avoid for mobile devices.
         </Paragraph>
         <Paragraph>
           Popovers subject to the general rules about{' '}
@@ -44,10 +42,7 @@ const Demo = () => {
         <br />
         <ArticleRef className={CLASS_SECTION} content={Content} />
         <br />
-        <ArticleType
-          className={CLASS_SECTION}
-          content={<Content style={{color: 'white'}} />}
-        />
+        <ArticleType className={CLASS_SECTION} content={<Content style={{color: 'white'}} />} />
       </div>
     </div>
   )

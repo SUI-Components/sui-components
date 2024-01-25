@@ -2,10 +2,7 @@ import {useEffect, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import AtomTextarea, {
-  AtomTextareaSizes as SIZES,
-  AtomTextareaStates
-} from '@s-ui/react-atom-textarea'
+import AtomTextarea, {AtomTextareaSizes as SIZES, AtomTextareaStates} from '@s-ui/react-atom-textarea'
 import MoleculeField from '@s-ui/react-molecule-field'
 
 const hasErrors = ({successText, errorText}) => {
@@ -83,13 +80,7 @@ const MoleculeTextareaField = ({
       onChange={onChangeHandler}
       disabled={disabled}
     >
-      <AtomTextarea
-        id={id}
-        errorState={errorState}
-        state={textAreaState}
-        value={internalValue}
-        {...props}
-      />
+      <AtomTextarea id={id} errorState={errorState} state={textAreaState} value={internalValue} {...props} />
     </MoleculeField>
   )
 }

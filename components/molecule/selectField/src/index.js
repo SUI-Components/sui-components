@@ -52,13 +52,7 @@ const MoleculeSelectField = ({
       successText={successText}
       alertText={alertText}
     >
-      <MoleculeSelect
-        errorState={errorState}
-        refMoleculeSelect={refSelect}
-        state={selectState}
-        id={id}
-        {...props}
-      >
+      <MoleculeSelect errorState={errorState} refMoleculeSelect={refSelect} state={selectState} id={id} {...props}>
         {children}
       </MoleculeSelect>
     </MoleculeField>

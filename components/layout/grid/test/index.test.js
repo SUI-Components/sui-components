@@ -77,8 +77,7 @@ describe(json.name, () => {
     it('should allows you to add custom classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -130,9 +129,7 @@ describe(json.name, () => {
       // then
       expect(actual).to.be.a('object')
       expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
-      expect(Object.values(actual).length).to.equal(
-        Object.values(expected).length
-      )
+      expect(Object.values(actual).length).to.equal(Object.values(expected).length)
       Object.keys(actual).forEach(value => {
         const expectedValue = Object.keys(expected).find(val => value === val)
         expect(value).to.equal(expectedValue)
@@ -161,9 +158,7 @@ describe(json.name, () => {
       // then
       expect(actual).to.be.a('object')
       expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
-      expect(Object.values(actual).length).to.equal(
-        Object.values(expected).length
-      )
+      expect(Object.values(actual).length).to.equal(Object.values(expected).length)
       Object.keys(actual).forEach(value => {
         const expectedValue = Object.keys(expected).find(val => value === val)
         expect(value).to.equal(expectedValue)
@@ -192,9 +187,7 @@ describe(json.name, () => {
       // then
       expect(actual).to.be.a('object')
       expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
-      expect(Object.values(actual).length).to.equal(
-        Object.values(expected).length
-      )
+      expect(Object.values(actual).length).to.equal(Object.values(expected).length)
       Object.keys(actual).forEach(value => {
         const expectedValue = Object.keys(expected).find(val => value === val)
         expect(value).to.equal(expectedValue)
@@ -225,9 +218,7 @@ describe(json.name, () => {
       // then
       expect(actual).to.be.a('object')
       expect(Object.keys(actual).length).to.equal(Object.keys(expected).length)
-      expect(Object.values(actual).length).to.equal(
-        Object.values(expected).length
-      )
+      expect(Object.values(actual).length).to.equal(Object.values(expected).length)
       Object.keys(actual).forEach(value => {
         const expectedValue = Object.keys(expected).find(val => value === val)
         expect(value).to.equal(expectedValue)

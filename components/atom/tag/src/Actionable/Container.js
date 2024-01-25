@@ -8,10 +8,7 @@ import {LINK_TYPES} from '../constants.js'
  * Component treated as an anchor when href is defined
  */
 const ActionableTagContainer = forwardRef(
-  (
-    {Link, href, target, rel, readOnly, disabled, children, ...props},
-    forwardedRef
-  ) => {
+  ({Link, href, target, rel, readOnly, disabled, children, ...props}, forwardedRef) => {
     const Component = href !== undefined ? Link : 'span'
     return (
       <Component

@@ -81,8 +81,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -140,15 +139,9 @@ describe(json.name, () => {
 
       // Then
       expect(getByText(content).innerHTML).to.equal(content)
-      expect(getByText(count[0].toString()).innerHTML).to.equal(
-        count[0].toString()
-      )
-      expect(getByText(count[1].toString()).innerHTML).to.equal(
-        count[1].toString()
-      )
-      expect(getByText(count[2].toString()).innerHTML).to.equal(
-        count[2].toString()
-      )
+      expect(getByText(count[0].toString()).innerHTML).to.equal(count[0].toString())
+      expect(getByText(count[1].toString()).innerHTML).to.equal(count[1].toString())
+      expect(getByText(count[2].toString()).innerHTML).to.equal(count[2].toString())
     })
 
     it('should switch content when tab 2 is clicked', () => {

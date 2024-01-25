@@ -2,16 +2,7 @@ import {useRef, useState} from 'react'
 import useIntersection from 'react-use/lib/useIntersection'
 import useThrottleFn from 'react-use/lib/useThrottleFn'
 
-import {
-  Article,
-  Code,
-  H2,
-  Label,
-  ListItem,
-  Paragraph,
-  RadioButton,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, Label, ListItem, Paragraph, RadioButton, UnorderedList} from '@s-ui/documentation-library'
 
 import AtomImage from '../src/index.js'
 import ImageNotFoundIcon from './ImageNotFoundIcon.js'
@@ -44,23 +35,20 @@ const FallbackImageDemo = () => {
     <Article className={CLASS_SECTION}>
       <H2>FallBack Image</H2>
       <Paragraph>
-        The AtomImage provides a service to customize a fallback response in
-        order to indicate the URL provided as <Code>src</Code> gets an error
-        combining the props:
+        The AtomImage provides a service to customize a fallback response in order to indicate the URL provided as{' '}
+        <Code>src</Code> gets an error combining the props:
       </Paragraph>
       <UnorderedList>
         <ListItem>
-          <Code>errorIcon</Code>(React.node): Icon (component) to be displayed
-          in an Error Box when the image cannot be loaded.
+          <Code>errorIcon</Code>(React.node): Icon (component) to be displayed in an Error Box when the image cannot be
+          loaded.
         </ListItem>
         <ListItem>
-          <Code>errorText</Code>(string): Text to be displayed in an Error Box
-          when the image cannot be loaded.
+          <Code>errorText</Code>(string): Text to be displayed in an Error Box when the image cannot be loaded.
         </ListItem>
       </UnorderedList>
       <Paragraph>
-        Both props can be used together: If the component only have one of them
-        defined, it will be vertically centered.
+        Both props can be used together: If the component only have one of them defined, it will be vertically centered.
       </Paragraph>
       <RadioButton
         checked={errorIcon}
@@ -86,8 +74,7 @@ const FallbackImageDemo = () => {
         )}
       </div>
       <Paragraph>
-        The AtomImage component also fires an event customizable under the{' '}
-        <Code>onError</Code>(function) handler prop.
+        The AtomImage component also fires an event customizable under the <Code>onError</Code>(function) handler prop.
       </Paragraph>
       <Paragraph>
         <Label>onError handler counter</Label>: {errorCounter}

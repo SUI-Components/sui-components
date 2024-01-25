@@ -1,8 +1,6 @@
 /* eslint-disable no-console */
 
-import MoleculeRating, {
-  MoleculeRatingSizes
-} from 'components/molecule/rating/src/index.js'
+import MoleculeRating, {MoleculeRatingSizes} from 'components/molecule/rating/src/index.js'
 
 import {IconStarFilledCustom, IconStarOutlineCustom} from './Icons/index.js'
 
@@ -21,8 +19,7 @@ const Demo = () => (
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <h1 className="sui-Studio-h1">Rating</h1>
       <p className="sui-Studio-h4">
-        `MoleculeRating` will display a rating showing how good or popular
-        someone o something is.
+        `MoleculeRating` will display a rating showing how good or popular someone o something is.
       </p>
       <div className="sui-Studio-wrapper--light">
         <h2 className="sui-Studio-h2">Size</h2>
@@ -33,28 +30,12 @@ const Demo = () => (
         </div>
         <div>
           <p className="sui-Studio-p">Medium</p>
-          <MoleculeRating
-            value={0}
-            size={MoleculeRatingSizes.MEDIUM}
-            label="25 opiniones"
-          />
-          <MoleculeRating
-            value={2.5}
-            size={MoleculeRatingSizes.MEDIUM}
-            label="25 opiniones"
-          />
+          <MoleculeRating value={0} size={MoleculeRatingSizes.MEDIUM} label="25 opiniones" />
+          <MoleculeRating value={2.5} size={MoleculeRatingSizes.MEDIUM} label="25 opiniones" />
           <div>
             <p className="sui-Studio-p">Large</p>
-            <MoleculeRating
-              value={0}
-              size={MoleculeRatingSizes.LARGE}
-              label="25 opiniones"
-            />
-            <MoleculeRating
-              value={2.5}
-              size={MoleculeRatingSizes.LARGE}
-              label="25 opiniones"
-            />
+            <MoleculeRating value={0} size={MoleculeRatingSizes.LARGE} label="25 opiniones" />
+            <MoleculeRating value={2.5} size={MoleculeRatingSizes.LARGE} label="25 opiniones" />
           </div>
         </div>
       </div>
@@ -63,12 +44,7 @@ const Demo = () => (
         <div>
           <div>
             <p>Small</p>
-            <MoleculeRating
-              value={4}
-              label="25 opiniones"
-              link
-              href="https://www.adevinta.com/"
-            />
+            <MoleculeRating value={4} label="25 opiniones" link href="https://www.adevinta.com/" />
           </div>
           <div>
             <p>Medium</p>

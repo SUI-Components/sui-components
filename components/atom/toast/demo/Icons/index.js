@@ -8,12 +8,7 @@ const IconArrowDown = () => (
     </defs>
     <g fill="none" fillRule="evenodd">
       <path d="M0 0h24v24H0z" />
-      <use
-        fill="#666"
-        fillRule="nonzero"
-        transform="matrix(0 -1 -1 0 24.189 24.189)"
-        xlinkHref="#a"
-      />
+      <use fill="#666" fillRule="nonzero" transform="matrix(0 -1 -1 0 24.189 24.189)" xlinkHref="#a" />
     </g>
   </svg>
 )

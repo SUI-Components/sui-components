@@ -2,15 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Box,
-  Code,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Box, Code, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomSlider from '../src/index.js'
 
@@ -20,8 +12,7 @@ const ArticleSliderDisabled = ({className}) => {
     <Article className={className}>
       <H2>Disabled</H2>
       <Paragraph>
-        Component can be disabled usign the <Code>disabled</Code> prop. Its
-        value cannot be modified by its handlers.
+        Component can be disabled usign the <Code>disabled</Code> prop. Its value cannot be modified by its handlers.
       </Paragraph>
       <Label>value</Label>:{' '}
       <Input

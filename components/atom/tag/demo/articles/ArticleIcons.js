@@ -1,15 +1,7 @@
 import AtomTag from 'components/atom/tag/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Bold,
-  Code,
-  H2,
-  ListItem,
-  Paragraph,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Bold, Code, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 import {closeIcon, handleClose, icon} from '../settings.js'
 
@@ -18,9 +10,8 @@ const ArticleIcons = ({className}) => {
     <Article className={className}>
       <H2>Icons</H2>
       <Paragraph>
-        Tags can include an action icon (generally a close icon). This icon will
-        always be located to the right of content. You can add use the{' '}
-        <Code>icon</Code> and <Code>closeIcon</Code> to added a icon.
+        Tags can include an action icon (generally a close icon). This icon will always be located to the right of
+        content. You can add use the <Code>icon</Code> and <Code>closeIcon</Code> to added a icon.
       </Paragraph>
       <div>
         <AtomTag icon={icon} iconPlacement="left" label="Icon placement left" />
@@ -35,8 +26,8 @@ const ArticleIcons = ({className}) => {
       </div>
       <UnorderedList>
         <ListItem>
-          <Bold>Icons are optional</Bold> and can be placed either on the right
-          or the left side, but never on both at the same time.
+          <Bold>Icons are optional</Bold> and can be placed either on the right or the left side, but never on both at
+          the same time.
         </ListItem>
         <ListItem>
           Only actionable tags can have <Code>iconPlacement="right"</Code>.
@@ -44,16 +35,9 @@ const ArticleIcons = ({className}) => {
       </UnorderedList>
       <Paragraph>–––––</Paragraph>
       <Paragraph>
-        You can use a handler through the property with prop{' '}
-        <Code>onClose</Code> to add event handler.
+        You can use a handler through the property with prop <Code>onClose</Code> to add event handler.
       </Paragraph>
-      <AtomTag
-        closeIcon={closeIcon}
-        label="Close Tag"
-        value="Close Tag"
-        onClose={handleClose}
-        responsive
-      />
+      <AtomTag closeIcon={closeIcon} label="Close Tag" value="Close Tag" onClose={handleClose} responsive />
     </Article>
   )
 }

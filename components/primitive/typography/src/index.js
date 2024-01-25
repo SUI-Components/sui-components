@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import ComponentTypes from './component/index.js'
-import useTypography from './useTypography.js'
 import {
   DESIGN,
   FONT_FAMILY,
@@ -16,6 +15,7 @@ import {
   TEXT_DECORATION_LINE,
   VARIANT
 } from './config.js'
+import useTypography from './useTypography.js'
 
 const PrimitiveTypography = ({
   design,
@@ -117,19 +117,8 @@ PrimitiveTypography.propTypes = {
   textDecorationLine: PropTypes.oneOf(Object.values(TEXT_DECORATION_LINE))
 }
 
-const {
-  Display1,
-  Display2,
-  Display3,
-  Headline1,
-  Headline2,
-  SubHead,
-  Body1,
-  Body2,
-  Caption,
-  Small,
-  Callout
-} = ComponentTypes
+const {Display1, Display2, Display3, Headline1, Headline2, SubHead, Body1, Body2, Caption, Small, Callout} =
+  ComponentTypes
 
 export default PrimitiveTypography
 

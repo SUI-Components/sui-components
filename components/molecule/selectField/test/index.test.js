@@ -69,8 +69,7 @@ describe(json.name, () => {
         className: 'extended-classNames',
         label: 'label'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

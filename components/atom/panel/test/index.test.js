@@ -83,8 +83,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -113,8 +112,7 @@ describe(json.name, () => {
       it('should add elevation if its defined in props', () => {
         // Given
         const props = {elevation: pkg.atomPanelElevation.S}
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -127,8 +125,7 @@ describe(json.name, () => {
       it('should add rounded if its defined in props', () => {
         // Given
         const props = {rounded: pkg.atomPanelRounded.M}
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -158,14 +155,11 @@ describe(json.name, () => {
       it('should NOT add overlayAlpha if its defined in props only the overlay', () => {
         // Given
         const props = {src: '#', overlayAlpha: pkg.atomPanelAlpha.OVERLAY_D1}
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
-        const findClassName = findSentence(
-          `sui-atom-panel--accent-overlay-${pkg.atomPanelAlpha.OVERLAY_D1}`
-        )
+        const findClassName = findSentence(`sui-atom-panel--accent-overlay-${pkg.atomPanelAlpha.OVERLAY_D1}`)
 
         // Then
         expect(findClassName(container.innerHTML)).to.be.null
@@ -178,8 +172,7 @@ describe(json.name, () => {
           overlayAlpha: pkg.atomPanelAlpha.OVERLAY_D1,
           overlayColor: pkg.atomPanelColors.ACCENT
         }
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -194,14 +187,11 @@ describe(json.name, () => {
       it('should add overlayColor if its defined in props', () => {
         // Given
         const props = {src: '#', overlayColor: pkg.atomPanelColors.BASE}
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
-        const findClassName = findSentence(
-          `sui-atom-panel--${pkg.atomPanelColors.BASE}-overlay-100`
-        )
+        const findClassName = findSentence(`sui-atom-panel--${pkg.atomPanelColors.BASE}-overlay-100`)
 
         // Then
         expect(findClassName(container.innerHTML)).to.be.not.null
@@ -210,8 +200,7 @@ describe(json.name, () => {
       it('should add elevation if its defined in props', () => {
         // Given
         const props = {src: '#', elevation: pkg.atomPanelElevation.S}
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -224,8 +213,7 @@ describe(json.name, () => {
       it('should add rounded if its defined in props', () => {
         // Given
         const props = {src: '#', rounded: pkg.atomPanelRounded.M}
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -238,8 +226,7 @@ describe(json.name, () => {
       it('should add resized if its defined in props', () => {
         // Given
         const props = {src: '#', resized: true}
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
@@ -351,20 +338,8 @@ describe(json.name, () => {
 
         // When
         const {atomPanelColors: actual} = library
-        const {
-          CANVAS,
-          ACCENT,
-          BASE,
-          DARK,
-          CONTRAST,
-          CORPORATE,
-          DEFAULT,
-          HIGHLIGHT,
-          SUCCESS,
-          ALERT,
-          ERROR,
-          ...others
-        } = actual
+        const {CANVAS, ACCENT, BASE, DARK, CONTRAST, CORPORATE, DEFAULT, HIGHLIGHT, SUCCESS, ALERT, ERROR, ...others} =
+          actual
 
         // Then
         expect(Object.keys(others).length).to.equal(0)
@@ -401,14 +376,7 @@ describe(json.name, () => {
 
         // When
         const {atomPanelAlpha: actual} = library
-        const {
-          CONTRAST,
-          OVERLAY_D4,
-          OVERLAY_D3,
-          OVERLAY_D2,
-          OVERLAY_D1,
-          ...others
-        } = actual
+        const {CONTRAST, OVERLAY_D4, OVERLAY_D3, OVERLAY_D2, OVERLAY_D1, ...others} = actual
 
         // Then
         expect(Object.keys(others).length).to.equal(0)
@@ -597,20 +565,8 @@ describe(json.name, () => {
 
       // When
       const {atomPanelColors: actual} = library
-      const {
-        CANVAS,
-        ACCENT,
-        BASE,
-        DARK,
-        CONTRAST,
-        CORPORATE,
-        DEFAULT,
-        HIGHLIGHT,
-        SUCCESS,
-        ALERT,
-        ERROR,
-        ...others
-      } = actual
+      const {CANVAS, ACCENT, BASE, DARK, CONTRAST, CORPORATE, DEFAULT, HIGHLIGHT, SUCCESS, ALERT, ERROR, ...others} =
+        actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)
@@ -646,14 +602,7 @@ describe(json.name, () => {
 
       // When
       const {atomPanelAlpha: actual} = library
-      const {
-        CONTRAST,
-        OVERLAY_D4,
-        OVERLAY_D3,
-        OVERLAY_D2,
-        OVERLAY_D1,
-        ...others
-      } = actual
+      const {CONTRAST, OVERLAY_D4, OVERLAY_D3, OVERLAY_D2, OVERLAY_D1, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

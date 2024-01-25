@@ -3,36 +3,18 @@ import PropTypes from 'prop-types'
 
 import {BASE_CLASS, getClassName, SIZES} from './config.js'
 
-const MoleculeQuickAction = ({
-  size = SIZES.SMALL,
-  children,
-  leftIcon,
-  rightIcon,
-  onClick,
-  disabled = false
-}) => {
+const MoleculeQuickAction = ({size = SIZES.SMALL, children, leftIcon, rightIcon, onClick, disabled = false}) => {
   const sizeKey = size.toUpperCase()
   const isEnabled = disabled === false
-  const classNames = cx(
-    BASE_CLASS,
-    size && getClassName(SIZES[sizeKey]),
-    disabled && getClassName('disabled')
-  )
+  const classNames = cx(BASE_CLASS, size && getClassName(SIZES[sizeKey]), disabled && getClassName('disabled'))
 
-  const handleClick = ev =>
-    isEnabled && typeof onClick === 'function' && onClick(ev)
+  const handleClick = ev => isEnabled && typeof onClick === 'function' && onClick(ev)
 
   return (
     <div className={classNames} onClick={handleClick}>
       {leftIcon && <span className={`${BASE_CLASS}-leftIcon`}>{leftIcon}</span>}
-      {leftIcon || rightIcon ? (
-        <span className={`${BASE_CLASS}-text`}>{children}</span>
-      ) : (
-        children
-      )}
-      {rightIcon && (
-        <span className={`${BASE_CLASS}-rightIcon`}>{rightIcon}</span>
-      )}
+      {leftIcon || rightIcon ? <span className={`${BASE_CLASS}-text`}>{children}</span> : children}
+      {rightIcon && <span className={`${BASE_CLASS}-rightIcon`}>{rightIcon}</span>}
     </div>
   )
 }

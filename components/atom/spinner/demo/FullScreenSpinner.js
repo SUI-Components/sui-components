@@ -14,9 +14,7 @@ const FullScreenSpinner = ({children, overlayType}) => {
   }
   return (
     <>
-      <Button onClick={handleOnClick}>
-        Click to show fullscreen spinner for 5 seconds
-      </Button>
+      <Button onClick={handleOnClick}>Click to show fullscreen spinner for 5 seconds</Button>
       {show && (
         <AtomSpinner overlayType={overlayType} type={atomSpinnerTypes.FULL}>
           {children}

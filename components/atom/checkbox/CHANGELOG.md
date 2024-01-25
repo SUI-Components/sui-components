@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.4.0 (2023-12-20)
+
+
+### Bug Fixes
+
+* **components/atom/checkbox:** Define border-color to fix Firefox style issue ([73a0e82](https://github.com/SUI-Components/sui-components/commit/73a0e829470f09259da85c4b93495048ca48b856))
+
+
+
 # 3.3.0 (2023-05-10)
 
 

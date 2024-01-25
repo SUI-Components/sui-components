@@ -9,11 +9,7 @@ import BehaviorStickyScrollUp from './StickyScrollUp.js'
 const BehaviorSticky = ({children, animate, ...props}) => {
   return (
     <Sticky className={BASE_CLASS} {...props}>
-      {({isSticky}) => (
-        <div className={cx({[CLASS_ANIMATE]: isSticky && animate})}>
-          {children}
-        </div>
-      )}
+      {({isSticky}) => <div className={cx({[CLASS_ANIMATE]: isSticky && animate})}>{children}</div>}
     </Sticky>
   )
 }
@@ -29,8 +25,4 @@ BehaviorSticky.propTypes = {
 }
 
 export default BehaviorSticky
-export {
-  StickyProvider as BehaviorStickyProvider,
-  BehaviorStickyScrollUp,
-  BehaviorSticky
-}
+export {StickyProvider as BehaviorStickyProvider, BehaviorStickyScrollUp, BehaviorSticky}

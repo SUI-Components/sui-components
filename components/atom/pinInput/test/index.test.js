@@ -86,8 +86,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -458,15 +457,8 @@ describe(json.name, () => {
     describe('getInitialPinInputReducerState', () => {
       it('default value', () => {
         // When
-        const {
-          checker,
-          disabled,
-          elements,
-          focusPosition,
-          innerValue,
-          mask,
-          ...others
-        } = getInitialPinInputReducerState()
+        const {checker, disabled, elements, focusPosition, innerValue, mask, ...others} =
+          getInitialPinInputReducerState()
 
         // Then
         expect(Object.getOwnPropertyNames(others).length).to.equal(1)
@@ -597,15 +589,7 @@ describe(json.name, () => {
         const hook = setupHook(initialArgs)
         const [store, dispatch] = hook.result.current
 
-        const {
-          checker,
-          disabled,
-          elements,
-          focusPosition,
-          innerValue,
-          mask,
-          ...others
-        } = store
+        const {checker, disabled, elements, focusPosition, innerValue, mask, ...others} = store
 
         // Then
         expect(Object.getOwnPropertyNames(others).length).to.equal(1)
@@ -631,16 +615,7 @@ describe(json.name, () => {
         const hook = setupReducerEnvironment(args)
         // Then
         const [store] = hook.result.current
-        const {
-          checker,
-          disabled,
-          elements,
-          focusPosition,
-          innerValue,
-          mask,
-          valueType,
-          ...others
-        } = store
+        const {checker, disabled, elements, focusPosition, innerValue, mask, valueType, ...others} = store
 
         expect(Object.getOwnPropertyNames(others).length).to.equal(0)
         expect(focusPosition).to.equal(0)
@@ -658,16 +633,7 @@ describe(json.name, () => {
 
         // Then
         let [store, dispatch] = hook.result.current
-        const {
-          checker,
-          disabled,
-          elements,
-          focusPosition,
-          innerValue,
-          mask,
-          valueType,
-          ...others
-        } = store
+        const {checker, disabled, elements, focusPosition, innerValue, mask, valueType, ...others} = store
         expect(Object.getOwnPropertyNames(others).length).to.equal(0)
         expect(elements.includes(node)).to.equal(true)
 
@@ -801,9 +767,7 @@ describe(json.name, () => {
         const newFocusPosition = 1
 
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
         store = hook.result.current[0]
         focusPosition = store.focusPosition
@@ -830,9 +794,7 @@ describe(json.name, () => {
         const newFocusPosition = focusPosition - 1
 
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
         store = hook.result.current[0]
         focusPosition = store.focusPosition
@@ -859,9 +821,7 @@ describe(json.name, () => {
         const newFocusPosition = -1
 
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
         store = hook.result.current[0]
         const focusPosition = store.focusPosition
@@ -1015,9 +975,7 @@ describe(json.name, () => {
         // Given
         const newFocusPosition = 3
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
 
         // Then
@@ -1051,11 +1009,7 @@ describe(json.name, () => {
         const hook = setupReducerEnvironment(args)
         let [store, dispatch] = hook.result.current
 
-        const {
-          focusPosition: initialFocusPosition,
-          innerValue,
-          elements
-        } = store
+        const {focusPosition: initialFocusPosition, innerValue, elements} = store
 
         // Then
         expect(initialFocusPosition).to.equal(0)
@@ -1065,9 +1019,7 @@ describe(json.name, () => {
         // Given
         const newFocusPosition = elements.length - 1
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
 
         // Then
@@ -1142,9 +1094,7 @@ describe(json.name, () => {
         // Given
         const newFocusPosition = 3
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
 
         // Then
@@ -1359,9 +1309,7 @@ describe(json.name, () => {
         // Given
         const newFocusPosition = 3
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
 
         // Then
@@ -1395,11 +1343,7 @@ describe(json.name, () => {
         const hook = setupReducerEnvironment(args)
         let [store, dispatch] = hook.result.current
 
-        const {
-          focusPosition: initialFocusPosition,
-          innerValue,
-          elements
-        } = store
+        const {focusPosition: initialFocusPosition, innerValue, elements} = store
 
         // Then
         expect(initialFocusPosition).to.equal(0)
@@ -1409,9 +1353,7 @@ describe(json.name, () => {
         // Given
         const newFocusPosition = elements.length - 1
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
 
         // Then
@@ -1454,9 +1396,7 @@ describe(json.name, () => {
         // Given
         const newFocusPosition = 3
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
 
         // Then
@@ -1546,9 +1486,7 @@ describe(json.name, () => {
         expect(newInnerValue.filter(Boolean).join('')).to.equal(
           args.value
             .split('')
-            .map((value, index) =>
-              index === initialFocusPosition ? eventArgs.key : value
-            )
+            .map((value, index) => (index === initialFocusPosition ? eventArgs.key : value))
             .join('')
         )
       })
@@ -1562,11 +1500,7 @@ describe(json.name, () => {
         const hook = setupReducerEnvironment(args)
         let [store, dispatch] = hook.result.current
 
-        const {
-          focusPosition: initialFocusPosition,
-          innerValue,
-          elements
-        } = store
+        const {focusPosition: initialFocusPosition, innerValue, elements} = store
 
         // Then
         expect(initialFocusPosition).to.equal(0)
@@ -1576,9 +1510,7 @@ describe(json.name, () => {
         // Given
         const newFocusPosition = elements.length - 1
         // When
-        dispatch(
-          atomPinInputActions.setFocus({focusPosition: newFocusPosition})
-        )
+        dispatch(atomPinInputActions.setFocus({focusPosition: newFocusPosition}))
         hook.rerender()
 
         // Then
@@ -1602,9 +1534,7 @@ describe(json.name, () => {
         expect(newInnerValue.filter(Boolean).join('')).to.equal(
           args.value
             .split('')
-            .map((value, index) =>
-              index === newFocusPosition ? eventArgs.key : value
-            )
+            .map((value, index) => (index === newFocusPosition ? eventArgs.key : value))
             .join('')
         )
       })
@@ -1655,13 +1585,8 @@ describe(json.name, () => {
           const result = atomPinInputActions.setKey(args)
 
           // Then
-          expect(Object.getOwnPropertyNames(result).length).to.equal(
-            Object.values(args).length
-          )
-          expect(Object.getOwnPropertyNames(result)).to.include.members([
-            'actionType',
-            'payload'
-          ])
+          expect(Object.getOwnPropertyNames(result).length).to.equal(Object.values(args).length)
+          expect(Object.getOwnPropertyNames(result)).to.include.members(['actionType', 'payload'])
         })
 
         it('Matches actionType', () => {
@@ -1674,9 +1599,7 @@ describe(json.name, () => {
           // Then
           expect(typeof result.actionType).to.not.equal('string')
           expect(typeof result.actionType).to.equal('symbol')
-          expect(result.actionType).to.equal(
-            atomPinInputActionTypes.SET_PIN_INPUT_KEY
-          )
+          expect(result.actionType).to.equal(atomPinInputActionTypes.SET_PIN_INPUT_KEY)
         })
 
         it('Matches payload', () => {
@@ -1693,9 +1616,7 @@ describe(json.name, () => {
           expect(result.payload.event).to.equal(args.event)
           expect(result.payload.onChange).to.equal(args.onChange)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(2)
-          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
-            ['event', 'onChange']
-          )
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(['event', 'onChange'])
         })
       })
 
@@ -1711,10 +1632,7 @@ describe(json.name, () => {
 
           // Then
           expect(Object.getOwnPropertyNames(result).length).to.equal(2)
-          expect(Object.getOwnPropertyNames(result)).to.include.members([
-            'actionType',
-            'payload'
-          ])
+          expect(Object.getOwnPropertyNames(result)).to.include.members(['actionType', 'payload'])
         })
 
         it('Matches actionType', () => {
@@ -1727,9 +1645,7 @@ describe(json.name, () => {
           // Then
           expect(typeof result.actionType).to.not.equal('string')
           expect(typeof result.actionType).to.equal('symbol')
-          expect(result.actionType).to.equal(
-            atomPinInputActionTypes.SET_PIN_INPUT_VALUE
-          )
+          expect(result.actionType).to.equal(atomPinInputActionTypes.SET_PIN_INPUT_VALUE)
         })
 
         it('Matches payload', () => {
@@ -1744,9 +1660,7 @@ describe(json.name, () => {
           // Then
           expect(result.payload.innerValue).to.equal(args.innerValue)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
-            ['innerValue']
-          )
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(['innerValue'])
         })
       })
 
@@ -1762,10 +1676,7 @@ describe(json.name, () => {
 
           // Then
           expect(Object.getOwnPropertyNames(result).length).to.equal(2)
-          expect(Object.getOwnPropertyNames(result)).to.include.members([
-            'actionType',
-            'payload'
-          ])
+          expect(Object.getOwnPropertyNames(result)).to.include.members(['actionType', 'payload'])
         })
 
         it('Matches actionType', () => {
@@ -1778,9 +1689,7 @@ describe(json.name, () => {
           // Then
           expect(typeof result.actionType).to.not.equal('string')
           expect(typeof result.actionType).to.equal('symbol')
-          expect(result.actionType).to.equal(
-            atomPinInputActionTypes.SET_PIN_INPUT_FOCUS
-          )
+          expect(result.actionType).to.equal(atomPinInputActionTypes.SET_PIN_INPUT_FOCUS)
         })
 
         it('Matches payload', () => {
@@ -1795,9 +1704,7 @@ describe(json.name, () => {
           // Then
           expect(result.payload.focusPosition).to.equal(args.focusPosition)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
-            ['focusPosition']
-          )
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(['focusPosition'])
         })
       })
 
@@ -1813,10 +1720,7 @@ describe(json.name, () => {
 
           // Then
           expect(Object.getOwnPropertyNames(result).length).to.equal(2)
-          expect(Object.getOwnPropertyNames(result)).to.include.members([
-            'actionType',
-            'payload'
-          ])
+          expect(Object.getOwnPropertyNames(result)).to.include.members(['actionType', 'payload'])
         })
 
         it('Matches actionType', () => {
@@ -1829,9 +1733,7 @@ describe(json.name, () => {
           // Then
           expect(typeof result.actionType).to.not.equal('string')
           expect(typeof result.actionType).to.equal('symbol')
-          expect(result.actionType).to.equal(
-            atomPinInputActionTypes.SET_PIN_INPUT_ELEMENT
-          )
+          expect(result.actionType).to.equal(atomPinInputActionTypes.SET_PIN_INPUT_ELEMENT)
         })
 
         it('Matches payload', () => {
@@ -1850,9 +1752,7 @@ describe(json.name, () => {
           expect(result.payload.node).to.equal(args.node)
           expect(result.payload.node.className).to.equal(input.className)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
-            ['node']
-          )
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(['node'])
         })
       })
 
@@ -1868,10 +1768,7 @@ describe(json.name, () => {
 
           // Then
           expect(Object.getOwnPropertyNames(result).length).to.equal(2)
-          expect(Object.getOwnPropertyNames(result)).to.include.members([
-            'actionType',
-            'payload'
-          ])
+          expect(Object.getOwnPropertyNames(result)).to.include.members(['actionType', 'payload'])
         })
 
         it('Matches actionType', () => {
@@ -1884,9 +1781,7 @@ describe(json.name, () => {
           // Then
           expect(typeof result.actionType).to.not.equal('string')
           expect(typeof result.actionType).to.equal('symbol')
-          expect(result.actionType).to.equal(
-            atomPinInputActionTypes.REMOVE_PIN_INPUT_ELEMENT
-          )
+          expect(result.actionType).to.equal(atomPinInputActionTypes.REMOVE_PIN_INPUT_ELEMENT)
         })
 
         it('Matches payload', () => {
@@ -1905,9 +1800,7 @@ describe(json.name, () => {
           expect(result.payload.node).to.equal(args.node)
           expect(result.payload.node.className).to.equal(input.className)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
-            ['node']
-          )
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(['node'])
         })
       })
 
@@ -1923,10 +1816,7 @@ describe(json.name, () => {
 
           // Then
           expect(Object.getOwnPropertyNames(result).length).to.equal(2)
-          expect(Object.getOwnPropertyNames(result)).to.include.members([
-            'actionType',
-            'payload'
-          ])
+          expect(Object.getOwnPropertyNames(result)).to.include.members(['actionType', 'payload'])
         })
 
         it('Matches actionType', () => {
@@ -1939,9 +1829,7 @@ describe(json.name, () => {
           // Then
           expect(typeof result.actionType).to.not.equal('string')
           expect(typeof result.actionType).to.equal('symbol')
-          expect(result.actionType).to.equal(
-            atomPinInputActionTypes.SET_PIN_INPUT_MASK
-          )
+          expect(result.actionType).to.equal(atomPinInputActionTypes.SET_PIN_INPUT_MASK)
         })
 
         it('Matches payload', () => {
@@ -1956,9 +1844,7 @@ describe(json.name, () => {
           // Then
           expect(result.payload.mask).to.equal(args.mask)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
-            ['mask']
-          )
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(['mask'])
         })
       })
 
@@ -1974,10 +1860,7 @@ describe(json.name, () => {
 
           // Then
           expect(Object.getOwnPropertyNames(result).length).to.equal(2)
-          expect(Object.getOwnPropertyNames(result)).to.include.members([
-            'actionType',
-            'payload'
-          ])
+          expect(Object.getOwnPropertyNames(result)).to.include.members(['actionType', 'payload'])
         })
 
         it('Matches actionType', () => {
@@ -1990,9 +1873,7 @@ describe(json.name, () => {
           // Then
           expect(typeof result.actionType).to.not.equal('string')
           expect(typeof result.actionType).to.equal('symbol')
-          expect(result.actionType).to.equal(
-            atomPinInputActionTypes.SET_PIN_INPUT_DISABLED
-          )
+          expect(result.actionType).to.equal(atomPinInputActionTypes.SET_PIN_INPUT_DISABLED)
         })
 
         it('Matches payload', () => {
@@ -2007,9 +1888,7 @@ describe(json.name, () => {
           // Then
           expect(result.payload.disabled).to.equal(args.disabled)
           expect(Object.getOwnPropertyNames(result.payload).length).to.equal(1)
-          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(
-            ['disabled']
-          )
+          expect(Object.getOwnPropertyNames(result.payload)).to.include.members(['disabled'])
         })
       })
     })
@@ -2077,16 +1956,7 @@ describe(json.name, () => {
 
       // When
       const {pinInputSizes: actual} = library
-      const {
-        XXSMALL,
-        XSMALL,
-        SMALL,
-        MEDIUM,
-        LARGE,
-        XLARGE,
-        XXLARGE,
-        ...others
-      } = actual
+      const {XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE, XXLARGE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

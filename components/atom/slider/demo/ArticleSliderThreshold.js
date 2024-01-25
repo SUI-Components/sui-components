@@ -2,24 +2,12 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Box,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Box, Cell, Code, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomSlider from '../src/index.js'
 
 const ArticleSliderThreshold = ({className, max = 100, min = -100}) => {
-  const [thresholdedState, setThresholdedState] = useState(
-    (max - min) / 2 + min
-  )
+  const [thresholdedState, setThresholdedState] = useState((max - min) / 2 + min)
   const [maxState, setMaxState] = useState(max)
   const [minState, setMinState] = useState(min)
   const setValue = ({min, max, value}) => {
@@ -37,8 +25,7 @@ const ArticleSliderThreshold = ({className, max = 100, min = -100}) => {
     <Article className={className}>
       <H2>Thresholds</H2>
       <Paragraph>
-        Component thresholds can be customized using the <Code>min</Code> and{' '}
-        <Code>max</Code> props
+        Component thresholds can be customized using the <Code>min</Code> and <Code>max</Code> props
       </Paragraph>
       <Grid cols={3} gutter={[10, 10]}>
         <Cell>
@@ -70,10 +57,7 @@ const ArticleSliderThreshold = ({className, max = 100, min = -100}) => {
           />
         </Cell>
         <Cell>
-          <Label>value</Label>:{' '}
-          {typeof thresholdedState === 'string'
-            ? ''
-            : thresholdedState.toString()}
+          <Label>value</Label>: {typeof thresholdedState === 'string' ? '' : thresholdedState.toString()}
         </Cell>
       </Grid>
       <br />

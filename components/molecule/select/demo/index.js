@@ -1,10 +1,7 @@
 /* eslint-disable no-console */
 import {useState} from 'react'
 
-import MoleculeSelect, {
-  moleculeSelectSizes,
-  moleculeSelectStates
-} from 'components/molecule/select/src/index.js'
+import MoleculeSelect, {moleculeSelectSizes, moleculeSelectStates} from 'components/molecule/select/src/index.js'
 
 import {withStateValue} from '@s-ui/hoc'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
@@ -13,12 +10,7 @@ import ComboCountries from './components/ComboCountries.js'
 import MoleculeSelectUseEffect from './components/MoleculeSelectUseEffect.js'
 import countriesData from './data/countries.json'
 import {countries as countriesList} from './data/index.js'
-import {
-  IconArrowDown,
-  IconClock,
-  IconCloseTag,
-  IconSearch
-} from './Icons/index.js'
+import {IconArrowDown, IconClock, IconCloseTag, IconSearch} from './Icons/index.js'
 
 import './index.scss'
 
@@ -35,8 +27,8 @@ const Demo = () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>Select</h1>
         <p>
-          The component <code>select</code> should only be used to select a
-          closed list. If you need to display an open list use
+          The component <code>select</code> should only be used to select a closed list. If you need to display an open
+          list use
           <code>
             <a
               href="https://sui-components.vercel.app/workbench/molecule/autosuggest/demo"
@@ -49,9 +41,8 @@ const Demo = () => {
           instead
         </p>
         <p>
-          This demo is only displaying the default <code>DropDownList</code> and{' '}
-          <code>DropdownOption</code>. There are many other options to customize{' '}
-          them if it's necessary.
+          This demo is only displaying the default <code>DropDownList</code> and <code>DropdownOption</code>. There are
+          many other options to customize them if it's necessary.
         </p>
 
         <h2>Single Selection</h2>
@@ -78,11 +69,7 @@ const Demo = () => {
             onSearch={({value}) => setQuerySingle(value)}
             searchPlaceholder="Search a country..."
             searchIcon={<IconSearch />}
-            noResults={
-              <div className="DemoMoleculeSelect-noResults">
-                No results found...
-              </div>
-            }
+            noResults={<div className="DemoMoleculeSelect-noResults">No results found...</div>}
             onChange={(_, {value}) => console.log(value)}
             iconArrowDown={<IconArrowDown />}
           >
@@ -183,8 +170,7 @@ const Demo = () => {
         <div className={CLASS_DEMO_SECTION}>
           <h3>With state</h3>
           <p>
-            State to highlight that can be <code>success</code>,{' '}
-            <code>error</code> or <code>alert</code>
+            State to highlight that can be <code>success</code>, <code>error</code> or <code>alert</code>
           </p>
           <MoleculeSelectWithState
             placeholder="Select a Country..."
@@ -230,11 +216,7 @@ const Demo = () => {
             responsive={false}
             onSearch={({value}) => setQuery(value)}
             searchPlaceholder="Search a country..."
-            noResults={
-              <div className="DemoMoleculeSelect-noResults">
-                No results found...
-              </div>
-            }
+            noResults={<div className="DemoMoleculeSelect-noResults">No results found...</div>}
             multiselection
           >
             {countriesList
@@ -255,11 +237,7 @@ const Demo = () => {
             onSearch={({value}) => setQuerySingle(value)}
             searchPlaceholder="Search a country..."
             searchIcon={<IconSearch />}
-            noResults={
-              <div className="DemoMoleculeSelect-noResults">
-                No results found...
-              </div>
-            }
+            noResults={<div className="DemoMoleculeSelect-noResults">No results found...</div>}
             onChange={(_, {value}) => console.log(value)}
             iconArrowDown={<IconArrowDown />}
             multiselection
@@ -287,11 +265,7 @@ const Demo = () => {
             hasSearch
             onSearch={({value}) => setQuery(value)}
             searchPlaceholder="Search a country..."
-            noResults={
-              <div className="DemoMoleculeSelect-noResults">
-                No results found...
-              </div>
-            }
+            noResults={<div className="DemoMoleculeSelect-noResults">No results found...</div>}
             multiselection
           >
             {countriesList

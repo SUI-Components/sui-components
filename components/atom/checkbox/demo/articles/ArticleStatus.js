@@ -2,16 +2,7 @@ import {Fragment} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  H3,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, H3, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomCheckbox from '../../src/index.js'
 import {CHECKBOX_STATUS, flexCenteredStyle, ICONS} from '../settings.js'
@@ -20,8 +11,8 @@ const ArticleStatus = ({className}) => (
   <Article className={className}>
     <H2>Status</H2>
     <Paragraph>
-      Checkbox has {CHECKBOX_STATUS.length - 1} different values. It can be used
-      giving a valid <Code>status</Code> prop to the component.
+      Checkbox has {CHECKBOX_STATUS.length - 1} different values. It can be used giving a valid <Code>status</Code> prop
+      to the component.
     </Paragraph>
     <H3>Customized</H3>
     <Grid cols={4} gutter={[10, 10]}>

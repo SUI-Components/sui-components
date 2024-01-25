@@ -10,9 +10,8 @@ const ArticleIsFitted = ({className}) => {
       <H2>isFitted</H2>
       <div>
         <Paragraph>
-          <Code>isFitted</Code> boolean prop (default false) is provided to make
-          a transition between this and next major version. When it is true, the
-          element is margin-border and also padding-less it order to provide te
+          <Code>isFitted</Code> boolean prop (default false) is provided to make a transition between this and next
+          major version. When it is true, the element is margin-border and also padding-less it order to provide te
           element boundings as is.
         </Paragraph>
         <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} isFitted />

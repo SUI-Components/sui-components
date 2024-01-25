@@ -22,10 +22,7 @@ export default () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Panel</H1>
         <H2>As Color Panel</H2>
-        <Paragraph>
-          Just a background for your component, can be a color or an image with
-          background/overlay
-        </Paragraph>
+        <Paragraph>Just a background for your component, can be a color or an image with background/overlay</Paragraph>
         <ArticleAlpha className={CLASS_SECTION} />
         <br />
         <ArticleColor className={CLASS_SECTION} />
@@ -39,10 +36,7 @@ export default () => {
         <ArticleIsFullHeight className={CLASS_SECTION} />
         <br />
         <H2>As Image Panel</H2>
-        <Paragraph>
-          Just a background for your component, can be a color or an image with
-          background/overlay
-        </Paragraph>
+        <Paragraph>Just a background for your component, can be a color or an image with background/overlay</Paragraph>
         <ArticleResized className={CLASS_SECTION} />
         <br />
         <ArticleRoundedAsImage className={CLASS_SECTION} />

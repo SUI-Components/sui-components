@@ -1,25 +1,9 @@
 import PropTypes from 'prop-types'
 
-const CarouselArrow = ({
-  label,
-  role,
-  disabled,
-  onClick,
-  hasArrows,
-  className,
-  children,
-  ...props
-}) => {
+const CarouselArrow = ({label, role, disabled, onClick, hasArrows, className, children, ...props}) => {
   if (!hasArrows) return null
   return (
-    <button
-      type="button"
-      aria-label={label}
-      className={className}
-      disabled={disabled}
-      onClick={onClick}
-      {...props}
-    >
+    <button type="button" aria-label={label} className={className} disabled={disabled} onClick={onClick} {...props}>
       {children}
     </button>
   )

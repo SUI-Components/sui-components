@@ -1,5 +1,6 @@
-import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import PropTypes from 'prop-types'
+
+import Button, {atomButtonDesigns} from '@s-ui/react-atom-button'
 
 const RenderActionsDefault = ({
   onCustomAction,
@@ -19,11 +20,7 @@ const RenderActionsDefault = ({
       </Button>
     ) : null}
     {cancelButtonText ? (
-      <Button
-        onClick={onCancel}
-        design={atomButtonDesigns.FLAT}
-        {...cancelButtonOptions}
-      >
+      <Button onClick={onCancel} design={atomButtonDesigns.FLAT} {...cancelButtonOptions}>
         {cancelButtonText}
       </Button>
     ) : null}

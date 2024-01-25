@@ -46,15 +46,8 @@ class DynamicStatusContainer extends Component {
     const {onFilesSelection} = this
     return (
       <div>
-        <AtomUpload
-          {...props}
-          status={status}
-          onFilesSelection={onFilesSelection}
-          textExplanation={textExplanation}
-        />
-        {!!files.length && (
-          <p>Selected file(s) to upload: {files.join(', ')}</p>
-        )}
+        <AtomUpload {...props} status={status} onFilesSelection={onFilesSelection} textExplanation={textExplanation} />
+        {!!files.length && <p>Selected file(s) to upload: {files.join(', ')}</p>}
       </div>
     )
   }
@@ -67,10 +60,7 @@ const Demo = () => {
         <h1>AtomUpload</h1>
         <h2>Dynamic Behaviour</h2>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-          <p>
-            Click on the component or drag&drop some files to start upload
-            simulation
-          </p>
+          <p>Click on the component or drag&drop some files to start upload simulation</p>
           <DynamicStatusContainer
             iconActive={IconActive}
             textActive={textActive}
@@ -85,10 +75,7 @@ const Demo = () => {
         </div>
         <h2>With action button</h2>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-          <p>
-            Click on the component or drag&drop some files to start upload
-            simulation
-          </p>
+          <p>Click on the component or drag&drop some files to start upload simulation</p>
           <DynamicStatusContainer
             iconActive={IconActive}
             textActive={textActive}
@@ -104,10 +91,7 @@ const Demo = () => {
         </div>
         <h2>Accept only one file</h2>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-          <p>
-            Click on the component or drag&drop some files to start upload
-            simulation
-          </p>
+          <p>Click on the component or drag&drop some files to start upload simulation</p>
           <DynamicStatusContainer
             iconActive={IconActive}
             textActive={textActive}
@@ -124,10 +108,7 @@ const Demo = () => {
         </div>
         <h2>accept prop = ".pdf" -> Only PDF files</h2>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-          <p>
-            Click on the component or drag&drop some files to start upload
-            simulation
-          </p>
+          <p>Click on the component or drag&drop some files to start upload simulation</p>
           <DynamicStatusContainer
             iconActive={IconActive}
             textActive={textActive}
@@ -143,10 +124,7 @@ const Demo = () => {
         </div>
         <h2>MaxSize 60000 bytes</h2>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
-          <p>
-            Click on the component or drag&drop some files to start upload
-            simulation
-          </p>
+          <p>Click on the component or drag&drop some files to start upload simulation</p>
           <DynamicStatusContainer
             iconActive={IconActive}
             textActive={textActive}
@@ -175,13 +153,7 @@ const Demo = () => {
                   />
                 )
               }
-              return (
-                <AtomUpload
-                  status={uploadStatuses.ACTIVE}
-                  iconActive={IconActive}
-                  textActive={textActive}
-                />
-              )
+              return <AtomUpload status={uploadStatuses.ACTIVE} iconActive={IconActive} textActive={textActive} />
             }}
           </LayoutMediaQuery>
         </div>
@@ -199,13 +171,7 @@ const Demo = () => {
                   />
                 )
               }
-              return (
-                <AtomUpload
-                  status={uploadStatuses.ACTIVE}
-                  iconActive={IconActive}
-                  textActive={textActive}
-                />
-              )
+              return <AtomUpload status={uploadStatuses.ACTIVE} iconActive={IconActive} textActive={textActive} />
             }}
           </LayoutMediaQuery>
         </div>
@@ -219,19 +185,11 @@ const Demo = () => {
         </div>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
           <h3>Success</h3>
-          <AtomUpload
-            status={uploadStatuses.SUCCESS}
-            iconSuccess={IconSuccess}
-            textSuccess={textSuccess}
-          />
+          <AtomUpload status={uploadStatuses.SUCCESS} iconSuccess={IconSuccess} textSuccess={textSuccess} />
         </div>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
           <h3>Error</h3>
-          <AtomUpload
-            iconError={IconError}
-            textError={textError}
-            status={uploadStatuses.ERROR}
-          />
+          <AtomUpload iconError={IconError} textError={textError} status={uploadStatuses.ERROR} />
         </div>
       </div>
     </div>

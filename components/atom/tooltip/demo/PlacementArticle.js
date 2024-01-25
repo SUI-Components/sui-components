@@ -27,9 +27,8 @@ const PlacementArticle = ({className, trigger}) => {
     <Article className={className}>
       <H2>Placement</H2>
       <Paragraph>
-        User can define the position where the element is located relative to
-        its target using the <Code>placement</Code> prop. There are 15 different
-        positions defined:
+        User can define the position where the element is located relative to its target using the{' '}
+        <Code>placement</Code> prop. There are 15 different positions defined:
       </Paragraph>
       <Grid cols={5} gutter={[8, 8]}>
         <Cell>
@@ -99,13 +98,11 @@ const PlacementArticle = ({className, trigger}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        the default value is bottom. it will place the tooltip at the bottom of
-        the referenced element.
+        the default value is bottom. it will place the tooltip at the bottom of the referenced element.
       </Paragraph>
       <Paragraph>
-        If value is auto. It will place the tooltip automatically depending on
-        the targeted element and its bindings over the middle of the viewport
-        location.
+        If value is auto. It will place the tooltip automatically depending on the targeted element and its bindings
+        over the middle of the viewport location.
       </Paragraph>
       <Grid cols={5} gutter={[8, 8]}>
         <Cell />
@@ -119,13 +116,7 @@ const PlacementArticle = ({className, trigger}) => {
           />
         </Cell>
         <Cell>
-          <RadioButton
-            onClick={handleClick}
-            value="auto"
-            checked={placement === 'auto'}
-            label="auto"
-            fullWidth
-          />
+          <RadioButton onClick={handleClick} value="auto" checked={placement === 'auto'} label="auto" fullWidth />
         </Cell>
         <Cell>
           <RadioButton
@@ -148,13 +139,7 @@ const PlacementArticle = ({className, trigger}) => {
           />
         </Cell>
         <Cell>
-          <RadioButton
-            onClick={handleClick}
-            value="top"
-            checked={placement === 'top'}
-            label="top"
-            fullWidth
-          />
+          <RadioButton onClick={handleClick} value="top" checked={placement === 'top'} label="top" fullWidth />
         </Cell>
         <Cell>
           <RadioButton
@@ -186,22 +171,11 @@ const PlacementArticle = ({className, trigger}) => {
           />
         </Cell>
         <Cell>
-          <RadioButton
-            onClick={handleClick}
-            value="left"
-            checked={placement === 'left'}
-            label="left"
-            fullWidth
-          />
+          <RadioButton onClick={handleClick} value="left" checked={placement === 'left'} label="left" fullWidth />
         </Cell>
         <Cell />
         <Cell>
-          <AtomTooltip
-            isVisible
-            content="tooltip content"
-            placement={placement}
-            trigger={trigger}
-          >
+          <AtomTooltip isVisible content="tooltip content" placement={placement} trigger={trigger}>
             <Box
               outline
               style={{
@@ -219,13 +193,7 @@ const PlacementArticle = ({className, trigger}) => {
         </Cell>
         <Cell />
         <Cell>
-          <RadioButton
-            onClick={handleClick}
-            value="right"
-            checked={placement === 'right'}
-            label="right"
-            fullWidth
-          />
+          <RadioButton onClick={handleClick} value="right" checked={placement === 'right'} label="right" fullWidth />
         </Cell>
         <Cell>
           <RadioButton
@@ -257,13 +225,7 @@ const PlacementArticle = ({className, trigger}) => {
           />
         </Cell>
         <Cell>
-          <RadioButton
-            onClick={handleClick}
-            value="bottom"
-            checked={placement === 'bottom'}
-            label="bottom"
-            fullWidth
-          />
+          <RadioButton onClick={handleClick} value="bottom" checked={placement === 'bottom'} label="bottom" fullWidth />
         </Cell>
         <Cell>
           <RadioButton

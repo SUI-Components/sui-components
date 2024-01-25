@@ -5,12 +5,7 @@ import {CLASS_INDICATOR} from './settings.js'
 
 const Indicator = ({indicatorBottom, indicatorTotal, percentage}) => {
   return (
-    <span
-      className={cx(
-        CLASS_INDICATOR,
-        `${CLASS_INDICATOR}--${indicatorBottom ? 'bottom' : 'top'}`
-      )}
-    >
+    <span className={cx(CLASS_INDICATOR, `${CLASS_INDICATOR}--${indicatorBottom ? 'bottom' : 'top'}`)}>
       <strong>{percentage}</strong>
       {indicatorTotal ? `/100` : `%`}
     </span>

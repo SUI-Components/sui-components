@@ -28,11 +28,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['moleculeQuickActionSizes', 'default']
 
     // When
-    const {
-      moleculeQuickActionSizes,
-      default: MoleculeQuickAction,
-      ...others
-    } = library
+    const {moleculeQuickActionSizes, default: MoleculeQuickAction, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -71,8 +67,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

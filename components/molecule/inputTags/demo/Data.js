@@ -1,24 +1,9 @@
 class Data {
-  static #beattles = [
-    'John Lennon',
-    'Paul McCartney',
-    'George Harrison',
-    'Ringo Starr'
-  ]
+  static #beattles = ['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr']
 
-  static #ledZeppelin = [
-    'Robert Plant',
-    'Jimmy Page',
-    'John Paul Jones',
-    'John Bonham'
-  ]
+  static #ledZeppelin = ['Robert Plant', 'Jimmy Page', 'John Paul Jones', 'John Bonham']
 
-  static #queen = [
-    'Brian May',
-    'Freddie Mercury',
-    'John Deacon',
-    'Roger Taylor'
-  ]
+  static #queen = ['Brian May', 'Freddie Mercury', 'John Deacon', 'Roger Taylor']
 
   static get beattles() {
     return this.#beattles
@@ -32,8 +17,7 @@ class Data {
     return this.#queen
   }
 
-  static getDataObject = array =>
-    array.map((arrayElement, index) => ({key: index, label: arrayElement}))
+  static getDataObject = array => array.map((arrayElement, index) => ({key: index, label: arrayElement}))
 }
 
 export default Data

@@ -7,13 +7,7 @@ import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
 import MoleculeField from '@s-ui/react-molecule-field'
 
-import {
-  ACTIONS,
-  BASE_CLASS,
-  CLASS_INPUT_CONTAINER,
-  moleculeDataCounterSizes,
-  sizeConversor
-} from './config.js'
+import {ACTIONS, BASE_CLASS, CLASS_INPUT_CONTAINER, moleculeDataCounterSizes, sizeConversor} from './config.js'
 import useMouseHold from './useMouseHold.js'
 
 const MoleculeDataCounter = forwardRef(
@@ -126,18 +120,8 @@ const MoleculeDataCounter = forwardRef(
 
     return (
       <div className={BASE_CLASS}>
-        <MoleculeField
-          name={id}
-          label={label}
-          helpText={helpText}
-          errorText={errorText}
-        >
-          <div
-            className={cx(
-              CLASS_INPUT_CONTAINER,
-              `${CLASS_INPUT_CONTAINER}--${size}`
-            )}
-          >
+        <MoleculeField name={id} label={label} helpText={helpText} errorText={errorText}>
+          <div className={cx(CLASS_INPUT_CONTAINER, `${CLASS_INPUT_CONTAINER}--${size}`)}>
             <AtomButton
               design={atomButtonDesigns.OUTLINE}
               disabled={decrementDisabled}
@@ -155,11 +139,7 @@ const MoleculeDataCounter = forwardRef(
             </AtomButton>
             <AtomInput
               ref={ref}
-              charsSize={
-                charsSize || internalValue.toString().length <= 2
-                  ? 2
-                  : internalValue.toString().length
-              }
+              charsSize={charsSize || internalValue.toString().length <= 2 ? 2 : internalValue.toString().length}
               disabled={disabled || inputDisabled}
               id={id}
               isLoading={isLoading && lastAction === ACTIONS.CHANGE}

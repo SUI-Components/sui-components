@@ -10,8 +10,7 @@ const ArticleResponsive = ({className}) => {
     <Article className={className}>
       <H2>Responsive</H2>
       <Paragraph>
-        Use the <Code>responsive</Code> true for make responsive layout. keep
-        large size in mobile.
+        Use the <Code>responsive</Code> true for make responsive layout. keep large size in mobile.
       </Paragraph>
       <div>
         <AtomTag
@@ -30,13 +29,7 @@ const ArticleResponsive = ({className}) => {
           responsive
           target="_blank"
         />
-        <AtomTag
-          closeIcon={closeIcon}
-          icon={icon}
-          label="Icon & Close Tag"
-          onClose={handleClose}
-          responsive
-        />
+        <AtomTag closeIcon={closeIcon} icon={icon} label="Icon & Close Tag" onClose={handleClose} responsive />
         <AtomTag
           closeIcon={closeIcon}
           icon={icon}

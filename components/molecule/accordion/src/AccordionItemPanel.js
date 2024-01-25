@@ -10,11 +10,7 @@ import Poly from '@s-ui/react-primitive-polymorphic-element'
 import {useAccordionContext} from './context/index.js'
 import useMeasure from './hook/useMeasure.js'
 import AccordionItemPanelDefaultChildren from './AccordionItemPanelDefaultChildren.js'
-import {
-  BASE_CLASS_ELEMENT,
-  BASE_CLASS_ITEM_PANEL,
-  BASE_CLASS_ITEM_PANEL_CONTENT
-} from './settings.js'
+import {BASE_CLASS_ELEMENT, BASE_CLASS_ITEM_PANEL, BASE_CLASS_ITEM_PANEL_CONTENT} from './settings.js'
 
 const AccordionItemPanel = forwardRef(
   (
@@ -39,8 +35,7 @@ const AccordionItemPanel = forwardRef(
       animationDuration: animationDurationContext,
       maxHeight: maxHeightContext
     } = useAccordionContext({isExpanded, value})
-    const maxHeight =
-      maxHeightProp !== undefined ? maxHeightProp : maxHeightContext
+    const maxHeight = maxHeightProp !== undefined ? maxHeightProp : maxHeightContext
     const animationDuration = animationDurationProp || animationDurationContext
     return (
       <div
@@ -52,13 +47,10 @@ const AccordionItemPanel = forwardRef(
         aria-labelledby={headerId}
         aria-disabled={disabled}
         style={{
-          overflowY:
-            height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',
+          overflowY: height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',
           transition: `max-height ${animationDuration}ms ${
             values.includes(value) ? 'ease-out' : 'ease-in'
-          }, opacity 0s linear ${
-            values.includes(value) ? 0 : animationDuration
-          }ms, border-top-width 0s linear ${
+          }, opacity 0s linear ${values.includes(value) ? 0 : animationDuration}ms, border-top-width 0s linear ${
             values.includes(value) ? 0 : animationDuration
           }ms`,
           ...(values.includes(value) && {
@@ -74,10 +66,7 @@ const AccordionItemPanel = forwardRef(
             })
           }}
         >
-          <div
-            className={`${BASE_CLASS_ITEM_PANEL_CONTENT}WrapperRef`}
-            ref={contentRef}
-          >
+          <div className={`${BASE_CLASS_ITEM_PANEL_CONTENT}WrapperRef`} ref={contentRef}>
             {inject(children, [
               {
                 props: {

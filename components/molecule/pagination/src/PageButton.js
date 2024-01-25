@@ -11,12 +11,7 @@ const PageButton = ({onSelectPage, page, design, color, ...props}) => {
   }
   return (
     <li className={`${BASE_CLASS}-item`}>
-      <AtomButton
-        onClick={_onSelectPage}
-        design={design}
-        color={color}
-        {...props}
-      />
+      <AtomButton onClick={_onSelectPage} design={design} color={color} {...props} />
     </li>
   )
 }

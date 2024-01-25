@@ -2,17 +2,7 @@ import {useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Input, Label, Paragraph, RadioButton} from '@s-ui/documentation-library'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
 
 import MoleculeDropdownOption from '../src/index.js'
@@ -68,10 +58,8 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        The default dropdown option consists on a list item element with a{' '}
-        <Code>value</Code> (string, value or object) prop, a{' '}
-        <Code>selected</Code> (boolean) prop and an inner <Code>children</Code>{' '}
-        (react-node) prop.
+        The default dropdown option consists on a list item element with a <Code>value</Code> (string, value or object)
+        prop, a <Code>selected</Code> (boolean) prop and an inner <Code>children</Code> (react-node) prop.
       </Paragraph>
       <Grid cols={5} gutter={[8, 8]}>
         <Cell span={5}>
@@ -105,10 +93,7 @@ const ArticleDefault = ({className}) => {
           <Label>Disabled</Label>
         </Cell>
         <Cell>
-          <Input
-            value={children}
-            onChange={event => setChildren(event.target.value)}
-          />
+          <Input value={children} onChange={event => setChildren(event.target.value)} />
         </Cell>
         <Cell>
           <Input value={value} onChange={onValueChangeHandler} />
@@ -121,29 +106,16 @@ const ArticleDefault = ({className}) => {
           />
         </Cell>
         <Cell>
-          <RadioButton
-            checked={checkbox}
-            onClick={() => setCheckbox(!checkbox)}
-            label={checkbox ? 'true' : 'false'}
-          />
+          <RadioButton checked={checkbox} onClick={() => setCheckbox(!checkbox)} label={checkbox ? 'true' : 'false'} />
         </Cell>
         <Cell>
-          <RadioButton
-            checked={disabled}
-            onClick={() => setDisabled(!disabled)}
-            label={disabled ? 'true' : 'false'}
-          />
+          <RadioButton checked={disabled} onClick={() => setDisabled(!disabled)} label={disabled ? 'true' : 'false'} />
         </Cell>
         <Cell span={5}>
           <Label>Result</Label>
         </Cell>
         <Cell span={5}>
-          <Input
-            readOnly
-            value={JSON.stringify(data, null, 2)}
-            fullWidth
-            disabled
-          />
+          <Input readOnly value={JSON.stringify(data, null, 2)} fullWidth disabled />
         </Cell>
         <Cell span={5}>
           <Label>DOM Element</Label>
@@ -153,12 +125,11 @@ const ArticleDefault = ({className}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        The <Code>checkbox</Code> (boolean) prop allows the possibility to
-        include a checkbox input type to the rendered element.
+        The <Code>checkbox</Code> (boolean) prop allows the possibility to include a checkbox input type to the rendered
+        element.
       </Paragraph>
       <Paragraph>
-        The <Code>disabled</Code> (boolean) prop allows the possibility to
-        disable the element also.
+        The <Code>disabled</Code> (boolean) prop allows the possibility to disable the element also.
       </Paragraph>
     </Article>
   )

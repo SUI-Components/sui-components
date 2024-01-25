@@ -15,8 +15,7 @@ const Demo = () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Badge</H1>
         <Paragraph>
-          This is an informative UI element, it doesn't change on hover or
-          click, so the user can't interact with it.
+          This is an informative UI element, it doesn't change on hover or click, so the user can't interact with it.
         </Paragraph>
         <ArticleType className={CLASS_SECTION} />
         <br />

@@ -27,13 +27,10 @@ const ArticleDefault = ({className}) => {
     <Article className={className} ref={articleRef}>
       <H2>Default</H2>
       <Paragraph>
-        The portal is default appended at the document body. It is default
-        opened unless you define its initial <Code>isOpen</Code> configuration
-        settings to false.
+        The portal is default appended at the document body. It is default opened unless you define its initial{' '}
+        <Code>isOpen</Code> configuration settings to false.
       </Paragraph>
-      <Button onClick={() => portalRef.current.scrollIntoView()}>
-        Scroll into view
-      </Button>
+      <Button onClick={() => portalRef.current.scrollIntoView()}>Scroll into view</Button>
       <Portal ref={portalRef} isOpen>
         <Box style={{margin: '0px 16px 16px 16px'}} mode="dark">
           <H4>Default Portal Result </H4>
@@ -56,13 +53,12 @@ const ArticleDefault = ({className}) => {
         </Box>
       </Portal>
       <Paragraph>
-        <Code>usePortal</Code> hook admits many different options as an{' '}
-        <Bold>object argument</Bold> to configure the portal:
+        <Code>usePortal</Code> hook admits many different options as an <Bold>object argument</Bold> to configure the
+        portal:
       </Paragraph>
       <UnorderedList>
         <ListItem>
-          <Code>isOpen</Code> (boolean|true): sets the initial state visible or
-          not.
+          <Code>isOpen</Code> (boolean|true): sets the initial state visible or not.
         </ListItem>
         <ListItem>
           <Code>onOpen</Code> (func): opens the portal
@@ -74,30 +70,20 @@ const ArticleDefault = ({className}) => {
           <Code>onToggle</Code> (func): changes between open/close the portal
         </ListItem>
         <ListItem>
-          <Code>hasCloseOnOutsideClick</Code> (boolean|false): auto-close the
-          portal on outside click
+          <Code>hasCloseOnOutsideClick</Code> (boolean|false): auto-close the portal on outside click
         </ListItem>
         <ListItem>
-          <Code>hasCloseOnEsc</Code> (boolean|false): autoClose the portal on
-          'Esc' press
+          <Code>hasCloseOnEsc</Code> (boolean|false): autoClose the portal on 'Esc' press
         </ListItem>
       </UnorderedList>
       <H3>Result</H3>
       <Paragraph>
-        <Code>usePortal</Code> hook result can be destructured using an array or
-        an object.
+        <Code>usePortal</Code> hook result can be destructured using an array or an object.
       </Paragraph>
       <H4>Array</H4>
-      <Paragraph>
-        const [Portal, open, close, isOpen, togglePortal, triggerRef, portalRef]
-        = usePortal()
-      </Paragraph>
+      <Paragraph>const [Portal, open, close, isOpen, togglePortal, triggerRef, portalRef] = usePortal()</Paragraph>
       <H4>Object</H4>
-      <Paragraph>
-        {
-          'const {Portal, open, close, isOpen, togglePortal, triggerRef, portalRef} = usePortal()'
-        }
-      </Paragraph>
+      <Paragraph>{'const {Portal, open, close, isOpen, togglePortal, triggerRef, portalRef} = usePortal()'}</Paragraph>
       <OrderedList>
         <ListItem>
           <Code>Portal</Code>: The portal component

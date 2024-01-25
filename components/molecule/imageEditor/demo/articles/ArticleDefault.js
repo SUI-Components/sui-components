@@ -13,10 +13,7 @@ const ArticleDefault = ({className}) => {
   return (
     <Article className={className}>
       <H2>Default</H2>
-      <Paragraph>
-        There are some optional properties that allow to customize the Image
-        Editor behavior.
-      </Paragraph>
+      <Paragraph>There are some optional properties that allow to customize the Image Editor behavior.</Paragraph>
 
       <MoleculeImageEditor
         onChange={setCroppedImage}
@@ -25,9 +22,8 @@ const ArticleDefault = ({className}) => {
         rotateLabelText="Rotate"
       />
       <Paragraph>
-        By default, the component has a vertical alignment of its inner
-        elements. On top, it sets the cropper, and on bottom, the sliders
-        editor.
+        By default, the component has a vertical alignment of its inner elements. On top, it sets the cropper, and on
+        bottom, the sliders editor.
       </Paragraph>
       <H2>Result</H2>
       <img src={croppedImage} style={{width: '300px'}} />

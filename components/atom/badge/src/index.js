@@ -37,9 +37,7 @@ const AtomBadge = ({
 
   return (
     <div className={classNames}>
-      {shouldRenderIcon({icon, ...props}) && !iconRight && (
-        <span className={CLASS_ICON}>{icon}</span>
-      )}
+      {shouldRenderIcon({icon, ...props}) && !iconRight && <span className={CLASS_ICON}>{icon}</span>}
       <span className={CLASS_TEXT} title={truncatedLabel}>
         {label}
       </span>
@@ -85,8 +83,4 @@ AtomBadge.propTypes = {
 
 export default AtomBadge
 
-export {
-  DESIGNS as atomBadgeDesigns,
-  TYPES as atomBadgeTypes,
-  SIZES as atomBadgeSizes
-}
+export {DESIGNS as atomBadgeDesigns, TYPES as atomBadgeTypes, SIZES as atomBadgeSizes}

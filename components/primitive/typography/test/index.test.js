@@ -111,8 +111,7 @@ describe(json.name, () => {
     it.skip('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -399,18 +398,7 @@ describe(json.name, () => {
 
       // When
       const {primitiveTypographyFontWeight: actual} = library
-      const {
-        THIN,
-        EXTRA_LIGHT,
-        LIGHT,
-        REGULAR,
-        MEDIUM,
-        SEMI_BOLD,
-        BOLD,
-        EXTRA_BOLD,
-        BLACK,
-        ...others
-      } = actual
+      const {THIN, EXTRA_LIGHT, LIGHT, REGULAR, MEDIUM, SEMI_BOLD, BOLD, EXTRA_BOLD, BLACK, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

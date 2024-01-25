@@ -24,12 +24,7 @@ const ArticleAlignment = ({className, icon, showText, hideText}) => {
               padding: 16
             }}
           >
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-              alignContainer="left"
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContainer="left">
               <Text />
             </MoleculeCollapsible>
           </div>
@@ -37,12 +32,7 @@ const ArticleAlignment = ({className, icon, showText, hideText}) => {
         <div style={{display: 'flex', flexDirection: 'column', maxWidth: 400}}>
           <span>Collapsible Center</span>
           <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-              alignContainer="center"
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContainer="center">
               <Text />
             </MoleculeCollapsible>
           </div>
@@ -50,12 +40,7 @@ const ArticleAlignment = ({className, icon, showText, hideText}) => {
         <div style={{display: 'flex', flexDirection: 'column', maxWidth: 400}}>
           <span>Collapsible Right</span>
           <div style={{backgroundColor: '#fff', fontSize: 14, padding: 16}}>
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-              alignContainer="right"
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} alignContainer="right">
               <Text />
             </MoleculeCollapsible>
           </div>

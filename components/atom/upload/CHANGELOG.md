@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.11.0 (2023-12-21)
+
+
+### Features
+
+* **components/atom/upload:** Remove unnecesary width ([bcc4212](https://github.com/SUI-Components/sui-components/commit/bcc4212ea46c8e8b66d73e27b3fd16447251a772))
+
+
+
 # 3.10.0 (2022-10-06)
 
 

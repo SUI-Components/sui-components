@@ -10,10 +10,7 @@ const usePinInputReducer = ({mask, defaultValue, value} = {}) => {
   const isMountedState = isMounted()
 
   const initialState = useMemo(
-    () =>
-      isMountedState
-        ? initialState
-        : getInitialPinInputReducerState({mask, defaultValue, value}),
+    () => (isMountedState ? initialState : getInitialPinInputReducerState({mask, defaultValue, value})),
     [isMountedState] // eslint-disable-line react-hooks/exhaustive-deps
   )
   return useReducer(pinInputReducer, initialState)

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2024-01-25)
+
+
+### Bug Fixes
+
+* **components/molecule/phoneInput:** fix wrong padding ([6df4cf8](https://github.com/SUI-Components/sui-components/commit/6df4cf8b91e8814030f1eb5892f8491f840f1b46))
+
+
+
 # 1.22.0 (2023-12-28)
 
 

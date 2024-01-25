@@ -41,6 +41,7 @@ $base-class: '.sui-MoleculePhoneInput';
 
         & .sui-AtomInput-input {
           position: relative;
+          padding-left: 0;
 
           &:focus {
             border: none;

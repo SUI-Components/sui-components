@@ -36,24 +36,9 @@ const ArticleMultipleNesting = ({className}) => {
             defaultIsExpanded={false}
             onChange={setValues('A')}
           >
-            <MoleculeCheckboxField
-              id="multiple-nesting-AA"
-              label="AA"
-              value="AA"
-              defaultChecked={true}
-            />
-            <MoleculeCheckboxField
-              id="multiple-nesting-AB"
-              label="AB"
-              value="AB"
-              defaultChecked={true}
-            />
-            <MoleculeCheckboxField
-              id="multiple-nesting-AC"
-              label="AC"
-              value="AC"
-              defaultChecked={false}
-            />
+            <MoleculeCheckboxField id="multiple-nesting-AA" label="AA" value="AA" defaultChecked={true} />
+            <MoleculeCheckboxField id="multiple-nesting-AB" label="AB" value="AB" defaultChecked={true} />
+            <MoleculeCheckboxField id="multiple-nesting-AC" label="AC" value="AC" defaultChecked={false} />
             <OrganismNestedCheckboxes
               id="multiple-nesting-AD"
               label="AD"
@@ -61,24 +46,9 @@ const ArticleMultipleNesting = ({className}) => {
               defaultIsExpanded={false}
               defaultIndeterminate={true}
             >
-              <MoleculeCheckboxField
-                id="multiple-nesting-ADA"
-                label="ADA"
-                value="ADA"
-                defaultChecked={true}
-              />
-              <MoleculeCheckboxField
-                id="multiple-nesting-ADB"
-                label="ADB"
-                value="ADB"
-                defaultChecked={true}
-              />
-              <MoleculeCheckboxField
-                id="multiple-nesting-ADC"
-                label="ADC"
-                value="ADC"
-                defaultChecked={false}
-              />
+              <MoleculeCheckboxField id="multiple-nesting-ADA" label="ADA" value="ADA" defaultChecked={true} />
+              <MoleculeCheckboxField id="multiple-nesting-ADB" label="ADB" value="ADB" defaultChecked={true} />
+              <MoleculeCheckboxField id="multiple-nesting-ADC" label="ADC" value="ADC" defaultChecked={false} />
               <OrganismNestedCheckboxes
                 id="multiple-nesting-AD"
                 label="ADD"
@@ -86,24 +56,9 @@ const ArticleMultipleNesting = ({className}) => {
                 defaultIsExpanded={false}
                 defaultIndeterminate={true}
               >
-                <MoleculeCheckboxField
-                  id="multiple-nesting-ADDA"
-                  label="ADDA"
-                  value="ADDA"
-                  defaultChecked={true}
-                />
-                <MoleculeCheckboxField
-                  id="multiple-nesting-ADDB"
-                  label="ADDB"
-                  value="ADDB"
-                  defaultChecked={true}
-                />
-                <MoleculeCheckboxField
-                  id="multiple-nesting-ADDC"
-                  label="ADDC"
-                  value="ADDC"
-                  defaultChecked={false}
-                />
+                <MoleculeCheckboxField id="multiple-nesting-ADDA" label="ADDA" value="ADDA" defaultChecked={true} />
+                <MoleculeCheckboxField id="multiple-nesting-ADDB" label="ADDB" value="ADDB" defaultChecked={true} />
+                <MoleculeCheckboxField id="multiple-nesting-ADDC" label="ADDC" value="ADDC" defaultChecked={false} />
               </OrganismNestedCheckboxes>
             </OrganismNestedCheckboxes>
           </OrganismNestedCheckboxes>
@@ -115,16 +70,8 @@ const ArticleMultipleNesting = ({className}) => {
             defaultIsExpanded={false}
             onChange={setValues('B')}
           >
-            <MoleculeCheckboxField
-              id="multiple-nesting-BA"
-              label="BA"
-              value="BA"
-            />
-            <MoleculeCheckboxField
-              id="multiple-nesting-BB"
-              label="BB"
-              value="BB"
-            />
+            <MoleculeCheckboxField id="multiple-nesting-BA" label="BA" value="BA" />
+            <MoleculeCheckboxField id="multiple-nesting-BB" label="BB" value="BB" />
           </OrganismNestedCheckboxes>
           <OrganismNestedCheckboxes
             id="multiple-nesting-C"
@@ -134,32 +81,12 @@ const ArticleMultipleNesting = ({className}) => {
             defaultIsExpanded={false}
             onChange={setValues('C')}
           >
-            <MoleculeCheckboxField
-              id="multiple-nesting-CA"
-              label="CA"
-              value="CA"
-            />
-            <OrganismNestedCheckboxes
-              id="multiple-nesting-CB"
-              label="CB"
-              value="CB"
-            >
-              <MoleculeCheckboxField
-                id="multiple-nesting-CBA"
-                label="CBA"
-                value="CBA"
-              />
-              <MoleculeCheckboxField
-                id="multiple-nesting-CBB"
-                label="CBB"
-                value="CBB"
-              />
+            <MoleculeCheckboxField id="multiple-nesting-CA" label="CA" value="CA" />
+            <OrganismNestedCheckboxes id="multiple-nesting-CB" label="CB" value="CB">
+              <MoleculeCheckboxField id="multiple-nesting-CBA" label="CBA" value="CBA" />
+              <MoleculeCheckboxField id="multiple-nesting-CBB" label="CBB" value="CBB" />
             </OrganismNestedCheckboxes>
-            <MoleculeCheckboxField
-              id="multiple-nesting-CC"
-              label="CC"
-              value="CC"
-            />
+            <MoleculeCheckboxField id="multiple-nesting-CC" label="CC" value="CC" />
           </OrganismNestedCheckboxes>
           <OrganismNestedCheckboxes
             id="multiple-nesting-D"
@@ -169,11 +96,7 @@ const ArticleMultipleNesting = ({className}) => {
             defaultIsExpanded={false}
             onChange={setValues('D')}
           >
-            <MoleculeCheckboxField
-              id="multiple-nesting-DA"
-              label="DA"
-              value="DA"
-            />
+            <MoleculeCheckboxField id="multiple-nesting-DA" label="DA" value="DA" />
             <OrganismNestedCheckboxes
               id="multiple-nesting-DB"
               label="DB"
@@ -181,23 +104,10 @@ const ArticleMultipleNesting = ({className}) => {
               defaultIsExpanded={false}
               defaultIndeterminate={true}
             >
-              <MoleculeCheckboxField
-                id="multiple-nesting-DBA"
-                label="DBA"
-                value="DBA"
-              />
-              <MoleculeCheckboxField
-                id="multiple-nesting-DBB"
-                label="DBB"
-                value="DBB"
-                defaultChecked={true}
-              />
+              <MoleculeCheckboxField id="multiple-nesting-DBA" label="DBA" value="DBA" />
+              <MoleculeCheckboxField id="multiple-nesting-DBB" label="DBB" value="DBB" defaultChecked={true} />
             </OrganismNestedCheckboxes>
-            <MoleculeCheckboxField
-              id="multiple-nesting-DC"
-              label="DC"
-              value="DC"
-            />
+            <MoleculeCheckboxField id="multiple-nesting-DC" label="DC" value="DC" />
           </OrganismNestedCheckboxes>
         </Cell>
         <Cell>

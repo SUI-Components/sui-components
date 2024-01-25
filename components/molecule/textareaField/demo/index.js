@@ -1,19 +1,13 @@
 import {useState} from 'react'
 
-import MoleculeTextareaField, {
-  MoleculeTextareaSizes
-} from 'components/molecule/textareaField/src'
+import MoleculeTextareaField, {MoleculeTextareaSizes} from 'components/molecule/textareaField/src'
 
 import TextareaUpdatingValue from './updatingValue.js'
 import withState from './withState.js'
 
 const MoleculeTextareaFieldWithState = withState(MoleculeTextareaField)
 
-const computeExceedLengthErrorText = ({
-  currentLength,
-  maxLength,
-  exceedAmmount
-}) => {
+const computeExceedLengthErrorText = ({currentLength, maxLength, exceedAmmount}) => {
   return `${currentLength}/${maxLength} characters. You've exceeded by ${exceedAmmount} the maximum length.`
 }
 const maxChars = 5
@@ -46,8 +40,7 @@ const Demo = () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>TextAreaField</h1>
         <p className="sui-Studio-h4">
-          `MoleculeTextareaField` is a component that wraps a composition of
-          Label + Textarea + Validations Messages.
+          `MoleculeTextareaField` is a component that wraps a composition of Label + Textarea + Validations Messages.
         </p>
         <div className="sui-Studio-wrapper--light">
           <h2 className="sui-Studio-h2">Placeholder</h2>
@@ -58,11 +51,7 @@ const Demo = () => {
               maxChars={100}
               placeholder="Please, write something cool..."
             />
-            <MoleculeTextareaFieldWithState
-              id="commentd"
-              label="with NO placeholder"
-              maxChars={100}
-            />
+            <MoleculeTextareaFieldWithState id="commentd" label="with NO placeholder" maxChars={100} />
           </div>
         </div>
         <div className="sui-Studio-wrapper--light">
@@ -108,16 +97,8 @@ const Demo = () => {
         <div className="sui-Studio-wrapper--light">
           <h2 className="sui-Studio-h2">Size</h2>
           <div>
-            <MoleculeTextareaField
-              label="Short"
-              size={MoleculeTextareaSizes.SHORT}
-              maxChars={60}
-            />
-            <MoleculeTextareaField
-              label="Long"
-              size={MoleculeTextareaSizes.LONG}
-              maxChars={60}
-            />
+            <MoleculeTextareaField label="Short" size={MoleculeTextareaSizes.SHORT} maxChars={60} />
+            <MoleculeTextareaField label="Long" size={MoleculeTextareaSizes.LONG} maxChars={60} />
           </div>
         </div>
         <div className="sui-Studio-wrapper--light">

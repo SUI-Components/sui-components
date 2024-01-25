@@ -38,23 +38,17 @@ const ArticleIcon = ({className}) => {
     <Article className={className}>
       <H2>Icon</H2>
       <Paragraph>
-        You can customize your collapsed/expanded icons under the{' '}
-        <Code>headerIconCollapsed</Code> and <Code>headerIconExpanded</Code>{' '}
-        (node) props. This configuration will be setted and a context and in
-        case of not declaring a <Code>headerIcon</Code> prop to the{' '}
-        <Code>AccordionItem</Code> or an <Code>icon</Code> to the{' '}
-        <Code>AccordionItemHeader</Code> this will be the given value for each
-        state.
+        You can customize your collapsed/expanded icons under the <Code>headerIconCollapsed</Code> and{' '}
+        <Code>headerIconExpanded</Code> (node) props. This configuration will be setted and a context and in case of not
+        declaring a <Code>headerIcon</Code> prop to the <Code>AccordionItem</Code> or an <Code>icon</Code> to the{' '}
+        <Code>AccordionItemHeader</Code> this will be the given value for each state.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
           <Label>headerIcon</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={icon}
-            onChange={(event, value) => setIcon(value)}
-          >
+          <RadioButtonGroup value={icon} onChange={(event, value) => setIcon(value)}>
             {Object.keys(availableIcons).map(availableIcon => (
               <RadioButton
                 key={`${availableIcon}`}
@@ -63,9 +57,7 @@ const ArticleIcon = ({className}) => {
                 label={
                   availableIcon !== `${undefined}` ? (
                     <AtomIcon>
-                      <AntDesignIcon
-                        icon={availableIcons[availableIcon].expanded}
-                      />
+                      <AntDesignIcon icon={availableIcons[availableIcon].expanded} />
                     </AtomIcon>
                   ) : (
                     `${availableIcon}`
@@ -79,14 +71,8 @@ const ArticleIcon = ({className}) => {
           <Label>headerIconPosition</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={icon}
-            onChange={(event, value) => setPosition(value)}
-          >
-            {[
-              undefined,
-              ...Object.values(moleculeAccordionHeaderIconPosition)
-            ].map(iconPosition => (
+          <RadioButtonGroup value={icon} onChange={(event, value) => setPosition(value)}>
+            {[undefined, ...Object.values(moleculeAccordionHeaderIconPosition)].map(iconPosition => (
               <RadioButton
                 key={`${iconPosition}`}
                 value={iconPosition}

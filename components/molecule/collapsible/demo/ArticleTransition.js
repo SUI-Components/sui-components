@@ -26,11 +26,7 @@ const ArticleTransition = ({className, icon, showText, hideText}) => {
               maxWidth: 400
             }}
           >
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText}>
               <Text />
             </MoleculeCollapsible>
           </div>
@@ -47,12 +43,7 @@ const ArticleTransition = ({className, icon, showText, hideText}) => {
               maxWidth: 400
             }}
           >
-            <MoleculeCollapsible
-              icon={icon}
-              showText={showText}
-              hideText={hideText}
-              withTransition={false}
-            >
+            <MoleculeCollapsible icon={icon} showText={showText} hideText={hideText} withTransition={false}>
               <Text />
             </MoleculeCollapsible>
           </div>

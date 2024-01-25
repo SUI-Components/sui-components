@@ -7,17 +7,7 @@ import IMask from './iMask.js'
 
 const MaskInput = forwardRef(
   (
-    {
-      name,
-      onChange,
-      onComplete,
-      mask,
-      value,
-      defaultValue,
-      placeholder,
-      size = SIZES.MEDIUM,
-      ...props
-    },
+    {name, onChange, onComplete, mask, value, defaultValue, placeholder, size = SIZES.MEDIUM, ...props},
     forwardedRef
   ) => {
     return (

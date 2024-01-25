@@ -20,10 +20,7 @@ const BreadcrumbBasic = ({
   onCollapse,
   onClick
 }) => {
-  const [isExpandedState, setIsExpandedState] = useControlledState(
-    isExpanded,
-    defaultIsExpanded
-  )
+  const [isExpandedState, setIsExpandedState] = useControlledState(isExpanded, defaultIsExpanded)
   const handleClick = event => {
     setIsExpandedState(!isExpandedState)
     isFunction(onClick) && onClick(event, {value: !isExpandedState})
@@ -51,9 +48,7 @@ const BreadcrumbBasic = ({
         <ul className={`${BASE_CLASS}-list`}>
           {items.map(({url, label}, index) => (
             <li className={`${BASE_CLASS}-listItem`} key={index}>
-              {index !== 0 && index <= numItems && (
-                <IconAngle svgClass={`${BASE_CLASS}-icon`} />
-              )}
+              {index !== 0 && index <= numItems && <IconAngle svgClass={`${BASE_CLASS}-icon`} />}
               {url ? (
                 <Link to={url} href={url} className={`${BASE_CLASS}-link`}>
                   {label}

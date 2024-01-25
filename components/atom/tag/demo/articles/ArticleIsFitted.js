@@ -1,9 +1,10 @@
 import {useState} from 'react'
 
-import AtomTag, {atomTagDesigns} from 'components/atom/tag/src/index.js'
 import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
+
+import AtomTag, {atomTagDesigns} from '../../src/index.js'
 
 const noop = () => null
 
@@ -16,10 +17,9 @@ const ArticleIsFitted = ({className, icon: iconProp}) => {
     <Article className={className}>
       <H2>isFitted</H2>
       <Paragraph>
-        <Code>isFitted</Code> boolean prop (default false) is provided to make a
-        transition between this and next major version. When it is true, the
-        element is margin-border and also padding-less it order to provide te
-        element boundings as is.
+        <Code>isFitted</Code> boolean prop (default false) is provided to make a transition between this and next major
+        version. When it is true, the element is margin-border and also padding-less it order to provide te element
+        boundings as is.
       </Paragraph>
       <AtomTag
         label="Alert"

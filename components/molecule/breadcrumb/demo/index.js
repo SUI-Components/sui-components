@@ -11,9 +11,8 @@ export default () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>BreadCrumb</H1>
         <Paragraph>
-          Breadcrumbs, or a breadcrumb navigation, can help to enhance how users
-          navigate to previous page levels of a website, especially if that
-          website has many pages or products.
+          Breadcrumbs, or a breadcrumb navigation, can help to enhance how users navigate to previous page levels of a
+          website, especially if that website has many pages or products.
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} items={breadcrumbItems} />
         <br />

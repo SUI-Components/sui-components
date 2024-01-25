@@ -1,15 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  ListItem,
-  Paragraph,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 import MoleculeDataCounter, {moleculeDataCounterSizes} from '../../src/index.js'
 import {propsMessages} from '../settings.js'
@@ -19,10 +10,8 @@ const ArticleSize = ({className}) => {
     <Article className={className}>
       <H2>Size</H2>
       <Paragraph>
-        The dataCounter size can be customized using <Code>size</Code> (enum)
-        prop. The valid values are provided by{' '}
-        <Code>moleculeDataCounterSizes</Code> enum. The default value is
-        undefined, same as normal size.
+        The dataCounter size can be customized using <Code>size</Code> (enum) prop. The valid values are provided by{' '}
+        <Code>moleculeDataCounterSizes</Code> enum. The default value is undefined, same as normal size.
       </Paragraph>
       <UnorderedList>
         {Object.entries(moleculeDataCounterSizes).map(([key, value]) => (
@@ -39,11 +28,7 @@ const ArticleSize = ({className}) => {
           ...moleculeDataCounterSizes
         }).map(([key, value]) => (
           <Cell key={key}>
-            <MoleculeDataCounter
-              size={value}
-              label={value ? `${key}: ${value}` : 'default'}
-              {...propsMessages}
-            />
+            <MoleculeDataCounter size={value} label={value ? `${key}: ${value}` : 'default'} {...propsMessages} />
           </Cell>
         ))}
       </Grid>

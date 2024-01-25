@@ -25,9 +25,7 @@ const behaviors = {
     return {
       value,
       isExpanded: !hasValue,
-      values: hasValue
-        ? values.filter(val => val !== value)
-        : [...values, value]
+      values: hasValue ? values.filter(val => val !== value) : [...values, value]
     }
   },
   [undefined]: ({value, isExpanded, values}) => {
@@ -41,10 +39,7 @@ const behaviors = {
 
 export const getBehavior = behaviorName => behaviors[behaviorName]
 
-export const getIcon = (
-  {iconProp, isExpanded},
-  {iconExpanded, iconCollapsed}
-) => {
+export const getIcon = ({iconProp, isExpanded}, {iconExpanded, iconCollapsed}) => {
   if (iconProp) {
     return iconProp
   }

@@ -40,10 +40,7 @@ describe(json.name, () => {
       // Given
       const props = {
         label: 'label',
-        children: [
-          <AtomButton key={1}>BUTTON 1</AtomButton>,
-          <AtomButton key={2}>BUTTON 2</AtomButton>
-        ]
+        children: [<AtomButton key={1}>BUTTON 1</AtomButton>, <AtomButton key={2}>BUTTON 2</AtomButton>]
       }
 
       // When
@@ -59,10 +56,7 @@ describe(json.name, () => {
       // Given
       const props = {
         label: 'label',
-        children: [
-          <AtomButton key={1}>BUTTON 1</AtomButton>,
-          <AtomButton key={2}>BUTTON 2</AtomButton>
-        ]
+        children: [<AtomButton key={1}>BUTTON 1</AtomButton>, <AtomButton key={2}>BUTTON 2</AtomButton>]
       }
 
       // When
@@ -77,14 +71,10 @@ describe(json.name, () => {
       // Given
       const props = {
         label: 'label',
-        children: [
-          <AtomButton key={0}>A</AtomButton>,
-          <AtomButton key={1}>B</AtomButton>
-        ],
+        children: [<AtomButton key={0}>A</AtomButton>, <AtomButton key={1}>B</AtomButton>],
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -100,10 +90,7 @@ describe(json.name, () => {
         id: 'testId',
         label: 'Test Label',
         helpText: 'Test description here',
-        children: [
-          <AtomButton key={1}>BUTTON 1</AtomButton>,
-          <AtomButton key={2}>BUTTON 2</AtomButton>
-        ]
+        children: [<AtomButton key={1}>BUTTON 1</AtomButton>, <AtomButton key={2}>BUTTON 2</AtomButton>]
       }
 
       // When
@@ -120,10 +107,7 @@ describe(json.name, () => {
         id: 'testId',
         label: 'Test Label',
         successText: 'Test Everything ok!',
-        children: [
-          <AtomButton key={1}>BUTTON 1</AtomButton>,
-          <AtomButton key={2}>BUTTON 2</AtomButton>
-        ]
+        children: [<AtomButton key={1}>BUTTON 1</AtomButton>, <AtomButton key={2}>BUTTON 2</AtomButton>]
       }
 
       // When
@@ -140,10 +124,7 @@ describe(json.name, () => {
         id: 'testId',
         label: 'Test Label',
         errorText: 'Test All wrong!',
-        children: [
-          <AtomButton key={1}>BUTTON 1</AtomButton>,
-          <AtomButton key={2}>BUTTON 2</AtomButton>
-        ]
+        children: [<AtomButton key={1}>BUTTON 1</AtomButton>, <AtomButton key={2}>BUTTON 2</AtomButton>]
       }
 
       // When
@@ -160,10 +141,7 @@ describe(json.name, () => {
         id: 'testId',
         label: 'Test Label',
         alertText: 'Test Alert!!!',
-        children: [
-          <AtomButton key={1}>BUTTON 1</AtomButton>,
-          <AtomButton key={2}>BUTTON 2</AtomButton>
-        ]
+        children: [<AtomButton key={1}>BUTTON 1</AtomButton>, <AtomButton key={2}>BUTTON 2</AtomButton>]
       }
 
       // When

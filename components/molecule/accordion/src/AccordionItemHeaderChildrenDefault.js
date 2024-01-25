@@ -4,11 +4,7 @@ import PropTypes from 'prop-types'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import AccordionItemHeaderIcon from './AccordionItemHeaderIcon.js'
-import {
-  BASE_CLASS_ITEM_HEADER,
-  BASE_CLASS_ITEM_HEADER_ICON,
-  HEADER_LABEL_WRAPS
-} from './settings.js'
+import {BASE_CLASS_ITEM_HEADER, BASE_CLASS_ITEM_HEADER_ICON, HEADER_LABEL_WRAPS} from './settings.js'
 
 const AccordionItemHeaderChildrenDefault = ({
   as = 'div',
@@ -22,10 +18,7 @@ const AccordionItemHeaderChildrenDefault = ({
 }) => (
   <Poly as={as} className={cx(`${BASE_CLASS_ITEM_HEADER}ButtonContainer`)}>
     <div
-      className={cx(
-        `${BASE_CLASS_ITEM_HEADER}ButtonContent`,
-        `${BASE_CLASS_ITEM_HEADER}ButtonContent--${labelWrap}`
-      )}
+      className={cx(`${BASE_CLASS_ITEM_HEADER}ButtonContent`, `${BASE_CLASS_ITEM_HEADER}ButtonContent--${labelWrap}`)}
     >
       {label}
     </div>
@@ -41,8 +34,7 @@ const AccordionItemHeaderChildrenDefault = ({
   </Poly>
 )
 
-AccordionItemHeaderChildrenDefault.displayName =
-  'AccordionItemHeaderChildrenDefault'
+AccordionItemHeaderChildrenDefault.displayName = 'AccordionItemHeaderChildrenDefault'
 
 AccordionItemHeaderChildrenDefault.propTypes = {
   /** The elementType of the wrapper **/
@@ -60,9 +52,7 @@ AccordionItemHeaderChildrenDefault.propTypes = {
   /** the unique value of the element **/
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   /** The opened values **/
-  values: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  )
+  values: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 }
 
 export default AccordionItemHeaderChildrenDefault

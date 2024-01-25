@@ -54,9 +54,7 @@ const AtomVideoPlayer = forwardRef(
     })
 
     const needsToRenderFallbackComponent =
-      fallbackWhileNotOnViewport === true &&
-      autoPlay === AUTOPLAY.ON_VIEWPORT &&
-      !autoPlayState
+      fallbackWhileNotOnViewport === true && autoPlay === AUTOPLAY.ON_VIEWPORT && !autoPlayState
 
     return (
       <div ref={componentRef} className={BASE_CLASS}>

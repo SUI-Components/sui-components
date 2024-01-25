@@ -2,13 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
 import {validationCodeSizes} from '../../src/config.js'
 import MoleculeValidationCode from '../../src/index.js'
@@ -24,22 +18,14 @@ const ArticleSizes = ({className}) => {
     <Article className={className}>
       <H2>Sizes</H2>
       <Paragraph>
-        size prop allows to change the size of the pinInput inputs, working with
-        the following props:
+        size prop allows to change the size of the pinInput inputs, working with the following props:
       </Paragraph>
       <RadioButtonGroup value={size} onChange={onChangeHandler}>
-        {[undefined, ...Object.values(validationCodeSizes)].map(
-          (sizeValue, key) => {
-            return (
-              <RadioButton
-                checked={sizeValue === size}
-                value={sizeValue}
-                key={key}
-                label={sizeValue || 'undefined'}
-              />
-            )
-          }
-        )}
+        {[undefined, ...Object.values(validationCodeSizes)].map((sizeValue, key) => {
+          return (
+            <RadioButton checked={sizeValue === size} value={sizeValue} key={key} label={sizeValue || 'undefined'} />
+          )
+        })}
       </RadioButtonGroup>
       <br />
       <br />

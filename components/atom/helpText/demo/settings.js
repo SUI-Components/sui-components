@@ -10,8 +10,4 @@ export const checkIcon = (
   </AtomIcon>
 )
 
-export const nodeText = (
-  <span style={{display: 'flex', gap: 8, alignItems: 'center'}}>
-    node text{checkIcon}
-  </span>
-)
+export const nodeText = <span style={{display: 'flex', gap: 8, alignItems: 'center'}}>node text{checkIcon}</span>

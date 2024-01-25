@@ -2,9 +2,7 @@ import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import MoleculeCollapsible, {
-  moleculeCollapsibleButtonAlign
-} from '../src/index.js'
+import MoleculeCollapsible, {moleculeCollapsibleButtonAlign} from '../src/index.js'
 import {DemoWrapper, Text} from './config/index.js'
 
 const ArticleButtonTextAlignment = ({className, icon, showText, hideText}) => {

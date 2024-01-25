@@ -65,20 +65,8 @@ describe(json.name, () => {
       const {MoleculeAccordionItem} = pkg
       const props = {
         children: [
-          <MoleculeAccordionItem
-            key={0}
-            label="label 1"
-            value={1}
-            id={1}
-            content="content 1"
-          />,
-          <MoleculeAccordionItem
-            key={1}
-            label="label 2"
-            value={2}
-            id={2}
-            content="content 2"
-          />
+          <MoleculeAccordionItem key={0} label="label 1" value={1} id={1} content="content 1" />,
+          <MoleculeAccordionItem key={1} label="label 2" value={2} id={2} content="content 2" />
         ]
       }
 
@@ -96,20 +84,8 @@ describe(json.name, () => {
       const {MoleculeAccordionItem} = pkg
       const props = {
         children: [
-          <MoleculeAccordionItem
-            key={0}
-            label="label 1"
-            value={1}
-            header="header 1"
-            content="content 1"
-          />,
-          <MoleculeAccordionItem
-            key={1}
-            label="label 2"
-            value={2}
-            header="header 2"
-            content="content 2"
-          />
+          <MoleculeAccordionItem key={0} label="label 1" value={1} header="header 1" content="content 1" />,
+          <MoleculeAccordionItem key={1} label="label 2" value={2} header="header 2" content="content 2" />
         ]
       }
 
@@ -127,24 +103,11 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames',
         children: [
-          <MoleculeAccordionItem
-            key={0}
-            label="label 1"
-            value={1}
-            header="header 1"
-            content="content 1"
-          />,
-          <MoleculeAccordionItem
-            key={1}
-            label="label 2"
-            value={2}
-            header="header 2"
-            content="content 2"
-          />
+          <MoleculeAccordionItem key={0} label="label 1" value={1} header="header 1" content="content 1" />,
+          <MoleculeAccordionItem key={1} label="label 2" value={2} header="header 2" content="content 2" />
         ]
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -171,13 +134,7 @@ describe(json.name, () => {
             maxHeight={100}
             isExpanded
           />,
-          <MoleculeAccordionItem
-            key={1}
-            label="label 2"
-            value={2}
-            header="header 2"
-            content="content 2"
-          />
+          <MoleculeAccordionItem key={1} label="label 2" value={2} header="header 2" content="content 2" />
         ],
         onChange: spy
       }
@@ -207,13 +164,7 @@ describe(json.name, () => {
             maxHeight={100}
             isExpanded
           />,
-          <MoleculeAccordionItem
-            key={1}
-            label="label 2"
-            value={2}
-            header="header 2"
-            content="content 2"
-          />
+          <MoleculeAccordionItem key={1} label="label 2" value={2} header="header 2" content="content 2" />
         ],
         onChange: spy
       }
@@ -244,13 +195,7 @@ describe(json.name, () => {
             maxHeight={100}
             isExpanded
           />,
-          <MoleculeAccordionItem
-            key={1}
-            label="label 2"
-            value={2}
-            header="header 2"
-            content="content 2"
-          />
+          <MoleculeAccordionItem key={1} label="label 2" value={2} header="header 2" content="content 2" />
         ],
         onChange: spy
       }
@@ -292,12 +237,7 @@ describe(json.name, () => {
             content="content 2"
             maxHeight={100}
           />,
-          <MoleculeAccordionItem
-            key={2}
-            label="label 3"
-            value={3}
-            content="content 3"
-          />
+          <MoleculeAccordionItem key={2} label="label 3" value={3} content="content 3" />
         ],
         onChange: spy,
         values: [1, 2]
@@ -314,11 +254,7 @@ describe(json.name, () => {
         } else if (['content 3'].includes(panel.innerText)) {
           expect(Boolean(panel.hasAttribute('aria-collapsed'))).to.be.false
         }
-        expect(
-          ['content 1', 'content 2', 'content 3'].some(
-            text => panel.innerText === text
-          )
-        ).to.be.true
+        expect(['content 1', 'content 2', 'content 3'].some(text => panel.innerText === text)).to.be.true
       })
     })
   })

@@ -35,17 +35,13 @@ const SpinnerDemo = () => {
     <Article className={CLASS_SECTION}>
       <H2>Spinner Loader</H2>
       <Paragraph>
-        AtomImage can show an spinner loader while the image is loading using
-        the <Code>spinner</Code> (React.node) prop
+        AtomImage can show an spinner loader while the image is loading using the <Code>spinner</Code> (React.node) prop
       </Paragraph>
       <div ref={articleRef} style={{height: 300}} className="spinner-demo">
         {isIntersecting && (
           <AtomImage
             spinner={<AtomSpinner />}
-            src={IMAGES.RANDOM_IMAGE(
-              'placeholder',
-              isIntersecting ? counter : counter - 1
-            )}
+            src={IMAGES.RANDOM_IMAGE('placeholder', isIntersecting ? counter : counter - 1)}
             alt="Nice View"
           />
         )}

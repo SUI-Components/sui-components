@@ -5,14 +5,7 @@ import AtomTooltip from '@s-ui/react-atom-tooltip'
 
 const CustomLabel = ({text, type, name, onClickLabel, ...props}) => (
   <>
-    <AtomLabel
-      name={name}
-      text={text}
-      inline="left"
-      onClick={onClickLabel}
-      type={type}
-      {...props}
-    />
+    <AtomLabel name={name} text={text} inline="left" onClick={onClickLabel} type={type} {...props} />
     <AtomTooltip content={name}>
       <span>I am out of the label</span>
     </AtomTooltip>

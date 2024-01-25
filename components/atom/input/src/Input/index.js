@@ -26,12 +26,7 @@ const BaseInput = forwardRef(
   ) => {
     return (
       <InputButton button={button}>
-        <InputAddons
-          leftAddon={leftAddon}
-          rightAddon={rightAddon}
-          shape={inputProps.shape}
-          size={size}
-        >
+        <InputAddons leftAddon={leftAddon} rightAddon={rightAddon} shape={inputProps.shape} size={size}>
           <InputIcons
             leftIcon={leftIcon}
             rightIcon={rightIcon}

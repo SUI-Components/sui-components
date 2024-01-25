@@ -11,16 +11,9 @@ const MoleculeAvatarFallbackName = ({
   backgroundColor: backgroundColorProp,
   ...others
 }) => {
-  const className = cx(
-    BASE_CLASS_NAME,
-    classNameProp,
-    `${BASE_CLASS_NAME}--${size}`
-  )
+  const className = cx(BASE_CLASS_NAME, classNameProp, `${BASE_CLASS_NAME}--${size}`)
   const [firstName, lastName] = nameProp.split(' ')
-  const name =
-    firstName && lastName
-      ? `${firstName.charAt(0)}${lastName.charAt(0)}`
-      : firstName.charAt(0)
+  const name = firstName && lastName ? `${firstName.charAt(0)}${lastName.charAt(0)}` : firstName.charAt(0)
 
   const backgroundColor = useBackgroundColor({
     name: nameProp,
@@ -28,12 +21,7 @@ const MoleculeAvatarFallbackName = ({
   })
 
   return (
-    <div
-      className={className}
-      aria-label={nameProp}
-      style={{backgroundColor}}
-      {...others}
-    >
+    <div className={className} aria-label={nameProp} style={{backgroundColor}} {...others}>
       {name}
     </div>
   )

@@ -2,22 +2,9 @@ import {useRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  CHECKBOX_SIZES,
-  CHECKBOX_STATUS,
-  className,
-  pressedValue
-} from './config.js'
+import {CHECKBOX_SIZES, CHECKBOX_STATUS, className, pressedValue} from './config.js'
 
-const CheckboxIcon = ({
-  disabled,
-  size,
-  status,
-  onClick,
-  icon: SVGIcon,
-  checked,
-  indeterminate
-}) => {
+const CheckboxIcon = ({disabled, size, status, onClick, icon: SVGIcon, checked, indeterminate}) => {
   const buttonRef = useRef()
   if (!SVGIcon) return null
   return (

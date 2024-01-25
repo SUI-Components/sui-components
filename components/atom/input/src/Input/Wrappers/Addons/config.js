@@ -9,5 +9,4 @@ export const ADDON_TYPES = {
   RIGHT: 'right'
 }
 
-export const getClassName = ({type}) =>
-  cx(BASE_CLASS_ADDON, `${BASE_CLASS_ADDON}--${type}`)
+export const getClassName = ({type}) => cx(BASE_CLASS_ADDON, `${BASE_CLASS_ADDON}--${type}`)

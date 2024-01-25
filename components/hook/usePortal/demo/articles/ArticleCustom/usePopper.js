@@ -7,11 +7,7 @@ import useIsomorphicLayoutEffect from '@s-ui/react-hooks/lib/useIsomorphicLayout
 
 const EMPTY_MODIFIERS = []
 
-const usePopper = function usePopper(
-  referenceElement,
-  popperElement,
-  options = {}
-) {
+const usePopper = function usePopper(referenceElement, popperElement, options = {}) {
   const prevOptions = useRef(null)
   const optionsWithDefaults = {
     onFirstUpdate: options.onFirstUpdate,
@@ -100,20 +96,12 @@ const usePopper = function usePopper(
   )
   useIsomorphicLayoutEffect(
     function () {
-      if (
-        referenceElement == null ||
-        popperElement == null ||
-        popperInstanceRef.current
-      ) {
+      if (referenceElement == null || popperElement == null || popperInstanceRef.current) {
         return
       }
 
       const createPopper = options.createPopper || defaultCreatePopper
-      const popperInstance = createPopper(
-        referenceElement,
-        popperElement,
-        popperOptions
-      )
+      const popperInstance = createPopper(referenceElement, popperElement, popperOptions)
       popperInstanceRef.current = popperInstance
       return function () {
         popperInstance.destroy()
@@ -127,9 +115,7 @@ const usePopper = function usePopper(
     styles: state.styles,
     attributes: state.attributes,
     update: popperInstanceRef.current ? popperInstanceRef.current.update : null,
-    forceUpdate: popperInstanceRef.current
-      ? popperInstanceRef.current.forceUpdate
-      : null
+    forceUpdate: popperInstanceRef.current ? popperInstanceRef.current.forceUpdate : null
   }
 }
 

@@ -22,30 +22,24 @@ const ColorsAndSizesDemo = () => {
     <Article className={CLASS_SECTION}>
       <H2>Colors & Sizes</H2>
       <Paragraph>
-        Icons can change its inner colors using the <Code>color</Code> prop. The
-        inner svg elements fill inherit by default the current color.
+        Icons can change its inner colors using the <Code>color</Code> prop. The inner svg elements fill inherit by
+        default the current color.
       </Paragraph>
       <Paragraph>
-        Sui-components provides {Object.values(ATOM_ICON_SIZES).length}{' '}
-        different icon sizes under the <Code>size</Code> prop.
+        Sui-components provides {Object.values(ATOM_ICON_SIZES).length} different icon sizes under the <Code>size</Code>{' '}
+        prop.
       </Paragraph>
       –––
       <br />
       <br />
-      <RadioButtonGroup
-        onChange={(event, value) => setIcon(value)}
-        value={selectedIcon}
-      >
+      <RadioButtonGroup onChange={(event, value) => setIcon(value)} value={selectedIcon}>
         {Object.values(ICONS).map((iconName, index) => (
           <RadioButton
             key={index}
             value={iconName}
             label={
               <AtomIcon>
-                <AntDesignIcon
-                  icon={iconName}
-                  style={{color: 'currentColor'}}
-                />
+                <AntDesignIcon icon={iconName} style={{color: 'currentColor'}} />
               </AtomIcon>
             }
           />
@@ -67,15 +61,9 @@ const ColorsAndSizesDemo = () => {
               <Label>{iconSize}</Label>
             </Cell>
             {Object.values(ATOM_ICON_COLORS).map((iconColor, indexColor) => (
-              <Cell
-                key={`${indexSize}-${indexColor}`}
-                style={{...flexCenteredStyle, minHeight: 32}}
-              >
+              <Cell key={`${indexSize}-${indexColor}`} style={{...flexCenteredStyle, minHeight: 32}}>
                 <AtomIcon color={iconColor} size={iconSize}>
-                  <AntDesignIcon
-                    icon={selectedIcon}
-                    style={{color: 'currentColor'}}
-                  />
+                  <AntDesignIcon icon={selectedIcon} style={{color: 'currentColor'}} />
                 </AtomIcon>
               </Cell>
             ))}

@@ -11,11 +11,7 @@ export const ArticleInformation = ({className}) => {
       <Paragraph>
         The prop <Code>helpText</Code> is used add extra information.
       </Paragraph>
-      <MoleculeButtonGroupField
-        id="info-help-text"
-        label="Your text here"
-        helpText="Your description here"
-      >
+      <MoleculeButtonGroupField id="info-help-text" label="Your text here" helpText="Your description here">
         <AtomButtom onClick={e => window.alert('clicked A')}>A</AtomButtom>
         <AtomButtom onClick={e => window.alert('clicked B')}>B</AtomButtom>
         <AtomButtom onClick={e => window.alert('clicked C')}>C</AtomButtom>

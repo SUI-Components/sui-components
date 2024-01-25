@@ -78,13 +78,7 @@ export const SIZES = {SMALL: 'small', LARGE: 'large'}
 /**
  * All the available modifiers for the button
  */
-export const MODIFIERS = [
-  'disabled',
-  'fullWidth',
-  'focused',
-  'negative',
-  'link'
-]
+export const MODIFIERS = ['disabled', 'fullWidth', 'focused', 'negative', 'link']
 
 /**
  * Icon available positions
@@ -170,9 +164,7 @@ export const cleanProps = props => {
  * @return {Array<String>}
  */
 export const getModifiers = props => {
-  return Object.keys(props).filter(
-    name => props[name] && MODIFIERS.includes(name)
-  )
+  return Object.keys(props).filter(name => props[name] && MODIFIERS.includes(name))
 }
 
 export function deprecated(
@@ -223,15 +215,7 @@ export const typeConversion = ({type, design, color, link, href, ...other}) => {
   return result
 }
 
-export const getPropsWithDefaultValues = ({
-  type,
-  design,
-  color,
-  alignment,
-  link,
-  href,
-  ...other
-}) => ({
+export const getPropsWithDefaultValues = ({type, design, color, alignment, link, href, ...other}) => ({
   ...other,
   link,
   type,
@@ -244,8 +228,7 @@ export const getPropsWithDefaultValues = ({
  * Detect if element is an AtomIcon to force correct size
  * @param {React.ReactElement} icon
  */
-export const isAtomIcon = icon =>
-  icon?.type?.displayName === ATOM_ICON_DISPLAY_NAME
+export const isAtomIcon = icon => icon?.type?.displayName === ATOM_ICON_DISPLAY_NAME
 
 /**
  * Prepare the AtomIcon element to use the correct size

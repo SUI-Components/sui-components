@@ -15,10 +15,7 @@ import {
   RadioButton
 } from '@s-ui/documentation-library'
 
-import MoleculeDrawer, {
-  MoleculeDrawerOverlay,
-  moleculeDrawerPlacements
-} from '../src/index.js'
+import MoleculeDrawer, {MoleculeDrawerOverlay, moleculeDrawerPlacements} from '../src/index.js'
 
 const flexCenteredStyle = {
   display: 'flex',
@@ -53,8 +50,8 @@ const DemoPlacement = ({className}) => {
     <Article className={className}>
       <H2>Placement</H2>
       <Paragraph>
-        A client can configure where the drawer will be placed in the screen
-        (left, bottom, right, top) configuring the <Code>placement</Code> prop.
+        A client can configure where the drawer will be placed in the screen (left, bottom, right, top) configuring the{' '}
+        <Code>placement</Code> prop.
       </Paragraph>
       <Box
         style={{
@@ -121,8 +118,7 @@ const DemoPlacement = ({className}) => {
                 <Cell style={flexCenteredStyle}>
                   <RadioButton
                     onClick={() => {
-                      const value =
-                        isOpenTop && isOpenLeft && isOpenRight && isOpenBottom
+                      const value = isOpenTop && isOpenLeft && isOpenRight && isOpenBottom
                       setIsOpenTop(!value)
                       setIsOpenLeft(!value)
                       setIsOpenRight(!value)
@@ -130,9 +126,7 @@ const DemoPlacement = ({className}) => {
                     }}
                     label={<AntDesignIcon icon="AiTwotoneAppstore" />}
                     value
-                    checked={
-                      isOpenTop && isOpenLeft && isOpenRight && isOpenBottom
-                    }
+                    checked={isOpenTop && isOpenLeft && isOpenRight && isOpenBottom}
                   />
                 </Cell>
                 <Cell style={flexCenteredStyle}>
@@ -182,26 +176,17 @@ const DemoPlacement = ({className}) => {
           <Cell />
           <MoleculeDrawerOverlay
             target={bodyRef}
-            isVisible={
-              isOpenOverlay &&
-              (isOpenTop || isOpenLeft || isOpenRight || isOpenBottom)
-            }
+            isVisible={isOpenOverlay && (isOpenTop || isOpenLeft || isOpenRight || isOpenBottom)}
             style={flexCenteredStyle}
           >
-            <Paragraph style={{color: 'white'}}>
-              Press 'Esc' key to close the Overlay.
-            </Paragraph>
+            <Paragraph style={{color: 'white'}}>Press 'Esc' key to close the Overlay.</Paragraph>
           </MoleculeDrawerOverlay>
         </Grid>
       </Box>
       <br />
       <br />
       <Paragraph>User can set the overlay:</Paragraph>
-      <RadioButton
-        onClick={() => setIsOpenOverlay(!isOpenOverlay)}
-        label="overlay"
-        checked={isOpenOverlay}
-      />
+      <RadioButton onClick={() => setIsOpenOverlay(!isOpenOverlay)} label="overlay" checked={isOpenOverlay} />
       <Paragraph>–––</Paragraph>
       <Paragraph>User can also combine multiple drawers per page.</Paragraph>
     </Article>

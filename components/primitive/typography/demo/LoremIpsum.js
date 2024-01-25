@@ -25,11 +25,7 @@ export const useLorem = ({
     words,
     units
   })
-  return format === 'html' ? (
-    <span dangerouslySetInnerHTML={{__html: text}} />
-  ) : (
-    text
-  )
+  return format === 'html' ? <span dangerouslySetInnerHTML={{__html: text}} /> : text
 }
 
 /** See: https://www.npmjs.com/package/lorem-ipsum **/

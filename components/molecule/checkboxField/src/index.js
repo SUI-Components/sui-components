@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
 
-import AtomCheckbox, {
-  atomCheckboxSizes,
-  atomCheckboxStatus
-} from '@s-ui/react-atom-checkbox'
+import AtomCheckbox, {atomCheckboxSizes, atomCheckboxStatus} from '@s-ui/react-atom-checkbox'
 import MoleculeField from '@s-ui/react-molecule-field'
 
 import {BASE_CLASS} from './settings.js'
@@ -38,12 +35,7 @@ const MoleculeCheckboxField = ({
         isAligned
         disabled={disabled}
       >
-        <AtomCheckbox
-          id={id}
-          disabled={disabled}
-          onChange={onChange}
-          {...props}
-        />
+        <AtomCheckbox id={id} disabled={disabled} onChange={onChange} {...props} />
       </MoleculeField>
     </div>
   )
@@ -88,7 +80,4 @@ MoleculeCheckboxField.propTypes = {
 
 export default MoleculeCheckboxField
 
-export {
-  atomCheckboxStatus as moleculeCheckboxFieldStatus,
-  atomCheckboxSizes as moleculeCheckboxFieldSizes
-}
+export {atomCheckboxStatus as moleculeCheckboxFieldStatus, atomCheckboxSizes as moleculeCheckboxFieldSizes}

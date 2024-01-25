@@ -2,16 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
 import AtomCheckbox from '../../src/index.js'
 import {flexCenteredStyle, ICONS} from '../settings.js'
@@ -27,12 +18,10 @@ const ArticleCustomIcons = ({className}) => {
     <Article className={className}>
       <H2>Custom icons</H2>
       <Paragraph>
-        Tick icons can be fully customized using the props unless if the{' '}
-        <Code>isNative</Code> flag is activated.
+        Tick icons can be fully customized using the props unless if the <Code>isNative</Code> flag is activated.
       </Paragraph>
       <Paragraph>
-        <Code>checkedIcon</Code>: icon displayed when checkbox status is
-        checked.
+        <Code>checkedIcon</Code>: icon displayed when checkbox status is checked.
       </Paragraph>
       <Grid cols={6}>
         <Cell>
@@ -62,17 +51,15 @@ const ArticleCustomIcons = ({className}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        <Code>indeterminateIcon</Code>: icon displayed when checkbox status is
-        checked unchecked and <Code>indeterminate</Code> prop i true.
+        <Code>indeterminateIcon</Code>: icon displayed when checkbox status is checked unchecked and{' '}
+        <Code>indeterminate</Code> prop i true.
       </Paragraph>
       <Grid cols={6}>
         <Cell>
           <RadioButtonGroup
             value={indeterminateIcon}
             fullWidth
-            onChange={(event, value) =>
-              value && setState({indeterminateIcon: value})
-            }
+            onChange={(event, value) => value && setState({indeterminateIcon: value})}
           >
             <RadioButton
               value="AiOutlineLine"

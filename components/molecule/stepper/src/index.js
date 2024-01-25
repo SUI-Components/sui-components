@@ -58,12 +58,7 @@ const MoleculeStepper = forwardRef(
           hasConnector={hasConnector}
           onChange={onChange}
         >
-          <Stepper
-            showLabel={showLabel}
-            steps={steps}
-            step={step}
-            labels={labels}
-          >
+          <Stepper showLabel={showLabel} steps={steps} step={step} labels={labels}>
             {children}
           </Stepper>
         </StepsProvider>
@@ -81,9 +76,7 @@ MoleculeStepper.propTypes = {
   /** element orientation **/
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   /** inner content **/
-  children: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.instanceOf(Step)])
-  ),
+  children: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.instanceOf(Step)])),
   /** different look and feels **/
   design: PropTypes.oneOf(Object.values(DESIGN)),
   /** element position alignements **/

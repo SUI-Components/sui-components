@@ -58,17 +58,9 @@ const AtomImage = ({
     handleLoad()
   }, [handleLoad, imageRef])
 
-  const classNames = cx(
-    BASE_CLASS,
-    `is-${isLoading ? 'loading' : 'loaded'}`,
-    error && `is-error`
-  )
+  const classNames = cx(BASE_CLASS, `is-${isLoading ? 'loading' : 'loaded'}`, error && `is-error`)
 
-  const classNamesFigure = cx(
-    BASE_CLASS_FIGURE,
-    placeholder && CLASS_PLACEHOLDER,
-    skeleton && CLASS_SKELETON
-  )
+  const classNamesFigure = cx(BASE_CLASS_FIGURE, placeholder && CLASS_PLACEHOLDER, skeleton && CLASS_SKELETON)
 
   const handleError = () => {
     setIsLoading(false)
@@ -82,10 +74,7 @@ const AtomImage = ({
 
   return (
     <div className={classNames}>
-      <figure
-        className={classNamesFigure}
-        style={!error && (placeholder || skeleton) ? figureStyles : {}}
-      >
+      <figure className={classNamesFigure} style={!error && (placeholder || skeleton) ? figureStyles : {}}>
         <picture>
           {sources.map((source, idx) => (
             <source key={idx} {...source} />
@@ -103,12 +92,8 @@ const AtomImage = ({
           />
         </picture>
       </figure>
-      {!error && isLoading && spinner && (
-        <Injector classNames={CLASS_SPINNER}>{spinner}</Injector>
-      )}
-      {error && (
-        <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />
-      )}
+      {!error && isLoading && spinner && <Injector classNames={CLASS_SPINNER}>{spinner}</Injector>}
+      {error && <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />}
     </div>
   )
 }

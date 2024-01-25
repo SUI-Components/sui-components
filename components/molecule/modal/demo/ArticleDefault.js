@@ -31,9 +31,7 @@ const ArticleDefault = ({className}) => {
   const [open, setOpen] = useState(false)
   const [count, setCount] = useState(3)
   const [header, setHeader] = useState('')
-  const [onClosingFns, setOnClosingFns] = useState(
-    Object.values(ONCLOSING_CALLBACKS)
-  )
+  const [onClosingFns, setOnClosingFns] = useState(Object.values(ONCLOSING_CALLBACKS))
 
   const onChangeHandler = () => {
     setOpen(!open)
@@ -73,9 +71,8 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        By Default MoleculeModal exports the{' '}
-        <Code>MoleculeModalWithAnimation</Code> component. It's vertical
-        animated on its show/hide action.{' '}
+        By Default MoleculeModal exports the <Code>MoleculeModalWithAnimation</Code> component. It's vertical animated
+        on its show/hide action.{' '}
         <Anchor href="#MoleculeModalWithoutAnimation">
           <Code>MoleculeModalWithoutAnimation</Code>
         </Anchor>{' '}
@@ -89,17 +86,16 @@ const ArticleDefault = ({className}) => {
         Use <Code>onClose</Code> handler to toggle its value.
       </Paragraph>
       <Paragraph>
-        Closing behavior can be fired by two different behaviors tacked with the
-        combination of 2 different boolean props:
+        Closing behavior can be fired by two different behaviors tacked with the combination of 2 different boolean
+        props:
       </Paragraph>
       <UnorderedList>
         <ListItem>
-          <Code>closeOnOutsideClick</Code>: boolean prop for firing onClose
-          callback function when user clicks any other outer element.
+          <Code>closeOnOutsideClick</Code>: boolean prop for firing onClose callback function when user clicks any other
+          outer element.
         </ListItem>
         <ListItem>
-          <Code>closeOnEscKeyDown</Code>: boolean prop for firing onClose
-          callback function when user press 'ESC' key.
+          <Code>closeOnEscKeyDown</Code>: boolean prop for firing onClose callback function when user press 'ESC' key.
         </ListItem>
       </UnorderedList>
       <Grid cols={1} gutter={[8, 8]}>
@@ -107,10 +103,7 @@ const ArticleDefault = ({className}) => {
           <Label>closing handler:</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={onClosingFns}
-            onChange={onChangeClosingHandler}
-          >
+          <RadioButtonGroup value={onClosingFns} onChange={onChangeClosingHandler}>
             <RadioButton
               value="closeOnOutsideClick"
               label="closeOnOutsideClick"
@@ -125,8 +118,7 @@ const ArticleDefault = ({className}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        A Modal <Code>header</Code> can also be configured using a react.node
-        prop
+        A Modal <Code>header</Code> can also be configured using a react.node prop
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
@@ -139,19 +131,13 @@ const ArticleDefault = ({className}) => {
       <MoleculeModal
         isOpen={open}
         onClose={onCloseHandler}
-        closeOnOutsideClick={onClosingFns.includes(
-          ONCLOSING_CALLBACKS.OUTSIDE_CLICK
-        )}
+        closeOnOutsideClick={onClosingFns.includes(ONCLOSING_CALLBACKS.OUTSIDE_CLICK)}
         closeOnEscKeyDown={onClosingFns.includes(ONCLOSING_CALLBACKS.ESCAPE)}
         header={header}
       >
         <Grid cols={5} gutter={[8, 8]}>
           <Cell>
-            <Button
-              onClick={largeClickHandler(-1)}
-              disabled={count <= 1}
-              fullWidth
-            >
+            <Button onClick={largeClickHandler(-1)} disabled={count <= 1} fullWidth>
               -1
             </Button>
           </Cell>
@@ -159,11 +145,7 @@ const ArticleDefault = ({className}) => {
             <Paragraph>Paragraph number: {count}</Paragraph>
           </Cell>
           <Cell>
-            <Button
-              onClick={largeClickHandler(1)}
-              disabled={count >= 20}
-              fullWidth
-            >
+            <Button onClick={largeClickHandler(1)} disabled={count >= 20} fullWidth>
               +1
             </Button>
           </Cell>

@@ -19,8 +19,7 @@ const ArticleDefault = ({className}) => {
       <Paragraph>The element can work controlled and uncontrolled</Paragraph>
       <H3>Uncontrolled</H3>
       <Paragraph>
-        For uncontrolled behavior use the <Code>defaultValue</Code> (string) and{' '}
-        <Code>defaultTags</Code> (array) props.
+        For uncontrolled behavior use the <Code>defaultValue</Code> (string) and <Code>defaultTags</Code> (array) props.
       </Paragraph>
       <MoleculeInputTags
         ref={ref}
@@ -38,8 +37,7 @@ const ArticleDefault = ({className}) => {
       />
       <H3>Controlled</H3>
       <Paragraph>
-        For controlled behavior use the <Code>value</Code> (string) and{' '}
-        <Code>tags</Code> (array) props.
+        For controlled behavior use the <Code>value</Code> (string) and <Code>tags</Code> (array) props.
       </Paragraph>
       <MoleculeInputTags
         name="ArticleDefault2"

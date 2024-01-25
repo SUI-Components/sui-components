@@ -9,9 +9,8 @@ const ArticleSliderInvertColors = ({className}) => {
     <Article className={className}>
       <H2>Invert colors</H2>
       <Paragraph>
-        Slider provides a boolean prop to also set an alternative colors
-        configuration inverting the track and rail colors under the{' '}
-        <Code>invertColors</Code> prop.
+        Slider provides a boolean prop to also set an alternative colors configuration inverting the track and rail
+        colors under the <Code>invertColors</Code> prop.
       </Paragraph>
       <Box>
         <AtomSlider invertColors />

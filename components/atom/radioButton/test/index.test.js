@@ -114,11 +114,7 @@ describe(json.name, () => {
     userEvents.click(element)
     sinon.assert.called(spy)
     sinon.assert.callCount(spy, 1)
-    sinon.assert.calledWith(
-      spy,
-      sinon.match.truthy,
-      sinon.match({name: props.name, value: props.value, checked: true})
-    )
+    sinon.assert.calledWith(spy, sinon.match.truthy, sinon.match({name: props.name, value: props.value, checked: true}))
   })
 
   it('should NOT fire onChange handler value when the element is clicked when checked is true', () => {
@@ -158,11 +154,7 @@ describe(json.name, () => {
     userEvents.click(element)
     sinon.assert.called(spy)
     sinon.assert.callCount(spy, 1)
-    sinon.assert.calledWith(
-      spy,
-      sinon.match.truthy,
-      sinon.match({name: props.name, value: props.value, checked: true})
-    )
+    sinon.assert.calledWith(spy, sinon.match.truthy, sinon.match({name: props.name, value: props.value, checked: true}))
   })
 
   it('should NOT fire onChange handler value when the disabled element is clicked when checked is undefined', () => {

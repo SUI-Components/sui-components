@@ -1,26 +1,16 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 
-import MoleculeCheckboxField, {
-  moleculeCheckboxFieldStatus
-} from '../src/index.js'
+import MoleculeCheckboxField, {moleculeCheckboxFieldStatus} from '../src/index.js'
 
 export const ArticleStatus = ({className}) => {
   return (
     <Article className={`${className}-section`}>
       <H2>Semantic Status</H2>
       <Paragraph>
-        To provide teh semantic status on a checkboxField use the{' '}
-        <Code>moleculeCheckboxFieldStatus</Code> enum on <Code>status</Code>{' '}
-        prop combined with <Code>successText</Code>, <Code>errorText</Code> or{' '}
+        To provide teh semantic status on a checkboxField use the <Code>moleculeCheckboxFieldStatus</Code> enum on{' '}
+        <Code>status</Code> prop combined with <Code>successText</Code>, <Code>errorText</Code> or{' '}
         <Code>alertText</Code>(string) props.
       </Paragraph>
       <Grid cols={3} gutter={[8, 8]}>
@@ -32,8 +22,7 @@ export const ArticleStatus = ({className}) => {
             status={moleculeCheckboxFieldStatus.SUCCESS}
             successText="Everything ok!"
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -46,8 +35,7 @@ export const ArticleStatus = ({className}) => {
             status={moleculeCheckboxFieldStatus.ERROR}
             errorText="All wrong!"
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -60,8 +48,7 @@ export const ArticleStatus = ({className}) => {
             status={moleculeCheckboxFieldStatus.ALERT}
             alertText="Something meh..."
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -74,8 +61,7 @@ export const ArticleStatus = ({className}) => {
             status={moleculeCheckboxFieldStatus.SUCCESS}
             successText="Everything ok!"
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />
@@ -88,8 +74,7 @@ export const ArticleStatus = ({className}) => {
             status={moleculeCheckboxFieldStatus.ERROR}
             errorText="All wrong!"
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />
@@ -102,8 +87,7 @@ export const ArticleStatus = ({className}) => {
             status={moleculeCheckboxFieldStatus.ALERT}
             alertText="Something meh..."
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />

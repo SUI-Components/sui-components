@@ -3,15 +3,7 @@ import {useDebounce} from 'react-use'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
 import MoleculeButtonGroup from '../../src/index.js'
@@ -23,9 +15,7 @@ const ArticleDefault = ({className}) => {
   return (
     <Article className={className}>
       <H2>Default</H2>
-      <Paragraph>
-        a ButtonGroup is a group of buttons that trigger some action (or link)
-      </Paragraph>
+      <Paragraph>a ButtonGroup is a group of buttons that trigger some action (or link)</Paragraph>
       <Grid gutter={[8, 8]} cols={1}>
         <Cell>
           <MoleculeButtonGroup>

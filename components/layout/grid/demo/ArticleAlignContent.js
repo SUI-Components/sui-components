@@ -1,19 +1,9 @@
 import {useState} from 'react'
 
-import LayoutGrid, {
-  LayoutGridAlignContent,
-  LayoutGridItem
-} from 'components/layout/grid/src/index.js'
+import LayoutGrid, {LayoutGridAlignContent, LayoutGridItem} from 'components/layout/grid/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
 import DemoBox from './demoBox.js'
 import DemoWrapper from './demoWrapper.js'
@@ -24,22 +14,13 @@ const ArticleAlignContent = ({classname}) => {
     <Article className={classname}>
       <H2>Align Content</H2>
       <Paragraph>
-        Use the <Code>alignContent</Code> prop to distribute container’s lines.
-        Valid values: <Code>center</Code> <Code>flex-start</Code>{' '}
-        <Code>flex-end</Code> <Code>space-around</Code>{' '}
-        <Code>space-between</Code> <Code>space-evenly</Code>{' '}
+        Use the <Code>alignContent</Code> prop to distribute container’s lines. Valid values: <Code>center</Code>{' '}
+        <Code>flex-start</Code> <Code>flex-end</Code> <Code>space-around</Code> <Code>space-between</Code>{' '}
+        <Code>space-evenly</Code>{' '}
       </Paragraph>
-      <RadioButtonGroup
-        value={alignContentState}
-        fullWidth
-        onChange={(event, value) => setAlignContentState(value)}
-      >
+      <RadioButtonGroup value={alignContentState} fullWidth onChange={(event, value) => setAlignContentState(value)}>
         {Object.values(LayoutGridAlignContent).map(alignContent => (
-          <RadioButton
-            key={alignContent}
-            value={alignContent.toString()}
-            label={alignContent}
-          />
+          <RadioButton key={alignContent} value={alignContent.toString()} label={alignContent} />
         ))}
       </RadioButtonGroup>
       <div key={alignContentState}>

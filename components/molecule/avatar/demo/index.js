@@ -18,9 +18,7 @@ const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <H1>Avatar</H1>
-      <Paragraph>
-        The Avatar component is the representation of a user.
-      </Paragraph>
+      <Paragraph>The Avatar component is the representation of a user.</Paragraph>
       <ArticleDefault className={CLASS_SECTION} />
       <br />
       <ArticleImage className={CLASS_SECTION} />
@@ -34,9 +32,7 @@ const Demo = () => {
       <ArticleRef className={CLASS_SECTION} />
       <br />
       <H1>Avatar.Badge</H1>
-      <Paragraph>
-        Badge generates a small badge to its parent's avatar.
-      </Paragraph>
+      <Paragraph>Badge generates a small badge to its parent's avatar.</Paragraph>
       <ArticleBadge className={CLASS_SECTION} />
     </div>
   )

@@ -2,15 +2,7 @@ import {useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Button,
-  Cell,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Button, Cell, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomPopover from '../../src/index.js'
 
@@ -28,14 +20,9 @@ const ArticleRef = ({className, content: Content}) => {
     <Article className={className}>
       <H2>Reference forwarding</H2>
       <Paragraph>
-        Reference can be defined at the Wrapped element. Also, the popover
-        element can be referenced.
+        Reference can be defined at the Wrapped element. Also, the popover element can be referenced.
       </Paragraph>
-      <AtomPopover
-        content={<Content />}
-        ref={outerRef}
-        onClose={() => setCounter(counter + 1)}
-      >
+      <AtomPopover content={<Content />} ref={outerRef} onClose={() => setCounter(counter + 1)}>
         <Button
           onClick={() => {
             setCounter(counter + 1)

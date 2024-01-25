@@ -18,10 +18,7 @@ const ArticleOverlay = ({className}) => {
         {Object.keys(atomPanelColors).map((color, idx) => (
           <div style={flexWrapper} key={idx}>
             {Object.keys(atomPanelAlpha).map((alpha, index) => (
-              <div
-                key={index}
-                style={Object.assign({}, flexItem, {width: '100px'})}
-              >
+              <div key={index} style={Object.assign({}, flexItem, {width: '100px'})}>
                 <AtomPanel
                   src="https://picsum.photos/100/100"
                   overlayColor={atomPanelColors[color]}

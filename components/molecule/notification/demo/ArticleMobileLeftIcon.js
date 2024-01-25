@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeNotification from '../src/index.js'
 
@@ -16,9 +9,8 @@ const ArticleMobileLeftIcon = ({className}) => {
     <Article className={className}>
       <H2>Mobile Left Icon</H2>
       <Paragraph>
-        By default, the left icon is hidden in small devices. Anyways, if user
-        wants to keep it on that view, it can be forced using{' '}
-        <Code>showLeftIconMobile</Code> (boolean) prop to true.
+        By default, the left icon is hidden in small devices. Anyways, if user wants to keep it on that view, it can be
+        forced using <Code>showLeftIconMobile</Code> (boolean) prop to true.
       </Paragraph>
       <Grid gutter={[8, 8]} cols={1}>
         <Cell>

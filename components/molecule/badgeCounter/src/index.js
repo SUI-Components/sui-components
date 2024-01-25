@@ -19,14 +19,7 @@ import {
   VARIANTS
 } from './config.js'
 
-const MoleculeBadgeCounter = ({
-  children,
-  label = '',
-  labelMax = MAX_LABEL,
-  size = SIZES.MEDIUM,
-  status,
-  variant
-}) => {
+const MoleculeBadgeCounter = ({children, label = '', labelMax = MAX_LABEL, size = SIZES.MEDIUM, status, variant}) => {
   const hasLabel = Boolean(label)
   const hasChildren = Boolean(children)
 
@@ -42,19 +35,11 @@ const MoleculeBadgeCounter = ({
     [CLASS_WITH_CHILDREN]: hasChildren
   })
 
-  const processedLabel =
-    parseFloat(label) > parseFloat(labelMax) ? `+${labelMax}` : label
+  const processedLabel = parseFloat(label) > parseFloat(labelMax) ? `+${labelMax}` : label
 
-  const classNameBullet = cx(
-    CLASS_BULLET,
-    CLASS_SIZE,
-    CLASS_STATUS,
-    CLASS_VARIANT,
-    CLASS_LENGTH_LABEL,
-    {
-      [CLASS_BULLET_WITH_CHILDREN]: Boolean(children)
-    }
-  )
+  const classNameBullet = cx(CLASS_BULLET, CLASS_SIZE, CLASS_STATUS, CLASS_VARIANT, CLASS_LENGTH_LABEL, {
+    [CLASS_BULLET_WITH_CHILDREN]: Boolean(children)
+  })
 
   return (
     <span className={className}>

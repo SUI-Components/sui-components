@@ -89,9 +89,7 @@ const MoleculePhotoUploader = forwardRef(
   ) => {
     const [files, setFiles] = useState([])
     const [isLoading, setIsLoading] = useState(Boolean(initialPhotos.length))
-    const [notificationError, setNotificationError] = useState(
-      DEFAULT_NOTIFICATION_ERROR
-    )
+    const [notificationError, setNotificationError] = useState(DEFAULT_NOTIFICATION_ERROR)
 
     const DEFAULT_FORMAT_TO_BASE_64_OPTIONS = {
       rotation: DEFAULT_IMAGE_ROTATION_DEGREES,
@@ -245,10 +243,7 @@ const MoleculePhotoUploader = forwardRef(
     const _scrollToBottom = () => {
       if (!disableScrollToBottom) {
         const bounding = container.getBoundingClientRect()
-        if (
-          bounding.bottom >
-          (window.innerHeight || document.documentElement.clientHeight)
-        ) {
+        if (bounding.bottom > (window.innerHeight || document.documentElement.clientHeight)) {
           container.scrollIntoView({
             behavior: 'smooth',
             block: 'end'
@@ -286,9 +281,7 @@ const MoleculePhotoUploader = forwardRef(
                 defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
                 deleteIcon={deleteIcon}
                 dragDelay={dragDelay}
-                errorInitialPhotoDownloadErrorText={
-                  errorInitialPhotoDownloadErrorText
-                }
+                errorInitialPhotoDownloadErrorText={errorInitialPhotoDownloadErrorText}
                 files={files}
                 isPhotoUploaderFully={isPhotoUploaderFully}
                 mainPhotoLabel={mainPhotoLabel}
@@ -307,18 +300,10 @@ const MoleculePhotoUploader = forwardRef(
               <DragState icon={dragPhotosIcon()} text={dropPhotosHereText} />
             )}
             {isDragAccept && isPhotoUploaderFully() && (
-              <DragState
-                icon={rejectPhotosIcon()}
-                status={DRAG_STATE_STATUS_REJECTED}
-                text={limitPhotosUploadedText}
-              />
+              <DragState icon={rejectPhotosIcon()} status={DRAG_STATE_STATUS_REJECTED} text={limitPhotosUploadedText} />
             )}
             {isDragAccept && !isPhotoUploaderFully() && isLoading && (
-              <DragState
-                icon={rejectPhotosIcon()}
-                status={DRAG_STATE_STATUS_REJECTED}
-                text={uploadingPhotosText}
-              />
+              <DragState icon={rejectPhotosIcon()} status={DRAG_STATE_STATUS_REJECTED} text={uploadingPhotosText} />
             )}
             {isDragReject && (
               <DragState
@@ -330,9 +315,7 @@ const MoleculePhotoUploader = forwardRef(
           </div>
           <DragNotification
             icon={infoIcon()}
-            onCloseCallback={() =>
-              setNotificationError(DEFAULT_NOTIFICATION_ERROR)
-            }
+            onCloseCallback={() => setNotificationError(DEFAULT_NOTIFICATION_ERROR)}
             show={notificationError.isError}
             text={notificationError.text}
           />
@@ -534,7 +517,4 @@ MoleculePhotoUploader.propTypes = {
 
 export default MoleculePhotoUploader
 
-export {
-  ROTATION_DIRECTION as MoleculePhotoUploaderRotationDirection,
-  ACTIONS as MoleculePhotoUploaderActions
-}
+export {ROTATION_DIRECTION as MoleculePhotoUploaderRotationDirection, ACTIONS as MoleculePhotoUploaderActions}

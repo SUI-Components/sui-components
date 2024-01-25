@@ -7,20 +7,12 @@ import AvatarFallbackIcon from '../AvatarFallbackIcon/index.js'
 import {BASE_CLASS_NAME as FALLBACK_ICON_CLASS_NAME} from '../AvatarFallbackIcon/settings.js'
 import AvatarFallbackName from '../AvatarFallbackName/index.js'
 
-const MoleculeAvatarFallback = ({
-  name,
-  icon = <AvatarFallbackIcon />,
-  className: classNameProp,
-  ...others
-}) => {
+const MoleculeAvatarFallback = ({name, icon = <AvatarFallbackIcon />, className: classNameProp, ...others}) => {
   const className = cx(classNameProp, FALLBACK_ICON_CLASS_NAME)
 
   const [Component, providedProps] = name
     ? [AvatarFallbackName, {name, ...others}]
-    : [
-        props => <Injector {...props}>{icon}</Injector>,
-        {...others, className, role: 'img'}
-      ]
+    : [props => <Injector {...props}>{icon}</Injector>, {...others, className, role: 'img'}]
 
   return <Component {...providedProps} />
 }

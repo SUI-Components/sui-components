@@ -16,11 +16,7 @@ const Content = ({className, title, number, style}) => {
         .fill(true)
         .map((v, index) => (
           <Paragraph key={index} className="demo-content-paragraph">
-            <LoremIpsum
-              units="words"
-              count={Math.trunc(200 / paragraphNumber)}
-              format="plain"
-            />
+            <LoremIpsum units="words" count={Math.trunc(200 / paragraphNumber)} format="plain" />
           </Paragraph>
         ))}
     </Article>

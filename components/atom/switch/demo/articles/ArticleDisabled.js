@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomSwitch from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
@@ -15,9 +8,7 @@ import {flexCenteredStyle} from '../settings.js'
 const DisabledArticle = ({className}) => (
   <Article className={className}>
     <H2>Disabled</H2>
-    <Paragraph>
-      This prop is available to get a blocked status component
-    </Paragraph>
+    <Paragraph>This prop is available to get a blocked status component</Paragraph>
     <Grid cols={3} style={{width: 400}}>
       {[
         ['value', {...flexCenteredStyle, justifyContent: 'flex-start'}],

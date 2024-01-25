@@ -2,16 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Box,
-  Code,
-  H2,
-  Label,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Box, Code, H2, Label, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
 import AtomPopover, {atomPopoverTriggers} from '../../src/index.js'
 import IconClose from '../Icons/IconClose.js'
@@ -24,22 +15,13 @@ const ArticleCloseIcon = ({className, content: Content}) => {
     <Article className={className}>
       <H2>Close Icon</H2>
       <Paragraph>
-        Sometimes, the popover needs to implement a close icon to tackle the
-        closing action. AtomPopover have a <Code>closeIcon</Code> (React Node)
-        prop to set the provided element on the top left position. When the
-        element is pressed, the <Code>onClose</Code> event is fired.
+        Sometimes, the popover needs to implement a close icon to tackle the closing action. AtomPopover have a{' '}
+        <Code>closeIcon</Code> (React Node) prop to set the provided element on the top left position. When the element
+        is pressed, the <Code>onClose</Code> event is fired.
       </Paragraph>
       <RadioButtonGroup value={isVisible} fullWidth>
-        <RadioButton
-          value="true"
-          label="true"
-          onClick={() => setIsVisible('true')}
-        />
-        <RadioButton
-          value="false"
-          label="false"
-          onClick={() => setIsVisible('false')}
-        />
+        <RadioButton value="true" label="true" onClick={() => setIsVisible('true')} />
+        <RadioButton value="false" label="false" onClick={() => setIsVisible('false')} />
       </RadioButtonGroup>
       <Box style={{display: 'flex', justifyContent: 'center'}}>
         <AtomPopover

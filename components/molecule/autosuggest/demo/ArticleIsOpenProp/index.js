@@ -12,8 +12,7 @@ const ArticleIsOpenProp = () => {
       <H2>Autosuggest list is open</H2>
       <H3>With preselected Value</H3>
       <Paragraph>
-        The <Code>isOpen</Code> property allows you to open the Suggestions List
-        by default
+        The <Code>isOpen</Code> property allows you to open the Suggestions List by default
       </Paragraph>
       <MoleculeAutosuggestWithStateTagsLabels
         iconClear={iconClose}
@@ -22,9 +21,7 @@ const ArticleIsOpenProp = () => {
         isOpen
         multiselection
         onChange={() => console.log('onChange')}
-        onChangeTags={(_, {tags, ...args}) =>
-          console.log('onChangeTags', {tags, ...args})
-        }
+        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
         onClear={() => console.log('Clear pressed')}
         onEnter={() => console.log('onEnter')}
         onSelect={() => console.log('onSelect')}

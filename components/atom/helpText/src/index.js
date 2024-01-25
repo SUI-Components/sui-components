@@ -10,10 +10,7 @@ const AtomHelpText = forwardRef(({text}, forwardedRef) => {
   const isTextString = typeof text === 'string'
   const Component = isTextString ? 'span' : Injector
   return (
-    <Component
-      className={BASE_CLASS}
-      {...(isTextString && {ref: forwardedRef})}
-    >
+    <Component className={BASE_CLASS} {...(isTextString && {ref: forwardedRef})}>
       {text}
     </Component>
   )

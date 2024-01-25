@@ -5,15 +5,7 @@ import Injector, {combineProps} from '@s-ui/react-primitive-injector'
 
 import {BASE_CLASS} from './settings.js'
 
-const MoleculeRadioButtonGroup = ({
-  id,
-  value,
-  defaultValue,
-  onChange,
-  children,
-  name,
-  ...props
-}) => {
+const MoleculeRadioButtonGroup = ({id, value, defaultValue, onChange, children, name, ...props}) => {
   const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
   const handleChangeGroup = (e, {name, value}) => {
     setInnerValue(value)

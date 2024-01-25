@@ -5,15 +5,7 @@ import PropTypes from 'prop-types'
 
 import Handler from './Handler.js'
 import markerFactory from './markerFactory.js'
-import {
-  BASE_CLASS,
-  CLASS_DISABLED,
-  CLASS_FULLWIDTH,
-  CLASS_INVERSE,
-  Label,
-  Range,
-  Slider
-} from './settings.js'
+import {BASE_CLASS, CLASS_DISABLED, CLASS_FULLWIDTH, CLASS_INVERSE, Label, Range, Slider} from './settings.js'
 
 const AtomSlider = ({
   onChange,
@@ -44,9 +36,7 @@ const AtomSlider = ({
   } else if (defaultValue !== undefined) {
     initialStateValue = range ? defaultValue.map(Number) : Number(defaultValue)
   } else {
-    initialStateValue = range
-      ? [numMin, numMax]
-      : Math.trunc((numMin + numMax - numMin) / 2)
+    initialStateValue = range ? [numMin, numMax] : Math.trunc((numMin + numMax - numMin) / 2)
   }
 
   const [internalValue, setInternalValue] = useState(initialStateValue)
@@ -74,13 +64,7 @@ const AtomSlider = ({
   }
 
   const customProps = {
-    handle: props => (
-      <Handler
-        refAtomSlider={refAtomSlider}
-        hideTooltip={hideTooltip}
-        {...props}
-      />
-    ),
+    handle: props => <Handler refAtomSlider={refAtomSlider} hideTooltip={hideTooltip} {...props} />,
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,
@@ -137,16 +121,10 @@ AtomSlider.propTypes = {
   disabled: PropTypes.bool,
 
   /** value  */
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number)
-  ]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 
   /** defaultValue prop that set initial positions of handles */
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.arrayOf(PropTypes.number)
-  ]),
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
 
   /* callback to be called with every update of the input value */
   onChange: PropTypes.func,

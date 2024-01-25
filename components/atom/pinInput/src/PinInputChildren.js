@@ -12,10 +12,7 @@ const PinInputChildren = ({autoFocus = false, length, children}) => {
       {Array(length)
         .fill('')
         .map((value, index) => (
-          <PinInputField
-            key={index}
-            autoFocus={Boolean(index === 0 && autoFocus)}
-          />
+          <PinInputField key={index} autoFocus={Boolean(index === 0 && autoFocus)} />
         ))}
     </div>
   )

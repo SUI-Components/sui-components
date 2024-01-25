@@ -126,8 +126,7 @@ describe(json.name, () => {
         )),
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -181,13 +180,7 @@ describe(json.name, () => {
             value: 'value',
             label: 'label',
             children: children.map(({checked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                checked={checked}
-                label={label}
-              />
+              <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
             ))
           }
 
@@ -254,13 +247,7 @@ describe(json.name, () => {
             label: 'label',
             checked: true,
             children: children.map(({checked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                checked={checked}
-                label={label}
-              />
+              <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
             ))
           }
 
@@ -327,13 +314,7 @@ describe(json.name, () => {
             label: 'label',
             defaultChecked: true,
             children: children.map(({checked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                checked={checked}
-                label={label}
-              />
+              <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
             ))
           }
 
@@ -400,13 +381,7 @@ describe(json.name, () => {
             checked: false,
             indeterminate: true,
             children: children.map(({checked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                checked={checked}
-                label={label}
-              />
+              <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
             ))
           }
 
@@ -472,13 +447,7 @@ describe(json.name, () => {
             label: 'label',
             defaultIndeterminate: true,
             children: children.map(({checked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                checked={checked}
-                label={label}
-              />
+              <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
             ))
           }
 
@@ -544,13 +513,7 @@ describe(json.name, () => {
             label: 'label',
             checked: false,
             children: children.map(({checked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                checked={checked}
-                label={label}
-              />
+              <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
             ))
           }
 
@@ -617,13 +580,7 @@ describe(json.name, () => {
             label: 'label',
             defaultChecked: false,
             children: children.map(({checked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                checked={checked}
-                label={label}
-              />
+              <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
             ))
           }
 
@@ -678,17 +635,9 @@ describe(json.name, () => {
             name: 'name',
             value: 'value',
             label: 'label',
-            children: children.map(
-              ({defaultChecked, id, label, value}, index) => (
-                <MoleculeCheckboxField
-                  key={id}
-                  id={id}
-                  value={value}
-                  defaultChecked={defaultChecked}
-                  label={label}
-                />
-              )
-            )
+            children: children.map(({defaultChecked, id, label, value}, index) => (
+              <MoleculeCheckboxField key={id} id={id} value={value} defaultChecked={defaultChecked} label={label} />
+            ))
           }
 
           // When
@@ -742,17 +691,9 @@ describe(json.name, () => {
             value: 'value',
             label: 'label',
             defaultIndeterminate: true,
-            children: children.map(
-              ({defaultChecked, id, label, value}, index) => (
-                <MoleculeCheckboxField
-                  key={id}
-                  id={id}
-                  value={value}
-                  defaultChecked={defaultChecked}
-                  label={label}
-                />
-              )
-            )
+            children: children.map(({defaultChecked, id, label, value}, index) => (
+              <MoleculeCheckboxField key={id} id={id} value={value} defaultChecked={defaultChecked} label={label} />
+            ))
           }
 
           // When
@@ -807,17 +748,9 @@ describe(json.name, () => {
           value: 'value',
           label: 'label',
           defaultIndeterminate: true,
-          children: children.map(
-            ({defaultChecked, id, label, value}, index) => (
-              <MoleculeCheckboxField
-                key={id}
-                id={id}
-                value={value}
-                defaultChecked={defaultChecked}
-                label={label}
-              />
-            )
-          )
+          children: children.map(({defaultChecked, id, label, value}, index) => (
+            <MoleculeCheckboxField key={id} id={id} value={value} defaultChecked={defaultChecked} label={label} />
+          ))
         }
 
         // When
@@ -868,13 +801,7 @@ describe(json.name, () => {
           label: 'label',
           defaultIndeterminate: true,
           children: children.map(({checked, id, label, value}, index) => (
-            <MoleculeCheckboxField
-              key={id}
-              id={id}
-              value={value}
-              checked={checked}
-              label={label}
-            />
+            <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
           ))
         }
 
@@ -924,13 +851,7 @@ describe(json.name, () => {
           defaultIndeterminate: true,
           defaultIsExpanded: false,
           children: children.map(({checked, id, label, value}, index) => (
-            <MoleculeCheckboxField
-              key={id}
-              id={id}
-              value={value}
-              checked={checked}
-              label={label}
-            />
+            <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
           ))
         }
 
@@ -980,13 +901,7 @@ describe(json.name, () => {
           defaultIndeterminate: true,
           defaultIsExpanded: true,
           children: children.map(({checked, id, label, value}, index) => (
-            <MoleculeCheckboxField
-              key={id}
-              id={id}
-              value={value}
-              checked={checked}
-              label={label}
-            />
+            <MoleculeCheckboxField key={id} id={id} value={value} checked={checked} label={label} />
           ))
         }
 

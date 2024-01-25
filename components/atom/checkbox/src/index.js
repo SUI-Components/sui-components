@@ -44,13 +44,12 @@ const AtomCheckbox = forwardRef(
     forwardedRef
   ) => {
     const inputRef = useRef()
-    const [checked, setChecked, isCheckedControlled] = useControlledState(
-      checkedProp,
-      defaultCheckedProp
-    )
+    const [checked, setChecked, isCheckedControlled] = useControlledState(checkedProp, defaultCheckedProp)
     const name = nameProp || id
-    const [indeterminate, setIndeterminate, isIndeterminateControlled] =
-      useControlledState(indeterminateProp, defaultIndeterminateProp)
+    const [indeterminate, setIndeterminate, isIndeterminateControlled] = useControlledState(
+      indeterminateProp,
+      defaultIndeterminateProp
+    )
 
     const ref = useMergeRefs(
       node =>
@@ -79,9 +78,7 @@ const AtomCheckbox = forwardRef(
     const handleChange = ref => event => {
       if (!disabled) {
         const {name, value} = event.target
-        let newChecked = isControlled
-          ? indeterminate || !checked
-          : event.target.checked
+        let newChecked = isControlled ? indeterminate || !checked : event.target.checked
         let newIndeterminate = false
 
         if (!isControlled) {

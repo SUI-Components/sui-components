@@ -7,12 +7,10 @@ export const IconTop = () => <BoxIcon icon="BiUpArrow" />
 
 export const LoremIpsum = () => (
   <Paragraph>
-    Lorem ipsum dolor sit amet consectetur adipiscing, elit dignissim etiam
-    congue ultricies. Commodo sociis massa a potenti dictumst turpis laoreet
-    elementum, pulvinar hendrerit risus vivamus rhoncus etiam sapien congue sem,
-    luctus tristique sagittis mollis ac convallis cubilia. Conubia dictum
-    maecenas eleifend tincidunt nibh nam turpis fringilla vulputate, volutpat
-    pretium neque platea phasellus tempus interdum habitant, sociis convallis
-    taciti viverra aliquam nec metus auctor.
+    Lorem ipsum dolor sit amet consectetur adipiscing, elit dignissim etiam congue ultricies. Commodo sociis massa a
+    potenti dictumst turpis laoreet elementum, pulvinar hendrerit risus vivamus rhoncus etiam sapien congue sem, luctus
+    tristique sagittis mollis ac convallis cubilia. Conubia dictum maecenas eleifend tincidunt nibh nam turpis fringilla
+    vulputate, volutpat pretium neque platea phasellus tempus interdum habitant, sociis convallis taciti viverra aliquam
+    nec metus auctor.
   </Paragraph>
 )

@@ -22,12 +22,7 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'default',
-      'DECODING',
-      'FETCHPRIORITY',
-      'LOADING'
-    ]
+    const libraryExportedMembers = ['default', 'DECODING', 'FETCHPRIORITY', 'LOADING']
 
     // When
     const {default: AtomImage, ...others} = library
@@ -73,8 +68,7 @@ describe(json.name, () => {
     it.skip('should NOT extend classNames', () => {
       // Given
       const props = {alt: 'alt', className: 'extended-classNames', src: '#'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

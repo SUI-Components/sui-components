@@ -111,9 +111,7 @@ $c-demo-badge-soft: (
 
 .sui-AtomBadge {
   $this: &;
-  @each $design-key,
-    $design-value in (solid: $c-demo-badge, soft: $c-demo-badge-soft)
-  {
+  @each $design-key, $design-value in (solid: $c-demo-badge, soft: $c-demo-badge-soft) {
     &#{$this}-design-#{$design-key} {
       @each $type, $element in $design-value {
         $bgc: map-get($element, bgc);

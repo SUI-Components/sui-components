@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 
 import AtomSwitch from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'

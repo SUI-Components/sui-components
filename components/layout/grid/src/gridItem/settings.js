@@ -22,19 +22,12 @@ export const getColSpanClassNamesTransform = ({colSpan, ...otherProps}) => {
     let value
     if (breakpointName === 'xxs') {
       const colSpanValue =
-        typeof colSpan === 'number' && CELL_NUMBERS.includes(colSpan)
-          ? colSpan
-          : colSpan?.[breakpointName]
+        typeof colSpan === 'number' && CELL_NUMBERS.includes(colSpan) ? colSpan : colSpan?.[breakpointName]
       value = getValidBreakpointValue(colSpanValue, otherProps[breakpointName])
     } else {
-      value = getValidBreakpointValue(
-        colSpan?.[breakpointName],
-        otherProps[breakpointName]
-      )
+      value = getValidBreakpointValue(colSpan?.[breakpointName], otherProps[breakpointName])
     }
-    return value
-      ? `${acc} ${BASE_CLASS}-item--${breakpointName}-${value}`.trim()
-      : acc
+    return value ? `${acc} ${BASE_CLASS}-item--${breakpointName}-${value}`.trim() : acc
   }, '')
   return response === '' ? null : response
 }

@@ -21,28 +21,19 @@ const ArticleHorizontallyCropped = ({className}) => {
           <span>Original</span>
         </div>
         <div style={Object.assign({}, flexItem, {width: '100px'})}>
-          <AtomPanel
-            src="https://picsum.photos/250/200"
-            horizontalAlign={atomPanelHorizontalAlign.LEFT}
-          >
+          <AtomPanel src="https://picsum.photos/250/200" horizontalAlign={atomPanelHorizontalAlign.LEFT}>
             <div style={{height: '100px'}} />
           </AtomPanel>
           <span>Align to the left</span>
         </div>
         <div style={Object.assign({}, flexItem, {width: '100px'})}>
-          <AtomPanel
-            src="https://picsum.photos/250/200"
-            horizontalAlign={atomPanelHorizontalAlign.CENTER}
-          >
+          <AtomPanel src="https://picsum.photos/250/200" horizontalAlign={atomPanelHorizontalAlign.CENTER}>
             <div style={{height: '100px'}} />
           </AtomPanel>
           <span>Centered</span>
         </div>
         <div style={Object.assign({}, flexItem, {width: '100px'})}>
-          <AtomPanel
-            src="https://picsum.photos/250/200"
-            horizontalAlign={atomPanelHorizontalAlign.RIGHT}
-          >
+          <AtomPanel src="https://picsum.photos/250/200" horizontalAlign={atomPanelHorizontalAlign.RIGHT}>
             <div style={{height: '100px'}} />
           </AtomPanel>
           <span>Align to the right</span>

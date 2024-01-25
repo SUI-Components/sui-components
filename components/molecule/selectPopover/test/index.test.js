@@ -97,8 +97,7 @@ describe(json.name, () => {
         iconArrowDown: () => <svg />,
         selectText: 'selectText'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -231,13 +230,9 @@ describe(json.name, () => {
       const {container} = setup(props)
 
       // Then
-      const select = container.querySelector(
-        '[class="sui-MoleculeSelectPopover-selectIcon"]'
-      )
+      const select = container.querySelector('[class="sui-MoleculeSelectPopover-selectIcon"]')
       fireEvent.click(select)
-      expect(container.innerHTML).to.include(
-        'sui-MoleculeSelectPopover-popover--left'
-      )
+      expect(container.innerHTML).to.include('sui-MoleculeSelectPopover-popover--left')
     })
     it('should render appropriate popoverclass for Auto end placement', () => {
       // Given
@@ -254,13 +249,9 @@ describe(json.name, () => {
       const {container} = setup(props)
 
       // Then
-      const select = container.querySelector(
-        '[class="sui-MoleculeSelectPopover-selectIcon"]'
-      )
+      const select = container.querySelector('[class="sui-MoleculeSelectPopover-selectIcon"]')
       fireEvent.click(select)
-      expect(container.innerHTML).to.include(
-        'sui-MoleculeSelectPopover-popover--right'
-      )
+      expect(container.innerHTML).to.include('sui-MoleculeSelectPopover-popover--right')
     })
   })
 })

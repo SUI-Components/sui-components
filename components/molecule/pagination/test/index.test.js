@@ -11,11 +11,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
 import json from '../package.json'
-import {
-  getMessageErrorInRange,
-  getMessageErrorNumber,
-  getMessageErrorPositive
-} from '../src/customPropTypes/helpers.js'
+import {getMessageErrorInRange, getMessageErrorNumber, getMessageErrorPositive} from '../src/customPropTypes/helpers.js'
 import * as customPropTypes from '../src/customPropTypes/index.js'
 import * as pkg from '../src/index.js'
 
@@ -85,8 +81,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -100,19 +95,12 @@ describe(json.name, () => {
   describe('customPropTypes', () => {
     it('library should include defined exported elements', () => {
       const library = customPropTypes
-      const libraryExportedMembers = [
-        'isValidPage',
-        'isValidShowPages',
-        'isValidTotalPages'
-      ]
+      const libraryExportedMembers = ['isValidPage', 'isValidShowPages', 'isValidTotalPages']
 
       // When
-      const {isValidPage, isValidShowPages, isValidTotalPages, ...others} =
-        library
+      const {isValidPage, isValidShowPages, isValidTotalPages, ...others} = library
       // Then
-      expect(Object.keys(library).length).to.equal(
-        libraryExportedMembers.length
-      )
+      expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
       expect(Object.keys(library)).to.have.members(libraryExportedMembers)
       expect(Object.keys(others).length).to.equal(0)
     })
@@ -138,9 +126,7 @@ describe(json.name, () => {
         const props = {
           [propName]: 'value'
         }
-        const expected = new Error(
-          getMessageErrorNumber({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorNumber({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)
@@ -154,9 +140,7 @@ describe(json.name, () => {
         const props = {
           [propName]: -1
         }
-        const expected = new Error(
-          getMessageErrorPositive({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorPositive({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)
@@ -171,9 +155,7 @@ describe(json.name, () => {
           [propName]: 10,
           totalPages: 2
         }
-        const expected = new Error(
-          getMessageErrorInRange({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorInRange({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)
@@ -218,9 +200,7 @@ describe(json.name, () => {
         const props = {
           [propName]: 'value'
         }
-        const expected = new Error(
-          getMessageErrorNumber({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorNumber({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)
@@ -234,9 +214,7 @@ describe(json.name, () => {
         const props = {
           [propName]: -1
         }
-        const expected = new Error(
-          getMessageErrorPositive({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorPositive({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)
@@ -251,9 +229,7 @@ describe(json.name, () => {
           [propName]: 10,
           totalPages: 2
         }
-        const expected = new Error(
-          getMessageErrorInRange({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorInRange({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)
@@ -296,9 +272,7 @@ describe(json.name, () => {
         const props = {
           [propName]: 'value'
         }
-        const expected = new Error(
-          getMessageErrorNumber({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorNumber({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)
@@ -311,9 +285,7 @@ describe(json.name, () => {
         const props = {
           [propName]: -1
         }
-        const expected = new Error(
-          getMessageErrorPositive({propName, componentName})
-        )
+        const expected = new Error(getMessageErrorPositive({propName, componentName}))
 
         // when
         const current = propTypeChecker(props, propName, componentName)

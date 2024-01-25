@@ -65,8 +65,7 @@ $class-target: '#{$base-class}-target';
     }
 
     &::after {
-      border-width: 0 $w-atom-tooltip-arrow * 0.5 $w-atom-tooltip-arrow * 0.5
-        $w-atom-tooltip-arrow * 0.5;
+      border-width: 0 $w-atom-tooltip-arrow * 0.5 $w-atom-tooltip-arrow * 0.5 $w-atom-tooltip-arrow * 0.5;
       border-color: transparent;
       border-bottom-color: $bgc-atom-tooltip;
       border-style: solid;

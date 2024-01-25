@@ -19,11 +19,7 @@ import {
 
 import MoleculeStepper from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
-import {
-  currentIcon as iconCurrent,
-  defaultIcon as iconDefault,
-  visitedIcon as iconVisited
-} from '../settings.js'
+import {currentIcon as iconCurrent, defaultIcon as iconDefault, visitedIcon as iconVisited} from '../settings.js'
 
 const steps = 5
 const step = Math.ceil(steps / 2)
@@ -40,19 +36,15 @@ const ArticleIconsConnector = ({className}) => {
     <Article className={className}>
       <H2>Connector and Icons</H2>
       <Paragraph>
-        The stepper can be customized adding/removing the connectors between
-        each steps using the <Code>hasConnector</Code> (boolean default true)
-        prop.
+        The stepper can be customized adding/removing the connectors between each steps using the{' '}
+        <Code>hasConnector</Code> (boolean default true) prop.
       </Paragraph>
       <Grid cols={1}>
         <Cell>
           <Label>hasConnector</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={hasConnector}
-            onChange={(event, value) => setHasConnector(value)}
-          >
+          <RadioButtonGroup value={hasConnector} onChange={(event, value) => setHasConnector(value)}>
             {[undefined, false, true].map(hasConnectorValue => (
               <RadioButton
                 key={`${hasConnectorValue}`}
@@ -86,27 +78,14 @@ const ArticleIconsConnector = ({className}) => {
           <Label>currentIcon</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={icon}
-            onChange={(event, value) => setIcon(value)}
-            fullWidth
-          >
+          <RadioButtonGroup value={icon} onChange={(event, value) => setIcon(value)} fullWidth>
             {[undefined, false, true].map(iconValue => (
-              <RadioButton
-                key={`${iconValue}`}
-                label={`${iconValue}`}
-                checked={iconValue === icon}
-                value={iconValue}
-              />
+              <RadioButton key={`${iconValue}`} label={`${iconValue}`} checked={iconValue === icon} value={iconValue} />
             ))}
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={visitedIcon}
-            onChange={(event, value) => setVisitedIcon(value)}
-            fullWidth
-          >
+          <RadioButtonGroup value={visitedIcon} onChange={(event, value) => setVisitedIcon(value)} fullWidth>
             {[undefined, false, true].map(iconValue => (
               <RadioButton
                 key={`${iconValue}`}
@@ -118,11 +97,7 @@ const ArticleIconsConnector = ({className}) => {
           </RadioButtonGroup>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={currentIcon}
-            onChange={(event, value) => setCurrentIcon(value)}
-            fullWidth
-          >
+          <RadioButtonGroup value={currentIcon} onChange={(event, value) => setCurrentIcon(value)} fullWidth>
             {[undefined, false, true].map(iconValue => (
               <RadioButton
                 key={`${iconValue}`}
@@ -143,14 +118,14 @@ const ArticleIconsConnector = ({className}) => {
         </ListItem>
         <ListItem>
           <Paragraph>
-            <Code>currentIcon</Code>: the rendered icon if the step becomes the
-            current step even if an icon is provided.
+            <Code>currentIcon</Code>: the rendered icon if the step becomes the current step even if an icon is
+            provided.
           </Paragraph>
         </ListItem>
         <ListItem>
           <Paragraph>
-            <Code>visitedIcon</Code>: the rendered icon for every previous step
-            to the current one even if an icon is provided.
+            <Code>visitedIcon</Code>: the rendered icon for every previous step to the current one even if an icon is
+            provided.
           </Paragraph>
         </ListItem>
       </UnorderedList>

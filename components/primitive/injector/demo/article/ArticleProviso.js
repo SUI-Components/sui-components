@@ -13,15 +13,11 @@ const ArticleProviso = ({className}) => {
     <Article className={className}>
       <H2>proviso</H2>
       <Paragraph>
-        Use the <Code>proviso</Code> prop in order to filter the children
-        elements you want to inject the props. By default, it will be injected
-        to all of them.
+        Use the <Code>proviso</Code> prop in order to filter the children elements you want to inject the props. By
+        default, it will be injected to all of them.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0, display: 'flex'}}>
-        <Injector
-          provisoProp="provisoProp"
-          proviso={children => children.type === Child}
-        >
+        <Injector provisoProp="provisoProp" proviso={children => children.type === Child}>
           <Child name="proviso" />
           <OtherChild name="no-proviso" />
           <Fragment>
@@ -30,23 +26,14 @@ const ArticleProviso = ({className}) => {
         </Injector>
       </Box>
       <Paragraph>
-        This makes easy the identation of Injectors with different related
-        proviso-props for each children.
+        This makes easy the identation of Injectors with different related proviso-props for each children.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0, display: 'flex'}}>
-        <Injector
-          provisoChildProp="provisoChildProp"
-          proviso={children => children.type === Child}
-        >
-          <Injector
-            provisoOtherChildProp="provisoOtherChildProp"
-            proviso={children => children.type === OtherChild}
-          >
+        <Injector provisoChildProp="provisoChildProp" proviso={children => children.type === Child}>
+          <Injector provisoOtherChildProp="provisoOtherChildProp" proviso={children => children.type === OtherChild}>
             <Injector
               provisoBothProp="provisoBothProp"
-              proviso={children =>
-                children.type === OtherChild || children.type === Child
-              }
+              proviso={children => children.type === OtherChild || children.type === Child}
             >
               <Child name="child-proviso" />
               <OtherChild name="otherChild-proviso" />

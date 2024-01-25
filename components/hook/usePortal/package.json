@@ -9,7 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "use-ssr": "1.0.24",
+    "use-ssr": "1.0.25",
     "classnames": "2.2.5",
     "@s-ui/react-hooks": "1"
   },

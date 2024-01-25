@@ -11,16 +11,7 @@ import {YOUTUBE} from '../settings/players.js'
 
 const YouTubePlayer = forwardRef(
   (
-    {
-      autoPlay,
-      controls,
-      muted,
-      onLoadVideo,
-      src,
-      timeLimit,
-      timeOffset,
-      title = YOUTUBE_DEFAULT_TITLE
-    },
+    {autoPlay, controls, muted, onLoadVideo, src, timeLimit, timeOffset, title = YOUTUBE_DEFAULT_TITLE},
     forwardedRef
   ) => {
     const {getEmbeddableUrl} = useYouTubeProperties()

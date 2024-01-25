@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-dropdown-option",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/js": "2",
-    "@s-ui/react-atom-checkbox": "2",
+    "@s-ui/react-atom-checkbox": "3",
     "@s-ui/react-hooks": "1"
   },
   "peerDependencies": {

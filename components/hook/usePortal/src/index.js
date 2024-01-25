@@ -1,12 +1,5 @@
 /* eslint-disable react/prop-types */
-import {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from 'react'
+import {forwardRef, useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import {createPortal, findDOMNode} from 'react-dom'
 import {isFragment} from 'react-is'
 
@@ -57,16 +50,13 @@ const usePortal = ({
   }
 
   // this should handle all eventHandlers like onClick, onMouseOver, etc. passed into the config
-  const customEventHandlers = Object.entries(eventHandlers).reduce(
-    (acc, [handlerName, eventHandler]) => {
-      acc[handlerName] = event => {
-        if (isServer) return
-        eventHandler(createCustomEvent(event))
-      }
-      return acc
-    },
-    {}
-  )
+  const customEventHandlers = Object.entries(eventHandlers).reduce((acc, [handlerName, eventHandler]) => {
+    acc[handlerName] = event => {
+      if (isServer) return
+      eventHandler(createCustomEvent(event))
+    }
+    return acc
+  }, {})
 
   const setIsOpen = useCallback(
     value => event => {
@@ -82,24 +72,17 @@ const usePortal = ({
   const openPortal = setIsOpen(true)
   const closePortal = setIsOpen(false)
 
-  const togglePortal = event =>
-    isOpened ? closePortal(event) : openPortal(event)
+  const togglePortal = event => (isOpened ? closePortal(event) : openPortal(event))
 
   const handleKeydown = useCallback(
-    event =>
-      event.key === 'Escape' && hasCloseOnEsc ? closePortal(event) : undefined,
+    event => (event.key === 'Escape' && hasCloseOnEsc ? closePortal(event) : undefined),
     [hasCloseOnEsc, closePortal]
   )
 
   const handleOutsideMouseClick = useCallback(
     event => {
       const containsTarget = target => target.current?.contains(event.target)
-      if (
-        containsTarget(portal) ||
-        event.button !== 0 ||
-        !isOpened ||
-        containsTarget(triggerElement)
-      ) {
+      if (containsTarget(portal) || event.button !== 0 || !isOpened || containsTarget(triggerElement)) {
         return
       }
       if (hasCloseOnOutsideClick) {
@@ -113,8 +96,7 @@ const usePortal = ({
     event => {
       if (isServer || !(portal.current instanceof HTMLElement)) return
       const customEvent = createCustomEvent(event)
-      if (portal.current.contains(customEvent.target) && onClick)
-        onClick(customEvent)
+      if (portal.current.contains(customEvent.target) && onClick) onClick(customEvent)
       handleOutsideMouseClick(event)
     },
     [handleOutsideMouseClick, isServer, onClick]
@@ -125,10 +107,7 @@ const usePortal = ({
 
   useEffect(() => {
     if (isServer) return
-    if (
-      !(elToMountTo instanceof HTMLElement) ||
-      !(portal.current instanceof HTMLElement)
-    ) {
+    if (!(elToMountTo instanceof HTMLElement) || !(portal.current instanceof HTMLElement)) {
       return
     }
 
@@ -139,74 +118,50 @@ const usePortal = ({
       onScroll: 'scroll',
       onWheel: 'wheel'
     }
-    Object.entries(eventHandlerMap).forEach(
-      ([handlerName /* onScroll */, eventListenerName /* scroll */]) => {
-        if (!eventHandlers[handlerName]) return
-        eventListeners.current[handlerName] = event =>
-          eventHandlers[handlerName](createCustomEvent(event))
-        document.addEventListener(
-          eventListenerName,
-          eventListeners.current[handlerName]
-        )
-      }
-    )
+    Object.entries(eventHandlerMap).forEach(([handlerName /* onScroll */, eventListenerName /* scroll */]) => {
+      if (!eventHandlers[handlerName]) return
+      eventListeners.current[handlerName] = event => eventHandlers[handlerName](createCustomEvent(event))
+      document.addEventListener(eventListenerName, eventListeners.current[handlerName])
+    })
     document.addEventListener('keydown', handleKeydown)
     document.addEventListener('mousedown', handleMouseDown)
 
     return () => {
       // handles all special case handlers. Currently only onScroll and onWheel
-      Object.entries(eventHandlerMap).forEach(
-        ([handlerName, eventListenerName]) => {
-          if (!eventHandlers[handlerName]) return
-          document.removeEventListener(
-            eventListenerName,
-            eventListeners.current[handlerName]
-          )
-          delete eventListeners.current[handlerName] // eslint-disable-line react-hooks/exhaustive-deps
-        }
-      )
+      Object.entries(eventHandlerMap).forEach(([handlerName, eventListenerName]) => {
+        if (!eventHandlers[handlerName]) return
+        document.removeEventListener(eventListenerName, eventListeners.current[handlerName])
+        delete eventListeners.current[handlerName] // eslint-disable-line react-hooks/exhaustive-deps
+      })
       document.removeEventListener('keydown', handleKeydown)
       document.removeEventListener('mousedown', handleMouseDown)
     }
-  }, [
-    isServer,
-    handleOutsideMouseClick,
-    handleKeydown,
-    elToMountTo,
-    portal,
-    eventHandlers,
-    handleMouseDown
-  ])
+  }, [isServer, handleOutsideMouseClick, handleKeydown, elToMountTo, portal, eventHandlers, handleMouseDown])
 
-  const Portal = forwardRef(
-    (
-      {as: As = 'div', children, isOpen: isOpenProp, className, ...props},
-      forwardedRef
-    ) => {
-      const ref = useMergeRefs(forwardedRef, portal)
-      useEffect(() => {
-        if (isServer) return
-        if (isOpenProp !== undefined) {
-          setIsOpened(isOpenProp)
-        }
-      }, [isOpenProp])
+  const Portal = forwardRef(({as: As = 'div', children, isOpen: isOpenProp, className, ...props}, forwardedRef) => {
+    const ref = useMergeRefs(forwardedRef, portal)
+    useEffect(() => {
+      if (isServer) return
+      if (isOpenProp !== undefined) {
+        setIsOpened(isOpenProp)
+      }
+    }, [isOpenProp])
 
-      return isReady && isOpened
-        ? createPortal(
-            <As
-              {...(!isFragment(<As />) && {
-                ref,
-                className: cx(BASE_CLASS, className),
-                ...props
-              })}
-            >
-              {children}
-            </As>,
-            target || document.body
-          )
-        : null
-    }
-  )
+    return isReady && isOpened
+      ? createPortal(
+          <As
+            {...(!isFragment(<As />) && {
+              ref,
+              className: cx(BASE_CLASS, className),
+              ...props
+            })}
+          >
+            {children}
+          </As>,
+          target || document.body
+        )
+      : null
+  })
   Portal.propTypes = {
     as: PropTypes.elementType,
     children: PropTypes.node,
@@ -215,32 +170,21 @@ const usePortal = ({
   }
   Portal.displayName = 'Portal'
 
-  return Object.assign(
-    [
-      Portal,
-      openPortal,
-      closePortal,
-      isOpened,
-      togglePortal,
-      triggerElement,
-      portal
-    ],
-    {
-      isOpen: isOpened,
-      triggerRef: triggerElement,
-      open: openPortal,
-      close: closePortal,
-      toggle: togglePortal,
-      Portal,
-      portalRef: portal,
-      ...customEventHandlers,
-      bind: {
-        // used if you want to spread all html attributes onto the target element
-        ref: triggerElement,
-        ...customEventHandlers
-      }
+  return Object.assign([Portal, openPortal, closePortal, isOpened, togglePortal, triggerElement, portal], {
+    isOpen: isOpened,
+    triggerRef: triggerElement,
+    open: openPortal,
+    close: closePortal,
+    toggle: togglePortal,
+    Portal,
+    portalRef: portal,
+    ...customEventHandlers,
+    bind: {
+      // used if you want to spread all html attributes onto the target element
+      ref: triggerElement,
+      ...customEventHandlers
     }
-  )
+  })
 }
 
 export default usePortal

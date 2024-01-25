@@ -9,13 +9,7 @@ const fse = require('fs-extra')
 const fs = require('fs/promises')
 const globby = require('globby')
 
-const INSTALL_FLAGS = [
-  '--silent',
-  '--no-save',
-  '--no-audit',
-  '--no-fund',
-  '--no-package-lock'
-]
+const INSTALL_FLAGS = ['--silent', '--no-save', '--no-audit', '--no-fund', '--no-package-lock']
 
 const THEMES_PACKAGES = [
   '@adv-ui/adv-theme',
@@ -26,7 +20,8 @@ const THEMES_PACKAGES = [
   '@adv-ui/hb-theme-v2',
   '@adv-ui/ij-theme',
   '@adv-ui/ma-theme',
-  '@adv-ui/mt-theme'
+  '@adv-ui/mt-theme',
+  '@adv-ui/adit-boros-tcf-ui-consent'
 ]
 
 const cwd = process.cwd()
@@ -48,9 +43,7 @@ const checkFileExists = path => fse.pathExists(path)
 const getThemesList = async () => {
   console.log('[sui-studio] Getting themes list...')
   const files = await fs.readdir(path.join(__dirname, '..', 'themes'))
-  return files
-    .filter(file => !file.startsWith('_'))
-    .map(file => file.split('.')[0])
+  return files.filter(file => !file.startsWith('_')).map(file => file.split('.')[0])
 }
 
 const installThemesPkgs = () => {
@@ -66,10 +59,10 @@ const writeThemesInDemoFolders = async themes => {
     cwd
   })
 
-  const paths = await globby(
-    [path.join(cwd, 'components', '**', '**', 'demo'), '!**/node_modules/**'],
-    {onlyDirectories: true, cwd}
-  )
+  const paths = await globby([path.join(cwd, 'components', '**', '**', 'demo'), '!**/node_modules/**'], {
+    onlyDirectories: true,
+    cwd
+  })
 
   paths
     .filter(p => p.match(/\/components\/\w+\/\w+\/demo$/))
@@ -96,9 +89,7 @@ ${hasDemoStyles ? `@import '../index.scss';` : ''}
 
 ;(async () => {
   if (CI && !NODE_AUTH_TOKEN) {
-    console.log(
-      '[sui-studio] Skipping themes installation as NODE_AUTH_TOKEN is not available'
-    )
+    console.log('[sui-studio] Skipping themes installation as NODE_AUTH_TOKEN is not available')
     return
   }
 

@@ -27,8 +27,7 @@ const ArticleBounds = ({className}) => {
     <Article className={className}>
       <H2>Min and Max</H2>
       <Paragraph>
-        The dataCounter component can customize its boundings using the{' '}
-        <Code>min</Code> and <Code>max</Code> props:
+        The dataCounter component can customize its boundings using the <Code>min</Code> and <Code>max</Code> props:
       </Paragraph>
       <UnorderedList>
         <ListItem>
@@ -105,10 +104,7 @@ const ArticleBounds = ({className}) => {
           />
         </Cell>
       </Grid>
-      <Paragraph>
-        If the value is out of the defined bound it will output the errors
-        defined using:
-      </Paragraph>
+      <Paragraph>If the value is out of the defined bound it will output the errors defined using:</Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
           <UnorderedList>
@@ -116,8 +112,7 @@ const ArticleBounds = ({className}) => {
               <Code>minValueHelpText</Code>: value equals the minimum defined
             </ListItem>
             <ListItem>
-              <Code>minValueErrorText</Code>: value is less than the minimum
-              defined
+              <Code>minValueErrorText</Code>: value is less than the minimum defined
             </ListItem>
           </UnorderedList>
         </Cell>
@@ -127,8 +122,7 @@ const ArticleBounds = ({className}) => {
               <Code>maxValueHelpText</Code>: value equals the maximum defined
             </ListItem>
             <ListItem>
-              <Code>maxValueErrorText</Code>: value is more than the minimum
-              defined
+              <Code>maxValueErrorText</Code>: value is more than the minimum defined
             </ListItem>
           </UnorderedList>
         </Cell>

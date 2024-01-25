@@ -62,9 +62,7 @@ $base-class-line: '#{$base-class}Line';
     position: absolute;
 
     &--animated {
-      transition: width
-        calc(#{$trsdu-progress-bar} + #{$trsdu-progress-exrta-bar})
-        $trstf-progress-bar;
+      transition: width calc(#{$trsdu-progress-bar} + #{$trsdu-progress-exrta-bar}) $trstf-progress-bar;
     }
   }
   &Line,

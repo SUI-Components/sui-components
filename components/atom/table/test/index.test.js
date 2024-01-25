@@ -22,19 +22,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'atomTableCellTypes',
-      'atomTableCellPadding',
-      'default'
-    ]
+    const libraryExportedMembers = ['atomTableCellTypes', 'atomTableCellPadding', 'default']
 
     // When
-    const {
-      atomTableCellTypes,
-      atomTableCellPadding,
-      default: AtomTable,
-      ...others
-    } = library
+    const {atomTableCellTypes, atomTableCellPadding, default: AtomTable, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -111,8 +102,7 @@ describe(json.name, () => {
           ]
         ]
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

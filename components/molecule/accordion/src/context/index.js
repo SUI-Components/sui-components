@@ -4,9 +4,4 @@ import useAccordionContext from './useAccordionContext.js'
 
 export default AccordionContext
 
-export {
-  AccordionContext,
-  defaultAccordionContext,
-  AccordionProvider,
-  useAccordionContext
-}
+export {AccordionContext, defaultAccordionContext, AccordionProvider, useAccordionContext}

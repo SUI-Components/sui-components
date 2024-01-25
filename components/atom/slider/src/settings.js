@@ -10,14 +10,4 @@ const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 const CLASS_INVERSE = `${BASE_CLASS}--inverse`
 const CLASS_FULLWIDTH = `${BASE_CLASS}--fullWidth`
 
-export {
-  Range,
-  Slider,
-  Label,
-  Handle,
-  SliderTooltip,
-  BASE_CLASS,
-  CLASS_DISABLED,
-  CLASS_INVERSE,
-  CLASS_FULLWIDTH
-}
+export {Range, Slider, Label, Handle, SliderTooltip, BASE_CLASS, CLASS_DISABLED, CLASS_INVERSE, CLASS_FULLWIDTH}

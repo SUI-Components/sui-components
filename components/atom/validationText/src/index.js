@@ -10,10 +10,7 @@ const AtomValidationText = forwardRef(({type, text}, forwardedRef) => {
   const isTextString = typeof text === 'string'
   const Component = isTextString ? 'span' : Injector
   return (
-    <Component
-      className={getClassNames(type)}
-      {...(isTextString && {ref: forwardedRef})}
-    >
+    <Component className={getClassNames(type)} {...(isTextString && {ref: forwardedRef})}>
       {text}
     </Component>
   )
@@ -23,8 +20,7 @@ AtomValidationText.displayName = 'AtomValidationText'
 
 AtomValidationText.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPES)).isRequired,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.bool])
-    .isRequired
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.bool]).isRequired
 }
 
 export default AtomValidationText

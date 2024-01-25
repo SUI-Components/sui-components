@@ -33,15 +33,8 @@ export const STYLES = {
 }
 
 export const createClasses = (array, sufix = '') =>
-  array.reduce(
-    (res, key) => ({...res, [key]: `${BASE_CLASS}--${key}${sufix}`}),
-    {}
-  )
+  array.reduce((res, key) => ({...res, [key]: `${BASE_CLASS}--${key}${sufix}`}), {})
 
-export const CLASSES = createClasses([
-  ...Object.values(SIZES),
-  ...Object.values(STYLES),
-  ...Object.values(MODIFIERS)
-])
+export const CLASSES = createClasses([...Object.values(SIZES), ...Object.values(STYLES), ...Object.values(MODIFIERS)])
 
 export const COLOR_CLASSES = createClasses([...Object.values(COLORS)], 'Color')

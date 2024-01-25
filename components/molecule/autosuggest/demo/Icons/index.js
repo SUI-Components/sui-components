@@ -3,13 +3,9 @@ import PropTypes from 'prop-types'
 import {AntDesignIcon} from '@s-ui/documentation-library'
 import AtomIcon, {atomIconColors, atomIconSizes} from '@s-ui/react-atom-icon'
 
-const alert = (
-  <AntDesignIcon icon="AiFillAlert" style={{color: 'currentcolor'}} />
-)
+const alert = <AntDesignIcon icon="AiFillAlert" style={{color: 'currentcolor'}} />
 const info = <AntDesignIcon icon="AiFillBulb" style={{color: 'currentcolor'}} />
-const error = (
-  <AntDesignIcon icon="AiOutlineExclamation" style={{color: 'currentcolor'}} />
-)
+const error = <AntDesignIcon icon="AiOutlineExclamation" style={{color: 'currentcolor'}} />
 
 const Icon = ({children, ...props}) => (
   <AtomIcon size={atomIconSizes.small} {...props}>
@@ -43,12 +39,7 @@ const iconArrowDown = (
     </defs>
     <g fill="none" fillRule="evenodd">
       <path d="M0 0h24v24H0z" />
-      <use
-        fill="#666"
-        fillRule="nonzero"
-        transform="matrix(0 -1 -1 0 24.189 24.189)"
-        xlinkHref="#IconArrowDown"
-      />
+      <use fill="#666" fillRule="nonzero" transform="matrix(0 -1 -1 0 24.189 24.189)" xlinkHref="#IconArrowDown" />
     </g>
   </svg>
 )

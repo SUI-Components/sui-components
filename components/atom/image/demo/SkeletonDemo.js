@@ -2,16 +2,7 @@ import {useRef, useState} from 'react'
 import useIntersection from 'react-use/lib/useIntersection'
 import useThrottleFn from 'react-use/lib/useThrottleFn'
 
-import {
-  Anchor,
-  Article,
-  Bold,
-  Code,
-  H2,
-  Label,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Anchor, Article, Bold, Code, H2, Label, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
 import AtomImage from '../src/index.js'
 import ConnectionViewer from './ConnectionViewer.js'
@@ -41,9 +32,8 @@ const SkeletonDemo = () => {
     <Article className={CLASS_SECTION}>
       <H2>Skeleton</H2>
       <Paragraph>
-        The prop <Code>skeleton</Code> admits the url (string) of an image. this
-        image is <Label>NOT</Label> blur but fully contained in the area
-        dedicated to the image until this is already loaded.
+        The prop <Code>skeleton</Code> admits the url (string) of an image. this image is <Label>NOT</Label> blur but
+        fully contained in the area dedicated to the image until this is already loaded.
       </Paragraph>
       <div ref={articleRef} style={{height: 300}} className="skeleton-demo">
         {isIntersecting && (
@@ -58,20 +48,16 @@ const SkeletonDemo = () => {
       <Paragraph>Hover the image to see the skeleton image.</Paragraph>
       <Paragraph>–––</Paragraph>
       <Paragraph>
-        <Bold>Tip</Bold>: to better understand the behavior change the
-        connection to a lower one (For example 2g). if you are using chrome you
-        can find out how to configure it{' '}
-        <Anchor href="https://developers.google.com/web/tools/chrome-devtools/network#throttle">
-          here
-        </Anchor>
+        <Bold>Tip</Bold>: to better understand the behavior change the connection to a lower one (For example 2g). if
+        you are using chrome you can find out how to configure it{' '}
+        <Anchor href="https://developers.google.com/web/tools/chrome-devtools/network#throttle">here</Anchor>
         .
         <ConnectionViewer />
       </Paragraph>
       <Paragraph>–––</Paragraph>
       <Paragraph>
-        <Bold>Disclaimer</Bold>: In case of combining <Code>skeleton</Code> and{' '}
-        <Code>placeholder</Code> props it will collide becoming placeholder the
-        most relevant.
+        <Bold>Disclaimer</Bold>: In case of combining <Code>skeleton</Code> and <Code>placeholder</Code> props it will
+        collide becoming placeholder the most relevant.
       </Paragraph>
       <Paragraph>Check the behavior by pressing:</Paragraph>
       <Label>Placeholder</Label>:{' '}

@@ -2,22 +2,10 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 import MoleculeDropdownOption from '@s-ui/react-molecule-dropdown-option'
 
-import MoleculeDropdownList, {
-  moleculeDropdownListSelectHandler,
-  moleculeDropdownListSizes
-} from '../src/index.js'
+import MoleculeDropdownList, {moleculeDropdownListSelectHandler, moleculeDropdownListSizes} from '../src/index.js'
 import {OPTIONS} from './config.js'
 
 const ArticleSize = ({className}) => {
@@ -28,23 +16,13 @@ const ArticleSize = ({className}) => {
       <H2>Size</H2>
       <Paragraph>
         User can change the provided size using the <Code>size</Code> (enum:{' '}
-        {`${Object.values(moleculeDropdownListSizes).join('|')}`}) prop. Valid
-        values are under <Code>moleculeDropdownListSizes</Code> exported
-        variable:
+        {`${Object.values(moleculeDropdownListSizes).join('|')}`}) prop. Valid values are under{' '}
+        <Code>moleculeDropdownListSizes</Code> exported variable:
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={size}
-            onChange={(event, value) =>
-              setSize(size === value ? undefined : value)
-            }
-          >
-            {[
-              undefined,
-              ...Object.values(moleculeDropdownListSizes),
-              false
-            ].map(moleculeDropdownListSize => (
+          <RadioButtonGroup value={size} onChange={(event, value) => setSize(size === value ? undefined : value)}>
+            {[undefined, ...Object.values(moleculeDropdownListSizes), false].map(moleculeDropdownListSize => (
               <RadioButton
                 value={moleculeDropdownListSize}
                 checked={moleculeDropdownListSize === size}

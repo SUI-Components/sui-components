@@ -1,19 +1,11 @@
 import PropTypes from 'prop-types'
 
-import {
-  CLASS,
-  ICON_POSITIONS,
-  isAtomIcon,
-  prepareAtomIcon,
-  SIZES
-} from './config.js'
+import {CLASS, ICON_POSITIONS, isAtomIcon, prepareAtomIcon, SIZES} from './config.js'
 
 const ButtonIcon = ({children, position, size}) => {
   if (!children) return null
   // if the icon is an AtomIcon we've to be sure correct props are used
-  const iconToRender = isAtomIcon(children)
-    ? prepareAtomIcon(children, {size})
-    : children
+  const iconToRender = isAtomIcon(children) ? prepareAtomIcon(children, {size}) : children
 
   return <span className={`${CLASS}-${position}Icon`}>{iconToRender}</span>
 }

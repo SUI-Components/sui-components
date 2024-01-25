@@ -10,15 +10,12 @@ const ArticleProps = ({className}) => {
     <Article className={className}>
       <H2>Props</H2>
       <Paragraph>
-        By default, every single prop will follow the same strategy: the union
-        combination between injector each children declared props. In case of
-        having a prop intersection it will take the children prop over the
-        injector.
+        By default, every single prop will follow the same strategy: the union combination between injector each
+        children declared props. In case of having a prop intersection it will take the children prop over the injector.
       </Paragraph>
       <H3>Boolean</H3>
       <Paragraph>
-        By default, it will union combined strategy prioritizing the declared
-        children over the injector.
+        By default, it will union combined strategy prioritizing the declared children over the injector.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0}}>
         <Injector injector collide={false}>
@@ -27,8 +24,7 @@ const ArticleProps = ({className}) => {
       </Box>
       <H3>Number</H3>
       <Paragraph>
-        By default, it will union combined strategy prioritizing the declared
-        children over the injector.
+        By default, it will union combined strategy prioritizing the declared children over the injector.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0}}>
         <Injector injector={1} collide={2}>
@@ -37,8 +33,7 @@ const ArticleProps = ({className}) => {
       </Box>
       <H3>String</H3>
       <Paragraph>
-        By default, it will union combined strategy prioritizing the declared
-        children over the injector.
+        By default, it will union combined strategy prioritizing the declared children over the injector.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0}}>
         <Injector injector="injector" collide="collide injector">

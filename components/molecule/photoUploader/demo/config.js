@@ -16,22 +16,16 @@ export const _addPhotoTextButton = 'Select your device photos'
 export const _allowUploadDuplicatedPhotos = true
 export const _dragDelay = 0
 export const _dragPhotoTextInitialContent = 'Drag photos here'
-export const _dragPhotoDividerTextInitialContent =
-  'dragPhotoDividerTextInitialContent'
+export const _dragPhotoDividerTextInitialContent = 'dragPhotoDividerTextInitialContent'
 export const _limitPhotosUploaded = 'Uploaded photo limit exceeded'
-export const _limitPhotosUploadedNotification =
-  'You reached the uploaded photo limit'
-export const _errorFormatPhotoUploaded =
-  'The images must have JPEG, PNG, GIF, BMP or WEBP format'
-export const _errorCorruptedPhotoUploaded =
-  'The file %{filepath} uploading has failed'
+export const _limitPhotosUploadedNotification = 'You reached the uploaded photo limit'
+export const _errorFormatPhotoUploaded = 'The images must have JPEG, PNG, GIF, BMP or WEBP format'
+export const _errorCorruptedPhotoUploaded = 'The file %{filepath} uploading has failed'
 export const _errorInitialPhotoDownloadError = 'Error loading images'
 export const _errorFileExcededMaxSize = 'The images must be lower than 50Mb'
-export const _notificationErrorFormatPhotoUploaded =
-  'The valid formats are: JPEG, PNG, GIF, BMP o WEBP'
+export const _notificationErrorFormatPhotoUploaded = 'The valid formats are: JPEG, PNG, GIF, BMP o WEBP'
 export const _uploadingPhotosText = 'Uploading images...'
-export const _rotationDirection =
-  MoleculePhotoUploaderRotationDirection.clockwise
+export const _rotationDirection = MoleculePhotoUploaderRotationDirection.clockwise
 
 export const labels = ['Comedor', 'Cocina', 'Baño', 'Garaje', 'Habitación']
 
@@ -53,15 +47,7 @@ export const initialPhotos = [
   {url: 'https://picsum.photos/seed/---us----/200/300'}
 ]
 
-export const initialFormValues = [
-  {label: 'Comedor'},
-  {},
-  {},
-  {},
-  {label: 'Baño'},
-  {},
-  {}
-]
+export const initialFormValues = [{label: 'Comedor'}, {}, {}, {}, {label: 'Baño'}, {}, {}]
 
 export const _callbackPhotosUploaded = (list, ...args) => {
   console.log('_callbackPhotosUploaded: ', list, ...args) // eslint-disable-line no-console

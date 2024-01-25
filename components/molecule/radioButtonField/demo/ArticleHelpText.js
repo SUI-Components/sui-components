@@ -2,14 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  Input,
-  Paragraph,
-  RadioButton
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, Input, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
 import MoleculeRadioButtonField from '../src/index.js'
 
@@ -20,8 +13,7 @@ const ArticleHelpText = ({className, ...props}) => {
     <Article className={className}>
       <H2>HelpText</H2>
       <Paragraph>
-        you can use the <Code>helpText</Code> string prop in order to provide
-        some extra footer field information
+        you can use the <Code>helpText</Code> string prop in order to provide some extra footer field information
       </Paragraph>
       <Input value={text} onChange={event => setText(event.target.value)} />
       <br />
@@ -33,11 +25,7 @@ const ArticleHelpText = ({className, ...props}) => {
       />
       <br />
       <br />
-      <MoleculeRadioButtonField
-        label="label"
-        helpText={text}
-        checked={checked}
-      />
+      <MoleculeRadioButtonField label="label" helpText={text} checked={checked} />
     </Article>
   )
 }

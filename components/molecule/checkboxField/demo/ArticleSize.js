@@ -1,31 +1,18 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 
-import MoleculeCheckboxField, {
-  moleculeCheckboxFieldSizes
-} from '../src/index.js'
+import MoleculeCheckboxField, {moleculeCheckboxFieldSizes} from '../src/index.js'
 
 export const ArticleSize = ({className}) => {
   return (
     <Article className={`${className}-section`}>
       <H2>Size</H2>
       <Paragraph>
-        Use the <Code>size</Code>(enum) prop provided by{' '}
-        <Code>moleculeCheckboxFieldSizes</Code> to change between different
-        checkbox sizes.
+        Use the <Code>size</Code>(enum) prop provided by <Code>moleculeCheckboxFieldSizes</Code> to change between
+        different checkbox sizes.
       </Paragraph>
-      <Grid
-        cols={Object.values(moleculeCheckboxFieldSizes).length}
-        gutter={[8, 8]}
-      >
+      <Grid cols={Object.values(moleculeCheckboxFieldSizes).length} gutter={[8, 8]}>
         <Cell>
           <MoleculeCheckboxField
             id="success-help-text"
@@ -34,8 +21,7 @@ export const ArticleSize = ({className}) => {
             size={moleculeCheckboxFieldSizes.SMALL}
             // eslint-disable-next-line no-console
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -48,8 +34,7 @@ export const ArticleSize = ({className}) => {
             size={moleculeCheckboxFieldSizes.SMALL}
             // eslint-disable-next-line no-console
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />
@@ -62,8 +47,7 @@ export const ArticleSize = ({className}) => {
             size={moleculeCheckboxFieldSizes.MEDIUM}
             // eslint-disable-next-line no-console
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked={false}
           />
@@ -76,8 +60,7 @@ export const ArticleSize = ({className}) => {
             size={moleculeCheckboxFieldSizes.MEDIUM}
             // eslint-disable-next-line no-console
             onChange={
-              (e, {name, value, ...props}) =>
-                console.log({[name]: value, ...props}) // eslint-disable-line no-console
+              (e, {name, value, ...props}) => console.log({[name]: value, ...props}) // eslint-disable-line no-console
             }
             checked
           />

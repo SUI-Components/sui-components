@@ -41,30 +41,15 @@ const DefaultArticle = ({className}) => {
   return (
     <Article className={className}>
       <H2>Initial Photos</H2>
+      <Paragraph>A set of initial images can be load with an array of URLs passed by props.</Paragraph>
+      <Paragraph>After they are loaded, the images can be sorted, rotated or deleted from the list.</Paragraph>
       <Paragraph>
-        A set of initial images can be load with an array of URLs passed by
-        props.
+        This example has an array of URLs passed by props, and the third one fails on load, so it shows an error
+        notification.
       </Paragraph>
-      <Paragraph>
-        After they are loaded, the images can be sorted, rotated or deleted from
-        the list.
-      </Paragraph>
-      <Paragraph>
-        This example has an array of URLs passed by props, and the third one
-        fails on load, so it shows an error notification.
-      </Paragraph>
-      <Paragraph>
-        Also, in this example we're blocking .bmp images, which are accepted by
-        default.
-      </Paragraph>
-      <Paragraph>
-        Also, rotation direction is set to clockwise. rotateIcon not changed,
-        though :P
-      </Paragraph>
-      <Paragraph>
-        Also, dragDelay time set to 0, it must be 0 to improve user experience
-        in desktop!
-      </Paragraph>
+      <Paragraph>Also, in this example we're blocking .bmp images, which are accepted by default.</Paragraph>
+      <Paragraph>Also, rotation direction is set to clockwise. rotateIcon not changed, though :P</Paragraph>
+      <Paragraph>Also, dragDelay time set to 0, it must be 0 to improve user experience in desktop!</Paragraph>
       <MoleculePhotoUploader
         acceptedFileTypes="image/jpeg, image/gif, image/png, image/webp"
         addMorePhotosIcon={_addMorePhotosIcon}
@@ -90,9 +75,7 @@ const DefaultArticle = ({className}) => {
         limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}
         maxPhotos={_maxPhotos}
-        notificationErrorFormatPhotoUploaded={
-          _notificationErrorFormatPhotoUploaded
-        }
+        notificationErrorFormatPhotoUploaded={_notificationErrorFormatPhotoUploaded}
         rejectPhotosIcon={_rejectPhotosIcon}
         retryIcon={_retryErrorPhotosIcon}
         rotateIcon={_rotateIcon}

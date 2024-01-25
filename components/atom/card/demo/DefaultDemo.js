@@ -29,36 +29,29 @@ const DefaultDemo = () => {
     <>
       <Article>
         <H2>Default</H2>
-        <Paragraph>
-          By default, the component encapsulates inner elements on a wrapper.
-        </Paragraph>
+        <Paragraph>By default, the component encapsulates inner elements on a wrapper.</Paragraph>
         <Paragraph>This have 2 different containing areas:</Paragraph>
         <UnorderedList>
           <ListItem>
-            <Code>media</Code>: (React element) – An area specially defined for
-            including a media.
+            <Code>media</Code>: (React element) – An area specially defined for including a media.
           </ListItem>
           <ListItem>
-            <Code>content</Code>: (React element) An area defined for including
-            some other content.
+            <Code>content</Code>: (React element) An area defined for including some other content.
           </ListItem>
         </UnorderedList>
         <Paragraph>–––</Paragraph>
         <Paragraph>
-          Card can give a vertical orientation of elements under the{' '}
-          <Code>vertical</Code> boolean prop.
+          Card can give a vertical orientation of elements under the <Code>vertical</Code> boolean prop.
         </Paragraph>
         <Paragraph>
-          Card can be actionable and trigger an event clicking on it under{' '}
-          <Code>onClick</Code> prop.
+          Card can be actionable and trigger an event clicking on it under <Code>onClick</Code> prop.
         </Paragraph>
         <Paragraph>
-          The component can become clickable adding an url to it{' '}
-          <Code>href</Code> prop.
+          The component can become clickable adding an url to it <Code>href</Code> prop.
         </Paragraph>
         <Paragraph>
-          Card can highlight its content with a <Code>highlight</Code> boolean
-          prop. It is only possible if has an onClick action or a href declared.
+          Card can highlight its content with a <Code>highlight</Code> boolean prop. It is only possible if has an
+          onClick action or a href declared.
         </Paragraph>
         <Grid cols={6} gutter={[8, 8]}>
           <Cell>
@@ -138,14 +131,7 @@ const DefaultDemo = () => {
         <br />
         <AtomCard
           media={
-            media &&
-            (() => (
-              <PlaceHolder
-                width={200}
-                text="media area"
-                style={{width: '100%', display: 'block'}}
-              />
-            ))
+            media && (() => <PlaceHolder width={200} text="media area" style={{width: '100%', display: 'block'}} />)
           }
           content={
             content &&
@@ -176,21 +162,13 @@ const DefaultDemo = () => {
           }}
         >
           {Object.keys(atomCardRounded).map((rounded, idx) => (
-            <div
-              key={idx}
-              style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}
-            >
+            <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
               <AtomCard
                 rounded={atomCardRounded[rounded]}
                 media={
                   media &&
                   (() => (
-                    <PlaceHolder
-                      width={100}
-                      height={100}
-                      text="media"
-                      style={{width: '100%', display: 'block'}}
-                    />
+                    <PlaceHolder width={100} height={100} text="media" style={{width: '100%', display: 'block'}} />
                   ))
                 }
                 content={
@@ -219,21 +197,13 @@ const DefaultDemo = () => {
           }}
         >
           {Object.keys(atomCardElevation).map((elevation, idx) => (
-            <div
-              key={idx}
-              style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}
-            >
+            <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
               <AtomCard
                 elevation={atomCardElevation[elevation]}
                 media={
                   media &&
                   (() => (
-                    <PlaceHolder
-                      width={100}
-                      height={100}
-                      text="media"
-                      style={{width: '100%', display: 'block'}}
-                    />
+                    <PlaceHolder width={100} height={100} text="media" style={{width: '100%', display: 'block'}} />
                   ))
                 }
                 content={
@@ -246,9 +216,7 @@ const DefaultDemo = () => {
                   ))
                 }
               />
-              <span style={{color: 'grey'}}>
-                {atomCardElevation[elevation]}
-              </span>
+              <span style={{color: 'grey'}}>{atomCardElevation[elevation]}</span>
             </div>
           ))}
         </div>

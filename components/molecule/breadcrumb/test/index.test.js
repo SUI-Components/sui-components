@@ -90,8 +90,7 @@ describe(json.name, () => {
           }
         ]
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

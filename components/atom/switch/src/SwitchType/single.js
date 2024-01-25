@@ -61,11 +61,7 @@ export const SingleSwitchTypeRender = forwardRef(
           ref={ref}
         >
           {showLabelLeft && (
-            <AtomLabel
-              name={name}
-              text={defaultLabelLeft ? label : labelLeft}
-              optionalText={labelOptionalText}
-            />
+            <AtomLabel name={name} text={defaultLabelLeft ? label : labelLeft} optionalText={labelOptionalText} />
           )}
           <button
             type="button"
@@ -83,21 +79,11 @@ export const SingleSwitchTypeRender = forwardRef(
             id={name}
             {...(!disabled && {tabIndex: 0})}
           >
-            <div className={cx(suitClass({element: 'icon-left'}))}>
-              {iconLeft}
-            </div>
+            <div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div>
             <div className={cx(suitClass({element: 'circle'}))} />
-            <div className={cx(suitClass({element: 'icon-right'}))}>
-              {iconRight}
-            </div>
+            <div className={cx(suitClass({element: 'icon-right'}))}>{iconRight}</div>
           </button>
-          {showLabelRight && (
-            <AtomLabel
-              name={name}
-              text={labelRight}
-              optionalText={labelOptionalText}
-            />
-          )}
+          {showLabelRight && <AtomLabel name={name} text={labelRight} optionalText={labelOptionalText} />}
         </div>
       </div>
     )

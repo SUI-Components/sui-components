@@ -22,10 +22,7 @@ const ArticleRounded = ({className}) => {
         }}
       >
         {Object.keys(atomPanelRounded).map((rounded, idx) => (
-          <div
-            key={idx}
-            style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}
-          >
+          <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
             <AtomPanel rounded={atomPanelRounded[rounded]} floating>
               <div style={{height: '100px', width: '100px'}} />
             </AtomPanel>

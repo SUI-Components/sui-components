@@ -22,19 +22,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'AtomLabelTypes',
-      'AtomLabelFontSizes',
-      'default'
-    ]
+    const libraryExportedMembers = ['AtomLabelTypes', 'AtomLabelFontSizes', 'default']
 
     // When
-    const {
-      AtomLabelTypes,
-      AtomLabelFontSizes,
-      default: AtomLabel,
-      ...others
-    } = library
+    const {AtomLabelTypes, AtomLabelFontSizes, default: AtomLabel, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -77,8 +68,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

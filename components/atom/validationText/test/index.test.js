@@ -25,11 +25,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['AtomValidationTextTypes', 'default']
 
     // When
-    const {
-      AtomValidationTextTypes,
-      default: AtomValidationText,
-      ...others
-    } = library
+    const {AtomValidationTextTypes, default: AtomValidationText, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -72,8 +68,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

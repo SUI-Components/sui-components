@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import AtomTooltip, {AtomTooltipTriggers} from '../src/index.js'
 
@@ -17,8 +9,8 @@ const IsArrowedArticle = ({className, trigger}) => {
     <Article className={className}>
       <H2>IsArrowed</H2>
       <Paragraph>
-        The arrow which points the targetted element can be removed using the{' '}
-        <Code>isArrowed</Code> boolean prop (by default is true)
+        The arrow which points the targetted element can be removed using the <Code>isArrowed</Code> boolean prop (by
+        default is true)
       </Paragraph>
       <br />
       <br />
@@ -45,32 +37,17 @@ const IsArrowedArticle = ({className, trigger}) => {
           <br />
         </Cell>
         <Cell>
-          <AtomTooltip
-            content="tooltip content"
-            trigger={trigger}
-            isVisible
-            isArrowed={undefined}
-          >
+          <AtomTooltip content="tooltip content" trigger={trigger} isVisible isArrowed={undefined}>
             <Label>tooltip</Label>
           </AtomTooltip>
         </Cell>
         <Cell>
-          <AtomTooltip
-            content="tooltip content"
-            trigger={trigger}
-            isVisible
-            isArrowed={false}
-          >
+          <AtomTooltip content="tooltip content" trigger={trigger} isVisible isArrowed={false}>
             <Label>tooltip</Label>
           </AtomTooltip>
         </Cell>
         <Cell>
-          <AtomTooltip
-            content="tooltip content"
-            trigger={trigger}
-            isVisible
-            isArrowed
-          >
+          <AtomTooltip content="tooltip content" trigger={trigger} isVisible isArrowed>
             <Label>tooltip</Label>
           </AtomTooltip>
         </Cell>

@@ -28,8 +28,7 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
           <Paragraph>
-            The controlled behavior is triggered using the{' '}
-            <Code>isVisible</Code> boolean prop.
+            The controlled behavior is triggered using the <Code>isVisible</Code> boolean prop.
           </Paragraph>
           <br />
           <br />
@@ -50,22 +49,13 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
             value={isVisibleControlled}
             onChange={(event, value) => setIsVisibleControlled(value === true)}
           >
-            <RadioButton
-              value
-              label="true"
-              checked={isVisibleControlled === true}
-            />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={isVisibleControlled === false}
-            />
+            <RadioButton value label="true" checked={isVisibleControlled === true} />
+            <RadioButton value={false} label="false" checked={isVisibleControlled === false} />
           </RadioButtonGroup>
         </Cell>
         <Cell>
           <Paragraph>
-            The uncontrolled behavior is triggered using the{' '}
-            <Code>defaultIsVisible</Code> boolean prop.
+            The uncontrolled behavior is triggered using the <Code>defaultIsVisible</Code> boolean prop.
           </Paragraph>
           <br />
           <br />
@@ -84,25 +74,12 @@ const ControlledAndUncontrolledArticle = ({className, trigger}) => {
           <br />
           <RadioButtonGroup
             value={isVisibleUncontrolled}
-            onChange={(event, value) =>
-              setIsVisibleUncontrolled(value === true)
-            }
+            onChange={(event, value) => setIsVisibleUncontrolled(value === true)}
           >
-            <RadioButton
-              value
-              label="true"
-              checked={isVisibleUncontrolled === true}
-            />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={isVisibleUncontrolled === false}
-            />
+            <RadioButton value label="true" checked={isVisibleUncontrolled === true} />
+            <RadioButton value={false} label="false" checked={isVisibleUncontrolled === false} />
           </RadioButtonGroup>
-          <Paragraph>
-            This value only corresponds to the starting value (mounting
-            lifecycle).
-          </Paragraph>
+          <Paragraph>This value only corresponds to the starting value (mounting lifecycle).</Paragraph>
         </Cell>
       </Grid>
     </Article>

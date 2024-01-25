@@ -73,8 +73,4 @@ export const PLACEMENTS = {
 export const DEFAULT_OFFSET = 'auto,4px'
 
 export const getChildrenAsReactNode = element =>
-  typeof element === 'string' ? (
-    <span key={1}>{element}</span>
-  ) : (
-    Children.only(element)
-  )
+  typeof element === 'string' ? <span key={1}>{element}</span> : Children.only(element)

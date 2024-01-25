@@ -14,10 +14,7 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import Accordion, {
-  moleculeAccordionHeaderLabelWraps,
-  MoleculeAccordionItem as AccordionItem
-} from '../../src/index.js'
+import Accordion, {moleculeAccordionHeaderLabelWraps, MoleculeAccordionItem as AccordionItem} from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 
 const ArticleLabelWrap = ({className}) => {
@@ -27,20 +24,13 @@ const ArticleLabelWrap = ({className}) => {
     <Article className={className}>
       <H2>Label wrap</H2>
       <Paragraph>
-        You can customize your header title label wrap style under the{' '}
-        <Code>headerLabelWraps</Code> prop.
+        You can customize your header title label wrap style under the <Code>headerLabelWraps</Code> prop.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Label>headerLabelWrap</Label>
         <Cell>
-          <RadioButtonGroup
-            value={currentLabelWrap}
-            onChange={(_, value) => setCurrentLabelWrap(value)}
-          >
-            {[
-              undefined,
-              ...Object.values(moleculeAccordionHeaderLabelWraps)
-            ].map(labelWrap => (
+          <RadioButtonGroup value={currentLabelWrap} onChange={(_, value) => setCurrentLabelWrap(value)}>
+            {[undefined, ...Object.values(moleculeAccordionHeaderLabelWraps)].map(labelWrap => (
               <RadioButton
                 key={`${labelWrap}`}
                 value={labelWrap}

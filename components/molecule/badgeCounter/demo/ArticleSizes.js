@@ -31,9 +31,8 @@ const ArticleSizes = ({className}) => {
     <Article className={className}>
       <H2>Size</H2>
       <Paragraph>
-        The <Code>size</Code> prop is used to define the desired size
-        (default-medium). You can get all available sized from{' '}
-        <Code>moleculeBadgeCounterSizes</Code> enum.
+        The <Code>size</Code> prop is used to define the desired size (default-medium). You can get all available sized
+        from <Code>moleculeBadgeCounterSizes</Code> enum.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
@@ -47,23 +46,15 @@ const ArticleSizes = ({className}) => {
         </Cell>
         <Cell>
           <RadioButtonGroup value={size} onChange={onSizeChangeHandler}>
-            {[undefined, ...Object.values(moleculeBadgeCounterSizes)].map(
-              sizeValue => (
-                <RadioButton
-                  key={`${sizeValue}`}
-                  label={`${sizeValue}`}
-                  value={sizeValue}
-                  checked={size === sizeValue}
-                />
-              )
-            )}
+            {[undefined, ...Object.values(moleculeBadgeCounterSizes)].map(sizeValue => (
+              <RadioButton key={`${sizeValue}`} label={`${sizeValue}`} value={sizeValue} checked={size === sizeValue} />
+            ))}
           </RadioButtonGroup>
         </Cell>
         <Cell>
           <Paragraph>
-            If user sets size to Small and adds value to teh label, it will
-            automatically become Medium size. In case of not having value, it
-            will be small sized.
+            If user sets size to Small and adds value to teh label, it will automatically become Medium size. In case of
+            not having value, it will be small sized.
           </Paragraph>
         </Cell>
         <Cell span={1}>

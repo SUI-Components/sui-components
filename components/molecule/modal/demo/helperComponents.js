@@ -35,9 +35,7 @@ const pScrollableLoremStyle = {
 }
 
 const LoremIpsumParagraph = () => <p style={pLoremStyle}>{pText}</p>
-const ScrollableLoremIpsumParagraph = () => (
-  <p style={pScrollableLoremStyle}>{pText}</p>
-)
+const ScrollableLoremIpsumParagraph = () => <p style={pScrollableLoremStyle}>{pText}</p>
 const LoremPicsumImage = () => <img src="https://picsum.photos/500/200" />
 
 export {

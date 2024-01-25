@@ -46,9 +46,7 @@ const Circle = ({
     const style = {
       strokeDasharray: `${len}px ${len}px`,
       strokeDashoffset: `${((100 - percentage) / 100) * len}px`,
-      transition: withAnimation
-        ? `stroke-dashoffset ${transitionTime}s ease 0s, stroke ${transitionTime}s ease`
-        : ''
+      transition: withAnimation ? `stroke-dashoffset ${transitionTime}s ease 0s, stroke ${transitionTime}s ease` : ''
     }
     return {
       d,

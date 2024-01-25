@@ -14,8 +14,8 @@ const Demo = () => (
   <div className="sui-StudioPreview">
     <H1>Dropdown Options</H1>
     <Paragraph>
-      MoleculeDropdownOption is a component that wraps a composition of checkbox
-      + text. It s used to wrap any MoleculeDropdownList option.
+      MoleculeDropdownOption is a component that wraps a composition of checkbox + text. It s used to wrap any
+      MoleculeDropdownList option.
     </Paragraph>
     <ArticleDefault className={CLASS_DEMO_SECTION} />
     <br />

@@ -60,8 +60,7 @@ const MoleculeNotification = memo(
       setShow(showFromProps)
     }, [showFromProps])
 
-    const autoCloseTimeInSeconds =
-      AUTO_CLOSE_TIME[autoCloseTiming] || AUTO_CLOSE_TIME.manual
+    const autoCloseTimeInSeconds = AUTO_CLOSE_TIME[autoCloseTiming] || AUTO_CLOSE_TIME.manual
 
     const removeDelay = show => {
       const delay = show ? 1 : TRANSITION_DELAY
@@ -83,8 +82,7 @@ const MoleculeNotification = memo(
     )
 
     useEffect(() => {
-      if (show && autoCloseTimeInSeconds)
-        triggerAutoClose(autoCloseTimeInSeconds)
+      if (show && autoCloseTimeInSeconds) triggerAutoClose(autoCloseTimeInSeconds)
 
       if (effect) {
         setDelay(true)
@@ -97,19 +95,13 @@ const MoleculeNotification = memo(
       }
     }, [show, effect, triggerAutoClose, autoCloseTimeInSeconds])
 
-    const getButtons = () =>
-      buttons
-        .slice(0, BUTTONS_MAX)
-        .map((button, i) => <Button key={i} {...button} />)
+    const getButtons = () => buttons.slice(0, BUTTONS_MAX).map((button, i) => <Button key={i} {...button} />)
 
-    const wrapperClassName = cx(
-      `${CLASS} ${CLASS}--${type} ${CLASS}--${position} ${CLASS}--${variation}`,
-      {
-        [`${CLASS}-effect--${position}`]: effect,
-        [`${CLASS}-effect--hide`]: effect && delay,
-        [`${CLASS}-roundedCorners--${roundedCorners}`]: roundedCorners
-      }
-    )
+    const wrapperClassName = cx(`${CLASS} ${CLASS}--${type} ${CLASS}--${position} ${CLASS}--${variation}`, {
+      [`${CLASS}-effect--${position}`]: effect,
+      [`${CLASS}-effect--hide`]: effect && delay,
+      [`${CLASS}-roundedCorners--${roundedCorners}`]: roundedCorners
+    })
     const innerWrapperClassName = cx({
       [`${CLASS}-children`]: children,
       [`${CLASS}-text`]: text
@@ -140,9 +132,7 @@ const MoleculeNotification = memo(
               </div>
             )}
           </div>
-          {buttons && (
-            <div className={`${CLASS}-buttonsContainer`}>{getButtons()}</div>
-          )}
+          {buttons && <div className={`${CLASS}-buttonsContainer`}>{getButtons()}</div>}
         </div>
       )
     }
@@ -151,9 +141,7 @@ const MoleculeNotification = memo(
 
     if (overrideContainer) {
       const container = getContainer(targetRef)
-      return container
-        ? createPortal(notificationEl, container)
-        : notificationEl
+      return container ? createPortal(notificationEl, container) : notificationEl
     }
 
     return notificationEl

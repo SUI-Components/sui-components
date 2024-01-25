@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 
 import {Article, Code, H2, H3, Paragraph} from '@s-ui/documentation-library'
 
-import Accordion, {
-  moleculeAccordionBehavior,
-  MoleculeAccordionItem as AccordionItem
-} from '../../src/index.js'
+import Accordion, {moleculeAccordionBehavior, MoleculeAccordionItem as AccordionItem} from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 
 const ArticleDefault = ({className}) => {
@@ -24,19 +21,14 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        The <Code>MoleculeAccordion</Code> component is a Fragment wrapper which
-        contains a list of <Code>MoleculeAccordionItem</Code> components.
+        The <Code>MoleculeAccordion</Code> component is a Fragment wrapper which contains a list of{' '}
+        <Code>MoleculeAccordionItem</Code> components.
       </Paragraph>
       <Paragraph>
-        An <Code>MoleculeAccordionItem</Code> is a Fragment wrapper of a{' '}
-        <Code>MoleculeAccordionItemHeader</Code> and a{' '}
+        An <Code>MoleculeAccordionItem</Code> is a Fragment wrapper of a <Code>MoleculeAccordionItemHeader</Code> and a{' '}
         <Code>MoleculeAccordionItemPanel</Code>.
       </Paragraph>
-      <Accordion
-        onChange={onChange}
-        defaultValues={values}
-        behavior={moleculeAccordionBehavior.MULTIPLE}
-      >
+      <Accordion onChange={onChange} defaultValues={values} behavior={moleculeAccordionBehavior.MULTIPLE}>
         <AccordionItem
           value="value-1"
           onClick={onItemClick('header1')}
@@ -92,19 +84,14 @@ const ArticleDefault = ({className}) => {
       </Accordion>
       <H3>Handlers</H3>
       <Paragraph>
-        <Code>onChange</Code>: Accordion handler fired every single panel is
-        toggled between its expand-collapse view using its header button
-        behavior.
+        <Code>onChange</Code>: Accordion handler fired every single panel is toggled between its expand-collapse view
+        using its header button behavior.
       </Paragraph>
       <Paragraph>
-        It can also work with no wrapping borders using a Fragment logical react
-        component as the MoleculeAccordion element.
+        It can also work with no wrapping borders using a Fragment logical react component as the MoleculeAccordion
+        element.
       </Paragraph>
-      <Accordion
-        onChange={onChange}
-        behavior={moleculeAccordionBehavior.MULTIPLE}
-        as={Fragment}
-      >
+      <Accordion onChange={onChange} behavior={moleculeAccordionBehavior.MULTIPLE} as={Fragment}>
         <AccordionItem
           value="value-1"
           onClick={onItemClick('header1')}

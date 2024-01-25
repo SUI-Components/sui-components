@@ -1,13 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {
-  BASE_CLASS,
-  DEFAULT_PROPS,
-  TEXTAREA_RESIZES,
-  TEXTAREA_SIZES,
-  TEXTAREA_STATES
-} from './settings.js'
+import {BASE_CLASS, DEFAULT_PROPS, TEXTAREA_RESIZES, TEXTAREA_SIZES, TEXTAREA_STATES} from './settings.js'
 
 const AtomTextarea = ({
   errorState,
@@ -33,15 +27,7 @@ const AtomTextarea = ({
     onChange(ev, {value, name})
   }
 
-  return (
-    <textarea
-      {...props}
-      onBlur={onBlur}
-      onChange={handleChange}
-      className={className}
-      value={value}
-    />
-  )
+  return <textarea {...props} onBlur={onBlur} onChange={handleChange} className={className} value={value} />
 }
 
 AtomTextarea.displayName = 'AtomTextarea'

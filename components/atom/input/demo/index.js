@@ -1,11 +1,6 @@
 import {useState} from 'react'
 
-import AtomInput, {
-  inputShapes,
-  inputSizes,
-  inputStates,
-  inputTypes
-} from 'components/atom/input/src/index.js'
+import AtomInput, {inputShapes, inputSizes, inputStates, inputTypes} from 'components/atom/input/src/index.js'
 
 import {
   Anchor,
@@ -34,9 +29,7 @@ import {flexCenteredStyle, stackMap} from './settings.js'
 const DefaultDemo = () => (
   <Article>
     <H2>Default</H2>
-    <Paragraph>
-      By default, the element gets the following look and feel.
-    </Paragraph>
+    <Paragraph>By default, the element gets the following look and feel.</Paragraph>
     <div>
       <AtomInput />
     </div>
@@ -47,27 +40,20 @@ const SizeDemo = () => (
   <Article>
     <H2>Size</H2>
     <Paragraph>
-      The element gets {Object.values(inputSizes).length} different size
-      configurations using its <Code>size</Code> prop.
+      The element gets {Object.values(inputSizes).length} different size configurations using its <Code>size</Code>{' '}
+      prop.
     </Paragraph>
     <Grid gutter={[8, 8]} cols={Object.values(inputSizes).length + 1}>
-      {[['default', undefined], ...Object.entries(inputSizes)].map(
-        ([key], index) => (
-          <Cell
-            style={{...flexCenteredStyle, justifyContent: 'flex-start'}}
-            key={index}
-          >
-            <Label>{key}</Label>
-          </Cell>
-        )
-      )}
-      {[['default', undefined], ...Object.entries(inputSizes)].map(
-        ([key, value], index) => (
-          <Cell style={flexCenteredStyle} key={index}>
-            <AtomInput size={value} />
-          </Cell>
-        )
-      )}
+      {[['default', undefined], ...Object.entries(inputSizes)].map(([key], index) => (
+        <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}} key={index}>
+          <Label>{key}</Label>
+        </Cell>
+      ))}
+      {[['default', undefined], ...Object.entries(inputSizes)].map(([key, value], index) => (
+        <Cell style={flexCenteredStyle} key={index}>
+          <AtomInput size={value} />
+        </Cell>
+      ))}
     </Grid>
   </Article>
 )
@@ -86,8 +72,7 @@ const PlaceholderValueAndDefaultValueDemo = () => {
         <Code>defaultValue</Code>: for uncontrolled component
       </Paragraph>
       <Paragraph>
-        <Code>placeholder</Code>: the placeholder for empty component value
-        hint.
+        <Code>placeholder</Code>: the placeholder for empty component value hint.
       </Paragraph>
       <Grid gutter={[8, 8]} cols={3}>
         <Cell>
@@ -100,25 +85,13 @@ const PlaceholderValueAndDefaultValueDemo = () => {
           <Label fullWidth>value</Label>
         </Cell>
         <Cell>
-          <Input
-            fullWidth
-            value={placeholder}
-            onChange={event => setPlaceholder(event.target.value)}
-          />
+          <Input fullWidth value={placeholder} onChange={event => setPlaceholder(event.target.value)} />
         </Cell>
         <Cell>
-          <Input
-            fullWidth
-            defaultValue={defaultValue}
-            onChange={event => setDefaultValue(event.target.value)}
-          />
+          <Input fullWidth defaultValue={defaultValue} onChange={event => setDefaultValue(event.target.value)} />
         </Cell>
         <Cell>
-          <Input
-            fullWidth
-            defaultValue={value}
-            onChange={event => setValue(event.target.value)}
-          />
+          <Input fullWidth defaultValue={value} onChange={event => setValue(event.target.value)} />
         </Cell>
         <Cell span={3}>
           <Label>result:</Label>
@@ -141,8 +114,7 @@ const TypeDemo = () => {
     <Article>
       <H2>Type</H2>
       <Paragraph>
-        AtomInput provides diferent types of usage depending on its{' '}
-        <Code>type</Code> value prop.
+        AtomInput provides diferent types of usage depending on its <Code>type</Code> value prop.
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         {[
@@ -150,8 +122,7 @@ const TypeDemo = () => {
             'TEXT',
             {type: inputTypes.TEXT},
             {
-              description:
-                'Elements of type text create basic single-line text fields'
+              description: 'Elements of type text create basic single-line text fields'
             }
           ],
           [
@@ -174,11 +145,8 @@ const TypeDemo = () => {
             {
               description: (
                 <>
-                  Let the user define its own mask for custom purposes. More
-                  info at{' '}
-                  <Anchor href="http://shorturl.at/foBF1">
-                    http://shorturl.at/foBF1
-                  </Anchor>
+                  Let the user define its own mask for custom purposes. More info at{' '}
+                  <Anchor href="http://shorturl.at/foBF1">http://shorturl.at/foBF1</Anchor>
                 </>
               )
             }
@@ -193,13 +161,9 @@ const TypeDemo = () => {
             {
               description: (
                 <>
-                  A control for entering a number. Displays a spinner and adds
-                  default validation when supported. Displays a numeric keypad
-                  in some devices with dynamic keypads. Arrows for number inputs
-                  are not shown due to:{' '}
-                  <Anchor href="http://shorturl.at/tR149">
-                    http://shorturl.at/tR149
-                  </Anchor>
+                  A control for entering a number. Displays a spinner and adds default validation when supported.
+                  Displays a numeric keypad in some devices with dynamic keypads. Arrows for number inputs are not shown
+                  due to: <Anchor href="http://shorturl.at/tR149">http://shorturl.at/tR149</Anchor>
                 </>
               )
             }
@@ -208,16 +172,14 @@ const TypeDemo = () => {
             'PASSWORD',
             {type: inputTypes.PASSWORD, placeholder: 'Password Input'},
             {
-              description:
-                'A single-line text field whose value is obscured. Will alert user if site is not secure'
+              description: 'A single-line text field whose value is obscured. Will alert user if site is not secure'
             }
           ],
           [
             'SUI_PASSWORD',
             {type: inputTypes.SUI_PASSWORD, placeholder: 'Password Input'},
             {
-              description:
-                'Like password but whith a show button for value displaying state'
+              description: 'Like password but whith a show button for value displaying state'
             }
           ],
           [
@@ -253,13 +215,12 @@ const DisabledReadOnlyDemo = () => {
     <Article>
       <H2>Disable and ReadOnly</H2>
       <Paragraph>
-        Input provides two different modes that blocks the component behavior
-        the difference between them is the appearance.
+        Input provides two different modes that blocks the component behavior the difference between them is the
+        appearance.
       </Paragraph>
       <Paragraph>
-        The developer can disable the component using the <Code>disabled</Code>{' '}
-        boolean prop. It can be blocked also using the <Code>readOnly</Code>{' '}
-        boolean propm, but it will look like the default input.
+        The developer can disable the component using the <Code>disabled</Code> boolean prop. It can be blocked also
+        using the <Code>readOnly</Code> boolean propm, but it will look like the default input.
       </Paragraph>
       <Grid gutter={[8, 8]} cols={2}>
         <Cell>
@@ -283,24 +244,17 @@ const AddonAndIconDemo = () => {
   const [state, setState] = useState({})
   const {icon, iconValue, rightAddon, leftAddon} = state
   const setStatus = (newState = {}) => setState({...state, ...newState})
-  const valueIcon = iconValue ? (
-    <AntDesignIcon icon={iconValue} style={{color: 'currentColor'}} />
-  ) : null
+  const valueIcon = iconValue ? <AntDesignIcon icon={iconValue} style={{color: 'currentColor'}} /> : null
   return (
     <Article>
       <H2>Addon and Icon</H2>
-      <Paragraph>
-        Input offers the possibility to add icons and contents on its left or
-        right positions
-      </Paragraph>
+      <Paragraph>Input offers the possibility to add icons and contents on its left or right positions</Paragraph>
       <UnorderedList>
         <ListItem>
-          <Code>leftAddon</Code> and <Code>rightAddon</Code>: use it as a label
-          for the input field
+          <Code>leftAddon</Code> and <Code>rightAddon</Code>: use it as a label for the input field
         </ListItem>
         <ListItem>
-          <Code>leftIcon</Code> and <Code>rightIcon</Code>: use it as a valid
-          symbol for the field
+          <Code>leftIcon</Code> and <Code>rightIcon</Code>: use it as a valid symbol for the field
         </ListItem>
       </UnorderedList>
       <Paragraph>This field props can be combined all together.</Paragraph>
@@ -335,75 +289,35 @@ const AddonAndIconDemo = () => {
           >
             <RadioButton
               value="AiFillFire"
-              label={
-                <AntDesignIcon
-                  icon="AiFillFire"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiFillFire" style={{color: 'currentColor'}} />}
             />
             <RadioButton
               value="AiOutlineSketch"
-              label={
-                <AntDesignIcon
-                  icon="AiOutlineSketch"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiOutlineSketch" style={{color: 'currentColor'}} />}
             />
             <RadioButton
               value="AiOutlineInfoCircle"
-              label={
-                <AntDesignIcon
-                  icon="AiOutlineInfoCircle"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiOutlineInfoCircle" style={{color: 'currentColor'}} />}
             />
             <RadioButton
               value="AiTwotoneSkin"
-              label={
-                <AntDesignIcon
-                  icon="AiTwotoneSkin"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiTwotoneSkin" style={{color: 'currentColor'}} />}
             />
             <RadioButton
               value="AiOutlineExclamationCircle"
-              label={
-                <AntDesignIcon
-                  icon="AiOutlineExclamationCircle"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiOutlineExclamationCircle" style={{color: 'currentColor'}} />}
             />
             <RadioButton
               value="AiOutlineCar"
-              label={
-                <AntDesignIcon
-                  icon="AiOutlineCar"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiOutlineCar" style={{color: 'currentColor'}} />}
             />
             <RadioButton
               value="AiOutlineAppstore"
-              label={
-                <AntDesignIcon
-                  icon="AiOutlineAppstore"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiOutlineAppstore" style={{color: 'currentColor'}} />}
             />
             <RadioButton
               value="AiFillTrophy"
-              label={
-                <AntDesignIcon
-                  icon="AiFillTrophy"
-                  style={{color: 'currentColor'}}
-                />
-              }
+              label={<AntDesignIcon icon="AiFillTrophy" style={{color: 'currentColor'}} />}
             />
           </RadioButtonGroup>
         </Cell>
@@ -433,17 +347,11 @@ const BorderlessDemo = () => {
     <Article>
       <H2>No border</H2>
       <Paragraph>
-        The border of the input can be removed using the boolean prop{' '}
-        <Code>noBorder</Code>
+        The border of the input can be removed using the boolean prop <Code>noBorder</Code>
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
-          <RadioButton
-            fullWidth
-            value={border}
-            label="hide border"
-            onClick={(event, value) => setBorder(!value)}
-          />
+          <RadioButton fullWidth value={border} label="hide border" onClick={(event, value) => setBorder(!value)} />
         </Cell>
         <Cell>
           <RadioButton
@@ -468,8 +376,8 @@ const StateDemo = () => {
     <Article>
       <H2>State</H2>
       <Paragraph>
-        Input has {Object.values(inputStates).length} different values. It can
-        be used giving a valid <Code>state</Code> prop to the component.
+        Input has {Object.values(inputStates).length} different values. It can be used giving a valid <Code>state</Code>{' '}
+        prop to the component.
       </Paragraph>
       <Grid cols={Object.values(inputStates).length + 1} gutter={[8, 8]}>
         {stackMap(
@@ -491,8 +399,7 @@ const ErrorStatusDemo = () => {
     <Article>
       <H2>Error State</H2>
       <Paragraph>
-        Input can show its error mode using the boolean prop{' '}
-        <Code>errorStatus</Code>
+        Input can show its error mode using the boolean prop <Code>errorStatus</Code>
       </Paragraph>
       <Grid cols={3} gutter={[8, 8]}>
         <Cell>
@@ -523,8 +430,7 @@ const InlineFormDemo = () => (
     <H2 deprecated>Inline Form</H2>
     <H3>Deprecated</H3>
     <Paragraph>
-      Input have its own way of provide a submision using the{' '}
-      <Code>button</Code> prop, you can pass a React node.
+      Input have its own way of provide a submision using the <Code>button</Code> prop, you can pass a React node.
     </Paragraph>
     <AtomInput button={<Button>Send</Button>} />
   </Article>
@@ -534,8 +440,7 @@ const ShapeDemo = () => (
   <Article>
     <H2>Shape</H2>
     <Paragraph>
-      The border radius of the input can be set using the <Code>shape</Code>{' '}
-      property.
+      The border radius of the input can be set using the <Code>shape</Code> property.
     </Paragraph>
     <Grid cols={Object.values(inputShapes).length + 1} gutter={[8, 8]}>
       {Object.entries({default: undefined, ...inputShapes}).map(([key]) => (
@@ -543,17 +448,13 @@ const ShapeDemo = () => (
           <Label>{`${key}`}</Label>
         </Cell>
       ))}
-      {Object.entries({default: undefined, ...inputShapes}).map(
-        ([key, value]) => (
-          <Cell key={key}>
-            <AtomInput shape={value} />
-          </Cell>
-        )
-      )}
+      {Object.entries({default: undefined, ...inputShapes}).map(([key, value]) => (
+        <Cell key={key}>
+          <AtomInput shape={value} />
+        </Cell>
+      ))}
     </Grid>
-    <Paragraph>
-      In even preserves its own shaping combined with addons and sizes also.
-    </Paragraph>
+    <Paragraph>In even preserves its own shaping combined with addons and sizes also.</Paragraph>
     <Grid cols={Object.values(inputShapes).length + 1 + 1} gutter={[8, 8]}>
       <Cell />
       {Object.entries({default: undefined, ...inputShapes}).map(([key]) => (
@@ -561,27 +462,23 @@ const ShapeDemo = () => (
           <Label>{`${key}`}</Label>
         </Cell>
       ))}
-      {Object.entries({default: undefined, ...inputSizes}).map(
-        ([sizeKey, sizeValue]) => (
-          <>
-            <Cell key={sizeKey}>
-              <Label>{`${sizeKey}`}</Label>
+      {Object.entries({default: undefined, ...inputSizes}).map(([sizeKey, sizeValue]) => (
+        <>
+          <Cell key={sizeKey}>
+            <Label>{`${sizeKey}`}</Label>
+          </Cell>
+          {Object.entries({default: undefined, ...inputShapes}).map(([shapeKey, shapeValue]) => (
+            <Cell key={`${shapeKey}-${sizeKey}`}>
+              <AtomInput
+                shape={shapeValue}
+                size={sizeValue}
+                leftAddon={<span>left</span>}
+                rightAddon={<span>right</span>}
+              />
             </Cell>
-            {Object.entries({default: undefined, ...inputShapes}).map(
-              ([shapeKey, shapeValue]) => (
-                <Cell key={`${shapeKey}-${sizeKey}`}>
-                  <AtomInput
-                    shape={shapeValue}
-                    size={sizeValue}
-                    leftAddon={<span>left</span>}
-                    rightAddon={<span>right</span>}
-                  />
-                </Cell>
-              )
-            )}
-          </>
-        )
-      )}
+          ))}
+        </>
+      ))}
     </Grid>
   </Article>
 )
@@ -591,9 +488,8 @@ const Demo = () => (
     <div className="sui-StudioPreview-content sui-StudioDemo-preview">
       <H1>Input</H1>
       <Paragraph>
-        Inputs are the text fields that users fill in with different types of
-        information. These include dates, passwords or even short answers. It’s
-        a field where users can write alphanumeric texts.
+        Inputs are the text fields that users fill in with different types of information. These include dates,
+        passwords or even short answers. It’s a field where users can write alphanumeric texts.
       </Paragraph>
       <DefaultDemo />
       <br />

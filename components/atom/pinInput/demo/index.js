@@ -22,8 +22,8 @@ export default () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <H1>Pin Input</H1>
         <Paragraph>
-          The Pin Input component is optimized for entering sequences of digits.
-          The most common application is for entering OTP or security codes.
+          The Pin Input component is optimized for entering sequences of digits. The most common application is for
+          entering OTP or security codes.
         </Paragraph>
         <ArticleDefault className={CLASS_SECTION} />
         <br />

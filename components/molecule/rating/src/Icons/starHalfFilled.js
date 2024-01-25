@@ -10,9 +10,7 @@ const starHalfFilled = (
   </svg>
 )
 
-const StarHalfFilled = ({size}) => (
-  <AtomIcon size={size}>{starHalfFilled}</AtomIcon>
-)
+const StarHalfFilled = ({size}) => <AtomIcon size={size}>{starHalfFilled}</AtomIcon>
 
 StarHalfFilled.propTypes = {
   /** size */

@@ -14,14 +14,7 @@ const LinkComponent = () => (
   </div>
 )
 
-export const contentHeadMook = [
-  'Versión',
-  'Año',
-  'Combustible',
-  'Potencia',
-  'Precio',
-  ''
-]
+export const contentHeadMook = ['Versión', 'Año', 'Combustible', 'Potencia', 'Precio', '']
 
 export const contentBodyMook = [
   [
@@ -75,11 +68,4 @@ export const contentBodyMook = [
   ]
 ]
 
-export const contentFootMook = [
-  'Versión',
-  'Año',
-  'Combustible',
-  'Potencia',
-  'Precio',
-  ''
-]
+export const contentFootMook = ['Versión', 'Año', 'Combustible', 'Potencia', 'Precio', '']

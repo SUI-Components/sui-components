@@ -22,48 +22,21 @@ const ArticleCustomIcon = ({className, items}) => {
     <Article className={className}>
       <H2>Custom Icon</H2>
       <Paragraph>
-        MoleculeBreadcrumb offers the oportunity to customize the separator icon
-        between items through the <Code>icon</Code> prop, which might be a React
-        component.
+        MoleculeBreadcrumb offers the oportunity to customize the separator icon between items through the{' '}
+        <Code>icon</Code> prop, which might be a React component.
       </Paragraph>
-      <RadioButtonGroup
-        value={icon}
-        onChange={(event, value) => setIcon(value)}
-      >
-        {[
-          'AiFillCaretRight',
-          'AiOutlineCaretRight',
-          'AiOutlineDoubleRight',
-          'AiOutlineRight'
-        ].map((iconValue, key) => (
-          <RadioButton
-            key={iconValue}
-            value={iconValue}
-            checked={icon === iconValue}
-          />
+      <RadioButtonGroup value={icon} onChange={(event, value) => setIcon(value)}>
+        {['AiFillCaretRight', 'AiOutlineCaretRight', 'AiOutlineDoubleRight', 'AiOutlineRight'].map((iconValue, key) => (
+          <RadioButton key={iconValue} value={iconValue} checked={icon === iconValue} />
         ))}
       </RadioButtonGroup>
       <MoleculeBreadcrumb
         items={items}
-        icon={
-          icon &&
-          (props => (
-            <AntDesignIcon
-              icon={icon}
-              style={{color: 'currentColor'}}
-              {...props}
-            />
-          ))
-        }
+        icon={icon && (props => <AntDesignIcon icon={icon} style={{color: 'currentColor'}} {...props} />)}
       />
-      <Paragraph>
-        Icon might be even a text (or string) Component node
-      </Paragraph>
+      <Paragraph>Icon might be even a text (or string) Component node</Paragraph>
       <Input value={text} onChange={event => setText(event.target.value)} />
-      <MoleculeBreadcrumb
-        items={items}
-        icon={text && (props => <span {...props}>{`${text}`}&nbsp;</span>)}
-      />
+      <MoleculeBreadcrumb items={items} icon={text && (props => <span {...props}>{`${text}`}&nbsp;</span>)} />
     </Article>
   )
 }
@@ -72,9 +45,7 @@ ArticleCustomIcon.displayName = 'ArticleCustomIcon'
 
 ArticleCustomIcon.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({label: PropTypes.string, url: PropTypes.string})
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape({label: PropTypes.string, url: PropTypes.string})),
   icon: PropTypes.func
 }
 

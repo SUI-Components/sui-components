@@ -24,8 +24,7 @@ import {ICONS, PROPS_STATUS, propsFromStatus} from '../settings.js'
 
 const ArticleDefault = ({className}) => {
   const [status, setStatus] = useState('CHECKED')
-  const {indeterminate: indeterminateStatus, checked: checkedStatus} =
-    propsFromStatus(status)
+  const {indeterminate: indeterminateStatus, checked: checkedStatus} = propsFromStatus(status)
   const [values, setValues] = useState(propsFromStatus(status))
   const [outerHTML, setOuterHTML] = useState('')
   const [unchecked, setUnchecked] = useState({
@@ -41,10 +40,7 @@ const ArticleDefault = ({className}) => {
     if (node) {
       const {checked: nodeChecked, indeterminate: nodeIndeterminate} = node
       const {checked: valueChecked, indeterminate: valueIndeterminate} = values
-      if (
-        valueChecked !== nodeChecked ||
-        valueIndeterminate !== nodeIndeterminate
-      ) {
+      if (valueChecked !== nodeChecked || valueIndeterminate !== nodeIndeterminate) {
         setValues({checked: nodeChecked, indeterminate: nodeIndeterminate})
       }
       if (outerHTML !== node.outerHTML) {
@@ -74,38 +70,27 @@ const ArticleDefault = ({className}) => {
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        <Code>AtomCheckbox</Code> is a component that renders an input
-        type="checkbox" styled.
+        <Code>AtomCheckbox</Code> is a component that renders an input type="checkbox" styled.
       </Paragraph>
       <Paragraph>
-        As all diferent input types, checkbox admits the <Code>name</Code>{' '}
-        (string) and <Code>value</Code> props.
+        As all diferent input types, checkbox admits the <Code>name</Code> (string) and <Code>value</Code> props.
       </Paragraph>
       <Paragraph>
-        The checkbox is shown as a square. It has only 2 states using the{' '}
-        <Code>checked</Code> (boolean) prop.
+        The checkbox is shown as a square. It has only 2 states using the <Code>checked</Code> (boolean) prop.
       </Paragraph>
       <UnorderedList>
         <ListItem>unchecked: not ticked when disabled.</ListItem>
         <ListItem>checked: is ticked when activated.</ListItem>
       </UnorderedList>
       <Paragraph>
-        In some cases, the component is also able to show an indeterminate value
-        using the <Code>indeterminate</Code> (boolean) prop. This is only a
-        visual feature and gives no effect in a form.
+        In some cases, the component is also able to show an indeterminate value using the <Code>indeterminate</Code>{' '}
+        (boolean) prop. This is only a visual feature and gives no effect in a form.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={status}
-            onChange={handler('RadioButtonGroup')}
-          >
+          <RadioButtonGroup value={status} onChange={handler('RadioButtonGroup')}>
             {Object.keys(PROPS_STATUS).map(value => (
-              <RadioButton
-                key={value}
-                value={value}
-                checked={value === status}
-              />
+              <RadioButton key={value} value={value} checked={value === status} />
             ))}
           </RadioButtonGroup>
         </Cell>
@@ -142,8 +127,7 @@ const ArticleDefault = ({className}) => {
         </Cell>
         <Cell>
           <Paragraph elementType="div">
-            The component is also forward referenced targeting the native
-            checkbox.
+            The component is also forward referenced targeting the native checkbox.
           </Paragraph>
         </Cell>
         <Cell>
@@ -231,8 +215,7 @@ const ArticleDefault = ({className}) => {
         </Cell>
       </Grid>
       <Paragraph>
-        It combines and updates its inner <Code>checked</Code> and{' '}
-        <Code>indeterminate</Code> states.
+        It combines and updates its inner <Code>checked</Code> and <Code>indeterminate</Code> states.
       </Paragraph>
     </Article>
   )

@@ -7,11 +7,7 @@ import AtomButton, {
   atomButtonSizes
 } from '@s-ui/react-atom-button'
 
-import {
-  isValidPage,
-  isValidShowPages,
-  isValidTotalPages
-} from './customPropTypes/index.js'
+import {isValidPage, isValidShowPages, isValidTotalPages} from './customPropTypes/index.js'
 import * as pagination from './helpers/pagination/index.js'
 import PageButton from './PageButton.js'
 import {BASE_CLASS, defaultCreateUrl, DIVIDER, noop} from './settings.js'
@@ -113,16 +109,8 @@ const MoleculePagination = ({
             <>
               <PageButton
                 page={FIRST_PAGE}
-                design={
-                  page === FIRST_PAGE
-                    ? selectedPageButtonDesign
-                    : nonSelectedPageButtonDesign
-                }
-                color={
-                  page === FIRST_PAGE
-                    ? selectedPageButtonColor
-                    : nonSelectedPageButtonColor
-                }
+                design={page === FIRST_PAGE ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
+                color={page === FIRST_PAGE ? selectedPageButtonColor : nonSelectedPageButtonColor}
                 onSelectPage={onSelectPage}
                 shape={shape}
                 size={size}
@@ -130,25 +118,15 @@ const MoleculePagination = ({
               >
                 {FIRST_PAGE}
               </PageButton>
-              {range[0] - 1 > FIRST_PAGE && (
-                <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>
-              )}
+              {range[0] - 1 > FIRST_PAGE && <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>}
             </>
           )}
           {range.map(pageRange => (
             <PageButton
               key={pageRange}
               page={pageRange}
-              design={
-                pageRange === page
-                  ? selectedPageButtonDesign
-                  : nonSelectedPageButtonDesign
-              }
-              color={
-                pageRange === page
-                  ? selectedPageButtonColor
-                  : nonSelectedPageButtonColor
-              }
+              design={pageRange === page ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
+              color={pageRange === page ? selectedPageButtonColor : nonSelectedPageButtonColor}
               onSelectPage={onSelectPage}
               shape={shape}
               size={size}
@@ -157,34 +135,22 @@ const MoleculePagination = ({
               {pageRange}
             </PageButton>
           ))}
-          {showEdges &&
-            totalPages > 1 &&
-            range[range.length - 1] !== totalPages && (
-              <>
-                {totalPages - range[range.length - 1] > 1 && (
-                  <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>
-                )}
-                <PageButton
-                  page={totalPages}
-                  design={
-                    page === totalPages
-                      ? selectedPageButtonDesign
-                      : nonSelectedPageButtonDesign
-                  }
-                  color={
-                    page === totalPages
-                      ? selectedPageButtonColor
-                      : nonSelectedPageButtonColor
-                  }
-                  onSelectPage={onSelectPage}
-                  shape={shape}
-                  size={size}
-                  {...linkProps(totalPages)}
-                >
-                  {totalPages}
-                </PageButton>
-              </>
-            )}
+          {showEdges && totalPages > 1 && range[range.length - 1] !== totalPages && (
+            <>
+              {totalPages - range[range.length - 1] > 1 && <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>}
+              <PageButton
+                page={totalPages}
+                design={page === totalPages ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
+                color={page === totalPages ? selectedPageButtonColor : nonSelectedPageButtonColor}
+                onSelectPage={onSelectPage}
+                shape={shape}
+                size={size}
+                {...linkProps(totalPages)}
+              >
+                {totalPages}
+              </PageButton>
+            </>
+          )}
         </>
       )}
       {!isHideNext && (

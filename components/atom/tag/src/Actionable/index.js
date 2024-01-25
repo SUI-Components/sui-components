@@ -5,12 +5,7 @@ import PropTypes from 'prop-types'
 import {LINK_TYPES} from '../constants.js'
 import AtomTagActionableIcon from './AtomTagActionableIcon.js'
 import ActionableTagContainer from './Container.js'
-import {
-  getClassNames,
-  getLinkTypesString,
-  ICON_PLACEMENTS,
-  onHandler
-} from './settings.js'
+import {getClassNames, getLinkTypesString, ICON_PLACEMENTS, onHandler} from './settings.js'
 
 const ActionableTag = forwardRef(
   (
@@ -82,25 +77,16 @@ ActionableTag.propTypes = {
 
 ActionableTag.defaultProps = {
   // eslint-disable-next-line react/prop-types
-  linkFactory: forwardRef(
-    ({href, target, rel, className, role, children} = {}, forwardRef) => {
-      const optionalProps = {
-        ...(rel && {rel: getLinkTypesString(rel)})
-      }
-      return (
-        <a
-          ref={forwardRef}
-          href={href}
-          target={target}
-          className={className}
-          role={role}
-          {...optionalProps}
-        >
-          {children}
-        </a>
-      )
+  linkFactory: forwardRef(({href, target, rel, className, role, children} = {}, forwardRef) => {
+    const optionalProps = {
+      ...(rel && {rel: getLinkTypesString(rel)})
     }
-  )
+    return (
+      <a ref={forwardRef} href={href} target={target} className={className} role={role} {...optionalProps}>
+        {children}
+      </a>
+    )
+  })
 }
 
 export default ActionableTag

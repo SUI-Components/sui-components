@@ -14,8 +14,7 @@ export default () => (
   <div className="sui-StudioPreview">
     <H1>Tag</H1>
     <Paragraph>
-      We use tags to visually emphasise features of the UI and make recognition
-      and interaction easier.
+      We use tags to visually emphasise features of the UI and make recognition and interaction easier.
     </Paragraph>
     <ArticleSize className={CLASS_SECTION} />
     <br />

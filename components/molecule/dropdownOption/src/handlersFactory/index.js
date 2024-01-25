@@ -1,11 +1,4 @@
-const handlersFactory = ({
-  disabled = false,
-  onSelect,
-  selectKey = 'Enter',
-  selected,
-  setInnerSelected,
-  value
-}) => {
+const handlersFactory = ({disabled = false, onSelect, selectKey = 'Enter', selected, setInnerSelected, value}) => {
   const handleClick = ev => {
     if (!disabled) {
       onSelect(ev, {value, selected: !selected})
@@ -15,9 +8,7 @@ const handlersFactory = ({
   const handleKeyDown = ev => {
     const {key} = ev
     const isStringSelectKey = typeof selectKey === 'string'
-    const isPressedSelectKey = isStringSelectKey
-      ? key === selectKey
-      : selectKey.includes(key)
+    const isPressedSelectKey = isStringSelectKey ? key === selectKey : selectKey.includes(key)
     if (isPressedSelectKey && !disabled) {
       ev.preventDefault()
       onSelect(ev, {value, selected: !selected})

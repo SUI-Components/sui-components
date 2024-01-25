@@ -12,19 +12,7 @@ import useVimeoProperties from '../hooks/vimeo/useVimeoProperties.js'
 import {BASE_CLASS, VIMEO_DEFAULT_TITLE} from '../settings/index.js'
 
 const VimeoPlayer = forwardRef(
-  (
-    {
-      autoPlay,
-      controls,
-      muted,
-      onLoadVideo,
-      timeLimit,
-      timeOffset,
-      src,
-      title = VIMEO_DEFAULT_TITLE
-    },
-    forwardedRef
-  ) => {
+  ({autoPlay, controls, muted, onLoadVideo, timeLimit, timeOffset, src, title = VIMEO_DEFAULT_TITLE}, forwardedRef) => {
     const {getEmbeddableUrl} = useVimeoProperties()
     const params = toQueryString({
       autoplay: autoPlay ? '1' : '0',

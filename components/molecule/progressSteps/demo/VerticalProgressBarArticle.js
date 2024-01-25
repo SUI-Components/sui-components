@@ -2,21 +2,9 @@ import {useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Paragraph,
-  RadioButton,
-  RadioButtonGroup
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
-import MoleculeProgressSteps, {
-  MoleculeProgressStep,
-  moleculeProgressStepsStatuses
-} from '../src/index.js'
+import MoleculeProgressSteps, {MoleculeProgressStep, moleculeProgressStepsStatuses} from '../src/index.js'
 import {configBasic} from './config/index.js'
 import {iconFillCheck} from './Icons/index.js'
 
@@ -51,20 +39,13 @@ const VerticalProgressBarArticle = ({className}) => {
     <Article className={className}>
       <H2>Vertical</H2>
       <Paragraph>
-        Te boolean <Code>vertical</Code> prop switches the progress steps
-        alignment from horizontal(default) to vertical(true).
+        Te boolean <Code>vertical</Code> prop switches the progress steps alignment from horizontal(default) to
+        vertical(true).
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={step}
-            onChange={(event, value) => setStatus(value || 0)}
-          >
-            {[
-              0,
-              ...Object.keys(configBasic),
-              Object.keys(configBasic).length + 1
-            ].map(stepValue => (
+          <RadioButtonGroup value={step} onChange={(event, value) => setStatus(value || 0)}>
+            {[0, ...Object.keys(configBasic), Object.keys(configBasic).length + 1].map(stepValue => (
               <RadioButton
                 key={`step ${parseInt(stepValue)}`}
                 value={parseInt(stepValue)}
@@ -86,17 +67,9 @@ const VerticalProgressBarArticle = ({className}) => {
           />
         </Cell>
         <Cell>
-          <MoleculeProgressSteps
-            iconStepDone={iconFillCheck}
-            vertical={isVertical}
-          >
+          <MoleculeProgressSteps iconStepDone={iconFillCheck} vertical={isVertical}>
             {Object.values(configBasic).map(({label, content, icon}, index) => (
-              <MoleculeProgressStep
-                key={index}
-                label={label}
-                status={getStatus(step, index)}
-                icon={icon}
-              >
+              <MoleculeProgressStep key={index} label={label} status={getStatus(step, index)} icon={icon}>
                 {content}
               </MoleculeProgressStep>
             ))}

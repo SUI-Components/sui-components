@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 
 import Icon from './Icon.js'
 import LazyIcon from './LazyIcon.js'
-import {
-  ATOM_ICON_COLORS,
-  ATOM_ICON_RENDERS,
-  ATOM_ICON_SIZES,
-  BASE_CLASS
-} from './settings.js'
+import {ATOM_ICON_COLORS, ATOM_ICON_RENDERS, ATOM_ICON_SIZES, BASE_CLASS} from './settings.js'
 
 const AtomIcon = ({
   as = 'span',
@@ -19,11 +14,7 @@ const AtomIcon = ({
   style: _ignoredStyle, // eslint-disable-line react/prop-types
   ...props
 }) => {
-  const className = cx(
-    BASE_CLASS,
-    `${BASE_CLASS}--${size}`,
-    color && `${BASE_CLASS}--${color}`
-  )
+  const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, color && `${BASE_CLASS}--${color}`)
 
   const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
 

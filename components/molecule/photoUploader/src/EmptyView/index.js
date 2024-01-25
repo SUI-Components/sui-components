@@ -34,24 +34,12 @@ const EmptyView = ({
         <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
       </div>
       <div className={TEXT_STATE_CLASS_NAME}>
-        <span
-          className={cx(TEXT_STATE_TEXT_CLASS_NAME, {isSpaced: !dividerText})}
-        >
-          {text}
-        </span>
+        <span className={cx(TEXT_STATE_TEXT_CLASS_NAME, {isSpaced: !dividerText})}>{text}</span>
 
-        {dividerText ? (
-          <span className={TEXT_STATE_DIVIDER_CLASS_NAME}>{dividerText}</span>
-        ) : null}
+        {dividerText ? <span className={TEXT_STATE_DIVIDER_CLASS_NAME}>{dividerText}</span> : null}
       </div>
       <div className={BUTTON_STATE_CLASS_NAME}>
-        <Button
-          color={buttonColor}
-          design={buttonDesign}
-          isButton
-          shape={buttonShape}
-          size={buttonSize}
-        >
+        <Button color={buttonColor} design={buttonDesign} isButton shape={buttonShape} size={buttonSize}>
           {buttonText}
         </Button>
       </div>

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.91.0 (2023-12-18)
+
+
+### Bug Fixes
+
+* **components/atom/button:** google translate ([5edf26e](https://github.com/SUI-Components/sui-components/commit/5edf26ed6e47cfb342ef143f517c54e7fb67cf57))
+
+
+
 # 1.90.0 (2023-05-17)
 
 

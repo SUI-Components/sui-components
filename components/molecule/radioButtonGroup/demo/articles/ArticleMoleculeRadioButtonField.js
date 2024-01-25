@@ -11,8 +11,8 @@ const ArticleMoleculeRadioButtonField = ({className}) => {
     <Article className={className}>
       <H2>With MoleculeRadioButtonField</H2>
       <Paragraph>
-        For this demo, you will need to implement the container
-        "MoleculeRadioButtonGroup" and the components "MoleculeRadioButtonField"
+        For this demo, you will need to implement the container "MoleculeRadioButtonGroup" and the components
+        "MoleculeRadioButtonField"
       </Paragraph>
       <br />
       <MoleculeRadioButtonGroup
@@ -23,18 +23,8 @@ const ArticleMoleculeRadioButtonField = ({className}) => {
         name="field-favorite-beatle"
         defaultValue="john"
       >
-        <MoleculeRadioButtonField
-          id="john"
-          value="john"
-          label={<CustomLabel text="John" />}
-          helpText="John Lennon"
-        />
-        <MoleculeRadioButtonField
-          id="paul"
-          value="paul"
-          label="Paul"
-          helpText="Paul McCartney"
-        />
+        <MoleculeRadioButtonField id="john" value="john" label={<CustomLabel text="John" />} helpText="John Lennon" />
+        <MoleculeRadioButtonField id="paul" value="paul" label="Paul" helpText="Paul McCartney" />
         <MoleculeRadioButtonField
           id="george"
           value="george"

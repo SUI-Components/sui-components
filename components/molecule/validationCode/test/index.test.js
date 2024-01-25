@@ -25,12 +25,7 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'validationCodeStatus',
-      'validationCodeMask',
-      'validationCodeSizes',
-      'default'
-    ]
+    const libraryExportedMembers = ['validationCodeStatus', 'validationCodeMask', 'validationCodeSizes', 'default']
 
     // When
     const {
@@ -78,8 +73,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -260,16 +254,7 @@ describe(json.name, () => {
 
       // When
       const {validationCodeSizes: actual} = library
-      const {
-        XXSMALL,
-        XSMALL,
-        SMALL,
-        MEDIUM,
-        LARGE,
-        XLARGE,
-        XXLARGE,
-        ...others
-      } = actual
+      const {XXSMALL, XSMALL, SMALL, MEDIUM, LARGE, XLARGE, XXLARGE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

@@ -27,6 +27,5 @@ export const getIcon = ({
 export const getLabel = ({label, steps, step, design, current}) => {
   if (design === DESIGN.DEFAULT) return label
   else if (design === DESIGN.BASIC) return label
-  else if (design === DESIGN.COMPRESSED && current)
-    return `${step}/${steps}${label ? `: ${label}` : ''}`
+  else if (design === DESIGN.COMPRESSED && current) return `${step}/${steps}${label ? `: ${label}` : ''}`
 }

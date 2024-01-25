@@ -16,17 +16,9 @@ const InputAddon = ({leftAddon, rightAddon, shape, size, children}) => {
         size && `${BASE_CLASS_ADDON_WRAPPER}-size-${size}`
       )}
     >
-      {leftAddon && (
-        <span className={getClassName({type: ADDON_TYPES.LEFT, shape})}>
-          {leftAddon}
-        </span>
-      )}
+      {leftAddon && <span className={getClassName({type: ADDON_TYPES.LEFT, shape})}>{leftAddon}</span>}
       {children}
-      {rightAddon && (
-        <span className={getClassName({type: ADDON_TYPES.RIGHT, shape})}>
-          {rightAddon}
-        </span>
-      )}
+      {rightAddon && <span className={getClassName({type: ADDON_TYPES.RIGHT, shape})}>{rightAddon}</span>}
     </div>
   )
 }

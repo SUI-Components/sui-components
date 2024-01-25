@@ -1,9 +1,4 @@
-import {
-  ACTIONS,
-  DEFAULT_HAS_ERRORS_STATUS,
-  DEFAULT_IMAGE_ROTATION_DEGREES,
-  REJECT_FILES_REASONS
-} from './config.js'
+import {ACTIONS, DEFAULT_HAS_ERRORS_STATUS, DEFAULT_IMAGE_ROTATION_DEGREES, REJECT_FILES_REASONS} from './config.js'
 import {formatToBase64} from './photoTools.js'
 
 export const filterValidFiles = ({
@@ -36,21 +31,13 @@ export const filterValidFiles = ({
 
   const notRepeatedFilesFilter = filesToFilter =>
     filesToFilter.forEach(fileToFilter => {
-      const {
-        path: newFilePath,
-        size: newFileSize,
-        lastModified: newFileLastModified
-      } = fileToFilter
+      const {path: newFilePath, size: newFileSize, lastModified: newFileLastModified} = fileToFilter
 
       const isFileAlready = files.some(file => {
         const {url, properties} = file
         if (url) return false
         const {path, size, lastModified} = properties
-        return (
-          path === newFilePath &&
-          size === newFileSize &&
-          lastModified === newFileLastModified
-        )
+        return path === newFilePath && size === newFileSize && lastModified === newFileLastModified
       })
 
       if (isFileAlready) {
@@ -85,19 +72,12 @@ export const filterValidFiles = ({
   if (files.length + notRepeatedFiles.length >= maxPhotos) {
     setMaxPhotosError()
     const howManyFilesToMax = maxPhotos - files.length
-    notRepeatedFiles.splice(
-      howManyFilesToMax - 1,
-      notRepeatedFiles.length - howManyFilesToMax
-    )
+    notRepeatedFiles.splice(howManyFilesToMax - 1, notRepeatedFiles.length - howManyFilesToMax)
   }
   return notRepeatedFiles
 }
 
-export async function callbackUploadPhotoHandler(
-  blob,
-  callbackUploadPhoto,
-  oldUrl
-) {
+export async function callbackUploadPhotoHandler(blob, callbackUploadPhoto, oldUrl) {
   if (callbackUploadPhoto) {
     try {
       const response = await callbackUploadPhoto(blob, oldUrl)
@@ -129,56 +109,41 @@ export const prepareFiles = ({
           options: defaultFormatToBase64Options
         })
       )
-      .then(
-        async ({
-          file,
-          blob,
-          originalBase64,
-          croppedBase64,
-          rotation,
-          hasErrors = DEFAULT_HAS_ERRORS_STATUS
-        }) => {
-          if (hasErrors) {
-            const errorText = errorCorruptedPhotoUploadedText.replace(
-              '%{filepath}',
-              nextFile.path
-            )
-            handlePhotosRejected([
-              {
-                rejectedFile: nextFile,
-                reason: REJECT_FILES_REASONS.loadFailed
-              }
-            ])
-            setCorruptedFileError(errorText)
-          } else {
-            const {url, ...restProps} = await callbackUploadPhotoHandler(
-              blob,
-              callbackUploadPhoto
-            )
-            if (errorSaveImageEndpoint && !url) {
-              setCorruptedFileError(errorSaveImageEndpoint)
-            } else {
-              currentFiles.push({
-                blob,
-                file,
-                hasErrors,
-                isModified: false,
-                isNew: true,
-                originalBase64,
-                properties: {
-                  path: nextFile.path,
-                  size: nextFile.size,
-                  lastModified: nextFile.lastModified
-                },
-                preview: croppedBase64,
-                rotation,
-                url,
-                ...restProps
-              })
+      .then(async ({file, blob, originalBase64, croppedBase64, rotation, hasErrors = DEFAULT_HAS_ERRORS_STATUS}) => {
+        if (hasErrors) {
+          const errorText = errorCorruptedPhotoUploadedText.replace('%{filepath}', nextFile.path)
+          handlePhotosRejected([
+            {
+              rejectedFile: nextFile,
+              reason: REJECT_FILES_REASONS.loadFailed
             }
+          ])
+          setCorruptedFileError(errorText)
+        } else {
+          const {url, ...restProps} = await callbackUploadPhotoHandler(blob, callbackUploadPhoto)
+          if (errorSaveImageEndpoint && !url) {
+            setCorruptedFileError(errorSaveImageEndpoint)
+          } else {
+            currentFiles.push({
+              blob,
+              file,
+              hasErrors,
+              isModified: false,
+              isNew: true,
+              originalBase64,
+              properties: {
+                path: nextFile.path,
+                size: nextFile.size,
+                lastModified: nextFile.lastModified
+              },
+              preview: croppedBase64,
+              rotation,
+              url,
+              ...restProps
+            })
           }
         }
-      )
+      })
       .then(() => {
         setFiles([...currentFiles])
         if (index >= newFiles.length - 1) {
@@ -198,21 +163,12 @@ export const loadInitialPhotos = async ({
   _callbackPhotosUploaded,
   setIsLoading
 }) => {
-  const filesWithBase64 = initialPhotos.map(item =>
-    formatToBase64({item, options: defaultFormatToBase64Options})
-  )
+  const filesWithBase64 = initialPhotos.map(item => formatToBase64({item, options: defaultFormatToBase64Options}))
 
   const newFiles = await Promise.all(filesWithBase64)
 
   const readyPhotos = newFiles.map(
-    ({
-      blob,
-      croppedBase64,
-      url,
-      hasErrors = DEFAULT_HAS_ERRORS_STATUS,
-      id,
-      ...rest
-    }) => ({
+    ({blob, croppedBase64, url, hasErrors = DEFAULT_HAS_ERRORS_STATUS, id, ...rest}) => ({
       blob,
       url,
       hasErrors,

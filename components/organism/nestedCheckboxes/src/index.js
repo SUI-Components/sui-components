@@ -6,14 +6,7 @@ import useMount from '@s-ui/react-hooks/lib/useMount'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 
 import useMutationObserver from './hooks/useMutationObserver.js'
-import {
-  BASE_CLASS,
-  BUTTON_CLASS,
-  CHILD_CLASS,
-  CONTAINER_CLASS,
-  getInnerCheckboxes,
-  isFunction
-} from './settings.js'
+import {BASE_CLASS, BUTTON_CLASS, CHILD_CLASS, CONTAINER_CLASS, getInnerCheckboxes, isFunction} from './settings.js'
 
 const OrganismNestedCheckboxes = ({
   children,
@@ -37,19 +30,13 @@ const OrganismNestedCheckboxes = ({
   collapsedIcon,
   ...props
 }) => {
-  const [checkedValue, setCheckedValue, isCheckedValueControlled] =
-    useControlledState(checked, defaultChecked)
-  const [
-    indeterminateValue,
-    setIndeterminateValue,
-    isIndeterminateValueControlled
-  ] = useControlledState(indeterminate, defaultIndeterminate)
-  const [isExpandedValue, setIsExpanded] = useControlledState(
-    isExpandedProp,
-    defaultIsExpandedProp
+  const [checkedValue, setCheckedValue, isCheckedValueControlled] = useControlledState(checked, defaultChecked)
+  const [indeterminateValue, setIndeterminateValue, isIndeterminateValueControlled] = useControlledState(
+    indeterminate,
+    defaultIndeterminate
   )
-  const isControlled =
-    isCheckedValueControlled || isIndeterminateValueControlled
+  const [isExpandedValue, setIsExpanded] = useControlledState(isExpandedProp, defaultIsExpandedProp)
+  const isControlled = isCheckedValueControlled || isIndeterminateValueControlled
   const handleExpand = event => {
     setIsExpanded(!isExpandedValue)
     isFunction(onExpandToggle) &&
@@ -94,10 +81,8 @@ const OrganismNestedCheckboxes = ({
         checkboxes.forEach(element => {
           if (element.checked !== checked) {
             const baseElement = element.closest(`.${BASE_CLASS}`)
-            const childElement =
-              baseElement && baseElement?.querySelector(`.${CHILD_CLASS}`)
-            const hasNestedCheckboxes =
-              baseElement.querySelector('input[type="checkbox"]') === element
+            const childElement = baseElement && baseElement?.querySelector(`.${CHILD_CLASS}`)
+            const hasNestedCheckboxes = baseElement.querySelector('input[type="checkbox"]') === element
             if (childElement !== ref.current && hasNestedCheckboxes) {
               const [innerCheckboxes] = getInnerCheckboxes(childElement, {
                 checked: true,
@@ -105,9 +90,7 @@ const OrganismNestedCheckboxes = ({
               })
               if (!skippedValues.has(element.value)) {
                 values.add(element.value)
-                innerCheckboxes
-                  .filter(n => n !== element)
-                  .forEach(n => skippedValues.add(n.value))
+                innerCheckboxes.filter(n => n !== element).forEach(n => skippedValues.add(n.value))
               }
             } else {
               if (!skippedValues.has(element.value)) {
@@ -182,10 +165,7 @@ const OrganismNestedCheckboxes = ({
         />
         <button
           type="button"
-          className={cx(
-            BUTTON_CLASS,
-            `${BUTTON_CLASS}--${isExpandedValue ? 'expanded' : 'hidden'}`
-          )}
+          className={cx(BUTTON_CLASS, `${BUTTON_CLASS}--${isExpandedValue ? 'expanded' : 'hidden'}`)}
           onClick={handleExpand}
         >
           {isExpandedValue ? expandedIcon : collapsedIcon}

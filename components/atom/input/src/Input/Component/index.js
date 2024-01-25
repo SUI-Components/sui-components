@@ -5,13 +5,7 @@ import PropTypes from 'prop-types'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
-import {
-  getClassNames,
-  INPUT_SHAPES,
-  INPUT_STATES,
-  noop,
-  SIZES
-} from '../../config.js'
+import {getClassNames, INPUT_SHAPES, INPUT_STATES, noop, SIZES} from '../../config.js'
 import isValidInputValue from '../../helpers/isValidInputValue.js'
 
 const Input = forwardRef(
@@ -160,10 +154,7 @@ Input.propTypes = {
   /* onEnter callback */
   onEnter: PropTypes.func,
   /* key(s) to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
-  onEnterKey: PropTypes.oneOfType(
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ),
+  onEnterKey: PropTypes.oneOfType(PropTypes.string, PropTypes.arrayOf(PropTypes.string)),
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */

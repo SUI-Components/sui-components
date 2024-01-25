@@ -21,19 +21,10 @@ const PositionNotification = ({position}) => {
 
   return (
     <div>
-      <button
-        className="sui-AtomButton sui-AtomButton--secondary"
-        onClick={toggleShow}
-        style={{width: '100px'}}
-      >
+      <button className="sui-AtomButton sui-AtomButton--secondary" onClick={toggleShow} style={{width: '100px'}}>
         {show ? 'Hide' : 'Show'}
       </button>
-      <MoleculeNotification
-        buttons={getButtons()}
-        position={position}
-        show={show}
-        onClose={handleClose}
-      >
+      <MoleculeNotification buttons={getButtons()} position={position} show={show} onClose={handleClose}>
         {text}
       </MoleculeNotification>
     </div>

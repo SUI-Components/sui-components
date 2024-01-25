@@ -6,9 +6,7 @@ export const getGutterClassNames = (gutterConfig = {}) => {
   } else if (typeof gutterConfig === 'object') {
     return Object.entries(gutterConfig)
       .map(([key, value]) =>
-        Object.values(BREAKPOINTS).includes(key)
-          ? `${BASE_CLASS}--gutter-${key}-${value}`
-          : null
+        Object.values(BREAKPOINTS).includes(key) ? `${BASE_CLASS}--gutter-${key}-${value}` : null
       )
       .filter(value => value !== null)
       .join(' ')

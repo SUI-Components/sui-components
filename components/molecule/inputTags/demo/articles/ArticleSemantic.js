@@ -2,15 +2,7 @@ import {Fragment} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeInputTags from '../../src/index.js'
 import Data from '../Data.js'
@@ -21,8 +13,7 @@ const ArticleSemantic = ({className}) => {
     <Article className={className}>
       <H2>Semantic</H2>
       <Paragraph>
-        The element can determine its status using the <Code>errorState</Code>{' '}
-        (boolean) prop. Default undefined
+        The element can determine its status using the <Code>errorState</Code> (boolean) prop. Default undefined
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         {[undefined, true, false].map(value => (

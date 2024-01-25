@@ -38,10 +38,7 @@ const CarouselContainer = ({
     prev: handleFn(),
     updateItems: handleFn()
   })
-  const [index, setIndex, , initialSlide] = useControlledState(
-    slide,
-    defaultSlide
-  )
+  const [index, setIndex, , initialSlide] = useControlledState(slide, defaultSlide)
   const [maxIndex, setMaxIndex] = useState(initialSlide)
   const sliderContainerDOMEl = useRef(null)
   const slidesDOMEl = useRef(null)
@@ -184,8 +181,7 @@ const CarouselContainer = ({
   })
 
   const handlePrev = e => handleFn(slidyInstance.prev)(e)
-  const handleNext = e =>
-    items.length > numOfSlides && handleFn(slidyInstance.next)(e)
+  const handleNext = e => items.length > numOfSlides && handleFn(slidyInstance.next)(e)
 
   return (
     <>
@@ -212,11 +208,7 @@ const CarouselContainer = ({
         label={arrowRight ? null : 'Next'}
         role={arrowRight ? null : 'button'}
         hasArrows={hasArrows}
-        disabled={
-          (items.length <= numOfSlides ||
-            index === items.length - numOfSlides) &&
-          !hasInfiniteLoop
-        }
+        disabled={(items.length <= numOfSlides || index === items.length - numOfSlides) && !hasInfiniteLoop}
         onClick={handleNext}
       >
         {arrowRight}
@@ -226,9 +218,7 @@ const CarouselContainer = ({
           {Children.map(itemsToRender, (child, currentIndex) => (
             <CarouselItem
               data-index={currentIndex}
-              aria-hidden={
-                currentIndex < index || currentIndex > index + numOfSlides
-              }
+              aria-hidden={currentIndex < index || currentIndex > index + numOfSlides}
               classNameBase={classNameBase}
               itemsLength={numOfSlides}
             >

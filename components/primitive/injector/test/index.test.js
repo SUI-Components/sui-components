@@ -207,17 +207,13 @@ describe(json.name, () => {
       // Then
       expect(children1.classList.contains('children1')).to.be.true
       expect(children1.classList.contains('provider')).to.be.true
-      expect(
-        children1.classList.value.split(' ').indexOf(props.className)
-      ).to.be.above(
+      expect(children1.classList.value.split(' ').indexOf(props.className)).to.be.above(
         children1.classList.value.split(' ').indexOf('children1'),
         'own child classNames must be previous to provider classnames'
       )
       expect(children2.classList.contains('children2')).to.be.true
       expect(children2.classList.contains('provider')).to.be.true
-      expect(
-        children1.classList.value.split(' ').indexOf(props.className)
-      ).to.be.above(
+      expect(children1.classList.value.split(' ').indexOf(props.className)).to.be.above(
         children1.classList.value.split(' ').indexOf('children2'),
         'own child classNames must be previous to provider classnames'
       )
@@ -243,9 +239,7 @@ describe(json.name, () => {
       const {getByText} = setup(props)
 
       // Then
-      expect(getByText(text).style.getPropertyValue('display')).to.equal(
-        childrenStyleRules.display
-      )
+      expect(getByText(text).style.getPropertyValue('display')).to.equal(childrenStyleRules.display)
     })
 
     it('given the different style rule name between children and injector it will join them', () => {

@@ -57,8 +57,7 @@ const MoleculeAutosuggestSingleSelection = ({
   }
 
   const handleRightClick = (ev, args = {}) => {
-    typeof onClickRightIcon === 'function' &&
-      onClickRightIcon(ev, {...args, value})
+    typeof onClickRightIcon === 'function' && onClickRightIcon(ev, {...args, value})
   }
 
   return (
@@ -108,7 +107,6 @@ const MoleculeAutosuggestSingleSelection = ({
   )
 }
 
-MoleculeAutosuggestSingleSelection.displayName =
-  'MoleculeAutosuggestSingleSelection'
+MoleculeAutosuggestSingleSelection.displayName = 'MoleculeAutosuggestSingleSelection'
 
 export default MoleculeAutosuggestSingleSelection

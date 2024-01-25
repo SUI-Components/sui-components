@@ -2,21 +2,10 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import {moleculeAccordionBehavior} from '../../lib/index.js'
-import Accordion, {
-  MoleculeAccordionItem as AccordionItem
-} from '../../src/index.js'
+import Accordion, {MoleculeAccordionItem as AccordionItem} from '../../src/index.js'
 import LoremIpsum from '../LoremIpsum.js'
 
 const ArticleHeight = ({className}) => {
@@ -25,10 +14,9 @@ const ArticleHeight = ({className}) => {
     <Article className={className}>
       <H2>maxHeight</H2>
       <Paragraph>
-        The maxHeight of the panels can be customized using the{' '}
-        <Code>maxHeight</Code> (number) Accordion prop. It can be customized for
-        each panel using its own maxHeight prop as well for setting different
-        maxHeight values on each one. By default it is 0, which means autosize.
+        The maxHeight of the panels can be customized using the <Code>maxHeight</Code> (number) Accordion prop. It can
+        be customized for each panel using its own maxHeight prop as well for setting different maxHeight values on each
+        one. By default it is 0, which means autosize.
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
@@ -51,10 +39,7 @@ const ArticleHeight = ({className}) => {
           px
         </Cell>
         <Cell>
-          <Accordion
-            maxHeight={height}
-            behavior={moleculeAccordionBehavior.MULTIPLE}
-          >
+          <Accordion maxHeight={height} behavior={moleculeAccordionBehavior.MULTIPLE}>
             <AccordionItem
               value="value-1"
               label="Accordion Item Header 1"

@@ -29,11 +29,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['moleculeDataCounterSizes', 'default']
 
     // When
-    const {
-      moleculeDataCounterSizes,
-      default: MoleculeDataCounter,
-      ...others
-    } = library
+    const {moleculeDataCounterSizes, default: MoleculeDataCounter, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -86,8 +82,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

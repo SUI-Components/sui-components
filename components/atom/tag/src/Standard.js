@@ -6,20 +6,7 @@ import PropTypes from 'prop-types'
 import {onHandler} from './constants.js'
 
 const StandardTag = forwardRef(
-  (
-    {
-      className,
-      closeIcon,
-      icon,
-      label,
-      onClose = () => {},
-      value,
-      readOnly,
-      disabled,
-      title
-    },
-    forwardedRef
-  ) => (
+  ({className, closeIcon, icon, label, onClose = () => {}, value, readOnly, disabled, title}, forwardedRef) => (
     <span
       ref={forwardedRef}
       className={cx(className, closeIcon && 'sui-AtomTag-hasClose')}
@@ -41,9 +28,7 @@ const StandardTag = forwardRef(
             label
           })}
         >
-          <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">
-            {closeIcon}
-          </span>
+          <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">{closeIcon}</span>
         </span>
       )}
     </span>

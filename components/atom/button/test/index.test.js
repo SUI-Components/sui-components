@@ -86,8 +86,7 @@ describe(json.name, () => {
     it.skip('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -140,19 +139,13 @@ describe(json.name, () => {
           const props = {
             type: 'primary'
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.SOLID]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.SOLID])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -165,19 +158,13 @@ describe(json.name, () => {
             type: 'primary',
             link: true
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.LINK]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -191,19 +178,13 @@ describe(json.name, () => {
           const props = {
             type: 'accent'
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.accent)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.SOLID]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.SOLID])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -216,19 +197,13 @@ describe(json.name, () => {
             type: 'accent',
             link: true
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.accent)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.LINK]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -242,19 +217,13 @@ describe(json.name, () => {
           const props = {
             type: 'secondary'
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.OUTLINE]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.OUTLINE])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -267,19 +236,13 @@ describe(json.name, () => {
             type: 'secondary',
             link: true
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.LINK]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -293,19 +256,13 @@ describe(json.name, () => {
           const props = {
             type: 'tertiary'
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.FLAT]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.FLAT])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -318,19 +275,13 @@ describe(json.name, () => {
             type: 'tertiary',
             link: true
           }
-          const classes = createClasses([
-            ...Object.values(atomButtonColors),
-            ...Object.values(atomButtonDesigns)
-          ])
-          const findSentence = str => string =>
-            string.match(new RegExp(`S*${str}S*`))
+          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
+          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
           // When
           const {container} = setup(props)
           const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(
-            classes[atomButtonDesigns.LINK]
-          )
+          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
 
           // Then
           expect(findColorClassName(container.innerHTML)).to.not.be.null
@@ -344,14 +295,11 @@ describe(json.name, () => {
         // Given
         const props = {}
         const classes = createClasses([...Object.values(atomButtonDesigns)])
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
-        const findDesignClassName = findSentence(
-          classes[atomButtonDesigns.SOLID]
-        )
+        const findDesignClassName = findSentence(classes[atomButtonDesigns.SOLID])
 
         // Then
         expect(findDesignClassName(container.innerHTML)).to.not.be.null
@@ -361,14 +309,11 @@ describe(json.name, () => {
         // Given
         const props = {link: true}
         const classes = createClasses([...Object.values(atomButtonDesigns)])
-        const findSentence = str => string =>
-          string.match(new RegExp(`S*${str}S*`))
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
         // When
         const {container} = setup(props)
-        const findDesignClassName = findSentence(
-          classes[atomButtonDesigns.LINK]
-        )
+        const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
 
         // Then
         expect(findDesignClassName(container.innerHTML)).to.not.be.null

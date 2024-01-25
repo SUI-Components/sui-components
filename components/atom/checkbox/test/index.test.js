@@ -25,19 +25,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'atomCheckboxStatus',
-      'atomCheckboxSizes',
-      'default'
-    ]
+    const libraryExportedMembers = ['atomCheckboxStatus', 'atomCheckboxSizes', 'default']
 
     // When
-    const {
-      atomCheckboxStatus,
-      atomCheckboxSizes,
-      default: AtomCheckbox,
-      ...others
-    } = library
+    const {atomCheckboxStatus, atomCheckboxSizes, default: AtomCheckbox, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -74,8 +65,7 @@ describe(json.name, () => {
     it.skip('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

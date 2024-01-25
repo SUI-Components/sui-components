@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.69.0 (2023-12-29)
+
+
+### Features
+
+* **components/molecule/autosuggest:** add styles according to the input status ([#2680](https://github.com/SUI-Components/sui-components/issues/2680)) ([f8bec54](https://github.com/SUI-Components/sui-components/commit/f8bec54787fbf1a1df4c8ce4f0dc18aec8444c78))
+
+
+
 # 2.68.0 (2023-08-25)
 
 

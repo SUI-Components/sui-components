@@ -8,11 +8,7 @@ import {flexItem, flexWrapper} from '../config.js'
 const Panel = ({isFullHeight, children}) => (
   <div style={flexItem}>
     <div style={{width: '200px', height: '100%'}}>
-      <AtomPanel
-        src="https://picsum.photos/250/200"
-        color={atomPanelColors.DEFAULT}
-        isFullHeight={isFullHeight}
-      >
+      <AtomPanel src="https://picsum.photos/250/200" color={atomPanelColors.DEFAULT} isFullHeight={isFullHeight}>
         <div
           style={{
             color: '#000',
@@ -58,9 +54,7 @@ const ArticleIsFullHeight = ({className}) => {
               border: '1px solid grey'
             })}
           >
-            <Panel isFullHeight>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </Panel>
+            <Panel isFullHeight>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Panel>
             <Panel isFullHeight>Lorem ipsum dolor sit amet</Panel>
           </div>
           <div
@@ -84,9 +78,7 @@ const ArticleIsFullHeight = ({className}) => {
               border: '1px solid grey'
             })}
           >
-            <Panel>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </Panel>
+            <Panel>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Panel>
             <Panel>Lorem ipsum dolor sit amet</Panel>
           </div>
           <div

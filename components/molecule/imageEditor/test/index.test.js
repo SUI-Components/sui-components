@@ -22,19 +22,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'default',
-      'MoleculeImageEditorCropper',
-      'MoleculeImageEditorSliders'
-    ]
+    const libraryExportedMembers = ['default', 'MoleculeImageEditorCropper', 'MoleculeImageEditorSliders']
 
     // When
-    const {
-      default: MoleculeImageEditor,
-      MoleculeImageEditorCropper,
-      MoleculeImageEditorSliders,
-      ...others
-    } = library
+    const {default: MoleculeImageEditor, MoleculeImageEditorCropper, MoleculeImageEditorSliders, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -73,8 +64,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

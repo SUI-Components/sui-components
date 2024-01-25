@@ -14,22 +14,13 @@ const ButtonDesignByState = () => {
 
   return (
     <MoleculeButtonGroup>
-      <AtomButton
-        design={selected !== 'A' ? 'outline' : 'solid'}
-        onClick={() => _onClick('A')}
-      >
+      <AtomButton design={selected !== 'A' ? 'outline' : 'solid'} onClick={() => _onClick('A')}>
         A
       </AtomButton>
-      <AtomButton
-        design={selected !== 'B' ? 'outline' : 'solid'}
-        onClick={() => _onClick('B')}
-      >
+      <AtomButton design={selected !== 'B' ? 'outline' : 'solid'} onClick={() => _onClick('B')}>
         B
       </AtomButton>
-      <AtomButton
-        design={selected !== 'C' ? 'outline' : 'solid'}
-        onClick={() => _onClick('C')}
-      >
+      <AtomButton design={selected !== 'C' ? 'outline' : 'solid'} onClick={() => _onClick('C')}>
         C
       </AtomButton>
     </MoleculeButtonGroup>

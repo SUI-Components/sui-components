@@ -22,11 +22,7 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = [
-      'MoleculeAutosuggestStates',
-      'MoleculeAutosuggestDropdownListSizes',
-      'default'
-    ]
+    const libraryExportedMembers = ['MoleculeAutosuggestStates', 'MoleculeAutosuggestDropdownListSizes', 'default']
 
     // When
     const {
@@ -75,8 +71,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

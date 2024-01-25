@@ -50,10 +50,7 @@ const MoleculeDropdownOption = forwardRef(
     forwardedRef
   ) => {
     const ref = useMergeRefs(innerRef || createRef(), forwardedRef)
-    const [innerSelected, setInnerSelected] = useControlledState(
-      selected,
-      defaultSelected
-    )
+    const [innerSelected, setInnerSelected] = useControlledState(selected, defaultSelected)
     const className = cx(BASE_CLASS, {
       [CLASS_CHECKBOX]: checkbox,
       [CLASS_DISABLED]: disabled,
@@ -62,14 +59,10 @@ const MoleculeDropdownOption = forwardRef(
     })
     const innerClassName = cx([
       CLASS_TEXT,
-      (withTwoLinesText || textWrap === TEXT_WRAP_STYLES.TWO_LINES) &&
-        `${CLASS_TEXT}--${MODIFIER_TWO_LINES}`,
-      textWrap === TEXT_WRAP_STYLES.THREE_LINES &&
-        `${CLASS_TEXT}--${MODIFIER_THREE_LINES}`,
-      textWrap === TEXT_WRAP_STYLES.LINE_WRAP &&
-        `${CLASS_TEXT}--${MODIFIER_LINE_WRAP}`,
-      ((!withTwoLinesText && !textWrap) ||
-        textWrap === TEXT_WRAP_STYLES.NO_WRAP) &&
+      (withTwoLinesText || textWrap === TEXT_WRAP_STYLES.TWO_LINES) && `${CLASS_TEXT}--${MODIFIER_TWO_LINES}`,
+      textWrap === TEXT_WRAP_STYLES.THREE_LINES && `${CLASS_TEXT}--${MODIFIER_THREE_LINES}`,
+      textWrap === TEXT_WRAP_STYLES.LINE_WRAP && `${CLASS_TEXT}--${MODIFIER_LINE_WRAP}`,
+      ((!withTwoLinesText && !textWrap) || textWrap === TEXT_WRAP_STYLES.NO_WRAP) &&
         `${CLASS_TEXT}--${MODIFIER_NO_WRAP}`
     ])
     const {handleClick, handleKeyDown, handleFocus} = handlersFactory({
@@ -91,20 +84,13 @@ const MoleculeDropdownOption = forwardRef(
       const mark = highlightText({
         value: option,
         query: highlightQuery,
-        startTag: `<mark class="${cx(
-          CLASS_HIGHLIGHTED_MARK,
-          CLASS_HIGHLIGHTED
-        )}">`,
+        startTag: `<mark class="${cx(CLASS_HIGHLIGHTED_MARK, CLASS_HIGHLIGHTED)}">`,
         endTag: '</mark>'
       })
 
       return (
         <>
-          <span
-            onFocus={handleInnerFocus}
-            dangerouslySetInnerHTML={{__html: mark}}
-            className={innerClassName}
-          />
+          <span onFocus={handleInnerFocus} dangerouslySetInnerHTML={{__html: mark}} className={innerClassName} />
           {highlightValue ? children : null}
         </>
       )
@@ -125,35 +111,22 @@ const MoleculeDropdownOption = forwardRef(
         data-value={value}
         aria-label={value}
         aria-checked={innerSelected}
-        {...Object.fromEntries(
-          Object.entries(props).filter(
-            ([key]) => !['className', 'style'].includes(key)
-          )
-        )}
+        {...Object.fromEntries(Object.entries(props).filter(([key]) => !['className', 'style'].includes(key)))}
       >
         {checkbox && (
-          <AtomCheckbox
-            checked={innerSelected}
-            disabled={disabled}
-            onFocus={handleInnerFocus}
-            {...checkboxProps}
-          />
+          <AtomCheckbox checked={innerSelected} disabled={disabled} onFocus={handleInnerFocus} {...checkboxProps} />
         )}
         {highlightQuery ? (
           renderHighlightOption(highlightValue || children)
         ) : (
           <>
-            {leftAddon ? (
-              <span className={CLASS_LEFT_ADDON}>{leftAddon}</span>
-            ) : null}
+            {leftAddon ? <span className={CLASS_LEFT_ADDON}>{leftAddon}</span> : null}
             <span onFocus={handleInnerFocus} className={innerClassName}>
               {children}
             </span>
           </>
         )}
-        {description && (
-          <span className={CLASS_DESCRIPTION}>{description}</span>
-        )}
+        {description && <span className={CLASS_DESCRIPTION}>{description}</span>}
       </li>
     )
   }
@@ -162,11 +135,7 @@ const MoleculeDropdownOption = forwardRef(
 MoleculeDropdownOption.displayName = 'MoleculeDropdownOption'
 MoleculeDropdownOption.propTypes = {
   /** option value */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
   /** Content to be included in the option */
   children: PropTypes.node,
   /** Contains checkbox */
@@ -188,10 +157,7 @@ MoleculeDropdownOption.propTypes = {
   /** Text to be display if used with highlight query with custom content */
   highlightValue: PropTypes.string,
   /* key to provoke the onClick callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
-  selectKey: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
+  selectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   /** Custom ref handler that will be assigned to the "target" element */
   innerRef: PropTypes.object,
   /** Text with css clamp = 2 */

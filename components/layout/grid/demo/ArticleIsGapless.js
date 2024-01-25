@@ -1,7 +1,4 @@
-import {
-  DeprecatedLayoutGrid,
-  LayoutGridItem
-} from 'components/layout/grid/src/index.js'
+import {DeprecatedLayoutGrid, LayoutGridItem} from 'components/layout/grid/src/index.js'
 import PropTypes from 'prop-types'
 
 import {Article, Code, H2, H4, Paragraph} from '@s-ui/documentation-library'

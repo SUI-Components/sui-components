@@ -4,15 +4,7 @@ import {useWindowSize} from 'react-use'
 import LayoutGrid, {LayoutGridItem} from 'components/layout/grid/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Code,
-  H2,
-  Label,
-  ListItem,
-  Paragraph,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Article, Code, H2, Label, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 import DemoBox from './demoBox.js'
 import DemoWrapper from './demoWrapper.js'
@@ -38,9 +30,7 @@ const breakpointColumns = {
 }
 
 const getKey = (object, value) => {
-  const result = Object.entries(object).find(
-    ([key, iteratorValue]) => value === iteratorValue
-  )
+  const result = Object.entries(object).find(([key, iteratorValue]) => value === iteratorValue)
   return result?.['0']
 }
 
@@ -58,29 +48,22 @@ const ArticleResponsive = ({classname}) => {
   useEffect(() => {
     setSelectedBreakpoint(boundedWidth)
   }, [boundedWidth, setSelectedBreakpoint])
-  const colSpan = Object.fromEntries(
-    Object.keys(breakpoints).map((key, index) => [
-      key,
-      12 / breakpointColumns[key]
-    ])
-  )
+  const colSpan = Object.fromEntries(Object.keys(breakpoints).map((key, index) => [key, 12 / breakpointColumns[key]]))
   return (
     <Article className={classname}>
       <H2>Breakpoint responsivity</H2>
       <Paragraph>
-        The columns provided to each LayoutGridItem can also be configured for
-        each breakpoint style using the following props:
+        The columns provided to each LayoutGridItem can also be configured for each breakpoint style using the following
+        props:
         <UnorderedList>
           <ListItem>
-            <Code>colSpan</Code>: It can also have an object with desired
-            breakpoints as keys and the number of provided columns as value
-            (Integer number between 1 ans 12).
+            <Code>colSpan</Code>: It can also have an object with desired breakpoints as keys and the number of provided
+            columns as value (Integer number between 1 ans 12).
           </ListItem>
           <ListItem>
-            <Code>xxs</Code>, <Code>xs</Code>, <Code>s</Code>, <Code>m</Code>,{' '}
-            <Code>l</Code>, <Code>xl</Code>, <Code>xxl</Code>: Set the numbers
-            of provided columns for each item directly (Integer number between 1
-            ans 12).
+            <Code>xxs</Code>, <Code>xs</Code>, <Code>s</Code>, <Code>m</Code>, <Code>l</Code>, <Code>xl</Code>,{' '}
+            <Code>xxl</Code>: Set the numbers of provided columns for each item directly (Integer number between 1 ans
+            12).
           </ListItem>
         </UnorderedList>
         <br />
@@ -90,12 +73,7 @@ const ArticleResponsive = ({classname}) => {
           <ListItem>
             <Code>colSpan</Code>:{' '}
             {JSON.stringify(
-              Object.fromEntries(
-                Object.entries(breakpointColumns).map(([key, value]) => [
-                  key,
-                  12 / value
-                ])
-              )
+              Object.fromEntries(Object.entries(breakpointColumns).map(([key, value]) => [key, 12 / value]))
             )}
           </ListItem>
           <ListItem>
@@ -107,8 +85,7 @@ const ArticleResponsive = ({classname}) => {
           </ListItem>
         </UnorderedList>
         <DemoWrapper>
-          <Label>Selected Breakpoint</Label>: {selectedBreakpoint}:{' '}
-          {12 / breakpointColumns[selectedBreakpoint]} (
+          <Label>Selected Breakpoint</Label>: {selectedBreakpoint}: {12 / breakpointColumns[selectedBreakpoint]} (
           {breakpointColumns[selectedBreakpoint]} elements per row)
           <br />
           <LayoutGrid>
@@ -119,8 +96,7 @@ const ArticleResponsive = ({classname}) => {
                   <LayoutGridItem key={index} {...colSpan}>
                     <DemoBox>
                       <Label style={{color: 'white'}}>
-                        {selectedBreakpoint}:
-                        {breakpointColumns[selectedBreakpoint]}
+                        {selectedBreakpoint}:{breakpointColumns[selectedBreakpoint]}
                       </Label>{' '}
                       <Label style={{color: 'white'}}>e:{index}</Label>
                     </DemoBox>

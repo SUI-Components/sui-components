@@ -2,15 +2,7 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Grid,
-  H2,
-  Input,
-  Label,
-  Paragraph
-} from '@s-ui/documentation-library'
+import {Article, Cell, Grid, H2, Input, Label, Paragraph} from '@s-ui/documentation-library'
 
 import MoleculeValidationCode from '../../src/index.js'
 
@@ -29,10 +21,7 @@ const ArticlePlaceHolder = ({className}) => {
   return (
     <Article className={className}>
       <H2>Placeholder</H2>
-      <Paragraph>
-        We can use a placeholder for the component. Each cell gonna use the
-        placeholder we defined.
-      </Paragraph>
+      <Paragraph>We can use a placeholder for the component. Each cell gonna use the placeholder we defined.</Paragraph>
       <Grid cols={2} gutter={[8, 8]} style={{width: 400}}>
         <Cell style={{display: 'flex', flexDirection: 'column'}}>
           <Label>placeholder</Label>

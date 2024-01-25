@@ -1,5 +1,7 @@
-import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 import PropTypes from 'prop-types'
+
+import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
+
 import PrimitiveTypography from '../../src/index.js'
 
 const ArticleLink = ({className, lorem}) => {
@@ -18,9 +20,9 @@ const ArticleLink = ({className, lorem}) => {
     <Article className={className}>
       <H2>isLinked</H2>
       <Paragraph>
-        In case of pretending to add a linked text inside a block you can simply
-        declare this block as an <Code>as="a"</Code> and a <Code>isLinked</Code>{' '}
-        true value to the <Code>PrimitiveTypography</Code> surrounding wrapper.
+        In case of pretending to add a linked text inside a block you can simply declare this block as an{' '}
+        <Code>as="a"</Code> and a <Code>isLinked</Code> true value to the <Code>PrimitiveTypography</Code> surrounding
+        wrapper.
       </Paragraph>
       <PrimitiveTypography>
         {firstLorem}{' '}

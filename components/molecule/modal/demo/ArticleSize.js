@@ -62,35 +62,19 @@ const ArticleSize = ({className}) => {
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <RadioButtonGroup
-            value={size}
-            onChange={onChangeSizeHandler}
-            fullWidth
-          >
-            {[undefined, ...Object.values(MoleculeModalSizes)].map(
-              sizeValue => (
-                <RadioButton
-                  key={`${sizeValue}`}
-                  value={sizeValue}
-                  label={`${sizeValue}`}
-                  checked={size === sizeValue}
-                />
-              )
-            )}
+          <RadioButtonGroup value={size} onChange={onChangeSizeHandler} fullWidth>
+            {[undefined, ...Object.values(MoleculeModalSizes)].map(sizeValue => (
+              <RadioButton key={`${sizeValue}`} value={sizeValue} label={`${sizeValue}`} checked={size === sizeValue} />
+            ))}
           </RadioButtonGroup>
         </Cell>
       </Grid>
       <Paragraph>
-        User can also configure <Code>fitContent</Code> boolean prop to fit the
-        width in mobile devices only. It looks like full size but only in
-        extra-small width-devices with default false value. If it's true keeps
-        modal look and feel with borders and its overlay.
+        User can also configure <Code>fitContent</Code> boolean prop to fit the width in mobile devices only. It looks
+        like full size but only in extra-small width-devices with default false value. If it's true keeps modal look and
+        feel with borders and its overlay.
       </Paragraph>
-      <RadioButton
-        value={fitContent}
-        label={`fitContent ${fitContent === true}`}
-        onClick={onFitContentHandler}
-      />
+      <RadioButton value={fitContent} label={`fitContent ${fitContent === true}`} onClick={onFitContentHandler} />
       <MoleculeModal
         isOpen={open}
         onClose={onCloseHandler}
@@ -101,11 +85,7 @@ const ArticleSize = ({className}) => {
       >
         <Grid cols={5} gutter={[8, 8]}>
           <Cell>
-            <Button
-              onClick={largeClickHandler(-1)}
-              disabled={count <= 1}
-              fullWidth
-            >
+            <Button onClick={largeClickHandler(-1)} disabled={count <= 1} fullWidth>
               -1
             </Button>
           </Cell>
@@ -113,11 +93,7 @@ const ArticleSize = ({className}) => {
             <Paragraph>Paragraph number: {count}</Paragraph>
           </Cell>
           <Cell>
-            <Button
-              onClick={largeClickHandler(1)}
-              disabled={count >= 20}
-              fullWidth
-            >
+            <Button onClick={largeClickHandler(1)} disabled={count >= 20} fullWidth>
               +1
             </Button>
           </Cell>
@@ -125,21 +101,15 @@ const ArticleSize = ({className}) => {
             <LoremIpsum count={count} />
           </Cell>
           <Cell span={5}>
-            <RadioButtonGroup
-              value={size}
-              onChange={onChangeSizeHandler}
-              fullWidth
-            >
-              {[undefined, ...Object.values(MoleculeModalSizes)].map(
-                sizeValue => (
-                  <RadioButton
-                    key={`${sizeValue}`}
-                    value={sizeValue}
-                    label={`${sizeValue}`}
-                    checked={size === sizeValue}
-                  />
-                )
-              )}
+            <RadioButtonGroup value={size} onChange={onChangeSizeHandler} fullWidth>
+              {[undefined, ...Object.values(MoleculeModalSizes)].map(sizeValue => (
+                <RadioButton
+                  key={`${sizeValue}`}
+                  value={sizeValue}
+                  label={`${sizeValue}`}
+                  checked={size === sizeValue}
+                />
+              ))}
             </RadioButtonGroup>
           </Cell>
           <Cell span={5}>

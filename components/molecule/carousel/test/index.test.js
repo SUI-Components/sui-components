@@ -29,11 +29,7 @@ describe(json.name, () => {
     const libraryExportedMembers = ['default', 'adaptReactSlidyProps']
 
     // When
-    const {
-      default: MoleculeButtonGroup,
-      adaptReactSlidyProps,
-      ...others
-    } = library
+    const {default: MoleculeButtonGroup, adaptReactSlidyProps, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -72,8 +68,7 @@ describe(json.name, () => {
       const props = {
         className: 'extended-classNames'
       }
-      const findSentence = str => string =>
-        string.match(new RegExp(`S*${str}S*`))
+      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -89,9 +84,7 @@ describe(json.name, () => {
       const [elementText1, ...otherElementsText] = elementsText
       const props = {
         hasLazyLoadSlider: false,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        ))
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>)
       }
       // When
       const {getByText} = setup(props)
@@ -109,9 +102,7 @@ describe(json.name, () => {
       const elementsText = ['slide 1', 'slide 2', 'slide 3', 'slide 4']
       const [elementText1, ...otherElementsText] = elementsText
       const props = {
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        ))
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>)
       }
       // When
       const {findByText, getByText} = setup(props)
@@ -131,9 +122,7 @@ describe(json.name, () => {
       const props = {
         hasLazyLoadSlider: false,
         hasArrows: true,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        )),
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>),
         arrowLeft: <span>{arrowLeftText}</span>,
         arrowRight: <span>{arrowRightText}</span>
       }
@@ -154,9 +143,7 @@ describe(json.name, () => {
       const props = {
         hasLazyLoadSlider: false,
         hasArrows: false,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        )),
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>),
         ArrowLeft: () => <span>{arrowLeftText}</span>,
         ArrowRight: () => <span>{arrowRightText}</span>
       }
@@ -174,9 +161,7 @@ describe(json.name, () => {
       const props = {
         slide: 2,
         hasLazyLoadSlider: false,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        ))
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>)
       }
       // When
       const {getByText} = setup(props)
@@ -198,9 +183,7 @@ describe(json.name, () => {
       const props = {
         hasLazyLoadSlider: false,
         onInit: spy,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        ))
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>)
       }
       // When
       setup(props)
@@ -227,9 +210,7 @@ describe(json.name, () => {
       const props = {
         hasLazyLoadSlider: false,
         onDestroy: spy,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        ))
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>)
       }
       // When
       const {unmount} = setup(props)
@@ -259,21 +240,13 @@ describe(json.name, () => {
     it('should NOT call onSlide handler when changing the slide controlled index', () => {
       // Given
       const spy = sinon.spy()
-      const elementsText = [
-        'slide 1',
-        'slide 2',
-        'slide 3',
-        'slide 4',
-        'slide 5'
-      ]
+      const elementsText = ['slide 1', 'slide 2', 'slide 3', 'slide 4', 'slide 5']
       const props = {
         hasLazyLoadSlider: false,
         hasArrows: true,
         slide: 2,
         onSlide: spy,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        ))
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>)
       }
       // When
       const {rerender} = setup(props)
@@ -298,9 +271,7 @@ describe(json.name, () => {
         hasLazyLoadSlider: false,
         hasArrows: true,
         slide: 1,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        )),
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>),
         arrowLeft: <span>{arrowLeftText}</span>,
         arrowRight: <span>{arrowRightText}</span>,
         onPrevious: spy
@@ -340,9 +311,7 @@ describe(json.name, () => {
         hasLazyLoadSlider: false,
         hasArrows: true,
         slide: 1,
-        children: elementsText.map((elementText, index) => (
-          <span key={index}>{elementText}</span>
-        )),
+        children: elementsText.map((elementText, index) => <span key={index}>{elementText}</span>),
         arrowLeft: <span>{arrowLeftText}</span>,
         arrowRight: <span>{arrowRightText}</span>,
         onNext: spy
@@ -385,12 +354,10 @@ describe(json.name, () => {
         ]
 
         // When
-        const results = values.map(
-          ([{value, minValue, maxValue}, expected]) => [
-            clampNumber(value, minValue, maxValue),
-            expected
-          ]
-        )
+        const results = values.map(([{value, minValue, maxValue}, expected]) => [
+          clampNumber(value, minValue, maxValue),
+          expected
+        ])
 
         // Then
         results.forEach(({current, expected}) => {
@@ -431,10 +398,7 @@ describe(json.name, () => {
           [{value: -3, endValue: 9}, 8]
         ]
 
-        const results = values.map(([{value, endValue}, expected]) => [
-          infiniteIndex(value, endValue),
-          expected
-        ])
+        const results = values.map(([{value, endValue}, expected]) => [infiniteIndex(value, endValue), expected])
 
         // Then
         results.forEach(({current, expected}) => {
@@ -463,10 +427,7 @@ describe(json.name, () => {
         ]
 
         // When
-        const results = values.map(([{value, endValue}, expected]) => [
-          infiniteIndex(value, endValue),
-          expected
-        ])
+        const results = values.map(([{value, endValue}, expected]) => [infiniteIndex(value, endValue), expected])
 
         // Then
         results.forEach(({current, expected}) => {

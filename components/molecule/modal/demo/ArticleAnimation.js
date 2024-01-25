@@ -16,9 +16,7 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import MoleculeModalWithAnimation, {
-  MoleculeModalWithoutAnimation
-} from '../lib/index.js'
+import MoleculeModalWithAnimation, {MoleculeModalWithoutAnimation} from '../lib/index.js'
 
 const ArticleAnimation = ({className}) => {
   const [open, setOpen] = useState(false)
@@ -40,17 +38,14 @@ const ArticleAnimation = ({className}) => {
     setOpen(false)
   }
 
-  const Component = animation
-    ? MoleculeModalWithAnimation
-    : MoleculeModalWithoutAnimation
+  const Component = animation ? MoleculeModalWithAnimation : MoleculeModalWithoutAnimation
 
   return (
     <Article className={className}>
       <H2>Default</H2>
       <Paragraph>
-        By Default MoleculeModal exports the{' '}
-        <Code>MoleculeModalWithAnimation</Code> component. It's vertical
-        animated on its show/hide action.{' '}
+        By Default MoleculeModal exports the <Code>MoleculeModalWithAnimation</Code> component. It's vertical animated
+        on its show/hide action.{' '}
         <Anchor href="#MoleculeModalWithoutAnimation">
           <Code>MoleculeModalWithoutAnimation</Code>
         </Anchor>{' '}
@@ -67,42 +62,22 @@ const ArticleAnimation = ({className}) => {
           <Label>Animate</Label>
         </Cell>
         <Cell>
-          <RadioButtonGroup
-            value={animation}
-            onChange={onChangeAnimationHandler}
-          >
+          <RadioButtonGroup value={animation} onChange={onChangeAnimationHandler}>
             <RadioButton value label="true" checked={animation === true} />
-            <RadioButton
-              value={false}
-              label="false"
-              checked={animation === false}
-            />
+            <RadioButton value={false} label="false" checked={animation === false} />
           </RadioButtonGroup>
         </Cell>
       </Grid>
 
-      <Component
-        isOpen={open}
-        onClose={onCloseHandler}
-        closeOnOutsideClick
-        closeOnEscKeyDown
-      >
+      <Component isOpen={open} onClose={onCloseHandler} closeOnOutsideClick closeOnEscKeyDown>
         <Grid cols={1} gutter={[8, 8]}>
           <Cell>
             <Label>Animation</Label>
           </Cell>
           <Cell>
-            <RadioButtonGroup
-              value={animation}
-              onChange={onChangeAnimationHandler}
-              fullWidth
-            >
+            <RadioButtonGroup value={animation} onChange={onChangeAnimationHandler} fullWidth>
               <RadioButton value label="true" checked={animation === true} />
-              <RadioButton
-                value={false}
-                label="false"
-                checked={animation === false}
-              />
+              <RadioButton value={false} label="false" checked={animation === false} />
             </RadioButtonGroup>
           </Cell>
           <Cell span={1}>

@@ -6,10 +6,7 @@ import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import useKeyPress from './hooks/useKeyPress.js'
 import useUpdateEffect from './hooks/useUpdateEffect.js'
-import {
-  actions as pinInputActions,
-  usePinInputReducer
-} from './reducer/index.js'
+import {actions as pinInputActions, usePinInputReducer} from './reducer/index.js'
 import {BASE_CLASSNAME, getValueType, MASK, SIZES, STATUS} from './config.js'
 import PinInputChildren from './PinInputChildren.js'
 import {PinInputContextProvider} from './PinInputContext.js'
@@ -49,8 +46,7 @@ const PinInput = forwardRef(
     const {innerValue, focusPosition, elements} = reducerStore
 
     useUpdateEffect(() => {
-      const innerValue =
-        typeof value === 'string' ? value.split('') : value || []
+      const innerValue = typeof value === 'string' ? value.split('') : value || []
       dispatch(pinInputActions.setValue({innerValue}))
     }, [`${value}`, dispatch])
 
@@ -108,11 +104,7 @@ const PinInput = forwardRef(
             {children}
           </PinInputChildren>
         </PinInputContextProvider>
-        <input
-          type="hidden"
-          value={innerValue.filter(Boolean).join('')}
-          ref={useMergeRefs(innerRef, forwardedRef)}
-        />
+        <input type="hidden" value={innerValue.filter(Boolean).join('')} ref={useMergeRefs(innerRef, forwardedRef)} />
       </div>
     )
   }
@@ -125,10 +117,7 @@ PinInput.propTypes = {
   /** children the components is gonna have  */
   children: PropTypes.node,
   /** default value for the input */
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   /** true for disabled false for default */
   disabled: PropTypes.bool,
   /** inputmode **/
@@ -140,10 +129,7 @@ PinInput.propTypes = {
   /** defines the number of cells */
   length: PropTypes.number,
   /** name of the custom mask (NUMBER, ALPHABETIC, ALPHANUMERIC) */
-  mask: PropTypes.oneOfType([
-    PropTypes.oneOf(Object.values(MASK)),
-    PropTypes.string
-  ]),
+  mask: PropTypes.oneOfType([PropTypes.oneOf(Object.values(MASK)), PropTypes.string]),
   /** function executed on value change */
   onChange: PropTypes.func,
   /** placeholder for the input */
@@ -153,10 +139,7 @@ PinInput.propTypes = {
   /** set the input status (ERROR, SUCCESS, WARNING) */
   status: PropTypes.oneOf(Object.values(BASE_CLASSNAME)),
   /** input value */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])
 }
 export default PinInput
 

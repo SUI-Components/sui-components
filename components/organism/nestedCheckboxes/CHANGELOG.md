@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.2.0 (2023-12-20)
+
+
+### Features
+
+* **components/organism/nestedCheckboxes:** Use molecule-checkbox-field v5 to unify versions ([b57e24a](https://github.com/SUI-Components/sui-components/commit/b57e24a1b0c73ad0f2ef8b9e6a9d07e8ed681d20))
+
+
+
 # 3.1.0 (2022-07-20)
 
 

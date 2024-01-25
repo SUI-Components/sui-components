@@ -47,8 +47,7 @@ const ArticleDefaultDemo = ({columns, rows = 3}) => {
             <>
               <LayoutGridItem key={index} colSpan={size}>
                 <DemoBox>
-                  <Label style={{color: 'white'}}>s:{size}</Label>{' '}
-                  <Label style={{color: 'white'}}>e:{index}</Label>
+                  <Label style={{color: 'white'}}>s:{size}</Label> <Label style={{color: 'white'}}>e:{index}</Label>
                 </DemoBox>
               </LayoutGridItem>
             </>
@@ -77,47 +76,28 @@ const ArticleDefault = ({classname}) => {
     <Article className={classname}>
       <H2>How to use</H2>
       <Paragraph>
-        To implement the grid, you need to use the two components it provides{' '}
-        <Code>{'<LayoutGrid />'}</Code> a container, while each{' '}
-        <Code>{'<LayoutGridItem />'}</Code> will as a cell to define your grid
-        with the size you specify for each one of them. It only manages its
-        inner space not adding unnecessary extra margins or paddings.
+        To implement the grid, you need to use the two components it provides <Code>{'<LayoutGrid />'}</Code> a
+        container, while each <Code>{'<LayoutGridItem />'}</Code> will as a cell to define your grid with the size you
+        specify for each one of them. It only manages its inner space not adding unnecessary extra margins or paddings.
       </Paragraph>
       <H4>12 Column Grid</H4>
-      <Paragraph>
-        It offers a 12 column grid system. Column grids are used to organize
-        elements into columns.
-      </Paragraph>
+      <Paragraph>It offers a 12 column grid system. Column grids are used to organize elements into columns.</Paragraph>
       <ArticleDefaultDemo columns={12} rows={1} />
       <Paragraph>
-        Use the <Code>colSpan</Code> prop to define the number of columns to
-        provide to each LayoutGridItem. It can be an integer value between 1 and
-        12. All possible factor (2*2*3 = 12) combinations can be used to fit it
-        into other kind of grid.
+        Use the <Code>colSpan</Code> prop to define the number of columns to provide to each LayoutGridItem. It can be
+        an integer value between 1 and 12. All possible factor (2*2*3 = 12) combinations can be used to fit it into
+        other kind of grid.
       </Paragraph>
-      <Paragraph>
-        This gives us the possibility to also create other different grid
-        options:
-      </Paragraph>
-      <RadioButtonGroup
-        value={columnState}
-        fullWidth
-        onChange={(event, value) => setColumnState(value.toString())}
-      >
+      <Paragraph>This gives us the possibility to also create other different grid options:</Paragraph>
+      <RadioButtonGroup value={columnState} fullWidth onChange={(event, value) => setColumnState(value.toString())}>
         {[1, 2, 3, 4, 6, 12].reverse().map(column => (
-          <RadioButton
-            key={column}
-            value={column.toString()}
-            label={`${column} columns`}
-          />
+          <RadioButton key={column} value={column.toString()} label={`${column} columns`} />
         ))}
       </RadioButtonGroup>
       <br />
       <br />
       <ArticleDefaultDemo columns={columnState} rows={2} />
-      <Paragraph>
-        You can also use any kind of combination which sums 12 per row
-      </Paragraph>
+      <Paragraph>You can also use any kind of combination which sums 12 per row</Paragraph>
       <Button
         onClick={() =>
           setWeirdColumns([
@@ -137,8 +117,7 @@ const ArticleDefault = ({classname}) => {
             <>
               <LayoutGridItem key={index} colSpan={size}>
                 <DemoBox>
-                  <Label style={{color: 'white'}}>s:{size}</Label>{' '}
-                  <Label style={{color: 'white'}}>e:{index + 1}</Label>
+                  <Label style={{color: 'white'}}>s:{size}</Label> <Label style={{color: 'white'}}>e:{index + 1}</Label>
                 </DemoBox>
               </LayoutGridItem>
             </>

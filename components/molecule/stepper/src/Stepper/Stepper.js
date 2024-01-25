@@ -6,22 +6,8 @@ import {useStepsContext} from '../context/index.js'
 import {naturalNumber} from '../prop-types.js'
 import Step from '../Step/Step.js'
 
-const Stepper = ({
-  children,
-  steps: stepsNumber,
-  step: currentStep,
-  showLabel,
-  labels = []
-}) => {
-  const {
-    design,
-    alignment,
-    icon,
-    visitedIcon,
-    currentIcon,
-    onChange,
-    hasConnector
-  } = useStepsContext()
+const Stepper = ({children, steps: stepsNumber, step: currentStep, showLabel, labels = []}) => {
+  const {design, alignment, icon, visitedIcon, currentIcon, onChange, hasConnector} = useStepsContext()
   if (children)
     return (
       <Injector

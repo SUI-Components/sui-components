@@ -3,12 +3,7 @@ import {useCallback, useEffect, useRef, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {
-  AUTO_CLOSE_TIMES,
-  BASE_CLASS,
-  EFFECT_DELAY,
-  POSITIONS
-} from './config.js'
+import {AUTO_CLOSE_TIMES, BASE_CLASS, EFFECT_DELAY, POSITIONS} from './config.js'
 
 const AtomToast = ({
   autoClose = true,
@@ -28,14 +23,10 @@ const AtomToast = ({
   const delayTimeout = useRef()
   const toastRef = useRef()
 
-  const containerClassName = cx(
-    `${BASE_CLASS}-container`,
-    `${BASE_CLASS}-position--${position}`,
-    {
-      [`${BASE_CLASS}-effect--${position}`]: effect,
-      [`${BASE_CLASS}-effect--hide`]: effect && delay
-    }
-  )
+  const containerClassName = cx(`${BASE_CLASS}-container`, `${BASE_CLASS}-position--${position}`, {
+    [`${BASE_CLASS}-effect--${position}`]: effect,
+    [`${BASE_CLASS}-effect--hide`]: effect && delay
+  })
 
   const handleClose = useCallback(() => {
     if (effect) setDelay(true)
@@ -128,8 +119,5 @@ AtomToast.propTypes = {
   globalClose: PropTypes.bool
 }
 
-export {
-  POSITIONS as atomToastPositions,
-  AUTO_CLOSE_TIMES as atomToastAutoCloseTimes
-}
+export {POSITIONS as atomToastPositions, AUTO_CLOSE_TIMES as atomToastAutoCloseTimes}
 export default AtomToast

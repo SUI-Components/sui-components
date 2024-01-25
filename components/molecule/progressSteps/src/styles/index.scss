@@ -18,15 +18,9 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
         border-color: $c-progress-steps-bar;
         border-width: $bdw-progress-steps-bar;
         height: $h-progress-steps-bar;
-        width: calc(
-          100% - #{2 * ($m-progress-steps-icon + $bdw-progress-steps-bar)}
-        );
-        margin: #{math.div(
-            $sz-progress-steps-icon - $bdw-progress-steps-bar -
-              $h-progress-steps-bar,
-            2
-          ) + $m-progress-steps-icon + $p-progress-steps-icon} $m-progress-steps-icon
-          0 $m-progress-steps-icon;
+        width: calc(100% - #{2 * ($m-progress-steps-icon + $bdw-progress-steps-bar)});
+        margin: #{math.div($sz-progress-steps-icon - $bdw-progress-steps-bar - $h-progress-steps-bar, 2) +
+          $m-progress-steps-icon + $p-progress-steps-icon} $m-progress-steps-icon 0 $m-progress-steps-icon;
       }
     }
     &:not(#{$base-class-stepper}--design-compressed) {
@@ -122,9 +116,7 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
       }
       &#{$base-class-stepper}--design-compressed {
         #{$base-class-stepper-path}Label {
-          width: calc(
-            math.div($w-progress-steps-description, 2) - $sz-base * 2
-          );
+          width: calc(math.div($w-progress-steps-description, 2) - $sz-base * 2);
         }
       }
       #{$base-class-stepper-bar} {
@@ -132,12 +124,9 @@ $base-class-stepper-bar: '#{$base-class-stepper-path}Connector';
         #{$base-class-stepper-bar}Line {
           width: $h-progress-steps-bar;
           border-width: $bdw-progress-steps-bar;
-          height: calc(
-            100% - #{2 * ($m-progress-steps-icon + $bdw-progress-steps-bar)}
-          );
+          height: calc(100% - #{2 * ($m-progress-steps-icon + $bdw-progress-steps-bar)});
           margin: $m-progress-steps-icon 0 $m-progress-steps-icon #{math.div(
-              $sz-progress-steps-icon - $bdw-progress-steps-bar -
-                $h-progress-steps-bar,
+              $sz-progress-steps-icon - $bdw-progress-steps-bar - $h-progress-steps-bar,
               2
             ) + $m-progress-steps-icon + $p-progress-steps-icon};
         }

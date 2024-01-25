@@ -130,9 +130,7 @@ describe('MoleculePhoneInput', () => {
     }
 
     const {container} = setup(props)
-    const prefix = container.querySelector(
-      'div.sui-MoleculePhoneInput-input-prefix'
-    )
+    const prefix = container.querySelector('div.sui-MoleculePhoneInput-input-prefix')
     // When
     userEvents.click(prefix)
 
@@ -154,15 +152,11 @@ describe('MoleculePhoneInput', () => {
     }
 
     const {container} = setup(props)
-    const prefix = container.querySelector(
-      'div.sui-MoleculePhoneInput-input-prefix'
-    )
+    const prefix = container.querySelector('div.sui-MoleculePhoneInput-input-prefix')
     // When
     userEvents.click(prefix)
     const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
-    const selectedPrefixLabel = container.querySelector(
-      '.sui-MoleculePhoneInput-input-prefix-code'
-    )
+    const selectedPrefixLabel = container.querySelector('.sui-MoleculePhoneInput-input-prefix-code')
     const firstOption = options[0]
     firstOption.click()
 
@@ -180,9 +174,7 @@ describe('MoleculePhoneInput', () => {
     }
 
     const {container} = setup(props)
-    const prefix = container.querySelector(
-      'div.sui-MoleculePhoneInput-input-prefix'
-    )
+    const prefix = container.querySelector('div.sui-MoleculePhoneInput-input-prefix')
     // When
     prefix.click()
     const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
@@ -232,9 +224,7 @@ describe('MoleculePhoneInput', () => {
     }
 
     const {container} = setup(props)
-    const prefix = container.querySelector(
-      'div.sui-MoleculePhoneInput-input-prefix'
-    )
+    const prefix = container.querySelector('div.sui-MoleculePhoneInput-input-prefix')
     // When
     prefix.click()
     const options = container.querySelectorAll('.sui-MoleculeDropdownOption')
@@ -259,9 +249,7 @@ describe('MoleculePhoneInput', () => {
 
     const {container} = setup(props)
     const helpText = container.querySelector('.sui-AtomHelpText')
-    const errorText = container.querySelector(
-      '.sui-AtomValidationText.sui-AtomValidationText--error'
-    )
+    const errorText = container.querySelector('.sui-AtomValidationText.sui-AtomValidationText--error')
 
     expect(helpText).to.exist
     expect(helpText.textContent).to.equal(HELP_TEXT)
@@ -281,9 +269,7 @@ describe('MoleculePhoneInput', () => {
     }
 
     const {container} = setup(props)
-    const errorText = container.querySelector(
-      '.sui-AtomValidationText.sui-AtomValidationText--error'
-    )
+    const errorText = container.querySelector('.sui-AtomValidationText.sui-AtomValidationText--error')
     const helpText = container.querySelector('.sui-AtomHelpText')
 
     expect(errorText).to.exist

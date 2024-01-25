@@ -14,8 +14,7 @@ const ArticleHandlers = ({className}) => {
     <Article className={className}>
       <H2>Handlers</H2>
       <Paragraph>
-        Injector will preserve every existing children handler prop and also the
-        given handler prop to all of them.
+        Injector will preserve every existing children handler prop and also the given handler prop to all of them.
       </Paragraph>
       <Box style={{paddingLeft: 0, paddingRight: 0}}>
         <Injector

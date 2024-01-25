@@ -5,13 +5,7 @@ import PropTypes from 'prop-types'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {
-  CLASS_TAB,
-  CLASS_TAB_ACTIVE,
-  CLASS_TAB_COUNT,
-  CLASS_TAB_DISABLED,
-  CLASS_TAB_ICON
-} from './config.js'
+import {CLASS_TAB, CLASS_TAB_ACTIVE, CLASS_TAB_COUNT, CLASS_TAB_DISABLED, CLASS_TAB_ICON} from './config.js'
 
 const MoleculeTab = forwardRef(
   (

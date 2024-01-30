@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.11.0 (2024-01-30)
+
+
+### Features
+
+* **components/molecule/stepper:** add token for border stepper icon ([a708793](https://github.com/SUI-Components/sui-components/commit/a708793f90cc5a494fe7afb0f996558317b81c08))
+
+
+
 # 2.10.0 (2023-10-31)
 
 

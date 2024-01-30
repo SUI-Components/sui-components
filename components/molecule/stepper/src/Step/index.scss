@@ -36,6 +36,7 @@ $base-class-step: #{$base-class}Step;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: $bd-stepper-icon;
       }
       + #{$base-class-step}Connector {
         flex-shrink: 0;
@@ -85,6 +86,7 @@ $base-class-step: #{$base-class}Step;
       flex-shrink: 0;
       #{$base-class-step}Icon {
         background-color: $c-stepper-icon;
+        border: $bd-stepper-icon;
         border-radius: math.div($sz-base, 2);
       }
       + #{$base-class-step}Connector {
@@ -152,6 +154,7 @@ $base-class-step: #{$base-class}Step;
       flex-shrink: 0;
       #{$base-class-step}Icon {
         background-color: $c-stepper-icon;
+        border: $bd-stepper-icon;
         border-radius: math.div($sz-base, 2);
       }
       + #{$base-class-step}Connector {

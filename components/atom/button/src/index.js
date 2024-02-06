@@ -3,7 +3,8 @@ import {forwardRef} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import ButtonSpinnerIcon from './buttonSpinnerIcon/index.js'
+import PrimitiveLoadingIcon from '@s-ui/react-primitive-loading-icon'
+
 import Button from './Button.js'
 import ButtonIcon from './ButtonIcon.js'
 import {
@@ -40,7 +41,7 @@ const AtomButton = forwardRef((props, ref) => {
     link,
     leftIcon,
     loadingText,
-    loader = <ButtonSpinnerIcon />,
+    loader = <PrimitiveLoadingIcon />,
     rightIcon,
     size,
     title,

@@ -35,3 +35,18 @@ $bd-atom-switch-default: $bdw-atom-switch-default solid color-variation($c-atom-
 $bxsh-atom-switch-container: 0 0 4px 0 transparent !default;
 
 $atom-switch-transition-time: 0.3s !default;
+
+$bd-atom-switch-circle: $bdw-s solid $c-atom-switch-circle !default;
+$bxsh-atom-switch-circle: 2px 0 2px 0 $c-gray-light !default;
+$m-atom-switch-circle: 0px !default;
+
+$c-atom-switch-circle-loading: currentColor !default;
+$t-atom-switch-circle-loading: 20% !default;
+$w-atom-switch-circle-loading: 60% !default;
+$h-atom-switch-circle-loading: 60% !default;
+$l-atom-switch-circle-loading: 20% !default;
+
+$t-atom-switch-circle-loading-small: 0 !default;
+$w-atom-switch-circle-loading-small: 100% !default;
+$h-atom-switch-circle-loading-small: 100% !default;
+$l-atom-switch-circle-loading-small: 0 !default;

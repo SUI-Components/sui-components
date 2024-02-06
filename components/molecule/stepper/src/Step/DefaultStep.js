@@ -40,6 +40,13 @@ const DefaultStep = ({
                 marginLeft: `calc(-${(step - 1) * 100}% - ${(step - 1) * 8}px)`
               }
             })}
+          {...(design === DESIGN.COMPRESSED &&
+            current &&
+            alignment === ALIGNMENT.VERTICAL && {
+              style: {
+                marginTop: `calc(-${(step - 1) * 100}% - ${(step - 1) * 8}px)`
+              }
+            })}
         >
           {getLabel({steps, step, design, label, current})}
         </div>

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.92.0 (2024-02-06)
+
+
+### Features
+
+* Require iconLoading on the atom button component ([afe9d6b](https://github.com/SUI-Components/sui-components/commit/afe9d6b2c7ab5e1bf768af438ab005ea2b0998d2))
+
+
+
 # 1.91.0 (2023-12-18)
 
 
@@ -932,6 +941,3 @@
 ### Performance Improvements
 
 * **atom/button:** mAke classes to be constructed once ([628e6a7](https://github.com/SUI-Components/sui-components/commit/628e6a7653f84c9b62eb66e3f97dd7aa7588b565))
-
-
-

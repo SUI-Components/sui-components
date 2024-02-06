@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.12.0 (2024-02-06)
+
+
+### Features
+
+* adjust styles ([79851df](https://github.com/SUI-Components/sui-components/commit/79851df07d3070949f40e70fd219bcb7be0ae31e))
+* improve compressed style UX ([b0d50c5](https://github.com/SUI-Components/sui-components/commit/b0d50c53506e71c29ab5e78a47b0f7c2cb8f6089))
+* make it work for vertical alignment ([b43aeee](https://github.com/SUI-Components/sui-components/commit/b43aeee899be80ae392cb2fd499199bb4eec2455))
+* making compressed label on single line ([fc0c1a3](https://github.com/SUI-Components/sui-components/commit/fc0c1a3506145427813515407c54f0933d86b257))
+* restore way label is rendered ([3dd2a68](https://github.com/SUI-Components/sui-components/commit/3dd2a6881f95174430b366a81799a423e96c7853))
+* use max-content as width for label ([ba57144](https://github.com/SUI-Components/sui-components/commit/ba571447cef752c41801447d2dc04dcff47da259))
+
+
+
 # 2.11.0 (2024-01-30)
 
 
@@ -135,6 +149,3 @@
 * **components/molecule/stepper:** tokenize ([38f584d](https://github.com/SUI-Components/sui-components/commit/38f584db45f1673004490344a2630e8ec8605a71))
 * **components/molecule/stepper:** wip ([eb155d1](https://github.com/SUI-Components/sui-components/commit/eb155d13b21eedb1c76abc0b0139ac4563ef901e))
 * **components/molecule/stepper:** WIP first initial approach ([8325988](https://github.com/SUI-Components/sui-components/commit/8325988ed81ae4d21fe4a9abde5d61e40c7adee5))
-
-
-

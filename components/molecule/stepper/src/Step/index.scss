@@ -116,7 +116,7 @@ $base-class-step: #{$base-class}Step;
             transform: rotate(180deg);
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            max-height: $w-stepper-label;
+            height: max-content;
             width: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
             display: flex;
             align-items: flex-end;
@@ -128,10 +128,10 @@ $base-class-step: #{$base-class}Step;
           align-items: flex-start;
           gap: $sz-base;
           #{$base-class-step}Label {
-            height: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
-            max-width: $w-stepper-label;
-            display: flex;
             align-items: flex-end;
+            display: flex;
+            height: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
+            width: max-content;
           }
           #{$base-class-step}Icon {
             width: 100%;

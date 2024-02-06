@@ -1,5 +1,9 @@
 @import '~@s-ui/theme/lib/index';
 
+$bdw-atom-loading: $bdw-m !default;
+$w-atom-loading: 1em !default;
+$h-atom-loading: 1em !default;
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -11,13 +15,13 @@
 
 .sui-AtomLoading {
   display: inline-block;
-  border-width: $bdw-m;
+  border-width: $bdw-atom-loading;
   border-color: currentcolor currentcolor transparent transparent;
   border-style: solid;
   border-radius: 9999px;
   animation: spin 1s linear infinite;
-  width: 1em;
-  height: 1em;
+  width: $w-atom-loading;
+  height: $h-atom-loading;
   box-sizing: border-box;
   position: absolute;
 }

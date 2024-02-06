@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2024-02-06)
+
+
+### Features
+
+* Add a scss token to customize switch focus border ([f1c37b4](https://github.com/SUI-Components/sui-components/commit/f1c37b49384f445825416c39fa209e97a9099e61))
+
+
+
 # 1.31.0 (2024-02-06)
 
 

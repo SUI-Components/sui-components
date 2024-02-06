@@ -1,0 +1,27 @@
+@import '~@s-ui/theme/lib/index';
+
+$bdw-primitive-loading-icon: $bdw-m !default;
+$w-primitive-loading-icon: 1em !default;
+$h-primitive-loading-icon: 1em !default;
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sui-PrimitiveLoadingIcon {
+  display: inline-block;
+  border-width: $bdw-primitive-loading-icon;
+  border-color: currentcolor currentcolor transparent transparent;
+  border-style: solid;
+  border-radius: 9999px;
+  animation: spin 1s linear infinite;
+  width: $w-primitive-loading-icon;
+  height: $h-primitive-loading-icon;
+  box-sizing: border-box;
+  position: absolute;
+}

@@ -128,9 +128,10 @@ $base-class-step: #{$base-class}Step;
           align-items: flex-start;
           gap: $sz-base;
           #{$base-class-step}Label {
-            height: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
-            display: flex;
             align-items: flex-end;
+            display: flex;
+            height: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
+            width: max-content;
           }
           #{$base-class-step}Icon {
             width: 100%;

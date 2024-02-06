@@ -5,8 +5,7 @@ export default () => (
   <div className="sui-StudioPreview">
     <H1>AtomLoading</H1>
     <Paragraph>
-      An animated circular loop used for giving users feedback while the content
-      of a page or section is being loaded.
+      An animated loop used for giving users feedback while the content of a page or section is being loaded.
     </Paragraph>
     <AtomLoading />
   </div>

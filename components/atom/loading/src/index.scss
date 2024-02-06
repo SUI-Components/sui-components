@@ -1,0 +1,23 @@
+@import '~@s-ui/theme/lib/index';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sui-AtomLoading {
+  display: inline-block;
+  border-width: $bdw-m;
+  border-color: currentcolor currentcolor transparent transparent;
+  border-style: solid;
+  border-radius: 9999px;
+  animation: spin 1s linear infinite;
+  width: 1em;
+  height: 1em;
+  box-sizing: border-box;
+  position: absolute;
+}

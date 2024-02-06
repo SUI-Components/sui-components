@@ -116,7 +116,7 @@ $base-class-step: #{$base-class}Step;
             transform: rotate(180deg);
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            max-height: $w-stepper-label;
+            height: max-content;
             width: calc(math.div($w-stepper-label, 2) - $sz-base * 2);
             display: flex;
             align-items: flex-end;

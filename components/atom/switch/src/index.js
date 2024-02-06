@@ -55,6 +55,9 @@ AtomSwitch.propTypes = {
   /** The padding of the container is set to 0 */
   isFitted: PropTypes.bool,
 
+  /** Is the switch loading **/
+  isLoading: PropTypes.bool,
+
   /** Left label to be printed */
   labelLeft: PropTypes.string,
 

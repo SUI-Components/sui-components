@@ -4,6 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomLabel from '@s-ui/react-atom-label'
+import PrimitiveLoadingIcon from '@s-ui/react-primitive-loading-icon'
 
 import {LABELS, TYPES} from '../config.js'
 import {suitClass, switchClassNames} from './helpers.js'
@@ -19,6 +20,7 @@ export const SingleSwitchTypeRender = forwardRef(
       labelLeft,
       iconLeft,
       iconRight,
+      isLoading,
       labelOptionalText,
       labelRight,
       name,
@@ -79,9 +81,15 @@ export const SingleSwitchTypeRender = forwardRef(
             id={name}
             {...(!disabled && {tabIndex: 0})}
           >
-            <div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div>
-            <div className={cx(suitClass({element: 'circle'}))} />
-            <div className={cx(suitClass({element: 'icon-right'}))}>{iconRight}</div>
+            {!isLoading ? <div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div> : null}
+            <div className={cx(suitClass({element: 'circle'}))}>
+              {isLoading ? (
+                <div className={cx(suitClass({element: 'circleLoading'}))}>
+                  <PrimitiveLoadingIcon />
+                </div>
+              ) : null}
+            </div>
+            {!isLoading ? <div className={cx(suitClass({element: 'icon-right'}))}>{iconRight}</div> : null}
           </button>
           {showLabelRight && <AtomLabel name={name} text={labelRight} optionalText={labelOptionalText} />}
         </div>
@@ -133,6 +141,10 @@ SingleSwitchTypeRender.propTypes = {
    * Is component toggle
    */
   isToggle: PropTypes.bool,
+  /**
+   * Is the switch loading
+   */
+  isLoading: PropTypes.bool,
   /**
    * Callback on focus element
    */

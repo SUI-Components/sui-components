@@ -1,8 +1,8 @@
 @import '~@s-ui/theme/lib/index';
 
 $bdw-primitive-loading-icon: $bdw-m !default;
-$w-primitive-loading-icon: 1em !default;
-$h-primitive-loading-icon: 1em !default;
+$w-primitive-loading-icon: 100% !default;
+$h-primitive-loading-icon: 100% !default;
 
 @keyframes spin {
   0% {
@@ -23,5 +23,4 @@ $h-primitive-loading-icon: 1em !default;
   width: $w-primitive-loading-icon;
   height: $h-primitive-loading-icon;
   box-sizing: border-box;
-  position: absolute;
 }

@@ -4,6 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomLabel from '@s-ui/react-atom-label'
+import PrimitiveLoadingIcon from '@s-ui/react-primitive-loading-icon'
 
 import {TYPES} from '../config.js'
 import {suitClass, switchClassNames} from './helpers.js'
@@ -14,6 +15,7 @@ export const ToggleSwitchTypeRender = forwardRef(
       disabled,
       isFitted,
       isToggle,
+      isLoading,
       label,
       labelLeft,
       iconLeft,
@@ -76,9 +78,15 @@ export const ToggleSwitchTypeRender = forwardRef(
             {...(!disabled && {tabIndex: 0})}
             onClick={onToggle()}
           >
-            {<div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div>}
-            <div className={cx(suitClass({element: 'circle'}))} />
-            <div className={cx(suitClass({element: 'icon-right'}))}>{iconRight}</div>
+            {!isLoading ? <div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div> : null}
+            <div className={cx(suitClass({element: 'circle'}))}>
+              {isLoading ? (
+                <div className={cx(suitClass({element: 'circleLoading'}))}>
+                  <PrimitiveLoadingIcon />
+                </div>
+              ) : null}
+            </div>
+            {!isLoading ? <div className={cx(suitClass({element: 'icon-right'}))}>{iconRight}</div> : null}
           </button>
           <span
             className={cx(suitClass({element: 'text'}), suitClass({element: 'right'}))}
@@ -161,5 +169,9 @@ ToggleSwitchTypeRender.propTypes = {
   /** element node which appears inside the switch circle when it's in right position **/
   iconRight: PropTypes.node,
   /** element in right or left position (checked means right)**/
-  isChecked: PropTypes.bool
+  isChecked: PropTypes.bool,
+  /**
+   * Is the switch loading
+   */
+  isLoading: PropTypes.bool
 }

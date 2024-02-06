@@ -5,6 +5,7 @@ import ArticleControlledAndUncontrolled from './articles/ArticleControlledAndUnc
 import ArticleDisabled from './articles/ArticleDisabled.js'
 import ArticleFullWidth from './articles/ArticleFullWidth.js'
 import ArticleIsFitted from './articles/ArticleIsFitted.js'
+import ArticleLoading from './articles/ArticleLoading.js'
 import ArticleSizes from './articles/ArticleSizes.js'
 import ArticleState from './articles/ArticleState.js'
 import ArticleToggle from './articles/ArticleToggle.js'
@@ -40,6 +41,8 @@ const Demo = () => {
         <ArticleToggle className={CLASS_SECTION} />
         <br />
         <ArticleFullWidth className={CLASS_SECTION} />
+        <br />
+        <ArticleLoading className={CLASS_SECTION} />
       </div>
     </div>
   )

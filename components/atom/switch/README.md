@@ -24,8 +24,9 @@ import AtomSwitch from '@s-ui/react-atom-switch'
 return (
   <AtomSwitch
     disabled={false}
-    isFitted={false}
     initialValue={false}
+    isFitted={false}
+    isLoading={true}
     label="Label"
     labelLeft="Off"
     labelOptionalText="Optional label"

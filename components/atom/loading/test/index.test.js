@@ -39,17 +39,4 @@ describe('AtomLoading', () => {
     expect(container.innerHTML).to.be.a('string')
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
-
-  it.skip('should NOT extend classNames', () => {
-    // Given
-    const props = {className: 'extended-classNames'}
-    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-    // When
-    const {container} = setup(props)
-    const findClassName = findSentence(props.className)
-
-    // Then
-    expect(findClassName(container.innerHTML)).to.be.null
-  })
 })

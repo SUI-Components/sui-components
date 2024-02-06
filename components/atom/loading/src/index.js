@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 const AtomLoading = ({role = 'status', ...props}) => {
-  return <div role="status" {...props} className="sui-AtomLoading" />
+  return <div role={role} {...props} className="sui-AtomLoading" />
 }
 AtomLoading.propTypes = {
   role: PropTypes.string

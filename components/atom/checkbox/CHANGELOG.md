@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.5.0 (2024-02-08)
+
+
+### Features
+
+* Add scss parameters to atom checkbox components ([6df6356](https://github.com/SUI-Components/sui-components/commit/6df6356ab9ad497e95fd71ca38e00b9fd30487e5))
+
+
+
 # 3.4.0 (2023-12-20)
 
 
@@ -343,6 +352,3 @@
 * **atom/checkbox:** atom checkbox implementation ([4ad3e5e](https://github.com/SUI-Components/sui-components/commit/4ad3e5ec0ff22353e5ae29009884a7bfca27501b))
 * **atom/checkbox:** getting name in event handler ([777bc1c](https://github.com/SUI-Components/sui-components/commit/777bc1c6ee73b67cd234aa0cc5f4704b7160c891))
 * **atom/checkbox:** new component ([9908001](https://github.com/SUI-Components/sui-components/commit/99080011dafeb930a8013b65c72805e3a6cd31a3))
-
-
-

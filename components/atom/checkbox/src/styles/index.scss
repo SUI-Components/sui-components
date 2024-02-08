@@ -9,19 +9,19 @@ $class-icon: '#{$base-class}--Icon';
 
   &#{$base-class}--native-disabled {
     #{$class-icon} {
-      padding: 0;
-      cursor: default;
       align-items: center;
-      border-width: 1.5px;
+      border-radius: 0.15em;
       border-style: solid;
+      border-width: 1.5px;
+      cursor: $cur-atom-checkbox;
       display: inline-flex;
+      height: 100%;
       justify-content: center;
+      outline-offset: 2px;
+      padding: 0;
       text-align: center;
       vertical-align: top;
       width: 100%;
-      height: 100%;
-      border-radius: 0.15em;
-      outline-offset: 2px;
 
       &:focus {
         outline: none;
@@ -74,18 +74,19 @@ $class-icon: '#{$base-class}--Icon';
     &.is-indeterminate,
     &:checked,
     &:indeterminate {
-      border-color: $c-primary;
-      color: $c-atom-checkbox;
-      background-color: $c-primary;
+      border-color: $bdc-atom-checkbox--checked;
+      color: $c-atom-checkbox--checked;
+      background-color: $bgc-atom-checkbox--checked;
       &::before {
         box-shadow: inset 1em 1em $c-atom-checkbox;
       }
     }
 
     &:disabled {
-      color: $bdc-atom-checkbox-is-disabled;
       background-color: $bgc-checked-atom-checkbox-is-disabled;
       border-color: $bdc-atom-checkbox-is-disabled;
+      color: $bdc-atom-checkbox-is-disabled;
+      cursor: $cur-atom-checkbox--disabled;
       &::before {
         background-color: $bdc-atom-checkbox-is-disabled;
         box-shadow: none;

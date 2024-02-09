@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.6.0 (2024-02-09)
+
+
+### Features
+
+* fix default checked color ([d1345de](https://github.com/SUI-Components/sui-components/commit/d1345de3d7c97eb2ba8c9a90ef6bbdac1d35f978))
+
+
+
 # 3.5.0 (2024-02-08)
 
 

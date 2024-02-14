@@ -101,11 +101,18 @@ $base-class: '.sui-AtomSwitch';
     }
 
     &:disabled {
-      background-color: $c-gray-lightest;
-      border: $bdw-atom-switch-default solid $c-gray-lightest;
+      background-color: $bgc-atom-switch-disabled;
+      border: $bd-atom-switch-disabled;
       cursor: not-allowed;
+
       #{$base-class}-circle {
-        background-color: $c-gray-lightest;
+        background-color: $bgc-atom-switch-circle-disabled;
+        border: $bd-atom-switch-circle-disabled;
+      }
+
+      &[aria-checked='true'] {
+        background-color: $bgc-atom-switch-disabled--active;
+        border: $bd-atom-switch-disabled--active;
       }
     }
     &[aria-checked='true'] {

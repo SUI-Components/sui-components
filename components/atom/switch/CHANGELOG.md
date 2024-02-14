@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.33.0 (2024-02-14)
+
+
+### Features
+
+* add new css variable for disabled atom switch ([9e7e4fc](https://github.com/SUI-Components/sui-components/commit/9e7e4fcd50366de83693da19ee456b03626c2e54))
+
+
+
 # 1.32.0 (2024-02-06)
 
 

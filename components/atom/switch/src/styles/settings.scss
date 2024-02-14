@@ -51,3 +51,10 @@ $t-atom-switch-circle-loading-small: 0 !default;
 $w-atom-switch-circle-loading-small: 100% !default;
 $h-atom-switch-circle-loading-small: 100% !default;
 $l-atom-switch-circle-loading-small: 0 !default;
+
+$bd-atom-switch-disabled: $bdw-atom-switch-default solid $c-gray-lightest !default;
+$bd-atom-switch-circle-disabled: $bd-atom-switch-default !default;
+$bgc-atom-switch-disabled: $c-gray-lightest !default;
+$bgc-atom-switch-circle-disabled: $c-gray-lightest !default;
+$bgc-atom-switch-disabled--active: $c-atom-switch--active !default;
+$bd-atom-switch-disabled--active: $bdw-atom-switch-default solid $c-atom-switch--active !default;

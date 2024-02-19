@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.7.0 (2024-02-19)
+
+
+### Features
+
+* Change color token from atom checkbox to the correct one ([a8ecd10](https://github.com/SUI-Components/sui-components/commit/a8ecd10c70162ffcb90db160ceb5454e404d79ce))
+
+
+
 # 3.6.0 (2024-02-09)
 
 

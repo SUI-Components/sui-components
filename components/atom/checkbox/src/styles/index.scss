@@ -85,7 +85,7 @@ $class-icon: '#{$base-class}--Icon';
     &:disabled {
       background-color: $bgc-checked-atom-checkbox-is-disabled;
       border-color: $bdc-atom-checkbox-is-disabled;
-      color: $bdc-atom-checkbox-is-disabled;
+      color: $c-atom-checkbox-is-disabled;
       cursor: $cur-atom-checkbox--disabled;
       &::before {
         background-color: $bdc-atom-checkbox-is-disabled;

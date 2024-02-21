@@ -9,13 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import sinon from 'sinon'
 
-import {screen} from '@testing-library/dom'
-import {fireEvent} from '@testing-library/react'
-
-import CloseIcon from '../demo/CloseIcon.js'
-import {examlpeHeadImage, exampleActionButtons, exampleBadge, exampleImage} from '../demo/config.js'
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 

@@ -9,49 +9,61 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
 
-import Component from '../src/index.js'
+import {screen} from '@testing-library/dom'
+import {fireEvent} from '@testing-library/react'
+
+import CloseIcon from '../demo/CloseIcon.js'
+import {examlpeHeadImage, exampleActionButtons, exampleBadge, exampleImage} from '../demo/config.js'
+import json from '../package.json'
+import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 
-describe('MoleculeCoachmark', () => {
+describe(json.name, () => {
+  const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 
-  it('should render without crashing', () => {
-    // Given
-    const props = {}
+  it('library should include defined exported elements', () => {
+    const library = pkg
+    const libraryExportedMembers = [
+      'moleculeCoachmarkActions',
+      'moleculeCoachmarkEvents',
+      'moleculeCoachmarkStatus',
+      'moleculeCoachmarkLifeCycle',
+      'moleculeCoachmarkActionButtonIds',
+      'default'
+    ]
 
-    // When
-    const component = <Component {...props} />
-
-    // Then
-    const div = document.createElement('div')
-    ReactDOM.render(component, div)
-    ReactDOM.unmountComponentAtNode(div)
+    expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
+    expect(Object.keys(library)).to.have.members(libraryExportedMembers)
   })
 
-  it('should NOT render null', () => {
-    // Given
-    const props = {}
+  describe(Component.displayName, () => {
+    it('should render without crashing', () => {
+      // Given
+      const props = {}
 
-    // When
-    const {container} = setup(props)
+      // When
+      const component = <Component {...props} />
 
-    // Then
-    expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.not.have.lengthOf(0)
-  })
+      // Then
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+      ReactDOM.unmountComponentAtNode(div)
+    })
 
-  it.skip('should NOT extend classNames', () => {
-    // Given
-    const props = {className: 'extended-classNames'}
-    const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+    it('should NOT render null', () => {
+      // Given
+      const props = {}
 
-    // When
-    const {container} = setup(props)
-    const findClassName = findSentence(props.className)
+      // When
+      const {container} = setup(props)
 
-    // Then
-    expect(findClassName(container.innerHTML)).to.be.null
+      // Then
+      expect(container.innerHTML).to.be.a('string')
+      expect(container.innerHTML).to.not.have.lengthOf(0)
+    })
   })
 })

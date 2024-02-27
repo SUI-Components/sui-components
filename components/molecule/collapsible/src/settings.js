@@ -18,3 +18,8 @@ export const BUTTON_TEXT_ALIGN = {
   RIGHT: 'right',
   LEFT: 'left'
 }
+
+export const FORCE_STATE = {
+  OPEN: 'open',
+  CLOSE: 'close'
+}

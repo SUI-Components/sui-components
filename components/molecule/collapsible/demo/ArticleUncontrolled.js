@@ -8,10 +8,9 @@ import {Text} from './config/index.js'
 const ArticleUncontrolled = ({className, icon, showText, hideText}) => {
   return (
     <Article className={className}>
-      <H2>Collapsible Controlled</H2>
+      <H2>Collapsible Uncontrolled</H2>
       <Paragraph>
-        These are the options for the prop <Code> isCollapsible</Code> that might be renamed to isDefaultExpanded in
-        future versions.
+        These are the options for the prop <Code> isDefaultExpanded</Code>.
       </Paragraph>
       <br />
       <br />

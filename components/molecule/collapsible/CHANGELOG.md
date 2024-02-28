@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2024-02-28)
+
+
+### Features
+
+* become controlled-uncontrolld ([58c236f](https://github.com/SUI-Components/sui-components/commit/58c236faf04913d6cdc3ea1a2cacf853a2753223))
+
+
+
 # 1.21.0 (2023-12-18)
 
 
@@ -217,6 +226,3 @@
 * **molecule/collapsible:** add molecule/collapsible structure and proptypes ([b8ce2e7](https://github.com/SUI-Components/sui-components/commit/b8ce2e7c072ecd62c8c40432b1d95541591f63aa))
 * **molecule/collapsible:** add styles for collapsed and gradient ([735fb9e](https://github.com/SUI-Components/sui-components/commit/735fb9e41bb52b5e0180d713471c8ea03b023b04))
 * **molecule/collapsible:** improve conditional and tipying from PR comments ([324c17d](https://github.com/SUI-Components/sui-components/commit/324c17d60188b1ca9336538da45b381b3bc975ea))
-
-
-

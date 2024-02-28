@@ -3,6 +3,8 @@ import {useCallback, useEffect, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+
 import {
   BASE_CLASS,
   BUTTON_CLASS,
@@ -25,13 +27,15 @@ const MoleculeCollapsible = ({
   height = MIN_HEIGHT,
   icon,
   isCollapsible = true,
+  isDefaultExpanded = false,
+  isExpanded,
   showText,
   hideText,
   withGradient = true,
   withOverflow = false,
   withTransition = true
 }) => {
-  const [collapsed, setCollapsed] = useState(true)
+  const [expanded, setExpanded] = useControlledState(isExpanded, isDefaultExpanded)
   const [showButton, setShowButton] = useState(true)
   const [childrenHeight, setChildrenHeight] = useState(0)
 
@@ -44,34 +48,35 @@ const MoleculeCollapsible = ({
 
   const toggleCollapse = () => {
     if (showButton) {
-      setCollapsed(!collapsed)
-      if (collapsed) onOpen()
-      else onClose()
+      setExpanded(!expanded)
+      expanded ? onClose() : onOpen()
     }
   }
 
   useEffect(() => {
-    if (!childrenHeight || collapsed) return
+    if (!childrenHeight || !expanded) return
+    console.log('setShowButton', {isCollapsible, response: isCollapsible && childrenHeight >= height})
     setShowButton(isCollapsible && childrenHeight >= height)
-  }, [childrenHeight, collapsed, height, isCollapsible, setShowButton])
+  }, [childrenHeight, expanded, height, isCollapsible, setShowButton])
+
   const wrapperClassName = cx(`${BASE_CLASS}`, {
     [`${BASE_CLASS}--withGradient`]: withGradient,
-    [COLLAPSED_CLASS]: collapsed
+    [COLLAPSED_CLASS]: !expanded
   })
   const iconClassName = cx(`${ICON_CLASS}`, {
-    [COLLAPSED_CLASS]: collapsed
+    [COLLAPSED_CLASS]: !expanded
   })
   const containerClassName = cx(`${CONTAINER_BUTTON_CLASS}`, {
     [`${CONTAINER_BUTTON_CLASS}--withGradient`]: withGradient,
     [`${CONTAINER_BUTTON_CLASS}--alignButtonText-${alignButtonText}`]: alignButtonText,
-    [COLLAPSED_CLASS]: collapsed
+    [COLLAPSED_CLASS]: !expanded
   })
   const contentClassName = cx(`${CONTENT_CLASS}`, {
     [`${CONTENT_CLASS}--withTransition`]: withTransition,
     [`${CONTENT_CLASS}--withOverflow`]: withOverflow,
     [`${CONTENT_CLASS}--alignContainer-${alignContainer}`]: alignContainer
   })
-  const containerHeight = collapsed ? `${height}px` : `${childrenHeight}px`
+  const containerHeight = !expanded ? `${height}px` : `${childrenHeight}px`
 
   return (
     <div className={wrapperClassName}>
@@ -82,7 +87,7 @@ const MoleculeCollapsible = ({
         <div className={containerClassName}>
           <button type="button" className={BUTTON_CLASS} onClick={toggleCollapse}>
             <span className={BUTTON_CONTENT_CLASS} tabIndex="-1">
-              {collapsed ? showText : hideText}
+              {!expanded ? showText : hideText}
               <span className={iconClassName}>{icon}</span>
             </span>
           </button>
@@ -116,9 +121,17 @@ MoleculeCollapsible.propTypes = {
    */
   icon: PropTypes.node.isRequired,
   /**
-   * When expanded, make it collapsible (default) or not
+   * When expanded, do not show the inner toggle button for collapsing.
    */
   isCollapsible: PropTypes.bool,
+  /**
+   * Make it expanded/collapsed uncontrolled
+   */
+  isDefaultExpanded: PropTypes.bool,
+  /**
+   * Make it expanded/collapsed controlled
+   */
+  isExpanded: PropTypes.bool,
   /**
    * Text to show when content is collapsed
    */

@@ -7,6 +7,8 @@ import ArticleCustomHeight from './ArticleCustomHeight.js'
 import ArticleGradient from './ArticleGradient.js'
 import ArticleNoCollapse from './ArticleNoCollapse.js'
 import ArticleTransition from './ArticleTransition.js'
+import ArticleControlled from './ArticleControlled.js'
+import ArticleUncontrolled from './ArticleUncontrolled.js'
 
 const Demo = () => {
   const icon = GetIcon()
@@ -22,6 +24,12 @@ const Demo = () => {
           The collapsible component allows the user to expand or collapse content. We use this component to lightweight
           the content of a page or section.
         </Paragraph>
+        <ArticleUncontrolled icon={icon} showText={showText} hideText={hideText} />
+        <br />
+        <br />
+        <ArticleControlled icon={icon} showText={showText} hideText={hideText} />
+        <br />
+        <br />
         <ArticleAlignment icon={icon} showText={showText} hideText={hideText} />
         <br />
         <br />

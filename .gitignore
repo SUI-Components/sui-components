@@ -1,5 +1,6 @@
 # project
 public/
+.sui/
 
 # environment
 .env

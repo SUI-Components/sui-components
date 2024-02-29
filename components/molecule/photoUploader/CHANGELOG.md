@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.26.0 (2024-02-29)
+
+
+### Features
+
+* add dragPhotosIconSize prop ([915ed59](https://github.com/SUI-Components/sui-components/commit/915ed59401b3a521880cf4ca6facc45254d5475d))
+
+
+
 # 2.25.0 (2023-06-09)
 
 
@@ -563,6 +572,3 @@
 * **molecule/photoUploader:** remove comments ([24fdd47](https://github.com/SUI-Components/sui-components/commit/24fdd472bbaaf6bf31972b96ac8cebab3115f9f4))
 * **molecule/photoUploader:** remove unnecessary dependency from package.json ([176dd47](https://github.com/SUI-Components/sui-components/commit/176dd475f576624fa5405cd6374e789aa722b458))
 * **molecule/photoUploader:** replace useEffect with useMount ([9970a92](https://github.com/SUI-Components/sui-components/commit/9970a9276e86794eb3dbf1e97ba06b1b6b6f1cbd))
-
-
-

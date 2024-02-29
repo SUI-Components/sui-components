@@ -55,6 +55,7 @@ const MoleculePhotoUploader = forwardRef(
       dragDelay = DEFAULT_DRAG_DELAY_TIME,
       dragPhotoDividerTextInitialContent,
       dragPhotosIcon = noop,
+      dragPhotosIconSize = ATOM_ICON_SIZES.extraLarge,
       dragPhotoTextInitialContent,
       dropPhotosHereText,
       errorCorruptedPhotoUploadedText,
@@ -266,6 +267,7 @@ const MoleculePhotoUploader = forwardRef(
                 buttonShape={addPhotoButtonShape}
                 buttonSize={addPhotoButtonSize}
                 icon={dragPhotosIcon()}
+                iconSize={dragPhotosIconSize}
                 text={dragPhotoTextInitialContent}
                 dividerText={dragPhotoDividerTextInitialContent}
               />
@@ -397,6 +399,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Icon placed in the initial screen to invite the user to drag images */
   dragPhotosIcon: PropTypes.func.isRequired,
+
+  /** Icon size for the icon in the initial screen to invite the user to drag images */
+  dragPhotosIconSize: PropTypes.string,
 
   /** Text showed at the initial content screen, with the previous icon */
   dragPhotoTextInitialContent: PropTypes.string.isRequired,

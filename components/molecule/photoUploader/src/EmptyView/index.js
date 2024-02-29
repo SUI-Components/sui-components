@@ -2,7 +2,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import Button, {atomButtonShapes} from '@s-ui/react-atom-button'
-import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
+import AtomIcon from '@s-ui/react-atom-icon'
 
 import {
   ALTERNATIVE_ACTION_TEXT,
@@ -24,6 +24,7 @@ const EmptyView = ({
   buttonShape,
   buttonSize = BUTTON_SIZE,
   icon,
+  iconSize,
   text,
   onClick,
   dividerText = ALTERNATIVE_ACTION_TEXT
@@ -31,7 +32,7 @@ const EmptyView = ({
   return (
     <div onClick={onClick} className={EMPTY_VIEW_CLASS_NAME}>
       <div className={ICON_EMPTY_VIEW_CLASS_NAME}>
-        <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{icon}</AtomIcon>
+        <AtomIcon size={iconSize}>{icon}</AtomIcon>
       </div>
       <div className={TEXT_STATE_CLASS_NAME}>
         <span className={cx(TEXT_STATE_TEXT_CLASS_NAME, {isSpaced: !dividerText})}>{text}</span>
@@ -56,6 +57,7 @@ EmptyView.propTypes = {
   buttonShape: PropTypes.oneOf(Object.values(atomButtonShapes)),
   buttonSize: PropTypes.string,
   icon: PropTypes.node.isRequired,
+  iconSize: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   dividerText: PropTypes.string,
   onClick: PropTypes.func

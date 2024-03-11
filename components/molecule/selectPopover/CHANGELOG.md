@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.42.0 (2024-03-11)
+
+
+### Features
+
+* Avoid addEventListener unconditionally at selectPopover ([cfd3df1](https://github.com/SUI-Components/sui-components/commit/cfd3df17ca7fd875dadb937b14852430707a990f))
+* Lint file ([dc2935b](https://github.com/SUI-Components/sui-components/commit/dc2935b9d5bc4980ba662f13feacf78abe9696f4))
+
+
+
 # 1.41.0 (2023-09-20)
 
 
@@ -409,6 +419,3 @@
 * **molecule/selectPopover:** fix readme ([a375e4e](https://github.com/SUI-Components/sui-components/commit/a375e4ef3a0a5708916884f6e8bf4a138a2736d5))
 * **molecule/selectPopover:** generate component ([d51661b](https://github.com/SUI-Components/sui-components/commit/d51661b788df5ed465ba9953f8a22bef3d826021))
 * **molecule/selectPopover:** pr comments ([d953854](https://github.com/SUI-Components/sui-components/commit/d953854d9b362eb20d8952dc830ebba18d0a8b85))
-
-
-

@@ -126,7 +126,10 @@ const MoleculeSelectPopover = ({
         handleOnCancel()
       }
     }
-    window.addEventListener('mousedown', handleClickOutside)
+
+    if (isOpen) {
+      window.addEventListener('mousedown', handleClickOutside)
+    }
 
     return () => {
       window.removeEventListener('mousedown', handleClickOutside)

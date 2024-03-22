@@ -134,16 +134,14 @@ const MoleculeSelect = forwardRef((props, forwardedRef) => {
 
   useEffect(() => {
     Object.assign(refOptions.current, getOptionData(children))
-    if (isOpenState) {
-      document.addEventListener('touchend', handleOutsideClick)
-      document.addEventListener('mousedown', handleOutsideClick)
-    }
+    document.addEventListener('touchend', handleOutsideClick)
+    document.addEventListener('mousedown', handleOutsideClick)
 
     return () => {
       document.removeEventListener('touchend', handleOutsideClick)
       document.removeEventListener('mousedown', handleOutsideClick)
     }
-  }, [children, handleOutsideClick, isOpenState])
+  }, [children, handleOutsideClick])
 
   useEffect(() => {
     isOpenState && setTimeout(() => focusSearchInput())

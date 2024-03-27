@@ -5,7 +5,7 @@
   "private": true,
   "engines": {
     "node": "18",
-    "npm": "8"
+    "npm": "10"
   },
   "workspaces": [
     "components/**"
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@s-ui/documentation-library": "1",
     "@s-ui/helpers": "1",
+    "@s-ui/js-compiler": "1",
     "@s-ui/lint": "4",
     "@s-ui/mono": "2",
     "@s-ui/precommit": "3",

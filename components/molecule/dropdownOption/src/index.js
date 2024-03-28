@@ -114,7 +114,15 @@ const MoleculeDropdownOption = forwardRef(
         {...Object.fromEntries(Object.entries(props).filter(([key]) => !['className', 'style'].includes(key)))}
       >
         {checkbox && (
-          <AtomCheckbox checked={innerSelected} disabled={disabled} onFocus={handleInnerFocus} {...checkboxProps} />
+          <AtomCheckbox
+            checked={innerSelected}
+            disabled={disabled}
+            onChange={ev => {
+              onSelect(ev, {value})
+            }}
+            onFocus={handleInnerFocus}
+            {...checkboxProps}
+          />
         )}
         {highlightQuery ? (
           renderHighlightOption(highlightValue || children)

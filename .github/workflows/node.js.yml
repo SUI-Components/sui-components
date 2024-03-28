@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Redundant Builds
-        uses: styfle/cancel-workflow-action@0.6.0
+        uses: styfle/cancel-workflow-action@0.12.1
         with:
           access_token: ${{ github.token }}
 
@@ -47,10 +47,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Compress public directory
         run: tar -zcvf public-dir.tar.gz ./public/
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: public-folder
           path: public-dir.tar.gz
+
   # Lint the code
   lint:
     runs-on: ubuntu-latest
@@ -112,7 +113,7 @@ jobs:
           xvfb-run --auto-servernum npm run test -- --ci --coverage
 
       - name: Log Master Coverage
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         id: coverage-master
         with:
           script: |
@@ -120,7 +121,7 @@ jobs:
             await script({github, context, core, exec}, './README.md')
 
       - name: Log Current Coverage
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         id: coverage-current
         with:
           script: |
@@ -137,7 +138,7 @@ jobs:
       - name: Compress coverage directory
         run: tar -zcvf coverage-dir.tar.gz ./coverage/
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: coverage-folder
           path: coverage-dir.tar.gz
@@ -159,7 +160,7 @@ jobs:
 
       - name: Comment Coverage
         if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const script = require('./.github/SCRIPTS/commentCoverage')
@@ -190,7 +191,7 @@ jobs:
 
       - name: Update Coverage Badges
         if: github.event_name == 'push'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const script = require('./.github/SCRIPTS/updateCoverageBadges')
@@ -244,12 +245,12 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'npm'
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: public-folder
           path: .
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: coverage-folder
           path: .

@@ -40,7 +40,7 @@ jobs:
 
       - name: Build dependencies
         run: |
-          npm run phoenix:ci
+          npm run install:ci
           npm run install:themes
           npm run build
         env:
@@ -67,7 +67,7 @@ jobs:
 
       - name: Linting
         run: |
-          npm run phoenix:ci
+          npm run install:ci
           npm run lint
 
   # Test components
@@ -108,7 +108,7 @@ jobs:
 
       - name: Testing
         run: |
-          npm run phoenix:ci
+          npm run install:ci
           xvfb-run --auto-servernum npm run test -- --ci --coverage
 
       - name: Log Master Coverage

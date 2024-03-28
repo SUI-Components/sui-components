@@ -5,7 +5,7 @@
   "private": true,
   "engines": {
     "node": "18",
-    "npm": "8"
+    "npm": "10"
   },
   "workspaces": [
     "components/**"
@@ -23,12 +23,12 @@
     "lint:sass": "sui-lint sass",
     "respawn": "npm run clean && npm run phoenix && npm run install:themes",
     "install:themes": "node scripts/build-themes.js",
+    "install:ci": "npm ci --include=dev --no-found --no-audit && npx -y ultra-runner --raw --recursive prepublishOnly",
     "phoenix": "npx @s-ui/mono@2 phoenix && npx -y ultra-runner --raw --recursive prepublishOnly",
-    "phoenix:ci": "npx @s-ui/mono@2 phoenix && npx -y ultra-runner --raw --recursive prepublishOnly",
     "release": "sui-mono release",
     "start": "sui-studio start",
     "serve": "npm run build && npx http-server public",
-    "test": "sui-studio test -- --coverage",
+    "test": "sui-studio test -- --headless --coverage",
     "test:watch": "sui-studio test --watch",
     "pre-commit": "npm run lint:js  -- --staged && npm run lint:sass -- --staged",
     "pre-push": "npm run test"
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@s-ui/documentation-library": "1",
     "@s-ui/helpers": "1",
+    "@s-ui/js-compiler": "1",
     "@s-ui/lint": "4",
     "@s-ui/mono": "2",
     "@s-ui/precommit": "3",

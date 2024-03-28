@@ -36,7 +36,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
-          cache: true
+          cache: 'npm'
 
       - name: Build dependencies
         run: |
@@ -63,7 +63,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
-          cache: true
+          cache: 'npm'
 
       - name: Linting
         run: |
@@ -98,7 +98,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: true
+          cache: 'npm'
 
       - name: Install xvfb for headless testing
         run: sudo apt-get install xvfb
@@ -155,7 +155,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
-          cache: true
+          cache: 'npm'
 
       - name: Comment Coverage
         if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
@@ -242,7 +242,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: true
+          cache: 'npm'
 
       - uses: actions/download-artifact@v2
         with:

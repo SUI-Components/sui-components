@@ -118,7 +118,7 @@ const MoleculeDropdownOption = forwardRef(
             checked={innerSelected}
             disabled={disabled}
             onChange={ev => {
-              onSelect(ev, {value})
+              typeof onSelect === 'function' && onSelect(ev, {value})
             }}
             onFocus={handleInnerFocus}
             {...checkboxProps}

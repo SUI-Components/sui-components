@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.9.0 (2024-03-28)
+
+
+### Bug Fixes
+
+* fix behaviour when AtomCheckbox changes state ([9d6b46e](https://github.com/SUI-Components/sui-components/commit/9d6b46e0a086883a76b4d5a251b80d3acb82839b))
+
+
+
 # 2.8.0 (2023-12-20)
 
 
@@ -557,6 +566,3 @@
 * **molecule/dropdownOption:** use color variation ([d467e71](https://github.com/SUI-Components/sui-components/commit/d467e7129e4815b4bcaef4a1d9c305872dce51d2))
 * **molecule/dropdownOption:** use on click callback instead on change ([9a36f8d](https://github.com/SUI-Components/sui-components/commit/9a36f8dcac8da0a01ca3b71e62cd90e19e024af3))
 * **molecule/dropdownOption:** use span instead label ([aa80744](https://github.com/SUI-Components/sui-components/commit/aa807446d9a8ae3080bae689bc7f03d213dd51ad))
-
-
-

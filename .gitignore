@@ -24,8 +24,6 @@ lib/
 */**/lib/
 npm-debug.log
 components/**/**/themes
-.npmrc
-package-lock.json
 */**/package-lock.json
 
 # coverage

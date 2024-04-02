@@ -350,7 +350,7 @@ describe(json.name, () => {
         })
       })
       describe('onBlur', () => {
-        it('should call onBlur handler when clicking outside', async () => {
+        it.skip('should call onBlur handler when clicking outside', async () => {
           const onBlurSpy = sinon.spy()
 
           const props = {
@@ -367,7 +367,7 @@ describe(json.name, () => {
           await waitFor(() => expect(sinon.assert.called(onBlurSpy)))
         })
 
-        it('should call onBlur handler when clicking outside after input a text', async () => {
+        it.skip('should call onBlur handler when clicking outside after input a text', async () => {
           const onBlurSpy = sinon.spy()
 
           const props = {

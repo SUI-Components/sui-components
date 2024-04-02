@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.70.0 (2024-04-02)
+
+
+### Bug Fixes
+
+* Rollback about event listeners logic ([bfecb98](https://github.com/SUI-Components/sui-components/commit/bfecb98f2d514b28cd772e4a9ae17f6efde5ef86))
+
+
+
 # 1.69.0 (2024-03-11)
 
 

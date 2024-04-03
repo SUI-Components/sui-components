@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.48.0 (2024-04-03)
+
+
+### Bug Fixes
+
+* Avoid call handleAnimationEnd twice ([aa64466](https://github.com/SUI-Components/sui-components/commit/aa64466071599203d2d468b3f5f6b92b1c7a770b))
+
+
+
 # 1.47.0 (2022-11-23)
 
 
@@ -483,6 +492,3 @@
 * **molecule/modal:** pR changes ([ec5be1b](https://github.com/SUI-Components/sui-components/commit/ec5be1b4d1ff9744f146cb7d29fca60736a74267))
 * **molecule/modal:** pR comments changes ([5828315](https://github.com/SUI-Components/sui-components/commit/58283157b5e753474949d650c2a34437f6f98c6a))
 * **molecule/modal:** update readme ([649c91c](https://github.com/SUI-Components/sui-components/commit/649c91c26830cd8da36080854db07abc52fc87fd))
-
-
-

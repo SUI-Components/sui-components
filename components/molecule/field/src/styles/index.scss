@@ -34,6 +34,10 @@ $atomHelpText-class: '.sui-AtomHelpText';
     margin-bottom: $mb-molecule-field-label;
   }
 
+  &-nodeLabelContainer {
+    align-self: $as-molecule-field-node-label-container;
+  }
+
   &-inputContainer {
     width: 100%;
     &--aligned {

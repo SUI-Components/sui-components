@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.39.0 (2024-04-04)
+
+
+### Features
+
+* add new token for align self for node label container ([378fbc3](https://github.com/SUI-Components/sui-components/commit/378fbc3713f670012372dd1d1dcfe380d7d183f4))
+
+
+
 # 1.38.0 (2022-10-17)
 
 
@@ -359,6 +368,3 @@
 
 * **molecule/field:** change name to field ([15a88f4](https://github.com/SUI-Components/sui-components/commit/15a88f431677f5e77397b971dc25d221669ee685))
 * **molecule/field:** error first ([ddec546](https://github.com/SUI-Components/sui-components/commit/ddec546e4483fc73bafb0ce987862152de26a157))
-
-
-

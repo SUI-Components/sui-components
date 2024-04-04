@@ -55,7 +55,6 @@ const MoleculeCollapsible = ({
 
   useEffect(() => {
     if (!childrenHeight || !expanded) return
-    console.log('setShowButton', {isCollapsible, response: isCollapsible && childrenHeight >= height})
     setShowButton(isCollapsible && childrenHeight >= height)
   }, [childrenHeight, expanded, height, isCollapsible, setShowButton])
 

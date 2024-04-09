@@ -256,6 +256,10 @@ function getExifOrientation(file) {
       const length = view.byteLength
       let offset = 2
       while (offset < length) {
+        if (offset + 2 > view.byteLength) {
+          break
+        }
+
         if (view.getUint16(offset + 2, false) <= 8) resolve(-1)
         const marker = view.getUint16(offset, false)
         offset += 2

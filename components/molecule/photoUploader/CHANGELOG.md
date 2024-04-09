@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.27.0 (2024-04-09)
+
+
+### Bug Fixes
+
+* Avoid crashes on getExifOrientation ([92a89c2](https://github.com/SUI-Components/sui-components/commit/92a89c2c302023c7d95b1c8a4c4ead25ebb815bd))
+
+
+
 # 2.26.0 (2024-02-29)
 
 

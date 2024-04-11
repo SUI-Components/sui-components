@@ -1,0 +1,12 @@
+// Settings
+$ff-sans-serif: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji,
+  Segoe UI Emoji;
+$fz-base: 16px;
+
+// Inherit from original theme
+@import '~@s-ui/theme/lib/settings';
+@import '~@adv-ui/ka-theme/lib/index';
+@import '~@adv-ui/ka-theme/lib/normalize';
+
+// Common css for sui-studio
+@import './common';

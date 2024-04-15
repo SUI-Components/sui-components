@@ -5,6 +5,7 @@ import {Anchor, Button, Code, H1, Label, ListItem, Paragraph, UnorderedList} fro
 import {MoleculeDrawer, moleculeDrawerPlacements, moleculeDrawerSizes} from '../src/index.js'
 import DemoAnimationDuration from './DemoAnimationDuration.js'
 import DemoDefault from './DemoDefault.js'
+import DemoPageScrollable from './DemoPageScrollable.js'
 import DemoPlacement from './DemoPlacement.js'
 import DemoSize from './DemoSize.js'
 
@@ -58,6 +59,7 @@ const Demo = () => {
         <DemoSize className={CLASS_SECTION} />
         <br />
         <DemoAnimationDuration className={CLASS_SECTION} />
+        <DemoPageScrollable className={CLASS_SECTION} />
       </div>
     </>
   )

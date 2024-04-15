@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 4.10.0 (2024-04-15)
+
+
+### Features
+
+* include test to check the behavior is working as expected ([d295034](https://github.com/SUI-Components/sui-components/commit/d29503402c92e82e4c315d3ccfc98cd0a69cf562))
+* Set prop to remove scroll on page when the component is opened ([31e95ea](https://github.com/SUI-Components/sui-components/commit/31e95eabcf04c589860d524d7cf9b808fcfc94df))
+* set up demo of the new feature ([b707978](https://github.com/SUI-Components/sui-components/commit/b707978cf7a6f4e5a01591aceee3055c825e40dc))
+
+
+
 # 4.9.0 (2023-09-12)
 
 
@@ -199,6 +210,3 @@
 * **molecule/drawer:** create new molecule drawer ([bf20bf4](https://github.com/SUI-Components/sui-components/commit/bf20bf47c135095fe10bb2e4c57d83ceb3b6c8aa))
 * **molecule/drawer:** improve readme and clean some code ([52ab306](https://github.com/SUI-Components/sui-components/commit/52ab3067e9a6ee8b042ca2c354d36072e0ae5d60))
 * **molecule/drawer:** use new hook useBoolean ([1a11b04](https://github.com/SUI-Components/sui-components/commit/1a11b04e04ac8df6f45f7df5d04fc7ecffc651aa))
-
-
-

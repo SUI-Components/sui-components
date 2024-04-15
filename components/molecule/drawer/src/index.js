@@ -21,6 +21,7 @@ const MoleculeDrawer = forwardRef(
       animationDuration = moleculeDrawerAnimationDuration.FAST,
       children,
       isOpen = false,
+      isPageScrollable = true,
       onOpen,
       onClose,
       placement = moleculeDrawerPlacements.LEFT,
@@ -37,19 +38,35 @@ const MoleculeDrawer = forwardRef(
       }
     }, [target])
 
+    useEffect(() => {
+      if (isOpen && !isPageScrollable) blockScrollPage()
+      else if (!isOpen && !isPageScrollable) enableScrollPage()
+
+      if (!isPageScrollable) return () => enableScrollPage()
+    }, [isOpen, isPageScrollable])
+
+    const closeDrawer = event => {
+      if (!isPageScrollable) enableScrollPage()
+
+      onClose(event, {isOpen: false})
+    }
+
     useEventListener('keydown', event => {
       if (isOpen === false) return
       if (event.key === 'Escape') {
-        onClose(event, {isOpen: false})
+        closeDrawer(event)
       }
     })
 
     useEventListener('mousedown', event => {
       if (isOpen === false || !forwardedRef || !closeOnOutsideClick) return
       if (!forwardedRef.current.contains(event.target)) {
-        onClose(event, {isOpen: false})
+        closeDrawer(event)
       }
     })
+
+    const blockScrollPage = () => (document.body.style.overflow = 'hidden')
+    const enableScrollPage = () => (document.body.style.overflow = 'auto')
 
     return (
       <div
@@ -79,6 +96,8 @@ MoleculeDrawer.propTypes = {
   children: PropTypes.node,
   /** Tells if the drawer is open or not */
   isOpen: PropTypes.bool,
+  /** false to prevent scroll body */
+  isPageScrollable: PropTypes.bool,
   /** On open callback triggered after animation */
   onOpen: PropTypes.func,
   /** On close callback triggered after animation */

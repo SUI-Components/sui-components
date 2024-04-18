@@ -61,7 +61,6 @@ const MoleculeModal = forwardRef(
       ev => {
         ev && ev.stopPropagation()
         toggleWindowScroll(false)
-
         if (!isPageScrollable) enableScrollPage()
 
         onClose()
@@ -128,11 +127,11 @@ const MoleculeModal = forwardRef(
       const wrapperClassName = cx(suitClass(), {
         'is-static': !withAnimation,
         'is-MoleculeModal-open': isOpen,
-        [suitClass({element: 'out'})]: isClosing
+        [suitClass({element: 'out'})]: isClosing && !isOpen
       })
 
       const dialogClassName = cx(suitClass({element: 'dialog'}), {
-        [suitClass({element: 'dialog--out'})]: isClosing,
+        [suitClass({element: 'dialog--out'})]: isClosing && !isOpen,
         [suitClass({element: 'dialog--fit'})]: fitContent,
         [suitClass({element: `dialog--size-${size}`})]: !!size,
         [suitClass({element: 'dialog--visible-overflow'})]: isOverflowVisible

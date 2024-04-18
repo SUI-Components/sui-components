@@ -14,12 +14,17 @@ const MoleculeModalWithAnimation = forwardRef(({onClose, onAnimationEnd, ...rest
 
   useEffect(() => {
     if (isClosing) {
-      typeof onClose === 'function' && onClose()
+      if (typeof onClose === 'function') {
+        onClose()
+      }
+
+      setIsClosing(false)
     }
   }, [isClosing])
 
   const handleAnimationEnd = event => {
     typeof onAnimationEnd === 'function' && onAnimationEnd()
+
     setIsClosing(false)
   }
 

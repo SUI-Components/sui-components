@@ -7,12 +7,32 @@ $base-class: '.sui-MoleculeButtonGroup';
     display: flex;
   }
 
+  &--spaced-small {
+    gap: $g-s;
+  }
+
   &--spaced-medium {
     gap: $g-m;
   }
 
   &--spaced-large {
     gap: $g-l;
+  }
+
+  &--display-grid {
+    display: grid;
+  }
+
+  &--col-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--col-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--col-4 {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   &--vertical {

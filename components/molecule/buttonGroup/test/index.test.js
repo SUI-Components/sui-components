@@ -27,6 +27,7 @@ describe(json.name, () => {
     const libraryExportedMembers = [
       'moleculeButtonGroupSizes',
       'moleculeButtonGroupDesigns',
+      'moleculeButtonGroupDisplay',
       'moleculeButtonGroupSpaced',
       'default'
     ]
@@ -35,6 +36,7 @@ describe(json.name, () => {
     const {
       moleculeButtonGroupSizes,
       moleculeButtonGroupDesigns,
+      moleculeButtonGroupDisplay,
       moleculeButtonGroupSpaced,
       default: MoleculeButtonGroup,
       ...others

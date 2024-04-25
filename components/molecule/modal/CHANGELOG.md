@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.49.0 (2024-04-25)
+
+
+### Bug Fixes
+
+* Do not launch multiple animations on Open/Close ([2dae5bc](https://github.com/SUI-Components/sui-components/commit/2dae5bc0a8eb3b541208ee892f9b5043138ed4f7))
+
+
+
 # 1.48.0 (2024-04-03)
 
 

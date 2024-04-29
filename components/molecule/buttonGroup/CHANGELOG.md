@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.15.0 (2024-04-29)
+
+
+### Features
+
+* Add grid capability ([1c28f92](https://github.com/SUI-Components/sui-components/commit/1c28f920ec90189a95689cdce11097207d47cd18))
+
+
+
 # 2.13.0 (2023-09-27)
 
 
@@ -192,6 +201,3 @@
 * **molecule/buttonGroup:** rEADME updated ([2ec6d77](https://github.com/SUI-Components/sui-components/commit/2ec6d77099a9ecc742a25cf1d5d678df4ec2bf8e))
 * **molecule/buttonGroup:** rEADME updated ([fb8cea0](https://github.com/SUI-Components/sui-components/commit/fb8cea003d769863c62cf19b72489925a55a62fb))
 * **molecule/buttonGroup:** use of AtomButton constants and README typo ([4f3a5ec](https://github.com/SUI-Components/sui-components/commit/4f3a5ec0df11a8a4cf7d01c0b33e99be751814e4))
-
-
-

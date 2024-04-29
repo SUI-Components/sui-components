@@ -7,7 +7,7 @@ import {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
 import Injector from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
-import {SPACED} from './config.js'
+import {DEFAULT_COLUMNS, DISPLAY, SPACED} from './config.js'
 import {BASE_CLASS} from './settings.js'
 
 const getGroupPosition =
@@ -25,9 +25,11 @@ const getGroupPosition =
 const MoleculeButtonGroup = ({
   as = 'div',
   children,
+  columns,
   fullWidth,
   size,
   design,
+  display,
   negative,
   groupPositions = {
     FIRST: 'first',
@@ -48,20 +50,23 @@ const MoleculeButtonGroup = ({
     numChildren
   })
 
-  const CLASS_SPACED_MEDIUM = `${BASE_CLASS}--spaced-${SPACED.MEDIUM}`
-  const CLASS_SPACED_LARGE = `${BASE_CLASS}--spaced-${SPACED.LARGE}`
+  const getClassSpaced = ({spaced = SPACED.MEDIUM}) => {
+    return `${BASE_CLASS}--spaced-${spaced}`
+  }
 
-  const getClassSpaced = ({spaced}) => {
-    if (spaced === SPACED.MEDIUM) {
-      return CLASS_SPACED_MEDIUM
-    }
-    if (spaced === SPACED.LARGE) {
-      return CLASS_SPACED_LARGE
-    }
-    return CLASS_SPACED_MEDIUM
+  const getClassDisplay = ({display = DISPLAY.FLEX}) => {
+    return `${BASE_CLASS}--display-${display}`
+  }
+
+  const getClassDisplayColumns = ({display = DISPLAY.FLEX, columns = DEFAULT_COLUMNS}) => {
+    if (display === DISPLAY.GRID && columns) return `${BASE_CLASS}--col-${columns}`
+    return ''
   }
 
   const CLASS_SPACED = getClassSpaced({spaced})
+
+  const CLASS_DISPLAY = getClassDisplay({display})
+  const CLASS_DISPLAY_COLUMNS = getClassDisplayColumns({display, columns})
 
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
@@ -88,6 +93,8 @@ const MoleculeButtonGroup = ({
       className={cx(
         BASE_CLASS,
         fullWidth && `${BASE_CLASS}--fullWidth`,
+        display && CLASS_DISPLAY,
+        display && CLASS_DISPLAY_COLUMNS,
         spaced && CLASS_SPACED,
         isVertical && `${BASE_CLASS}--vertical`
       )}
@@ -104,6 +111,9 @@ MoleculeButtonGroup.propTypes = {
   as: PropTypes.elementType,
 
   children: PropTypes.arrayOf(PropTypes.element),
+
+  /** Number of columns (2, 3 or 4) if display is set to grid */
+  columns: PropTypes.oneOf([2, 3, 4]),
 
   /** If buttons should stretch to fit the width of container */
   fullWidth: PropTypes.bool,
@@ -135,6 +145,11 @@ MoleculeButtonGroup.propTypes = {
    **/
   spaced: PropTypes.oneOf(Object.values(SPACED)),
 
+  /**
+   * configure the display of component. Flex by default
+   **/
+  display: PropTypes.oneOf(Object.values(DISPLAY)),
+
   /** buttons should have a vertical layout */
   isVertical: PropTypes.bool
 }
@@ -144,5 +159,6 @@ export default MoleculeButtonGroup
 export {
   atomButtonDesigns as moleculeButtonGroupDesigns,
   atomButtonSizes as moleculeButtonGroupSizes,
-  SPACED as moleculeButtonGroupSpaced
+  SPACED as moleculeButtonGroupSpaced,
+  DISPLAY as moleculeButtonGroupDisplay
 }

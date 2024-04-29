@@ -2,6 +2,7 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDesign from './articles/ArticleDesign.js'
+import ArticleDisplay from './articles/ArticleDisplay.js'
 import ArticleMode from './articles/ArticleMode.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleSpaced from './articles/ArticleSpaced.js'
@@ -20,6 +21,8 @@ const Demo = () => {
       <ArticleDesign className={CLASS_SECTION} />
       <br />
       <ArticleSize className={CLASS_SECTION} />
+      <br />
+      <ArticleDisplay className={CLASS_SECTION} />
       <br />
       <ArticleSpaced className={CLASS_SECTION} />
       <br />

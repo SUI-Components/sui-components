@@ -4,6 +4,7 @@ $c-atom-slider-tooltip: $c-gray-dark !default;
 
 $c-atom-slider-rail: $c-gray-light-4 !default;
 $c-atom-slider-track: $c-gray-light !default;
+$c-atom-slider-track-active: $c-primary !default;
 
 $ff-atom-slider: $ff-sans-serif !default;
 $fz-atom-slider: $fz-m !default;
@@ -18,6 +19,7 @@ $w-atom-slider-label: auto !default;
 $w-atom-slider-handle: 24px !default;
 $b-atom-slider-handle: $bdw-s solid $c-primary !default;
 $bxsh-atom-slider-handle: none !default;
+$c-atom-slider-handle: $c-primary !default;
 
 $h-atom-slider-track: 8px !default;
 $p-atom-slider: $p-l !default;

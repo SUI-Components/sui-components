@@ -77,7 +77,7 @@ const useInitHlsEffect = ({autoPlay, hlsConfig, onLoadVideo, playerRef, src, tim
         hls.destroy()
       }
     }
-  }, [autoPlay, hlsConfig, playerRef, src, timeOffset])
+  }, [autoPlay, hlsConfig, playerRef, src, timeOffset, onLoadVideo])
 }
 
 export default useInitHlsEffect

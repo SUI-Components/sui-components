@@ -18,6 +18,21 @@ import {
 import AtomCard, {atomCardElevation, atomCardRounded} from '../src/index.js'
 import PlaceHolder from './PlaceHolder.js'
 
+const getPlaceholder =
+  ({width, height, text, style}) =>
+  () =>
+    <PlaceHolder height={height} width={width} text={text} style={style} />
+
+const getContent =
+  (...props) =>
+  () =>
+    (
+      <div {...props}>
+        <H3 style={{margin: 0}}>content title</H3>
+        <Text>content text</Text>
+      </div>
+    )
+
 const DefaultDemo = () => {
   const [media, setMedia] = useState(true)
   const [content, setContent] = useState(true)
@@ -130,18 +145,8 @@ const DefaultDemo = () => {
         </Grid>
         <br />
         <AtomCard
-          media={
-            media && (() => <PlaceHolder width={200} text="media area" style={{width: '100%', display: 'block'}} />)
-          }
-          content={
-            content &&
-            (() => (
-              <div>
-                <H3>content title</H3>
-                <Text>content text</Text>
-              </div>
-            ))
-          }
+          media={media && getPlaceholder({width: 200, text: 'media area', style: {width: '100%', display: 'block'}})}
+          content={content && getContent()}
           vertical={vertical}
           href={HREF && 'http://www.google.com'}
           blank={HREF}
@@ -165,21 +170,8 @@ const DefaultDemo = () => {
             <div key={idx} style={{flex: '0 0 auto', textAlign: 'center', margin: '15px'}}>
               <AtomCard
                 rounded={atomCardRounded[rounded]}
-                media={
-                  media &&
-                  (() => (
-                    <PlaceHolder width={100} height={100} text="media" style={{width: '100%', display: 'block'}} />
-                  ))
-                }
-                content={
-                  content &&
-                  (() => (
-                    <div>
-                      <H3 style={{margin: 0}}>content title</H3>
-                      <Text>content text</Text>
-                    </div>
-                  ))
-                }
+                media={media && getPlaceholder({width: 100, height: 100, style: {width: '100%', display: 'block'}})}
+                content={content && getContent()}
               />
               <span style={{color: 'grey'}}>{atomCardRounded[rounded]}</span>
             </div>
@@ -202,19 +194,9 @@ const DefaultDemo = () => {
                 elevation={atomCardElevation[elevation]}
                 media={
                   media &&
-                  (() => (
-                    <PlaceHolder width={100} height={100} text="media" style={{width: '100%', display: 'block'}} />
-                  ))
+                  getPlaceholder({width: 100, height: 100, style: {width: '100%', display: 'block', text: 'media'}})
                 }
-                content={
-                  content &&
-                  (() => (
-                    <div style={{textAlign: 'left'}}>
-                      <H3 style={{margin: 0}}>content title</H3>
-                      <Text>content text</Text>
-                    </div>
-                  ))
-                }
+                content={content && getContent({style: {textAlign: 'left'}})}
               />
               <span style={{color: 'grey'}}>{atomCardElevation[elevation]}</span>
             </div>

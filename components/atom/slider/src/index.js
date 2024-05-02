@@ -7,6 +7,11 @@ import Handler from './Handler.js'
 import markerFactory from './markerFactory.js'
 import {BASE_CLASS, CLASS_DISABLED, CLASS_FULLWIDTH, CLASS_INVERSE, Label, Range, Slider} from './settings.js'
 
+const getHandle =
+  ({refAtomSlider, hideTooltip}) =>
+  props =>
+    <Handler refAtomSlider={refAtomSlider} hideTooltip={hideTooltip} {...props} />
+
 const AtomSlider = ({
   onChange,
   onAfterChange,
@@ -64,7 +69,7 @@ const AtomSlider = ({
   }
 
   const customProps = {
-    handle: props => <Handler refAtomSlider={refAtomSlider} hideTooltip={hideTooltip} {...props} />,
+    handle: getHandle({refAtomSlider, hideTooltip}),
     onChange: handleChange,
     onAfterChange: handleAfterChange,
     disabled,

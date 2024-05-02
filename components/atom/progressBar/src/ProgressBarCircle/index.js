@@ -8,15 +8,15 @@ import {BASE_CLASS_NAME, SIZE_TO_WIDTH_LINE_MAP, STROKE_SIZE_MAP} from './settin
 
 const ProgressBarCircle = ({
   percentage,
-  status,
+  status = STATUS.PROGRESS,
   errorIcon,
-  size,
-  isAnimatedOnChange,
-  hideIndicator,
+  size = SIZES.LARGE,
+  isAnimatedOnChange = false,
+  hideIndicator = false,
   children,
   mainStrokeSize,
   progressStrokeSize,
-  strokeLineCap
+  strokeLineCap = LINE_CAPS.SQUARE
 }) => {
   const mainStrokeWidth = STROKE_SIZE_MAP[mainStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
   const progressStrokeWidth = STROKE_SIZE_MAP[progressStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
@@ -74,14 +74,6 @@ ProgressBarCircle.propTypes = {
 
   /** Component to render inside the circle instead of the current progress */
   children: PropTypes.node
-}
-
-ProgressBarCircle.defaultProps = {
-  isAnimatedOnChange: false,
-  strokeLineCap: LINE_CAPS.SQUARE,
-  status: STATUS.PROGRESS,
-  hideIndicator: false,
-  size: SIZES.LARGE
 }
 
 export default ProgressBarCircle

@@ -1,63 +1,35 @@
-import {Component, createRef} from 'react'
+import {useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
 import AtomProgressBar from '../src/index.js'
 
-class InputRangeProgressBar extends Component {
-  constructor() {
-    super()
-    this.inputRangeRef = createRef()
-    this.state = {
-      percentage: 0
-    }
+const InputRangeProgressBar = ({topPercentage = 100, type = 'line', step, ...props}) => {
+  const [percentage, setPercentage] = useState(0)
+  const {current: inputRangeRef} = useRef(null)
+
+  const handleInputRange = event => {
+    setPercentage(parseInt(inputRangeRef))
   }
 
-  handleInputRange = e => {
-    const val = this.inputRangeRef.current.value
-    this.setState({percentage: parseInt(val)})
-  }
-
-  setProgress = () => {
-    const {percentage} = this.state
-    let {step, topPercentage} = this.props
-    if (!step) step = Math.ceil(Math.random() * (topPercentage - percentage))
-    if (percentage < topPercentage) {
-      this.setState({
-        percentage: percentage + step
-      })
-    } else {
-      clearInterval(this.intervalId)
-    }
-  }
-
-  render() {
-    const {percentage} = this.state
-    const {step, type, ...props} = this.props
-    return (
-      <div style={{background: 'white', padding: '10px'}}>
-        <input
-          ref={this.inputRangeRef}
-          style={{marginBottom: '10px', display: 'block'}}
-          onChange={this.handleInputRange}
-          type="range"
-          min="0"
-          max="100"
-          value={this.state.percentage}
-          step={step}
-        />
-        <AtomProgressBar percentage={percentage} type={type} {...props} />
-      </div>
-    )
-  }
+  return (
+    <div style={{background: 'white', padding: '10px'}}>
+      <input
+        ref={inputRangeRef}
+        style={{marginBottom: '10px', display: 'block'}}
+        onChange={handleInputRange}
+        type="range"
+        min="0"
+        max="100"
+        value={percentage}
+        step={step}
+      />
+      <AtomProgressBar percentage={percentage} type={type} {...props} />
+    </div>
+  )
 }
 
 InputRangeProgressBar.displayName = 'InputRangeProgressBar'
-
-InputRangeProgressBar.defaultProps = {
-  topPercentage: 100,
-  type: 'line'
-}
 
 InputRangeProgressBar.propTypes = {
   topPercentage: PropTypes.number,

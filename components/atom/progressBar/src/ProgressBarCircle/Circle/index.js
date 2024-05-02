@@ -10,7 +10,7 @@ const Circle = ({
   modifier,
   percentage,
   size,
-  withAnimation,
+  withAnimation = true,
   mainStrokeWidth,
   progressStrokeWidth,
   strokeLineCap
@@ -102,10 +102,6 @@ Circle.propTypes = {
   strokeLineCap: PropTypes.string,
   /** size of the circle [small, large]  */
   size: PropTypes.oneOf(Object.values(SIZES)).isRequired
-}
-
-Circle.defaultProps = {
-  withAnimation: true
 }
 
 export default Circle

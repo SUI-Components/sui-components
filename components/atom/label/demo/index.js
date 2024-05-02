@@ -15,6 +15,18 @@ const flexCenteredStyle = {
   alignContent: 'center'
 }
 
+const CheckedIcon = () => (
+  <AtomIcon>
+    <AntDesignIcon icon="AiOutlineCheck" style={{color: 'currentColor'}} />
+  </AtomIcon>
+)
+
+const IndeterminateIcon = () => (
+  <AtomIcon>
+    <AntDesignIcon icon="AiOutlineLine" style={{color: 'currentColor'}} />
+  </AtomIcon>
+)
+
 const Demo = () => {
   const labelTypes = [['default', ''], ...Object.entries(AtomLabelTypes)]
 
@@ -57,19 +69,7 @@ const Demo = () => {
         <Grid cols={3} gutter={[8, 8]}>
           {[
             <AtomInput key={0} />,
-            <AtomCheckbox
-              key={1}
-              checkedIcon={() => (
-                <AtomIcon>
-                  <AntDesignIcon icon="AiOutlineCheck" style={{color: 'currentColor'}} />
-                </AtomIcon>
-              )}
-              intermediateIcon={() => (
-                <AtomIcon>
-                  <AntDesignIcon icon="AiOutlineLine" style={{color: 'currentColor'}} />
-                </AtomIcon>
-              )}
-            />,
+            <AtomCheckbox key={1} checkedIcon={CheckedIcon} intermediateIcon={IndeterminateIcon} />,
             <AtomButton key={2}>Button</AtomButton>
           ].map((component, index) =>
             ['left', undefined, 'right'].map((value, index) => (

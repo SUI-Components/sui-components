@@ -1,23 +1,14 @@
 import {forwardRef, useCallback, useEffect} from 'react'
 import {createPortal} from 'react-dom'
 
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {getTarget} from '@s-ui/js/lib/react'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
+import BackToTopButton from './BackToTopButton.js'
 import calcBackToTopEngine, {isDocumentElement} from './calcBackToTopEngine.js'
-import {
-  BASE_CLASS,
-  CLASS_HIDE,
-  CLASS_ICON,
-  CLASS_READY,
-  CLASS_SHOW,
-  CLASS_TEXT,
-  SCROLL_BEHAVIOR,
-  STYLES
-} from './config.js'
+import {SCROLL_BEHAVIOR, STYLES} from './config.js'
 
 const AtomBackToTop = forwardRef(
   (
@@ -63,24 +54,13 @@ const AtomBackToTop = forwardRef(
     }, [refContainer, scrollBehavior])
 
     return createPortal(
-      <button
-        title="Back to top"
-        className={cx(
-          BASE_CLASS,
-          `${BASE_CLASS}--${style}`,
-          show !== null && CLASS_READY,
-          show ? CLASS_SHOW : CLASS_HIDE
-        )}
-        ref={forwardedRef}
-        onClick={scrollToTop}
-      >
-        {IconTop && (
-          <span className={CLASS_ICON}>
-            <IconTop />
-          </span>
-        )}
-        {textTop && <span className={CLASS_TEXT}>{textTop}</span>}
-      </button>,
+      <BackToTopButton
+        textTop={textTop}
+        iconTop={IconTop && <IconTop />}
+        show={show}
+        scrollToTop={scrollToTop}
+        style={style}
+      />,
       refContainer === document ? refContainer.body : refContainer
     )
   }
@@ -89,37 +69,31 @@ const AtomBackToTop = forwardRef(
 AtomBackToTop.displayName = 'AtomBackToTop'
 
 AtomBackToTop.propTypes = {
-  /** Icon (component) to be displayed */
-  iconTop: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-
+  /** Icon (component) to be displayed **/
+  iconTop: PropTypes.oneOfType([PropTypes.element, PropTypes.func]), // eslint-disable-line react/no-unused-prop-types
   /** controlled visible value **/
-  isVisible: PropTypes.bool,
-
+  isVisible: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
   /** Minimum height (in pixels) to show button */
-  minHeight: PropTypes.number,
-
+  minHeight: PropTypes.number, // eslint-disable-line react/no-unused-prop-types
   /** scroll event handler **/
-  onScroll: PropTypes.func,
-
+  onScroll: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   /** on isVisible inner state changes handler **/
-  onIsVisibleToggle: PropTypes.func,
-
+  onIsVisibleToggle: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
   /** Container to be scrolled. Can be a selector, or a React ref object */
-  refContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-
+  refContainer: PropTypes.oneOfType([PropTypes.string, PropTypes.object]), // eslint-disable-line react/no-unused-prop-types
   /** scroll to top effect behavior */
-  scrollBehavior: PropTypes.oneOf(Object.values(SCROLL_BEHAVIOR)),
+  scrollBehavior: PropTypes.oneOf(Object.values(SCROLL_BEHAVIOR)), // eslint-disable-line react/no-unused-prop-types
   /**
    * Styles
    *  DARK → 'dark'
    *  LIGHT →'light'
    */
-  style: PropTypes.oneOf(Object.values(STYLES)),
-
+  style: PropTypes.oneOf(Object.values(STYLES)), // eslint-disable-line react/no-unused-prop-types
   /** Text to be displayed */
-  textTop: PropTypes.string
+  textTop: PropTypes.string // eslint-disable-line react/no-unused-prop-types
 }
+
+export default AtomBackToTop
 
 export {STYLES as backToTopStyles}
 export {SCROLL_BEHAVIOR as backToTopScrollBehavior}
-export default AtomBackToTop

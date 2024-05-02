@@ -6,36 +6,58 @@ import {SingleSwitchTypeRender} from './SwitchType/single.js'
 import {ToggleSwitchTypeRender} from './SwitchType/toggle.js'
 import {LABELS, SIZES, TYPES} from './config.js'
 
-const AtomSwitch = forwardRef((props, ref) => {
-  const {initialValue, onToggle: onToggleCallback, type, value} = props
-  const [isToggle, setIsToggle] = useState(initialValue)
-  const isChecked = value !== undefined ? value : isToggle
+const AtomSwitch = forwardRef(
+  (
+    {
+      disabled = false,
+      isFitted = false,
+      initialValue = false,
+      labelLeft = LABELS.LEFT,
+      labelRight = LABELS.RIGHT,
+      size = SIZES.DEFAULT,
+      type = TYPES.TOGGLE,
+      onToggle: onToggleCallback,
+      value,
+      ...props
+    },
+    ref
+  ) => {
+    const [isToggle, setIsToggle] = useState(initialValue)
+    const isChecked = value !== undefined ? value : isToggle
 
-  const onToggle = forcedValue => event => {
-    let newIsToggle = forcedValue !== undefined ? forcedValue : !isToggle
-    if (props.value === undefined) {
-      // if its uncontrolled component
-      setIsToggle(newIsToggle)
-    } else {
-      newIsToggle = !props.value
+    const onToggle = forcedValue => event => {
+      let newIsToggle = forcedValue !== undefined ? forcedValue : !isToggle
+      if (props.value === undefined) {
+        // if its uncontrolled component
+        setIsToggle(newIsToggle)
+      } else {
+        newIsToggle = !props.value
+      }
+      typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
     }
-    typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
-  }
 
-  const commonProps = {
-    ...props,
-    isToggle,
-    isChecked,
-    onToggle,
-    value
-  }
+    const commonProps = {
+      disabled,
+      isFitted,
+      initialValue,
+      labelLeft,
+      labelRight,
+      size,
+      type,
+      ...props,
+      isToggle,
+      isChecked,
+      onToggle,
+      value
+    }
 
-  return type === TYPES.SINGLE ? (
-    <SingleSwitchTypeRender ref={ref} {...commonProps} />
-  ) : (
-    <ToggleSwitchTypeRender ref={ref} {...commonProps} />
-  )
-})
+    return type === TYPES.SINGLE ? (
+      <SingleSwitchTypeRender ref={ref} {...commonProps} />
+    ) : (
+      <ToggleSwitchTypeRender ref={ref} {...commonProps} />
+    )
+  }
+)
 
 AtomSwitch.displayName = 'AtomSwitch'
 
@@ -73,13 +95,13 @@ AtomSwitch.propTypes = {
   /** The optional label text. Proxy from label */
   labelOptionalText: PropTypes.string,
 
-  /** Callback to be called when switch. Flag whenever switch is active or not sent */
+  /** Callback to be called when switching. Flag whenever switch is active or not sent */
   onToggle: PropTypes.func,
 
-  /** Callback fired when teh element gets focused **/
+  /** Callback fired when the element gets focused **/
   onFocus: PropTypes.func,
 
-  /** Callback fired when teh element loose its focus status **/
+  /** Callback fired when the element loses its focus status **/
   onBlur: PropTypes.func,
 
   /** Whether switch is checked. Controlled state component. Don't combine with initialValue prop! */
@@ -88,16 +110,6 @@ AtomSwitch.propTypes = {
   iconLeft: PropTypes.node,
   /** element node which appears inside the switch circle when it's in right position **/
   iconRight: PropTypes.node
-}
-
-AtomSwitch.defaultProps = {
-  disabled: false,
-  isFitted: false,
-  initialValue: false,
-  labelLeft: LABELS.LEFT,
-  labelRight: LABELS.RIGHT,
-  size: SIZES.DEFAULT,
-  type: TYPES.TOGGLE
 }
 
 export {SIZES as atomSwitchSizes}

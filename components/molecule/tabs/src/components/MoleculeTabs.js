@@ -7,7 +7,14 @@ import useOnScreen from '@s-ui/react-hooks/lib/useOnScreen'
 
 import {BASE_CLASS, CLASS_CONTENT, CLASS_SCROLLER, TYPES, VARIANTS} from '../config.js'
 
-const MoleculeTabs = ({autoScrollIntoView = true, children, id = 'molecule-tab-content', onChange, type, variant}) => {
+const MoleculeTabs = ({
+  autoScrollIntoView = true,
+  children,
+  id = 'molecule-tab-content',
+  onChange,
+  type = TYPES.HORIZONTAL,
+  variant = VARIANTS.CLASSIC
+}) => {
   const className = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${variant}`]: variant,
     [`${BASE_CLASS}--${type}`]: type
@@ -80,12 +87,6 @@ MoleculeTabs.propTypes = {
 
   /** type */
   type: PropTypes.oneOf(Object.values(TYPES))
-}
-
-MoleculeTabs.defaultProps = {
-  variant: VARIANTS.CLASSIC,
-  type: TYPES.HORIZONTAL,
-  onChange: () => {}
 }
 
 export default MoleculeTabs

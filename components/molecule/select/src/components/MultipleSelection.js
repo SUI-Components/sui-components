@@ -19,7 +19,7 @@ const MoleculeSelectFieldMultiSelection = props => {
     iconArrowDown,
     iconCloseTag,
     refMoleculeSelect,
-    value: values,
+    value: values = [],
     placeholder,
     keysSelection,
     id,
@@ -131,9 +131,5 @@ const MoleculeSelectFieldMultiSelection = props => {
 }
 
 MoleculeSelectFieldMultiSelection.displayName = 'MoleculeSelectFieldMultiSelection'
-
-MoleculeSelectFieldMultiSelection.defaultProps = {
-  value: []
-}
 
 export default MoleculeSelectFieldMultiSelection

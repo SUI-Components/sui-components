@@ -3,8 +3,6 @@ import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, H2, Paragraph} from '@s-ui/documentation-library'
-import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-import MoleculeSelect from '@s-ui/react-molecule-select'
 
 import MoleculePhotoUploader from '../../src/index.js'
 import {
@@ -30,20 +28,18 @@ import {
   _rotationDirection,
   _uploadingPhotosText,
   initialFormValues,
-  initialPhotos,
-  labels,
-  labelsPlaceholder
+  initialPhotos
 } from '../config.js'
 import {
   _addMorePhotosIcon,
   _deleteIcon,
   _dragPhotosIcon,
   _infoIcon,
-  _labelsArrowIcon,
   _rejectPhotosIcon,
   _retryErrorPhotosIcon,
   _rotateIcon
 } from '../icons.js'
+import getContent from './Content.js'
 
 const DefaultArticle = ({className}) => {
   const [formState, setFormState] = useState(initialFormValues)
@@ -51,24 +47,6 @@ const DefaultArticle = ({className}) => {
   const handlePhotosChange = ({file: {label}}, index) => {
     setFormState(formState.map((currentLabel, i) => (index === i ? {label} : currentLabel)))
   }
-
-  // eslint-disable-next-line react/prop-types
-  const _content = ({file, index}) => (
-    <div className="demo-child-body">
-      <MoleculeSelect
-        value={formState[index]?.label}
-        onChange={(e, {value}) => handlePhotosChange({file: {...file, label: value}}, index)}
-        iconArrowDown={_labelsArrowIcon()}
-        placeholder={labelsPlaceholder}
-      >
-        {labels.map(label => (
-          <MoleculeSelectOption key={label} value={label}>
-            {label}
-          </MoleculeSelectOption>
-        ))}
-      </MoleculeSelect>
-    </div>
-  )
 
   return (
     <Article className={className}>
@@ -92,7 +70,7 @@ const DefaultArticle = ({className}) => {
           _callbackPhotosUploaded(files, action, ...args)
         }}
         callbackUploadPhoto={_callbackUploadPhoto}
-        content={_content}
+        content={getContent({handlePhotosChange, formState})}
         deleteIcon={_deleteIcon}
         dragDelay={_dragDelay}
         dragPhotosIcon={_dragPhotosIcon}

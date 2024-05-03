@@ -27,11 +27,11 @@ const AtomSwitch = forwardRef(
 
     const onToggle = forcedValue => event => {
       let newIsToggle = forcedValue !== undefined ? forcedValue : !isToggle
-      if (props.value === undefined) {
+      if (value === undefined) {
         // if its uncontrolled component
         setIsToggle(newIsToggle)
       } else {
-        newIsToggle = !props.value
+        newIsToggle = !value
       }
       typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
     }

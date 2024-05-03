@@ -1,35 +1,25 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import AtomImage from '@s-ui/react-atom-image'
+import ImageCaption from './ImageCaption.js'
+import {BASE_CLASS, LINK_CLASS, THUMBNAIL_RATIOS, THUMBNAIL_SHAPES, THUMBNAIL_SIZES} from './settings.js'
+import ThumbnailLink from './ThumbnailLink.js'
 
-import {
-  BASE_CLASS,
-  CAPTION_CLASS,
-  CONTAINER_IMAGE,
-  LINK_CLASS,
-  THUMBNAIL_RATIOS,
-  THUMBNAIL_SHAPES,
-  THUMBNAIL_SIZES
-} from './settings.js'
-
-const MoleculeThumbnail = props => {
-  const {href, size, ratio, shape, target, captionText, linkFactory: Link, ...propsImage} = props
-
-  const ImageCaption = () => (
-    <div>
-      <div className={cx(`${CONTAINER_IMAGE}`, `${CONTAINER_IMAGE}--${ratio}`)}>
-        <AtomImage {...propsImage} />
-      </div>
-      {captionText && <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>}
-    </div>
-  )
-
+const MoleculeThumbnail = ({
+  href,
+  size = THUMBNAIL_SIZES.MEDIUM,
+  ratio = THUMBNAIL_RATIOS['1:1'],
+  shape = THUMBNAIL_SHAPES.SQUARED,
+  target = '_blank',
+  captionText,
+  linkFactory: Link = ThumbnailLink,
+  ...props
+}) => {
   return (
     <figure className={cx(`${BASE_CLASS}`, `${BASE_CLASS}--${size}`, `${BASE_CLASS}--${shape}`)}>
       {href ? (
         <Link className={LINK_CLASS} href={href} target={target} rel={target === '_blank' ? 'noopener' : undefined}>
-          <ImageCaption />
+          <ImageCaption {...props} ratio={ratio} />
         </Link>
       ) : (
         <ImageCaption />
@@ -88,15 +78,6 @@ MoleculeThumbnail.propTypes = {
 
   /** Factory used to create navigation links */
   linkFactory: PropTypes.func
-}
-
-MoleculeThumbnail.defaultProps = {
-  // eslint-disable-next-line react/prop-types
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>,
-  ratio: THUMBNAIL_RATIOS['1:1'],
-  shape: THUMBNAIL_SHAPES.SQUARED,
-  size: THUMBNAIL_SIZES.MEDIUM,
-  target: '_blank'
 }
 
 export default MoleculeThumbnail

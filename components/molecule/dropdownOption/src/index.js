@@ -32,15 +32,15 @@ const MoleculeDropdownOption = forwardRef(
       checkbox,
       checkboxProps,
       children,
-      disabled,
+      disabled = false,
       highlightQuery,
       highlightValue,
       innerRef,
       leftAddon,
-      selectKey,
+      selectKey = 'Enter',
       onSelect,
       selected,
-      defaultSelected,
+      defaultSelected = false,
       textWrap,
       value,
       description,
@@ -175,12 +175,7 @@ MoleculeDropdownOption.propTypes = {
   /** Text to be displayed as a description of the value */
   description: PropTypes.string
 }
-MoleculeDropdownOption.defaultProps = {
-  disabled: false,
-  onSelect: () => {},
-  defaultSelected: false,
-  selectKey: 'Enter'
-}
+
 export default MoleculeDropdownOption
 export {handlersFactory}
 export {TEXT_WRAP_STYLES as MoleculeDropdownOptionTextWrapStyles} // Deprecate

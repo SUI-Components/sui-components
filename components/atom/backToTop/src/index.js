@@ -60,6 +60,7 @@ const AtomBackToTop = forwardRef(
         show={show}
         scrollToTop={scrollToTop}
         style={style}
+        ref={forwardedRef}
       />,
       refContainer === document ? refContainer.body : refContainer
     )

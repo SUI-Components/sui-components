@@ -1,4 +1,5 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Paragraph, RadioButton} from '@s-ui/documentation-library'
@@ -37,10 +38,12 @@ const ArticleControlled = ({className, icon, showText, hideText}) => {
             hideText={hideText}
             alignContainer="left"
             onOpen={() => {
+              // eslint-disable-next-line no-console
               console.log('onOpen')
               setIsExpanded(true)
             }}
             onClose={() => {
+              // eslint-disable-next-line no-console
               console.log('onClose')
               setIsExpanded(false)
             }}

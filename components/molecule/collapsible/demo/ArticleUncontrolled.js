@@ -30,9 +30,11 @@ const ArticleUncontrolled = ({className, icon, showText, hideText}) => {
             hideText={hideText}
             alignContainer="left"
             onOpen={() => {
+              // eslint-disable-next-line no-console
               console.log('onOpen')
             }}
             onClose={() => {
+              // eslint-disable-next-line no-console
               console.log('onClose')
             }}
           >

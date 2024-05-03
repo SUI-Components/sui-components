@@ -3,11 +3,11 @@ import {Paragraph} from '@s-ui/documentation-library'
 import {GetIcon} from './config/index.js'
 import ArticleAlignment from './ArticleAlignment.js'
 import ArticleButtonTextAlignment from './ArticleButtonTextAlignment.js'
+import ArticleControlled from './ArticleControlled.js'
 import ArticleCustomHeight from './ArticleCustomHeight.js'
 import ArticleGradient from './ArticleGradient.js'
 import ArticleNoCollapse from './ArticleNoCollapse.js'
 import ArticleTransition from './ArticleTransition.js'
-import ArticleControlled from './ArticleControlled.js'
 import ArticleUncontrolled from './ArticleUncontrolled.js'
 
 const Demo = () => {

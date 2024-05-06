@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2024-05-06)
+
+
+### Bug Fixes
+
+* Use atom-checkbox v3 to unify versions ([3ba791c](https://github.com/SUI-Components/sui-components/commit/3ba791c43cbd5c7255fb61fb0fdf868a246fe89b))
+
+
+
 # 1.31.0 (2022-10-26)
 
 
@@ -332,6 +341,3 @@
 * **atom/slider:** react Hooks ([0768248](https://github.com/SUI-Components/sui-components/commit/0768248b528c1ca451801d2cc1eb39a75b48b613))
 * **atom/slider:** sass linter ([0400cf5](https://github.com/SUI-Components/sui-components/commit/0400cf50f704db13e4f5ab523e74f93f88e72e8d))
 * **atom/slider:** tooltip ([82d072c](https://github.com/SUI-Components/sui-components/commit/82d072c5e20a409675701dc522d2cfd413222396))
-
-
-

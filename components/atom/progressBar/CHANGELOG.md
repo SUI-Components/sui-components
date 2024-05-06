@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.13.0 (2024-05-06)
+
+
+
 # 2.12.0 (2023-09-15)
 
 
@@ -251,6 +255,3 @@
 * **atom/progressBar:** fixed linter sass ([be2c3f8](https://github.com/SUI-Components/sui-components/commit/be2c3f8545d19d9fa3d6cf875ccfc202d1c300fb))
 * **atom/progressBar:** imporovements after code review ([c15c256](https://github.com/SUI-Components/sui-components/commit/c15c256ed09a877e32175950973df35729f68a18))
 * **atom/progressBar:** linter sass ([c03ec31](https://github.com/SUI-Components/sui-components/commit/c03ec31fed28408a04318ab37a885a3b728e9442))
-
-
-

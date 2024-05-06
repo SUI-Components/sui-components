@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.54.0 (2024-05-06)
+
+
+
 # 2.53.0 (2023-07-25)
 
 
@@ -606,6 +610,3 @@
 * **atom/tag:** review fixes ([aa3686b](https://github.com/SUI-Components/sui-components/commit/aa3686b823f115dc1cff5d25e1cb0b7c82670079))
 * **atom/tag:** standard and actionable tag implementation splitted ([3c46840](https://github.com/SUI-Components/sui-components/commit/3c4684022760df366057b3f97551dedb7a266466))
 * **atom/tag:** tagBasic moved to atomTag ([1a08249](https://github.com/SUI-Components/sui-components/commit/1a082495af81aa27bcea6e1ce82d3d75a81fe0b2))
-
-
-

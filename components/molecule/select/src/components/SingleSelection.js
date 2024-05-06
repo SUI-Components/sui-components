@@ -1,33 +1,32 @@
 import {useState} from 'react'
 
-import AtomInput, {inputTypes} from '@s-ui/react-atom-input'
+import PropTypes from 'prop-types'
+
+import AtomInput, {inputSizes as SELECT_SIZES, inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 
 import {useDropdown} from '../config.js'
 import MoleculeInputSelect from './MoleculeInputSelect.js'
 import Search from './Search.js'
 
-const MoleculeSelectSingleSelection = props => {
-  /* eslint-disable react/prop-types */
-  const {
-    value = '',
-    children,
-    isOpen,
-    onToggle,
-    onChange,
-    leftIcon,
-    iconArrowDown,
-    refMoleculeSelect,
-    size,
-    placeholder,
-    id,
-    disabled,
-    optionsData = {},
-    required,
-    selectSize,
-    tabIndex
-  } = props
-
+const MoleculeSelectSingleSelection = ({
+  value = '',
+  children,
+  isOpen,
+  onToggle,
+  onChange,
+  leftIcon,
+  iconArrowDown,
+  refMoleculeSelect,
+  size,
+  placeholder,
+  id,
+  disabled,
+  optionsData = {},
+  required,
+  tabIndex,
+  ...props
+}) => {
   const {hasSearch, isFirstOptionFocused, inputSearch} = useDropdown()
   const [focusedFirstOption, setFocusedFirstOption] = useState(false)
 
@@ -64,7 +63,7 @@ const MoleculeSelectSingleSelection = props => {
         placeholder={placeholder}
         autoComplete="off"
         required={required}
-        size={selectSize}
+        size={size}
         tabIndex={tabIndex}
       >
         <AtomInput inputMode={inputTypes.NONE} />
@@ -83,10 +82,24 @@ const MoleculeSelectSingleSelection = props => {
   )
 }
 
-MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
-
-MoleculeSelectSingleSelection.defaultProps = {
-  value: ''
+MoleculeSelectSingleSelection.propTypes = {
+  value: PropTypes.string,
+  children: PropTypes.node,
+  isOpen: PropTypes.bool,
+  onToggle: PropTypes.func,
+  onChange: PropTypes.func,
+  leftIcon: PropTypes.node,
+  iconArrowDown: PropTypes.node,
+  refMoleculeSelect: PropTypes.object,
+  size: PropTypes.oneOf(Object.values(SELECT_SIZES)),
+  placeholder: PropTypes.string,
+  id: PropTypes.string,
+  disabled: PropTypes.bool,
+  optionsData: PropTypes.object,
+  required: PropTypes.bool,
+  tabIndex: PropTypes.number
 }
+
+MoleculeSelectSingleSelection.displayName = 'MoleculeSelectSingleSelection'
 
 export default MoleculeSelectSingleSelection

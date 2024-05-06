@@ -1,6 +1,6 @@
-import {forwardRef} from 'react'
-
 import PropTypes from 'prop-types'
+
+import ButtonLink from './ButtonLink.js'
 
 const Button = ({
   children,
@@ -10,7 +10,7 @@ const Button = ({
   isSubmit, // eslint-disable-line react/prop-types
   isButton, // eslint-disable-line react/prop-types
   link,
-  linkFactory: Link,
+  linkFactory: Link = ButtonLink,
   forwardingRef, // eslint-disable-line react/prop-types
   ...attrs
 }) => {
@@ -56,15 +56,6 @@ Button.propTypes = {
    * Factory used to create navigation links
    */
   linkFactory: PropTypes.func
-}
-
-Button.defaultProps = {
-  // eslint-disable-next-line react/prop-types
-  linkFactory: forwardRef(({children, ...props}, ref) => (
-    <a {...props} ref={ref}>
-      {children}
-    </a>
-  ))
 }
 
 export default Button

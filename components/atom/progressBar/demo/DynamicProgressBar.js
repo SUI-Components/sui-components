@@ -1,77 +1,43 @@
-import {Component} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
 import AtomProgressBar from '../src/index.js'
 
-class DynamicProgressBar extends Component {
-  static defaultProps = {
-    topPercentage: 100,
-    type: 'line'
-  }
+const DynamicProgressBar = ({topPercentage = 100, type = 'line', intervalTime, step: stepProp}) => {
+  const [percentage, setPercentage] = useState(0)
+  const {current: intervalId} = useRef(null)
 
-  constructor() {
-    super()
-    this.state = {
-      percentage: 0
-    }
-    this.intervalId = null
-  }
-
-  handleClick = () => {
-    const {intervalTime} = this.props
-    const {setProgress} = this
-    this.setState(
-      {
-        percentage: 0
-      },
-      () => {
-        this.intervalId = setInterval(setProgress, intervalTime)
+  const handleClick = () => {
+    const intervalId = setInterval(() => {
+      const step = stepProp === undefined ? Math.ceil(Math.random() * (topPercentage - percentage)) : stepProp
+      if (percentage < topPercentage) {
+        setPercentage(percentage + step)
+      } else {
+        clearInterval(intervalId)
       }
-    )
+    }, intervalTime)
   }
 
-  componentWillUnmount() {
-    clearInterval(this.intervalId)
-  }
+  useEffect(() => {
+    return () => clearInterval(intervalId)
+  }, [intervalId])
 
-  setProgress = () => {
-    const {percentage} = this.state
-    let {step, topPercentage} = this.props
-    if (!step) step = Math.ceil(Math.random() * (topPercentage - percentage))
-    if (percentage < topPercentage) {
-      this.setState({
-        percentage: percentage + step
-      })
-    } else {
-      clearInterval(this.intervalId)
-    }
-  }
-
-  render() {
-    const {percentage} = this.state
-    const {intervalTime, step, type, ...props} = this.props
-    return (
-      <div style={{background: 'white', padding: '10px'}}>
-        <button style={{marginBottom: '10px', display: 'block'}} onClick={this.handleClick}>
-          Start Progress
-        </button>
-        <AtomProgressBar percentage={percentage} type={type} {...props} />
-      </div>
-    )
-  }
-}
-
-DynamicProgressBar.defaultProps = {
-  topPercentage: 100,
-  type: 'line'
+  return (
+    <div style={{background: 'white', padding: '10px'}}>
+      <button style={{marginBottom: '10px', display: 'block'}} onClick={handleClick}>
+        Start Progress
+      </button>
+      <AtomProgressBar percentage={percentage} type={type} />
+    </div>
+  )
 }
 
 DynamicProgressBar.propTypes = {
   topPercentage: PropTypes.number,
   type: PropTypes.string,
-  step: PropTypes.number,
-  intervalTime: PropTypes.number
+  intervalTime: PropTypes.number,
+  step: PropTypes.number
 }
 
 DynamicProgressBar.displayName = 'DynamicProgressBar'

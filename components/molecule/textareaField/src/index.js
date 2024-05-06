@@ -27,7 +27,7 @@ const MoleculeTextareaField = ({
   id,
   label,
   nodeLabel,
-  maxChars,
+  maxChars = 4000,
   onChange = NOOP,
   successText,
   textCharacters = 'characters',
@@ -86,10 +86,6 @@ const MoleculeTextareaField = ({
 }
 
 MoleculeTextareaField.displayName = 'MoleculeTextareaField'
-
-MoleculeTextareaField.defaultProps = {
-  maxChars: 4000
-}
 
 MoleculeTextareaField.propTypes = {
   /** Maximum number of characters allowed  */

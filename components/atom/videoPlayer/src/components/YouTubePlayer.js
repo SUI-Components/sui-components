@@ -24,7 +24,7 @@ const YouTubePlayer = forwardRef(
         videoWidth: null,
         videoHeight: null
       })
-    }, [])
+    }, [onLoadVideo, src])
 
     useImperativeApi({
       ref: forwardedRef,

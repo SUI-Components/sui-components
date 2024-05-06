@@ -16,7 +16,7 @@ const MoleculeModalWithAnimation = forwardRef(({onClose, onAnimationEnd, ...rest
     if (isClosing) {
       typeof onClose === 'function' && onClose()
     }
-  }, [isClosing])
+  }, [isClosing, onClose])
 
   const handleAnimationEnd = event => {
     typeof onAnimationEnd === 'function' && onAnimationEnd()

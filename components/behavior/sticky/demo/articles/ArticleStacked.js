@@ -42,7 +42,8 @@ const ArticleStacked = ({className}) => {
   const [getRef, setRef, getRefs] = useRefs()
   const [getStackRef, setStackRef, getStackRefs] = useRefs()
   const [, setLength] = useState()
-  const length = useMemo(() => getStackRefs().length, [getStackRefs().length])
+  const getStackedRefsLength = () => getStackRefs().length
+  const length = useMemo(() => getStackRefs().length, [getStackedRefsLength, getStackRefs])
   useEffect(() => {
     setLength(length)
   }, [length])

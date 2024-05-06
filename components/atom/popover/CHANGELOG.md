@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 3.18.0 (2024-05-06)
+
+
+
 # 3.17.0 (2022-10-25)
 
 
@@ -329,6 +333,3 @@ forwarding reference. not loosing the click evt on the wrapped component and los
 * **atom/popover:** add readme info ([f7b1035](https://github.com/SUI-Components/sui-components/commit/f7b103549051587f54fcadbe57dc146a10034bc3))
 * **atom/popover:** fix margins ([57d743f](https://github.com/SUI-Components/sui-components/commit/57d743f91d29533c0b77d84caf46755f41ef297c))
 * **atom/popover:** new component Popover ([688dca0](https://github.com/SUI-Components/sui-components/commit/688dca0b65ac6a07e43e0b0ee3655c3a773a808d))
-
-
-

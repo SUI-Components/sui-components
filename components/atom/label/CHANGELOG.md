@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2024-05-06)
+
+
+### Bug Fixes
+
+* Use atom-checkbox v3 to unify versions ([ae04b98](https://github.com/SUI-Components/sui-components/commit/ae04b982493ea615115746469c43280986bff406))
+
+
+
 # 1.23.0 (2022-10-17)
 
 
@@ -239,6 +248,3 @@
 * **atom/label:** add var component ([0628253](https://github.com/SUI-Components/sui-components/commit/0628253a000163353e39ed3892d2bc71cc593350))
 * **atom/label:** changes from PR comments ([cb6fc6b](https://github.com/SUI-Components/sui-components/commit/cb6fc6b9cd95a0f1fc9bda637564e8be37f2557e))
 * **atom/label:** new label component ([685abae](https://github.com/SUI-Components/sui-components/commit/685abae5a0e96ed5d0b0ad05b44da4be15026a40))
-
-
-

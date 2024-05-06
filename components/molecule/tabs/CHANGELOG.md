@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.38.0 (2024-05-06)
+
+
+
 # 2.37.0 (2022-10-13)
 
 
@@ -462,6 +466,3 @@
 ### Features
 
 * **molecule/tabs:** new component tabs UX complaint ([6e93456](https://github.com/SUI-Components/sui-components/commit/6e934568b7fdc33a43d5ccd71657dccdceb4679f))
-
-
-

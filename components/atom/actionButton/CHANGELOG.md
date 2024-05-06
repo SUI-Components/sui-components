@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 1.11.0 (2024-05-06)
+
+
+
 # 1.10.0 (2022-10-06)
 
 
@@ -113,6 +117,3 @@
 * **atom/actionButton:** implement styles for component ([eb3fc84](https://github.com/SUI-Components/sui-components/commit/eb3fc8403ca159306ac5f50ba447ce5661e0d75d))
 * **atom/actionButton:** simplify styles, add variables for filledPositive bg color ([33fd49c](https://github.com/SUI-Components/sui-components/commit/33fd49cb2b39755ca0a56a0056c559c65b4a43ef))
 * **atom/actionButton:** update component deps to include react-atom-icon ([93b3484](https://github.com/SUI-Components/sui-components/commit/93b34847bfeb809fc4727583f49e9202f8ba974b))
-
-
-

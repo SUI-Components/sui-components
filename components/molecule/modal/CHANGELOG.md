@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.51.0 (2024-05-06)
+
+
+### Bug Fixes
+
+* Dot not execute onClose when onClose handler changes ([36a3c19](https://github.com/SUI-Components/sui-components/commit/36a3c193175ec88550a53000c7f4300610020eca))
+
+
+
 # 1.50.0 (2024-05-06)
 
 

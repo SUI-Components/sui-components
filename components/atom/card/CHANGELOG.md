@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 1.26.0 (2024-05-06)
+
+
+
 # 1.25.0 (2023-06-27)
 
 
@@ -235,6 +239,3 @@
 * **atom/card:** scss linter fixing ([35e1cc8](https://github.com/SUI-Components/sui-components/commit/35e1cc8ed9e50efee775be49b5db87bebd768827))
 * **atom/card:** updated variable name ([646155f](https://github.com/SUI-Components/sui-components/commit/646155f917cdbd0216deb7b579f68ad1245d80cd))
 * **atom/card:** vertical mode and tabindex ([8dadd4e](https://github.com/SUI-Components/sui-components/commit/8dadd4e5484fda5309e3c20caace25430d075e9b))
-
-
-

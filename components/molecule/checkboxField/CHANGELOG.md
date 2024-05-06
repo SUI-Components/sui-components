@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.2.0 (2024-05-06)
+
+
+### Features
+
+* add article to show the checkbox with custom icon bein ([35f015c](https://github.com/SUI-Components/sui-components/commit/35f015c5880000c38695a0888b9d7119afea67d3)), closes [#2289](https://github.com/SUI-Components/sui-components/issues/2289)
+
+
+
 # 5.1.0 (2022-10-06)
 
 
@@ -243,6 +252,3 @@
 * **molecule/checkboxField:** solved issued w/ checkbox state ([c3876dc](https://github.com/SUI-Components/sui-components/commit/c3876dc54ca1d7f399d116891ea9db90848c00aa))
 * **molecule/checkboxField:** styles adjusted ([e612951](https://github.com/SUI-Components/sui-components/commit/e61295175d72593a234533c7bf7c8e5e5aa6f867))
 * **molecule/checkboxField:** styles adjustments ([f260b66](https://github.com/SUI-Components/sui-components/commit/f260b66cabbd33c986ad193e5dcae80cf925a893))
-
-
-

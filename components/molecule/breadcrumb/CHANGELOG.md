@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 1.28.0 (2024-05-06)
+
+
+
 # 1.27.0 (2022-10-06)
 
 
@@ -172,6 +176,3 @@
 ### Reverts
 
 * Revert "refactor(molecule/breadcrumb): removed unnecessary import" ([9038bb4](https://github.com/SUI-Components/sui-components/commit/9038bb4f5f6034bd4e914e72743907cbe2298ff0))
-
-
-

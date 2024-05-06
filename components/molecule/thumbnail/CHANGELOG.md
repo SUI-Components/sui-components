@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 2.14.0 (2024-05-06)
+
+
+
 # 2.13.0 (2022-06-23)
 
 
@@ -189,6 +193,3 @@
 * **molecule/thumbnail:** add styles to fit image covering container's available space ([d98461a](https://github.com/SUI-Components/sui-components/commit/d98461a45d77bc7edb66b7ae1f9cbb46520434a9))
 * **molecule/thumbnail:** new molecule/thumbnail component ([01387c1](https://github.com/SUI-Components/sui-components/commit/01387c1dc2144e616d6aedef41ed7b900e8b9401))
 * **molecule/thumbnail:** use LinkFactory for the anchor and changing element selectors from styles ([240c912](https://github.com/SUI-Components/sui-components/commit/240c9127844a6e9d39190ada0fa24f19eb254af4))
-
-
-

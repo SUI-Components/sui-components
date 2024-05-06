@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 3.11.0 (2024-05-06)
+
+
+
 # 3.10.0 (2022-06-23)
 
 
@@ -228,6 +232,3 @@
 ### Features
 
 * **molecule/textareaField:** rename from MoleculeFieldTextarea to MoleculeTextareaField ([18da348](https://github.com/SUI-Components/sui-components/commit/18da348ad3e219194500912736da000bcd612189))
-
-
-

@@ -1,4 +1,4 @@
-import {forwardRef, useEffect, useState} from 'react'
+import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -10,32 +10,7 @@ import MoleculeModalWithoutAnimation from './MoleculeModalWithoutAnimation.js'
 import MoleculeModalWithURLState from './MoleculeModalWithURLState.js'
 
 const MoleculeModalWithAnimation = forwardRef(({onClose, onAnimationEnd, ...rest}, ref) => {
-  const [isClosing, setIsClosing] = useState(false)
-
-  useEffect(() => {
-    if (isClosing) {
-      typeof onClose === 'function' && onClose()
-    }
-  }, [isClosing, onClose])
-
-  const handleAnimationEnd = event => {
-    typeof onAnimationEnd === 'function' && onAnimationEnd()
-    setIsClosing(false)
-  }
-
-  const handleClose = () => {
-    setIsClosing(true)
-  }
-
-  return (
-    <MoleculeModal
-      ref={ref}
-      isClosing={isClosing}
-      onAnimationEnd={handleAnimationEnd}
-      onClose={handleClose}
-      {...rest}
-    />
-  )
+  return <MoleculeModal ref={ref} onAnimationEnd={onAnimationEnd} onClose={onClose} {...rest} />
 })
 
 MoleculeModalWithAnimation.displayName = `(${MoleculeModal.displayName})WithAnimation`
@@ -63,4 +38,4 @@ export {
   MoleculeModalWithoutAnimation
 }
 
-export default MoleculeModalWithAnimation
+export default MoleculeModal

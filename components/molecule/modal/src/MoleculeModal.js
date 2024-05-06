@@ -62,7 +62,6 @@ const MoleculeModal = forwardRef(
         ev && ev.stopPropagation()
         toggleWindowScroll(false)
         if (!isPageScrollable) enableScrollPage()
-
         onClose()
       },
       [isPageScrollable, onClose]

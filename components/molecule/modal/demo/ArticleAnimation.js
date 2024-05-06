@@ -16,14 +16,14 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import MoleculeModalWithAnimation, {MoleculeModalWithoutAnimation} from '../lib/index.js'
+import MoleculeModal, {MoleculeModalWithoutAnimation} from '../src/index.js'
 
 const ArticleAnimation = ({className}) => {
   const [open, setOpen] = useState(false)
   const [animation, setAnimation] = useState(false)
 
   const onChangeHandler = () => {
-    setOpen(!open)
+    setOpen(true)
   }
 
   const onCloseButtonHandler = () => {
@@ -31,14 +31,14 @@ const ArticleAnimation = ({className}) => {
   }
 
   const onChangeAnimationHandler = (_, value) => {
-    setAnimation(value === undefined ? open : value)
+    setAnimation(prev => !prev)
   }
 
   const onCloseHandler = (_, value) => {
     setOpen(false)
   }
 
-  const Component = animation ? MoleculeModalWithAnimation : MoleculeModalWithoutAnimation
+  const Component = animation ? MoleculeModal : MoleculeModalWithoutAnimation
 
   return (
     <Article className={className}>

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 1.10.0 (2024-05-06)
+
+
+
 # 1.9.0 (2022-10-06)
 
 
@@ -85,6 +89,3 @@
 * **behavior/sticky:** demo improved, showcase footer and readme ([173ef63](https://github.com/SUI-Components/sui-components/commit/173ef63dbe408aa369a47ceebc4164fa92216ca4))
 * **behavior/sticky:** first draft & demo ([4e376c5](https://github.com/SUI-Components/sui-components/commit/4e376c5afd18a9184f07bf59b73d9291f918086f))
 * **behavior/sticky:** improvements over PR comments ([844a46b](https://github.com/SUI-Components/sui-components/commit/844a46b4283b2bd13ec75d497a39af3b69e90865))
-
-
-

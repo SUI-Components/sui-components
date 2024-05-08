@@ -56,6 +56,18 @@ export default function ArticleTypes({openIcon, closeIcon}) {
         initialSelectedPrefix={PREFIXES[0]}
         prefixes={PREFIXES}
       />
+
+      <H3>Disabled</H3>
+      <MoleculePhoneInput
+        disabled
+        dropdownCloseIcon={closeIcon}
+        dropdownIcon={openIcon}
+        hasDisabled
+        initialSelectedPrefix={PREFIXES[2]}
+        placeholder="612 345 678"
+        prefixes={PREFIXES}
+        value={666224411}
+      />
     </Article>
   )
 }

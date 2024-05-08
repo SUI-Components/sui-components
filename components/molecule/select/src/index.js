@@ -217,6 +217,7 @@ const MoleculeSelect = forwardRef(
             onChange={onChange}
             size={selectSize}
             multiselection={multiselection}
+            keysSelection={keysSelection}
           >
             {numOptions > 0 ? extendedChildren : noResults}
           </Select>

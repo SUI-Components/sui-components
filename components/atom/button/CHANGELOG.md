@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.94.0 (2024-05-08)
+
+
+### Features
+
+* Allow SUI button to have an alternate colors for oultine, flat and lin ([e69822e](https://github.com/SUI-Components/sui-components/commit/e69822e6698179f324ebb539e783c70f158f47c2))
+
+
+
 # 1.93.0 (2024-05-06)
 
 

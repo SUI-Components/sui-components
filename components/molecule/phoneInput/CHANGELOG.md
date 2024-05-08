@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2024-05-08)
+
+
+### Features
+
+* add disabled and rightIcon props ([63d3d0a](https://github.com/SUI-Components/sui-components/commit/63d3d0a9a2cae8301ee437e6042a74d7ef2112b1))
+
+
+
 # 1.23.0 (2024-01-25)
 
 
@@ -208,6 +217,3 @@
 * **components/molecule/phoneInput:** Refactor ([9583496](https://github.com/SUI-Components/sui-components/commit/958349686f0d5f4ed5a276bad34ff3c5e2bb421b))
 * **components/molecule/phoneInput:** Rename component ([0c81bac](https://github.com/SUI-Components/sui-components/commit/0c81bac1c9f93e04321e4a60fa1c3558f0d83945))
 * **components/molecule/phoneInput:** Update readme and change useEffect ([e4b601f](https://github.com/SUI-Components/sui-components/commit/e4b601f69d34763dc298c21c78c7f4c1d264b3ce))
-
-
-

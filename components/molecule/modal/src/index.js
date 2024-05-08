@@ -25,6 +25,9 @@ MoleculeModalWithAnimation.displayName = 'MoleculeModal'
 MoleculeModalWithAnimation.Content = MoleculeModalContent
 MoleculeModalWithAnimation.Footer = MoleculeModalFooter
 
+MoleculeModal.Content = MoleculeModalContent
+MoleculeModal.Footer = MoleculeModalFooter
+
 export {
   MODAL_SIZES as MoleculeModalSizes,
   MODAL_SIZES as moleculeModalSizes,

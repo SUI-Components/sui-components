@@ -119,8 +119,8 @@ $item-base-class: '#{$base-class}-item';
 
       &.is-active {
         background: $bgc-sui-molecule-tabs-active;
-        border-bottom: $bdw-sui-molecule-tabs-highlighted-active solid $c-primary;
-        border-bottom-color: $c-primary;
+        border-bottom: $bdw-sui-molecule-tabs-highlighted-active solid $bdc-sui-molecule-tabs-highlighted-active;
+        border-bottom-color: $bdc-sui-molecule-tabs-highlighted-active;
         color: $c-sui-molecule-tabs-highlighted-active;
         font-weight: $fw-sui-molecule-tabs-active;
 
@@ -154,7 +154,7 @@ $item-base-class: '#{$base-class}-item';
 
       &.is-active {
         background: $bgc-sui-molecule-tabs-active;
-        border-right: $bdw-sui-molecule-tabs-highlighted-active solid $c-primary;
+        border-right: $bdw-sui-molecule-tabs-highlighted-active solid $bdc-sui-molecule-tabs-highlighted-active;
         color: $c-sui-molecule-tabs-active;
         font-weight: $fw-sui-molecule-tabs-active;
 

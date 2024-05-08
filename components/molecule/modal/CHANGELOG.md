@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.52.0 (2024-05-08)
+
+
+### Bug Fixes
+
+* Export composable components ([7f33ba7](https://github.com/SUI-Components/sui-components/commit/7f33ba70cc3e21db9b5182bd745c951c0d89766c))
+
+
+
 # 1.51.0 (2024-05-06)
 
 

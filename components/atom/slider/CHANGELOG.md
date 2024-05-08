@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.33.0 (2024-05-08)
+
+
+### Features
+
+* Add additional SCSS color variables for SUI slider component ([a7d4f4d](https://github.com/SUI-Components/sui-components/commit/a7d4f4d8a5fed252b6fb1024795203bfc69a43b1))
+* Use the size variable for the disabled state of the slider ([be07e81](https://github.com/SUI-Components/sui-components/commit/be07e81d148bdd2b807235c54383e12f77e788fe))
+
+
+
 # 1.32.0 (2024-05-06)
 
 

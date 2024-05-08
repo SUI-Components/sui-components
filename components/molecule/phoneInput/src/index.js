@@ -16,6 +16,7 @@ const NOOP = () => {}
 export {PREFIXES} from './settings.js'
 export default function MoleculePhoneInput({
   autoHideHelpText = false,
+  disabled,
   dropdownCloseIcon,
   dropdownIcon,
   hasError,
@@ -27,6 +28,7 @@ export default function MoleculePhoneInput({
   onPrefixChange = NOOP,
   placeholder,
   prefixes = [],
+  rightIcon,
   initialSelectedPrefix = prefixes[0],
   setFormattedValue,
   successText,
@@ -47,6 +49,7 @@ export default function MoleculePhoneInput({
 
   const baseClass = cx(
     {
+      disabled,
       splitted: type === phoneValidationType.SPLITTED,
       [`${BASE_CLASS}--error`]: hasError,
       withLabel: !!label
@@ -90,14 +93,13 @@ export default function MoleculePhoneInput({
         isLandLine
       })
   }
-
   return (
     <div className={baseClass}>
       <div className={`${baseClass}-input`}>
         <div
           ref={inputPrefixRef}
           className={`${baseClass}-input-prefix`}
-          onClick={() => setShowDropdown(!showDropdown)}
+          onClick={() => !disabled && setShowDropdown(!showDropdown)}
         >
           {selectedPrefix && (
             <img
@@ -122,6 +124,7 @@ export default function MoleculePhoneInput({
               successText
             }}
             {...(hasError ? {errorText: helpText} : {helpText})}
+            disabled={disabled}
             mask={inputMask}
             noBorder
             onChange={handlePhoneChange}
@@ -129,6 +132,7 @@ export default function MoleculePhoneInput({
             type={inputTypes.MASK}
             value={value.toString()}
           />
+          {rightIcon && <div className={`${baseClass}-input-icon`}>{rightIcon}</div>}
         </div>
       </div>
       {showDropdown && visiblePrefixes && (
@@ -205,5 +209,11 @@ MoleculePhoneInput.propTypes = {
   label: PropTypes.string,
 
   /** Callback dispatch when selected prefix changes */
-  onPrefixChange: PropTypes.func
+  onPrefixChange: PropTypes.func,
+
+  /** Icon to display on the right of the input */
+  rightIcon: PropTypes.node,
+
+  /** Boolean to disable the input */
+  disabled: PropTypes.bool
 }

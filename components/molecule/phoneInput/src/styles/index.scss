@@ -20,6 +20,14 @@ $base-class: '.sui-MoleculePhoneInput';
       border-color: $c-error;
     }
 
+    &.disabled {
+      background: $c-gray-light-4;
+
+      & .sui-AtomInput-input {
+        border: none;
+      }
+    }
+
     &.splitted {
       border: none;
       gap: $m-s;
@@ -88,6 +96,10 @@ $base-class: '.sui-MoleculePhoneInput';
       justify-content: center;
       padding: $p-m $p-l;
 
+      &.disabled {
+        background-color: $c-gray-light-3;
+      }
+
       &.splitted {
         background-color: transparent;
         border: $bdw-s solid $c-gray-light;
@@ -110,6 +122,11 @@ $base-class: '.sui-MoleculePhoneInput';
         padding: 0;
         padding: 0 $m-m;
       }
+    }
+
+    &-icon {
+      margin-left: auto;
+      padding-right: $p-l;
     }
   }
 

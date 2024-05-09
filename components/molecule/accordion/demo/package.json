@@ -13,7 +13,7 @@
   "dependencies": {
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-atom-tag": "2",
-    "lorem-ipsum": "2.0.4",
+    "lorem-ipsum": "2.0.8",
     "react-json-view": "1.21.3"
   }
 }

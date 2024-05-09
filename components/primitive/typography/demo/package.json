@@ -8,6 +8,6 @@
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
-    "lorem-ipsum": "2.0.4"
+    "lorem-ipsum": "2.0.8"
   }
 }

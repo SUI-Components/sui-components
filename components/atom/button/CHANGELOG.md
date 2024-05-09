@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.95.0 (2024-05-09)
+
+
+### Bug Fixes
+
+* inherit css properties on a nested html element ([d52b402](https://github.com/SUI-Components/sui-components/commit/d52b402e1e75c480a618941f887cea3d5f100e73))
+
+
+
 # 1.94.0 (2024-05-08)
 
 

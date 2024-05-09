@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.15.0 (2024-05-09)
+
+
+### Bug Fixes
+
+* problem with caption prop drilling ([c4d2876](https://github.com/SUI-Components/sui-components/commit/c4d28763693447c43be3e170039288a6df064490))
+
+
+
 # 2.14.0 (2024-05-06)
 
 

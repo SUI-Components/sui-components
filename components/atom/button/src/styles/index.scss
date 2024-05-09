@@ -67,9 +67,10 @@ $base-class: '.sui-AtomButton';
     }
   }
 
-  &-inner {
-    align-items: center;
+  &-inner,
+  &-content {
     display: inline-flex;
+    align-items: center;
     height: 100%;
     pointer-events: none;
     text-decoration: inherit;
@@ -133,6 +134,8 @@ $base-class: '.sui-AtomButton';
   @each $name, $pair in $c-atom-button-colors {
     $color: nth($pair, 1);
     $color-invert: nth($pair, 2);
+    // Alternate color for Outline, Flat and Link variations
+    $color-alt: if(length($pair) > 4, nth($pair, 5), $color);
 
     &--#{$name} {
       &#{$base-class}--solid {
@@ -165,8 +168,8 @@ $base-class: '.sui-AtomButton';
         $c-atom-button-focused: $color !default;
         $c-atom-button-focused-invert: $color-invert !default;
 
-        border-color: $color;
-        color: $color;
+        border-color: $color-alt;
+        color: $color-alt;
         text-decoration-line: none;
 
         @include button-focused {
@@ -194,7 +197,7 @@ $base-class: '.sui-AtomButton';
         $c-atom-button-link-focused: $c-atom-button-focused !default;
         $c-atom-button-focused-invert: color-variation($color-invert, -1) !default;
 
-        color: $color;
+        color: $color-alt;
         @include button-focused {
           color: $c-atom-button-link-focused;
         }

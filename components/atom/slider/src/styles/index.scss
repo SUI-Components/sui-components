@@ -53,6 +53,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   #{$class-handle} {
     background-color: $c-white;
     border: $b-atom-slider-handle;
+    border-color: $c-atom-slider-handle;
     height: $h-atom-slider-handle;
     margin-left: $ml-atom-slider-handle;
     margin-top: -8px;
@@ -66,7 +67,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
   }
 
   #{$class-track} {
-    background: $c-primary;
+    background: $c-atom-slider-track-active;
     height: $h-atom-slider-track;
   }
 
@@ -123,7 +124,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
     }
 
     #{$class-rail} {
-      height: 8px;
+      height: $h-atom-slider-track;
     }
 
     #{$class-track} {
@@ -134,7 +135,7 @@ $class-tooltip-hidden: '#{$class-tooltip}-hidden';
 
   &--inverse {
     #{$class-rail} {
-      background: $c-primary;
+      background: $c-atom-slider-track-active;
     }
 
     #{$class-track} {

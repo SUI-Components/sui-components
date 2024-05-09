@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.72.0 (2024-05-08)
+
+
+### Bug Fixes
+
+* add keysselection ([06ec35b](https://github.com/SUI-Components/sui-components/commit/06ec35b1e25f9d54e4728afc5f3d92a77f1521c0))
+
+
+
 # 1.71.0 (2024-05-06)
 
 

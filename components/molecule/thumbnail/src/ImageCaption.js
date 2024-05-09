@@ -7,7 +7,7 @@ import {CAPTION_CLASS, CONTAINER_IMAGE, THUMBNAIL_RATIOS} from './settings.js'
 
 const ImageCaption = ({captionText, ratio, ...props}) => (
   <div>
-    <div className={cx(`${CONTAINER_IMAGE}`, `${CONTAINER_IMAGE}--${ratio}`)}>
+    <div className={cx(`${CONTAINER_IMAGE}`, {[`${CONTAINER_IMAGE}--${ratio}`]: ratio})}>
       <AtomImage {...props} />
     </div>
     {captionText && <figcaption className={CAPTION_CLASS}>{captionText}</figcaption>}

@@ -22,7 +22,7 @@ const MoleculeThumbnail = ({
           <ImageCaption {...props} ratio={ratio} />
         </Link>
       ) : (
-        <ImageCaption />
+        <ImageCaption {...props} ratio={ratio} />
       )}
     </figure>
   )

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import type {FC, LabelHTMLAttributes} from 'react'
 
 import cx from 'classnames'
@@ -35,10 +34,10 @@ interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElement>, 'ht
   fontSize?: FontSize
 }
 
-const getClass = ({inline, type, fontSize}: Pick<AtomLabelProps, 'inline' | 'type' | 'fontSize'>): string =>
+const getClass = ({inline, type, fontSize}: Pick<AtomLabelProps, 'inline' | 'type' | 'fontSize'>) =>
   cx(CLASSNAME, {
-    [`${CLASSNAME}--${fontSize as string}`]: fontSize,
-    [`${CLASSNAME}--${type as string}`]: type,
+    [`${CLASSNAME}--${fontSize as string}`]: Boolean(fontSize),
+    [`${CLASSNAME}--${type as string}`]: Boolean(type),
     [`${CLASSNAME}--inlineLeft`]: inline === 'left',
     [`${CLASSNAME}--inlineRight`]: inline === 'right'
   })
@@ -55,3 +54,4 @@ AtomLabel.displayName = 'AtomLabel'
 export default AtomLabel
 export {FONT_SIZES as AtomLabelFontSizes}
 export {TYPES as AtomLabelTypes}
+export type {Type, FontSize}

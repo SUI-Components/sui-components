@@ -4,7 +4,7 @@ import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomIcon from '@s-ui/react-atom-icon'
 import AtomInput from '@s-ui/react-atom-input'
 
-import AtomLabel, {AtomLabelFontSizes, AtomLabelTypes} from '../src/index'
+import AtomLabel, {type FontSize, type Type, AtomLabelFontSizes, AtomLabelTypes} from '../src/index'
 
 const flexCenteredStyle = {
   display: 'flex',
@@ -28,7 +28,8 @@ const IndeterminateIcon = () => (
 )
 
 const Demo = () => {
-  const labelTypes = [['default', ''], ...Object.entries(AtomLabelTypes)]
+  const labelTypes = [['default', undefined], ...Object.entries(AtomLabelTypes)] as Array<[string, Type]>
+  const labelFontSizes = [['default', undefined], ...Object.entries(AtomLabelFontSizes)] as Array<[string, FontSize]>
 
   return (
     <div className="sui-StudioPreview">
@@ -48,7 +49,7 @@ const Demo = () => {
               <Box mode={value === AtomLabelTypes.CONTRAST ? 'dark' : 'light'}>
                 <AtomLabel
                   name={`atomLabelName-${key}`}
-                  for={`labelName-${key}`}
+                  htmlFor={`labelName-${key}`}
                   text={`Label ${value}`}
                   optionalText="(Optional)"
                   type={value}
@@ -72,14 +73,14 @@ const Demo = () => {
             <AtomCheckbox key={1} checkedIcon={CheckedIcon} intermediateIcon={IndeterminateIcon} />,
             <AtomButton key={2}>Button</AtomButton>
           ].map((component, index) =>
-            ['left', 'undefined', 'right'].map((value, index) => (
+            ['left', undefined, 'right'].map((value, index) => (
               <Cell key={index} style={flexCenteredStyle}>
                 <Box>
                   {value === 'right' && component}
                   <AtomLabel
-                    name={`atomLabelName-${value}`}
-                    for={`labelName-${value}`}
-                    text={`Label ${value}`}
+                    name={`atomLabelName-${value as string}`}
+                    htmlFor={`labelName-${value as string}`}
+                    text={`Label ${value as string}`}
                     optionalText="(Optional)"
                     inline={value}
                   />
@@ -97,13 +98,13 @@ const Demo = () => {
           The component provides 4 diferent sizes provided using the <Code>fontSize</Code> prop
         </Paragraph>
         <Grid cols={5} gutter={[8, 8]}>
-          {[['default', 'undefined'], ...Object.entries(AtomLabelFontSizes)].map(([key, value], index) => (
+          {labelFontSizes.map(([key, value], index) => (
             <Cell key={index} style={flexCenteredStyle}>
               <Box>
                 <AtomLabel
                   name={`atomLabelName-${key}`}
-                  for={`labelName-${key}`}
-                  text={`Size ${value}`}
+                  htmlFor={`labelName-${key}`}
+                  text={`Size ${value as string}`}
                   fontSize={value}
                 />
                 <AtomInput />

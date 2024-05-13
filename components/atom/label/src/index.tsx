@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import {FC, HTMLLabelElement, LabelHTMLAttributes} from 'react'
+import type {FC, LabelHTMLAttributes} from 'react'
 
 import cx from 'classnames'
 

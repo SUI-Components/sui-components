@@ -4,12 +4,13 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
-    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "prepublishOnly": "npm run build:js && npm run build:styles",
+    "build:js": "sui-js-compiler",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/js-compiler": "1"
   },
   "keywords": [],
   "author": "",

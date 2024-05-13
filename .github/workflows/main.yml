@@ -7,18 +7,14 @@ on:
     branches: [master]
   workflow_dispatch:
 
-jobs:
-  # Cancel Previous Redundant Builds
-  check-skip:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cancel Previous Redundant Builds
-        uses: styfle/cancel-workflow-action@0.12.1
-        with:
-          access_token: ${{ github.token }}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
+jobs:
   # Assigns the event creator to the PR
   assign_pr_owner:
+    name: Assign PR Owner
     runs-on: ubuntu-latest
     steps:
       - name: Assign PR to creator
@@ -29,6 +25,7 @@ jobs:
 
   # Creates a build and uploads an artifact
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -55,6 +52,7 @@ jobs:
 
   # Lint the code
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -71,6 +69,28 @@ jobs:
         run: |
           npm run install:ci
           npm run lint
+
+  # Typecheck the source code
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - name: Install
+        run: npm run install:ci
+
+      - name: Typecheck
+        run: npm run types:check
 
   # Test components
   testing:
@@ -146,7 +166,7 @@ jobs:
 
   # Publish the necessary npm new package versions
   release:
-    needs: [lint, testing]
+    needs: [lint, typecheck, testing]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

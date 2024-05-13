@@ -81,7 +81,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "./node_modules/@s-ui/lint/eslintrc.js"
+      "./node_modules/@s-ui/lint/eslintrc.ts.js"
     ]
   },
   "stylelint": {

@@ -3,5 +3,5 @@
   "compilerOptions": {
     "rootDir": "./"
   },
-  "include": ["components"]
+  "exclude": ["coverage", "node_modules"]
 }

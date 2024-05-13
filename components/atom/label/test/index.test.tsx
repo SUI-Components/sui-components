@@ -11,7 +11,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
 import json from '../package.json'
-import * as pkg from '../src/index.js'
+import * as pkg from '../src/index'
 
 chai.use(chaiDOM)
 
@@ -68,7 +68,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+      const findSentence = (str: string) => (string: string) => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)

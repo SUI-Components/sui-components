@@ -4,7 +4,7 @@ import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomIcon from '@s-ui/react-atom-icon'
 import AtomInput from '@s-ui/react-atom-input'
 
-import AtomLabel, {AtomLabelFontSizes, AtomLabelTypes} from '../src/index.js'
+import AtomLabel, {AtomLabelFontSizes, AtomLabelTypes} from '../src/index'
 
 const flexCenteredStyle = {
   display: 'flex',
@@ -72,7 +72,7 @@ const Demo = () => {
             <AtomCheckbox key={1} checkedIcon={CheckedIcon} intermediateIcon={IndeterminateIcon} />,
             <AtomButton key={2}>Button</AtomButton>
           ].map((component, index) =>
-            ['left', undefined, 'right'].map((value, index) => (
+            ['left', 'undefined', 'right'].map((value, index) => (
               <Cell key={index} style={flexCenteredStyle}>
                 <Box>
                   {value === 'right' && component}
@@ -97,7 +97,7 @@ const Demo = () => {
           The component provides 4 diferent sizes provided using the <Code>fontSize</Code> prop
         </Paragraph>
         <Grid cols={5} gutter={[8, 8]}>
-          {[['default', undefined], ...Object.entries(AtomLabelFontSizes)].map(([key, value], index) => (
+          {[['default', 'undefined'], ...Object.entries(AtomLabelFontSizes)].map(([key, value], index) => (
             <Cell key={index} style={flexCenteredStyle}>
               <Box>
                 <AtomLabel

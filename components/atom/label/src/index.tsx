@@ -3,7 +3,7 @@ import {FC, HTMLLabelElement, LabelHTMLAttributes} from 'react'
 
 import cx from 'classnames'
 
-import {CLASSNAME, FONT_SIZES, TYPES} from './settings.js'
+import {CLASSNAME, FONT_SIZES, TYPES} from './settings'
 
 type FontSize = typeof FONT_SIZES[keyof typeof FONT_SIZES]
 type Type = typeof TYPES[keyof typeof TYPES]

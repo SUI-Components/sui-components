@@ -1,0 +1,7 @@
+{
+  "extends": "@s-ui/bundler/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./"
+  },
+  "include": ["components"]
+}

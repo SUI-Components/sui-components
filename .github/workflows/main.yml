@@ -72,6 +72,7 @@ jobs:
 
   # Typecheck the source code
   typecheck:
+    name: Typecheck
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -94,6 +95,7 @@ jobs:
 
   # Test components
   testing:
+    name: Testing
     runs-on: ubuntu-latest
     outputs:
       coverage_statements_pct_master: ${{ steps.coverage-master.outputs.coverage_statements_pct_master }}
@@ -166,6 +168,7 @@ jobs:
 
   # Publish the necessary npm new package versions
   release:
+    name: Release
     needs: [lint, typecheck, testing]
     runs-on: ubuntu-latest
     steps:
@@ -253,6 +256,7 @@ jobs:
 
   # Deploy artifact to Vercel
   deploy:
+    name: Deploy
     needs: [build, lint, testing]
     runs-on: ubuntu-latest
     environment:

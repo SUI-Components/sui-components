@@ -9,11 +9,11 @@ import {LINK_TYPES} from '../constants.js'
  */
 const ActionableTagContainer = forwardRef(
   ({Link, href, target, rel, readOnly, disabled, children, ...props}, forwardedRef) => {
-    const Component = href !== undefined ? Link : 'span'
+    const Component = href !== undefined ? Link : 'button'
     return (
       <Component
         ref={forwardedRef}
-        {...(href ? {href, target, rel} : {role: 'button'})}
+        {...(href ? {href, target, rel} : {})}
         {...(disabled && {'aria-disabled': disabled})}
         {...(readOnly && !disabled && {'aria-readonly': readOnly})}
         {...props}

@@ -7,7 +7,7 @@ import {CLASSNAME, FONT_SIZES, TYPES} from './settings'
 type FontSize = typeof FONT_SIZES[keyof typeof FONT_SIZES]
 type Type = typeof TYPES[keyof typeof TYPES]
 
-interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor' | 'onClick'> {
+export interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor' | 'onClick'> {
   /**
    * used as for attribute. Must be the same as the form element id
    */

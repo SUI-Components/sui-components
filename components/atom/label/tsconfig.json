@@ -1,7 +1,6 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "types": ["react"],
     "outDir": "./lib",
     "rootDirs": ["src", "demo", "test"]
   },

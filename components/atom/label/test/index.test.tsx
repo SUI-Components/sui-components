@@ -11,13 +11,13 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
 import json from '../package.json'
-import * as pkg from '../src/index.js'
+import * as pkg from '../src/index'
 
 chai.use(chaiDOM)
 
 describe(json.name, () => {
   const {default: Component} = pkg
-  const setup = setupEnvironment(Component)
+  const setup = window.setupEnvironment<pkg.AtomLabelProps>(Component)
 
   it('library should include defined exported elements', () => {
     // Given
@@ -33,7 +33,7 @@ describe(json.name, () => {
     expect(Object.keys(others).length).to.equal(0)
   })
 
-  describe(Component.displayName, () => {
+  describe(Component.displayName ?? '', () => {
     it('should render without crashing', () => {
       // Given
       const props = {
@@ -68,7 +68,7 @@ describe(json.name, () => {
     it('should NOT extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
-      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+      const findSentence = (str: string) => (string: string) => string.match(new RegExp(`S*${str}S*`))
 
       // When
       const {container} = setup(props)
@@ -100,7 +100,7 @@ describe(json.name, () => {
         ALERT: 'alert',
         CONTRAST: 'contrast',
         DISABLED: 'disabled'
-      }
+      } as const
 
       // When
       const {AtomLabelTypes: actual} = library
@@ -111,7 +111,7 @@ describe(json.name, () => {
       expect(Object.keys(actual)).to.have.members(Object.keys(expected))
       Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
-        expect(actual[expectedKey]).to.equal(expectedValue)
+        expect(actual[expectedKey as keyof typeof pkg.AtomLabelTypes]).to.equal(expectedValue)
       })
     })
   })
@@ -146,7 +146,7 @@ describe(json.name, () => {
       expect(Object.keys(actual)).to.have.members(Object.keys(expected))
       Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
-        expect(actual[expectedKey]).to.equal(expectedValue)
+        expect(actual[expectedKey as keyof typeof pkg.AtomLabelFontSizes]).to.equal(expectedValue)
       })
     })
   })

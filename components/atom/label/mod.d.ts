@@ -1,0 +1,5 @@
+declare module '@s-ui/documentation-library'
+declare module '@s-ui/react-atom-button'
+declare module '@s-ui/react-atom-checkbox'
+declare module '@s-ui/react-atom-icon'
+declare module '@s-ui/react-atom-input'

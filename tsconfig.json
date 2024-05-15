@@ -1,0 +1,8 @@
+{
+  "extends": "@s-ui/bundler/tsconfig.json",
+  "compilerOptions": {
+    "types": ["react", "mocha"],
+    "rootDir": "./"
+  },
+  "exclude": ["coverage", "node_modules"]
+}

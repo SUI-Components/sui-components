@@ -106,7 +106,7 @@ const Demo = () => {
             actionButton={<Button>Click to upload your files</Button>}
           />
         </div>
-        <h2>accept prop = ".pdf" -> Only PDF files</h2>
+        <h2>{'accept prop = ".pdf" -> Only PDF files'}</h2>
         <div className="DemoAtomUpload-section DemoAtomUpload-section--responsive">
           <p>Click on the component or drag&drop some files to start upload simulation</p>
           <DynamicStatusContainer

@@ -18,7 +18,8 @@ export interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElemen
    */
   text: string
   /**
-   * Allows label to be displayed inline to de left
+   * Allows the label to be displayed inline to any of both directions:
+   * left or right
    */
   inline?: Inline
   /**

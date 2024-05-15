@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2024-05-15)
+
+
+### Features
+
+* create inline type ([c6f4c4a](https://github.com/SUI-Components/sui-components/commit/c6f4c4af1ff86b0b8a2f6565ee006855d1f4ea24))
+
+
+
 # 1.24.0 (2024-05-06)
 
 

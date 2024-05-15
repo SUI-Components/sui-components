@@ -4,8 +4,9 @@ import cx from 'classnames'
 
 import {CLASSNAME, FONT_SIZES, TYPES} from './settings'
 
-type FontSize = typeof FONT_SIZES[keyof typeof FONT_SIZES]
-type Type = typeof TYPES[keyof typeof TYPES]
+export type FontSize = typeof FONT_SIZES[keyof typeof FONT_SIZES]
+export type Type = typeof TYPES[keyof typeof TYPES]
+export type Inline = 'left' | 'right'
 
 export interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor' | 'onClick'> {
   /**
@@ -19,7 +20,7 @@ export interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElemen
   /**
    * Allows label to be displayed inline to de left
    */
-  inline?: string
+  inline?: Inline
   /**
    * The optional label text
    */
@@ -54,4 +55,3 @@ AtomLabel.displayName = 'AtomLabel'
 export default AtomLabel
 export {FONT_SIZES as AtomLabelFontSizes}
 export {TYPES as AtomLabelTypes}
-export type {Type, FontSize}

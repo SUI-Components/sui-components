@@ -4,7 +4,7 @@ import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomIcon from '@s-ui/react-atom-icon'
 import AtomInput from '@s-ui/react-atom-input'
 
-import AtomLabel, {type FontSize, type Type, AtomLabelFontSizes, AtomLabelTypes} from '../src/index'
+import AtomLabel, {type FontSize, type Inline, type Type, AtomLabelFontSizes, AtomLabelTypes} from '../src/index'
 
 const flexCenteredStyle = {
   display: 'flex',
@@ -82,7 +82,7 @@ const Demo = () => {
                     htmlFor={`labelName-${value as string}`}
                     text={`Label ${value as string}`}
                     optionalText="(Optional)"
-                    inline={value}
+                    inline={value as Inline}
                   />
                   {value !== 'right' && component}
                 </Box>

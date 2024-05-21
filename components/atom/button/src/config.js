@@ -90,11 +90,11 @@ export const ICON_POSITIONS = {
 }
 
 /**
- * Props for the button in order to filter the rest of attributes
+ * Props for the button to filter the rest of attributes
  */
 export const OWN_PROPS = [
   ...TYPES,
-  ...SIZES,
+  ...Object.values(SIZES),
   'alignment',
   'children',
   'className',
@@ -113,7 +113,7 @@ export const OWN_PROPS = [
 ]
 
 /**
- * Display Name for Atom Icon component
+ * Display Name for the AtomIcon component
  */
 export const ATOM_ICON_DISPLAY_NAME = 'AtomIcon'
 
@@ -225,7 +225,7 @@ export const getPropsWithDefaultValues = ({type, design, color, alignment, link,
 })
 
 /**
- * Detect if element is an AtomIcon to force correct size
+ * Detect if an element is an AtomIcon to force correct size
  * @param {React.ReactElement} icon
  */
 export const isAtomIcon = icon => icon?.type?.displayName === ATOM_ICON_DISPLAY_NAME

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.96.0 (2024-05-22)
+
+
+### Bug Fixes
+
+* compatibility with node20 ([c923754](https://github.com/SUI-Components/sui-components/commit/c923754eb6dcb2b29026924ad67a5191bcc2cf15))
+
+
+
 # 1.95.0 (2024-05-09)
 
 

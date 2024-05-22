@@ -4,7 +4,7 @@ import {CLASS, ICON_POSITIONS, isAtomIcon, prepareAtomIcon, SIZES} from './confi
 
 const ButtonIcon = ({children, position, size}) => {
   if (!children) return null
-  // if the icon is an AtomIcon we've to be sure correct props are used
+  // if the icon is an AtomIcon, we've to be sure the correct props are used
   const iconToRender = isAtomIcon(children) ? prepareAtomIcon(children, {size}) : children
 
   return <span className={`${CLASS}-${position}Icon`}>{iconToRender}</span>

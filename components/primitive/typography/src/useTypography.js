@@ -34,19 +34,23 @@ const getClassNames = ({
   isBlurred,
   isLinked
 }) => {
-  return cx(BASE_CLASS, [`${BASE_CLASS}-design-${design}`, `${BASE_CLASS}-variant-${variant}`], {
-    [`${BASE_CLASS}-linked`]: isLinked,
-    [`${BASE_CLASS}-fontSize-${fontSize}`]: fontSize !== undefined,
-    [`${BASE_CLASS}-fontFamily-${fontFamily}`]: fontFamily !== undefined,
-    [`${BASE_CLASS}-fontWeight-${fontWeight}`]: fontWeight !== undefined,
-    [`${BASE_CLASS}-fontStyle-${fontStyle}`]: fontStyle !== undefined,
-    [`${BASE_CLASS}-fontStretch-${fontStretch}`]: fontStretch !== undefined,
-    [`${BASE_CLASS}-letterSpacing-${letterSpacing}`]: letterSpacing !== undefined,
-    [`${BASE_CLASS}-lineHeight-${lineHeight}`]: lineHeight !== undefined,
-    [`${BASE_CLASS}-textDecorationLine-${textDecorationLine}`]: textDecorationLine !== undefined,
-    [`${BASE_CLASS}-blurred-${isBlurred}`]: isBlurred !== undefined,
+  return cx(
+    BASE_CLASS,
+    [`${BASE_CLASS}-design-${design}`, `${BASE_CLASS}-variant-${variant}`],
+    {
+      [`${BASE_CLASS}-linked`]: isLinked,
+      [`${BASE_CLASS}-fontSize-${fontSize}`]: fontSize !== undefined,
+      [`${BASE_CLASS}-fontFamily-${fontFamily}`]: fontFamily !== undefined,
+      [`${BASE_CLASS}-fontWeight-${fontWeight}`]: fontWeight !== undefined,
+      [`${BASE_CLASS}-fontStyle-${fontStyle}`]: fontStyle !== undefined,
+      [`${BASE_CLASS}-fontStretch-${fontStretch}`]: fontStretch !== undefined,
+      [`${BASE_CLASS}-letterSpacing-${letterSpacing}`]: letterSpacing !== undefined,
+      [`${BASE_CLASS}-lineHeight-${lineHeight}`]: lineHeight !== undefined,
+      [`${BASE_CLASS}-textDecorationLine-${textDecorationLine}`]: textDecorationLine !== undefined,
+      [`${BASE_CLASS}-blurred-${isBlurred}`]: isBlurred !== undefined
+    },
     className
-  })
+  )
 }
 
 const useTypography = ({
@@ -87,6 +91,7 @@ const useTypography = ({
       isLinked
     })
   )
+
   return {
     ...props,
     ...{

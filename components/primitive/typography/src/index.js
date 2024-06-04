@@ -36,6 +36,7 @@ const PrimitiveTypography = ({
   ...props
 }) => {
   const {...resultingProps} = useTypography({
+    className,
     design,
     variant,
     as,

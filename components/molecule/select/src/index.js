@@ -14,13 +14,20 @@ import {
 import PropTypes from 'prop-types'
 
 import {getTarget} from '@s-ui/js/lib/react'
-import {inputSizes as SELECT_SIZES} from '@s-ui/react-atom-input'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
-import {moleculeDropdownListSizes as SIZES} from '@s-ui/react-molecule-dropdown-list'
 
 import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
 import MoleculeSelectSingleSelection from './components/SingleSelection.js'
-import {DropdownContext, ENABLED_KEYS, getClassName, getOptionData, SELECT_STATES, SELECTION_KEYS} from './config.js'
+import {
+  DropdownContext,
+  ENABLED_KEYS,
+  getClassName,
+  getOptionData,
+  SELECT_STATES,
+  SELECTION_KEYS,
+  SELECT_INPUT_SIZES,
+  SELECT_DROPDOWN_LIST_SIZES
+} from './config.js'
 
 const useFunctionalRef = () => useReducer((_s, node) => node, null)
 
@@ -45,7 +52,8 @@ const MoleculeSelect = forwardRef(
       onSearch,
       readOnly = false,
       onChange = () => {},
-      selectSize = SELECT_SIZES.MEDIUM,
+      selectSize = SELECT_INPUT_SIZES.MEDIUM,
+      size: dropdownListSize,
       ...props
     },
     forwardedRef
@@ -215,7 +223,8 @@ const MoleculeSelect = forwardRef(
             readOnly={readOnly}
             onToggle={handleToggle}
             onChange={onChange}
-            size={selectSize}
+            selectSize={selectSize}
+            size={dropdownListSize}
             multiselection={multiselection}
             keysSelection={keysSelection}
           >
@@ -268,7 +277,7 @@ MoleculeSelect.propTypes = {
   iconArrowDown: PropTypes.node,
 
   /** size (height) of the list */
-  size: PropTypes.oneOf(Object.values(SIZES)),
+  size: PropTypes.oneOf(Object.values(SELECT_DROPDOWN_LIST_SIZES)),
 
   /** list of key identifiers that will trigger a selection */
   keysSelection: PropTypes.array,
@@ -289,7 +298,7 @@ MoleculeSelect.propTypes = {
   readOnly: PropTypes.bool,
 
   /** Size of the select(input) */
-  selectSize: PropTypes.oneOf(Object.values(SELECT_SIZES)),
+  selectSize: PropTypes.oneOf(Object.values(SELECT_INPUT_SIZES)),
 
   /* native tabIndex html attribute */
   tabIndex: PropTypes.number,
@@ -317,6 +326,6 @@ MoleculeSelect.displayName = 'MoleculeSelect'
 
 export default MoleculeSelect
 
-export {SIZES as moleculeSelectDropdownListSizes}
-export {SELECT_SIZES as moleculeSelectSizes}
+export {SELECT_DROPDOWN_LIST_SIZES as moleculeSelectDropdownListSizes}
+export {SELECT_INPUT_SIZES as moleculeSelectSizes}
 export {SELECT_STATES as moleculeSelectStates}

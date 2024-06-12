@@ -2,10 +2,14 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import AtomInput, {inputSizes as SELECT_SIZES, inputTypes} from '@s-ui/react-atom-input'
+import AtomInput, {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
 
-import {useDropdown} from '../config.js'
+import {
+  useDropdown,
+  SELECT_INPUT_SIZES as inputSizes,
+  SELECT_DROPDOWN_LIST_SIZES as dropdownListSizes
+} from '../config.js'
 import MoleculeInputSelect from './MoleculeInputSelect.js'
 import Search from './Search.js'
 
@@ -18,13 +22,14 @@ const MoleculeSelectSingleSelection = ({
   leftIcon,
   iconArrowDown,
   refMoleculeSelect,
-  size,
+  selectSize,
   placeholder,
   id,
   disabled,
   optionsData = {},
   required,
   tabIndex,
+  size,
   ...props
 }) => {
   const {hasSearch, isFirstOptionFocused, inputSearch} = useDropdown()
@@ -63,7 +68,7 @@ const MoleculeSelectSingleSelection = ({
         placeholder={placeholder}
         autoComplete="off"
         required={required}
-        size={size}
+        size={selectSize}
         tabIndex={tabIndex}
       >
         <AtomInput inputMode={inputTypes.NONE} />
@@ -91,7 +96,8 @@ MoleculeSelectSingleSelection.propTypes = {
   leftIcon: PropTypes.node,
   iconArrowDown: PropTypes.node,
   refMoleculeSelect: PropTypes.object,
-  size: PropTypes.oneOf(Object.values(SELECT_SIZES)),
+  selectSize: PropTypes.oneOf(Object.values(inputSizes)),
+  size: PropTypes.oneOf(Object.values(dropdownListSizes)),
   placeholder: PropTypes.string,
   id: PropTypes.string,
   disabled: PropTypes.bool,

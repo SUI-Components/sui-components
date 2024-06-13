@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.73.0 (2024-06-13)
+
+
+### Bug Fixes
+
+* combination between input and dropdown-list sizes ([2bf612a](https://github.com/SUI-Components/sui-components/commit/2bf612ac5fbcf9ce999032608749c4919ab554d7))
+
+
+
 # 1.72.0 (2024-05-08)
 
 

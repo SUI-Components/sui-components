@@ -2,6 +2,9 @@ import {Children, createContext, useContext} from 'react'
 
 import cx from 'classnames'
 
+import {inputSizes} from '@s-ui/react-atom-input'
+import {moleculeDropdownListSizes} from '@s-ui/react-molecule-dropdown-list'
+
 export const BASE_CLASS = `sui-MoleculeSelect`
 export const CLASS_FOCUS = `${BASE_CLASS}--focus`
 export const CLASS_DISABLED = `is-disabled`
@@ -11,6 +14,9 @@ export const SELECT_STATES = {
   SUCCESS: 'success',
   ALERT: 'alert'
 }
+
+export const SELECT_INPUT_SIZES = {...inputSizes}
+export const SELECT_DROPDOWN_LIST_SIZES = {...moleculeDropdownListSizes}
 
 export const DropdownContext = createContext()
 export const useDropdown = () => useContext(DropdownContext)

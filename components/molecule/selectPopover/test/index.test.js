@@ -29,6 +29,7 @@ describe(json.name, () => {
       'selectPopoverOverlayTypes',
       'selectPopoverSizes',
       'selectPopoverPlacements',
+      'selectPopoverShapes',
       'RenderActions',
       'default'
     ]
@@ -38,6 +39,7 @@ describe(json.name, () => {
       selectPopoverOverlayTypes,
       selectPopoverSizes,
       selectPopoverPlacements,
+      selectPopoverShapes,
       RenderActions,
       default: MoleculeSelectPopover,
       ...others

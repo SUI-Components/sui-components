@@ -1,5 +1,11 @@
 export const BASE_CLASS = 'sui-MoleculeSelectPopover'
 
+export const SHAPES = {
+  SQUARED: 'squared',
+  ROUNDED: 'rounded',
+  CIRCULAR: 'circular'
+}
+
 export const SIZES = {
   MEDIUM: 'm',
   SMALL: 's',

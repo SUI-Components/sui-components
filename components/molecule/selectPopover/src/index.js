@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import usePortal from '@s-ui/react-hook-use-portal'
 
-import {BASE_CLASS, getPlacement, OVERLAY_TYPES, PLACEMENTS, SIZES} from './config.js'
+import {BASE_CLASS, getPlacement, OVERLAY_TYPES, PLACEMENTS, SHAPES, SIZES} from './config.js'
 import RenderActions from './RenderActions.js'
 
 function usePrevious(value) {
@@ -45,6 +45,7 @@ const MoleculeSelectPopover = ({
   renderSelect: renderSelectProp,
   renderActions: renderActionsProp,
   selectText,
+  shape,
   size = 'm',
   title
 }) => {
@@ -154,10 +155,15 @@ const MoleculeSelectPopover = ({
   const renderSelect = () => {
     const newSelectProps = {
       ref: selectRef,
-      className: cx(`${BASE_CLASS}-select`, `${BASE_CLASS}-select--${size}`, {
-        'is-open': isOpen,
-        'is-selected': isSelected
-      }),
+      className: cx(
+        `${BASE_CLASS}-select`,
+        shape && `${BASE_CLASS}-select--${shape}`,
+        `${BASE_CLASS}-select--${size}`,
+        {
+          'is-open': isOpen,
+          'is-selected': isSelected
+        }
+      ),
       onClick: handleOpenToggle
     }
 
@@ -178,10 +184,15 @@ const MoleculeSelectPopover = ({
 
     return (
       <div
-        className={cx(`${BASE_CLASS}-select`, `${BASE_CLASS}-select--${size}`, {
-          'is-open': isOpen,
-          'is-selected': isSelected
-        })}
+        className={cx(
+          `${BASE_CLASS}-select`,
+          shape && `${BASE_CLASS}-select--${shape}`,
+          `${BASE_CLASS}-select--${size}`,
+          {
+            'is-open': isOpen,
+            'is-selected': isSelected
+          }
+        )}
         {...newSelectProps}
       >
         <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
@@ -295,6 +306,7 @@ MoleculeSelectPopover.propTypes = {
   renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderActions: PropTypes.node,
   selectText: PropTypes.string.isRequired,
+  shape: PropTypes.oneOf(Object.values(SHAPES)),
   size: PropTypes.string,
   title: PropTypes.string
 }
@@ -303,6 +315,7 @@ export default MoleculeSelectPopover
 export {
   OVERLAY_TYPES as selectPopoverOverlayTypes,
   PLACEMENTS as selectPopoverPlacements,
+  SHAPES as selectPopoverShapes,
   SIZES as selectPopoverSizes,
   RenderActions
 }

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.44.0 (2024-06-26)
+
+
+### Features
+
+* add logic new prop shape ([842242f](https://github.com/SUI-Components/sui-components/commit/842242f29539ff5f84f4f8d324a5633061e6ae57))
+* add new config in Tests ([4b94139](https://github.com/SUI-Components/sui-components/commit/4b941398779021422c9579b916256d3dd642f77f))
+* add new prop shape to Demo component ([ab9445b](https://github.com/SUI-Components/sui-components/commit/ab9445b93a87efe3c956648cdb9d07c8aa66039e))
+
+
+
 # 1.43.0 (2024-04-02)
 
 

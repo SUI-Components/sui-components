@@ -25,6 +25,18 @@ $base-class: '.sui-MoleculeSelectPopover ';
     padding: $p-m $p-l;
     user-select: none;
 
+    &--squared {
+      border-radius: $bdrs-select-popover-squared;
+    }
+
+    &--rounded {
+      border-radius: $bdrs-select-popover-rounded;
+    }
+
+    &--circular {
+      border-radius: $bdrs-select-popover-circular;
+    }
+
     &Text {
       overflow: hidden;
       text-overflow: ellipsis;

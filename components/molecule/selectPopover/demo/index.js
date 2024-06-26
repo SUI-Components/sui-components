@@ -4,6 +4,7 @@ import {useRef, useState} from 'react'
 import MoleculeSelectPopover, {
   selectPopoverOverlayTypes,
   selectPopoverPlacements,
+  selectPopoverShapes,
   selectPopoverSizes
 } from 'components/molecule/selectPopover/src/index.js'
 
@@ -36,6 +37,7 @@ const CustomRenderActions = ({cancelButtonText, onCancel, onAccept, acceptButton
 const Demo = () => {
   const [items, setItems] = useState(demoExample)
   const [unconfirmedItems, setUnconfirmedItems] = useState(demoExample)
+  const [shape, setShape] = useState(selectPopoverShapes.CIRCULAR)
   const [size, setSize] = useState(selectPopoverSizes.MEDIUM)
   const [placement, setPlacement] = useState(selectPopoverPlacements.RIGHT)
   const [hasEvents, setHasEvents] = useState(false)
@@ -104,6 +106,20 @@ const Demo = () => {
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
         <h1>Select Popover</h1>
         <h3>Props</h3>
+        <label>Shape</label>
+        <MoleculeSelect
+          value={shape}
+          onChange={(ev, {value}) => setShape(value)}
+          placeholder="Select a shape..."
+          iconArrowDown={<IconArrowDown />}
+        >
+          {Object.keys(selectPopoverShapes).map(key => (
+            <MoleculeSelectOption key={key} value={selectPopoverShapes[key]}>
+              {key}
+            </MoleculeSelectOption>
+          ))}
+        </MoleculeSelect>
+        <br />
         <label>Size</label>
         <MoleculeSelect
           value={size}
@@ -244,6 +260,7 @@ const Demo = () => {
           overlayType={overlayType}
           placement={placement}
           selectText={selectText}
+          shape={shape}
           size={size}
           renderActions={hasCustomRenderActions ? <CustomRenderActions /> : undefined}
         >

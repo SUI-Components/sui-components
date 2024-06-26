@@ -6,10 +6,16 @@ import PropTypes from 'prop-types'
 import {BASE_CLASS, CLASS_ANIMATE} from './settings.js'
 import BehaviorStickyScrollUp from './StickyScrollUp.js'
 
+const isFunction = children => typeof children === 'function'
+
 const BehaviorSticky = ({children, animate, ...props}) => {
   return (
     <Sticky className={BASE_CLASS} {...props}>
-      {({isSticky}) => <div className={cx({[CLASS_ANIMATE]: isSticky && animate})}>{children}</div>}
+      {({isSticky}) => (
+        <div className={cx({[CLASS_ANIMATE]: isSticky && animate})}>
+          {isFunction(children) ? children({isSticky}) : children}
+        </div>
+      )}
     </Sticky>
   )
 }
@@ -17,7 +23,7 @@ const BehaviorSticky = ({children, animate, ...props}) => {
 BehaviorSticky.displayName = 'BehaviorSticky'
 
 BehaviorSticky.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.oneOf([PropTypes.node, PropTypes.func]),
   animate: PropTypes.bool,
   container: PropTypes.exact({
     current: PropTypes.object

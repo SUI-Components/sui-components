@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.11.0 (2024-06-27)
+
+
+### Features
+
+* Get sticky current state demo ([ca8411e](https://github.com/SUI-Components/sui-components/commit/ca8411e38b376936021ad0524e75b05e07b58570))
+* Share isSticky state ([aa249af](https://github.com/SUI-Components/sui-components/commit/aa249af62342a0fa8d07fd46d5965acca70e2c90))
+
+
+
 # 1.10.0 (2024-05-06)
 
 

@@ -70,18 +70,15 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it.skip('example', () => {
-      // Example TO BE DELETED!!!!
-
+    it('should allow knowing the sticky current state', () => {
       // Given
-      // const props = {}
+      const props = {children: ({isSticky}) => <h1>{`Sticky position is ${isSticky}`}</h1>}
 
       // When
-      // const {getByRole} = setup(props)
+      const {getByRole} = setup(props)
 
       // Then
-      // expect(getByRole('button')).to.have.text('HOLA')
-      expect(true).to.be.eql(false)
+      expect(getByRole('heading')).to.have.text('Sticky position is false')
     })
   })
 })

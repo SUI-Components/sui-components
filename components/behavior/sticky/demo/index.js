@@ -7,6 +7,7 @@ import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleGridDemo from './articles/ArticleGridDemo.js'
 import ArticleScrollUp from './articles/ArticleScrollUp.js'
 import ArticleStacked from './articles/ArticleStacked.js'
+import ArticleStickyState from './articles/ArticleStickyState.js'
 import LoremIpsum from './LoremIpsum.js'
 import {BASE_CLASS_DEMO, CLASS_DEMO_SECTION} from './settings.js'
 
@@ -32,6 +33,8 @@ const Demo = () => (
         </ListItem>
       </UnorderedList>
       <ArticleDefault className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleStickyState className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleScrollUp className={CLASS_DEMO_SECTION} />
       <br />

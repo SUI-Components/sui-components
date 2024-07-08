@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.3.0 (2024-07-08)
+
+
+### Bug Fixes
+
+* default values in scss ([d335f51](https://github.com/SUI-Components/sui-components/commit/d335f515f5d0ca9119d8f932181f436a44c0e95f))
+
+
+
 # 0.2.0 (2024-06-04)
 
 

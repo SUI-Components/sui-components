@@ -13,11 +13,11 @@ $fz-primitive-typography: (
   'xxgiant': 40px,
   // extra
   'xxxgiant': 48px // extra
-);
+) !default;
 
 $ff-primitive-typography: (
   sans-serif: $ff-sans-serif
-);
+) !default;
 
 $lh-primitive-typography: (
   'xxs': $lh-xxs,
@@ -34,7 +34,7 @@ $lh-primitive-typography: (
   'xxgiant': 56px,
   // extra
   'xxxgiant': 64px // extra
-);
+) !default;
 
 $fw-primitive-typography: (
   'thin': 100,
@@ -46,12 +46,12 @@ $fw-primitive-typography: (
   'bold': $fw-bold,
   'extra-bold': 800,
   'black': 900
-);
+) !default;
 
 $fs-primitive-typography: (
   'italic': italic,
   'oblique': oblique
-);
+) !default;
 
 $fst-primitive-typography: (
   'ultra-condensed': ultra-condensed,
@@ -63,13 +63,13 @@ $fst-primitive-typography: (
   'expanded': expanded,
   'extra-expanded': extra-expanded,
   'ultra-expanded': ultra-expanded
-);
+) !default;
 
 $tdl-primitive-typography: (
   'underline': underline,
   'overline': overline,
   'line-through': line-through
-);
+) !default;
 
 $ls-primitive-typography: (
   'xxs': $ls-xxs,
@@ -81,4 +81,4 @@ $ls-primitive-typography: (
   'xxl': $ls-xxl,
   'xxxl': $ls-xxxl,
   'giant': $ls-giant
-);
+) !default;

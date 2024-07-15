@@ -28,6 +28,10 @@ $base-class-line: '#{$base-class}Line';
       border: $bd-line-progress-container--success;
     }
 
+    &--noborder {
+      border: none;
+    }
+
     background: $bg-progress-bar;
     border: $bd-line-progress-container;
     border-radius: $bdrs-progress-container;

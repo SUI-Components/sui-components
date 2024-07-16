@@ -14,11 +14,11 @@ import useIndicator from './useIndicator.js'
 import usePercentage from './usePercentage.js'
 
 const ProgressBarLine = ({
-  hideBorder,
   hideIndicator,
   indicatorBottom,
   indicatorTotal,
   isAnimatedOnChange,
+  isBorderless,
   percentage,
   mainBarPercentage,
   extraBarPercentage,
@@ -43,7 +43,7 @@ const ProgressBarLine = ({
       <div
         className={cx(CLASS_CONTAINER_BAR, {
           [`${CLASS_CONTAINER_BAR}--size-${size}`]: size,
-          [`${CLASS_CONTAINER_BAR}--noborder`]: hideBorder,
+          [`${CLASS_CONTAINER_BAR}--borderless`]: isBorderless,
           [`${CLASS_CONTAINER_BAR}--success`]: status === STATUS.SUCCESS,
           [`${CLASS_CONTAINER_BAR}--error`]: status === STATUS.ERROR,
           [`${CLASS_CONTAINER_BAR}--loading`]: status === STATUS.LOADING
@@ -76,8 +76,6 @@ ProgressBarLine.displayName = 'ProgressBarLine'
 
 ProgressBarLine.propTypes = {
   percentage: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-  /** Hide the border */
-  hideBorder: PropTypes.bool,
   /** Hide the indicator */
   hideIndicator: PropTypes.bool,
   /** If the indicator should be placed below the bar */
@@ -86,6 +84,8 @@ ProgressBarLine.propTypes = {
   indicatorTotal: PropTypes.bool,
   /** If the bar "value" (width) should be displayed with animation */
   isAnimatedOnChange: PropTypes.bool,
+  /** If true, the progress bar will not display any border */
+  isBorderless: PropTypes.bool,
   /** Percentage value to be displayed in main bar as number and as bar width  */
   mainBarPercentage: PropTypes.number,
   /** Percentage value to be displayed in extra bar as number  */

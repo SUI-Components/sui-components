@@ -28,7 +28,7 @@ $base-class-line: '#{$base-class}Line';
       border: $bd-line-progress-container--success;
     }
 
-    &--noborder {
+    &--borderless {
       border: none;
     }
 

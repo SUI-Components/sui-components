@@ -18,7 +18,7 @@ const ProgressBarLine = ({
   indicatorBottom,
   indicatorTotal,
   isAnimatedOnChange,
-  isBorderless,
+  isBorderless = false,
   percentage,
   mainBarPercentage,
   extraBarPercentage,

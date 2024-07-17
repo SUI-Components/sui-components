@@ -20,6 +20,7 @@ import {getShuffledValue} from '../settings.js'
 const ArticleLinearDefault = ({className}) => {
   const [value, setValue] = useState(50)
   const [isAnimated, setIsAnimated] = useState(true)
+  const [isBorderless, setIsBorderless] = useState(false)
   const [hideIndicator, setHideIndicator] = useState()
   const [indicatorBottom, setIndicatorBottom] = useState()
   const [indicatorTotal, setIndicatorTotal] = useState()
@@ -127,6 +128,18 @@ const ArticleLinearDefault = ({className}) => {
           </RadioButtonGroup>
         </Cell>
         <Cell span={2}>
+          <Label>isBorderless</Label>
+        </Cell>
+        <Cell span={2}>
+          <RadioButton
+            onClick={() => {
+              setIsBorderless(!isBorderless)
+            }}
+            label={isBorderless ? 'true' : 'false'}
+            checked={isBorderless}
+          />
+        </Cell>
+        <Cell span={2}>
           <Label>result</Label>
         </Cell>
         <Cell span={2}>
@@ -134,6 +147,7 @@ const ArticleLinearDefault = ({className}) => {
             type={atomProgressBarTypes.LINE}
             percentage={value}
             isAnimatedOnChange={isAnimated}
+            isBorderless={isBorderless}
             status={status}
             size={size}
             hideIndicator={hideIndicator}

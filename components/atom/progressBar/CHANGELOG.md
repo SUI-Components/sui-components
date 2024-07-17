@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.14.0 (2024-07-17)
+
+
+### Features
+
+* Add demo for isBorderless ([2bc9a1e](https://github.com/SUI-Components/sui-components/commit/2bc9a1e740da8ac58f692a58456fd44602453ac6))
+* Add hideBorder property ([2efa49b](https://github.com/SUI-Components/sui-components/commit/2efa49bac3c5ff66b013e0d978853650b9757a32))
+
+
+
 # 2.13.0 (2024-05-06)
 
 

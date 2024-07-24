@@ -6,7 +6,15 @@ import PropTypes from 'prop-types'
 import useDebounce from '@s-ui/react-hooks/lib/useDebounce'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {BASE_CLASS, CLASS_HIDDEN, DEBOUNCE_TIME, DESIGNS, moleculeDropdownListSelectHandler, SIZES} from './config.js'
+import {
+  BASE_CLASS,
+  CLASS_HIDDEN,
+  DEBOUNCE_TIME,
+  DESIGNS,
+  moleculeDropdownListSelectHandler,
+  POSITIONS,
+  SIZES
+} from './config.js'
 import ExtendedChildren from './ExtendedChildren.js'
 
 const MoleculeDropdownList = forwardRef(
@@ -14,6 +22,7 @@ const MoleculeDropdownList = forwardRef(
     {
       children,
       onSelect,
+      position = POSITIONS.BOTTOM,
       alwaysRender = true,
       design = DESIGNS.SOLID,
       size = SIZES.SMALL,
@@ -31,9 +40,15 @@ const MoleculeDropdownList = forwardRef(
     const [typedWord, setTypedWord] = useState('')
     const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)
 
-    const classNames = cx(BASE_CLASS, `${BASE_CLASS}--design-${design}`, `${BASE_CLASS}--${size}`, {
-      [CLASS_HIDDEN]: !visible
-    })
+    const classNames = cx(
+      BASE_CLASS,
+      `${BASE_CLASS}--position-${position}`,
+      `${BASE_CLASS}--design-${design}`,
+      `${BASE_CLASS}--${size}`,
+      {
+        [CLASS_HIDDEN]: !visible
+      }
+    )
 
     const getFocusedOptionIndex = options => {
       const currentElementFocused = document.activeElement
@@ -52,8 +67,13 @@ const MoleculeDropdownList = forwardRef(
       const index = getFocusedOptionIndex(options)
       if (key === 'ArrowDown' || key === 'ArrowUp') {
         if (index >= 0 || index <= numOptions) {
-          if (key === 'ArrowDown' && index < numOptions - 1) options[index + 1].focus()
-          if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
+          if (position === POSITIONS.TOP) {
+            if (key === 'ArrowDown' && index > 0) options[index - 1].focus()
+            if (key === 'ArrowUp' && index < numOptions - 1) options[index + 1].focus()
+          } else {
+            if (key === 'ArrowDown' && index < numOptions - 1) options[index + 1].focus()
+            if (key === 'ArrowUp' && index > 0) options[index - 1].focus()
+          }
         }
       } else {
         setTypedWord(value => value + key.toLowerCase())
@@ -113,6 +133,9 @@ MoleculeDropdownList.propTypes = {
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SIZES)),
 
+  /** position of the list (top, bottom) default bottom */
+  position: PropTypes.oneOf(Object.values(POSITIONS)),
+
   /** selected value */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 
@@ -126,4 +149,5 @@ MoleculeDropdownList.propTypes = {
 export default MoleculeDropdownList
 export {DESIGNS as moleculeDropdownListDesigns}
 export {SIZES as moleculeDropdownListSizes}
+export {POSITIONS as moleculeDropdownListPositions}
 export {moleculeDropdownListSelectHandler}

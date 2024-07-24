@@ -3,6 +3,7 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 import ArticleCheckbox from './ArticleCheckbox.js'
 import ArticleDefault from './ArticleDefault.js'
 import ArticleDesign from './ArticleDesign.js'
+import ArticlePosition from './ArticlePosition.js'
 import ArticleSize from './ArticleSize.js'
 import {CLASS_DEMO_SECTION} from './config.js'
 
@@ -19,6 +20,8 @@ const Demo = () => (
     <ArticleSize className={CLASS_DEMO_SECTION} />
     <br />
     <ArticleCheckbox className={CLASS_DEMO_SECTION} />
+    <br />
+    <ArticlePosition className={CLASS_DEMO_SECTION} />
   </div>
 )
 

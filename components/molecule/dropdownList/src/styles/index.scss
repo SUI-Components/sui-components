@@ -17,6 +17,7 @@ $base-class: '.sui-MoleculeDropdownList';
     &-top {
       display: flex;
       flex-direction: column-reverse;
+      border-radius: $bdrs-dropdown-list-top;
     }
   }
 

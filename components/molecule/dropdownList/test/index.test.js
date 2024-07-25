@@ -30,6 +30,7 @@ describe(json.name, () => {
       'moleculeDropdownListDesigns',
       'moleculeDropdownListSizes',
       'moleculeDropdownListSelectHandler',
+      'moleculeDropdownListPositions',
       'default'
     ]
 

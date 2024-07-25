@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.4.0 (2024-07-25)
+
+
+### Features
+
+* Change border radious when placed on top ([eecdb90](https://github.com/SUI-Components/sui-components/commit/eecdb90768a1eb4a43d6234f4d86e486c0d8c8aa))
+
+
+
 # 2.3.0 (2024-07-25)
 
 

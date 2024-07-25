@@ -13,6 +13,11 @@ export const SIZES = {
   LARGE: 'large'
 }
 
+export const POSITIONS = {
+  TOP: 'top',
+  BOTTOM: 'bottom'
+}
+
 export const moleculeDropdownListSelectHandler = {
   single:
     ({value, onSelect}) =>

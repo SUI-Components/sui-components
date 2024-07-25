@@ -30,6 +30,7 @@ describe(json.name, () => {
       'moleculeDropdownListDesigns',
       'moleculeDropdownListSizes',
       'moleculeDropdownListSelectHandler',
+      'moleculeDropdownListPositions',
       'default'
     ]
 
@@ -38,6 +39,7 @@ describe(json.name, () => {
       moleculeDropdownListDesigns,
       moleculeDropdownListSizes,
       moleculeDropdownListSelectHandler,
+      moleculeDropdownListPositions,
       default: MoleculeDropDownList,
       ...others
     } = library

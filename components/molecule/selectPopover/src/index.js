@@ -30,7 +30,7 @@ const MoleculeSelectPopover = ({
   fullWidth,
   hideActions,
   iconArrowDown: IconArrowDown,
-  id = '',
+  id,
   isDisabled = false,
   isSelected = false,
   onAccept = () => {},

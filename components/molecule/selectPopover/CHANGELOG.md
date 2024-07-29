@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.45.0 (2024-07-29)
+
+
+### Features
+
+* add id prop ([7ba9eeb](https://github.com/SUI-Components/sui-components/commit/7ba9eeb2d69356e943fed4fdb0f9e1de8e99b84a))
+
+
+
 # 1.44.0 (2024-06-26)
 
 

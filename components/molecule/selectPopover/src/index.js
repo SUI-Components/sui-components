@@ -30,6 +30,7 @@ const MoleculeSelectPopover = ({
   fullWidth,
   hideActions,
   iconArrowDown: IconArrowDown,
+  id = '',
   isDisabled = false,
   isSelected = false,
   onAccept = () => {},
@@ -164,7 +165,8 @@ const MoleculeSelectPopover = ({
           'is-selected': isSelected
         }
       ),
-      onClick: handleOpenToggle
+      onClick: handleOpenToggle,
+      ...(id && {id})
     }
 
     if (renderSelectProp) {
@@ -291,6 +293,7 @@ MoleculeSelectPopover.propTypes = {
   fullWidth: PropTypes.bool,
   hideActions: PropTypes.bool,
   iconArrowDown: PropTypes.elementType.isRequired,
+  id: PropTypes.string,
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
   onAccept: PropTypes.func,

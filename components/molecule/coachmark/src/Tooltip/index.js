@@ -56,7 +56,7 @@ const Tooltip = ({
 
           <div className={`${BASE_CLASS}-tooltipTexts`}>
             {step.title && <h1 className={`${BASE_CLASS}-tooltipHeadingText`}>{step.title}</h1>}
-            <p className={`${BASE_CLASS}-tooltipBodyText`}>{step.content}</p>
+            <div className={`${BASE_CLASS}-tooltipBodyText`}>{step.content}</div>
           </div>
         </div>
 

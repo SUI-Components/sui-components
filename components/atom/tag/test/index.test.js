@@ -132,7 +132,7 @@ describe(json.name, () => {
         })
       })
       describe('Button', () => {
-        it('given an href should render a link', () => {
+        it('given no href should render a button', () => {
           // Given
           const props = {
             label: 'label',
@@ -146,7 +146,7 @@ describe(json.name, () => {
 
           // Then
           expect(tagElement.innerHTML).to.be.a('string')
-          expect(tagElement.nodeName).to.equal('SPAN')
+          expect(tagElement.nodeName).to.equal('BUTTON')
         })
       })
     })

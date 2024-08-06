@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 2.4.0 (2024-07-25)
+
+
+### Features
+
+* Change border radious when placed on top ([eecdb90](https://github.com/SUI-Components/sui-components/commit/eecdb90768a1eb4a43d6234f4d86e486c0d8c8aa))
+
+
+
+# 2.3.0 (2024-07-25)
+
+
+### Features
+
+* Add styles and key bindings for showing the dropdown on top ([5a50be6](https://github.com/SUI-Components/sui-components/commit/5a50be622b5cc8a2fd38fcd1fbe93614e227d0ce))
+* Added export element to test ([ae30b5a](https://github.com/SUI-Components/sui-components/commit/ae30b5ae7390fb3e84dc498ca987fa128e9d56f4))
+* Added missing key to test ([4608b1a](https://github.com/SUI-Components/sui-components/commit/4608b1a6416d041bc44f59955816f5301013c183))
+
+
+
 # 2.2.0 (2023-01-04)
 
 
@@ -334,6 +354,3 @@
 * **molecule/dropdownList:** onChange handler ([76319aa](https://github.com/SUI-Components/sui-components/commit/76319aaba7123701b2efbb706ce378f3b9496da7))
 * **molecule/dropdownList:** remove focus styles ([866bc60](https://github.com/SUI-Components/sui-components/commit/866bc60680d32120eb2c47da34bc150d0304be3d))
 * **molecule/dropdownList:** sass lint ([143735a](https://github.com/SUI-Components/sui-components/commit/143735a44759009415081d3d52bc6746b4a8876b))
-
-
-

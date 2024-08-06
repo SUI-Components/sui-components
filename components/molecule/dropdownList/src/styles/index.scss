@@ -13,6 +13,14 @@ $base-class: '.sui-MoleculeDropdownList';
     display: none;
   }
 
+  &--position {
+    &-top {
+      display: flex;
+      flex-direction: column-reverse;
+      border-radius: $bdrs-dropdown-list-top;
+    }
+  }
+
   &--design {
     &-solid {
       border: $bd-dropdown-list;

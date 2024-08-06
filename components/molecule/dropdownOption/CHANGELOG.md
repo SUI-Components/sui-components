@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.11.0 (2024-08-06)
+
+
+### Features
+
+* change alignment of dropdown options when they have a desc ([c6184e0](https://github.com/SUI-Components/sui-components/commit/c6184e0db6f4dc02e3d4dbeaadd783bdb2aad10e))
+
+
+
 # 2.10.0 (2024-05-06)
 
 

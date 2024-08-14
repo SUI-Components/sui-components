@@ -1,12 +1,12 @@
-$bgc-atom-spinner: rgba($c-white, 0.6) !default;
+$bgc-atom-spinner: color-mix(in srgb, $c-white 40%, transaprent) !default;
 $c-atom-spinner-loader-accent: color-variation($c-accent, 1) !default;
 $c-atom-spinner-loader-primary: color-variation($c-primary, -1) !default;
 $c-atom-spinner-loader-white: $c-white !default;
 
-$bgc-atom-spinner-accent: rgba($c-accent, 0.6) !default;
-$bgc-atom-spinner-dark: rgba($c-black, 0.6) !default;
+$bgc-atom-spinner-accent: color-mix(in srgb, $c-accent 40%, transparent) !default;
+$bgc-atom-spinner-dark: color-mix(in srgb, $c-black 40%, transparent) !default;
 $bgc-atom-spinner-light: $bgc-atom-spinner !default;
-$bgc-atom-spinner-primary: rgba($c-primary, 0.6) !default;
+$bgc-atom-spinner-primary: color-mix(in srgb, $c-primary 40%, transparent) !default;
 $bgc-atom-spinner-transparent: transparent !default;
 
 $c-atom-spinner-loader-accent-one: $c-atom-spinner-loader-white !default;

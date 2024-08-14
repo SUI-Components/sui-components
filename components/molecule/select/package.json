@@ -17,7 +17,7 @@
     "@s-ui/react-primitive-injector": "1"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "beta"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

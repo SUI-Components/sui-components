@@ -19,7 +19,7 @@
     "sortablejs": "1.14.0"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "author": "",

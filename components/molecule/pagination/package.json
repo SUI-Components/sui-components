@@ -13,7 +13,7 @@
     "@s-ui/react-molecule-button-group": "2"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "beta"
   },
   "keywords": [],
   "author": "",

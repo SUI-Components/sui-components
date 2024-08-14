@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-select-popover",
-  "version": "1.46.0",
+  "version": "1.45.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "@s-ui/react-primitive-injector": "1"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "beta"
   },
   "keywords": [],
   "author": "",

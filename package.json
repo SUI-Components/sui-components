@@ -57,7 +57,10 @@
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "beta"
+    "@s-ui/component-dependencies": "1"
+  },
+  "overrides": {
+    "@s-ui/theme": "beta"
   },
   "overrides": {
     "dset": "3.1.4",

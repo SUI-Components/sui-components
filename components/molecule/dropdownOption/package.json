@@ -14,7 +14,7 @@
     "@s-ui/react-hooks": "1"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "beta"
   },
   "keywords": [],
   "author": "",

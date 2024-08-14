@@ -9,7 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "peerDependencies": {
-    "@s-ui/theme": "beta"
+    "@s-ui/theme": "8"
   },
   "repository": {
     "type": "git",

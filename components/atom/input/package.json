@@ -14,7 +14,7 @@
     "react-imask": "6.4.3"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "author": "",

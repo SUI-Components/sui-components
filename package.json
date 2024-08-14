@@ -57,7 +57,7 @@
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "beta"
   },
   "config": {
     "sui-bundler": {
@@ -87,7 +87,7 @@
   ],
   "eslintConfig": {
     "extends": [
-      "./node_modules/@s-ui/lint/eslintrc.ts.js"
+      "./node_modules/@s-ui/lint/eslintrc.js"
     ]
   },
   "stylelint": {

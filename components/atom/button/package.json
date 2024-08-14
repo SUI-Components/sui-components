@@ -9,9 +9,8 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "@s-ui/react-primitive-loading-icon": "1",
-    "@s-ui/react-atom-icon": "1"
+    "@s-ui/component-dependencies": "beta",
+    "@s-ui/react-primitive-loading-icon": "1"
   },
   "keywords": [],
   "license": "MIT"

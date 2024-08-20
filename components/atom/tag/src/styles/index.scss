@@ -2,19 +2,19 @@ $base-class: '.sui-AtomTag';
 
 #{$base-class} {
   $self: &;
+  border-radius: ceil($h-atom-tag-m * 0.5);
+  height: $h-atom-tag-m;
+  padding: $p-atom-tag-m;
+  border: $bd-atom-tag;
   align-items: center;
   align-content: center;
   background-color: $bgc-atom-tag;
-  border: $bd-atom-tag;
-  border-radius: ceil($h-atom-tag-m * 0.5);
   box-sizing: border-box;
   cursor: default;
   display: inline-flex;
   font-size: $fz-s;
-  height: $h-atom-tag-m;
   justify-content: center;
   margin: 0 $m-atom-tag $m-atom-tag 0;
-  padding: $p-atom-tag-m;
   position: relative;
   white-space: nowrap;
 
@@ -75,10 +75,12 @@ $base-class: '.sui-AtomTag';
 
   &-icon {
     @include icon-atom-tag(icon);
+    margin-left: 0;
   }
 
   &-secondary-icon {
     @include icon-atom-tag(icon-secondary);
+    margin-right: 0;
   }
   &-actionable {
     background-color: $bgc-atom-tag-actionable;
@@ -111,7 +113,7 @@ $base-class: '.sui-AtomTag';
       }
     }
 
-    &#{$self}--outline {
+    &#{$self}--design-outline {
       border-color: $c-atom-tag-actionable-invert;
       color: $c-atom-tag-actionable-invert;
       fill: $c-atom-tag-actionable-invert;
@@ -133,58 +135,48 @@ $base-class: '.sui-AtomTag';
     }
   }
 
-  &-small {
-    height: $h-atom-tag-s;
-    padding: $p-atom-tag-s;
-    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
-      padding: map-get($p-atom-tag-hasIcon-hasClose, 'small');
+  &--size {
+    &-small {
+      border-radius: ceil($h-atom-tag-s * 0.5);
+      height: $h-atom-tag-s;
+      padding: $p-atom-tag-s;
+      &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+        padding: map-get($p-atom-tag-hasIcon-hasClose, 'small');
+      }
+
+      & .sui-AtomTag-label {
+        line-height: $h-atom-tag-s;
+      }
+
+      .sui-AtomTag-closeable {
+        @include icon-secondary-clickable-area($h-atom-tag-s);
+      }
     }
 
-    & .sui-AtomTag-label {
-      line-height: $h-atom-tag-s;
+    &-medium {
+      height: $h-atom-tag-m;
+      padding: $p-atom-tag-m;
+      border-radius: ceil($h-atom-tag-m * 0.5);
+      &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+        padding: map-get($p-atom-tag-hasIcon-hasClose, 'medium');
+      }
+
+      & .sui-AtomTag-label {
+        line-height: $h-atom-tag-m;
+      }
+
+      .sui-AtomTag-closeable {
+        @include icon-secondary-clickable-area($h-atom-tag-m);
+      }
     }
 
-    .sui-AtomTag-closeable {
-      @include icon-secondary-clickable-area($h-atom-tag-s);
-    }
-
-    .sui-AtomTag-icon {
-      margin-left: 0;
-    }
-
-    .sui-AtomTag-secondary-icon {
-      margin-right: 0;
-    }
-  }
-
-  &-medium {
-    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
-      padding: map-get($p-atom-tag-hasIcon-hasClose, 'medium');
-    }
-  }
-
-  &-large {
-    border-radius: ceil($h-atom-tag-l * 0.5);
-    height: $h-atom-tag-l;
-    padding: $p-atom-tag-l;
-    &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
-      padding: map-get($p-atom-tag-hasIcon-hasClose, 'large');
-    }
-
-    & .sui-AtomTag-label {
-      line-height: $h-atom-tag-l;
-    }
-
-    .sui-AtomTag-closeable {
-      @include icon-secondary-clickable-area($h-atom-tag-l);
-    }
-  }
-
-  &--responsive {
-    @include media-breakpoint-down(s) {
+    &-large {
       border-radius: ceil($h-atom-tag-l * 0.5);
       height: $h-atom-tag-l;
       padding: $p-atom-tag-l;
+      &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+        padding: map-get($p-atom-tag-hasIcon-hasClose, 'large');
+      }
 
       & .sui-AtomTag-label {
         line-height: $h-atom-tag-l;
@@ -196,7 +188,55 @@ $base-class: '.sui-AtomTag';
     }
   }
 
-  &--outline {
+  &--responsive {
+    border-radius: ceil($h-atom-tag-l * 0.5);
+    height: $h-atom-tag-l;
+    padding: $p-atom-tag-l;
+    & .sui-AtomTag-label {
+      line-height: $h-atom-tag-l;
+    }
+    .sui-AtomTag-closeable {
+      @include icon-secondary-clickable-area($h-atom-tag-l);
+    }
+
+    @include media-breakpoint-up(s) {
+      &#{$self}--size {
+        &-small {
+          border-radius: ceil($h-atom-tag-s * 0.5);
+          height: $h-atom-tag-s;
+          padding: $p-atom-tag-s;
+          &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+            padding: map-get($p-atom-tag-hasIcon-hasClose, 'small');
+          }
+
+          & .sui-AtomTag-label {
+            line-height: $h-atom-tag-s;
+          }
+
+          .sui-AtomTag-closeable {
+            @include icon-secondary-clickable-area($h-atom-tag-s);
+          }
+        }
+        &-medium {
+          height: $h-atom-tag-m;
+          padding: $p-atom-tag-m;
+          &.sui-AtomTag-hasIcon.sui-AtomTag-hasClose {
+            padding: map-get($p-atom-tag-hasIcon-hasClose, 'medium');
+          }
+
+          & .sui-AtomTag-label {
+            line-height: $h-atom-tag-m;
+          }
+
+          .sui-AtomTag-closeable {
+            @include icon-secondary-clickable-area($h-atom-tag-m);
+          }
+        }
+      }
+    }
+  }
+
+  &--design-outline {
     background-color: $bgc-atom-tag-outline;
     border: $bdw-atom-tag-outline solid $bc-atom-tag-outline;
   }

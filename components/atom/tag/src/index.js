@@ -29,8 +29,8 @@ const AtomTag = forwardRef(
 
     const classNames = cx(
       'sui-AtomTag',
-      `sui-AtomTag-${size}`,
-      design && `sui-AtomTag--${design}`,
+      `sui-AtomTag--size-${size}`,
+      design && `sui-AtomTag--design-${design}`,
       icon && 'sui-AtomTag-hasIcon',
       responsive && 'sui-AtomTag--responsive',
       type && `sui-AtomTag--${type}`,

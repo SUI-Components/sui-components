@@ -7,6 +7,7 @@ import ArticleIsFitted from './articles/ArticleIsFitted.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleResponsive from './articles/ArticleResponsive.js'
 import ArticleTypes from './articles/ArticleTypes.js'
+import ArticleResponsive from './articles/ArticleResponsive.js'
 import {CLASS_SECTION, closeIcon, icon} from './settings.js'
 
 import './index.scss'

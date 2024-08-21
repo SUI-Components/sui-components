@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.55.0 (2024-08-21)
+
+
+### Features
+
+* make tag compatible witout theme-v7 deprecated tools ([8142c9d](https://github.com/SUI-Components/sui-components/commit/8142c9d0489f9488b2ee3b15a3c66258674642cb))
+* remove deprecated scss modules ([59b4edf](https://github.com/SUI-Components/sui-components/commit/59b4edf0ad1449e2a42bf7e1f01f31d069a21baf))
+
+
+
 # 2.54.0 (2024-05-06)
 
 

@@ -12,7 +12,7 @@
     "rc-slider": "9"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "latest"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

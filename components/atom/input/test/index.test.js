@@ -387,6 +387,32 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.be.null
       expect(value).to.equal('')
     })
+
+    it('should be able to display addons', () => {
+      const props = {
+        className: 'extended-classNames',
+        type: pkg.inputTypes.MASK,
+        mask: {mask: Number},
+        placeholder: 'Ex: 100.000,00',
+        charsSize: 31,
+        value: '100000',
+        rightIcon: '€',
+        radix: ',',
+        thousandsSeparator: '.',
+        mapToRadix: ['.'],
+        leftAddon: 'leftAddon',
+        rightAddon: 'rightAddon'
+      }
+
+      // When
+      const {getByRole, getByText} = setup(props)
+      const input = getByRole('textbox')
+
+      // Then
+      expect(input).to.have.value('100.000')
+      expect(getByText('leftAddon')).to.exist
+      expect(getByText('rightAddon')).to.exist
+    })
   })
 
   describe(`${Component.displayName} ${pkg.inputTypes.SUI_PASSWORD}`, () => {

@@ -155,11 +155,14 @@ const TypeDemo = () => {
             'MASK WITH RIGHT ICON',
             {
               type: inputTypes.MASK,
-              mask: {mask: 'ES00 0000 0000 00 0000000000'},
+              mask: {mask: Number},
               placeholder: 'ES00 0000 0000 00 0000000000',
               charsSize: 31,
-              value: 'ES1234567890123456789012',
-              rightIcon: '€'
+              value: '100000',
+              rightIcon: '€',
+              radix: ',',
+              thousandsSeparator: '.',
+              mapToRadix: ['.']
             },
             {
               description: (

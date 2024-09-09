@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.13.0 (2024-09-09)
+
+
+### Bug Fixes
+
+* compressed text addon ([56be25c](https://github.com/SUI-Components/sui-components/commit/56be25c19b8477d08f235a572c0d0627be3ebd1e))
+
+
+### Features
+
+* add label to each step a11y ([01e6794](https://github.com/SUI-Components/sui-components/commit/01e6794407a436198fd586b86bd7a569df76cb1a))
+
+
+
 # 2.12.0 (2024-02-06)
 
 

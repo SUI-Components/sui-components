@@ -32,6 +32,7 @@ const ArticlePlayground = ({className}) => {
   const [icon, setIcon] = useState(false)
   const [visitedIcon, setVisitedIcon] = useState(false)
   const [currentIcon, setCurrentIcon] = useState(false)
+  const [showLabel, setShowLabel] = useState(true)
   const updateSteps = steps => {
     setSteps(steps)
     steps - 1 < step && setStep(steps - 1)
@@ -108,6 +109,7 @@ const ArticlePlayground = ({className}) => {
             onChange={(event, {step}) => setStep(step)}
             visitedIcon={visitedIcon && iconVisited}
             currentIcon={currentIcon && iconCurrent}
+            showLabel={showLabel}
             icon={icon && iconDefault}
             labels={Array(steps)
               .fill()
@@ -132,6 +134,7 @@ const ArticlePlayground = ({className}) => {
                 visited={index + 1 < step}
                 current={step === index + 1}
                 onClick={(event, {step}) => setStep(step)}
+                showLabel={showLabel}
               >
                 <CustomStep />
               </Step>
@@ -185,6 +188,14 @@ const ArticlePlayground = ({className}) => {
             onClick={() => setCurrentIcon(!currentIcon)}
             fullWidth
           />
+        </Cell>
+        <Cell span={2}>
+          <Label>Show Label</Label>
+        </Cell>
+        <Cell span={2} />
+        <Cell span={2} />
+        <Cell span={2}>
+          <RadioButton label="showLabel" checked={showLabel} onClick={() => setShowLabel(!showLabel)} fullWidth />
         </Cell>
       </Grid>
     </Article>

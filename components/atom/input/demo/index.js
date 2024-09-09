@@ -152,6 +152,28 @@ const TypeDemo = () => {
             }
           ],
           [
+            'MASK WITH RIGHT ICON',
+            {
+              type: inputTypes.MASK,
+              mask: {mask: Number},
+              placeholder: 'ES00 0000 0000 00 0000000000',
+              charsSize: 31,
+              value: '100000',
+              rightIcon: '€',
+              radix: ',',
+              thousandsSeparator: '.',
+              mapToRadix: ['.']
+            },
+            {
+              description: (
+                <>
+                  Let the user define its own mask for custom purposes. More info at{' '}
+                  <Anchor href="http://shorturl.at/foBF1">http://shorturl.at/foBF1</Anchor>
+                </>
+              )
+            }
+          ],
+          [
             'NUMBER',
             {
               type: inputTypes.NUMBER,

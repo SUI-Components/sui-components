@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import {naturalNumber} from '../prop-types.js'
 import {ALIGNMENT, DESIGN} from '../settings.js'
-import {BASE_CLASS_STEP, getIcon, getLabel} from './settings.js'
+import {BASE_CLASS_STEP_LABEL, BASE_CLASS_STEP_ICON, getIcon, getLabel} from './settings.js'
 
 const DefaultStep = ({
   alignment,
@@ -29,10 +29,12 @@ const DefaultStep = ({
   })
   return (
     <>
-      <div className={cx(`${BASE_CLASS_STEP}Icon`)}>{resultingIcon}</div>
-      {showLabel && (
+      <div className={cx(BASE_CLASS_STEP_ICON)}>{resultingIcon}</div>
+      {
         <div
-          className={cx(`${BASE_CLASS_STEP}Label`)}
+          className={cx([BASE_CLASS_STEP_LABEL, `${BASE_CLASS_STEP_LABEL}--step-current-${current}`], {
+            [`${BASE_CLASS_STEP_LABEL}--visible`]: showLabel
+          })}
           {...(design === DESIGN.COMPRESSED &&
             current &&
             alignment === ALIGNMENT.HORIZONTAL && {
@@ -50,7 +52,7 @@ const DefaultStep = ({
         >
           {getLabel({steps, step, design, label, current})}
         </div>
-      )}
+      }
     </>
   )
 }

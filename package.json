@@ -61,7 +61,8 @@
   },
   "overrides": {
     "dset": "3.1.4",
-    "micromatch": "4.0.8"
+    "micromatch": "4.0.8",
+    "webpack": "5.94.0"
   },
   "config": {
     "sui-bundler": {

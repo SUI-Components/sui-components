@@ -91,11 +91,11 @@
   ],
   "eslintConfig": {
     "extends": [
-      "./node_modules/@s-ui/lint/eslintrc.js"
+      "./node_modules/@s-ui/lint/eslintrc.ts.js"
     ]
   },
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
   },
-  "prettier": "./node_modules/@s-ui/lint/.prettierrc.ts.js"
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js"
 }

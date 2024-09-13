@@ -59,6 +59,10 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1"
   },
+  "overrides": {
+    "dset": "3.1.4",
+    "micromatch": "4.0.8"
+  },
   "config": {
     "sui-bundler": {
       "type": "typescript",

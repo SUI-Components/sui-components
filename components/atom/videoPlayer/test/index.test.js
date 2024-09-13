@@ -363,7 +363,24 @@ describe('AtomVideoPlayer', () => {
 
       // Then
       const player = await component.findByTitle(HLS_DEFAULT_TITLE)
+
       expect(player.muted).to.eql(true)
+    })
+
+    it('should loop the video when loop prop is set to true', async () => {
+      // Given
+      const props = {
+        loop: true,
+        src: 'https://media-frontend.yams-pro.mpi-internal.com/api/v1/yams-frontend/statics/vo/surf.mp4/hls.m3u8'
+      }
+
+      // When
+      const component = setup(props)
+
+      // Then
+      const player = await component.findByTitle(HLS_DEFAULT_TITLE)
+
+      expect(player.loop).to.eql(true)
     })
   })
 

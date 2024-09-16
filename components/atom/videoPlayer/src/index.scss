@@ -2,6 +2,7 @@
 
 $sixteenByNineAspectRatio: calc(100% / 16 * 9);
 $fourByThreeAspectRatio: calc(100% / 4 * 3);
+$bg-atom-videoPlayer: $c-black !default;
 
 @mixin atom-videoplayer-external-player {
   position: relative;
@@ -18,7 +19,7 @@ $fourByThreeAspectRatio: calc(100% / 4 * 3);
 
 .sui-AtomVideoPlayer {
   align-items: center;
-  background: $c-black;
+  background: $bg-atom-videoPlayer;
   display: flex;
   justify-content: center;
   height: 100%;

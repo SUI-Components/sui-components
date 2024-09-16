@@ -9,6 +9,7 @@ const DemoPlayer = ({src}) => {
   const [autoPlay, setAutoPlay] = useState(false)
   const [controls, setControls] = useState(true)
   const [muted, setMuted] = useState(false)
+  const [loop, setLoop] = useState(false)
   const [timeLimit, setTimeLimit] = useState(0)
   const [timeOffset, setTimeOffset] = useState(0)
   return (
@@ -29,6 +30,11 @@ const DemoPlayer = ({src}) => {
         <RadioButton value={true} label={'Enabled'} />
         <RadioButton value={false} label={'Disabled'} />
       </RadioButtonGroup>
+      <H2>Loop</H2>
+      <RadioButtonGroup value={loop} onChange={(event, value) => setLoop(value)}>
+        <RadioButton value={true} label={'Enabled'} />
+        <RadioButton value={false} label={'Disabled'} />
+      </RadioButtonGroup>
 
       <H2>Time offset / limit</H2>
       <Grid cols={2} gutter={[8, 8]}>
@@ -45,6 +51,7 @@ const DemoPlayer = ({src}) => {
           autoPlay={autoPlay}
           controls={controls}
           muted={muted}
+          loop={loop}
           src={src}
           timeLimit={timeLimit > 0 ? timeLimit : undefined}
           timeOffset={timeOffset > 0 ? timeOffset : undefined}

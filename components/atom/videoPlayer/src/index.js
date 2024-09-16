@@ -29,7 +29,8 @@ const AtomVideoPlayer = forwardRef(
       src = '',
       timeLimit,
       timeOffset,
-      title
+      title,
+      loop = false
     },
     forwardedRef = createRef()
   ) => {
@@ -42,7 +43,8 @@ const AtomVideoPlayer = forwardRef(
       src,
       timeLimit,
       title,
-      timeOffset
+      timeOffset,
+      loop
     })
 
     const componentRef = useRef(null)
@@ -94,7 +96,8 @@ AtomVideoPlayer.propTypes = {
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   timeLimit: PropTypes.number,
   timeOffset: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  loop: PropTypes.bool
 }
 
 export default AtomVideoPlayer

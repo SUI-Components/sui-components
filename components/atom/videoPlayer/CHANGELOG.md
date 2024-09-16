@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2024-09-16)
+
+
+### Features
+
+* Add loop attribute ([be67bb5](https://github.com/SUI-Components/sui-components/commit/be67bb5b24895789111a96b113cb06279dce6198))
+
+
+
 # 1.31.0 (2024-05-06)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.33.0 (2024-09-17)
+
+
+### Features
+
+* add loop and token ([f40ac61](https://github.com/SUI-Components/sui-components/commit/f40ac61a2edf9b36eeaf68a988319f8a52792aa9))
+
+
+
 # 1.32.0 (2024-09-16)
 
 

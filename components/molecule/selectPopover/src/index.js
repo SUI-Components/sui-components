@@ -7,6 +7,7 @@ import usePortal from '@s-ui/react-hook-use-portal'
 
 import {BASE_CLASS, getPlacement, OVERLAY_TYPES, PLACEMENTS, SHAPES, SIZES} from './config.js'
 import RenderActions from './RenderActions.js'
+import SelectIcon from './components/SelectIcon.js'
 
 function usePrevious(value) {
   const ref = useRef()
@@ -42,6 +43,7 @@ const MoleculeSelectPopover = ({
   overlayContentRef = {},
   overlayType = OVERLAY_TYPES.NONE,
   placement,
+  removeButtonOptions = null,
   renderContentWrapper: renderContentWrapperProp,
   renderSelect: renderSelectProp,
   renderActions: renderActionsProp,
@@ -161,6 +163,7 @@ const MoleculeSelectPopover = ({
         shape && `${BASE_CLASS}-select--${shape}`,
         `${BASE_CLASS}-select--${size}`,
         {
+          [`${BASE_CLASS}-select--withRemoveOption`]: removeButtonOptions,
           'is-open': isOpen,
           'is-selected': isSelected
         }
@@ -191,6 +194,7 @@ const MoleculeSelectPopover = ({
           shape && `${BASE_CLASS}-select--${shape}`,
           `${BASE_CLASS}-select--${size}`,
           {
+            [`${BASE_CLASS}-select--withRemoveOption`]: removeButtonOptions,
             'is-open': isOpen,
             'is-selected': isSelected
           }
@@ -199,7 +203,7 @@ const MoleculeSelectPopover = ({
       >
         <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
         <div className={`${BASE_CLASS}-selectIcon`}>
-          <IconArrowDown />
+          <SelectIcon iconArrowDown={IconArrowDown} removeButtonOptions={removeButtonOptions} />
         </div>
       </div>
     )
@@ -305,6 +309,15 @@ MoleculeSelectPopover.propTypes = {
   overlayContentRef: PropTypes.object,
   overlayType: PropTypes.oneOf(Object.values(OVERLAY_TYPES)),
   placement: PropTypes.oneOf([PLACEMENTS.AUTO_END, PLACEMENTS.AUTO_START, PLACEMENTS.LEFT, PLACEMENTS.RIGHT]),
+  removeButtonOptions: PropTypes.shape({
+    design: PropTypes.string,
+    isShowng: PropTypes.bool,
+    negative: PropTypes.bool,
+    onClick: PropTypes.func,
+    rightIcon: PropTypes.elementType.isRequired,
+    shape: PropTypes.string,
+    size: PropTypes.string
+  }),
   renderContentWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderSelect: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   renderActions: PropTypes.node,

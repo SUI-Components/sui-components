@@ -12,9 +12,11 @@ import chaiDOM from 'chai-dom'
 
 import {fireEvent} from '@testing-library/react'
 
+import sinon from 'sinon'
 import json from '../package.json'
 import {PLACEMENTS} from '../src/config.js'
 import * as pkg from '../src/index.js'
+import IconClose from '../../../atom/popover/demo/Icons/IconClose.js'
 
 chai.use(chaiDOM)
 
@@ -254,6 +256,42 @@ describe(json.name, () => {
       const select = container.querySelector('[class="sui-MoleculeSelectPopover-selectIcon"]')
       fireEvent.click(select)
       expect(container.innerHTML).to.include('sui-MoleculeSelectPopover-popover--right')
+    })
+  })
+
+  describe('selectPopover remove button', () => {
+    it('should response to the click on the remove button', () => {
+      const spy = sinon.spy()
+
+      // Given
+      const props = {
+        isSelected: true,
+        acceptButtonText: 'acceptButtonText',
+        cancelButtonText: 'cancelButtonText',
+        iconArrowDown: () => <svg />,
+        selectText: 'selectText',
+        children: 'children',
+        removeButtonOptions: {
+          design: 'flat',
+          shape: 'circular',
+          size: 'medium',
+          rightIcon: () => <IconClose />,
+          isShown: true,
+          negative: false,
+          onClick: spy
+        }
+      }
+
+      // When
+      const {container} = setup(props)
+
+      // Then
+      const removeButton = container.querySelector(
+        '[class="sui-MoleculeSelectPopover-selectIcon--withRemoveOption"] button'
+      )
+      fireEvent.click(removeButton)
+
+      sinon.assert.calledOnce(spy)
     })
   })
 })

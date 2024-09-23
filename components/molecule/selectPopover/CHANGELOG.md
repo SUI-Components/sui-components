@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.46.0 (2024-09-23)
+
+
+### Features
+
+* add remove button demo ([5a0acc3](https://github.com/SUI-Components/sui-components/commit/5a0acc3fab24e575b0493f3e0c9684880e2f399e))
+* add remove button feature ([77fe161](https://github.com/SUI-Components/sui-components/commit/77fe1617385e5c59aef8eed9f6f1c1581d187272))
+
+
+
 # 1.45.0 (2024-07-29)
 
 

@@ -51,6 +51,7 @@ const Demo = () => {
   const [hasCustomRenderActions, setCustomRenderActions] = useState(false)
   const [hasForceClosePopover, setHasForceClosePopover] = useState(false)
   const [forceClosePopover, setForceClosePopover] = useState(false)
+  const [hasRemoveOption, setHasRemoveOption] = useState(false)
 
   const overlayContentRef = useRef()
 
@@ -95,6 +96,7 @@ const Demo = () => {
       </MoleculeModal>
     )
   }
+  console.log(unconfirmedItems)
 
   const checkedItems = items.filter(item => item.checked)
   const isSelected = checkedItems.length > 0
@@ -232,16 +234,36 @@ const Demo = () => {
             Force close popover
           </label>
         </div>
+        <div>
+          <label>
+            <input type="checkbox" checked={hasRemoveOption} onChange={ev => setHasRemoveOption(ev.target.checked)} />
+            With remove option
+          </label>
+        </div>
 
         <h3>Component</h3>
         <MoleculeSelectPopover
           acceptButtonText="Aceptar"
+          acceptButtonOptions={{disabled: unconfirmedItems.every(item => !item.checked)}}
           cancelButtonText="Cancelar"
           customButtonText={addCustomButton && 'Borrar'}
           customButtonOptions={{
             design: 'outline',
             negative: false,
             color: 'accent'
+          }}
+          removeButtonOptions={{
+            design: 'flat',
+            shape: 'circular',
+            size: 'medium',
+            rightIcon: IconClose,
+            isShown: isSelected,
+            negative: false,
+            onClick: () => {
+              setItems(demoExample)
+              setUnconfirmedItems(demoExample)
+              setForceClosePopover({})
+            }
           }}
           renderContentWrapper={customContentWrapper && renderContentWrapper}
           renderSelect={renderSelect && <button>Now I'm a button!</button>}

@@ -37,6 +37,10 @@ $base-class: '.sui-MoleculeSelectPopover ';
       border-radius: $bdrs-select-popover-circular;
     }
 
+    &--withRemoveOption {
+      padding: $p-select-popover-select-with-remove;
+    }
+
     &Text {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -45,6 +49,10 @@ $base-class: '.sui-MoleculeSelectPopover ';
 
     &Icon {
       margin-left: $m-m;
+
+      &--withRemoveOption {
+        display: flex;
+      }
     }
 
     &:hover,

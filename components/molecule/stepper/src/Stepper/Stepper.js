@@ -39,6 +39,11 @@ const Stepper = ({children, steps: stepsNumber, step: currentStep, showLabel, la
         visited={index + 1 < currentStep}
         current={currentStep === index + 1}
         label={labels[index]}
+        {...{
+          ...(onChange && {
+            onClick: (event, {step}) => onChange(event, {step})
+          })
+        }}
       />
     ))
 }

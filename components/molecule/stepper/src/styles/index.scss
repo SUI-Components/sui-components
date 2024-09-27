@@ -36,6 +36,7 @@ $base-class: '.sui-MoleculeStepper';
           row-gap: $sz-base;
         }
         &-horizontal {
+          align-items: flex-end;
           position: relative;
           gap: $sz-base;
         }

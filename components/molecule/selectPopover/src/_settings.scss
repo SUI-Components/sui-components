@@ -6,5 +6,10 @@ $bdrs-select-popover-content: 0px !default;
 $bxsh-select-popover: 0 1px 4px 0 color-mix(in srgb, $c-black 76%, transparent) !default;
 $mw-select-popover: 250px !default;
 $w-select-popover: 344px !default;
-$p-select-popover-select-with-remove: $p-m 0 $p-m $p-l !default;
-$sizes-molecule-select-popover-heights: (m $h-atom-input--m, s $h-atom-input--s, xs $h-atom-input--xs) !default;
+$sizes-molecule-select-popover-heights: (
+  m 5 * $sz-base,
+  // 40px
+  s 4 * $sz-base,
+  // 32px
+  xs 3 * $sz-base // 24px
+) !default;

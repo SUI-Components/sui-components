@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-primitive-loading-icon": "1"
+    "@s-ui/react-primitive-loading-icon": "1",
+    "@s-ui/react-atom-icon": "1"
   },
   "keywords": [],
   "license": "MIT"

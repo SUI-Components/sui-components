@@ -1,4 +1,8 @@
+$ol-atom-select-focus: 0 none !default;
+$olo-atom-select-focus: 0 !default;
+
 $bd-select: $bdw-s solid transparent !default;
+$bd-atom-select-focus: $bd-atom-input !default;
 $bdrs-select: 0 !default;
 $z-select-list: $z-navigation !default;
 $mr-select-list-arrow: -$p-xxl !default;
@@ -18,5 +22,9 @@ $c-molecule-select-disabled: inherit !default;
 $bd-molecule-select-search: $bd-dropdown-list !default;
 $bd-bottom-molecule-select-search: none !default;
 $bdrs-molecule-select-search: none !default;
+$bxsh-atom-select-focus: $bxsh-atom-input !default;
 $p-molecule-select-search: $p-m $p-l !default;
 $bgc-molecule-select-search: $bc-dropdown-list !default;
+
+$ol-atom-select-focus: 0 none !default;
+$olo-atom-select-focus: 0 !default;

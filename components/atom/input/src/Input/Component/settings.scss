@@ -1,30 +1,48 @@
+$bgc-atom-input: $c-white !default;
 $bgc-atom-input-disabled: $c-gray-lightest !default;
+$bgc-atom-input-read-only: $bgc-atom-input !default;
+
+$c-atom-input: initial !default;
+$c-atom-input-read-only: $c-atom-input !default;
 $c-atom-input-placeholder: $c-gray-dark !default;
 $c-atom-input-disabled: $c-atom-input-placeholder !default;
+$c-atom-input--success: $c-success !default;
+$c-atom-input--error: $c-error !default;
+$c-atom-input--alert: $c-alert !default;
+
+$bd-atom-input: $bdw-s solid $c-primary !default;
+$bd-atom-input-base: $bdw-s solid $c-gray-light !default;
 $bd-atom-input-disabled: $bd-atom-input-base !default;
+$bd-atom-input-read-only: $bd-atom-input-base !default;
+$bd-atom-input-focus: $bd-atom-input !default;
+
 $m-atom-input-type-left: $m-m !default;
 $m-atom-input-type-right: $m-m !default;
+
 $bdrs-atom-input: 0 !default;
 $bdrs-atom-input-shapes: (
   square: $bdrs-none,
   rounded: $bdrs-m,
   circle: $bdrs-xxxl
 ) !default;
+
 $tov-atom-input-placeholder: unset !default;
+
 $h-atom-input--xl: 7 * $sz-base !default; // 56px
 $h-atom-input--l: 6 * $sz-base !default; // 48px
 $h-atom-input--m: 5 * $sz-base !default; // 40px
 $h-atom-input--s: 4 * $sz-base !default; // 32px
 $h-atom-input--xs: 3 * $sz-base !default; // 24px
 
-$c-atom-input--success: $c-success !default;
-$c-atom-input--error: $c-error !default;
-$c-atom-input--alert: $c-alert !default;
+$pl-atom-input: $p-l !default;
+
+$pr-atom-input: $p-l !default;
+
+$fz-atom-input: $fz-base !default;
+
+$bxsh-atom-input-size: $bxsh-focus-size !default;
+$bxsh-atom-input: $bxsh-focus !default;
 
 $sizes-atom-input: xl $h-atom-input--xl, l $h-atom-input--l, m $h-atom-input--m, xs $h-atom-input--xs,
   s $h-atom-input--s !default;
 $states-atom-input: success $c-atom-input--success, error $c-atom-input--error, alert $c-atom-input--alert !default;
-
-$bgc-atom-input-read-only: $bgc-atom-input !default;
-$c-atom-input-read-only: $c-atom-input !default;
-$bd-atom-input-read-only: $bd-atom-input-base !default;

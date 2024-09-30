@@ -22,7 +22,7 @@ import MoleculeStepper, {moleculeStepperAlignment, moleculeStepperDesign} from '
 import LoremIpsum from '../LoremIpsum.js'
 
 const steps = 5
-const step = Math.ceil(steps / 2)
+const initialStep = Math.ceil(steps / 2)
 const labels = Array(steps)
   .fill()
   .map((v, index) => <LoremIpsum units="words" count={2} format="plain" />)
@@ -30,6 +30,9 @@ const labels = Array(steps)
 const ArticleDesignAlignment = ({className}) => {
   const [design, setDesign] = useState()
   const [alignment, setAlignment] = useState()
+  const [step, setStep] = useState(initialStep)
+  const onChange = (_, {step}) => setStep(step)
+
   return (
     <Article className={className}>
       <H2>Design and Alignment</H2>
@@ -87,6 +90,7 @@ const ArticleDesignAlignment = ({className}) => {
                           labels={labels}
                           design={moleculeStepperDesignValue}
                           alignment={moleculeStepperAlignmentValue}
+                          onChange={onChange}
                         />
                       </Cell>
                     ))}
@@ -109,6 +113,7 @@ const ArticleDesignAlignment = ({className}) => {
                             labels={labels}
                             design={moleculeStepperDesignValue}
                             alignment={moleculeStepperAlignmentValue}
+                            onChange={onChange}
                           />
                         </Cell>
                       </Fragment>
@@ -162,7 +167,14 @@ const ArticleDesignAlignment = ({className}) => {
             alignContent: 'center'
           }}
         >
-          <MoleculeStepper steps={steps} step={step} labels={labels} design={design} alignment={alignment} />
+          <MoleculeStepper
+            steps={steps}
+            step={step}
+            labels={labels}
+            design={design}
+            alignment={alignment}
+            onChange={onChange}
+          />
         </Cell>
       </Grid>
     </Article>

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.14.0 (2024-09-30)
+
+
+### Bug Fixes
+
+* stepper label style aligment ([98a52fb](https://github.com/SUI-Components/sui-components/commit/98a52fb0ca4b3ff27c2d92b81a7610191c0753fe))
+
+
+
 # 2.13.0 (2024-09-09)
 
 

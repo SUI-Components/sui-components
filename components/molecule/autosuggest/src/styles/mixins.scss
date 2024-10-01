@@ -1,0 +1,10 @@
+@mixin sui-molecule-autosuggest-focus() {
+  border: $bd-molecule-autosuggest-focus;
+  box-shadow: $bxsh-molecule-autosuggest-focus;
+  outline: $ol-molecule-autosuggest-focus;
+  outline-offset: $olo-molecule-autosuggest-focus;
+}
+
+%sui-molecule-autosuggest-focus {
+  @include sui-molecule-autosuggest-focus;
+}

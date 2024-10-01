@@ -26,7 +26,7 @@ $bdw-atom-switch-input-container-large: $bdw-s !default;
 $h-atom-switch-input-container-large: $h-atom-switch-large !default;
 
 $c-atom-switch--active: color-variation($c-primary, 1) !default;
-$c-atom-switch--active-shadow: rgba($c-black, 0.2);
+$c-atom-switch--active-shadow: color-mix(in srgb, $c-black 80%, transparent);
 $c-atom-switch--default: color-variation($c-gray, 3) !default;
 $c-atom-switch-circle: $c-white;
 

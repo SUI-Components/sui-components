@@ -1,0 +1,10 @@
+@mixin sui-atom-input-select-focus() {
+  border: $bd-atom-select-focus;
+  box-shadow: $bxsh-atom-select-focus;
+  outline: $ol-atom-select-focus;
+  outline-offset: $olo-atom-select-focus;
+}
+
+%sui-atom-input-select-focus {
+  @include sui-atom-input-select-focus;
+}

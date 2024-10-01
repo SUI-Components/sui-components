@@ -39,7 +39,8 @@ $base-class: '.sui-AtomBadge';
   }
 
   &-icon {
-    @include sui-icon--small;
+    height: 16px;
+    width: 16px;
     align-items: center;
     display: flex;
     line-height: initial;

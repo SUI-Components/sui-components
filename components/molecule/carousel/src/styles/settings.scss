@@ -1,7 +1,7 @@
 $c-background: transparent !default;
-$c-nav-background: rgba(255, 255, 255, 0.8) !default;
+$c-nav-background: color-mix(in srgb, $c-white 20%, transparent) !default;
 $c-nav-color: #aaaaaa !default;
-$c-transparent: rgba(0, 0, 0, 0) !default;
+$c-transparent: color-mix(in srgb, $c-black 0%, transparent) !default;
 $h-image: auto !default;
 $mh: 50px !default;
 

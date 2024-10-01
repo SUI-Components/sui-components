@@ -172,7 +172,7 @@ $skeleton-class: '#{$base-class}-skeleton';
     }
 
     &-iconContainer {
-      background-color: rgba($c-primary, 0.1);
+      background-color: color-mix(in srgb, $c-primary 90%, transparent);
       border-radius: $bdrs-photo-uploader-thumb-card $bdrs-photo-uploader-thumb-card 0 0;
       display: flex;
       flex-direction: column;

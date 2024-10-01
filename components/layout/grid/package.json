@@ -9,7 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
+    "@s-ui/component-dependencies": "latest",
     "@s-ui/react-primitive-injector": "1",
     "@s-ui/react-primitive-polymorphic-element": "1"
   },

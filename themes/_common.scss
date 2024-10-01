@@ -1,6 +1,6 @@
 // Show some details about theme
 .sui-StudioPreview:before {
-  background: rgba(#000, 0.75);
+  background: color-mix(in srgb, #000 75%, transparent);
   bottom: 10px;
   content: 'THEME: #{$ff-sans-serif} @ #{$fz-base}';
   color: #fff;

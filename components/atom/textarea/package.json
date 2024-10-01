@@ -13,7 +13,7 @@
     "@s-ui/react-atom-input": "5"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "author": "",

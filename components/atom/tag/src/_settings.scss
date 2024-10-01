@@ -47,7 +47,8 @@ $atom-tag-types: () !default;
 
 @mixin icon-atom-tag($type) {
   align-items: center;
-  @include sui-icon--small;
+  height: 16px;
+  width: 16px;
   display: flex;
   justify-content: center;
   line-height: initial;

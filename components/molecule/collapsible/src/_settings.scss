@@ -1,5 +1,5 @@
 $bgc-collapsible-container: $c-white !default;
-$bgc-collapsible-container-transparent: rgba($bgc-collapsible-container, 0);
+$bgc-collapsible-container-transparent: color-mix(in srgb, $bgc-collapsible-container 100%, transparent);
 $bg-collapsible-container-gradient: linear-gradient(
   to top,
   $bgc-collapsible-container 20%,

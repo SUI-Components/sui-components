@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-tag",
-  "version": "2.55.0",
+  "version": "2.54.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "author": "",

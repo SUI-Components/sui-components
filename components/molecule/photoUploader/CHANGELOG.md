@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.29.0 (2024-10-17)
+
+
+### Features
+
+* add prop onSortPhotoStart to photouploader ([cc1d7ba](https://github.com/SUI-Components/sui-components/commit/cc1d7ba3be4b737a3e8cdc1a2fed6c26dd856f10))
+
+
+
 # 2.28.0 (2024-05-06)
 
 

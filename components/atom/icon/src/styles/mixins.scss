@@ -1,0 +1,24 @@
+@mixin sui-icon--small {
+  height: $sz-icon-s;
+  width: $sz-icon-s;
+}
+
+@mixin sui-icon--medium {
+  height: $sz-icon-m;
+  width: $sz-icon-m;
+}
+
+@mixin sui-icon--large {
+  height: $sz-icon-l;
+  width: $sz-icon-l;
+}
+
+@mixin sui-icon--xlarge {
+  height: $sz-icon-xl;
+  width: $sz-icon-xl;
+}
+
+@mixin sui-icon--xxlarge {
+  height: $sz-icon-xxl;
+  width: $sz-icon-xxl;
+}

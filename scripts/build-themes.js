@@ -12,12 +12,12 @@ const globby = require('globby')
 const INSTALL_FLAGS = ['--silent', '--no-save', '--no-audit', '--no-fund', '--no-package-lock']
 
 const THEMES_PACKAGES = [
-  '@adv-ui/adv-theme',
+  '@adv-ui/adv-theme@beta',
   '@adv-ui/cf-theme',
   '@adv-ui/ep-theme',
-  '@adv-ui/fc-theme@10.130.0',
-  '@adv-ui/hab-theme',
-  '@adv-ui/hb-theme-v2',
+  '@adv-ui/fc-theme@beta',
+  '@adv-ui/hab-theme@beta',
+  '@adv-ui/hb-theme-v2@beta',
   '@adv-ui/ij-theme',
   '@adv-ui/ma-theme',
   '@adv-ui/mt-theme',

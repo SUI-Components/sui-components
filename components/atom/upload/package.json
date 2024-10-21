@@ -11,10 +11,10 @@
   "dependencies": {
     "@loadable/component": "5.15.x",
     "@s-ui/react-atom-button": "1",
-    "react-dropzone": "11.5.1"
+    "react-dropzone": "11.5.3"
   },
   "peerDependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "latest"
   },
   "keywords": [],
   "author": "",

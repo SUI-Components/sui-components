@@ -2,3 +2,5 @@ assets
 demo
 src
 test
+node_modules
+CHANGELOG.md

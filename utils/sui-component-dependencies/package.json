@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SUI-Components/sui.git"
+    "url": "git+https://github.com/SUI-Components/sui-components.git"
   },
   "bugs": {
-    "url": "https://github.com/SUI-Components/sui/issues"
+    "url": "https://github.com/SUI-Components/sui-components/issues"
   },
-  "homepage": "https://github.com/SUI-Components/sui/tree/master/packages/sui-component-dependencies#readme"
+  "homepage": "https://github.com/SUI-Components/sui-components/tree/master/utils/sui-component-dependencies#readme"
 }

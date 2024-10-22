@@ -19,6 +19,7 @@ import {
   CLASS_LEFT_ADDON,
   CLASS_TEXT,
   CLASS_WITH_DESCRIPTION,
+  CLASS_WITH_DESCRIPTION_AND_ADDON,
   MODIFIER_LINE_WRAP,
   MODIFIER_NO_WRAP,
   MODIFIER_THREE_LINES,
@@ -49,12 +50,14 @@ const MoleculeDropdownOption = forwardRef(
     },
     forwardedRef
   ) => {
+    const hasAddonAndDescription = description && !!leftAddon
     const ref = useMergeRefs(innerRef || createRef(), forwardedRef)
     const [innerSelected, setInnerSelected] = useControlledState(selected, defaultSelected)
     const className = cx(BASE_CLASS, {
       [CLASS_CHECKBOX]: checkbox,
       [CLASS_DISABLED]: disabled,
       [CLASS_WITH_DESCRIPTION]: description,
+      [CLASS_WITH_DESCRIPTION_AND_ADDON]: hasAddonAndDescription,
       'is-selected': innerSelected
     })
     const innerClassName = cx([
@@ -131,10 +134,11 @@ const MoleculeDropdownOption = forwardRef(
             {leftAddon ? <span className={CLASS_LEFT_ADDON}>{leftAddon}</span> : null}
             <span onFocus={handleInnerFocus} className={innerClassName}>
               {children}
+              {hasAddonAndDescription && <span className={CLASS_DESCRIPTION}>{description}</span>}
             </span>
           </>
         )}
-        {description && <span className={CLASS_DESCRIPTION}>{description}</span>}
+        {!hasAddonAndDescription && <span className={CLASS_DESCRIPTION}>{description}</span>}
       </li>
     )
   }

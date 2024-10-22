@@ -102,4 +102,22 @@ $base-class: '.sui-MoleculeDropdownOption';
     justify-content: center;
     padding: $pt-molecule-dropdown-option-with-description $pl-molecule-dropdown-option;
   }
+
+  &--withDescriptionAndAddon {
+    flex-direction: row;
+
+    & #{$base-class} {
+      &-leftAddon {
+        height: fit-content;
+      }
+      &-text {
+        display: flex;
+        gap: 4px;
+        flex-direction: column;
+      }
+      &-description {
+        margin: 0;
+      }
+    }
+  }
 }

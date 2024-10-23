@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.12.0 (2024-10-23)
+
+
+### Features
+
+* improve design when description and left addon exists ([87d1d62](https://github.com/SUI-Components/sui-components/commit/87d1d623e7c8574ce18a124139ed5981fa2229e7))
+
+
+
 # 2.11.0 (2024-08-06)
 
 

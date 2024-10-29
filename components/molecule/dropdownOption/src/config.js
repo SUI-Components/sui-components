@@ -8,6 +8,7 @@ export const CLASS_TEXT = `${BASE_CLASS}-text`
 export const CLASS_DESCRIPTION = `${BASE_CLASS}-description`
 export const CLASS_DISABLED = `${BASE_CLASS}--disabled`
 export const CLASS_WITH_DESCRIPTION = `${BASE_CLASS}--withDescription`
+export const CLASS_WITH_DESCRIPTION_AND_ADDON = `${BASE_CLASS}--withDescriptionAndAddon`
 export const CLASS_HIGHLIGHTED = `is-highlighted`
 export const CLASS_HIGHLIGHTED_MARK = `${BASE_CLASS}-mark`
 export const CLASS_LEFT_ADDON = `${BASE_CLASS}-leftAddon`

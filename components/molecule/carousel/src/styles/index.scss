@@ -1,9 +1,9 @@
 $base-class: '.sui-MoleculeCarousel';
 
 #{$base-class} {
-  -webkit-tap-highlight-color: $c-transparent;
+  -webkit-tap-highlight-color: $wthc-molecule-carousel;
   backface-visibility: hidden;
-  background: $c-background;
+  background: $bgc-molecule-carousel;
   min-height: $mh;
   position: relative;
   user-select: none;

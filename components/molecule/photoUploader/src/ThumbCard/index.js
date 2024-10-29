@@ -12,6 +12,8 @@ import {
   THUMB_CARD_CLASS_NAME
 } from './config.js'
 
+import {DEFAULT_VIEW_TYPE, VIEW_TYPE} from './../config.js'
+
 const ThumbCard = ({
   iconSize = ATOM_ICON_SIZES.small,
   callbackDeleteItem,
@@ -19,18 +21,23 @@ const ThumbCard = ({
   callbackRotateItem,
   content: Content = () => null,
   deleteIcon,
+  dragIcon,
   index,
   image,
   mainPhotoLabel,
   outputImageAspectRatioDisabled,
   rejectPhotosIcon,
   retryIcon,
-  rotateIcon
+  rotateIcon,
+  viewType
 }) => {
   const hasErrors = image.hasErrors
 
+  const isDefaultView = viewType === DEFAULT_VIEW_TYPE
+  const isListtView = viewType === VIEW_TYPE.LIST
+
   const counterClass = cx(`${THUMB_CARD_CLASS_NAME}-counter`, {
-    [`${THUMB_CARD_CLASS_NAME}-mainCounter`]: index === 0
+    [`${THUMB_CARD_CLASS_NAME}-mainCounter`]: index === 0 && isDefaultView
   })
 
   const imageThumbClass = cx(IMAGE_THUMB_CARD_CLASS_NAME, {
@@ -39,14 +46,17 @@ const ThumbCard = ({
 
   return (
     <div className={THUMB_CARD_CLASS_NAME}>
-      <div className={counterClass}>{index === 0 ? mainPhotoLabel : index + 1}</div>
+      <div className={counterClass}>{index === 0 && isDefaultView ? mainPhotoLabel : index + 1}</div>
       <div className={CONTAINER_THUMB_CARD_CLASS_NAME}>
         {hasErrors ? (
           <div className={`${ICON_THUMB_CARD_CLASS_NAME}`}>
             <AtomIcon size={ATOM_ICON_SIZES.extraLarge}>{rejectPhotosIcon}</AtomIcon>
           </div>
         ) : (
-          <img src={image.preview} className={imageThumbClass} />
+          <>
+            {isListtView && <AtomIcon size={iconSize}>{dragIcon}</AtomIcon>}
+            <img src={image.preview} className={imageThumbClass} />
+          </>
         )}
       </div>
       <Content file={image} index={index} />
@@ -77,13 +87,15 @@ ThumbCard.propTypes = {
   callbackRotateItem: PropTypes.func,
   content: PropTypes.func,
   deleteIcon: PropTypes.node.isRequired,
+  dragIcon: PropTypes.node.isRequired,
   index: PropTypes.number,
   image: PropTypes.object.isRequired,
   mainPhotoLabel: PropTypes.string,
   outputImageAspectRatioDisabled: PropTypes.bool,
   rejectPhotosIcon: PropTypes.node.isRequired,
   retryIcon: PropTypes.node.isRequired,
-  rotateIcon: PropTypes.node.isRequired
+  rotateIcon: PropTypes.node.isRequired,
+  viewType: PropTypes.oneOf(Object.keys(VIEW_TYPE))
 }
 
 export default ThumbCard

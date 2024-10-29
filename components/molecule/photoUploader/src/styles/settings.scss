@@ -45,6 +45,7 @@ $p-photo-uploader-desktop: $p-xl !default;
 $p-photo-uploader: $p-m !default;
 $s-photo-uploader-thumb-icons: 16px !default;
 $w-photo-uploader-thumb-image-desktop: 160px !default;
+$w-photo-uploader-thumb-image-list: 60px !default;
 $w-photo-uploader-thumb-image: 100% !default;
 $p-photo-uploader-initial-state: 0 !default;
 
@@ -54,6 +55,7 @@ $bgc-photo-uploader-counter: $c-primary !default;
 $bdrs-photo-uploader-counter: $bdrs-rounded !default;
 $h-photo-uploader-thumb-image: ($w-photo-uploader-thumb-image * 3) * 0.25;
 $h-photo-uploader-thumb-image-desktop: ($w-photo-uploader-thumb-image-desktop * 3) * 0.25;
+$h-photo-uploader-thumb-image-list: ($w-photo-uploader-thumb-image-list * 3) * 0.25;
 $w-photo-uploader-skeleton: $w-photo-uploader-thumb-image;
 $w-photo-uploader-skeleton-desktop: $w-photo-uploader-thumb-image-desktop;
 $maw-photo-uploader-thumb-drag-text: 200px;

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.5.0 (2024-10-29)
+
+
+### Features
+
+* suggest use of new colour token variables ([17c8f7e](https://github.com/SUI-Components/sui-components/commit/17c8f7e90079af2b7d1436b79949bee4f4672681))
+
+
+
 # 1.4.0 (2023-01-26)
 
 
@@ -34,6 +43,3 @@
 ### Features
 
 * **components/molecule/carousel:** from react-slidy to molecule-carousel ([64b083c](https://github.com/SUI-Components/sui-components/commit/64b083c0f38b619dcd3bb03c63781d1a9b7d2bfb))
-
-
-

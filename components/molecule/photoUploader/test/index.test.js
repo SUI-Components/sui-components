@@ -24,12 +24,18 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['MoleculePhotoUploaderRotationDirection', 'MoleculePhotoUploaderActions', 'default']
+    const libraryExportedMembers = [
+      'MoleculePhotoUploaderRotationDirection',
+      'MoleculePhotoUploaderActions',
+      'MoleculePhotoUploaderViewType',
+      'default'
+    ]
 
     // When
     const {
       MoleculePhotoUploaderRotationDirection,
       MoleculePhotoUploaderActions,
+      MoleculePhotoUploaderViewType,
       default: MoleculePhotoUploader,
       ...others
     } = library

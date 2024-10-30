@@ -15,7 +15,8 @@ import {
   DEFAULT_NOTIFICATION_ERROR,
   ROTATION_DIRECTION,
   THUMB_CLASS_NAME,
-  THUMB_SORTABLE_CLASS_NAME
+  THUMB_SORTABLE_CLASS_NAME,
+  VIEW_TYPE
 } from '../config.js'
 import {callbackUploadPhotoHandler} from '../fileTools.js'
 import {base64ToBlob, cropAndRotateImage, formatToBase64} from '../photoTools.js'
@@ -33,6 +34,7 @@ const PhotosPreview = ({
   content,
   defaultFormatToBase64Options,
   deleteIcon,
+  dragIcon,
   dragDelay,
   errorInitialPhotoDownloadErrorText,
   files,
@@ -46,7 +48,8 @@ const PhotosPreview = ({
   setFiles,
   setIsLoading,
   setNotificationError,
-  thumbIconSize
+  thumbIconSize,
+  viewType
 }) => {
   const _onSortEnd = event => {
     _callbackPhotosUploaded(files, {action: ACTIONS.SORT, data: event})
@@ -169,9 +172,11 @@ const PhotosPreview = ({
               content={content}
               rotateIcon={rotateIcon()}
               deleteIcon={deleteIcon()}
+              dragIcon={dragIcon()}
               retryIcon={retryIcon()}
               rejectPhotosIcon={rejectPhotosIcon()}
               outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
+              viewType={viewType}
             />
           )}
         </li>
@@ -218,6 +223,7 @@ PhotosPreview.propTypes = {
   content: PropTypes.func,
   defaultFormatToBase64Options: PropTypes.object.isRequired,
   deleteIcon: PropTypes.node.isRequired,
+  dragIcon: PropTypes.node,
   dragDelay: PropTypes.number.isRequired,
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
@@ -231,7 +237,8 @@ PhotosPreview.propTypes = {
   setFiles: PropTypes.func.isRequired,
   setIsLoading: PropTypes.func.isRequired,
   setNotificationError: PropTypes.func.isRequired,
-  thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES))
+  thumbIconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
+  viewType: PropTypes.oneOf(Object.keys(VIEW_TYPE))
 }
 
 export default PhotosPreview

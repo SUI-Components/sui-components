@@ -47,3 +47,10 @@ export const ACTIONS = {
   RETRY_UPLOAD: 'RETRY_UPLOAD',
   INITIAL_LOAD: 'INITIAL_LOAD'
 }
+
+export const VIEW_TYPE = {
+  GRID: 'grid',
+  LIST: 'list'
+}
+
+export const DEFAULT_VIEW_TYPE = VIEW_TYPE.GRID

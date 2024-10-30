@@ -27,7 +27,9 @@ import {
   DRAG_STATE_STATUS_REJECTED,
   DROPZONE_CLASS_NAME,
   REJECT_FILES_REASONS,
-  ROTATION_DIRECTION
+  ROTATION_DIRECTION,
+  VIEW_TYPE,
+  DEFAULT_VIEW_TYPE
 } from './config.js'
 import {filterValidFiles, loadInitialPhotos, prepareFiles} from './fileTools.js'
 
@@ -51,6 +53,7 @@ const MoleculePhotoUploader = forwardRef(
       callbackUploadPhoto,
       content,
       deleteIcon,
+      dragIcon,
       disableScrollToBottom = false,
       dragDelay = DEFAULT_DRAG_DELAY_TIME,
       dragPhotoDividerTextInitialContent,
@@ -85,7 +88,8 @@ const MoleculePhotoUploader = forwardRef(
       rotationDirection = ROTATION_DIRECTION.counterclockwise,
       thumbIconSize,
       uploadingPhotosText,
-      isClickable = true
+      isClickable = true,
+      viewType = DEFAULT_VIEW_TYPE
     },
     forwardedRef
   ) => {
@@ -235,6 +239,10 @@ const MoleculePhotoUploader = forwardRef(
 
     const inputRef = useMergeRefs(dropzoneInputRef, forwardedRef)
 
+    const mainClassName = cx(BASE_CLASS_NAME, {
+      [`${BASE_CLASS_NAME}--${viewType}`]: viewType !== DEFAULT_VIEW_TYPE
+    })
+
     const dropzoneClassName = cx(DROPZONE_CLASS_NAME, {
       [`${DROPZONE_CLASS_NAME}--disabled`]: isPhotoUploaderFully(),
       [`${DROPZONE_CLASS_NAME}--empty`]: isPhotoUploaderEmpty
@@ -260,7 +268,7 @@ const MoleculePhotoUploader = forwardRef(
 
     return (
       <>
-        <div className={BASE_CLASS_NAME}>
+        <div className={mainClassName}>
           <div {...getRootProps({className: dropzoneClassName})}>
             <input {...getInputProps()} ref={inputRef} />
             {isPhotoUploaderEmpty && !isDragActive && (
@@ -288,6 +296,7 @@ const MoleculePhotoUploader = forwardRef(
                 content={content}
                 defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
                 deleteIcon={deleteIcon}
+                dragIcon={dragIcon}
                 dragDelay={dragDelay}
                 errorInitialPhotoDownloadErrorText={errorInitialPhotoDownloadErrorText}
                 files={files}
@@ -302,6 +311,7 @@ const MoleculePhotoUploader = forwardRef(
                 setIsLoading={setIsLoading}
                 setNotificationError={setNotificationError}
                 thumbIconSize={thumbIconSize}
+                viewType={viewType}
               />
             )}
             {isDragAccept && !isPhotoUploaderFully() && !isLoading && (
@@ -393,6 +403,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Icon placed in the button that deletes image */
   deleteIcon: PropTypes.func.isRequired,
+
+  /** Icon placed for draggable help in viewtype list */
+  dragIcon: PropTypes.func,
 
   /** A boolean to disable that the component scroll to bottom everytime the user add a photo or there's an error */
   disableScrollToBottom: PropTypes.bool,
@@ -526,9 +539,16 @@ MoleculePhotoUploader.propTypes = {
   onSortPhotoStart: PropTypes.func,
 
   /** A boolean to enable click in dropzone area */
-  isClickable: PropTypes.bool
+  isClickable: PropTypes.bool,
+
+  /** View types of the component */
+  viewType: PropTypes.oneOf(Object.values(VIEW_TYPE))
 }
 
 export default MoleculePhotoUploader
 
-export {ROTATION_DIRECTION as MoleculePhotoUploaderRotationDirection, ACTIONS as MoleculePhotoUploaderActions}
+export {
+  ROTATION_DIRECTION as MoleculePhotoUploaderRotationDirection,
+  ACTIONS as MoleculePhotoUploaderActions,
+  VIEW_TYPE as MoleculePhotoUploaderViewType
+}

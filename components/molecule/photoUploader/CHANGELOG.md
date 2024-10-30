@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.30.0 (2024-10-30)
+
+
+### Features
+
+* add new view type list to photouploader ([8b7b167](https://github.com/SUI-Components/sui-components/commit/8b7b1677498ef0c12cf6284862c27ff62c04e136))
+
+
+
 # 2.29.0 (2024-10-17)
 
 

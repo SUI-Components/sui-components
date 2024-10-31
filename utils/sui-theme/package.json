@@ -1,0 +1,19 @@
+{
+  "name": "@s-ui/theme",
+  "version": "8.127.0",
+  "description": "Generic theme to add styles to all SUI components",
+  "main": "lib/index.scss",
+  "scripts": {
+    "lib": "rm -rf ./lib && cp -R src lib",
+    "prepublishOnly": "npm run lib"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SUI-Components/sui-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues"
+  },
+  "homepage": "https://github.com/SUI-Components/sui-components/tree/master/utils/sui-component-dependencies#readme"
+}

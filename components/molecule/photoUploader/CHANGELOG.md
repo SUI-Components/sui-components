@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.31.0 (2024-11-04)
+
+
+### Features
+
+* add default func to new property: dragIcon ([b3c6e1f](https://github.com/SUI-Components/sui-components/commit/b3c6e1f067178b11d891fdfe99f29ad2462ec860))
+
+
+
 # 2.30.0 (2024-10-30)
 
 

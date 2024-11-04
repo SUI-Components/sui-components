@@ -53,7 +53,7 @@ const MoleculePhotoUploader = forwardRef(
       callbackUploadPhoto,
       content,
       deleteIcon,
-      dragIcon,
+      dragIcon = noop,
       disableScrollToBottom = false,
       dragDelay = DEFAULT_DRAG_DELAY_TIME,
       dragPhotoDividerTextInitialContent,

@@ -2,6 +2,10 @@
   "name": "@s-ui/react-atom-video-player",
   "version": "1.33.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["@s-ui", "react", "component", "atom", "videoPlayer"],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -11,15 +15,23 @@
   "peerDependencies": {
     "@s-ui/theme": "8"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SUI-Components/sui-components"
-  },
   "dependencies": {
     "@vimeo/player": "2.21.0",
     "hls.js": "0.14.17"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/atom/videoPlayer"
+  },
+  "config": {
+    "title": "videoPlayer",
+    "category": "atom",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+videoPlayer%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

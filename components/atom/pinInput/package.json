@@ -2,6 +2,10 @@
   "name": "@s-ui/react-atom-pin-input",
   "version": "1.11.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["@s-ui", "react", "component", "atom", "pinInput"],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -11,15 +15,23 @@
   "peerDependencies": {
     "@s-ui/theme": "8"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SUI-Components/sui-components"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@s-ui/js": "2",
     "@s-ui/react-hooks": "1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/atom/pinInput"
+  },
+  "config": {
+    "title": "pinInput",
+    "category": "atom",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+pinInput%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
+  "license": "MIT"
 }

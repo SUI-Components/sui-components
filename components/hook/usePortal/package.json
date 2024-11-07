@@ -2,6 +2,10 @@
   "name": "@s-ui/react-hook-use-portal",
   "version": "1.3.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["@s-ui", "react", "hook", "usePortal"],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -13,11 +17,19 @@
     "classnames": "2.5.1",
     "@s-ui/react-hooks": "1"
   },
-  "keywords": [
-    "react",
-    "hook",
-    "portal"
-  ],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/hook/usePortal"
+  },
+  "config": {
+    "title": "usePortal",
+    "category": "hook",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+usePortal%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

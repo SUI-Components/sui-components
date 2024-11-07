@@ -2,6 +2,16 @@
   "name": "@s-ui/react-molecule-drawer",
   "version": "4.10.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "molecule",
+    "drawer"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -11,10 +21,22 @@
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@s-ui/react-hooks": "1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/molecule/drawer"
+  },
+  "config": {
+    "title": "drawer",
+    "category": "molecule",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+drawer%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
+  "license": "MIT"
 }

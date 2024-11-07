@@ -2,18 +2,39 @@
   "name": "@s-ui/theme",
   "version": "8.127.0",
   "description": "Generic theme to add styles to all SUI components",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "theme",
+    "styles",
+    "css",
+    "scss",
+    "sass",
+    "less",
+    "postcss",
+    "tailwind",
+    "design",
+    "system",
+    "ui",
+    "components"
+  ],
   "main": "lib/index.scss",
   "scripts": {
     "lib": "rm -rf ./lib && cp -R src lib",
     "prepublishOnly": "npm run lib"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SUI-Components/sui-components.git"
   },
-  "bugs": {
-    "url": "https://github.com/SUI-Components/sui-components/issues"
+  "config": {
+    "title": "theme",
+    "type": "utils"
   },
-  "homepage": "https://github.com/SUI-Components/sui-components/tree/master/utils/sui-component-dependencies#readme"
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Util%3A+theme%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
+  "license": "MIT"
 }

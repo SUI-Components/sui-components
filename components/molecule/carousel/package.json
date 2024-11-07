@@ -2,6 +2,16 @@
   "name": "@s-ui/react-molecule-carousel",
   "version": "1.5.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "molecule",
+    "carousel"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -19,9 +29,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SUI-Components/sui-components"
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/molecule/carousel"
   },
-  "keywords": [],
-  "author": "",
+  "config": {
+    "title": "carousel",
+    "category": "molecule",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+carousel%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

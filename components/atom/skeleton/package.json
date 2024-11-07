@@ -1,7 +1,11 @@
 {
   "name": "@s-ui/react-atom-skeleton",
   "version": "1.6.0",
-  "description": "Display the loading state of a component while avoding layout shift",
+  "description": "Display the loading state of a component while avoiding layout shift",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["@s-ui", "react", "component", "atom", "skeleton"],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -11,7 +15,19 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/atom/skeleton"
+  },
+  "config": {
+    "title": "skeleton",
+    "category": "atom",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+skeleton%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

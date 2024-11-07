@@ -2,24 +2,40 @@
   "name": "@s-ui/react-molecule-breadcrumb",
   "version": "1.28.0",
   "description": "SUI Breadcrumb Basic",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "molecule",
+    "breadcrumb"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
-  "keywords": [],
-  "contributors": [
-    {
-      "name": "Joan Claret",
-      "email": "joan.claret@scmspain.com",
-      "url": "https://github.schibsted.io/joan-claret"
-    }
-  ],
-  "license": "ISC",
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-icons": "1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/molecule/breadcrumb"
+  },
+  "config": {
+    "title": "breadcrumb",
+    "category": "molecule",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+breadcrumb%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
+  "license": "MIT"
 }

@@ -3,6 +3,16 @@
   "version": "3.11.0",
   "description": "",
   "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "upload"
+  ],
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
@@ -16,7 +26,19 @@
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/atom/upload"
+  },
+  "config": {
+    "title": "upload",
+    "category": "atom",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+upload%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

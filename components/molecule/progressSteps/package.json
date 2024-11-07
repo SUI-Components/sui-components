@@ -2,6 +2,16 @@
   "name": "@s-ui/react-molecule-progress-steps",
   "version": "2.12.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "molecule",
+    "progressSteps"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -12,7 +22,19 @@
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-molecule-stepper": "2"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/molecule/progressSteps"
+  },
+  "config": {
+    "title": "progressSteps",
+    "category": "molecule",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+progressSteps%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

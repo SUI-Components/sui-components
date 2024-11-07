@@ -2,6 +2,16 @@
   "name": "@s-ui/react-molecule-pagination",
   "version": "2.20.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "molecule",
+    "pagination"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -15,7 +25,19 @@
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/molecule/pagination"
+  },
+  "config": {
+    "title": "pagination",
+    "category": "molecule",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+pagination%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

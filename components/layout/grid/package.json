@@ -2,6 +2,10 @@
   "name": "@s-ui/react-layout-grid",
   "version": "2.15.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["@s-ui", "react", "component", "layout", "grid"],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -13,7 +17,19 @@
     "@s-ui/react-primitive-injector": "1",
     "@s-ui/react-primitive-polymorphic-element": "1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/layout/grid"
+  },
+  "config": {
+    "title": "grid",
+    "category": "layout",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+grid%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

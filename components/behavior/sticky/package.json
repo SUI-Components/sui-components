@@ -2,6 +2,10 @@
   "name": "@s-ui/react-behavior-sticky",
   "version": "1.11.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["@s-ui", "react", "component", "behavior", "sticky"],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -14,7 +18,19 @@
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/behavior/sticky"
+  },
+  "config": {
+    "title": "sticky",
+    "category": "behavior",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+sticky%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

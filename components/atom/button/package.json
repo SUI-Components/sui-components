@@ -2,6 +2,16 @@
   "name": "@s-ui/react-atom-button",
   "version": "1.96.0",
   "description": "Atom Element: SUI button",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "button"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -12,6 +22,19 @@
     "@s-ui/component-dependencies": "latest",
     "@s-ui/react-primitive-loading-icon": "1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/atom/button"
+  },
+  "config": {
+    "title": "button",
+    "category": "atom",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+button%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"
 }

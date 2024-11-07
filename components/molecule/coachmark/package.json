@@ -2,6 +2,16 @@
   "name": "@s-ui/react-molecule-coachmark",
   "version": "0.9.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "molecule",
+    "coachmark"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -11,18 +21,26 @@
   "peerDependencies": {
     "@s-ui/theme": "8"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SUI-Components/sui-components"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@s-ui/react-atom-badge": "1",
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-atom-image": "2",
     "react-joyride": "2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/molecule/coachmark"
+  },
+  "config": {
+    "title": "coachmark",
+    "category": "molecule",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+coachmark%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
+  "license": "MIT"
 }

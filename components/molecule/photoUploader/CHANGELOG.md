@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.32.0 (2024-11-11)
+
+
+### Features
+
+* add new prop onSortPhotoEnd to photoUploader ([778020e](https://github.com/SUI-Components/sui-components/commit/778020e717e536cc4cd5e0072ad0e02c66aae743))
+
+
+
 # 2.31.0 (2024-11-04)
 
 

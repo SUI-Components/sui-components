@@ -27,6 +27,7 @@ import {PREVIEW_CARD_CLASS_NAME} from './config.js'
 const PhotosPreview = ({
   _callbackPhotosUploaded,
   _onSortPhotoStart,
+  _onSortPhotoEnd,
   _scrollToBottom,
   addMorePhotosIcon,
   addPhotoTextSkeleton,
@@ -53,6 +54,7 @@ const PhotosPreview = ({
 }) => {
   const _onSortEnd = event => {
     _callbackPhotosUploaded(files, {action: ACTIONS.SORT, data: event})
+    _onSortPhotoEnd(event)
   }
 
   const _onSortStart = event => {
@@ -216,6 +218,7 @@ PhotosPreview.displayName = 'PhotosPreview'
 PhotosPreview.propTypes = {
   _callbackPhotosUploaded: PropTypes.func.isRequired,
   _onSortPhotoStart: PropTypes.func.isRequired,
+  _onSortPhotoEnd: PropTypes.func.isRequired,
   _scrollToBottom: PropTypes.func.isRequired,
   addMorePhotosIcon: PropTypes.node.isRequired,
   addPhotoTextSkeleton: PropTypes.string.isRequired,

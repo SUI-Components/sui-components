@@ -80,6 +80,7 @@ const MoleculePhotoUploader = forwardRef(
       onFileDialogOpen = noop,
       onEmptyViewClick = noop,
       onSortPhotoStart = noop,
+      onSortPhotoEnd = noop,
       outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
       outputImageAspectRatioDisabled = false,
       rejectPhotosIcon,
@@ -266,6 +267,10 @@ const MoleculePhotoUploader = forwardRef(
       onSortPhotoStart()
     }
 
+    const _onSortPhotoEnd = () => {
+      onSortPhotoEnd()
+    }
+
     return (
       <>
         <div className={mainClassName}>
@@ -287,6 +292,7 @@ const MoleculePhotoUploader = forwardRef(
             )}
             {!isPhotoUploaderEmpty && (
               <PhotosPreview
+                _onSortPhotoEnd={_onSortPhotoEnd}
                 _onSortPhotoStart={_onSortPhotoStart}
                 _callbackPhotosUploaded={_callbackPhotosUploaded}
                 _scrollToBottom={_scrollToBottom}
@@ -537,6 +543,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Func to be executed when photo is being sorted */
   onSortPhotoStart: PropTypes.func,
+
+  /** Func to be executed when photo is sorted */
+  onSortPhotoEnd: PropTypes.func,
 
   /** A boolean to enable click in dropzone area */
   isClickable: PropTypes.bool,

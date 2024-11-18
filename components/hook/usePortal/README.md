@@ -2,6 +2,13 @@
 
 > Provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. ([doc](https://reactjs.org/docs/portals.html))
 
+[![documentation](https://img.shields.io/badge/read%20the%20doc-black?logo=readthedocs)](https://sui-components.vercel.app/workbench/hook/usePortal/)
+[![issue](https://img.shields.io/badge/report%20a%20bug-black?logo=openbugbounty&logoColor=red)](https://github.com/SUI-Components/sui-components/issues/new?&projects=4&template=bug-report.yml&assignees=&template=report-a-bug.yml&title=🪲+&labels=bug,component,hook,usePortal)
+[![npm](https://img.shields.io/npm/dt/%40s-ui/react-hook-use-portal?logo=npm&labelColor=black)](https://www.npmjs.com/package/@s-ui/react-hook-use-portal)
+
+[![Issues open](https://img.shields.io/github/issues-search/SUI-Components/sui-components?query=is%3Aopen%20label%3Ahook%20label%3AusePortal&logo=openbugbounty&logoColor=red&label=issues%20open&color=red)](https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3Ahook+label%3AusePortal)
+[![NPM](https://img.shields.io/npm/l/%40s-ui%2Freact-hook-use-portal)](https://github.com/SUI-Components/sui-components/blob/main/components/hook/usePortal/LICENSE.md)
+
 ## Installation
 
 ```sh

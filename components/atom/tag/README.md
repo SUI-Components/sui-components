@@ -4,6 +4,13 @@
 
 We use tags to visually emphasise features of the UI and make recognition and interaction easier.
 
+[![documentation](https://img.shields.io/badge/read%20the%20doc-black?logo=readthedocs)](https://sui-components.vercel.app/workbench/atom/tag/)
+[![issue](https://img.shields.io/badge/report%20a%20bug-black?logo=openbugbounty&logoColor=red)](https://github.com/SUI-Components/sui-components/issues/new?&projects=4&template=bug-report.yml&assignees=&template=report-a-bug.yml&title=🪲+&labels=bug,component,atom,tag)
+[![npm](https://img.shields.io/npm/dt/%40s-ui/react-atom-tag?logo=npm&labelColor=black)](https://www.npmjs.com/package/@s-ui/react-atom-tag)
+
+[![Issues open](https://img.shields.io/github/issues-search/SUI-Components/sui-components?query=is%3Aopen%20label%3Acomponent%20label%3Atag&logo=openbugbounty&logoColor=red&label=issues%20open&color=red)](https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3Acomponent+label%3Atag)
+[![NPM](https://img.shields.io/npm/l/%40s-ui%2Freact-atom-tag)](https://github.com/SUI-Components/sui-components/blob/main/components/tag/table/LICENSE.md)
+
 ## Installation
 
 ```sh

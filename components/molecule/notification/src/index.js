@@ -161,7 +161,7 @@ MoleculeNotification.propTypes = {
   buttons: PropTypes.array,
 
   /** Notification content */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 
   /** Transition enabled */
   effect: PropTypes.bool,

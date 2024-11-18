@@ -2,6 +2,12 @@
 
 AtomImage is a component that loads an image inside, maintaining all the accesibility attributes. This component can be set to show a placeholder image, a skeleton and/or a spinner while the final image is being loaded. This component will also show an Error Box if the image could't be loaded
 
+[![documentation](https://img.shields.io/badge/read%20the%20doc-black?logo=readthedocs)](https://sui-components.vercel.app/workbench/atom/image/)
+[![issue](https://img.shields.io/badge/report%20a%20bug-black?logo=openbugbounty&logoColor=red)](https://github.com/SUI-Components/sui-components/issues/new?&projects=4&template=bug-report.yml&assignees=&template=report-a-bug.yml&title=🪲+&labels=bug,component,atom,image)
+[![npm](https://img.shields.io/npm/dt/%40s-ui/react-atom-image?logo=npm&labelColor=black)](https://www.npmjs.com/package/@s-ui/react-atom-image)
+
+[![Issues open](https://img.shields.io/github/issues-search/SUI-Components/sui-components?query=is%3Aopen%20label%3Acomponent%20label%3Aimage&logo=openbugbounty&logoColor=red&label=issues%20open&color=red)](https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3Acomponent+label%3Aimage)
+[![NPM](https://img.shields.io/npm/l/%40s-ui%2Freact-atom-image)](https://github.com/SUI-Components/sui-components/blob/main/components/atom/image/LICENSE.md)
 
 ## Installation
 

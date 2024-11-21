@@ -17,7 +17,7 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
     &-search-container {
       position: absolute;
       width: 100%;
-      z-index: 800;
+      z-index: $z-navigation;
     }
     &-search {
       border-radius: $bdrs-molecule-select-search;

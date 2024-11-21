@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import AtomInput, {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
+import {CLASS_SEARCH_CONTAINER} from './config.js'
 
 import {
   useDropdown,
@@ -73,16 +74,18 @@ const MoleculeSelectSingleSelection = ({
       >
         <AtomInput inputMode={inputTypes.NONE} />
       </MoleculeInputSelect>
-      {hasSearch && <Search />}
-      <MoleculeDropdownList
-        size={size}
-        visible={isOpen}
-        onSelect={handleSelection}
-        value={value}
-        onKeyDown={handleKeyDown}
-      >
-        {children}
-      </MoleculeDropdownList>
+      <div className={CLASS_SEARCH_CONTAINER}>
+        {hasSearch && <Search />}
+        <MoleculeDropdownList
+          size={size}
+          visible={isOpen}
+          onSelect={handleSelection}
+          value={value}
+          onKeyDown={handleKeyDown}
+        >
+          {children}
+        </MoleculeDropdownList>
+      </div>
     </>
   )
 }

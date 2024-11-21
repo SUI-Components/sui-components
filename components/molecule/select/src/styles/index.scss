@@ -14,6 +14,11 @@ $class-select-atom-input-tags: '#{$class-select-atom-input}--withTags';
   }
 
   &-inputSelect {
+    &-search-container {
+      position: absolute;
+      width: 100%;
+      z-index: 800;
+    }
     &-search {
       border-radius: $bdrs-molecule-select-search;
       border: $bd-molecule-select-search;

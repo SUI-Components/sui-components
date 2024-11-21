@@ -5,6 +5,8 @@ import ArticleDesign from './articles/ArticleDesign.js'
 import ArticleIcons from './articles/ArticleIcons.js'
 import ArticleIsFitted from './articles/ArticleIsFitted.js'
 import ArticleSize from './articles/ArticleSize.js'
+import ArticleTagGroup1 from './articles/ArticleTagGroup1.js'
+import ArticleTagGroup2 from './articles/ArticleTagGroup2.js'
 import ArticleTypes from './articles/ArticleTypes.js'
 import ArticleResponsive from './articles/ArticleResponsive.js'
 import {CLASS_SECTION, closeIcon, icon} from './settings.js'
@@ -32,5 +34,9 @@ export default () => (
     <ArticleResponsive className={CLASS_SECTION} icon={icon} closeIcon={closeIcon} />
     <br />
     <ArticleIsFitted className={CLASS_SECTION} icon={icon} />
+    <br />
+    <ArticleTagGroup1 className={CLASS_SECTION} />
+    <br />
+    <ArticleTagGroup2 className={CLASS_SECTION} />
   </div>
 )

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.74.0 (2024-11-22)
+
+
+### Features
+
+* correct z-index ([f60d3eb](https://github.com/SUI-Components/sui-components/commit/f60d3eb00d6da79d7d1c00afddad593100f25db6))
+* fx position of select with search ([f1806dd](https://github.com/SUI-Components/sui-components/commit/f1806dd2fb9676e16972055bf05b45fff534300d))
+
+
+
 # 1.73.0 (2024-06-13)
 
 

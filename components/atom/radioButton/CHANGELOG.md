@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2024-11-28)
+
+
+### Features
+
+* add focus-visible ([8db094c](https://github.com/SUI-Components/sui-components/commit/8db094cbd9ab25d742536b1a017a377817edf058))
+
+
+
 # 1.11.0 (2023-03-22)
 
 
@@ -99,6 +108,3 @@
 * **atom/radioButton:** review code after PR review ([2adf782](https://github.com/SUI-Components/sui-components/commit/2adf7821d354a0297481426d05f7beb62e9de600))
 * **atom/radioButton:** styles ([ccb820f](https://github.com/SUI-Components/sui-components/commit/ccb820fcc90b90c3cb6de4b075c6d696f4c28c73))
 * **atom/radioButton:** value change ([e659004](https://github.com/SUI-Components/sui-components/commit/e65900439619c1e29ec8dc5c34d2af6f1d155db1))
-
-
-

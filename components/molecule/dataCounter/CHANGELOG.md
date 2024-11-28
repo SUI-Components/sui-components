@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.18.0 (2024-11-28)
+
+
+### Features
+
+* Allow input to be edited ([79a571e](https://github.com/SUI-Components/sui-components/commit/79a571edd16ec4af8a345c6b94d464e9a1173f46))
+
+
+
 # 1.17.0 (2022-11-29)
 
 
@@ -189,6 +198,3 @@
 * **molecule/dataCounter:** rEADME & demo ([6228ebb](https://github.com/SUI-Components/sui-components/commit/6228ebb513763dcef2ffd3b26532c7c911bd9267))
 * **molecule/dataCounter:** two digits entered by keyboard ([2100ef7](https://github.com/SUI-Components/sui-components/commit/2100ef7fac96d506ab2b5d246d503e2d28d57150))
 * **molecule/dataCounter:** variable name for button type ([59f618a](https://github.com/SUI-Components/sui-components/commit/59f618a0f57c2e3719f4804b6c0c656bbf693efd))
-
-
-

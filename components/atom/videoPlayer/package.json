@@ -16,7 +16,7 @@
     "@s-ui/theme": "8"
   },
   "dependencies": {
-    "@vimeo/player": "2.21.0",
+    "@vimeo/player": "2.25.0",
     "hls.js": "0.14.17"
   },
   "repository": {

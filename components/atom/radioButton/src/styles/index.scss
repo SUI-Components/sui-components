@@ -31,4 +31,8 @@ $base-class: '.sui-AtomRadioButton';
     border-color: $bc-atom-radiobutton-disabled;
     cursor: not-allowed;
   }
+
+  &:focus-visible {
+    outline: 2px solid transparentize($c-primary, 0.6);
+  }
 }

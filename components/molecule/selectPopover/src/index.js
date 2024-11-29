@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 
 import usePortal from '@s-ui/react-hook-use-portal'
 
+import SelectIcon from './components/SelectIcon.js'
 import {BASE_CLASS, getPlacement, OVERLAY_TYPES, PLACEMENTS, SHAPES, SIZES} from './config.js'
 import RenderActions from './RenderActions.js'
-import SelectIcon from './components/SelectIcon.js'
 
 function usePrevious(value) {
   const ref = useRef()

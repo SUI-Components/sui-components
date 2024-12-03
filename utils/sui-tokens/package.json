@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/tokens",
-  "version": "0.0.0",
+  "version": "0.0.0-beta.1",
   "description": "Tool for manipulate @s-ui tokens.",
   "publishConfig": {
     "access": "public"
@@ -9,7 +9,9 @@
     "node": ">=20.0.0"
   },
   "bin": {
-    "sui-tokens": "bin/sui-tokens"
+    ".": "./bin/tokens.mjs",
+    "tokens": "bin/sui-tokens.mjs",
+    "tokens-scss": "bin/sui-tokens-scss.mjs"
   },
   "keywords": [
     "tokens",

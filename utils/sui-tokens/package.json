@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/tokens",
-  "version": "0.0.0-beta.1",
+  "version": "0.0.0-beta.2",
   "description": "Tool for manipulate @s-ui tokens.",
   "publishConfig": {
     "access": "public"
@@ -13,11 +13,13 @@
     "tokens": "bin/sui-tokens.mjs",
     "tokens-scss": "bin/sui-tokens-scss.mjs"
   },
+  "type": "module",
   "keywords": [
     "tokens",
     "sui"
   ],
   "devDependencies": {
+    "@s-ui/tokens": "*",
     "chalk": "4.1.2",
     "change-case": "5.4.4",
     "chroma-js": "2.6.0",

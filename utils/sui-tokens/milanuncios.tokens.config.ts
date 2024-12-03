@@ -4,7 +4,7 @@ import {type Theme, type ThemePrimitive} from './src/types'
 
 const theme: Theme = {
   primitive: {
-    size: '16px',
+    fontSize: '16px',
     color: {
       hero: {
         50: '#F2FCF7',

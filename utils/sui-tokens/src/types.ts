@@ -21,10 +21,20 @@ export interface ColorType {
 export type Base = string
 
 export interface ThemePrimitive {
+  prefix: string
+  fontSize: string
+  fontFamily: {
+    [key: string]: string[]
+  }
   color: ColorPrimitives
   colorSpace: 'hex' | 'rgb'
   opacity: OpacityPrimitive
-  size: string
+  size: {
+    [key: string]: string
+  }
+  elevation: {
+    [key: string]: number
+  }
 }
 
 export type propertySyntax =
@@ -202,6 +212,22 @@ export interface SemanticShape {
       x: string
       instagram: string
     }
+  }
+  font: {
+    size: {
+      [key: string]: string
+    }
+    family: {
+      [key: string]: string
+    }
+  }
+  spacing: {
+    size: {
+      [key: string]: string
+    }
+  }
+  elevation: {
+    [key: string]: number
   }
 }
 

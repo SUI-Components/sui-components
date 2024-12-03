@@ -2,5 +2,6 @@
   "extends": "@s-ui/bundler/tsconfig.json",
   "compilerOptions": {
     "rootDir": "./"
-  }
+  },
+  "include": ["src", "domain", "components"]
 }

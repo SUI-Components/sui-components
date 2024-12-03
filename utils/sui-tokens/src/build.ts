@@ -27,6 +27,7 @@ export function build(tokensConfig?: Theme) {
     const colorSpace = primitive?.colorSpace
     const colorTx = colorFn(colorSpace)
     return {
+      prefix: primitive.prefix,
       color: Object.entries(primitive.color).reduce((acc, [key, value]) => {
         if (typeof value === 'string' && colorParser.safeParse(value).success) {
           acc[key] = colorTx(value)
@@ -40,7 +41,10 @@ export function build(tokensConfig?: Theme) {
       }, {}),
       colorSpace: primitive.colorSpace,
       opacity: primitive.opacity,
-      size: primitive.size
+      fontsize: primitive.fontSize,
+      fontFamily: primitive.fontFamily,
+      size: primitive.size,
+      elevation: primitive.elevation
     }
   }
 

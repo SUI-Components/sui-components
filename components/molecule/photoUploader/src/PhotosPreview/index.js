@@ -1,3 +1,4 @@
+import {flushSync} from 'react-dom'
 import {ReactSortable} from 'react-sortablejs'
 
 import cx from 'classnames'
@@ -198,7 +199,13 @@ const PhotosPreview = ({
       chosenClass={`${THUMB_CLASS_NAME}--chosen`}
       tag="ul"
       list={files}
-      setList={setFiles}
+      setList={(newList, sortable) => {
+        if (sortable) {
+          flushSync(() => setFiles(newList))
+        } else {
+          setFiles(newList)
+        }
+      }}
       animation={200}
       draggable={`.${THUMB_SORTABLE_CLASS_NAME}`}
       onStart={event => _onSortStart(event)}

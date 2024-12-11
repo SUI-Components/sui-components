@@ -41,7 +41,7 @@ export function build(tokensConfig?: Theme) {
       }, {}),
       colorSpace: primitive.colorSpace,
       opacity: primitive.opacity,
-      fontsize: primitive.fontSize,
+      fontSize: primitive.fontSize,
       fontFamily: primitive.fontFamily,
       size: primitive.size,
       elevation: primitive.elevation
@@ -52,11 +52,16 @@ export function build(tokensConfig?: Theme) {
     tokensConfig?.primitive != null
       ? deepmerge(defaultTokensConfig.primitive, tokensConfig.primitive)
       : defaultTokensConfig.primitive
-  const primitive = buildPrimitive(protoPrimitive)
 
+  console.log('protoPrimitive', protoPrimitive)
+  const primitive = buildPrimitive(protoPrimitive)
+  console.log('primitive', primitive)
   const semantic =
     tokensConfig?.semantic != null
-      ? deepmerge(defaultTokensConfig.semantic(defaultTokensConfig.primitive), tokensConfig.semantic(primitive))
+      ? deepmerge(
+          defaultTokensConfig.semantic(buildPrimitive(defaultTokensConfig.primitive)),
+          tokensConfig.semantic(primitive)
+        )
       : defaultTokensConfig.semantic(primitive)
 
   return {

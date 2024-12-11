@@ -108,6 +108,18 @@ const theme: Theme = {
       base: {
         bright: '#FFFFFF',
         gloom: '#000000'
+      },
+      tin: {
+        50: '#fafafa',
+        100: '#f7f7f7',
+        200: '#e8e8e8',
+        300: '#d8d8d8',
+        400: '#b8b8b8',
+        500: '#919191',
+        600: '#818181',
+        700: '#626262',
+        800: '#494949',
+        900: '#3a3a3a'
       }
     },
     colorSpace: 'rgb',
@@ -203,212 +215,235 @@ const theme: Theme = {
       tooltip: 1800
     }
   },
-  semantic: ({color, opacity, elevation, size, fontSize, fontFamily}: ThemePrimitive) => ({
-    color: {
-      brand: {
-        main: color.hero[500],
-        mainHovered: color.hero[400],
-        mainPressed: color.hero[400],
-        mainFocused: color.hero[400],
-        mainDisabled: chroma(color.hero[400]).alpha(opacity.dim3).css('rgb'),
-        onMain: color.base.bright,
+  semantic: ({color, opacity, elevation, size, fontSize, fontFamily}: ThemePrimitive) => {
+    return {
+      color: {
+        brand: {
+          main: color.hero[500],
+          mainHovered: color.hero[400],
+          mainPressed: color.hero[400],
+          mainFocused: color.hero[400],
+          mainDisabled: chroma(color.hero[400]).alpha(opacity.dim3).css('rgb'),
+          onMain: color.base.bright,
 
-        mainContainer: color.hero[50],
-        mainContainerHovered: color.hero[100],
-        mainContainerFocused: color.hero[100],
-        mainContainerPressed: color.hero[100],
-        mainContainerDisabled: chroma(color.hero[50]).alpha(opacity.dim3).css('rgb'),
-        onMainContainer: color.hero[700],
+          mainContainer: color.hero[50],
+          mainContainerHovered: color.hero[100],
+          mainContainerFocused: color.hero[100],
+          mainContainerPressed: color.hero[100],
+          mainContainerDisabled: chroma(color.hero[50]).alpha(opacity.dim3).css('rgb'),
+          onMainContainer: color.hero[700],
 
-        mainVariant: color.hero[700],
-        mainVariantHovered: color.hero[600],
-        mainVariantFocused: color.hero[600],
-        mainVariantPressed: color.hero[600],
-        mainVariantDisabled: chroma(color.hero[600]).alpha(opacity.dim3).css('rgb'),
-        onMainVariant: color.base.bright,
+          mainVariant: color.hero[700],
+          mainVariantHovered: color.hero[600],
+          mainVariantFocused: color.hero[600],
+          mainVariantPressed: color.hero[600],
+          mainVariantDisabled: chroma(color.hero[600]).alpha(opacity.dim3).css('rgb'),
+          onMainVariant: color.base.bright,
 
-        accent: color.triforce[500],
-        accentHovered: color.triforce[400],
-        accentPressed: color.triforce[400],
-        accentFocused: color.triforce[400],
-        accentDisabled: chroma(color.triforce[500]).alpha(opacity.dim3).css('rgb'),
-        onAccent: color.base.gloom,
+          accent: color.triforce[500],
+          accentHovered: color.triforce[400],
+          accentPressed: color.triforce[400],
+          accentFocused: color.triforce[400],
+          accentDisabled: chroma(color.triforce[500]).alpha(opacity.dim3).css('rgb'),
+          onAccent: color.base.gloom,
 
-        accentContainer: color.triforce[100],
-        accentContainerHovered: color.triforce[50],
-        accentContainerFocused: color.triforce[50],
-        accentContainerPressed: color.triforce[50],
-        accentContainerDisabled: chroma(color.triforce[100]).alpha(opacity.dim3).css('rgb'),
-        onAccentContainer: color.base.gloom,
+          accentContainer: color.triforce[100],
+          accentContainerHovered: color.triforce[50],
+          accentContainerFocused: color.triforce[50],
+          accentContainerPressed: color.triforce[50],
+          accentContainerDisabled: chroma(color.triforce[100]).alpha(opacity.dim3).css('rgb'),
+          onAccentContainer: color.base.gloom,
 
-        accentVariant: color.triforce[300],
-        accentVariantHovered: color.triforce[200],
-        accentVariantFocused: color.triforce[200],
-        accentVariantPressed: color.triforce[200],
-        accentVariantDisabled: chroma(color.triforce[300]).alpha(opacity.dim3).css('rgb'),
-        onAccentVariant: color.base.gloom,
+          accentVariant: color.triforce[300],
+          accentVariantHovered: color.triforce[200],
+          accentVariantFocused: color.triforce[200],
+          accentVariantPressed: color.triforce[200],
+          accentVariantDisabled: chroma(color.triforce[300]).alpha(opacity.dim3).css('rgb'),
+          onAccentVariant: color.base.gloom,
 
-        support: color.zelda[500],
-        supportHovered: color.zelda[400],
-        supportPressed: color.zelda[400],
-        supportFocused: color.zelda[400],
-        supportDisabled: chroma(color.zelda[500]).alpha(opacity.dim3).css('rgb'),
-        onSupport: color.base.bright,
+          support: color.zelda[500],
+          supportHovered: color.zelda[400],
+          supportPressed: color.zelda[400],
+          supportFocused: color.zelda[400],
+          supportDisabled: chroma(color.zelda[500]).alpha(opacity.dim3).css('rgb'),
+          onSupport: color.base.bright,
 
-        supportContainer: color.zelda[100],
-        supportContainerHovered: color.zelda[50],
-        supportContainerFocused: color.zelda[50],
-        supportContainerPressed: color.zelda[50],
-        supportContainerDisabled: chroma(color.zelda[100]).alpha(opacity.dim3).css('rgb'),
-        onSupportContainer: color.zelda[500],
+          supportContainer: color.zelda[100],
+          supportContainerHovered: color.zelda[50],
+          supportContainerFocused: color.zelda[50],
+          supportContainerPressed: color.zelda[50],
+          supportContainerDisabled: chroma(color.zelda[100]).alpha(opacity.dim3).css('rgb'),
+          onSupportContainer: color.zelda[500],
 
-        supportVariant: color.zelda[700],
-        supportVariantHovered: color.zelda[600],
-        supportVariantFocused: color.zelda[600],
-        supportVariantPressed: color.zelda[600],
-        supportVariantDisabled: chroma(color.zelda[700]).alpha(opacity.dim3).css('rgb'),
-        onSupportVariant: color.base.bright
+          supportVariant: color.zelda[700],
+          supportVariantHovered: color.zelda[600],
+          supportVariantFocused: color.zelda[600],
+          supportVariantPressed: color.zelda[600],
+          supportVariantDisabled: chroma(color.zelda[700]).alpha(opacity.dim3).css('rgb'),
+          onSupportVariant: color.base.bright
+        },
+        status: {
+          success: color.hero[500],
+          successHovered: color.hero[400],
+          successPressed: color.hero[400],
+          successFocused: color.hero[400],
+          successDisabled: chroma(color.hero[500]).alpha(opacity.dim3).css('rgb'),
+          onSuccess: color.base.bright,
+
+          successContainer: color.hero[50],
+          successContainerHovered: color.hero[100],
+          successContainerFocused: color.hero[100],
+          successContainerPressed: color.hero[100],
+          successContainerDisabled: chroma(color.hero[50]).alpha(opacity.dim3).css('rgb'),
+          onSuccessContainer: color.hero[700],
+
+          alert: color.triforce[800],
+          alertHovered: color.triforce[700],
+          alertPressed: color.triforce[700],
+          alertFocused: color.triforce[700],
+          alertDisabled: chroma(color.triforce[800]).alpha(opacity.dim3).css('rgb'),
+          onAlert: color.base.gloom,
+
+          alertContainer: color.triforce[100],
+          alertContainerHovered: color.triforce[50],
+          alertContainerFocused: color.triforce[50],
+          alertContainerPressed: color.triforce[50],
+          alertContainerDisabled: chroma(color.triforce[100]).alpha(opacity.dim3).css('rgb'),
+          onAlertContainer: color.base.gloom,
+
+          error: color.goron[500],
+          errorHovered: color.goron[400],
+          errorPressed: color.goron[400],
+          errorFocused: color.goron[400],
+          errorDisabled: chroma(color.goron[500]).alpha(opacity.dim3).css('rgb'),
+          onError: color.base.bright,
+
+          errorContainer: color.goron[100],
+          errorContainerHovered: color.goron[50],
+          errorContainerFocused: color.goron[50],
+          errorContainerPressed: color.goron[50],
+          errorContainerDisabled: chroma(color.goron[100]).alpha(opacity.dim3).css('rgb'),
+          onErrorContainer: color.goron[600],
+
+          info: color.zora[500],
+          infoHovered: color.zora[400],
+          infoPressed: color.zora[400],
+          infoFocused: color.zora[400],
+          infoDisabled: chroma(color.zora[500]).alpha(opacity.dim3).css('rgb'),
+          onInfo: color.base.bright,
+
+          infoContainer: color.zora[100],
+          infoContainerHovered: color.zora[50],
+          infoContainerFocused: color.zora[50],
+          infoContainerPressed: color.zora[50],
+          infoContainerDisabled: chroma(color.zora[100]).alpha(opacity.dim3).css('rgb'),
+          onInfoContainer: color.zora[600],
+
+          neutral: color.poe[600],
+          neutralHovered: color.poe[500],
+          neutralPressed: color.poe[500],
+          neutralFocused: color.poe[500],
+          neutralDisabled: chroma(color.poe[600]).alpha(opacity.dim3).css('rgb'),
+          onNeutral: color.base.bright,
+
+          neutralContainer: color.poe[100],
+          neutralContainerHovered: color.poe[50],
+          neutralContainerFocused: color.poe[50],
+          neutralContainerPressed: color.poe[50],
+          neutralContainerDisabled: chroma(color.poe[100]).alpha(opacity.dim3).css('rgb'),
+          onNeutralContainer: color.base.gloom
+        },
+        core: {
+          basic: color.tin[500],
+          basicHovered: color.tin[400],
+          basicFocused: color.tin[400],
+          basicPressed: color.tin[400],
+          basicDisabled: chroma(color.tin[400]).alpha(opacity.dim3).css('rgb'),
+          onBasic: color.base.bright,
+
+          basicContainer: color.tin[50],
+          basicContainerHovered: color.tin[100],
+          basicContainerFocused: color.tin[100],
+          basicContainerPressed: color.tin[100],
+          basicContainerDisabled: chroma(color.tin[50]).alpha(opacity.dim3).css('rgb'),
+          onBasicContainer: color.tin[700],
+
+          basicVariant: color.tin[700],
+          basicVariantHovered: color.tin[600],
+          basicVariantFocused: color.tin[600],
+          basicVariantPressed: color.tin[600],
+          basicVariantDisabled: chroma(color.tin[600]).alpha(opacity.dim3).css('rgb'),
+          onBasicVariant: color.base.bright,
+
+          background: color.base.bright,
+          onBackground: color.base.gloom,
+          backgroundVariant: color.poe[100],
+          onBackgroundVariant: color.base.gloom,
+
+          surface: color.base.bright,
+          onSurface: color.base.gloom,
+          surfaceInverse: color.poe[900],
+          onSurfaceInverse: color.base.bright,
+
+          overlay: color.base.gloom,
+          onOverlay: color.base.bright,
+
+          outline: color.poe[400],
+          outlineHovered: color.poe[700],
+          outlinePressed: color.poe[700],
+          outlineFocused: color.poe[700],
+          outlineDisabled: chroma(color.poe[400]).alpha(opacity.dim3).css('rgb'),
+          outlineHigh: color.poe[900]
+        },
+        extra: {},
+        social: {
+          facebook: color.social.facebook,
+          whatsapp: color.social.whatsapp,
+          youtube: color.social.youtube,
+          tiktok: color.social.tiktok,
+          telegram: color.social.telegram,
+          x: color.social.x,
+          instagram: color.social.instagram
+        }
       },
-      status: {
-        success: color.hero[500],
-        successHovered: color.hero[400],
-        successPressed: color.hero[400],
-        successFocused: color.hero[400],
-        successDisabled: chroma(color.hero[500]).alpha(opacity.dim3).css('rgb'),
-        onSuccess: color.base.bright,
-
-        successContainer: color.hero[50],
-        successContainerHovered: color.hero[100],
-        successContainerFocused: color.hero[100],
-        successContainerPressed: color.hero[100],
-        successContainerDisabled: chroma(color.hero[50]).alpha(opacity.dim3).css('rgb'),
-        onSuccessContainer: color.hero[700],
-
-        alert: color.triforce[800],
-        alertHovered: color.triforce[700],
-        alertPressed: color.triforce[700],
-        alertFocused: color.triforce[700],
-        alertDisabled: chroma(color.triforce[800]).alpha(opacity.dim3).css('rgb'),
-        onAlert: color.base.gloom,
-
-        alertContainer: color.triforce[100],
-        alertContainerHovered: color.triforce[50],
-        alertContainerFocused: color.triforce[50],
-        alertContainerPressed: color.triforce[50],
-        alertContainerDisabled: chroma(color.triforce[100]).alpha(opacity.dim3).css('rgb'),
-        onAlertContainer: color.base.gloom,
-
-        error: color.goron[500],
-        errorHovered: color.goron[400],
-        errorPressed: color.goron[400],
-        errorFocused: color.goron[400],
-        errorDisabled: chroma(color.goron[500]).alpha(opacity.dim3).css('rgb'),
-        onError: color.base.bright,
-
-        errorContainer: color.goron[100],
-        errorContainerHovered: color.goron[50],
-        errorContainerFocused: color.goron[50],
-        errorContainerPressed: color.goron[50],
-        errorContainerDisabled: chroma(color.goron[100]).alpha(opacity.dim3).css('rgb'),
-        onErrorContainer: color.goron[600],
-
-        info: color.zora[500],
-        infoHovered: color.zora[400],
-        infoPressed: color.zora[400],
-        infoFocused: color.zora[400],
-        infoDisabled: chroma(color.zora[500]).alpha(opacity.dim3).css('rgb'),
-        onInfo: color.base.bright,
-
-        infoContainer: color.zora[100],
-        infoContainerHovered: color.zora[50],
-        infoContainerFocused: color.zora[50],
-        infoContainerPressed: color.zora[50],
-        infoContainerDisabled: chroma(color.zora[100]).alpha(opacity.dim3).css('rgb'),
-        onInfoContainer: color.zora[600],
-
-        neutral: color.poe[600],
-        neutralHovered: color.poe[500],
-        neutralPressed: color.poe[500],
-        neutralFocused: color.poe[500],
-        neutralDisabled: chroma(color.poe[600]).alpha(opacity.dim3).css('rgb'),
-        onNeutral: color.base.bright,
-
-        neutralContainer: color.poe[100],
-        neutralContainerHovered: color.poe[50],
-        neutralContainerFocused: color.poe[50],
-        neutralContainerPressed: color.poe[50],
-        neutralContainerDisabled: chroma(color.poe[100]).alpha(opacity.dim3).css('rgb'),
-        onNeutralContainer: color.base.gloom
+      font: {
+        size: {
+          '2xs': '0.625rem', // 10px
+          xs: '0.75rem', // 12px
+          sm: '0.875rem', // 14px
+          md: '1rem', // 16px
+          lg: '1.125rem', // 18px
+          xl: '1.25rem', // 20px
+          '2xl': '1.5rem', // 24px
+          '3xl': '1.75rem', // 28px
+          '4xl': '2.25rem', // 36px
+          '5xl': '3rem', // 48px
+          '6xl': '4rem' // 64px
+        },
+        weight: {
+          hairline: '100',
+          thin: '200',
+          light: '300',
+          normal: '400',
+          medium: '500',
+          semiBold: '600',
+          bold: '700',
+          extrabold: '800',
+          black: '900'
+        },
+        family: {
+          sans: fontFamily.sans.join(', '),
+          serif: fontFamily.serif.join(', '),
+          mono: fontFamily.mono.join(', ')
+        }
       },
-      base: {
-        background: color.base.bright,
-        onBackground: color.base.gloom,
-        backgroundVariant: color.poe[100],
-        onBackgroundVariant: color.base.gloom,
-
-        surface: color.base.bright,
-        onSurface: color.base.gloom,
-        surfaceInverse: color.poe[900],
-        onSurfaceInverse: color.base.bright,
-
-        overlay: color.base.gloom,
-        onOverlay: color.base.bright,
-
-        outline: color.poe[400],
-        outlineHovered: color.poe[700],
-        outlinePressed: color.poe[700],
-        outlineFocused: color.poe[700],
-        outlineDisabled: chroma(color.poe[400]).alpha(opacity.dim3).css('rgb'),
-        outlineHigh: color.poe[900]
+      opacity,
+      spacing: {
+        size
       },
-      extra: {},
-      social: {
-        facebook: color.social.facebook,
-        whatsapp: color.social.whatsapp,
-        youtube: color.social.youtube,
-        tiktok: color.social.tiktok,
-        telegram: color.social.telegram,
-        x: color.social.x,
-        instagram: color.social.instagram
-      }
-    },
-    font: {
-      size: {
-        '2xs': '0.625rem', // 10px
-        xs: '0.75rem', // 12px
-        sm: '0.875rem', // 14px
-        md: '1rem', // 16px
-        lg: '1.125rem', // 18px
-        xl: '1.25rem', // 20px
-        '2xl': '1.5rem', // 24px
-        '3xl': '1.75rem', // 28px
-        '4xl': '2.25rem', // 36px
-        '5xl': '3rem', // 48px
-        '6xl': '4rem' // 64px
-      },
-      weight: {
-        hairline: '100',
-        thin: '200',
-        light: '300',
-        normal: '400',
-        medium: '500',
-        semiBold: '600',
-        bold: '700',
-        extrabold: '800',
-        black: '900'
-      },
-      family: {
-        sans: fontFamily.sans.join(', '),
-        serif: fontFamily.serif.join(', '),
-        mono: fontFamily.mono.join(', ')
-      }
-    },
-    opacity,
-    spacing: {
-      size
-    },
-    elevation
-  })
+      elevation
+    }
+  }
 }
 
 export default theme

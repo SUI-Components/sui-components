@@ -252,7 +252,7 @@ const theme: Theme = {
         neutralContainerDisabled: chroma(color.poe[100]).alpha(opacity.dim3).css('rgb'),
         onNeutralContainer: color.base.gloom
       },
-      base: {
+      core: {
         background: color.base.bright,
         onBackground: color.base.gloom,
         backgroundVariant: color.poe[100],

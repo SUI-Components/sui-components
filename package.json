@@ -47,7 +47,6 @@
     "@s-ui/mono": "2",
     "@s-ui/precommit": "3",
     "@s-ui/studio": "11",
-    "@s-ui/tokens": "beta",
     "@types/chai": "4.3.16",
     "@types/chai-dom": "1.11.3",
     "@types/classnames": "2.2.5",

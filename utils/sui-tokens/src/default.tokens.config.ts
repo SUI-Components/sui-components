@@ -428,7 +428,7 @@ const theme: Theme = {
           medium: '500',
           semiBold: '600',
           bold: '700',
-          extrabold: '800',
+          extraBold: '800',
           black: '900'
         },
         family: {

@@ -53,9 +53,7 @@ export function build(tokensConfig?: Theme) {
       ? deepmerge(defaultTokensConfig.primitive, tokensConfig.primitive)
       : defaultTokensConfig.primitive
 
-  console.log('protoPrimitive', protoPrimitive)
   const primitive = buildPrimitive(protoPrimitive)
-  console.log('primitive', primitive)
   const semantic =
     tokensConfig?.semantic != null
       ? deepmerge(
@@ -104,13 +102,24 @@ export async function writeTokensConfig(data: string, outputPath?: string) {
   }
 }
 
-export const run = async ({configuration, output}: {configuration?: string; output?: string}) => {
+export const runSCSS = async ({configuration, output}: {configuration?: string; output?: string}) => {
   console.log(chalk.blue('Loading tokens configuration'))
   const tokensConfig = await loadTokensConfig(configuration)
   console.log(chalk.blue('Building tokens'))
   console.log(chalk.green(JSON.stringify(tokensConfig, null, 2)))
   const result = build(tokensConfig)
   console.log(chalk.blue('Writing tokens'))
-  await writeTokensConfig(generate(result), output)
+  await writeTokensConfig(generate.scss(result), output)
+  console.log(chalk.blue('Done!'))
+}
+
+export const runJSON = async ({configuration, output}: {configuration?: string; output?: string}) => {
+  console.log(chalk.blue('Loading tokens configuration'))
+  const tokensConfig = await loadTokensConfig(configuration)
+  console.log(chalk.blue('Building tokens'))
+  console.log(chalk.green(JSON.stringify(tokensConfig, null, 2)))
+  const result = build(tokensConfig)
+  console.log(chalk.blue('Writing tokens'))
+  await writeTokensConfig(generate.json(result), output)
   console.log(chalk.blue('Done!'))
 }

@@ -21,7 +21,8 @@
   ],
   "main": "lib/index.scss",
   "scripts": {
-    "lib": "rm -rf ./lib && cp -R src lib",
+    "tokens": "tokens scss -c ./milanuncios.tokens.config.js -o ./src/.tokens/.tokens.scss",
+    "lib": "rm -rf ./lib && npm run tokens && cp -R src lib",
     "prepublishOnly": "npm run lib"
   },
   "repository": {
@@ -36,7 +37,7 @@
     "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Util%3A+theme%22"
   },
   "devDependencies": {
-    "@s-ui/tokens": "0.0.0-beta.1"
+    "@s-ui/tokens": "beta"
   },
   "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"

@@ -9,5 +9,6 @@ const {version} = require('../package.json')
 program.version(version, '--version, -v')
 
 program.command('scss', 'Generate scss theming variables')
+program.command('json', 'Generate json theming variables')
 
 program.parse(process.argv)

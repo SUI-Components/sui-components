@@ -21,7 +21,7 @@
   ],
   "main": "lib/index.scss",
   "scripts": {
-    "tokens": "tokens scss -c ./milanuncios.tokens.config.js -o ./src/.tokens/.tokens.scss",
+    "tokens": "tokens scss -o ./src/.tokens/.tokens.scss",
     "lib": "rm -rf ./lib && npm run tokens && cp -R src lib",
     "prepublishOnly": "npm run lib"
   },

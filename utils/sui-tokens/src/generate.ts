@@ -1,6 +1,6 @@
 import {kebabCase} from 'change-case'
 
-import {type SemanticShape, type ThemePrimitive} from './types'
+import {type SemanticTheme, type PrimitiveTheme} from './types'
 
 const anidate = (accumulator: Map<string, string>, [key, value]) => {
   if (typeof value === 'string' || typeof value === 'number') {
@@ -22,7 +22,7 @@ const anidate = (accumulator: Map<string, string>, [key, value]) => {
 }
 
 export const generate = {
-  scss: ({primitive, semantic}: {primitive: ThemePrimitive; semantic: SemanticShape}) => {
+  scss: ({primitive, semantic}: {primitive: PrimitiveTheme; semantic: SemanticTheme}) => {
     const semanticMaps = {
       color: new Map(),
       font: new Map(),
@@ -116,7 +116,7 @@ export const generate = {
 }
 `
   },
-  json: ({semantic}: {primitive: ThemePrimitive; semantic: SemanticShape}) => {
+  json: ({semantic}: {primitive: PrimitiveTheme; semantic: SemanticTheme}) => {
     return JSON.stringify(semantic, null, 2)
   }
 }

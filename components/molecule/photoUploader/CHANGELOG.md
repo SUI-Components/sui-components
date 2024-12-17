@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.33.0 (2024-12-10)
+
+
+### Features
+
+* add flushSync ([4ca1569](https://github.com/SUI-Components/sui-components/commit/4ca1569eda1f365e0ec5b6a9b32c3ca18a1adacf))
+
+
+
 # 2.32.0 (2024-11-11)
 
 

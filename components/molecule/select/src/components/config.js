@@ -4,6 +4,7 @@ import {BASE_CLASS as ROOT_BASE_CLASS} from '../config.js'
 
 export const BASE_CLASS = `${ROOT_BASE_CLASS}-inputSelect`
 const CLASS_SEARCH = `${BASE_CLASS}-search`
+export const CLASS_SEARCH_CONTAINER = `${BASE_CLASS}-search-container`
 export const getClassSearch = isOpen =>
   cx(CLASS_SEARCH, {
     [`${CLASS_SEARCH}--hidden`]: !isOpen

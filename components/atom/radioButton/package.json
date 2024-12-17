@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-radio-button",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "radioButton"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "radioButton"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

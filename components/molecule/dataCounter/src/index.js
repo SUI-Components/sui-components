@@ -31,7 +31,8 @@ const MoleculeDataCounter = forwardRef(
       size = inputSizes.MEDIUM,
       substractIcon = '-',
       initialValue,
-      value
+      value,
+      allowCustomValue = false
     },
     ref
   ) => {
@@ -65,14 +66,21 @@ const MoleculeDataCounter = forwardRef(
     const decrementDisabled = disabled || internalValue <= numMin
     const incrementDisabled = disabled || internalValue >= numMax
 
+    const sanitize = value => {
+      if (!value) return 0
+      if (isNaN(value)) return 0
+      return value
+    }
+
     const assignDiff = (event, {diff, lastAction}) => {
       setInternalValue(currentValue => {
+        const finalValue = allowCustomValue && lastAction === 'change' ? sanitize(diff) : currentValue + diff
         typeof onChange === 'function' &&
           onChange(event, {
-            value: String(currentValue + diff),
+            value: String(finalValue),
             action: lastAction
           })
-        return value === undefined ? currentValue + diff : currentValue
+        return value === undefined ? finalValue : currentValue
       })
       lastAction && setLastActions(lastAction)
     }
@@ -90,6 +98,17 @@ const MoleculeDataCounter = forwardRef(
     }
 
     const handleChange = (event, {value}) => {
+      if (allowCustomValue) {
+        const parsedIntNewValue = parseInt(value, 10)
+
+        assignDiff(event, {
+          diff: parsedIntNewValue,
+          lastAction: ACTIONS.CHANGE
+        })
+
+        return
+      }
+
       const parsedIntNewValue = parseInt(value, 10)
 
       const diffValue = isNaN(parsedIntNewValue) && 0
@@ -228,7 +247,10 @@ MoleculeDataCounter.propTypes = {
   addIcon: PropTypes.node,
 
   /** Icon to show on substract button */
-  substractIcon: PropTypes.node
+  substractIcon: PropTypes.node,
+
+  /** Flag to allow the input value to be editable */
+  allowCustomValue: PropTypes.bool
 }
 
 export default MoleculeDataCounter

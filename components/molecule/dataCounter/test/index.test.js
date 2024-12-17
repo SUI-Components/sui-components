@@ -299,6 +299,83 @@ describe(json.name, () => {
       expect(input.value).to.equal(`${initialValue}`)
     })
 
+    it('given allowCustomValue we can directly write the value', () => {
+      // Given
+      const spy = sinon.spy()
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        onChange: spy,
+        min: 0,
+        max: 2,
+        initialValue: 2,
+        allowCustomValue: true
+      }
+      const {initialValue} = props
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${initialValue}`)
+
+      // And
+      // When
+      fireEvent.change(input, {target: {value: '44'}})
+      expect(input.value).to.equal('44')
+
+      fireEvent.change(input, {target: {value: '66'}})
+      expect(input.value).to.equal('66')
+
+      fireEvent.change(input, {target: {value: '4-'}})
+      expect(input.value).to.equal('4')
+
+      fireEvent.change(input, {target: {value: ''}})
+      expect(input.value).to.equal('0')
+
+      fireEvent.change(input, {target: {value: '-'}})
+      expect(input.value).to.equal('0')
+    })
+
+    it('given allowCustomValue false we cannot directly write the value', () => {
+      // Given
+      const spy = sinon.spy()
+      const props = {
+        charsSize: 10,
+        label: 'label',
+        minValueHelpText: 'minValueHelpText',
+        minValueErrorText: 'minValueErrorText',
+        maxValueHelpText: 'maxValueHelpText',
+        maxValueErrorText: 'maxValueErrorText',
+        onChange: spy,
+        min: 0,
+        max: 2,
+        initialValue: 2
+      }
+      const {initialValue} = props
+
+      // When
+      const {getByRole} = setup(props)
+      const input = getByRole('textbox')
+      // Then
+      expect(input.value).to.equal(`${initialValue}`)
+
+      // And
+      // When
+      fireEvent.change(input, {target: {value: '44'}})
+      expect(input.value).to.equal(`${initialValue}`)
+
+      fireEvent.change(input, {target: {value: ''}})
+      expect(input.value).to.equal(`${initialValue}`)
+
+      fireEvent.change(input, {target: {value: '-'}})
+      expect(input.value).to.equal(`${initialValue}`)
+    })
+
     it('should not allow to reach NaN values', () => {
       // Given
       const {getByRole, getByDisplayValue} = setup({value: 10})

@@ -102,14 +102,22 @@ export async function writeTokensConfig(data: string, outputPath?: string) {
   }
 }
 
-export const runSCSS = async ({configuration, output}: {configuration?: string; output?: string}) => {
+export const runSCSS = async ({
+  configuration,
+  output,
+  selector
+}: {
+  configuration?: string
+  output?: string
+  selecor?: string
+}) => {
   console.log(chalk.blue('Loading tokens configuration'))
   const tokensConfig = await loadTokensConfig(configuration)
   console.log(chalk.blue('Building tokens'))
   console.log(chalk.green(JSON.stringify(tokensConfig, null, 2)))
   const result = build(tokensConfig)
   console.log(chalk.blue('Writing tokens'))
-  await writeTokensConfig(generate.scss(result), output)
+  await writeTokensConfig(generate.scss(result, selector), output)
   console.log(chalk.blue('Done!'))
 }
 

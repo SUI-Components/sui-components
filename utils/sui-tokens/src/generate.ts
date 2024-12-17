@@ -63,7 +63,7 @@ export const generate = {
       scssTokens[keyword] = ''.concat(
         ...Array.from(semanticMaps[keyword]).map(([key, value]: [string, string]) => {
           return `
-      $${key}: var(${getTokenKey(key)});`
+$${key}: var(${getTokenKey(key)});`
         })
       )
     }

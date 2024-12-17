@@ -181,7 +181,7 @@ const theme: Theme = {
         supportVariantDisabled: chroma(color.zelda[700]).alpha(opacity.dim3).css('rgb'),
         onSupportVariant: color.base.bright
       },
-      status: {
+      feedback: {
         success: color.hero[500],
         successHovered: color.hero[400],
         successPressed: color.hero[400],
@@ -252,7 +252,7 @@ const theme: Theme = {
         neutralContainerDisabled: chroma(color.poe[100]).alpha(opacity.dim3).css('rgb'),
         onNeutralContainer: color.base.gloom
       },
-      core: {
+      base: {
         background: color.base.bright,
         onBackground: color.base.gloom,
         backgroundVariant: color.poe[100],

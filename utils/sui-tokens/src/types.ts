@@ -12,7 +12,7 @@ export interface OpacityPrimitive {
 
 export type Base = string
 
-export interface ThemePrimitive {
+export interface PrimitiveTheme {
   prefix?: string
   fontSize?: string
   fontFamily?: {
@@ -29,7 +29,7 @@ export interface ThemePrimitive {
   }
 }
 
-export interface SemanticShape {
+export interface SemanticTheme {
   color?: {
     brand?: {
       main?: string
@@ -95,7 +95,7 @@ export interface SemanticShape {
       supportVariantDisabled?: string
       onSupportVariant?: string
     }
-    status?: {
+    feedback?: {
       success?: string
       successHovered?: string
       successPressed?: string
@@ -157,7 +157,7 @@ export interface SemanticShape {
       neutralContainerDisabled?: string
       onNeutralContainer?: string
     }
-    core?: {
+    base?: {
       basic?: string
       basicHovered?: string
       basicFocused?: string
@@ -228,6 +228,6 @@ export interface SemanticShape {
 }
 
 export interface Theme {
-  primitive: ThemePrimitive
-  semantic: (themePrimitives: ThemePrimitive) => SemanticShape
+  primitive: PrimitiveTheme
+  semantic: (themePrimitives: PrimitiveTheme) => SemanticTheme
 }

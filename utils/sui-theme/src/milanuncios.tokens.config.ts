@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 
-import {type Theme, type ThemePrimitive} from './src/types'
+import {type Theme, type ThemePrimitive} from '@s-ui/tokens'
 
 const theme: Theme = {
   primitive: {
@@ -181,7 +181,7 @@ const theme: Theme = {
         supportVariantDisabled: chroma(color.zelda[700]).alpha(opacity.dim3).css('rgb'),
         onSupportVariant: color.base.bright
       },
-      status: {
+      feedback: {
         success: color.hero[500],
         successHovered: color.hero[400],
         successPressed: color.hero[400],

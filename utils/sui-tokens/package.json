@@ -13,6 +13,9 @@
     "tokens": "./bin/tokens.mjs",
     "tokens-scss": "./bin/tokens-scss.mjs"
   },
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "type": "module",
   "keywords": [
     "tokens",

@@ -96,24 +96,11 @@ export const generate = {
   }
 }
 
-@layer variables {
-  @layer semantic {
-    @layer color {${scssTokens.color}
-    }
-
-    @layer font {${scssTokens.font}
-    }
-
-    @layer opacity {${scssTokens.opacity}
-    }
-
-    @layer elevation {${scssTokens.elevation}
-    }
-
-    @layer spacing {${scssTokens.spacing}
-    }
-  }
-}
+${scssTokens.color}
+${scssTokens.font}
+${scssTokens.opacity}
+${scssTokens.elevation}
+${scssTokens.spacing}
 `
   },
   json: ({semantic}: {primitive: PrimitiveTheme; semantic: SemanticTheme}) => {

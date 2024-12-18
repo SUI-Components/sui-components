@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 
-import {type Theme, type ThemePrimitive} from './src/types'
+import {type Theme, type PrimitiveTheme} from './src/types'
 
 const theme: Theme = {
   primitive: {
@@ -115,7 +115,7 @@ const theme: Theme = {
       none: 0
     }
   },
-  semantic: ({color, opacity}: ThemePrimitive) => ({
+  semantic: ({color, opacity}: PrimitiveTheme) => ({
     color: {
       brand: {
         main: color.hero[500],

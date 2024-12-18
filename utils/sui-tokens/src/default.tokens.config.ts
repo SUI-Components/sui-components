@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 
-import {type Theme, type ThemePrimitive} from './types'
+import {type Theme, type PrimitiveTheme} from './types'
 
 const theme: Theme = {
   primitive: {
@@ -218,7 +218,7 @@ const theme: Theme = {
       tooltip: 1800
     }
   },
-  semantic: ({color, opacity, elevation, size, fontSize, fontFamily}: ThemePrimitive) => {
+  semantic: ({color, opacity, elevation, size, fontSize, fontFamily}: PrimitiveTheme) => {
     return {
       color: {
         brand: {

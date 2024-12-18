@@ -56,7 +56,7 @@ export const generate = {
       semanticTokens[keyword] = ''.concat(
         ...Array.from(semanticMaps[keyword]).map(([key, value]: [string, string]) => {
           return `
-      ${getTokenKey(key)}: ${value};`
+  ${getTokenKey(key)}: ${value};`
         })
       )
 

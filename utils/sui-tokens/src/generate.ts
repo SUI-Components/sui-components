@@ -4,7 +4,7 @@ import {type SemanticTheme, type PrimitiveTheme} from './types'
 
 const anidate = (accumulator: Map<string, string>, [key, value]) => {
   if (typeof value === 'string' || typeof value === 'number') {
-    accumulator.set(`${kebabCase(key)}`, value)
+    accumulator.set(`${kebabCase(key)}`, value as string)
   } else if (Array.isArray(value)) {
     value.forEach((arrayValue, arrayIndex) => {
       anidate(accumulator, [`${kebabCase(key)}-${arrayIndex}`, arrayValue])

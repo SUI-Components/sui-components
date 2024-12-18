@@ -11,9 +11,9 @@ import process from 'node:process'
 import {colorParser, colorRampParser} from './checker'
 import defaultTokensConfig from './default.tokens.config'
 import {generate} from './generate'
-import type {Theme, ThemePrimitive} from './types'
+import type {Theme, PrimitiveTheme} from './types'
 
-const colorFn = (colorSpace: ThemePrimitive['colorSpace']) => (v: string) => {
+const colorFn = (colorSpace: PrimitiveTheme['colorSpace']) => (v: string) => {
   switch (colorSpace) {
     case 'hex':
       return chroma(v).css()
@@ -23,7 +23,7 @@ const colorFn = (colorSpace: ThemePrimitive['colorSpace']) => (v: string) => {
 }
 
 export function build(tokensConfig?: Theme) {
-  const buildPrimitive = (primitive: ThemePrimitive) => {
+  const buildPrimitive = (primitive: PrimitiveTheme) => {
     const colorSpace = primitive?.colorSpace
     const colorTx = colorFn(colorSpace)
     return {
@@ -109,7 +109,7 @@ export const runSCSS = async ({
 }: {
   configuration?: string
   output?: string
-  selecor?: string
+  selector?: string
 }) => {
   console.log(chalk.blue('Loading tokens configuration'))
   const tokensConfig = await loadTokensConfig(configuration)

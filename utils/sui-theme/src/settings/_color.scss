@@ -17,7 +17,7 @@ $c-light-step: 2 !default;
 $c-system: #000000 !default;
 
 // Primary color
-$c-primary: #2b91c1 !default;
+$c-primary: $color-brand-main !default;
 
 // Old primary color gradients, keeping them for retro compatibility
 $c-primary-light: color-variation($c-primary, $c-light-step) !default;
@@ -37,8 +37,8 @@ $c-primary-dark-3: color-variation($c-primary, -3) !default;
 $c-primary-dark-4: color-variation($c-primary, -4) !default;
 
 // Secondary/Accent color
-$c-accent: #d57c1b !default;
-$c-secondary: #d57c1b !default;
+$c-accent: $color-brand-accent !default;
+$c-secondary: $color-brand-support !default;
 
 // Old Secondary/Accent color gradients, keeping them for retro compatibility
 $c-accent-light: color-variation($c-accent, $c-light-step) !default;
@@ -69,7 +69,7 @@ $c-secondary-dark-3: color-variation($c-secondary, -3) !default;
 $c-secondary-dark-4: color-variation($c-secondary, -4) !default;
 
 // Gray color
-$c-gray: #777777 !default;
+$c-gray: $color-feedback-neutral !default;
 
 // Old Gray color gradients, keeping them for retro compatibility
 $c-gray-light: color-variation($c-gray, $c-light-step) !default;
@@ -90,7 +90,7 @@ $c-gray-dark-3: color-variation($c-gray, -3) !default;
 $c-gray-dark-4: color-variation($c-gray, -4) !default;
 
 // Success color
-$c-success: #00a544 !default;
+$c-success: $color-feedback-success !default;
 
 // Old Success color gradients, keeping them for retro compatibility
 $c-success-light: color-variation($c-success, $c-light-step) !default;
@@ -110,7 +110,7 @@ $c-success-dark-3: color-variation($c-success, -3) !default;
 $c-success-dark-4: color-variation($c-success, -4) !default;
 
 // Alert color
-$c-alert: #ff6335 !default;
+$c-alert: $color-feedback-alert !default;
 
 // Old Alert color gradients, keeping them for retro compatibility
 $c-alert-light: color-variation($c-alert, $c-light-step) !default;
@@ -130,7 +130,7 @@ $c-alert-dark-3: color-variation($c-alert, -3) !default;
 $c-alert-dark-4: color-variation($c-alert, -4) !default;
 
 // Error color
-$c-error: #e93e40 !default;
+$c-error: $color-feedback-error !default;
 
 // Old Error Alert color gradients, keeping them for retro compatibility
 $c-error-light: color-variation($c-error, $c-light-step) !default;
@@ -163,13 +163,13 @@ $c-text-accent: $c-accent !default;
 $c-text-link: $c-text-accent !default;
 
 // Social brand colors
-$c-facebook: #3b5998 !default;
-$c-twitter: #55acee !default;
+$c-facebook: $color-social-facebook !default;
+$c-twitter: $color-social-x !default;
 $c-google: #d34836 !default;
-$c-youtube: #bb0000 !default;
-$c-whatsapp: #7ed321 !default;
-$c-instagram: #8a3ab9 !default;
-$c-tiktok: #69c9d0 !default;
+$c-youtube: $color-social-youtube !default;
+$c-whatsapp: $color-social-whatsapp !default;
+$c-instagram: $color-social-instagram !default;
+$c-tiktok: $color-social-tiktok !default;
 
 // Highlight color
 $c-highlight: #fffed4 !default;

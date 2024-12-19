@@ -300,12 +300,12 @@ const theme: Theme = {
           successContainerDisabled: chroma(color.apple[50]).alpha(opacity.dim3).css('rgb'),
           onSuccessContainer: color.apple[700],
 
-          alert: color.wiggins[800],
-          alertHovered: color.wiggins[700],
-          alertPressed: color.wiggins[700],
-          alertFocused: color.wiggins[700],
-          alertDisabled: chroma(color.wiggins[800]).alpha(opacity.dim3).css('rgb'),
-          onAlert: color.base.gloom,
+          alert: color.wiggins[500],
+          alertHovered: color.wiggins[400],
+          alertPressed: color.wiggins[400],
+          alertFocused: color.wiggins[400],
+          alertDisabled: chroma(color.wiggins[500]).alpha(opacity.dim3).css('rgb'),
+          onAlert: color.base.bright,
 
           alertContainer: color.wiggins[100],
           alertContainerHovered: color.wiggins[50],

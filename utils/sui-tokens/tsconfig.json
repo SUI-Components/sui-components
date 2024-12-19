@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "ts-node": {"esm": true, "experimentalSpecifierResolution": "node"},
+  "compilerOptions": {
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": false,
+    "useUnknownInCatchVariables": false,
+    "inlineSourceMap": true
+  }
+}

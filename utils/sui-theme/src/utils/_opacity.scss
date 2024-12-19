@@ -8,7 +8,7 @@
 
   @each $value in $c-opacity {
     &-#{$value} {
-      background-color: color-mix(in srgb, $color #{$value + '%'}, transparent);
+      background-color: color-mix(in srgb, #{$value '%'}, transparent);
     }
   }
 }
@@ -19,7 +19,7 @@
       position: relative;
 
       &::before {
-        background-color: color-mix(in srgb, $color #{$value + '%'}, transparent);
+        background-color: color-mix(in srgb, #{$value '%'}, transparent);
         content: '';
         display: block;
         height: 100%;

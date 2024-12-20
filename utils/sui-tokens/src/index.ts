@@ -1,3 +1,5 @@
+export {runSCSS, runJSON} from './build'
+
 export {
   type PrimitiveTheme,
   type SemanticTheme,

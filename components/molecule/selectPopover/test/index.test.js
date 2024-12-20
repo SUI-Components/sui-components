@@ -9,14 +9,14 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
 
 import {fireEvent} from '@testing-library/react'
 
-import sinon from 'sinon'
+import IconClose from '../../../atom/popover/demo/Icons/IconClose.js'
 import json from '../package.json'
 import {PLACEMENTS} from '../src/config.js'
 import * as pkg from '../src/index.js'
-import IconClose from '../../../atom/popover/demo/Icons/IconClose.js'
 
 chai.use(chaiDOM)
 

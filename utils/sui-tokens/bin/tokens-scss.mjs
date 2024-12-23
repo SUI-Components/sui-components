@@ -11,6 +11,7 @@ program
   .option('-c, --configuration <config>', 'configuration file route')
   .option('-o, --output <output>', 'output file route')
   .option('-s, --selector <selector>', 'css selector of tokens container', ':root')
+  .option('-m, --mode <selector>', 'color schemes of the config')
   .action(runSCSS)
 
 program.parse(process.argv)

@@ -11,9 +11,9 @@ import process from 'node:process'
 import {colorParser, colorRampParser} from './checker'
 import defaultTokensConfig from './default.tokens.config'
 import {generate} from './generate'
-import type {Theme, PrimitiveTheme} from './types'
+import type {Theme, PrimitiveTheme, SettingsTheme} from './types'
 
-const colorFn = (colorSpace: PrimitiveTheme['colorSpace']) => (v: string) => {
+const colorFn = (colorSpace: SettingsTheme['colorSpace']) => (v: string) => {
   switch (colorSpace) {
     case 'hex':
       return chroma(v).css()
@@ -23,11 +23,10 @@ const colorFn = (colorSpace: PrimitiveTheme['colorSpace']) => (v: string) => {
 }
 
 export function build(tokensConfig?: Theme) {
-  const buildPrimitive = (primitive: PrimitiveTheme) => {
-    const colorSpace = primitive?.colorSpace
+  const buildPrimitive = (primitive: PrimitiveTheme, settings: SettingsTheme) => {
+    const colorSpace = settings?.colorSpace
     const colorTx = colorFn(colorSpace)
     return {
-      prefix: primitive.prefix,
       color: Object.entries(primitive.color).reduce((acc, [key, value]) => {
         if (typeof value === 'string' && colorParser.safeParse(value).success) {
           acc[key] = colorTx(value)
@@ -39,30 +38,37 @@ export function build(tokensConfig?: Theme) {
         }
         return acc
       }, {}),
-      colorSpace: primitive.colorSpace,
       opacity: primitive.opacity,
-      fontSize: primitive.fontSize,
       fontFamily: primitive.fontFamily,
       size: primitive.size,
       elevation: primitive.elevation
     }
   }
 
+  const protoSettings =
+    tokensConfig?.settings != null
+      ? deepmerge(defaultTokensConfig.settings, tokensConfig.settings)
+      : defaultTokensConfig.settings
+
   const protoPrimitive =
     tokensConfig?.primitive != null
       ? deepmerge(defaultTokensConfig.primitive, tokensConfig.primitive)
       : defaultTokensConfig.primitive
 
-  const primitive = buildPrimitive(protoPrimitive)
+  const primitive = buildPrimitive(protoPrimitive, protoSettings)
   const semantic =
     tokensConfig?.semantic != null
       ? deepmerge(
-          defaultTokensConfig.semantic(buildPrimitive(defaultTokensConfig.primitive)),
-          tokensConfig.semantic(primitive)
+          defaultTokensConfig.semantic(
+            buildPrimitive(defaultTokensConfig.primitive, defaultTokensConfig.settings),
+            defaultTokensConfig.settings
+          ),
+          tokensConfig.semantic(primitive, protoSettings)
         )
-      : defaultTokensConfig.semantic(primitive)
+      : defaultTokensConfig.semantic(primitive, protoSettings)
 
   return {
+    settings: protoSettings,
     primitive,
     semantic
   }
@@ -123,13 +129,39 @@ export const runSCSS = async ({
   console.log(chalk.blue('Done!'))
 }
 
-export const runJSON = async ({configuration, output}: {configuration?: string; output?: string}) => {
+export const runJSON = async ({
+  configuration,
+  output,
+  primitive
+}: {
+  configuration?: string
+  output?: string
+  primitive: boolean
+}) => {
   console.log(chalk.blue('Loading tokens configuration'))
   const tokensConfig = await loadTokensConfig(configuration)
   console.log(chalk.blue('Building tokens'))
   console.log(chalk.green(JSON.stringify(tokensConfig, null, 2)))
   const result = build(tokensConfig)
   console.log(chalk.blue('Writing tokens'))
-  await writeTokensConfig(generate.json(result), output)
+  await writeTokensConfig(JSON.stringify(generate.json(result, {hasPrimitive: primitive}), null, 2), output)
+  console.log(chalk.blue('Done!'))
+}
+
+export const run = async ({
+  configuration,
+  primitive
+}: {
+  configuration?: string
+  output?: string
+  primitive: boolean
+}) => {
+  console.log(chalk.blue('Loading tokens configuration'))
+  const tokensConfig = await loadTokensConfig(configuration)
+  console.log(chalk.blue('Building tokens'))
+  console.log(chalk.green(JSON.stringify(tokensConfig, null, 2)))
+  const result = build(tokensConfig)
+  console.log(chalk.blue('Writing tokens'))
+  console.log(JSON.stringify(generate.json(result, {hasPrimitive: primitive}), null, 2))
   console.log(chalk.blue('Done!'))
 }

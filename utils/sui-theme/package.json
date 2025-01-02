@@ -21,8 +21,7 @@
   ],
   "main": "lib/index.scss",
   "scripts": {
-    "tokens": "tokens scss -o ./src/.tokens/.tokens.scss",
-    "lib": "rm -rf ./lib && npm run tokens && cp -R src lib",
+    "lib": "rm -rf ./lib && cp -R src lib",
     "prepublishOnly": "npm run lib"
   },
   "repository": {
@@ -35,9 +34,6 @@
   },
   "bugs": {
     "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Util%3A+theme%22"
-  },
-  "devDependencies": {
-    "@s-ui/tokens": "beta"
   },
   "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"

@@ -11,14 +11,14 @@ import process from 'node:process'
 import {colorParser, colorRampParser} from './checker'
 import defaultTokensConfig from './default.tokens.config'
 import {generate} from './generate'
-import type {Theme, PrimitiveTheme, SettingsTheme} from './types'
+import type {Theme, PrimitiveTheme, SettingsTheme, ColorRamp, ColorPrimitives} from './types'
 
 const colorFn = (colorSpace: SettingsTheme['colorSpace']) => (v: string) => {
   switch (colorSpace) {
     case 'hex':
       return chroma(v).css()
     case 'rgb':
-      return chroma(v).css('rgb')
+      return chroma(v).css()
   }
 }
 
@@ -27,17 +27,20 @@ export function build(tokensConfig?: Theme) {
     const colorSpace = settings?.colorSpace
     const colorTx = colorFn(colorSpace)
     return {
-      color: Object.entries(primitive.color).reduce((acc, [key, value]) => {
-        if (typeof value === 'string' && colorParser.safeParse(value).success) {
-          acc[key] = colorTx(value)
-        } else if (colorRampParser.safeParse(value).success) {
-          acc[key] = Object.entries(value).reduce((acc, [rampKey, rampValue]) => {
-            acc[rampKey] = colorTx(rampValue)
-            return acc
-          }, {})
-        }
-        return acc
-      }, {}),
+      color: Object.entries(primitive.color as ColorPrimitives).reduce(
+        (acc: any, [key, value]: [string, ColorRamp | string]) => {
+          if (typeof value === 'string' && colorParser.safeParse(value).success) {
+            acc[key] = colorTx(value) as string
+          } else if (colorRampParser.safeParse(value).success) {
+            acc[key] = Object.entries(value).reduce((acc: ColorRamp, [rampKey, rampValue]) => {
+              acc[rampKey] = colorTx(rampValue) as string
+              return acc
+            }, {})
+          }
+          return acc
+        },
+        {}
+      ),
       opacity: primitive.opacity,
       fontFamily: primitive.fontFamily,
       size: primitive.size,
@@ -98,7 +101,7 @@ export async function writeTokensConfig(data: string, outputPath?: string) {
         mkdirSync(dir, {recursive: true})
       }
       writeFileSync(`${path.join(process.cwd(), outputPath)}`, data)
-    } catch (error) {
+    } catch (error: Error | any) {
       console.log(chalk.red(`💥 Error writing file: ${error.message as string}`))
       process.exit(1)
     }
@@ -116,7 +119,7 @@ export const runSCSS = async ({
 }: {
   configuration?: string
   output?: string
-  selector?: string
+  selector: string
   mode?: 'light' | 'dark'
 }) => {
   console.log(chalk.blue('Loading tokens configuration'))

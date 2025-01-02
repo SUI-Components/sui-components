@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 
-import {type Theme, type PrimitiveTheme, type SettingsTheme} from './types'
+import {type Theme} from './types'
 
 const theme: Theme = {
   settings: {
@@ -220,198 +220,238 @@ const theme: Theme = {
       tooltip: 1800
     }
   },
-  semantic: (
-    {color, opacity, elevation, size, fontFamily}: PrimitiveTheme,
-    {fontSize, prefix, colorSpace}: SettingsTheme
-  ) => {
+  semantic: ({color, opacity, elevation, size, fontFamily}, {fontSize, prefix, colorSpace}) => {
     return {
       color: {
         brand: {
-          main: color.theBlue[500],
-          mainHovered: color.theBlue[400],
-          mainPressed: color.theBlue[400],
-          mainFocused: color.theBlue[400],
-          mainDisabled: chroma(color.theBlue[400]).alpha(opacity.dim3).css('rgb'),
-          onMain: color.base.bright,
+          main: color?.theBlue[500],
+          mainHovered: color?.theBlue[400],
+          mainPressed: color?.theBlue[400],
+          mainFocused: color?.theBlue[400],
+          mainDisabled: chroma(color?.theBlue[400] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onMain: color?.base.bright,
 
-          mainContainer: color.theBlue[50],
-          mainContainerHovered: color.theBlue[100],
-          mainContainerFocused: color.theBlue[100],
-          mainContainerPressed: color.theBlue[100],
-          mainContainerDisabled: chroma(color.theBlue[50]).alpha(opacity.dim3).css('rgb'),
-          onMainContainer: color.theBlue[700],
+          mainContainer: color?.theBlue[50],
+          mainContainerHovered: color?.theBlue[100],
+          mainContainerFocused: color?.theBlue[100],
+          mainContainerPressed: color?.theBlue[100],
+          mainContainerDisabled: chroma(color?.theBlue[50] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onMainContainer: color?.theBlue[700],
 
-          mainVariant: color.theBlue[700],
-          mainVariantHovered: color.theBlue[600],
-          mainVariantFocused: color.theBlue[600],
-          mainVariantPressed: color.theBlue[600],
-          mainVariantDisabled: chroma(color.theBlue[600]).alpha(opacity.dim3).css('rgb'),
-          onMainVariant: color.base.bright,
+          mainVariant: color?.theBlue[700],
+          mainVariantHovered: color?.theBlue[600],
+          mainVariantFocused: color?.theBlue[600],
+          mainVariantPressed: color?.theBlue[600],
+          mainVariantDisabled: chroma(color?.theBlue[600] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onMainVariant: color?.base.bright,
 
-          accent: color.sugarCotton[500],
-          accentHovered: color.sugarCotton[400],
-          accentPressed: color.sugarCotton[400],
-          accentFocused: color.sugarCotton[400],
-          accentDisabled: chroma(color.sugarCotton[500]).alpha(opacity.dim3).css('rgb'),
-          onAccent: color.base.gloom,
+          accent: color?.sugarCotton[500],
+          accentHovered: color?.sugarCotton[400],
+          accentPressed: color?.sugarCotton[400],
+          accentFocused: color?.sugarCotton[400],
+          accentDisabled: chroma(color?.sugarCotton[500] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onAccent: color?.base.gloom,
 
-          accentContainer: color.sugarCotton[100],
-          accentContainerHovered: color.sugarCotton[50],
-          accentContainerFocused: color.sugarCotton[50],
-          accentContainerPressed: color.sugarCotton[50],
-          accentContainerDisabled: chroma(color.sugarCotton[100]).alpha(opacity.dim3).css('rgb'),
-          onAccentContainer: color.base.gloom,
+          accentContainer: color?.sugarCotton[100],
+          accentContainerHovered: color?.sugarCotton[50],
+          accentContainerFocused: color?.sugarCotton[50],
+          accentContainerPressed: color?.sugarCotton[50],
+          accentContainerDisabled: chroma(color?.sugarCotton[100] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onAccentContainer: color?.base.gloom,
 
-          accentVariant: color.sugarCotton[300],
-          accentVariantHovered: color.sugarCotton[200],
-          accentVariantFocused: color.sugarCotton[200],
-          accentVariantPressed: color.sugarCotton[200],
-          accentVariantDisabled: chroma(color.sugarCotton[300]).alpha(opacity.dim3).css('rgb'),
-          onAccentVariant: color.base.gloom,
+          accentVariant: color?.sugarCotton[300],
+          accentVariantHovered: color?.sugarCotton[200],
+          accentVariantFocused: color?.sugarCotton[200],
+          accentVariantPressed: color?.sugarCotton[200],
+          accentVariantDisabled: chroma(color?.sugarCotton[300] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onAccentVariant: color?.base.gloom,
 
-          support: color.sky[500],
-          supportHovered: color.sky[400],
-          supportPressed: color.sky[400],
-          supportFocused: color.sky[400],
-          supportDisabled: chroma(color.sky[500]).alpha(opacity.dim3).css('rgb'),
-          onSupport: color.base.bright,
+          support: color?.sky[500],
+          supportHovered: color?.sky[400],
+          supportPressed: color?.sky[400],
+          supportFocused: color?.sky[400],
+          supportDisabled: chroma(color?.sky[500] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onSupport: color?.base.bright,
 
-          supportContainer: color.sky[100],
-          supportContainerHovered: color.sky[50],
-          supportContainerFocused: color.sky[50],
-          supportContainerPressed: color.sky[50],
-          supportContainerDisabled: chroma(color.sky[100]).alpha(opacity.dim3).css('rgb'),
-          onSupportContainer: color.sky[500],
+          supportContainer: color?.sky[100],
+          supportContainerHovered: color?.sky[50],
+          supportContainerFocused: color?.sky[50],
+          supportContainerPressed: color?.sky[50],
+          supportContainerDisabled: chroma(color?.sky[100] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onSupportContainer: color?.sky[500],
 
-          supportVariant: color.sky[700],
-          supportVariantHovered: color.sky[600],
-          supportVariantFocused: color.sky[600],
-          supportVariantPressed: color.sky[600],
-          supportVariantDisabled: chroma(color.sky[700]).alpha(opacity.dim3).css('rgb'),
-          onSupportVariant: color.base.bright
+          supportVariant: color?.sky[700],
+          supportVariantHovered: color?.sky[600],
+          supportVariantFocused: color?.sky[600],
+          supportVariantPressed: color?.sky[600],
+          supportVariantDisabled: chroma(color?.sky[700] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onSupportVariant: color?.base.bright
         },
         feedback: {
-          success: color.apple[500],
-          successHovered: color.apple[400],
-          successPressed: color.apple[400],
-          successFocused: color.apple[400],
-          successDisabled: chroma(color.apple[500]).alpha(opacity.dim3).css('rgb'),
-          onSuccess: color.base.bright,
+          success: color?.apple[500],
+          successHovered: color?.apple[400],
+          successPressed: color?.apple[400],
+          successFocused: color?.apple[400],
+          successDisabled: chroma(color?.apple[500] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onSuccess: color?.base.bright,
 
-          successContainer: color.apple[50],
-          successContainerHovered: color.apple[100],
-          successContainerFocused: color.apple[100],
-          successContainerPressed: color.apple[100],
-          successContainerDisabled: chroma(color.apple[50]).alpha(opacity.dim3).css('rgb'),
-          onSuccessContainer: color.apple[700],
+          successContainer: color?.apple[50],
+          successContainerHovered: color?.apple[100],
+          successContainerFocused: color?.apple[100],
+          successContainerPressed: color?.apple[100],
+          successContainerDisabled: chroma(color?.apple[50] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onSuccessContainer: color?.apple[700],
 
-          alert: color.wiggins[500],
-          alertHovered: color.wiggins[400],
-          alertPressed: color.wiggins[400],
-          alertFocused: color.wiggins[400],
-          alertDisabled: chroma(color.wiggins[500]).alpha(opacity.dim3).css('rgb'),
-          onAlert: color.base.bright,
+          alert: color?.wiggins[500],
+          alertHovered: color?.wiggins[400],
+          alertPressed: color?.wiggins[400],
+          alertFocused: color?.wiggins[400],
+          alertDisabled: chroma(color?.wiggins[500] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onAlert: color?.base.bright,
 
-          alertContainer: color.wiggins[100],
-          alertContainerHovered: color.wiggins[50],
-          alertContainerFocused: color.wiggins[50],
-          alertContainerPressed: color.wiggins[50],
-          alertContainerDisabled: chroma(color.wiggins[100]).alpha(opacity.dim3).css('rgb'),
-          onAlertContainer: color.base.gloom,
+          alertContainer: color?.wiggins[100],
+          alertContainerHovered: color?.wiggins[50],
+          alertContainerDisabled: chroma(color?.wiggins[100] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onAlertContainer: color?.base.gloom,
 
-          error: color.chilli[500],
-          errorHovered: color.chilli[400],
-          errorPressed: color.chilli[400],
-          errorFocused: color.chilli[400],
-          errorDisabled: chroma(color.chilli[500]).alpha(opacity.dim3).css('rgb'),
-          onError: color.base.bright,
+          error: color?.chilli[500],
+          errorHovered: color?.chilli[400],
+          errorPressed: color?.chilli[400],
+          errorFocused: color?.chilli[400],
+          errorDisabled: chroma(color?.chilli[500] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onError: color?.base.bright,
 
-          errorContainer: color.chilli[100],
-          errorContainerHovered: color.chilli[50],
-          errorContainerFocused: color.chilli[50],
-          errorContainerPressed: color.chilli[50],
-          errorContainerDisabled: chroma(color.chilli[100]).alpha(opacity.dim3).css('rgb'),
-          onErrorContainer: color.chilli[600],
+          errorContainer: color?.chilli[100],
+          errorContainerHovered: color?.chilli[50],
+          errorContainerFocused: color?.chilli[50],
+          errorContainerPressed: color?.chilli[50],
+          errorContainerDisabled: chroma(color?.chilli[100] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onErrorContainer: color?.chilli[600],
 
-          info: color.sky[500],
-          infoHovered: color.sky[400],
-          infoPressed: color.sky[400],
-          infoFocused: color.sky[400],
-          infoDisabled: chroma(color.sky[500]).alpha(opacity.dim3).css('rgb'),
-          onInfo: color.base.bright,
+          info: color?.sky[500],
+          infoHovered: color?.sky[400],
+          infoPressed: color?.sky[400],
+          infoFocused: color?.sky[400],
+          infoDisabled: chroma(color?.sky[500] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onInfo: color?.base.bright,
 
-          infoContainer: color.sky[100],
-          infoContainerHovered: color.sky[50],
-          infoContainerFocused: color.sky[50],
-          infoContainerPressed: color.sky[50],
-          infoContainerDisabled: chroma(color.sky[100]).alpha(opacity.dim3).css('rgb'),
-          onInfoContainer: color.sky[600],
+          infoContainer: color?.sky[100],
+          infoContainerHovered: color?.sky[50],
+          infoContainerFocused: color?.sky[50],
+          infoContainerPressed: color?.sky[50],
+          infoContainerDisabled: chroma(color?.sky[100] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onInfoContainer: color?.sky[600],
 
-          neutral: color.surfer[600],
-          neutralHovered: color.surfer[500],
-          neutralPressed: color.surfer[500],
-          neutralFocused: color.surfer[500],
-          neutralDisabled: chroma(color.surfer[600]).alpha(opacity.dim3).css('rgb'),
-          onNeutral: color.base.bright,
+          neutral: color?.surfer[600],
+          neutralHovered: color?.surfer[500],
+          neutralPressed: color?.surfer[500],
+          neutralFocused: color?.surfer[500],
+          neutralDisabled: chroma(color?.surfer[600] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onNeutral: color?.base.bright,
 
-          neutralContainer: color.surfer[100],
-          neutralContainerHovered: color.surfer[50],
-          neutralContainerFocused: color.surfer[50],
-          neutralContainerPressed: color.surfer[50],
-          neutralContainerDisabled: chroma(color.surfer[100]).alpha(opacity.dim3).css('rgb'),
-          onNeutralContainer: color.base.gloom
+          neutralContainer: color?.surfer[100],
+          neutralContainerHovered: color?.surfer[50],
+          neutralContainerFocused: color?.surfer[50],
+          neutralContainerPressed: color?.surfer[50],
+          neutralContainerDisabled: chroma(color?.surfer[100] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onNeutralContainer: color?.base.gloom
         },
         base: {
-          basic: color.surfer[500],
-          basicHovered: color.surfer[400],
-          basicFocused: color.surfer[400],
-          basicPressed: color.surfer[400],
-          basicDisabled: chroma(color.surfer[400]).alpha(opacity.dim3).css('rgb'),
-          onBasic: color.base.bright,
+          basic: color?.surfer[500],
+          basicHovered: color?.surfer[400],
+          basicFocused: color?.surfer[400],
+          basicPressed: color?.surfer[400],
+          basicDisabled: chroma(color?.surfer[400] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onBasic: color?.base.bright,
 
-          basicContainer: color.surfer[50],
-          basicContainerHovered: color.surfer[100],
-          basicContainerFocused: color.surfer[100],
-          basicContainerPressed: color.surfer[100],
-          basicContainerDisabled: chroma(color.surfer[50]).alpha(opacity.dim3).css('rgb'),
-          onBasicContainer: color.surfer[700],
+          basicContainer: color?.surfer[50],
+          basicContainerHovered: color?.surfer[100],
+          basicContainerFocused: color?.surfer[100],
+          basicContainerPressed: color?.surfer[100],
+          basicContainerDisabled: chroma(color?.surfer[50] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onBasicContainer: color?.surfer[700],
 
-          basicVariant: color.surfer[700],
-          basicVariantHovered: color.surfer[600],
-          basicVariantFocused: color.surfer[600],
-          basicVariantPressed: color.surfer[600],
-          basicVariantDisabled: chroma(color.surfer[600]).alpha(opacity.dim3).css('rgb'),
-          onBasicVariant: color.base.bright,
+          basicVariant: color?.surfer[700],
+          basicVariantHovered: color?.surfer[600],
+          basicVariantFocused: color?.surfer[600],
+          basicVariantPressed: color?.surfer[600],
+          basicVariantDisabled: chroma(color?.surfer[600] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          onBasicVariant: color?.base.bright,
 
-          background: color.base.bright,
-          onBackground: color.base.gloom,
-          backgroundVariant: color.surfer[100],
-          onBackgroundVariant: color.base.gloom,
+          background: color?.base.bright,
+          onBackground: color?.base.gloom,
+          backgroundVariant: color?.surfer[100],
+          onBackgroundVariant: color?.base.gloom,
 
-          surface: color.base.bright,
-          onSurface: color.base.gloom,
-          surfaceInverse: color.surfer[900],
-          onSurfaceInverse: color.base.bright,
+          surface: color?.base.bright,
+          onSurface: color?.base.gloom,
+          surfaceInverse: color?.surfer[900],
+          onSurfaceInverse: color?.base.bright,
 
-          overlay: color.base.gloom,
-          onOverlay: color.base.bright,
+          overlay: color?.base.gloom,
+          onOverlay: color?.base.bright,
 
-          outline: color.surfer[400],
-          outlineHovered: color.surfer[700],
-          outlinePressed: color.surfer[700],
-          outlineFocused: color.surfer[700],
-          outlineDisabled: chroma(color.surfer[400]).alpha(opacity.dim3).css('rgb'),
-          outlineHigh: color.surfer[900]
+          outline: color?.surfer[400],
+          outlineHovered: color?.surfer[700],
+          outlinePressed: color?.surfer[700],
+          outlineFocused: color?.surfer[700],
+          outlineDisabled: chroma(color?.surfer[400] as string)
+            .alpha(opacity?.dim3 as number)
+            .css(),
+          outlineHigh: color?.surfer[900]
         },
-        extra: {},
         social: {
-          facebook: color.social.facebook,
-          whatsapp: color.social.whatsapp,
-          youtube: color.social.youtube,
-          tiktok: color.social.tiktok,
-          telegram: color.social.telegram,
-          x: color.social.x,
-          instagram: color.social.instagram
+          facebook: color?.social?.facebook,
+          whatsapp: color?.social?.whatsapp,
+          youtube: color?.social?.youtube,
+          tiktok: color?.social?.tiktok,
+          telegram: color?.social?.telegram,
+          x: color?.social?.x,
+          instagram: color?.social?.instagram
         }
       },
       font: {
@@ -440,9 +480,9 @@ const theme: Theme = {
           black: '900'
         },
         family: {
-          sans: fontFamily.sans.join(', '),
-          serif: fontFamily.serif.join(', '),
-          mono: fontFamily.mono.join(', ')
+          sans: fontFamily?.sans.join(', ') as string,
+          serif: fontFamily?.serif.join(', ') as string,
+          mono: fontFamily?.mono.join(', ') as string
         }
       },
       opacity,

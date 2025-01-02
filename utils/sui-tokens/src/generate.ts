@@ -1,6 +1,6 @@
 import {kebabCase} from 'change-case'
 
-import {type SemanticTheme, type PrimitiveTheme} from './types'
+import {type SemanticTheme, type PrimitiveTheme, type SettingsTheme} from './types'
 
 const anidate = (accumulator: Map<string, string>, [key, value]) => {
   if (typeof value === 'string' || typeof value === 'number') {
@@ -23,7 +23,7 @@ const anidate = (accumulator: Map<string, string>, [key, value]) => {
 
 export const generate = {
   scss: (
-    {primitive, semantic}: {primitive: PrimitiveTheme; semantic: SemanticTheme},
+    {settings, primitive, semantic}: {settings: SettingsTheme; primitive: PrimitiveTheme; semantic: SemanticTheme},
     selector: string,
     mode?: 'light' | 'dark'
   ) => {
@@ -73,7 +73,7 @@ $${key}: var(${getTokenKey(key)}) !default;`
       )
     }
 
-    const {prefix} = primitive
+    const {prefix} = settings
     const hasMode = (mode?: 'light' | 'dark') => mode !== undefined
 
     add('color', prefix, hasMode(mode) ? 2 : 1)
@@ -96,7 +96,13 @@ ${scssTokens.elevation}
 ${scssTokens.spacing}
 `
   },
-  json: ({semantic}: {primitive: PrimitiveTheme; semantic: SemanticTheme}) => {
-    return JSON.stringify(semantic, null, 2)
+  json: (
+    {primitive, semantic}: {primitive: PrimitiveTheme; semantic: SemanticTheme},
+    {hasPrimitive}: {hasPrimitive: boolean}
+  ) => {
+    return {
+      ...(hasPrimitive ? {primitive} : {}),
+      semantic
+    }
   }
 }

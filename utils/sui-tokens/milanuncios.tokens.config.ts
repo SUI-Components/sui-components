@@ -3,8 +3,11 @@ import chroma from 'chroma-js'
 import {type Theme, type PrimitiveTheme} from './src/types'
 
 const theme: Theme = {
-  primitive: {
+  settings: {
     fontSize: '16px',
+    colorSpace: 'rgb'
+  },
+  primitive: {
     color: {
       hero: {
         50: '#F2FCF7',
@@ -104,7 +107,6 @@ const theme: Theme = {
         gloom: '#000000'
       }
     },
-    colorSpace: 'rgb',
     opacity: {
       full: 1,
       dim1: 0.72,

@@ -12,14 +12,17 @@ export interface OpacityPrimitive {
 
 export type Base = string
 
-export interface PrimitiveTheme {
+export interface SettingsTheme {
   prefix?: string
   fontSize?: string
+  colorSpace?: 'hex' | 'rgb'
+}
+
+export interface PrimitiveTheme {
   fontFamily?: {
     [key: string]: string[]
   }
   color?: ColorPrimitives
-  colorSpace?: 'hex' | 'rgb'
   opacity?: OpacityPrimitive
   size?: {
     [key: string]: string
@@ -228,6 +231,13 @@ export interface SemanticTheme {
 }
 
 export interface Theme {
+  settings: SettingsTheme
   primitive: PrimitiveTheme
-  semantic: (themePrimitives: PrimitiveTheme) => SemanticTheme
+  semantic: (themePrimitives?: PrimitiveTheme, settingsTheme?: SettingsTheme) => SemanticTheme
+}
+
+export interface ThemeResult {
+  settings: SettingsTheme
+  primitive: PrimitiveTheme
+  semantic: SemanticTheme
 }

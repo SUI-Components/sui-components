@@ -1,11 +1,14 @@
 import chroma from 'chroma-js'
 
-import {type Theme, type PrimitiveTheme} from './types'
+import {type Theme, type PrimitiveTheme, type SettingsTheme} from './types'
 
 const theme: Theme = {
-  primitive: {
+  settings: {
     prefix: 's-ui',
     fontSize: '16px',
+    colorSpace: 'rgb'
+  },
+  primitive: {
     fontFamily: {
       sans: ["'Open Sans'", 'Helvetica', 'sans-serif'],
       serif: ['Georgia', 'Cambria', "'Times New Roman'", 'Times', 'serif'],
@@ -125,7 +128,6 @@ const theme: Theme = {
         gloom: '#000000'
       }
     },
-    colorSpace: 'rgb',
     opacity: {
       full: 1,
       dim1: 0.72,
@@ -218,7 +220,10 @@ const theme: Theme = {
       tooltip: 1800
     }
   },
-  semantic: ({color, opacity, elevation, size, fontSize, fontFamily}: PrimitiveTheme) => {
+  semantic: (
+    {color, opacity, elevation, size, fontFamily}: PrimitiveTheme,
+    {fontSize, prefix, colorSpace}: SettingsTheme
+  ) => {
     return {
       color: {
         brand: {

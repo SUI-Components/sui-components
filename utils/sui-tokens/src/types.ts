@@ -213,12 +213,9 @@ export interface SemanticTheme {
     }
   }
   font?: {
-    size?: {
-      [key: string]: string
-    }
-    family?: {
-      [key: string]: string
-    }
+    size?: {[key: string]: string}
+    family?: {[key: string]: string}
+    weight?: {[key: string]: string}
   }
   spacing?: {
     size?: {
@@ -228,12 +225,15 @@ export interface SemanticTheme {
   elevation?: {
     [key: string]: number
   }
+  opacity?: {
+    [key: string]: number
+  }
 }
 
 export interface Theme {
   settings: SettingsTheme
   primitive: PrimitiveTheme
-  semantic: (themePrimitives?: PrimitiveTheme, settingsTheme?: SettingsTheme) => SemanticTheme
+  semantic: (themePrimitives: PrimitiveTheme, settingsTheme: SettingsTheme) => SemanticTheme
 }
 
 export interface ThemeResult {

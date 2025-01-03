@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 
-import {type Theme, type PrimitiveTheme} from './src/types'
+import {type PrimitiveTheme, type Theme} from './src/types'
 
 const theme: Theme = {
   settings: {

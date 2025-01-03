@@ -1,6 +1,6 @@
 import {kebabCase} from 'change-case'
 
-import {type SemanticTheme, type PrimitiveTheme, type SettingsTheme} from './types'
+import {type PrimitiveTheme, type SemanticTheme, type SettingsTheme} from './types'
 
 const anidate = (
   accumulator: Map<string, string>,

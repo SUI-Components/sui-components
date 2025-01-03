@@ -11,7 +11,7 @@ import process from 'node:process'
 import {colorParser, colorRampParser} from './checker'
 import defaultTokensConfig from './default.tokens.config'
 import {generate} from './generate'
-import type {Theme, PrimitiveTheme, SettingsTheme, ColorRamp, ColorPrimitives} from './types'
+import type {ColorPrimitives, ColorRamp, PrimitiveTheme, SettingsTheme, Theme} from './types'
 
 const colorFn = (colorSpace: SettingsTheme['colorSpace']) => (v: string) => {
   switch (colorSpace) {
@@ -115,12 +115,14 @@ export const runSCSS = async ({
   configuration,
   output,
   selector,
-  mode
+  mode,
+  primitive
 }: {
   configuration?: string
   output?: string
   selector: string
   mode?: 'light' | 'dark'
+  primitive: boolean
 }) => {
   console.log(chalk.blue('Loading tokens configuration'))
   const tokensConfig = await loadTokensConfig(configuration)
@@ -148,23 +150,5 @@ export const runJSON = async ({
   const result = build(tokensConfig)
   console.log(chalk.blue('Writing tokens'))
   await writeTokensConfig(JSON.stringify(generate.json(result, {hasPrimitive: primitive}), null, 2), output)
-  console.log(chalk.blue('Done!'))
-}
-
-export const run = async ({
-  configuration,
-  primitive
-}: {
-  configuration?: string
-  output?: string
-  primitive: boolean
-}) => {
-  console.log(chalk.blue('Loading tokens configuration'))
-  const tokensConfig = await loadTokensConfig(configuration)
-  console.log(chalk.blue('Building tokens'))
-  console.log(chalk.green(JSON.stringify(tokensConfig, null, 2)))
-  const result = build(tokensConfig)
-  console.log(chalk.blue('Writing tokens'))
-  console.log(JSON.stringify(generate.json(result, {hasPrimitive: primitive}), null, 2))
   console.log(chalk.blue('Done!'))
 }

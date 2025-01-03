@@ -21,8 +21,7 @@ const THEMES_PACKAGES = [
   '@adv-ui/ij-theme',
   '@adv-ui/ma-theme',
   '@adv-ui/mt-theme',
-  '@adv-ui/adit-boros-tcf-ui-consent',
-  '@adv-ui/ka-theme'
+  '@adv-ui/adit-boros-tcf-ui-consent'
 ]
 
 const cwd = process.cwd()

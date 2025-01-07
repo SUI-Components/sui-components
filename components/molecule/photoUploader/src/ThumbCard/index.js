@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
+import {DEFAULT_VIEW_TYPE, VIEW_TYPE} from './../config.js'
 import {
   ACTION_THUMB_CARD_CLASS_NAME,
   BUTTON_THUMB_CARD_CLASS_NAME,
@@ -11,8 +12,6 @@ import {
   IMAGE_THUMB_CARD_CLASS_NAME,
   THUMB_CARD_CLASS_NAME
 } from './config.js'
-
-import {DEFAULT_VIEW_TYPE, VIEW_TYPE} from './../config.js'
 
 const ThumbCard = ({
   iconSize = ATOM_ICON_SIZES.small,

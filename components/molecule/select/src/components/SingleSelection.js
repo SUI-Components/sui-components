@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 import AtomInput, {inputTypes} from '@s-ui/react-atom-input'
 import MoleculeDropdownList from '@s-ui/react-molecule-dropdown-list'
-import {CLASS_SEARCH_CONTAINER} from './config.js'
 
 import {
-  useDropdown,
+  SELECT_DROPDOWN_LIST_SIZES as dropdownListSizes,
   SELECT_INPUT_SIZES as inputSizes,
-  SELECT_DROPDOWN_LIST_SIZES as dropdownListSizes
+  useDropdown
 } from '../config.js'
+import {CLASS_SEARCH_CONTAINER} from './config.js'
 import MoleculeInputSelect from './MoleculeInputSelect.js'
 import Search from './Search.js'
 

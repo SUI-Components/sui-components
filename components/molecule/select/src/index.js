@@ -23,10 +23,10 @@ import {
   ENABLED_KEYS,
   getClassName,
   getOptionData,
-  SELECT_STATES,
-  SELECTION_KEYS,
+  SELECT_DROPDOWN_LIST_SIZES,
   SELECT_INPUT_SIZES,
-  SELECT_DROPDOWN_LIST_SIZES
+  SELECT_STATES,
+  SELECTION_KEYS
 } from './config.js'
 
 const useFunctionalRef = () => useReducer((_s, node) => node, null)

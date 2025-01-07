@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.128.0 (2025-01-07)
+
+
+### Features
+
+* use native functions ([5c7b6dd](https://github.com/SUI-Components/sui-components/commit/5c7b6ddf9d730714f8b6d5249da934c664af37b9))
+
+
+
 # 8.127.0 (2024-05-06)
 
 

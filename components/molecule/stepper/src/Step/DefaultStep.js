@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import {naturalNumber} from '../prop-types.js'
 import {ALIGNMENT, DESIGN} from '../settings.js'
-import {BASE_CLASS_STEP_LABEL, BASE_CLASS_STEP_ICON, getIcon, getLabel} from './settings.js'
+import {BASE_CLASS_STEP_ICON, BASE_CLASS_STEP_LABEL, getIcon, getLabel} from './settings.js'
 
 const DefaultStep = ({
   alignment,

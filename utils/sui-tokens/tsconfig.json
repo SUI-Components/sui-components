@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@s-ui/bundler/tsconfig.json",
   "ts-node": {"esm": true, "experimentalSpecifierResolution": "node"},
   "compilerOptions": {
     "outDir": "./lib",
@@ -9,7 +9,7 @@
     "module": "CommonJS",
     "esModuleInterop": true,
     "target": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "isolatedModules": false,

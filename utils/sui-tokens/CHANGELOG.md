@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.3.0 (2025-01-07)
+
+
+### Features
+
+* typescript inherited by bundler ([387503f](https://github.com/SUI-Components/sui-components/commit/387503f14c1c90a8ad7cdc75def70904dcfaa0d4))
+
+
+
 # 0.2.0 (2025-01-07)
 
 

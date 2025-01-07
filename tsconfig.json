@@ -3,5 +3,5 @@
   "compilerOptions": {
     "rootDir": "./"
   },
-  "include": ["src", "domain", "components"]
+  "include": ["src", "domain", "components", "utils"]
 }

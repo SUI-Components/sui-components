@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tool for manipulate @s-ui tokens.",
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.2.0 (2025-01-07)
+
+
+### Bug Fixes
+
+* tsconfig ([20b6b20](https://github.com/SUI-Components/sui-components/commit/20b6b20841fe6d01d1d5b91e819f976495434e53))
+
+
+
 # 0.1.0 (2025-01-07)
 
 
@@ -37,6 +46,3 @@
 * new way to template tokens ([5779e64](https://github.com/SUI-Components/sui-components/commit/5779e646d9f5cb36fffbbae9b90921b66a5c92b7))
 * set poper dependencies ([e5a9d62](https://github.com/SUI-Components/sui-components/commit/e5a9d626e8fcd47357f584d6237c481e4dcce015))
 * solve minor improvemnts ([1f26d2c](https://github.com/SUI-Components/sui-components/commit/1f26d2c9fc34d63fe822afcfdf14cc147d347f44))
-
-
-

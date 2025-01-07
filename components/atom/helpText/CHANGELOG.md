@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.10.0 (2025-01-07)
+
+
+### Bug Fixes
+
+* Use atom-checkbox v3 to unify versions ([f32b7af](https://github.com/SUI-Components/sui-components/commit/f32b7af494fd747ee4a2d48456bda93345162e76))
+
+
+### Features
+
+* styling fixes ([31f6e94](https://github.com/SUI-Components/sui-components/commit/31f6e94482aa4be585e75ccd0d86af55b5ce9d47))
+
+
+
 # 1.9.0 (2022-10-06)
 
 
@@ -83,6 +97,3 @@
 * **atom/helpText:** add description and link to the demo page on readme file ([4970b1d](https://github.com/SUI-Components/sui-components/commit/4970b1daaeb0fdf8f0c106ca86cc998e5eece5b1))
 * **atom/helpText:** add example to readme file ([eba8115](https://github.com/SUI-Components/sui-components/commit/eba811528ced534e73914482d8e756199da2901c))
 * **atom/helpText:** common element help-text ([1ff5684](https://github.com/SUI-Components/sui-components/commit/1ff56841de59ba4215b2b126f6db7531aa8926b9))
-
-
-

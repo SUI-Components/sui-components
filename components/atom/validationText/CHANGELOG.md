@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2025-01-07)
+
+
+### Bug Fixes
+
+* styling fixes ([3b3b6d4](https://github.com/SUI-Components/sui-components/commit/3b3b6d4cc11abd9fb19649d9bc4a38a75a0397a8))
+
+
+
 # 1.9.0 (2022-10-06)
 
 
@@ -89,6 +98,3 @@
 
 * **atom/validationText:** fix component name ([31f5480](https://github.com/SUI-Components/sui-components/commit/31f54807ae22f15a2d448dbd96571626867bd81b))
 * **atom/validationText:** new component atom validationText ([169fb87](https://github.com/SUI-Components/sui-components/commit/169fb87f457e0d8427bb1eef63a6b047e7ef6362))
-
-
-

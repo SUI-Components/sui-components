@@ -1,4 +1,4 @@
-#!/usr/bin/env node --import tsx
+#!/usr/bin/env -S npx tsx
 
 import {program} from 'commander'
 import {createRequire} from 'node:module'

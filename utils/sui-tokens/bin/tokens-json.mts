@@ -1,4 +1,4 @@
-#!/usr/bin/env node --import tsx
+#!/usr/bin/env -S npx tsx
 
 import {Command} from 'commander'
 

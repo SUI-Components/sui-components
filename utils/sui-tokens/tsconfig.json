@@ -6,7 +6,7 @@
     "rootDir": "./src",
     "allowImportingTsExtensions": true,
     "allowJs": true,
-    "module": "CommonJS",
+    "module": "ES2022",
     "esModuleInterop": true,
     "target": "ESNext",
     "moduleResolution": "node",

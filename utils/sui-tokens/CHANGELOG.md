@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 0.4.0 (2025-01-08)
+
+
+### Bug Fixes
+
+* remove unnecesary extension ([d33809b](https://github.com/SUI-Components/sui-components/commit/d33809b4101d9f881358f243a5255ccfb1f310c9))
+
+
+### Features
+
+* unify the ts syntax ([f8e34ff](https://github.com/SUI-Components/sui-components/commit/f8e34ffc293315ef4bf57b85fd4ad79db1ae9ba7))
+
+
+
 # 0.3.0 (2025-01-07)
 
 

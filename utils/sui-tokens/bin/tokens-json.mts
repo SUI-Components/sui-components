@@ -2,7 +2,7 @@
 
 import {Command} from 'commander'
 
-import {runJSON} from '../src/build.ts'
+import {runJSON} from '../src/build'
 
 const program = new Command()
 

@@ -9,9 +9,10 @@
     "node": ">=20.0.0"
   },
   "bin": {
-    ".": "./bin/tokens.mjs",
-    "tokens": "./bin/tokens.mjs",
-    "tokens-scss": "./bin/tokens-scss.mjs"
+    ".": "./bin/tokens.mts",
+    "tokens": "./bin/tokens.mts",
+    "tokens-scss": "./bin/tokens-scss.mts",
+    "tokens-json": "./bin/tokens-json.mts"
   },
   "exports": {
     ".": "./src/index.ts"

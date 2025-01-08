@@ -2,7 +2,7 @@
 
 import {Command} from 'commander'
 
-import {runSCSS} from '../src/build.ts'
+import {runSCSS} from '../src/build'
 
 const program = new Command()
 

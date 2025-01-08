@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.5.0 (2025-01-08)
+
+
+### Features
+
+* change the binary extension in the manifest ([16798bd](https://github.com/SUI-Components/sui-components/commit/16798bd1c2d2f677afe0832b34ccfcbbdcc61377))
+
+
+
 # 0.4.0 (2025-01-08)
 
 

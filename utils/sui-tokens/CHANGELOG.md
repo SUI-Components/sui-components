@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.7.0 (2025-01-13)
+
+
+### Bug Fixes
+
+* minor hotfix ([637994d](https://github.com/SUI-Components/sui-components/commit/637994dce825874b36094ad3eacf3f1767950b00))
+
+
+
 # 0.6.0 (2025-01-13)
 
 

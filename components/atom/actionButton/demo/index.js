@@ -150,7 +150,7 @@ const Demo = () => {
         </form>
       </Article>
       <br />
-      <Article className={CLASS_SECTION} mode="light">
+      <Article className={CLASS_SECTION}>
         <H2>Other extra button boolean props</H2>
         <Paragraph>
           <Code>disabled</Code>: button is not trigerable.

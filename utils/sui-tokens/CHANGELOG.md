@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 0.6.0 (2025-01-13)
+
+
+### Bug Fixes
+
+* change the way the is wrapped ([26ff968](https://github.com/SUI-Components/sui-components/commit/26ff96846656d2f18fa35f6bb8133d743e8e3bd5))
+
+
+### Features
+
+* update dependencies ([1e1a313](https://github.com/SUI-Components/sui-components/commit/1e1a31337e0444676d6e9a07977ace9874a1f185))
+
+
+
 # 0.5.0 (2025-01-08)
 
 

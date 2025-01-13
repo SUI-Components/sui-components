@@ -30,7 +30,7 @@ const ArticlePlayground = ({className}) => {
   const [state, setState] = useState({content: 'button', link: false})
   const {negative, content, icon, leftIcon, rightIcon, socialButtons, link} = state
   return (
-    <Article className={CLASS_SECTION} mode="light">
+    <Article className={CLASS_SECTION}>
       <H2>Other extra button boolean props</H2>
       <Paragraph>
         <Code>negative</Code>: proper usage with dark backgrounds.
@@ -220,7 +220,7 @@ const ArticlePlayground = ({className}) => {
           />
         </Cell>
         <Cell span={2}>
-          <Box mode={negative ? 'dark' : 'light'}>
+          <Box>
             <Grid cols={7} gutter={[10, 10]}>
               <Cell />
               {[[{design: undefined}], ...atomButtonDesignsIterator].map(([{design}], index) => (

@@ -40,7 +40,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/documentation-library": "1",
+    "@s-ui/documentation-library": "2",
     "@s-ui/helpers": "1",
     "@s-ui/js-compiler": "1",
     "@s-ui/lint": "4",

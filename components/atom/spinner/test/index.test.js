@@ -166,7 +166,7 @@ describe(json.name, () => {
 
       // When
       const {atomSpinnerOverlayTypes: actual} = library
-      const {SMALL, MEDIUM, LIGHT, ...others} = actual
+      const {SMALL, MEDIUM, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

@@ -4,9 +4,9 @@ import {type Theme} from './types'
 
 const theme: Theme = {
   settings: {
-    prefix: 's-ui',
-    fontSize: '16px',
-    colorSpace: 'rgb'
+    prefix: '', // prefix for the native tokens. (Ex: 's-ui' will generate the --s-ui-color-brand-main semantic token)
+    fontSize: '16px', // base font size for the project
+    colorSpace: 'rgb' // color space for the project
   },
   primitive: {
     fontFamily: {

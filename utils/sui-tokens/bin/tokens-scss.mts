@@ -1,6 +1,6 @@
 #!/usr/bin/env -S npx tsx
 
-import {Command} from 'commander'
+import {Command, Option} from 'commander'
 
 import {runSCSS} from '../src/build'
 
@@ -12,7 +12,7 @@ program
   .option('-o, --output <output>', 'output file route')
   .option('-s, --selector <selector>', 'css selector of tokens container', ':root')
   .option('-m, --mode <selector>', 'color schemes of the config')
-  .option('-p, --primitives', 'include primitives in the output', false)
+  .addOption(new Option('-p, --primitives', 'include primitives in the output').default(false).hideHelp())
   .action(runSCSS)
 
 program.parse(process.argv)

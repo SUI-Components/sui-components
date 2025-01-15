@@ -134,6 +134,29 @@ export const runSCSS = async ({
   console.log(chalk.blue('Done!'))
 }
 
+export const runNative = async ({
+  configuration,
+  output,
+  selector,
+  mode,
+  primitives
+}: {
+  configuration?: string
+  output?: string
+  selector: string
+  mode?: 'light' | 'dark'
+  primitives: boolean
+}) => {
+  console.log(chalk.blue('Loading tokens configuration'))
+  const tokensConfig = await loadTokensConfig(configuration)
+  console.log(chalk.blue('Building tokens'))
+  console.log(chalk.green(JSON.stringify(tokensConfig, null, 2)))
+  const result = build(tokensConfig)
+  console.log(chalk.blue('Writing tokens'))
+  await writeTokensConfig(generate.native(result, {hasPrimitive: primitives, selector, mode}), output)
+  console.log(chalk.blue('Done!'))
+}
+
 export const runJSON = async ({
   configuration,
   output,

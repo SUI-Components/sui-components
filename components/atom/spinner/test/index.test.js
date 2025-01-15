@@ -165,7 +165,7 @@ describe(json.name, () => {
       }
 
       // When
-      const {atomSpinnerOverlayTypes: actual} = library
+      const {atomSpinnerSizes: actual} = library
       const {SMALL, MEDIUM, ...others} = actual
 
       // Then

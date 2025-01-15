@@ -97,6 +97,6 @@ AtomSpinner.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPES))
 }
 
-export {OVERLAY_TYPES as atomSpinnerOverlayTypes, TYPES as atomSpinnerTypes}
+export {OVERLAY_TYPES as atomSpinnerOverlayTypes, TYPES as atomSpinnerTypes, SIZES as atomSpinnerSizes}
 
 export default AtomSpinner

@@ -22,10 +22,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['atomSpinnerOverlayTypes', 'atomSpinnerTypes', 'default']
+    const libraryExportedMembers = ['atomSpinnerOverlayTypes', 'atomSpinnerTypes', 'atomSpinnerSizes', 'default']
 
     // When
-    const {atomSpinnerOverlayTypes, atomSpinnerTypes, default: AtomSpinner, ...others} = library
+    const {atomSpinnerOverlayTypes, atomSpinnerTypes, atomSpinnerSizes, default: AtomSpinner, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

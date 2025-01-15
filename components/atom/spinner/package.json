@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-spinner",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "spinner"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "spinner"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

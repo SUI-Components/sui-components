@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 2.6.0 (2025-01-15)
+
+
+### Bug Fixes
+
+* Use atom-checkbox v3 to unify versions ([52a28e4](https://github.com/SUI-Components/sui-components/commit/52a28e411379d74ac7a2032d3f1aea8a9311a383))
+
+
+### Features
+
+* export sizes ([a662660](https://github.com/SUI-Components/sui-components/commit/a66266056ef4d6a652efc504e1c70de426717beb))
+* update test ([f16c27f](https://github.com/SUI-Components/sui-components/commit/f16c27f26a8b4ddcab481546cb20131db1a4ab66))
+
+
+
 # 2.5.0 (2023-09-20)
 
 
@@ -183,6 +198,3 @@
 * **atom/spinner:** new atom spinner component ([0e818e1](https://github.com/SUI-Components/sui-components/commit/0e818e10f5e919f0e3a55df28a3df41c23dd4eb4))
 * **atom/spinner:** placeholder and alignment ([00dd457](https://github.com/SUI-Components/sui-components/commit/00dd457424dc48edb32c1050b45bcf1a096acc36))
 * **atom/spinner:** removing show prop ([8e411d0](https://github.com/SUI-Components/sui-components/commit/8e411d02825c89bc3cf62de4cf9ae550ee0a8dd7))
-
-
-

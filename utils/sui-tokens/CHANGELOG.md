@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.8.0 (2025-01-15)
+
+
+### Features
+
+* separate native tokens and scss token variables on diferent steps ([58bb859](https://github.com/SUI-Components/sui-components/commit/58bb859f9cc59558045197190f923a3d32d4f349))
+
+
+
 # 0.7.0 (2025-01-13)
 
 

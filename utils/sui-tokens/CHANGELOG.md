@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.9.0 (2025-01-16)
+
+
+### Features
+
+* change the default values structure and solves some minor fixes on export ([dae9b96](https://github.com/SUI-Components/sui-components/commit/dae9b96c518cad151b801c7098e9c3fac292608c))
+
+
+
 # 0.8.0 (2025-01-15)
 
 

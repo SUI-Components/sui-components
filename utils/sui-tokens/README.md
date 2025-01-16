@@ -1,9 +1,5 @@
 # sui-tokens
-> A set of dependencies of all SUI components.
-
-It provides:
-* Unified dependencies versions across components
-* Minified boilerplate
+> Generates the semantic tokens styles file by a simple config file.
 
 ## Installation
 
@@ -11,12 +7,25 @@ It provides:
 $ npm install @s-ui/tokens --save-dev
 ```
 
+## Configuration
+The configuration files might follow the next structure:
+[tokens.config.ts](https://github.com/SUI-Components/sui-components/blob/master/utils/sui-tokens/src/default.tokens.config.ts)
+
 ## Usage
+
+By default, it generates the styles in native CSS format.
 
 To see the resulting configuration, you can run the following command:
 ```sh
 $ tokens -c <config.manifest.file.js>
 ```
+
+To export the result on css format you can use the css script
+```sh
+$ tokens -c <config.manifest.file.js> -o <output.json>
+```
+
+```sh 
 
 To export the result on json format you can use the JSON script
 

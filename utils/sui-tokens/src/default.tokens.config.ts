@@ -124,8 +124,8 @@ const theme: Theme = {
         theBlueV: '#7583FF'
       },
       base: {
-        bright: '#FFFFFF',
-        gloom: '#000000'
+        white: '#FFFFFF',
+        black: '#000000'
       }
     },
     opacity: {
@@ -231,7 +231,7 @@ const theme: Theme = {
           mainDisabled: chroma(color?.theBlue[400] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onMain: color?.base.bright,
+          onMain: color?.base.white,
 
           mainContainer: color?.theBlue[50],
           mainContainerHovered: color?.theBlue[100],
@@ -249,7 +249,7 @@ const theme: Theme = {
           mainVariantDisabled: chroma(color?.theBlue[600] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onMainVariant: color?.base.bright,
+          onMainVariant: color?.base.white,
 
           accent: color?.sugarCotton[500],
           accentHovered: color?.sugarCotton[400],
@@ -258,7 +258,7 @@ const theme: Theme = {
           accentDisabled: chroma(color?.sugarCotton[500] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onAccent: color?.base.gloom,
+          onAccent: color?.base.black,
 
           accentContainer: color?.sugarCotton[100],
           accentContainerHovered: color?.sugarCotton[50],
@@ -267,7 +267,7 @@ const theme: Theme = {
           accentContainerDisabled: chroma(color?.sugarCotton[100] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onAccentContainer: color?.base.gloom,
+          onAccentContainer: color?.base.black,
 
           accentVariant: color?.sugarCotton[300],
           accentVariantHovered: color?.sugarCotton[200],
@@ -276,7 +276,7 @@ const theme: Theme = {
           accentVariantDisabled: chroma(color?.sugarCotton[300] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onAccentVariant: color?.base.gloom,
+          onAccentVariant: color?.base.black,
 
           support: color?.sky[500],
           supportHovered: color?.sky[400],
@@ -285,7 +285,7 @@ const theme: Theme = {
           supportDisabled: chroma(color?.sky[500] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onSupport: color?.base.bright,
+          onSupport: color?.base.white,
 
           supportContainer: color?.sky[100],
           supportContainerHovered: color?.sky[50],
@@ -303,7 +303,7 @@ const theme: Theme = {
           supportVariantDisabled: chroma(color?.sky[700] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onSupportVariant: color?.base.bright
+          onSupportVariant: color?.base.white
         },
         feedback: {
           success: color?.apple[500],
@@ -313,7 +313,7 @@ const theme: Theme = {
           successDisabled: chroma(color?.apple[500] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onSuccess: color?.base.bright,
+          onSuccess: color?.base.white,
 
           successContainer: color?.apple[50],
           successContainerHovered: color?.apple[100],
@@ -331,14 +331,14 @@ const theme: Theme = {
           alertDisabled: chroma(color?.wiggins[500] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onAlert: color?.base.bright,
+          onAlert: color?.base.white,
 
           alertContainer: color?.wiggins[100],
           alertContainerHovered: color?.wiggins[50],
           alertContainerDisabled: chroma(color?.wiggins[100] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onAlertContainer: color?.base.gloom,
+          onAlertContainer: color?.base.black,
 
           error: color?.chilli[500],
           errorHovered: color?.chilli[400],
@@ -347,7 +347,7 @@ const theme: Theme = {
           errorDisabled: chroma(color?.chilli[500] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onError: color?.base.bright,
+          onError: color?.base.white,
 
           errorContainer: color?.chilli[100],
           errorContainerHovered: color?.chilli[50],
@@ -365,7 +365,7 @@ const theme: Theme = {
           infoDisabled: chroma(color?.sky[500] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onInfo: color?.base.bright,
+          onInfo: color?.base.white,
 
           infoContainer: color?.sky[100],
           infoContainerHovered: color?.sky[50],
@@ -383,7 +383,7 @@ const theme: Theme = {
           neutralDisabled: chroma(color?.surfer[600] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onNeutral: color?.base.bright,
+          onNeutral: color?.base.white,
 
           neutralContainer: color?.surfer[100],
           neutralContainerHovered: color?.surfer[50],
@@ -392,7 +392,7 @@ const theme: Theme = {
           neutralContainerDisabled: chroma(color?.surfer[100] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onNeutralContainer: color?.base.gloom
+          onNeutralContainer: color?.base.black
         },
         base: {
           basic: color?.surfer[500],
@@ -402,7 +402,7 @@ const theme: Theme = {
           basicDisabled: chroma(color?.surfer[400] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onBasic: color?.base.bright,
+          onBasic: color?.base.white,
 
           basicContainer: color?.surfer[50],
           basicContainerHovered: color?.surfer[100],
@@ -420,20 +420,20 @@ const theme: Theme = {
           basicVariantDisabled: chroma(color?.surfer[600] as string)
             .alpha(opacity?.dim3 as number)
             .css(),
-          onBasicVariant: color?.base.bright,
+          onBasicVariant: color?.base.white,
 
-          background: color?.base.bright,
-          onBackground: color?.base.gloom,
+          background: color?.base.white,
+          onBackground: color?.base.black,
           backgroundVariant: color?.surfer[100],
-          onBackgroundVariant: color?.base.gloom,
+          onBackgroundVariant: color?.base.black,
 
-          surface: color?.base.bright,
-          onSurface: color?.base.gloom,
+          surface: color?.base.white,
+          onSurface: color?.base.black,
           surfaceInverse: color?.surfer[900],
-          onSurfaceInverse: color?.base.bright,
+          onSurfaceInverse: color?.base.white,
 
-          overlay: color?.base.gloom,
-          onOverlay: color?.base.bright,
+          overlay: color?.base.black,
+          onOverlay: color?.base.white,
 
           outline: color?.surfer[400],
           outlineHovered: color?.surfer[700],

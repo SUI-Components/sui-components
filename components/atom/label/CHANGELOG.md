@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2025-01-17)
+
+
+### Features
+
+* open props ([d70b366](https://github.com/SUI-Components/sui-components/commit/d70b3667bfe60171724469008da220fdaa14e6e1))
+
+
+
 # 1.26.0 (2025-01-17)
 
 

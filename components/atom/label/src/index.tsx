@@ -66,9 +66,15 @@ const AtomLabel: FC<AtomLabelProps> = ({
   fontSize,
   htmlFor,
   onClick,
-  className
+  className,
+  ...props
 }) => (
-  <label htmlFor={htmlFor ?? name} className={getClass({inline, type, fontSize, className})} onClick={onClick}>
+  <label
+    htmlFor={htmlFor ?? name}
+    className={getClass({inline, type, fontSize, className})}
+    onClick={onClick}
+    {...props}
+  >
     {text}
     {Boolean(optionalText) && <span className="sui-AtomLabel-optionalText">{optionalText}</span>}
   </label>

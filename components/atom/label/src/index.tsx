@@ -34,18 +34,41 @@ export interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElemen
    * Font size: set different font sizes, use AtomLabelFontSizes
    */
   fontSize?: FontSize
+  /**
+   * class attribute
+   */
+  className?: string
 }
 
-const getClass = ({inline, type, fontSize}: Pick<AtomLabelProps, 'inline' | 'type' | 'fontSize'>) =>
-  cx(CLASSNAME, {
-    [`${CLASSNAME}--${fontSize as string}`]: Boolean(fontSize),
-    [`${CLASSNAME}--${type as string}`]: Boolean(type),
-    [`${CLASSNAME}--inlineLeft`]: inline === 'left',
-    [`${CLASSNAME}--inlineRight`]: inline === 'right'
-  })
+const getClass = ({
+  inline,
+  type,
+  fontSize,
+  className
+}: Pick<AtomLabelProps, 'inline' | 'type' | 'fontSize' | 'className'>) =>
+  cx(
+    CLASSNAME,
+    {
+      [`${CLASSNAME}--${fontSize as string}`]: Boolean(fontSize),
+      [`${CLASSNAME}--${type as string}`]: Boolean(type),
+      [`${CLASSNAME}--inlineLeft`]: inline === 'left',
+      [`${CLASSNAME}--inlineRight`]: inline === 'right'
+    },
+    className
+  )
 
-const AtomLabel: FC<AtomLabelProps> = ({name, text, inline, optionalText, type, fontSize, htmlFor, onClick}) => (
-  <label htmlFor={htmlFor ?? name} className={getClass({inline, type, fontSize})} onClick={onClick}>
+const AtomLabel: FC<AtomLabelProps> = ({
+  name,
+  text,
+  inline,
+  optionalText,
+  type,
+  fontSize,
+  htmlFor,
+  onClick,
+  className
+}) => (
+  <label htmlFor={htmlFor ?? name} className={getClass({inline, type, fontSize, className})} onClick={onClick}>
     {text}
     {Boolean(optionalText) && <span className="sui-AtomLabel-optionalText">{optionalText}</span>}
   </label>

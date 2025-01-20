@@ -44,9 +44,12 @@ $base-class: '.sui-AtomLabel';
     pointer-events: none;
   }
 
-  @each $type, $color in $c-atom-label-type {
+  @each $type, $color, $optionalColor in $c-atom-label-type {
     &--#{$type} {
       color: $color;
+      #{$base-class}-optionalText {
+        color: $optionalColor;
+      }
     }
   }
 }

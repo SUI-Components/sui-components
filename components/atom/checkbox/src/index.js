@@ -132,7 +132,7 @@ const AtomCheckbox = forwardRef(
     }
 
     return (
-      <label
+      <span
         className={cx(
           BASE_CLASS,
           `${BASE_CLASS}--native-${isNative ? 'enabled' : 'disabled'}`,
@@ -166,7 +166,7 @@ const AtomCheckbox = forwardRef(
           onClick={handleClick}
           icon={Icon}
         />
-      </label>
+      </span>
     )
   }
 )

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.8.0 (2025-01-20)
+
+
+### Features
+
+* modify wrapper element syntax ([c755403](https://github.com/SUI-Components/sui-components/commit/c75540382e80172182609fa09d4f5453552f9963))
+
+
+
 # 3.7.0 (2024-02-19)
 
 

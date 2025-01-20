@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-checkbox",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "checkbox"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "checkbox"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

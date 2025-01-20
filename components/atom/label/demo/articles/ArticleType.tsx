@@ -19,12 +19,12 @@ const ArticleType = ({className}: {className?: string}) => {
             <Box mode={value === AtomLabelTypes.CONTRAST ? 'dark' : 'light'}>
               <AtomLabel
                 name={`atomLabelName-${key}`}
-                htmlFor={`labelName-${key}`}
+                htmlFor={`labelType-${key}`}
                 text={`Label ${value as string}`}
                 optionalText="(Optional)"
                 type={value}
               />
-              <AtomInput />
+              <AtomInput id={`labelType-${key}`} />
             </Box>
           </Cell>
         ))}

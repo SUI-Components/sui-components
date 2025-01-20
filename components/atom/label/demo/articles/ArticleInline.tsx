@@ -1,5 +1,4 @@
 import {Article, Box, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
-import AtomButton from '@s-ui/react-atom-button'
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import AtomInput from '@s-ui/react-atom-input'
 
@@ -16,22 +15,26 @@ const ArticleInline = ({className}: {className?: string}) => {
       </Paragraph>
       <Grid cols={3} gutter={[8, 8]}>
         {[
-          <AtomInput key={0} />,
-          <AtomCheckbox key={1} checkedIcon={CheckedIcon} intermediateIcon={IndeterminateIcon} />,
-          <AtomButton key={2}>Button</AtomButton>
-        ].map((component, index) =>
+          ['input', ({...props}) => <AtomInput key={0} {...props} />],
+          [
+            'checkbox',
+            ({...props}) => (
+              <AtomCheckbox key={1} checkedIcon={CheckedIcon} indeterminateIcon={IndeterminateIcon} {...props} />
+            )
+          ]
+        ].map(([componentId, Component], index) =>
           ['left', undefined, 'right'].map((value, index) => (
             <Cell key={index} style={flexCenteredStyle}>
               <Box>
-                {value === 'right' && component}
+                {value === 'right' && <Component id={`labelInline-${value as string}-${componentId as string}`} />}
                 <AtomLabel
-                  name={`atomLabelName-${value as string}`}
-                  htmlFor={`labelName-${value as string}`}
+                  name={`atomLabelName-${value as string}-${componentId as string}`}
+                  htmlFor={`labelInline-${value as string}-${componentId as string}`}
                   text={`Label ${value as string}`}
                   optionalText="(Optional)"
                   inline={value as Inline}
                 />
-                {value !== 'right' && component}
+                {value !== 'right' && <Component id={`labelInline-${value as string}-${componentId as string}`} />}
               </Box>
             </Cell>
           ))

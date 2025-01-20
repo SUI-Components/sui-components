@@ -18,11 +18,11 @@ const ArticleFontSize = ({className}: {className?: string}) => {
             <Box>
               <AtomLabel
                 name={`atomLabelName-${key}`}
-                htmlFor={`labelName-${key}`}
+                htmlFor={`labelFontSize-${key}`}
                 text={`Size ${value as string}`}
                 fontSize={value}
               />
-              <AtomInput />
+              <AtomInput id={`labelFontSize-${key}`} />
             </Box>
           </Cell>
         ))}

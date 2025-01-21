@@ -5,7 +5,7 @@ const ArticleA11y = ({className}: {className?: string}) => {
     <Article className={className}>
       <H2>
         Accessibility –{' '}
-        <Anchor hrer="https://github.com/SUI-Components/sui-components/blob/master/contributor-docs/Accessibility%20Standards.md">
+        <Anchor href="https://github.com/SUI-Components/sui-components/blob/master/contributor-docs/Accessibility%20Standards.md">
           <Strong>Guidelines</Strong>
         </Anchor>
       </H2>

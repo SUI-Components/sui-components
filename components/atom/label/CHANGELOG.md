@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.28.0 (2025-01-21)
+
+
+### Bug Fixes
+
+* color contrast for labels in light mode ([64c8375](https://github.com/SUI-Components/sui-components/commit/64c8375d021de266b3dea1b9af012256cd0d5673))
+
+
+
 # 1.27.0 (2025-01-17)
 
 

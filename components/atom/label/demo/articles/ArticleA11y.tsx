@@ -1,4 +1,4 @@
-import {Article, Anchor, Box, Code, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, Anchor, Box, Code, H2, Strong, Paragraph} from '@s-ui/documentation-library'
 
 const ArticleA11y = ({className}: {className?: string}) => {
   return (
@@ -6,7 +6,7 @@ const ArticleA11y = ({className}: {className?: string}) => {
       <H2>
         Accessibility –{' '}
         <Anchor hrer="https://github.com/SUI-Components/sui-components/blob/master/contributor-docs/Accessibility%20Standards.md">
-          Guidelines
+          <Strong>Guidelines</Strong>
         </Anchor>
       </H2>
       <Box style={{backgroundColor: 'color-mix(in srgb, #00FF00 10%, transparent)'}}>

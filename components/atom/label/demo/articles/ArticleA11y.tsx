@@ -4,7 +4,10 @@ const ArticleA11y = ({className}: {className?: string}) => {
   return (
     <Article className={className}>
       <H2>
-        Accessibility – <Anchor>Guidelines</Anchor>
+        Accessibility –{' '}
+        <Anchor hrer="https://github.com/SUI-Components/sui-components/blob/master/contributor-docs/Accessibility%20Standards.md">
+          Guidelines
+        </Anchor>
       </H2>
       <Box style={{backgroundColor: 'color-mix(in srgb, #00FF00 10%, transparent)'}}>
         <Paragraph>

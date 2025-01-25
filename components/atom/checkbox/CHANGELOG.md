@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.9.0 (2025-01-25)
+
+
+### Features
+
+* modify focus outline ([b1311c8](https://github.com/SUI-Components/sui-components/commit/b1311c840e662a05ba34455befba86a7f1e9f13f))
+
+
+
 # 3.8.0 (2025-01-20)
 
 

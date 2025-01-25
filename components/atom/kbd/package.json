@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-atom-radio-button",
-  "version": "1.13.0",
+  "name": "@s-ui/react-atom-kbd",
+  "version": "1.1.0",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -10,7 +10,7 @@
     "react",
     "component",
     "atom",
-    "radioButton"
+    "kbd"
   ],
   "main": "lib/index.js",
   "scripts": {
@@ -19,20 +19,21 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "classnames": "2.5.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/SUI-Components/sui-components",
-    "directory": "components/atom/radioButton"
+    "directory": "components/atom/helpText"
   },
   "config": {
-    "title": "radioButton",
+    "title": "kbd",
     "category": "atom",
     "type": "components"
   },
   "bugs": {
-    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+radioButton%22"
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+kbd%22"
   },
   "homepage": "https://sui-components.vercel.app/",
   "license": "MIT"

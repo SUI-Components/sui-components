@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.130.0 (2025-01-25)
+
+
+### Features
+
+* prepare the a11y light dark mode ([ac536e3](https://github.com/SUI-Components/sui-components/commit/ac536e34d31591171a3ae4762dd8fc9bc6bfa60e))
+
+
+
 # 8.129.0 (2025-01-07)
 
 

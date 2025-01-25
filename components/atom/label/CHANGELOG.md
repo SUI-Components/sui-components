@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.29.0 (2025-01-25)
+
+
+### Features
+
+* restore colors ([b0a4531](https://github.com/SUI-Components/sui-components/commit/b0a45317dbc52b83ca8a478e77a391a93b591e85))
+
+
+
 # 1.28.0 (2025-01-21)
 
 

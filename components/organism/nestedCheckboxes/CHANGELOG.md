@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.3.0 (2025-01-25)
+
+
+### Features
+
+* modify focus outline ([5f346a8](https://github.com/SUI-Components/sui-components/commit/5f346a8870764f14f0e1f4e972db4158ba599fc1))
+
+
+
 # 3.2.0 (2023-12-20)
 
 
@@ -140,6 +149,3 @@
 * **organism/nestedCheckboxes:** refactoring to improve code ([5b79812](https://github.com/SUI-Components/sui-components/commit/5b7981219d841bb563ff3d16d62c9d714a4a3cdf))
 * **organism/nestedCheckboxes:** update naming ([f547420](https://github.com/SUI-Components/sui-components/commit/f547420cfc4803308d36a7fad592a63e537e99b0))
 * **organism/nestedCheckboxes:** use checked and indeterminate values ([06c996a](https://github.com/SUI-Components/sui-components/commit/06c996af0ead2d9f9655561440fa63e683a9cb02))
-
-
-

@@ -13,3 +13,5 @@
 <a href="https://pages.github.mpi-internal.com/scmspain/design-systems/sui/index.html" target="_blank">Design System Dashboard</a>
 
 <a href="coverage/index.html" target="_blank">Test coverage</a>
+
+<a href="https://github.com/SUI-Components/sui-components/blob/master/contributor-docs/Accessibility%20Standards.md" target="_blank">Accessibility standards</a>

@@ -70,7 +70,7 @@ $child-class: '#{$base-class}Child';
       outline: none;
     }
     &:focus-visible {
-      outline: 2px solid transparentize($c-primary, 0.6);
+      outline: 2px solid transparentize($c-primary, 0.2);
     }
   }
 

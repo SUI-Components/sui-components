@@ -1,0 +1,14 @@
+$base-class: '.sui-AtomKbd';
+
+#{$base-class} {
+  display: inline;
+  color: $c-black;
+  font-size: $fz-s;
+  font-weight: $fw-bold;
+  padding-inline: $p-m;
+  border-style: solid;
+  border-width: $bdw-s $bdw-s $bdw-m $bdw-s;
+  border-color: color-mix(in srgb, $c-black 50%, $c-white 50%);
+  border-radius: $bdrs-l;
+  background-color: color-mix(in srgb, $c-black 5%, $c-white);
+}

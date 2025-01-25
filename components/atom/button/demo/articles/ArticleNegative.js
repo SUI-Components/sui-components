@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+import usePrefersColorScheme from 'use-prefers-color-scheme'
 
 import PropTypes from 'prop-types'
 
@@ -14,13 +15,17 @@ import {
 } from '../settings.js'
 
 const ArticleNegative = ({className}) => {
+  const prefersColorScheme = usePrefersColorScheme()
+  const mode = prefersColorScheme === 'dark' ? 'dark' : 'light'
+  const inverseMode = mode === 'dark' ? 'light' : 'dark'
+  const getMode = () => inverseMode
   return (
     <Article className={className}>
       <H2>Negative Colors and Designs</H2>
       <Paragraph>
         Buttons can also have the <Code>negative</Code> boolean prop for dark backgrounds.
       </Paragraph>
-      <Article mode="dark">
+      <Article mode={getMode()}>
         <Grid cols={7} gutter={10}>
           <Cell />
           {atomButtonColorsIterator.map(([{color}], index) => (
@@ -34,7 +39,7 @@ const ArticleNegative = ({className}) => {
                 <Label>{design}</Label>
               </Cell>
               {atomButtonColorsIterator.map(([{color}], index) => (
-                <Cell key={index} style={flexCenteredStyle}>
+                <Cell mode={mode} key={index} style={flexCenteredStyle}>
                   <AtomButton negative design={design} color={color}>
                     Button
                   </AtomButton>
@@ -57,7 +62,7 @@ const ArticleNegative = ({className}) => {
                 <Label>{design}</Label>
               </Cell>
               {atomButtonSocialColorsIterator.map(([{color}], index) => (
-                <Cell key={index} style={flexCenteredStyle}>
+                <Cell mode={mode} key={index} style={flexCenteredStyle}>
                   <AtomButton negative leftIcon={socialIconsMapper[color]} design={design} color={color}>
                     Button
                   </AtomButton>

@@ -12,6 +12,7 @@ const Button = ({
   link,
   linkFactory: Link = ButtonLink,
   forwardingRef, // eslint-disable-line react/prop-types
+  className,
   ...attrs
 }) => {
   if (isSubmit) attrs.type = 'submit'
@@ -20,14 +21,12 @@ const Button = ({
   const defaultRel = target === '_blank' ? 'noopener' : undefined
   const rel = attrs.rel || defaultRel
 
-  return link ? (
-    <Link {...attrs} href={href} target={target} rel={rel} ref={forwardingRef}>
+  const [Component, props] = link ? [Link, {href, target, rel}] : ['button', {disabled}]
+
+  return (
+    <Component className={className} ref={forwardingRef} {...props} {...attrs}>
       {children}
-    </Link>
-  ) : (
-    <button {...attrs} disabled={disabled} ref={forwardingRef}>
-      {children}
-    </button>
+    </Component>
   )
 }
 
@@ -36,6 +35,10 @@ Button.propTypes = {
    * Content to be included in the button
    */
   children: PropTypes.node,
+  /**
+   * CSS class to be added to the button
+   */
+  className: PropTypes.string,
   /**
    * HTML element: if true, render a link. Otherwise render a button
    */

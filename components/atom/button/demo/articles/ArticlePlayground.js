@@ -151,6 +151,7 @@ const ArticlePlayground = ({className}) => {
         >
           <Label>icon</Label>
           <RadioButton
+            aria-label="add star icon"
             value="icon"
             onClick={(_, value) => {
               setState({...state, icon: value ? starIcon : undefined})
@@ -254,6 +255,9 @@ const ArticlePlayground = ({className}) => {
                         }}
                       >
                         <AtomButton
+                          onClick={() => {
+                            console.log({color, design}) // eslint-disable-line no-console
+                          }}
                           negative={negative === 'dark'}
                           design={design}
                           color={color}

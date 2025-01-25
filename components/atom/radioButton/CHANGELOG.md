@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2025-01-25)
+
+
+### Features
+
+* modify the focus blur ([d353f20](https://github.com/SUI-Components/sui-components/commit/d353f20e1b8d8ba2661494915f972f3eebddc97c))
+
+
+
 # 1.12.0 (2024-11-28)
 
 

@@ -12,8 +12,8 @@
 // $c-primary-dark: color-variation($c-primary, -2) -> 2 steps darker
 // $c-primary-darkest: color-variation($c-primary, -4) -> 4 steps darker
 
-$color-variation-dark: black !default;
-$color-variation-light: white !default;
+$color-variation-light: var(--c-base, white) !default;
+$color-variation-dark: var(--c-base-inverse, black) !default;
 
 $color-lighten-steps: 25, 50, 75, 90, 95 !default;
 $color-darken-steps: 20, 35, 55, 75 !default;

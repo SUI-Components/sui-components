@@ -28,7 +28,7 @@ $class-icon: '#{$base-class}--Icon';
       }
 
       &:focus-visible {
-        outline: 2px solid transparentize($c-primary, 0.6);
+        outline: 2px solid transparentize($c-primary, 0.2);
       }
 
       span {
@@ -158,7 +158,7 @@ $class-icon: '#{$base-class}--Icon';
       }
 
       &:focus-visible {
-        outline: 2px solid transparentize($c-primary, 0.6);
+        outline: 2px solid transparentize($c-primary, 0.2);
       }
     }
   }

@@ -20,7 +20,7 @@ const ArticleType = ({className}: {className?: string}) => {
       </Paragraph>
       <Grid cols={labelTypes.length} gutter={[8, 8]}>
         {labelTypes.map(([key, value]: [string, Type], index) => (
-          <Cell data-theme-mode={getMode(value)} key={index} style={flexCenteredStyle}>
+          <Cell key={index} style={flexCenteredStyle}>
             <Box data-theme-mode={getMode(value)}>
               <AtomLabel
                 name={`atomLabelName-${key}`}

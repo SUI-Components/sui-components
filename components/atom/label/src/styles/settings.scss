@@ -1,6 +1,6 @@
 $c-atom-label: inherit !default;
 $c-atom-label-optional: $c-gray-dark !default;
-$c-atom-label-contrast: $c-white !default;
+$c-atom-label-contrast: var(--c-base-inverse, $c-white) !default;
 $c-atom-label-disabled: inherit !default;
 $o-atom-label-disabled: 0.3 !default;
 $fw-atom-label: inherit !default;

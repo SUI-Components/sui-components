@@ -8,7 +8,7 @@ import {
   Code,
   Grid,
   H2,
-  H4,
+  H3,
   Input,
   Label,
   Paragraph,
@@ -37,7 +37,7 @@ const TypeDeprecatedArticle = () => {
   return (
     <Article className={CLASS_SECTION}>
       <H2>TYPES</H2>
-      <H4>Correct usage</H4>
+      <H3>Correct usage</H3>
       <Paragraph>
         HTML button <Code>type</Code> attribute is used for specifying the behavior of button.
       </Paragraph>
@@ -85,7 +85,7 @@ const TypeDeprecatedArticle = () => {
           </Cell>
         </Grid>
       </form>
-      <H4 deprecated>Deprecated usage</H4>
+      <H3 deprecated>Deprecated usage</H3>
       <Paragraph>Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'</Paragraph>
       <Paragraph>
         This prop should <Bold>NEVER</Bold> be combined with <Code>color</Code> and <Code>design</Code> props. It causes
@@ -134,7 +134,7 @@ const TypeDeprecatedArticle = () => {
           </RadioButtonGroup>
         </Cell>
       </Grid>
-      <H4>Transition</H4>
+      <H3>Transition</H3>
       <Box outline style={{width: 500}}>
         <Grid cols={5} gutter={[8, 8]}>
           <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>

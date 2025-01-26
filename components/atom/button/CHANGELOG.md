@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.97.0 (2025-01-26)
+
+
+### Features
+
+* a11y improvements ([d598900](https://github.com/SUI-Components/sui-components/commit/d598900c218a444e3ce0e7840e12bffe3f7e99bd))
+
+
+
 # 1.96.0 (2024-05-22)
 
 

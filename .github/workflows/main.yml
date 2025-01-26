@@ -294,7 +294,7 @@ jobs:
         id: deploy
         run: |
           npm i -g vercel --no-save --no-fund --no-audit --no-scripts
-          DEPLOYMENT_URL=$(vercel deploy --token $VERCEL_TOKEN --yes $VERCEL_PARAMS)
+          DEPLOYMENT_URL=$(vercel deploy --token $VERCEL_TOKEN --yes $VERCEL_PARAMS --archive=tgz)
           echo "::set-output name=url::$(echo $DEPLOYMENT_URL)"
         env:
           VERCEL_PARAMS: ${{ github.event_name != 'pull_request' && '--prod' || ''}}

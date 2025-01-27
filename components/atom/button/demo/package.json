@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/react-atom-icon": "1",
+    "@s-ui/react-atom-kbd": "1",
     "use-prefers-color-scheme": "1.1.3"
   }
 }

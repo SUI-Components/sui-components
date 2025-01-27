@@ -14,8 +14,10 @@ import ArticlePlayground from './articles/ArticlePlayground.js'
 import ArticleShape from './articles/ArticleShape.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleSocialColor from './articles/ArticleSocialColor.js'
-import {CLASS_SECTION} from './settings.js'
+import ArticleA11y from './articles/ArticleA11y.js'
+import ArticleKeyboardNavigation from './articles/ArticleKeyboardNavigation.js'
 import TypeDeprecatedArticle from './TypeDeprecatedArticle.js'
+import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {
   return (
@@ -47,6 +49,10 @@ const Demo = () => {
       <ArticlePlayground className={CLASS_SECTION} />
       <br />
       <ArticleIsFitted className={CLASS_SECTION} />
+      <br />
+      <ArticleA11y className={CLASS_SECTION} />
+      <br />
+      <ArticleKeyboardNavigation className={CLASS_SECTION} />
       <br />
     </div>
   )

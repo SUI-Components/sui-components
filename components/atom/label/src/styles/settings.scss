@@ -1,15 +1,15 @@
 $c-atom-label: inherit !default;
 $c-atom-label-optional: $c-gray-dark !default;
-$c-atom-label-contrast: $c-white !default;
+$c-atom-label-contrast: var(--c-base-inverse, $c-white) !default;
 $c-atom-label-disabled: inherit !default;
 $o-atom-label-disabled: 0.3 !default;
 $fw-atom-label: inherit !default;
 $c-atom-label-type: (
-  success $c-success $c-gray,
-  error $c-error $c-gray,
-  alert $c-alert $c-gray,
-  contrast $c-atom-label-contrast $c-gray-light-2,
-  disabled $c-atom-label-disabled $c-gray
+  success $c-success,
+  error $c-error,
+  alert $c-alert,
+  contrast $c-atom-label-contrast,
+  disabled $c-atom-label-disabled
 ) !default;
 $fz-atom-label: $fz-base !default;
 $lh-atom-label: inherit !default;

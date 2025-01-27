@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.30.0 (2025-01-27)
+
+
+### Bug Fixes
+
+* color contrast ([cfb2b08](https://github.com/SUI-Components/sui-components/commit/cfb2b08ce6e8636447aa0d5761035d1a54031202))
+* fix atom label color contrast type mode ([8fa7310](https://github.com/SUI-Components/sui-components/commit/8fa731066367643c3f7d44fc730170afe66c1d62))
+
+
+
 # 1.29.0 (2025-01-25)
 
 

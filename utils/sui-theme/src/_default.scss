@@ -1,15 +1,3 @@
 @mixin p {
   margin: 0 0 $m-v;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-  }
-}

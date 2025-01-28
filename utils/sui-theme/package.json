@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/theme",
-  "version": "8.130.0",
+  "version": "8.131.0",
   "description": "Generic theme to add styles to all SUI components",
   "publishConfig": {
     "access": "public"

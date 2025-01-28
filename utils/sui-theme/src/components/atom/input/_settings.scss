@@ -7,7 +7,7 @@ $bd-atom-input: $bdw-s solid $c-primary !default;
 $bd-atom-input-focus: $bd-atom-input !default;
 $fz-atom-input: $fz-base !default;
 $bgc-atom-input: $c-white !default;
-$c-atom-input: initial !default;
+$c-atom-input: var(--c-base-inverse, initial) !default;
 $bd-atom-input-base: $bdw-s solid $c-gray-light !default;
 
 $bd-molecule-autosuggest-focus: $bd-atom-input !default;

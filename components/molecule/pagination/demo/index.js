@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
-import MoleculePagination from 'components/molecule/pagination/src/index.js'
+import {H1, H2, H3, H4, Paragraph} from '@s-ui/documentation-library'
 
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 
+import MoleculePagination from '../src/index.js'
 import DynamicMoleculePagination from './DynamicMoleculePagination/index.js'
 import {nextButtonIcon, prevButtonIcon} from './Icons/index.js'
 
@@ -40,18 +41,16 @@ const Demo = () => {
   return (
     <div className="sui-StudioPreview">
       <div className="sui-StudioPreview-content sui-StudioDemo-preview">
-        <h1>Pagination</h1>
-        <h2>Size</h2>
+        <H1>Pagination</H1>
+        <H2>Size</H2>
         <div className={CLASS_DEMO_SECTION}>
-          <h3>Small</h3>
+          <H3>Small</H3>
           <MoleculePagination totalPages={25} page={17} size="small" />
-          <h3>Large</h3>
+          <H3>Large</H3>
           <MoleculePagination totalPages={25} page={17} />
         </div>
 
-        <h2>
-          Responsive <code>w/ LayoutMediaQuery</code>
-        </h2>
+        <H2>Responsive with LayoutMediaQuery</H2>
         <div className={CLASS_DEMO_SECTION_RESPONSIVE}>
           <LayoutMediaQuery>
             {({S, M}) =>
@@ -64,43 +63,43 @@ const Demo = () => {
           </LayoutMediaQuery>
         </div>
 
-        <h2>Dynamic</h2>
+        <H2>Dynamic</H2>
         <div className={CLASS_DEMO_SECTION}>
-          <h3>Extended Version</h3>
+          <H3>Extended Version</H3>
           <DynamicMoleculePagination totalPages={25} page={17} />
-          <h3>Extended Version (hide Disabled)</h3>
+          <H3>Extended Version (hide Disabled)</H3>
           <DynamicMoleculePagination totalPages={25} page={17} hideDisabled />
           <h3>
             Extended Version <code>showPages=7</code>
           </h3>
           <DynamicMoleculePagination totalPages={25} page={17} showPages={7} />
-          <h3>
+          <H3>
             Extended Version <code>showEdges</code>
-          </h3>
+          </H3>
           <DynamicMoleculePagination totalPages={25} page={17} showPages={7} showEdges />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h3>Compressed Version</h3>
+          <H3>Compressed Version</H3>
           <DynamicMoleculePagination totalPages={25} page={17} compressed />
         </div>
 
-        <h2>Static</h2>
-        <h3>Extended Version</h3>
+        <H2>Static</H2>
+        <H3>Extended Version</H3>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Basic</h4>
-          <p>
+          <H4>Basic</H4>
+          <Paragraph>
             <code>totalPages=25 page=7</code>
-          </p>
+          </Paragraph>
           <MoleculePagination totalPages={25} page={7} />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <h4>Basic with links and linkFactory</h4>
-          <p>
+          <Paragraph>
             <code>
               totalPages=25 page=7 linkFactory urlPattern="
               {`/?page=%{pageNumber}`}" renderLinks
             </code>
-          </p>
+          </Paragraph>
           <MoleculePagination
             totalPages={25}
             page={7}
@@ -110,42 +109,42 @@ const Demo = () => {
           />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>w/ Next</h4>
-          <p>
+          <H4>w/ Next</H4>
+          <Paragraph>
             <code>totalPages=25 page=7</code>
-          </p>
+          </Paragraph>
           <MoleculePagination totalPages={25} page={7} {...Icons} {...OnClicks} />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>w/ Prev & Next</h4>
+          <H4>w/ Prev & Next</H4>
           <p>
             <code>totalPages=25 page=17</code>
           </p>
           <MoleculePagination totalPages={25} page={17} {...Icons} {...OnClicks} />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>w/ Prev</h4>
+          <H4>w/ Prev</H4>
           <p>
             <code>totalPages=25 page=27</code>
           </p>
           <MoleculePagination totalPages={25} page={27} {...Icons} {...OnClicks} />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>No Arrows</h4>
+          <H4>No Arrows</H4>
           <p>
             <code>totalPages=25 page=7</code>
           </p>
           <MoleculePagination totalPages={25} page={17} {...OnClicks} />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Different Texts</h4>
+          <H4>Different Texts</H4>
           <p>
             <code>totalPages=25 page=7</code>
           </p>
           <MoleculePagination totalPages={25} page={17} {...Icons} {...Texts} {...OnClicks} />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Out of range current page</h4>
+          <H4>Out of range current page</H4>
           <p>
             <code>totalPages=25 page=-2</code>
           </p>
@@ -159,7 +158,7 @@ const Demo = () => {
           <MoleculePagination totalPages={25} page={2} hideDisabled {...Icons} {...Texts} {...OnClicks} />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Show edges</h4>
+          <H4>Show edges</H4>
           <p>
             <code>totalPages=25 page=15 showEdges</code>
           </p>
@@ -175,14 +174,14 @@ const Demo = () => {
           <MoleculePagination totalPages={25} page={1} {...Icons} {...OnClicks} compressed />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>w/ Prev & Next</h4>
+          <H4>w/ Prev & Next</H4>
           <p>
             <code>totalPages=25 page=17</code>
           </p>
           <MoleculePagination totalPages={25} page={17} {...Icons} {...OnClicks} compressed />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Out of range current page</h4>
+          <H4>Out of range current page</H4>
           <p>
             <code>totalPages=25 page=27</code>
           </p>
@@ -196,21 +195,21 @@ const Demo = () => {
           <MoleculePagination totalPages={25} page={17} {...OnClicks} compressed />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Different Texts</h4>
+          <H4>Different Texts</H4>
           <p>
             <code>totalPages=25 page=17</code>
           </p>
           <MoleculePagination totalPages={25} page={17} {...Icons} {...Texts} {...OnClicks} compressed />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Hide Disabled</h4>
+          <H4>Hide Disabled</H4>
           <p>
             <code>totalPages=25 page=1</code>
           </p>
           <MoleculePagination totalPages={25} page={1} {...Icons} {...Texts} {...OnClicks} compressed hideDisabled />
         </div>
         <div className={CLASS_DEMO_SECTION}>
-          <h4>Change Navigation Buttons</h4>
+          <H4>Change Navigation Buttons</H4>
           <p>
             <code>totalPages=25 page=1</code>
           </p>

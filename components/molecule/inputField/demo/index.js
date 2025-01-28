@@ -12,7 +12,7 @@ const darkBackground = {
 const MoleculeInputFieldWithState = withStateValue(MoleculeInputField)
 
 const Demo = () => (
-  <main>
+  <div className="sui-StudioPreview">
     <H1>Input Field</H1>
     <Paragraph>
       The InputField component is an Input component wrapped with a Field. It adds some more functionalities to a basic
@@ -35,7 +35,7 @@ const Demo = () => (
     <WithoutLabel />
     <br />
     <WithContrastLabel />
-  </main>
+  </div>
 )
 
 export default Demo

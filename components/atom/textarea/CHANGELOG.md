@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.22.0 (2025-01-28)
+
+
+### Bug Fixes
+
+* collor schema ([f64a53a](https://github.com/SUI-Components/sui-components/commit/f64a53af17d2267cc8fbf609e801363498269050))
+
+
+
 # 2.21.0 (2022-11-07)
 
 
@@ -261,6 +270,3 @@
 * **atom/textarea:** success and error messages displayed in right position ([bddddd5](https://github.com/SUI-Components/sui-components/commit/bddddd5cfcd5ed043db4f5887dcebb311e2fbad2))
 * **atom/textarea:** textarea implemention according to specification ([39f8c73](https://github.com/SUI-Components/sui-components/commit/39f8c73f4f25bed104d76221152ff34b48c4caac))
 * **atom/textarea:** translatable text and better code organization ([21af70a](https://github.com/SUI-Components/sui-components/commit/21af70a71d1a2cf46d50a3e9e7e202803e569d7e))
-
-
-

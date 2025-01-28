@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.131.0 (2025-01-28)
+
+
+### Bug Fixes
+
+* revert color-schema rule ([597e2c3](https://github.com/SUI-Components/sui-components/commit/597e2c33ad11ebc22e1340c9e40c6afbd45751db))
+
+
+
 # 8.130.0 (2025-01-25)
 
 

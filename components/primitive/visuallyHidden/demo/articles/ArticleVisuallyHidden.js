@@ -1,7 +1,7 @@
-import AtomIcon from '@s-ui/react-atom-icon'
 import PropTypes from 'prop-types'
 
-import {Article, H2, Paragraph, Button, AntDesignIcon} from '@s-ui/documentation-library'
+import {AntDesignIcon, Article, Button, H2, Paragraph} from '@s-ui/documentation-library'
+import AtomIcon from '@s-ui/react-atom-icon'
 
 import PrimitiveVisuallyHidden from '../../src/index.js'
 

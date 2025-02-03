@@ -2,21 +2,18 @@ import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import Input, {inputSizes, inputStates} from './Input/index.js'
-import Mask from './Mask/index.js'
-import Password from './Password/index.js'
+import InputContainer from './Container/InputContainer.js'
+import getComponentAndProps from './helpers/getComponentAndProps.js'
+import {inputSizes, inputStates} from './Input/index.js'
 import {INPUT_SHAPES, TYPES} from './config.js'
 
-const AtomInput = forwardRef(({type, ...props}, ref) => {
-  switch (type) {
-    case 'sui-password':
-      return <Password ref={ref} {...props} />
-    case 'mask':
-      return <Mask ref={ref} {...props} />
-
-    default:
-      return <Input ref={ref} {...props} type={type} />
-  }
+const AtomInput = forwardRef(({type, shape, noBorder, ...props}, ref) => {
+  const [Component, newProps] = getComponentAndProps({type, ...props})
+  return (
+    <InputContainer shape={shape} noBorder={noBorder}>
+      <Component {...newProps} shape={shape} noBorder={noBorder} ref={ref} />
+    </InputContainer>
+  )
 })
 
 AtomInput.propTypes = {
@@ -41,11 +38,11 @@ AtomInput.propTypes = {
   /** Right icon click callback */
   onClickRightIcon: PropTypes.func,
 
-  /** Text to be shown in order to show the password on click */
-  pwShowLabel: PropTypes.string,
+  /** Element to be shown to show the password on click */
+  pwShowLabel: PropTypes.node,
 
-  /** Text to be shown in order to hide the password on click */
-  pwHideLabel: PropTypes.string,
+  /** Element to be shown to hide the password on click */
+  pwHideLabel: PropTypes.node,
 
   /** onBlur callback **/
   onBlur: PropTypes.func,
@@ -132,7 +129,9 @@ AtomInput.propTypes = {
   inputMode: PropTypes.string,
 
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
-  shape: PropTypes.string
+  shape: PropTypes.string,
+  /** Whether to hide the input border or not */
+  noBorder: PropTypes.bool
 }
 
 AtomInput.displayName = 'AtomInput'

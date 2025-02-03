@@ -60,7 +60,8 @@ $class-read-only: '#{$base-class-input}--readOnly';
   }
 
   &:focus {
-    @include sui-atom-input-input-focus;
+    //@include sui-atom-input-input-focus;
+    outline: none;
   }
 
   @each $type, $attr in $sizes-atom-input {
@@ -71,11 +72,11 @@ $class-read-only: '#{$base-class-input}--readOnly';
   }
 
   @each $state, $color in $states-atom-input {
-    &.sui-AtomInput-input--#{$state} {
+    &.sui-AtomInput-input--state-#{$state} {
       border-color: $color;
 
       &:focus {
-        box-shadow: $bxsh-atom-input-size $color;
+        //box-shadow: $bxsh-atom-input-size $color;
       }
     }
   }

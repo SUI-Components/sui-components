@@ -45,7 +45,17 @@ export const noop = () => null
 
 export const isFunction = fn => typeof fn === 'function'
 
-export const getClassNames = ({size, charsSize, hideInput, noBorder, readOnly, errorState, state, shape}) => {
+export const getClassNames = ({
+  size,
+  charsSize,
+  hideInput,
+  noBorder,
+  readOnly,
+  errorState,
+  state,
+  shape,
+  className
+}) => {
   return cx(
     BASE_CLASS,
     size && `${BASE_CLASS}-size-${size}`,
@@ -53,9 +63,10 @@ export const getClassNames = ({size, charsSize, hideInput, noBorder, readOnly, e
     hideInput && `${BASE_CLASS}--hidden`,
     noBorder && `${BASE_CLASS}--noBorder`,
     readOnly && `${BASE_CLASS}--readOnly`,
-    errorState && `${BASE_CLASS}--${INPUT_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${INPUT_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`,
-    shape && `${BASE_CLASS}-shape-${shape}`
+    errorState && `${BASE_CLASS}--state-${INPUT_STATES.ERROR}`,
+    errorState === false && `${BASE_CLASS}--state-${INPUT_STATES.SUCCESS}`,
+    state && `${BASE_CLASS}--state-${state}`,
+    shape && `${BASE_CLASS}-shape-${shape}`,
+    className
   )
 }

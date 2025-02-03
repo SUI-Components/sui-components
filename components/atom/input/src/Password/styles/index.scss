@@ -3,19 +3,42 @@ $base-class-password: '#{$base-class-input}-password';
 #{$base-class-password} {
   position: relative;
   width: 100%;
+  display: flex;
+  @include sui-atom-input-input;
+  padding-left: 0;
 
   & > input {
     padding-right: $pr-atom-input-password;
   }
 
+  &-shape {
+    @each $shapeMapKey, $shapeMapValue in $bdrs-atom-input-shapes {
+      &-#{$shapeMapKey} {
+        border-radius: $shapeMapValue;
+      }
+    }
+  }
+
   &--toggleButton {
+    &-shape {
+      @each $shapeMapKey, $shapeMapValue in $bdrs-atom-input-shapes {
+        &-#{$shapeMapKey} {
+          border-radius: $shapeMapValue;
+        }
+      }
+    }
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: none;
+    background: $c-white;
     color: $c-atom-input-password-toggle-button;
-    cursor: pointer;
-    display: flex;
-    position: absolute;
-    right: $r-atom-input-password-toggle-button;
-    top: 50%;
-    transform: translateY(-50%);
+    display: inline-block;
     user-select: none;
+    &:focus-visible {
+      outline-style: solid;
+      outline-color: transparentize($c-primary, 0.2);
+      outline-width: 2px;
+      outline-offset: 2px;
+    }
   }
 }

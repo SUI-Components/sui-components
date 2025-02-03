@@ -1,0 +1,21 @@
+$base-class-container: '#{$base-class}_Container';
+
+#{$base-class-container} {
+  display: inline-flex;
+  $this: &;
+  &:not(#{$base-class-container}-noBorder) {
+    &#{$this}-shape {
+      @each $shapeMapKey, $shapeMapValue in $bdrs-atom-input-shapes {
+        &-#{$shapeMapKey} {
+          border-radius: $shapeMapValue;
+        }
+      }
+    }
+    &#{$this}:focus-within:has(#{$base-class-input}:focus) {
+      outline-style: solid;
+      outline-color: transparentize($c-primary, 0.2);
+      outline-width: 2px;
+      outline-offset: 2px;
+    }
+  }
+}

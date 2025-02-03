@@ -49,7 +49,9 @@ const Input = forwardRef(
       pattern,
       inputMode,
       shape,
-      children
+      children,
+      className: classNameProp,
+      ...props
     },
     forwardedRef
   ) => {
@@ -84,7 +86,8 @@ const Input = forwardRef(
       readOnly,
       errorState,
       state,
-      shape
+      shape,
+      className: classNameProp
     })
 
     return (
@@ -121,6 +124,7 @@ const Input = forwardRef(
         pattern={pattern}
         inputMode={inputMode}
         children={as === 'input' ? undefined : children}
+        {...props}
       />
     )
   }
@@ -154,7 +158,7 @@ Input.propTypes = {
   /* onEnter callback */
   onEnter: PropTypes.func,
   /* key(s) to provoke the onEnter callback. Valid any value defined here → https://www.w3.org/TR/uievents-key/#named-key-attribute-values */
-  onEnterKey: PropTypes.oneOfType(PropTypes.string, PropTypes.arrayOf(PropTypes.string)),
+  onEnterKey: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   /* A hint to the user of what can be entered in the control. The placeholder text must not contain carriage returns or line-feeds. */
   placeholder: PropTypes.string,
   /* 's' or 'm', default: 'm' */
@@ -189,7 +193,7 @@ Input.propTypes = {
   errorState: PropTypes.bool,
   /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
   state: PropTypes.oneOf(Object.values(INPUT_STATES)),
-  /** Wether to hide the input border or not */
+  /** Whether to hide the input border or not */
   noBorder: PropTypes.bool,
   /** tabindex value */
   tabIndex: PropTypes.number,
@@ -204,7 +208,9 @@ Input.propTypes = {
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
   shape: PropTypes.oneOf(Object.values(INPUT_SHAPES)),
   /** Nodes to be rendered inside the component */
-  children: PropTypes.node
+  children: PropTypes.node,
+  /** CSS class to be added to the button */
+  className: PropTypes.string
 }
 
 export default Input

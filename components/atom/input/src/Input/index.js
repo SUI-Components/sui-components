@@ -20,20 +20,21 @@ const BaseInput = forwardRef(
       onClickLeftIcon,
       onClickRightIcon,
       size = SIZES.MEDIUM,
+      shape,
       ...inputProps
     },
     forwardedRef
   ) => {
     return (
       <InputButton button={button}>
-        <InputAddons leftAddon={leftAddon} rightAddon={rightAddon} shape={inputProps.shape} size={size}>
+        <InputAddons leftAddon={leftAddon} rightAddon={rightAddon} shape={shape} size={size}>
           <InputIcons
             leftIcon={leftIcon}
             rightIcon={rightIcon}
             onClickLeftIcon={onClickLeftIcon}
             onClickRightIcon={onClickRightIcon}
           >
-            <Input ref={forwardedRef} {...inputProps} size={size}>
+            <Input ref={forwardedRef} shape={shape} {...inputProps} size={size}>
               {children}
             </Input>
           </InputIcons>
@@ -60,8 +61,10 @@ BaseInput.propTypes = {
   onClickLeftIcon: PropTypes.func,
   /* Right icon click callback */
   onClickRightIcon: PropTypes.func,
-  /* 'Sets the size of the inputAddon */
-  size: PropTypes.oneOf(Object.values(SIZES))
+  /* Sets the size of the inputAddon */
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /* Sets the shape of the input */
+  shape: PropTypes.oneOf(Object.values(inputSizes))
 }
 
 export default BaseInput

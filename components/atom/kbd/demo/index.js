@@ -2,10 +2,10 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleKeyboard from './articles/ArticleKeyboard.js'
-import ArticleGuidelines from './articles/ArticleGuidelines.js'
-import ArticleCombinations from './articles/ArticleCombinations.js'
 import ArticleA11y from './articles/ArticleA11y.js'
+import ArticleCombinations from './articles/ArticleCombinations.js'
+import ArticleGuidelines from './articles/ArticleGuidelines.js'
+import ArticleKeyboard from './articles/ArticleKeyboard.js'
 import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'

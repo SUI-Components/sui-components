@@ -1,4 +1,4 @@
-import {Article, Anchor, Box, Code, H2, Strong, Paragraph} from '@s-ui/documentation-library'
+import {Anchor, Article, Box, Code, H2, Paragraph, Strong} from '@s-ui/documentation-library'
 
 const ArticleA11y = ({className}: {className?: string}) => {
   return (

@@ -1,6 +1,7 @@
+import usePrefersColorScheme from 'use-prefers-color-scheme'
+
 import {Article, Box, Cell, Code, Grid, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomInput from '@s-ui/react-atom-input'
-import usePrefersColorScheme from 'use-prefers-color-scheme'
 
 import AtomLabel, {type Type, AtomLabelTypes} from '../../src/index'
 import {flexCenteredStyle} from '../settings.js'

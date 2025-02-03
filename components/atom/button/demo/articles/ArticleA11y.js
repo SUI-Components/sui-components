@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {Article, Box, H2, Paragraph, ListItem, UnorderedList, Strong, Anchor} from '@s-ui/documentation-library'
+import {Anchor, Article, Box, H2, ListItem, Paragraph, Strong, UnorderedList} from '@s-ui/documentation-library'
 
 const ArticleA11y = ({className}) => {
   return (

@@ -1,7 +1,7 @@
 import {Fragment} from 'react'
-import usePrefersColorScheme from 'use-prefers-color-scheme'
 
 import PropTypes from 'prop-types'
+import usePrefersColorScheme from 'use-prefers-color-scheme'
 
 import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 

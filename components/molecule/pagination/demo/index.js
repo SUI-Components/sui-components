@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types, no-unused-vars, no-console */
 
 import {H1, H2, H3, H4, Paragraph} from '@s-ui/documentation-library'
-
 import LayoutMediaQuery from '@s-ui/react-layout-media-query'
 
 import MoleculePagination from '../src/index.js'

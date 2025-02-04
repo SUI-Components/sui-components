@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.98.0 (2025-02-04)
+
+
+### Bug Fixes
+
+* solve unnecessary focus ([2d7ee43](https://github.com/SUI-Components/sui-components/commit/2d7ee437044ef74109f991e03b902dabebce17c2))
+
+
+
 # 1.97.0 (2025-01-26)
 
 

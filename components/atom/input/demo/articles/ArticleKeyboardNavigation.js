@@ -9,10 +9,10 @@ const ArticleKeyboardNavigation = ({className}) => {
       <H2>Keyboard Navigation</H2>
       <UnorderedList>
         <ListItem>
-          <AtomKbd>Left Arrow</AtomKbd>: moves the cursor to previous character written inside of the input.
+          <AtomKbd>Right Arrow</AtomKbd>: Moves the cursor to next character written inside of the input.
         </ListItem>
         <ListItem>
-          <AtomKbd>Right Arrow</AtomKbd>: moves the cursor to previous character written inside of the input.
+          <AtomKbd>Left Arrow</AtomKbd>: Moves the cursor to previous character written inside of the input.
         </ListItem>
         <ListItem>
           <AtomKbd>Tab</AtomKbd>: Moves to the next focusable element

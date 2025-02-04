@@ -2,6 +2,7 @@ $base-class-container: '#{$base-class}_Container';
 
 #{$base-class-container} {
   display: inline-flex;
+  border-radius: $bdrs-atom-input;
   $this: &;
   &:not(#{$base-class-container}-noBorder) {
     &#{$this}-shape {

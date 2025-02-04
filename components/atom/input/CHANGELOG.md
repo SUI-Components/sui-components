@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 5.38.0 (2025-02-04)
+
+
+### Bug Fixes
+
+* border radius default for focus wrapper ([9b24685](https://github.com/SUI-Components/sui-components/commit/9b24685bdfaf31c52d78a458f12905c6038e62b7))
+
+
+### Features
+
+* a11y ([b829bea](https://github.com/SUI-Components/sui-components/commit/b829bea3c7e7d1dd450b077fa974de991eba81fa))
+* a11y documentation section ([345fb2f](https://github.com/SUI-Components/sui-components/commit/345fb2f8aa40596becae02e8b23c05660bc49119))
+
+
+
 # 5.37.0 (2024-09-09)
 
 

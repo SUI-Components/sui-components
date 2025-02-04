@@ -11,7 +11,7 @@ $base-class-container: '#{$base-class}_Container';
         }
       }
     }
-    &#{$this}:focus-within:has(#{$base-class-input}:focus) {
+    &#{$this}:focus-within:has(#{$base-class-input}:focus-visible) {
       outline-style: solid;
       outline-color: transparentize($c-primary, 0.2);
       outline-width: 2px;

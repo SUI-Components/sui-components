@@ -1,11 +1,13 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './articles/ArticleA11y.js'
 import ArticleAddonAndIcon from './articles/ArticleAddonAndIcon.js'
 import ArticleBorderless from './articles/ArticleBorderless.js'
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDisabledReadOnly from './articles/ArticleDisabledReadOnly.js'
 import ArticleErrorStatus from './articles/ArticleErrorStatus.js'
 import ArticleInlineForm from './articles/ArticleInlineForm.js'
+import ArticleKeyboardNavigation from './articles/ArticleKeyboardNavigation.js'
 import ArticlePlaceholderValueAndDefaultValue from './articles/ArticlePlaceholderValueAndDefaultValue.js'
 import ArticleShape from './articles/ArticleShape.js'
 import ArticleSize from './articles/ArticleSize.js'
@@ -42,6 +44,10 @@ const Demo = () => (
       <ArticleInlineForm className={CLASS_SECTION} />
       <br />
       <ArticleShape className={CLASS_SECTION} />
+      <br />
+      <ArticleA11y className={CLASS_SECTION} />
+      <br />
+      <ArticleKeyboardNavigation className={CLASS_SECTION} />
       <br />
     </div>
   </div>

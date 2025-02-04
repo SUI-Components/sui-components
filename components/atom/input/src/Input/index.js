@@ -2,7 +2,7 @@ import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {SIZES} from '../config.js'
+import {INPUT_SHAPES, SIZES} from '../config.js'
 import Input, {inputSizes, inputStates} from './Component/index.js'
 import InputAddons from './Wrappers/Addons/InputAddons.js'
 import InputButton from './Wrappers/Button/InputButton.js'
@@ -64,7 +64,7 @@ BaseInput.propTypes = {
   /* Sets the size of the inputAddon */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /* Sets the shape of the input */
-  shape: PropTypes.oneOf(Object.values(inputSizes))
+  shape: PropTypes.oneOf(Object.values(INPUT_SHAPES))
 }
 
 export default BaseInput

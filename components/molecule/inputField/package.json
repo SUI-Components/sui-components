@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-input-field",
-  "version": "4.7.0",
+  "version": "4.8.0",
   "description": "",
   "publishConfig": {
     "access": "public"

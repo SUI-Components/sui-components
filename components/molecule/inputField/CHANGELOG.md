@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.8.0 (2025-02-04)
+
+
+### Features
+
+* open classNames ([4216927](https://github.com/SUI-Components/sui-components/commit/42169275bd6fbce62175aa39ff599a339ad30744))
+
+
+
 # 4.7.0 (2022-06-23)
 
 
@@ -185,6 +194,3 @@
 ### Features
 
 * **molecule/inputField:** renaming from AtomInput to MoleculeInputField ([60d43aa](https://github.com/SUI-Components/sui-components/commit/60d43aa3dfa1dcd7bcdaa9847d696347f88ef88c))
-
-
-

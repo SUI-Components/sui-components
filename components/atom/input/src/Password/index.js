@@ -1,14 +1,16 @@
 import {forwardRef, useState} from 'react'
 
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
+import {INPUT_SHAPES} from '../config.js'
 import Input from '../Input/index.js'
 import {BASE_CLASS_PASSWORD, BASE_CLASS_PASSWORD_TOGGLE_BUTTON, PASSWORD, TEXT} from './config.js'
 
 const Password = forwardRef(
-  ({onChange, pwShowLabel = 'show', pwHideLabel = 'hide', value, defaultValue = '', ...props}, forwardedRef) => {
+  ({onChange, shape, pwShowLabel, pwHideLabel, value, defaultValue = '', ...props}, forwardedRef) => {
     const [type, setType] = useState(PASSWORD)
     const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
 
@@ -23,21 +25,35 @@ const Password = forwardRef(
     }
 
     return (
-      <div className={BASE_CLASS_PASSWORD}>
-        <Input ref={forwardedRef} {...props} onChange={handleChange} value={innerValue} type={type} />
-        <div onClick={toggle} className={BASE_CLASS_PASSWORD_TOGGLE_BUTTON}>
+      <div className={cx(BASE_CLASS_PASSWORD, shape && `${BASE_CLASS_PASSWORD}-shape-${shape}`)}>
+        <Input
+          ref={forwardedRef}
+          shape={shape}
+          {...props}
+          onChange={handleChange}
+          value={innerValue}
+          type={type}
+          noBorder
+        />
+        <button
+          onClick={toggle}
+          className={cx(
+            BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
+            shape && `${BASE_CLASS_PASSWORD_TOGGLE_BUTTON}-shape-${shape}`
+          )}
+        >
           {type === PASSWORD ? pwShowLabel : pwHideLabel}
-        </div>
+        </button>
       </div>
     )
   }
 )
 
 Password.propTypes = {
-  /* Text to be shown in order to show the password on click */
-  pwShowLabel: PropTypes.string,
-  /* Text to be shown in order to hide the password on click */
-  pwHideLabel: PropTypes.string,
+  /* Text to be shown to show the password on click */
+  pwShowLabel: PropTypes.node,
+  /* Text to be shown to hide the password on click */
+  pwHideLabel: PropTypes.node,
   /* Event launched on every input change */
   onChange: PropTypes.func,
   /* The name of the control */
@@ -47,7 +63,9 @@ Password.propTypes = {
   /* The value of the control */
   value: PropTypes.string,
   /* The default value of the control */
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
+  /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
+  shape: PropTypes.oneOf(Object.values(INPUT_SHAPES))
 }
 
 export default Password

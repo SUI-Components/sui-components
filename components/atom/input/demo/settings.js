@@ -1,3 +1,6 @@
+export const BASE_CLASS_DEMO = `DemoAtomInput`
+export const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
+
 export const flexCenteredStyle = {
   display: 'flex',
   justifyContent: 'center',

@@ -8,7 +8,7 @@ $bdrs-atom-input: 0 !default;
 $bdrs-atom-input-shapes: (
   square: $bdrs-none,
   rounded: $bdrs-m,
-  circle: $bdrs-xxxl
+  circle: 100dvh
 ) !default;
 $tov-atom-input-placeholder: unset !default;
 $h-atom-input--xl: 7 * $sz-base !default; // 56px

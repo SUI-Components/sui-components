@@ -1,9 +1,9 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './articles/ArticleA11y'
 import ArticleFontSize from './articles/ArticleFontSize'
 import ArticleInline from './articles/ArticleInline'
 import ArticleType from './articles/ArticleType'
-import ArticleA11y from './articles/ArticleA11y'
 import {CLASS_SECTION} from './settings'
 
 const Demo = () => {

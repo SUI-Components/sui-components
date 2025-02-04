@@ -62,7 +62,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
@@ -72,7 +72,31 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
     })
 
     it('given a valid input value using keyPress should set it as the value', () => {
@@ -128,12 +152,9 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
-      const props = {
-        className: 'extended-classNames',
-        type: pkg.inputTypes.NUMBER
-      }
+      const props = {className: 'extended-classNames', type: pkg.inputTypes.NUMBER}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
@@ -141,7 +162,31 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute', type: pkg.inputTypes.NUMBER}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute', type: pkg.inputTypes.NUMBER}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
     })
 
     it('given a valid input value using keyPress should set it as the value', () => {
@@ -298,12 +343,9 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
-      const props = {
-        className: 'extended-classNames',
-        type: pkg.inputTypes.MASK
-      }
+      const props = {className: 'extended-classNames', type: pkg.inputTypes.MASK}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
@@ -311,7 +353,31 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute', type: pkg.inputTypes.MASK}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute', type: pkg.inputTypes.MASK}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
     })
 
     it('should format value given a valid mask', () => {
@@ -328,16 +394,13 @@ describe(json.name, () => {
           value = e.target.value
         }
       }
-      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
       // When
       const {container} = setup(props)
-      const findClassName = findSentence(props.className)
       const input = container.querySelector('input')
       const event = {target: {value: 'ES123456789012345678901234567890'}}
       userEvents.type(input, event.target.value)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
       expect(value).to.equal('ES12 3456 7890 12 3456789012')
     })
 
@@ -352,14 +415,11 @@ describe(json.name, () => {
         charsSize: 31,
         value
       }
-      const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
       // When
       const {container} = setup(props)
-      const findClassName = findSentence(props.className)
       const input = container.querySelector('input')
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
       expect(input.value).to.equal('ES12 3456 7890 12 3456789012')
     })
 
@@ -384,7 +444,7 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
       expect(value).to.equal('')
     })
 
@@ -445,12 +505,9 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
-      const props = {
-        className: 'extended-classNames',
-        type: pkg.inputTypes.MASK
-      }
+      const props = {className: 'extended-classNames', type: pkg.inputTypes.SUI_PASSWORD}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
@@ -458,7 +515,31 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute', type: pkg.inputTypes.SUI_PASSWORD}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute', type: pkg.inputTypes.SUI_PASSWORD}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
     })
   })
 
@@ -515,7 +596,7 @@ describe(json.name, () => {
         const findClassName = findSentence(props.className)
 
         // Then
-        expect(findClassName(container.innerHTML)).to.be.null
+        expect(findClassName(container.innerHTML)).to.not.be.null
       })
 
       it('given addon props should return it rendered', () => {

@@ -2,8 +2,8 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import ArticleVisuallyHidden from './articles/ArticleVisuallyHidden.js'
 import ArticleA11y from './articles/ArticleA11y.js'
+import ArticleVisuallyHidden from './articles/ArticleVisuallyHidden.js'
 import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'

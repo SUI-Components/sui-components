@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {Article, H2, Paragraph, UnorderedList, ListItem, Anchor} from '@s-ui/documentation-library'
+import {Anchor, Article, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
 const ArticleGuidelines = ({className}) => {
   return (

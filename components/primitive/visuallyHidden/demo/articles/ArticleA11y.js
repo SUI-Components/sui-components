@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'
 
-import {Article, Box, H2, Paragraph, Code, Strong} from '@s-ui/documentation-library'
+import {Anchor, Article, Box, Code, H2, Paragraph, Strong} from '@s-ui/documentation-library'
 
 const ArticleA11y = ({className}) => {
   return (
     <Article className={className}>
-      <H2>Accessibility</H2>
+      <H2>
+        Accessibility –{' '}
+        <Anchor href="https://github.com/SUI-Components/sui-components/blob/master/contributor-docs/Accessibility%20Standards.md">
+          <Strong>Guidelines</Strong>
+        </Anchor>
+      </H2>
       <Box style={{backgroundColor: 'color-mix(in srgb, #00FF00 10%, transparent)'}}>
         <Paragraph>
           ✅ This component has been successfully tested for{' '}

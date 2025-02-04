@@ -246,7 +246,7 @@ $base-class: '.sui-AtomButton';
     }
   }
 
-  &:focus {
+  &:focus-visible {
     box-shadow: $bxsh-atom-button-focus;
     outline: 2px solid transparentize($c-primary, 0.2);
     outline-offset: 2px;

@@ -63,6 +63,7 @@ $c-primary-dark-1: color-variation($c-primary, -1) !default;
 $c-primary-dark-2: color-variation($c-primary, -2) !default;
 $c-primary-dark-3: color-variation($c-primary, -3) !default;
 $c-primary-dark-4: color-variation($c-primary, -4) !default;
+$c-primary-dark-5: color-variation($c-primary, -5) !default;
 
 // Secondary/Accent color
 $c-accent: var(--c-accent, #d57c1b) !default;
@@ -80,6 +81,7 @@ $c-accent-light-2: color-variation($c-accent, 2) !default;
 $c-accent-light-3: color-variation($c-accent, 3) !default;
 $c-accent-light-4: color-variation($c-accent, 4) !default;
 $c-accent-light-5: color-variation($c-accent, 5) !default;
+
 $c-secondary-light-1: color-variation($c-secondary, 1) !default;
 $c-secondary-light-2: color-variation($c-secondary, 2) !default;
 $c-secondary-light-3: color-variation($c-secondary, 3) !default;
@@ -91,10 +93,13 @@ $c-accent-dark-1: color-variation($c-accent, -1) !default;
 $c-accent-dark-2: color-variation($c-accent, -2) !default;
 $c-accent-dark-3: color-variation($c-accent, -3) !default;
 $c-accent-dark-4: color-variation($c-accent, -4) !default;
+$c-accent-dark-5: color-variation($c-accent, -5) !default;
+
 $c-secondary-dark-1: color-variation($c-secondary, -1) !default;
 $c-secondary-dark-2: color-variation($c-secondary, -2) !default;
 $c-secondary-dark-3: color-variation($c-secondary, -3) !default;
 $c-secondary-dark-4: color-variation($c-secondary, -4) !default;
+$c-secondary-dark-5: color-variation($c-secondary, -5) !default;
 
 // Gray color
 $c-gray: var(--c-gray, #777777) !default;
@@ -116,6 +121,7 @@ $c-gray-dark-1: color-variation($c-gray, -1) !default;
 $c-gray-dark-2: color-variation($c-gray, -2) !default;
 $c-gray-dark-3: color-variation($c-gray, -3) !default;
 $c-gray-dark-4: color-variation($c-gray, -4) !default;
+$c-gray-dark-5: color-variation($c-gray, -5) !default;
 
 // Success color
 $c-success: var(--c-success, #00a544) !default;
@@ -136,6 +142,7 @@ $c-success-dark-1: color-variation($c-success, -1) !default;
 $c-success-dark-2: color-variation($c-success, -2) !default;
 $c-success-dark-3: color-variation($c-success, -3) !default;
 $c-success-dark-4: color-variation($c-success, -4) !default;
+$c-success-dark-5: color-variation($c-success, -5) !default;
 
 // Alert color
 $c-alert: var(--c-alert, #ff6335) !default;
@@ -156,6 +163,7 @@ $c-alert-dark-1: color-variation($c-alert, -1) !default;
 $c-alert-dark-2: color-variation($c-alert, -2) !default;
 $c-alert-dark-3: color-variation($c-alert, -3) !default;
 $c-alert-dark-4: color-variation($c-alert, -4) !default;
+$c-alert-dark-5: color-variation($c-alert, -5) !default;
 
 // Error color
 $c-error: var(--c-error, #e93e40) !default;
@@ -176,6 +184,7 @@ $c-error-dark-1: color-variation($c-error, -1) !default;
 $c-error-dark-2: color-variation($c-error, -2) !default;
 $c-error-dark-3: color-variation($c-error, -3) !default;
 $c-error-dark-4: color-variation($c-error, -4) !default;
+$c-error-dark-5: color-variation($c-error, -5) !default;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Specific Colors

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.29.0 (2025-02-04)
+
+
+### Features
+
+* open classNames ([bdbe6ad](https://github.com/SUI-Components/sui-components/commit/bdbe6ade2d8639b29f27da75dcad6d2bf2c301d9))
+
+
+
 # 2.28.0 (2023-07-11)
 
 
@@ -299,6 +308,3 @@
 * **molecule/inputTags:** new component MoleculeAtomTags ([bf7e68a](https://github.com/SUI-Components/sui-components/commit/bf7e68a4e2b8d764b477be84fbb1fe0a9902b58a))
 * **molecule/inputTags:** noBorder as AtomInput prop and sass linter ([993a212](https://github.com/SUI-Components/sui-components/commit/993a212fbddd89130ab5f5a58b2e4bf111c8bdeb))
 * **molecule/inputTags:** readme and closeIcon isRequired ([0b642b9](https://github.com/SUI-Components/sui-components/commit/0b642b9da1bf8624204d833e56e2d68025583b1b))
-
-
-

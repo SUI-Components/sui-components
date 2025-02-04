@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 8.132.0 (2025-02-04)
+
+
+### Bug Fixes
+
+* fix color input schema ([ab12e88](https://github.com/SUI-Components/sui-components/commit/ab12e8813c4cd1422bed90129bd6b15df2c69148))
+
+
+### Features
+
+* necessary for proper light-dark switch make sense ([6d03021](https://github.com/SUI-Components/sui-components/commit/6d030213fff3961695cd7be0dd638aa0b5ba79db))
+
+
+
 # 8.131.0 (2025-01-28)
 
 

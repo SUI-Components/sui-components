@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2025-02-04)
+
+
+### Features
+
+* open classNames ([6ce94ab](https://github.com/SUI-Components/sui-components/commit/6ce94ab920604a783f8149f33f53dc364045e006))
+
+
+
 # 1.24.0 (2024-05-08)
 
 

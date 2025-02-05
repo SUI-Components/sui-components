@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.40.0 (2025-02-05)
+
+
+### Bug Fixes
+
+* full width ([0aba48f](https://github.com/SUI-Components/sui-components/commit/0aba48f0c9dd8cd86fa41773a1edd858d0b72db6))
+
+
+
 # 5.39.0 (2025-02-05)
 
 

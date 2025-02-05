@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.39.0 (2025-02-05)
+
+
+### Bug Fixes
+
+* input with retrocompatibility ([b72a613](https://github.com/SUI-Components/sui-components/commit/b72a6130614dcffd487b296ab7e6aa1096f9b57e))
+
+
+
 # 5.38.0 (2025-02-04)
 
 

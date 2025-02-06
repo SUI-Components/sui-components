@@ -1,6 +1,18 @@
 import PropTypes from 'prop-types'
 
-import {Anchor, Article, Box, H2, H3, ListItem, Paragraph, Strong, UnorderedList} from '@s-ui/documentation-library'
+import {
+  Anchor,
+  Article,
+  Box,
+  H2,
+  H3,
+  H4,
+  Code,
+  ListItem,
+  Paragraph,
+  Strong,
+  UnorderedList
+} from '@s-ui/documentation-library'
 
 const ArticleA11y = ({className}) => {
   return (
@@ -11,25 +23,13 @@ const ArticleA11y = ({className}) => {
           <Strong>Guidelines</Strong>
         </Anchor>
       </H2>
-      <Paragraph>
-        Icons are small images or symbols used to represent an idea, function, or feature in a graphical user interface
-        (GUI). They provide a quick, intuitive way to convey information without relying on text.
-      </Paragraph>
-      <Paragraph>They can represent:</Paragraph>
-      <UnorderedList>
-        <ListItem>
-          <Strong>Actions:</Strong> such as print, save, or delete
-        </ListItem>
-        <ListItem>
-          <Strong>Objects:</Strong> such as files, folders, or applications
-        </ListItem>
-        <ListItem>
-          <Strong>States:</Strong> such as on, off, or warning
-        </ListItem>
-        <ListItem>
-          <Strong>Navigation:</Strong> such as back, forward, or home
-        </ListItem>
-      </UnorderedList>
+      <Box style={{backgroundColor: 'color-mix(in srgb, #00FF00 10%, transparent)'}}>
+        <Paragraph>
+          ✅ This component has been successfully tested for{' '}
+          <Strong>WCAG 2.0 levels A and AA, WCAG 2.1 levels A and AA</Strong> and for common accessibility best
+          practices.
+        </Paragraph>
+      </Box>
       <Paragraph>
         Icons need to be understandable and user-friendly for everyone, including those with disabilities.
       </Paragraph>
@@ -63,17 +63,48 @@ const ArticleA11y = ({className}) => {
           labels, to ensure that icons are seen and understood in the way they are intended.
         </ListItem>
       </UnorderedList>
-
-      <Box style={{backgroundColor: 'color-mix(in srgb, #00FF00 10%, transparent)'}}>
+      <H3>Summary of rules for proper A11y criteria on Icons:</H3>
+      <H4>1.- Is this image purely decorative?</H4>
+      <Article style={{padding: '0 16px'}}>
         <Paragraph>
-          ✅ This component has been successfully tested for{' '}
-          <Strong>WCAG 2.0 levels A and AA, WCAG 2.1 levels A and AA</Strong> and for common accessibility best
-          practices.
+          Some examples of icons are <Strong>not relevant for the content</Strong>, and they are just decorative. In
+          this case, you should use the <Code>aria-hidden="true"</Code> attribute. At the same time, you{' '}
+          <Strong>
+            should never add a <Code>label</Code> or an <Code>alt</Code>
+          </Strong>{' '}
+          to the icon.
         </Paragraph>
-      </Box>
+        <Paragraph>
+          Ask yourself, if this image wasn’t present on the page, what would the user miss out on? If the answer is
+          purely that it wouldn’t look as nice, then it sounds like{' '}
+          <Strong>you don’t need alternative text and the aria-hidden has to be added</Strong>.
+        </Paragraph>
+        <Paragraph>Examples:</Paragraph>
+        <UnorderedList>
+          <ListItem>Images used for layout purposes only</ListItem>
+          <ListItem>Images used as bullet points</ListItem>
+          <ListItem>Images where the surrounding text is descriptive enough already</ListItem>
+        </UnorderedList>
+      </Article>
+      <H4>2.- Does this image have a function, or is it purely content?</H4>
+      <Article style={{padding: '0 16px'}}>
+        <Paragraph>
+          If the icon is associated with an interactive element, such as a <Code>link</Code> or a <Code>Button</Code>,
+          then we can add an <Code>‘aria-label’</Code> to the interactive element, while hiding the icon itself as in
+          Step 1.
+        </Paragraph>
+      </Article>
+      <H4>3.- What content would the user miss out on if the image was missing?</H4>
+      <Article style={{padding: '0 16px'}}>
+        <Paragraph>
+          As we cannot add alternative text to the icon itself, what we can do is add some actual text, but display it
+          in a way to make it only visible to assistive technology users. This can be done using CSS and displaying the
+          text off screen. As before, we will add <Code>‘aria-hidden’</Code> to the icon itself.
+        </Paragraph>
+      </Article>
       <Paragraph>
-        The accessibility label for a button comes from the visible label text on the button such as Done, Send, or
-        Reply.
+        The final question is the most difficult one to answer, but by taking a little time over this, you can improve
+        the experience for all of all users as well as SEO!
       </Paragraph>
     </Article>
   )

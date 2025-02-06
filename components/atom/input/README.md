@@ -32,13 +32,12 @@ If you want to customize your components, create your own theme and add it to yo
 @import '~@s-ui/react-atom-input/lib/index';
 ```
 
-    
 ### You can use native types like this
 
 ```js
 import AtomInput from '@s-ui/react-atom-input'
 
-return <AtomInput type='number' /> // possible type options: text, number, date and password
+return <AtomInput type="number" /> // possible type options: text, number, date and password
 ```
 
 ### Non native Inputs
@@ -50,7 +49,7 @@ In order to use SUI defined Password Input pass the prop `type='sui-password'` t
 ```js
 import AtomInput from '@s-ui/react-atom-input'
 
-return <AtomInput type='sui-password' />
+return <AtomInput type="sui-password" />
 ```
 
 #### Mask
@@ -58,11 +57,12 @@ return <AtomInput type='sui-password' />
 Wraps the https://unmanner.github.io/imaskjs/ lib, used if the input must follow a regex or a specific format/pattern . Using `type='mask'` activates this input, which will be expecting the `mask` prop type to be passed by.
 
 ```js
-const bankAccountMask = { // checkout all options here https://unmanner.github.io/imaskjs/guide.html
+const bankAccountMask = {
+  // checkout all options here https://unmanner.github.io/imaskjs/guide.html
   mask: 'ES00 0000 0000 00 0000000000'
 }
 
- return <AtomInput type='mask' mask={bankAccountMask} placeholder='ES00 0000 0000 00 0000000000' />
+return <AtomInput type="mask" mask={bankAccountMask} placeholder="ES00 0000 0000 00 0000000000" />
 ```
 
 ### Sizes
@@ -70,6 +70,7 @@ const bankAccountMask = { // checkout all options here https://unmanner.github.i
 There are defined 3 sizes (`MEDIUM`, `SMALL` and `XSMALL`) available at the exported object `inputSizes` and that can be set through the prop `size`
 
 Related size Sass vars are:
+
 ```scss
 $h-atom-input--m: 40px;
 $h-atom-input--s: 32px;
@@ -77,13 +78,8 @@ $h-atom-input--xs: 24px;
 ```
 
 ```js
-<AtomInput
-  size={inputSizes.SMALL}
-  name="first"
-  placeholder="Small input"
-/>
+<AtomInput size={inputSizes.SMALL} name="first" placeholder="Small input" />
 ```
-
 
 ### Addons
 
@@ -96,13 +92,12 @@ Addons are passed as prop, use **leftAddon** or **rightAddon** in order to set t
 ```js
 import AtomInput from '@s-ui/react-atom-input'
 
-return <AtomInput leftAddon='http://' rightAddon='@schibsted.com' />
+return <AtomInput leftAddon="http://" rightAddon="@schibsted.com" />
 ```
 
 ### Icons
 
 Icons are passed as prop, use **leftIcon** or **rightIcon** in order to set the position inside the Input
-
 
 ```js
 import AtomInput from '@s-ui/react-atom-input'
@@ -121,46 +116,34 @@ You can also pass a handler for each Icon using the props **onClickLeftIcon** or
   placeholder="Medium Input"
   leftIcon={LeftIcon}
   rightIcon={IconLocation}
-  onClickRightIcon={ e => alert("clicked right icon")}
+  onClickRightIcon={e => alert('clicked right icon')}
 />
 ```
-
 
 ### Error states
 
 There are 3 error states:
 
-* error state = **true**, will show a **red** border around the input field
-* error state = **false**, will show a **green** border around the input field
-* error state = **null**, will show the by **default** border around the input field
+- error state = **true**, will show a **red** border around the input field
+- error state = **false**, will show a **green** border around the input field
+- error state = **null**, will show the by **default** border around the input field
 
 ```js
-<AtomInput 
-  name="second" 
-  placeholder="Success input" 
-  errorState={false} 
-/>
+<AtomInput name="second" placeholder="Success input" errorState={false} />
 ```
-
 
 ### Input states
 
 There are 3 error states:
 
-* input state = **'error'**, will show a **red** border around the input field
-* input state = **'success'**, will show a **green** border around the input field
-* input state = **'alert'**, will show a **orange** border around the input field
-* input state = **null**, will show the by **default** border around the input field
+- input state = **'error'**, will show a **red** border around the input field
+- input state = **'success'**, will show a **green** border around the input field
+- input state = **'alert'**, will show a **orange** border around the input field
+- input state = **null**, will show the by **default** border around the input field
 
 ```js
-<AtomInput 
-  name="second" 
-  placeholder="Success input" 
-  state="alert"
-/>
+<AtomInput name="second" placeholder="Success input" state="alert" />
 ```
-
-
 
 ### Form Usage
 
@@ -228,22 +211,17 @@ class SimpleLoginForm extends React.Component {
           type="text"
           value={email.value}
           onChange={({ev, value}) => this.onChange({value, field: 'email', ev})}
-          onBlur={ev =>
-            this.onBlur({value: ev.target.value, field: 'email'})
-          }
+          onBlur={ev => this.onBlur({value: ev.target.value, field: 'email'})}
           errorState={this.state.email.errorState}
         />
         <Input
           type="sui-password"
           value={password.value}
-          onChange={({ev, value}) =>
-            this.onChange({value, field: 'password', ev})
-          }
+          onChange={({ev, value}) => this.onChange({value, field: 'password', ev})}
         />
         <Button onClick={this.onSubmit}>Login</Button>
       </form>
     )
   }
 }
-
 ```

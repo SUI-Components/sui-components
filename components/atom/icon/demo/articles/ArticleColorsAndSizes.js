@@ -1,5 +1,7 @@
 import {Fragment, useState} from 'react'
 
+import PropTypes from 'prop-types'
+
 import {
   AntDesignIcon,
   Article,
@@ -13,13 +15,13 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import AtomIcon, {ATOM_ICON_COLORS, ATOM_ICON_SIZES} from '../src/index.js'
-import {CLASS_SECTION, flexCenteredStyle, ICONS} from './settings.js'
+import AtomIcon, {ATOM_ICON_COLORS, ATOM_ICON_SIZES} from '../../src/index.js'
+import {flexCenteredStyle, ICONS} from '../settings.js'
 
-const ColorsAndSizesDemo = () => {
+const ArticleColorsAndSizes = ({className}) => {
   const [selectedIcon, setIcon] = useState(Object.values(ICONS)[0])
   return (
-    <Article className={CLASS_SECTION}>
+    <Article className={className}>
       <H2>Colors & Sizes</H2>
       <Paragraph>
         Icons can change its inner colors using the <Code>color</Code> prop. The inner svg elements fill inherit by
@@ -33,13 +35,14 @@ const ColorsAndSizesDemo = () => {
       <br />
       <br />
       <RadioButtonGroup onChange={(event, value) => setIcon(value)} value={selectedIcon}>
-        {Object.values(ICONS).map((iconName, index) => (
+        {Object.values(ICONS).map(({name, label}, index) => (
           <RadioButton
             key={index}
-            value={iconName}
+            value={{name, label}}
+            aria-label={label}
             label={
               <AtomIcon>
-                <AntDesignIcon icon={iconName} style={{color: 'currentColor'}} />
+                <AntDesignIcon icon={name} style={{color: 'currentColor'}} />
               </AtomIcon>
             }
           />
@@ -63,7 +66,7 @@ const ColorsAndSizesDemo = () => {
             {Object.values(ATOM_ICON_COLORS).map((iconColor, indexColor) => (
               <Cell key={`${indexSize}-${indexColor}`} style={{...flexCenteredStyle, minHeight: 32}}>
                 <AtomIcon color={iconColor} size={iconSize}>
-                  <AntDesignIcon icon={selectedIcon} style={{color: 'currentColor'}} />
+                  <AntDesignIcon icon={selectedIcon.name} style={{color: 'currentColor'}} />
                 </AtomIcon>
               </Cell>
             ))}
@@ -78,4 +81,8 @@ const ColorsAndSizesDemo = () => {
   )
 }
 
-export default ColorsAndSizesDemo
+ArticleColorsAndSizes.propTypes = {
+  className: PropTypes.node
+}
+
+export default ArticleColorsAndSizes

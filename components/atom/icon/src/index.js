@@ -8,13 +8,14 @@ import {ATOM_ICON_COLORS, ATOM_ICON_RENDERS, ATOM_ICON_SIZES, BASE_CLASS} from '
 const AtomIcon = ({
   as = 'span',
   children,
+  className: classNameProp,
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
   render = ATOM_ICON_RENDERS.eager,
   style: _ignoredStyle, // eslint-disable-line react/prop-types
   ...props
 }) => {
-  const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, color && `${BASE_CLASS}--${color}`)
+  const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, color && `${BASE_CLASS}--${color}`, classNameProp)
 
   const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
 
@@ -46,9 +47,11 @@ AtomIcon.propTypes = {
   /**
    * Determine the render type of the icon.
    * 'eager': The icon will be server-side rendered (default)
-   * 'lazy': The icon will be loaded on client when visible
+   * 'lazy': The icon will be loaded on a client when visible
    */
-  render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS))
+  render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS)),
+  /** CSS Classes to add to icon */
+  className: PropTypes.string
 }
 
 export default AtomIcon

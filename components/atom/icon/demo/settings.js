@@ -2,11 +2,11 @@ export const BASE_CLASS_DEMO = `DemoAtomIcon`
 export const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
 
 export const ICONS = {
-  AiOutlineCheck: 'AiOutlineCheck',
-  AiOutlineShop: 'AiOutlineShop',
-  AiOutlineCode: 'AiOutlineCode',
-  AiOutlineCoffee: 'AiOutlineCoffee',
-  AiOutlineLink: 'AiOutlineLink'
+  AiOutlineCheck: {name: 'AiOutlineCheck', label: 'check'},
+  AiOutlineShop: {name: 'AiOutlineShop', label: 'shop'},
+  AiOutlineCode: {name: 'AiOutlineCode', label: 'code'},
+  AiOutlineCoffee: {name: 'AiOutlineCoffee', label: 'coffee'},
+  AiOutlineLink: {name: 'AiOutlineLink', label: 'link'}
 }
 
 export const flexCenteredStyle = {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.41.0 (2025-02-06)
+
+
+### Features
+
+* bump ([6e9db5d](https://github.com/SUI-Components/sui-components/commit/6e9db5db5d805fae5a8aad326eed298b2553357e))
+
+
+
 # 5.40.0 (2025-02-05)
 
 

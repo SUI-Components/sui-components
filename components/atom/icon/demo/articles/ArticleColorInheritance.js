@@ -1,20 +1,22 @@
 import {useState} from 'react'
 
+import PropTypes from 'prop-types'
+
 import {AntDesignIcon, Article, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
 
-import AtomIcon, {ATOM_ICON_SIZES} from '../src/index.js'
-import {CLASS_SECTION, ICONS} from './settings.js'
+import AtomIcon, {ATOM_ICON_SIZES} from '../../src/index.js'
+import {ICONS} from '../settings.js'
 
-const ColorInheritanceDemo = () => {
+const ArticleColorInheritance = ({className}) => {
   const COLOR_EXAMPLES = ['#0099ff', 'rgb(36, 211, 212)', 'brown']
   const [selectedColor, setColor] = useState()
   return (
-    <Article className={CLASS_SECTION}>
+    <Article className={className}>
       <H2>Color inheritance</H2>
       <Paragraph>
-        currentColor value for color prop is the default value and will inherit the color from the inmediate nearest
+        currentColor value for color prop is the default value and will inherit the color from the immediate nearest
         parent value of color property in CSS. This way you could safely make your icon get a different color with
-        endless posibilities to match your designs without having to care about variables on the SUI components.
+        endless possibilities to match your designs without having to care about variables on the SUI components.
       </Paragraph>
       –––
       <br />
@@ -27,7 +29,7 @@ const ColorInheritanceDemo = () => {
       <Paragraph className="DemoAtomIcon-colorExample" style={{color: selectedColor}}>
         The icon{' '}
         <AtomIcon color="currentColor" size={ATOM_ICON_SIZES.medium}>
-          <AntDesignIcon icon={Object.values(ICONS)[1]} style={{color: 'currentColor'}} />
+          <AntDesignIcon icon={Object.values(ICONS)[1].name} style={{color: 'currentColor'}} />
         </AtomIcon>{' '}
         inherits the color of this text {selectedColor}
       </Paragraph>
@@ -35,4 +37,8 @@ const ColorInheritanceDemo = () => {
   )
 }
 
-export default ColorInheritanceDemo
+ArticleColorInheritance.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleColorInheritance

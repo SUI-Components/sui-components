@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types'
+
 import {AntDesignIcon, Article, Cell, Code, Grid, H2, Paragraph, Strong} from '@s-ui/documentation-library'
 
-import AtomIcon from '../src/index.js'
-import {CLASS_SECTION, ICONS} from './settings.js'
+import AtomIcon from '../../src/index.js'
+import {ICONS} from '../settings.js'
 
-const LazyDemo = () => (
-  <Article className={CLASS_SECTION}>
+const ArticleLazy = ({className}) => (
+  <Article className={className}>
     <H2>Lazy Icons</H2>
     <Paragraph>
       By default, icons will be rendered <Strong>eagerly</Strong>. That means that they will be rendered on the server
@@ -24,4 +26,8 @@ const LazyDemo = () => (
   </Article>
 )
 
-export default LazyDemo
+ArticleLazy.propTypes = {
+  className: PropTypes.node
+}
+
+export default ArticleLazy

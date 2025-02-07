@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types'
+
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
-import AtomIcon from '../src/index.js'
-import {CLASS_SECTION} from './settings.js'
+import AtomIcon from '../../src/index.js'
 
-const SpanDemo = () => (
-  <Article className={CLASS_SECTION}>
+const ArticleSpan = ({className}) => (
+  <Article className={className}>
     <H2>Icons wrapped with span</H2>
     <Paragraph>
       Some icons could be wrapped on a <Code>span</Code> tag so they could be rendered by using
@@ -40,4 +41,8 @@ const SpanDemo = () => (
   </Article>
 )
 
-export default SpanDemo
+ArticleSpan.propTypes = {
+  className: PropTypes.node
+}
+
+export default ArticleSpan

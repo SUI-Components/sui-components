@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.19.0 (2025-02-07)
+
+
+### Features
+
+* a11y ([35f91da](https://github.com/SUI-Components/sui-components/commit/35f91da8e0adb7b403e73445507a3c115fdd8bf2))
+* add a11y section ([ed56ec2](https://github.com/SUI-Components/sui-components/commit/ed56ec2c590ea2c4b5e0947674e0b0f39115d670))
+
+
+
 # 1.18.0 (2022-07-26)
 
 
@@ -158,6 +168,3 @@
 * **atom/icon:** add Sui Atom Icon component ([7a2eb73](https://github.com/SUI-Components/sui-components/commit/7a2eb73535bc72c6d366f3fcc4c2499be16a2cdd))
 * **atom/icon:** Create Lazy and normal Icon ([2e1d9b2](https://github.com/SUI-Components/sui-components/commit/2e1d9b2c77cbe0885b8898289ef86ce1e65ec183))
 * **atom/icon:** Remove not needed important ([ed4a817](https://github.com/SUI-Components/sui-components/commit/ed4a8172ea5a26a217ff356b834f177cad8849bf))
-
-
-

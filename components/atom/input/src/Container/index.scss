@@ -2,6 +2,7 @@ $base-class-container: '#{$base-class}_Container';
 
 #{$base-class-container} {
   display: flex;
+  flex-grow: 1;
   width: 100%;
   border-radius: $bdrs-atom-input;
   $this: &;

@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/hoc": "1",
-    "@s-ui/react-molecule-dropdown-option": "2"
+    "@s-ui/react-molecule-dropdown-option": "2",
+    "@faker-js/faker": "9"
   }
 }

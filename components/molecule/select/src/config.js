@@ -3,6 +3,7 @@ import {Children, createContext, useContext} from 'react'
 import cx from 'classnames'
 
 import {inputSizes} from '@s-ui/react-atom-input'
+import {atomTagSizes} from '@s-ui/react-atom-tag'
 import {moleculeDropdownListSizes} from '@s-ui/react-molecule-dropdown-list'
 
 export const BASE_CLASS = `sui-MoleculeSelect`
@@ -16,6 +17,7 @@ export const SELECT_STATES = {
 }
 
 export const SELECT_INPUT_SIZES = {...inputSizes}
+export const SELECT_TAG_SIZES = {...atomTagSizes}
 export const SELECT_DROPDOWN_LIST_SIZES = {...moleculeDropdownListSizes}
 
 export const DropdownContext = createContext()
@@ -34,14 +36,15 @@ export const getOptionData = children => {
   return optionsData
 }
 
-export const getClassName = ({state, errorState, focus, disabled}) =>
+export const getClassName = ({state, errorState, disabled, className, isBorderless}) =>
   cx(
     BASE_CLASS,
     errorState && `${BASE_CLASS}--${SELECT_STATES.ERROR}`,
     errorState === false && `${BASE_CLASS}--${SELECT_STATES.SUCCESS}`,
     state && `${BASE_CLASS}--${state}`,
+    isBorderless && `${BASE_CLASS}--isBorderless`,
     {
-      [CLASS_FOCUS]: focus,
       [CLASS_DISABLED]: disabled
-    }
+    },
+    className
   )

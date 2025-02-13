@@ -6,7 +6,7 @@ import Injector from '@s-ui/react-primitive-injector'
 import {CLASS_ARROW, CLASS_ARROW_DOWN, CLASS_ARROW_UP, CLASS_CONTAINER} from './config.js'
 
 const MoleculeInputSelect = props => {
-  const {onClick, iconArrowDown: iconArrow, isOpen, disabled, children} = props
+  const {onClick, iconArrowDown: iconArrow, isOpen, disabled, children, ...rest} = props
 
   const classNames = cx(CLASS_ARROW, {
     [CLASS_ARROW_DOWN]: !isOpen,
@@ -15,7 +15,9 @@ const MoleculeInputSelect = props => {
 
   return (
     <div className={CLASS_CONTAINER} onClick={!disabled ? onClick : null}>
-      <Injector {...props}>{children}</Injector>
+      <Injector onClick={onClick} disabled={disabled} {...rest}>
+        {children}
+      </Injector>
       <span className={classNames}>{iconArrow}</span>
     </div>
   )

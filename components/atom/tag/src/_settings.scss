@@ -3,18 +3,32 @@ $bgc-atom-tag: color-variation($c-gray, 3) !default;
 $mw-label: 240px !default;
 
 // sizes
-$h-atom-tag-l: 40px !default;
-$h-atom-tag-m: 32px !default;
-$h-atom-tag-s: 24px !default;
+$h-atom-tag-xl: calc($h-atom-input--xl - $sz-base) !default;
+$h-atom-tag-l: calc($h-atom-input--l - $sz-base) !default;
+$h-atom-tag-m: calc($h-atom-input--m - $sz-base) !default;
+$h-atom-tag-s: calc($h-atom-input--s - $sz-base) !default;
+$h-atom-tag-xs: calc($h-atom-input--xs - $sz-base) !default;
+
 $m-atom-tag: $m-m !default;
-$p-atom-tag-l: 0 $p-l !default;
+
+$p-atom-tag-xl: 0 $p-xxl !default;
+$p-atom-tag-l: 0 $p-xl !default;
 $p-atom-tag-m: 0 $p-l !default;
 $p-atom-tag-s: 0 $p-m !default;
+$p-atom-tag-xs: 0 $p-s !default;
 
 $p-atom-tag-hasIcon-hasClose: (
-  small: $p-atom-tag-s,
-  medium: $p-atom-tag-m,
-  large: $p-atom-tag-l
+  s: $p-atom-tag-s,
+  m: $p-atom-tag-m,
+  l: $p-atom-tag-l
+) !default;
+
+$sz-atom-tag: (
+  'xs' $h-atom-tag-xs $p-atom-tag-xs,
+  's' $h-atom-tag-s $p-atom-tag-s,
+  'm' $h-atom-tag-m $p-atom-tag-m,
+  'l' $h-atom-tag-l $p-atom-tag-l,
+  'xl' $h-atom-tag-xl $p-atom-tag-xl
 ) !default;
 
 // outline

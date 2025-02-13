@@ -1,7 +1,7 @@
 $bd-select: $bdw-s solid transparent !default;
 $bdrs-select: 0 !default;
 $z-select-list: $z-navigation !default;
-$mr-select-list-arrow: -$p-xxl !default;
+$mr-select-list-arrow: -$p-l !default;
 $pr-select-atom-input-tags: $p-xxl !default;
 $w-select-list-arrow: $sz-icon-m !default;
 $h-select-list-arrow: $sz-icon-m !default;
@@ -17,6 +17,6 @@ $c-molecule-select-disabled: inherit !default;
 
 $bd-molecule-select-search: $bd-dropdown-list !default;
 $bd-bottom-molecule-select-search: none !default;
-$bdrs-molecule-select-search: none !default;
+$bdrs-molecule-select-search: 0 !default;
 $p-molecule-select-search: $p-m $p-l !default;
 $bgc-molecule-select-search: $bc-dropdown-list !default;

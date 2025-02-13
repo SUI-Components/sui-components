@@ -31,16 +31,10 @@ $base-class: '.sui-MoleculeDropdownList';
     }
   }
 
-  &--small {
-    max-height: $h-dropdown-list--small;
-  }
-
-  &--medium {
-    max-height: $h-dropdown-list--medium;
-  }
-
-  &--large {
-    max-height: $h-dropdown-list--large;
+  @each $sizeKey, $sizeValue in $h-sizes-dropdown-list {
+    &--size-#{$sizeKey} {
+      max-height: $sizeValue;
+    }
   }
 
   &:focus {

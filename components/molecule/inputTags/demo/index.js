@@ -1,12 +1,12 @@
 import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleBorderless from './articles/ArticleBorderless.js'
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDisableReadOnly from './articles/ArticleDisableReadOnly.js'
 import ArticleHandlers from './articles/ArticleHandlers.js'
 import ArticleMaxTagsAndAllowDuplicates from './articles/ArticleMaxTagsAndAllowDuplicates.js'
 import ArticleSemantic from './articles/ArticleSemantic.js'
-import ArticleSize from './articles/ArticleSize.js'
-import ArticleTagsSize from './articles/ArticleTagsSize.js'
+import ArticleSizeAndTagSize from './articles/ArticleSizeAndTagSize.js'
 import {CLASS_DEMO_SECTION} from './settings.js'
 
 import './index.scss'
@@ -23,15 +23,15 @@ const Demo = () => {
       <br />
       <ArticleDisableReadOnly className={CLASS_DEMO_SECTION} />
       <br />
-      <ArticleSize className={CLASS_DEMO_SECTION} />
-      <br />
-      <ArticleTagsSize className={CLASS_DEMO_SECTION} />
+      <ArticleSizeAndTagSize className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleHandlers className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleMaxTagsAndAllowDuplicates className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleSemantic className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleBorderless className={CLASS_DEMO_SECTION} />
     </div>
   )
 }

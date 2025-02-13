@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -14,81 +14,97 @@ import {CLASS_SEARCH_CONTAINER} from './config.js'
 import MoleculeInputSelect from './MoleculeInputSelect.js'
 import Search from './Search.js'
 
-const MoleculeSelectSingleSelection = ({
-  value = '',
-  children,
-  isOpen,
-  onToggle,
-  onChange,
-  leftIcon,
-  iconArrowDown,
-  refMoleculeSelect,
-  selectSize,
-  placeholder,
-  id,
-  disabled,
-  optionsData = {},
-  required,
-  tabIndex,
-  size,
-  ...props
-}) => {
-  const {hasSearch, isFirstOptionFocused, inputSearch} = useDropdown()
-  const [focusedFirstOption, setFocusedFirstOption] = useState(false)
+const MoleculeSelectSingleSelection = forwardRef(
+  (
+    {
+      value = '',
+      children,
+      isOpen,
+      onToggle,
+      onTriggerClick,
+      onChange,
+      leftIcon,
+      iconArrowDown,
+      refMoleculeSelect,
+      refSearch,
+      selectSize,
+      placeholder,
+      id,
+      disabled,
+      optionsData = {},
+      required,
+      tabIndex,
+      size,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const {hasSearch, isFirstOptionFocused, inputSearch, focusedFirstOption, setFocusedFirstOption} = useDropdown()
 
-  const handleSelection = (ev, {value}) => {
-    onChange(ev, {value})
-    onToggle(ev, {isOpen: false})
-    refMoleculeSelect && refMoleculeSelect.current && refMoleculeSelect.current.focus()
-  }
-
-  const handleKeyDown = ev => {
-    if (isFirstOptionFocused()) {
-      setFocusedFirstOption(true)
-    } else {
-      setFocusedFirstOption(false)
-    }
-
-    if (ev?.key === 'Escape') {
+    const handleSelection = (ev, {value}) => {
+      onChange(ev, {value})
       onToggle(ev, {isOpen: false})
-    } else if (ev?.key === 'ArrowUp') {
-      focusedFirstOption && setTimeout(() => inputSearch?.focus())
+      forwardedRef?.current?.focus()
     }
-  }
 
-  return (
-    <>
-      <MoleculeInputSelect
-        disabled={disabled}
-        id={id}
-        isOpen={isOpen}
-        value={optionsData[value] || ''}
-        onClick={ev => onToggle(ev, {isOpen: !isOpen})}
-        leftIcon={leftIcon}
-        iconArrowDown={iconArrowDown}
-        placeholder={placeholder}
-        autoComplete="off"
-        required={required}
-        size={selectSize}
-        tabIndex={tabIndex}
-      >
-        <AtomInput inputMode={inputTypes.NONE} />
-      </MoleculeInputSelect>
-      <div className={CLASS_SEARCH_CONTAINER}>
-        {hasSearch && <Search />}
-        <MoleculeDropdownList
-          size={size}
-          visible={isOpen}
-          onSelect={handleSelection}
-          value={value}
-          onKeyDown={handleKeyDown}
+    const handleKeyDown = ev => {
+      if (isFirstOptionFocused()) {
+        setFocusedFirstOption(true)
+      } else {
+        setFocusedFirstOption(false)
+      }
+
+      switch (ev?.key) {
+        case 'Escape':
+          onToggle(ev, {isOpen: false})
+          forwardedRef?.current?.focus()
+          break
+        case 'Tab':
+          onToggle(ev, {isOpen: false})
+          forwardedRef?.current?.focus()
+          break
+        case 'ArrowUp':
+          focusedFirstOption && setTimeout(() => inputSearch?.focus())
+          break
+        default:
+          break
+      }
+    }
+
+    return (
+      <>
+        <MoleculeInputSelect
+          disabled={disabled}
+          id={id}
+          isOpen={isOpen}
+          value={optionsData[value] || ''}
+          onClick={onTriggerClick}
+          leftIcon={leftIcon}
+          iconArrowDown={iconArrowDown}
+          placeholder={placeholder}
+          autoComplete="off"
+          required={required}
+          size={selectSize}
+          tabIndex={tabIndex}
         >
-          {children}
-        </MoleculeDropdownList>
-      </div>
-    </>
-  )
-}
+          <AtomInput ref={forwardedRef} inputMode={inputTypes.NONE} noBorder />
+        </MoleculeInputSelect>
+        <div className={CLASS_SEARCH_CONTAINER}>
+          {hasSearch && <Search ref={refSearch} />}
+          <MoleculeDropdownList
+            size={size}
+            visible={isOpen}
+            onSelect={handleSelection}
+            value={value}
+            onKeyDown={handleKeyDown}
+          >
+            {children}
+          </MoleculeDropdownList>
+        </div>
+      </>
+    )
+  }
+)
 
 MoleculeSelectSingleSelection.propTypes = {
   value: PropTypes.string,
@@ -96,8 +112,10 @@ MoleculeSelectSingleSelection.propTypes = {
   isOpen: PropTypes.bool,
   onToggle: PropTypes.func,
   onChange: PropTypes.func,
+  onTriggerClick: PropTypes.func,
   leftIcon: PropTypes.node,
   iconArrowDown: PropTypes.node,
+  refSearch: PropTypes.object,
   refMoleculeSelect: PropTypes.object,
   selectSize: PropTypes.oneOf(Object.values(inputSizes)),
   size: PropTypes.oneOf(Object.values(dropdownListSizes)),

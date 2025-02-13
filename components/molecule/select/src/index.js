@@ -14,6 +14,7 @@ import {
 import PropTypes from 'prop-types'
 
 import {getTarget} from '@s-ui/js/lib/react'
+import {useControlledState} from '@s-ui/react-hooks'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import MoleculeSelectMultipleSelection from './components/MultipleSelection.js'
@@ -26,6 +27,7 @@ import {
   SELECT_DROPDOWN_LIST_SIZES,
   SELECT_INPUT_SIZES,
   SELECT_STATES,
+  SELECT_TAG_SIZES,
   SELECTION_KEYS
 } from './config.js'
 
@@ -34,7 +36,9 @@ const useFunctionalRef = () => useReducer((_s, node) => node, null)
 const MoleculeSelect = forwardRef(
   (
     {
+      className: classNameFromProps,
       onBlur,
+      onFocus,
       isOpen,
       onToggle,
       children,
@@ -44,6 +48,7 @@ const MoleculeSelect = forwardRef(
       keysSelection = SELECTION_KEYS,
       multiselection = false,
       hasSearch = false,
+      tagSize,
       searchIcon,
       searchPlaceholder,
       noResults,
@@ -54,22 +59,44 @@ const MoleculeSelect = forwardRef(
       onChange = () => {},
       selectSize = SELECT_INPUT_SIZES.MEDIUM,
       size: dropdownListSize,
+      isBorderless,
+      value,
+      defaultValue,
       ...props
     },
     forwardedRef
   ) => {
+    const [focusedFirstOption, setFocusedFirstOption] = useState(false)
     const refOptions = useRef({})
+    const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
 
+    const innerRef = useRef()
+    const triggerRef = useRef()
+    const searchRef = useRef()
     const refMoleculeSelect = useRef(refMoleculeSelectFromProps)
     const refsMoleculeSelectOptions = useRef([])
-    const ref = useMergeRefs(forwardedRef, refMoleculeSelect)
+    const ref = useMergeRefs(forwardedRef, refMoleculeSelect, innerRef)
     const [inputSearch, setInputRef] = useFunctionalRef()
 
     const [isOpenState, setIsOpenState] = useState(isOpen || false)
     useEffect(() => setIsOpenState(isOpen), [isOpen, setIsOpenState])
 
     Object.assign(refOptions.current, getOptionData(children))
-    const [focus, setFocus] = useState(false)
+
+    const isFocused = () => {
+      const el = innerRef?.current
+      return el && (el.matches(':focus-within') || el.contains(document.activeElement))
+    }
+
+    const isTriggerFocused = () => {
+      const el = triggerRef?.current
+      return el && el.matches(':focus')
+    }
+
+    const isSearchFocused = () => {
+      const el = searchRef?.current
+      return el && el.matches(':focus')
+    }
 
     const extendedChildren = useMemo(
       () =>
@@ -87,7 +114,7 @@ const MoleculeSelect = forwardRef(
 
     const numOptions = Children.toArray(extendedChildren).length
 
-    const className = getClassName({state, errorState, focus, disabled})
+    const className = getClassName({state, errorState, disabled, className: classNameFromProps, isBorderless})
 
     const handleToggle = useCallback(
       (ev, {isOpen, isOutsideEvent} = {isOutsideEvent: false}) => {
@@ -108,13 +135,25 @@ const MoleculeSelect = forwardRef(
       [handleToggle]
     )
 
+    const handleTriggerClick = event => {
+      handleToggle(event, {isOpen: true})
+      if (!isOpenState) {
+        setTimeout(() => {
+          if (hasSearch) {
+            focusSearchInput(event)
+          } else {
+            focusFirstOption(event)
+          }
+        })
+      }
+    }
+
     const handleOutsideClick = useCallback(
       ev => {
         if (disabled) return
         if (refMoleculeSelect.current && !refMoleculeSelect.current.contains(ev.target)) {
           // outside click
           closeList(ev, {isOutsideEvent: true})
-          setFocus(false)
         }
       },
       [closeList, disabled]
@@ -163,31 +202,61 @@ const MoleculeSelect = forwardRef(
 
     const handleKeyDown = ev => {
       ev.persist()
-      const isEnabledKey = ENABLED_KEYS.includes(ev.key)
-      if (!isOpenState && isEnabledKey) {
-        handleToggle(ev, {isOpen: !isOpenState})
-        setTimeout(() => focusFirstOption(ev))
-      } else if (ev.key === 'Escape') {
-        closeList(ev, {isOutsideEvent: true})
-      } else {
-        isOpenState && setTimeout(() => focusSearchInput(ev))
-        !hasSearch && setTimeout(() => focusFirstOption(ev))
+      switch (ev.key) {
+        case 'Tab':
+          if (isOpenState) {
+            handleToggle(ev, {isOpen: !isOpenState})
+          }
+          break
+        case 'Escape':
+          closeList(ev, {isOutsideEvent: true})
+          triggerRef?.current?.focus()
+          break
+        case 'ArrowDown':
+        case 'ArrowUp':
+          if (!isOpenState) {
+            handleToggle(ev, {isOpen: !isOpenState})
+          }
+          if (isTriggerFocused()) {
+            isOpenState && setTimeout(() => focusSearchInput(ev))
+            !hasSearch && setTimeout(() => focusFirstOption(ev))
+          }
+          if (isSearchFocused() && ev.key === 'ArrowDown') {
+            focusFirstOption(ev)
+          }
+          if (focusedFirstOption && ev.key === 'ArrowUp') {
+            inputSearch?.focus()
+          }
+          break
+        default:
+          // isOpenState && setTimeout(() => focusSearchInput(ev))
+          !hasSearch && setTimeout(() => focusFirstOption(ev))
+          break
       }
     }
 
     const handleFocusOut = event => {
       typeof onBlur === 'function' && onBlur(event)
-      setFocus(false)
     }
 
-    const handleFocusIn = () => !disabled && !hasSearch && setFocus(true)
+    const handleFocusIn = () => !disabled && !hasSearch && onFocus && onFocus()
 
     const handleClick = ev => {
       ev.persist()
-      if (focus) {
-        !hasSearch && setTimeout(() => focusFirstOption(ev))
+      if (isFocused()) {
+        if (hasSearch) {
+          setTimeout(() => focusSearchInput(ev))
+        } else {
+          setTimeout(() => focusFirstOption(ev))
+        }
       }
     }
+
+    const handleChange = (ev, {value}) => {
+      setInnerValue(value)
+      onChange && onChange(ev, {value})
+    }
+
     const Select = multiselection ? MoleculeSelectMultipleSelection : MoleculeSelectSingleSelection
 
     const context = {
@@ -198,14 +267,15 @@ const MoleculeSelect = forwardRef(
       onSearch,
       isFirstOptionFocused,
       searchPlaceholder,
-      searchIcon
+      searchIcon,
+      focusedFirstOption,
+      setFocusedFirstOption
     }
 
     return (
       <DropdownContext.Provider value={context}>
         <div
           ref={ref}
-          tabIndex="0"
           className={className}
           onKeyDown={handleKeyDown}
           onFocus={handleFocusIn}
@@ -214,17 +284,22 @@ const MoleculeSelect = forwardRef(
           aria-label={ariaLabel}
         >
           <Select
+            ref={triggerRef}
             refMoleculeSelect={refMoleculeSelect}
+            refSearch={searchRef}
             optionsData={refOptions.current}
             isOpen={isOpenState}
             {...props}
+            value={innerValue}
             state={state}
             disabled={disabled}
             readOnly={readOnly}
+            onTriggerClick={handleTriggerClick}
             onToggle={handleToggle}
-            onChange={onChange}
-            selectSize={selectSize}
+            onChange={handleChange}
             size={dropdownListSize}
+            selectSize={selectSize}
+            tagSize={tagSize}
             multiselection={multiselection}
             keysSelection={keysSelection}
           >
@@ -251,15 +326,20 @@ MoleculeSelect.propTypes = {
 
   /** value selected */
   value: PropTypes.any,
+  /** value selected */
+  defaultValue: PropTypes.any,
 
   /** list of values to be displayed on the select */
   options: PropTypes.array,
 
-  /** if list of options is displayed or not */
+  /** if the list of options is displayed or not */
   isOpen: PropTypes.bool,
 
   /** callback onBlur to be triggered when focused outside of the input */
   onBlur: PropTypes.func,
+
+  /** callback onFocus to be triggered when focused of the element */
+  onFocus: PropTypes.func,
 
   /** callback when arrow up/down is clicked → to show/hide list of options */
   onToggle: PropTypes.func,
@@ -279,10 +359,16 @@ MoleculeSelect.propTypes = {
   /** size (height) of the list */
   size: PropTypes.oneOf(Object.values(SELECT_DROPDOWN_LIST_SIZES)),
 
+  /** Size of the select(input) */
+  selectSize: PropTypes.oneOf(Object.values(SELECT_INPUT_SIZES)),
+
+  /** Size of the tags when its multiple */
+  tagSize: PropTypes.oneOf(Object.values(SELECT_INPUT_SIZES)),
+
   /** list of key identifiers that will trigger a selection */
   keysSelection: PropTypes.array,
 
-  /* object generated w/ Reacte.createRef method to get a DOM reference of internal input */
+  /* object generated w/ React.createRef method to get a DOM reference of internal input */
   refMoleculeSelect: PropTypes.object,
 
   /** true = error, false = success, null = neutral */
@@ -296,9 +382,6 @@ MoleculeSelect.propTypes = {
 
   /** This Boolean attribute prevents the user from interacting with the input but without disabled styles  */
   readOnly: PropTypes.bool,
-
-  /** Size of the select(input) */
-  selectSize: PropTypes.oneOf(Object.values(SELECT_INPUT_SIZES)),
 
   /* native tabIndex html attribute */
   tabIndex: PropTypes.number,
@@ -319,7 +402,17 @@ MoleculeSelect.propTypes = {
   noResults: PropTypes.node,
 
   /* Optional aria-label */
-  'aria-label': PropTypes.string
+  'aria-label': PropTypes.string,
+
+  /**
+   * Class name to be added
+   */
+  className: PropTypes.string,
+
+  /**
+   * If true, the select will have no border
+   */
+  isBorderless: PropTypes.bool
 }
 
 MoleculeSelect.displayName = 'MoleculeSelect'
@@ -328,4 +421,5 @@ export default MoleculeSelect
 
 export {SELECT_DROPDOWN_LIST_SIZES as moleculeSelectDropdownListSizes}
 export {SELECT_INPUT_SIZES as moleculeSelectSizes}
+export {SELECT_TAG_SIZES as moleculeSelectTagSizes}
 export {SELECT_STATES as moleculeSelectStates}

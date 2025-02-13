@@ -1,9 +1,11 @@
+import {forwardRef} from 'react'
+
 import AtomInput, {inputTypes} from '@s-ui/react-atom-input'
 
 import {useDropdown} from '../config.js'
 import {getClassSearch} from './config.js'
 
-export default function Search(props) {
+const Search = forwardRef((props, forwardedRef) => {
   const {setInputRef, isOpen, onSearch, searchPlaceholder, searchIcon} = useDropdown()
 
   const onChange = (_ev, {value}) => {
@@ -13,6 +15,7 @@ export default function Search(props) {
   return (
     <div className={getClassSearch(isOpen)}>
       <AtomInput
+        ref={forwardedRef}
         type={inputTypes.TEXT}
         value={setInputRef?.current?.value}
         reference={setInputRef}
@@ -23,6 +26,8 @@ export default function Search(props) {
       />
     </div>
   )
-}
+})
 
 Search.displayName = 'Search'
+
+export default Search

@@ -99,9 +99,9 @@ const MoleculeDropdownOption = forwardRef(
       )
     }
     const handleInnerFocus = ev => {
-      ev.preventDefault()
-      innerRef.current.focus()
+      innerRef.current && innerRef.current.focus()
     }
+
     return (
       <li
         ref={ref}

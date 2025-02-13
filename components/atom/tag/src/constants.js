@@ -5,9 +5,11 @@ export const ACTIONABLE_ONLY_PROPS = ['href', 'iconPlacement', 'target', 'action
 export const STANDARD_ONLY_PROPS = ['closeIcon', 'onClose']
 
 export const SIZES = {
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small'
+  XLARGE: 'xl',
+  LARGE: 'l',
+  MEDIUM: 'm',
+  SMALL: 's',
+  XSMALL: 'xs'
 }
 
 export const ICON_PLACEMENTS = {

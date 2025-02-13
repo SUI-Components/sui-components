@@ -1,4 +1,4 @@
-import {forwardRef, useState} from 'react'
+import {forwardRef} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -9,11 +9,12 @@ import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
 import {
+  BASE_CLASS_TAG_CONTAINER,
   CLASS_TAGS,
   CLASS_TAGS_DISABLED,
   CLASS_TAGS_ERROR,
-  CLASS_TAGS_FOCUS,
   CLASS_TAGS_SUCCESS,
+  handleOnFocusBlur,
   isDuplicate,
   isFunction
 } from './config.js'
@@ -27,7 +28,7 @@ const MoleculeInputTags = forwardRef(
       onChangeTags,
       optionsData,
       size = inputSizes.MEDIUM,
-      tagSize = atomTagSizes.SMALL,
+      tagSize = atomTagSizes.MEDIUM,
       defaultTags = [],
       tags: tagsFromProps,
       tagsCloseIcon,
@@ -39,13 +40,14 @@ const MoleculeInputTags = forwardRef(
       allowDuplicates = true,
       readOnly,
       name,
+      isBorderless,
       responsive = true,
+      onFocus,
+      onBlur,
       ...restProps
     },
     forwardedRef
   ) => {
-    const [focus, setFocus] = useState(false)
-
     const ref = useMergeRefs(...[forwardedRef, innerRefInput].filter(Boolean))
 
     const [tags, setTags] = useControlledState(tagsFromProps, defaultTags)
@@ -55,13 +57,17 @@ const MoleculeInputTags = forwardRef(
 
     const isEmpty = tags.length === 0
 
-    const className = cx(CLASS_TAGS, {
-      [CLASS_TAGS_FOCUS]: focus === true,
-      [CLASS_TAGS_ERROR]: errorState === true,
-      [CLASS_TAGS_SUCCESS]: errorState === false,
-      [CLASS_TAGS_DISABLED]: disabled === true || isFull === true,
-      [`${CLASS_TAGS}-${size}`]: size
-    })
+    const className = cx(
+      CLASS_TAGS,
+      {
+        // [CLASS_TAGS_FOCUS]: focus === true,
+        [CLASS_TAGS_ERROR]: errorState === true,
+        [CLASS_TAGS_SUCCESS]: errorState === false,
+        [CLASS_TAGS_DISABLED]: disabled === true || isFull === true,
+        [`${CLASS_TAGS}-${size}`]: size
+      },
+      isBorderless && `${CLASS_TAGS}--isBorderless`
+    )
 
     const removeTag =
       ({id: indexTag, label, value: removedValue}) =>
@@ -82,8 +88,7 @@ const MoleculeInputTags = forwardRef(
           })
       }
 
-    const addTag = ev => {
-      ev.preventDefault()
+    const addTag = (ev, {...args}) => {
       if (value) {
         const nextTags = [...tags]
         let options
@@ -111,10 +116,6 @@ const MoleculeInputTags = forwardRef(
       isFunction(onInputChange) && onInputChange(ev, {...args, value, tags})
     }
 
-    const handleFocusIn = () => setFocus(true)
-
-    const handleFocusOut = () => setFocus(false)
-
     return (
       <div
         className={className}
@@ -125,22 +126,27 @@ const MoleculeInputTags = forwardRef(
           const label = typeof value === 'object' ? value.label : value
           const key = typeof value === 'object' ? value.key : index
           return (
-            <AtomTag
+            <span
               key={key}
-              id={index}
-              closeIcon={tagsCloseIcon}
-              value={value}
-              onClose={removeTag({
-                id: key === undefined ? index : key,
-                value,
-                label
-              })}
-              label={label}
-              size={tagSize}
-              responsive={responsive}
-              readOnly={readOnly}
-              disabled={disabled}
-            />
+              className={cx(`${BASE_CLASS_TAG_CONTAINER}`, `${BASE_CLASS_TAG_CONTAINER}-size-${tagSize}`)}
+            >
+              <AtomTag
+                id={index}
+                closeIcon={tagsCloseIcon}
+                value={value}
+                onClose={removeTag({
+                  id: key === undefined ? index : key,
+                  value,
+                  label
+                })}
+                label={label}
+                size={tagSize}
+                responsive={responsive}
+                readOnly={readOnly}
+                disabled={disabled}
+                isFitted
+              />
+            </span>
           )
         })}
         {!isFull && (
@@ -151,9 +157,11 @@ const MoleculeInputTags = forwardRef(
             value={value}
             onChange={handleInputChange}
             onEnter={addTag}
-            onFocus={handleFocusIn}
-            onBlur={handleFocusOut}
+            onEnterKey={['Enter']}
+            onFocus={handleOnFocusBlur(onFocus, {tags})}
+            onBlur={handleOnFocusBlur(onBlur, {tags})}
             noBorder
+            size={size}
             readOnly={readOnly}
             disabled={disabled}
             placeholder={isEmpty ? placeholder : undefined}
@@ -179,7 +187,7 @@ MoleculeInputTags.propTypes = {
   /* close icon to be displayed on tags */
   tagsCloseIcon: PropTypes.node.isRequired,
 
-  /* list of pairs value/text to be handled */
+  /* list of value/text tuple to be handled */
   optionsData: PropTypes.object,
 
   /* list of values displayed as tags on first render */
@@ -203,26 +211,35 @@ MoleculeInputTags.propTypes = {
   /* object generated w/ React.createRef method to get a DOM reference of internal input */
   innerRefInput: PropTypes.object,
 
-  /* text to be displayed if there is no tags and the input is empty */
+  /* text to be displayed if there are no tags and the input is empty */
   placeholder: PropTypes.string,
 
   /* number of maximum tags that can be added, after reaching this number the component will be disabled */
   maxTags: PropTypes.number,
 
-  /* prop to indicate that the field is disable (will not render the input) */
+  /* prop to indicate that the field is disabled (will not render the input) */
   disabled: PropTypes.bool,
 
   /* This Boolean attribute prevents the user from interacting with the input but without disabled styles */
   readOnly: PropTypes.bool,
 
-  /* prop to determinate if the field allows to introduce duplicate values for the tags (case insensitive) */
+  /* prop to determinate if the field allows introducing duplicate values for the tags (case insensitive) */
   allowDuplicates: PropTypes.bool,
 
   /* input name */
   name: PropTypes.string,
 
   /* true for make responsive layout (default). Keeps large tag size in mobile */
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
+
+  /* prop to determinate if the field is borderless */
+  isBorderless: PropTypes.bool,
+
+  /** callback triggered when the user focuses on the inputTag */
+  onFocus: PropTypes.func,
+
+  /** callback triggered when the user focuses out on the inputTag */
+  onBlur: PropTypes.func
 }
 
 export default MoleculeInputTags

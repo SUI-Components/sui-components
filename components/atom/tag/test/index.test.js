@@ -367,14 +367,16 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
-        LARGE: 'large',
-        MEDIUM: 'medium',
-        SMALL: 'small'
+        XLARGE: 'xl',
+        LARGE: 'l',
+        MEDIUM: 'm',
+        SMALL: 's',
+        XSMALL: 'xs'
       }
 
       // When
       const {atomTagSizes: actual} = library
-      const {LARGE, MEDIUM, SMALL, ...others} = actual
+      const {XLARGE, LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

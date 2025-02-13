@@ -2,6 +2,12 @@ $h-dropdown-list--small: 145px !default;
 $h-dropdown-list--medium: 220px !default;
 $h-dropdown-list--large: 300px !default;
 
+$h-sizes-dropdown-list: (
+  small: $h-dropdown-list--small,
+  medium: $h-dropdown-list--medium,
+  large: $h-dropdown-list--large
+) !default;
+
 $m-dropdown-list--design-flat: 0 !default;
 
 $bc-dropdown-list: $c-white !default;

@@ -44,7 +44,7 @@ const MoleculeDropdownList = forwardRef(
       BASE_CLASS,
       `${BASE_CLASS}--position-${position}`,
       `${BASE_CLASS}--design-${design}`,
-      `${BASE_CLASS}--${size}`,
+      `${BASE_CLASS}--size-${size}`,
       {
         [CLASS_HIDDEN]: !visible
       }
@@ -84,8 +84,6 @@ const MoleculeDropdownList = forwardRef(
         optionToFocusOn && optionToFocusOn.focus()
       }
       typeof onKeyDown === 'function' && onKeyDown(event)
-      event.preventDefault()
-      event.stopPropagation()
     }
 
     // When DEBOUNCE_TIME reset typed word

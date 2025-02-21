@@ -75,6 +75,7 @@ describe(json.name, () => {
       const {container} = setup(props)
       const findClassName = findSentence(props.className)
 
+      console.log(container)
       // Then
       expect(findClassName(container.innerHTML)).to.not.be.null
     })

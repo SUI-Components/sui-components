@@ -13,16 +13,18 @@ const ArticleDarkMode = ({className}) => {
           There is no <Code>negative</Code> Prop for this component.
         </Paragraph>
         <Paragraph>This is how the Badges look like over dark backgrounds.</Paragraph>
-        <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
-        <AtomBadge label="error" type={atomBadgeTypes.ERROR} />
-        <AtomBadge label="info" type={atomBadgeTypes.INFO} />
-        <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
-        <AtomBadge label="new" type={atomBadgeTypes.NEW} />
-        <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
-        <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
+        <div style={{display: 'flex', gap: 8}}>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
+        </div>
       </div>
       <Paragraph>___</Paragraph>
-      <div>
+      <div style={{display: 'flex', gap: 8}}>
         <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} transparent />
         <AtomBadge label="error" type={atomBadgeTypes.ERROR} transparent />
         <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
@@ -32,7 +34,7 @@ const ArticleDarkMode = ({className}) => {
         <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
       </div>
       <Paragraph>___</Paragraph>
-      <div>
+      <div style={{display: 'flex', gap: 8}}>
         <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} design={atomBadgeDesigns.SOFT} />
         <AtomBadge label="error" type={atomBadgeTypes.ERROR} design={atomBadgeDesigns.SOFT} />
         <AtomBadge label="info" type={atomBadgeTypes.INFO} design={atomBadgeDesigns.SOFT} />

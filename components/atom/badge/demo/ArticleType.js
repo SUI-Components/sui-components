@@ -12,26 +12,30 @@ const ArticleType = ({className}) => {
         <Paragraph>
           These are the available <Code>types</Code> of badges, which are solid by default.
         </Paragraph>
-        <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
-        <AtomBadge label="error" type={atomBadgeTypes.ERROR} />
-        <AtomBadge label="info" type={atomBadgeTypes.INFO} />
-        <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
-        <AtomBadge label="new" type={atomBadgeTypes.NEW} />
-        <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
-        <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
+        <div style={{display: 'flex', gap: 8}}>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} />
+        </div>
       </div>
       <Paragraph>___</Paragraph>
       <div>
         <Paragraph>
           Use the Prop <Code>transparent</Code> to remove the background.
         </Paragraph>
-        <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} transparent />
-        <AtomBadge label="error" type={atomBadgeTypes.ERROR} transparent />
-        <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
-        <AtomBadge label="alert" type={atomBadgeTypes.ALERT} transparent />
-        <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
-        <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
-        <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
+        <div style={{display: 'flex', gap: 8}}>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} transparent />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} transparent />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} transparent />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} transparent />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} transparent />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} transparent />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} transparent />
+        </div>
       </div>
     </Article>
   )

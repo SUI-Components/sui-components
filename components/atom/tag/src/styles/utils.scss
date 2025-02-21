@@ -1,0 +1,138 @@
+@mixin atom-tag-variation($base-name, $array) {
+  $self: $base-name;
+  @each $name, $values in $array {
+    $color: map-get($values, color);
+    $onColor: map-get($values, onColor);
+    &-#{$name} {
+      &#{$self}--design {
+        &-solid {
+          background-color: $color;
+          color: $onColor;
+          &#{$self}-actionable:hover:not([data-disabled='true'], :disabled, [data-read-only='true']) {
+            background-color: color-mix(in srgb, $color 90%, $c-black);
+          }
+          &[aria-pressed='true'] {
+            background-color: color-mix(in srgb, $color 80%, $c-black);
+            &:hover:not(:disabled, [data-disabled='true'], [data-read-only='true']) {
+              background-color: color-mix(in srgb, $color 70%, $c-black);
+            }
+            &:disabled,
+            &[data-disabled='true'] {
+              background-color: color-mix(in srgb, color-mix(in srgb, $color 80%, $c-black) 5%, $c-gray);
+            }
+          }
+          &:disabled,
+          &[data-disabled='true'] {
+            background-color: color-mix(in srgb, $color 5%, $c-gray);
+          }
+          #{$self}-closeable {
+            color: $onColor;
+            &:hover {
+              color: color-mix(in srgb, $onColor 60%, transparent);
+            }
+            &:focus-visible {
+              #{$self}-closeableIcon {
+                outline: 2px solid transparentize($onColor, 0.2);
+              }
+            }
+          }
+          @if $name == 'surface' {
+            &:focus-visible {
+              outline: 2px solid transparentize($color, 0.2);
+            }
+          }
+        }
+        &-tinted {
+          background-color: color-mix(in srgb, $color 10%, transparent);
+          color: $color;
+          &#{$self}-actionable:hover:not([data-disabled='true'], :disabled, [data-read-only='true']) {
+            color: $color;
+            background-color: color-mix(in srgb, $color 15%, transparent);
+          }
+          &[aria-pressed='true'] {
+            background-color: color-mix(in srgb, $color 20%, transparent);
+            &:hover:not(:disabled, [data-disabled='true'], [data-read-only='true']) {
+              background-color: color-mix(in srgb, $color 25%, transparent);
+            }
+            &:disabled,
+            &[data-disabled='true'] {
+              background-color: color-mix(in srgb, color-mix(in srgb, $color 20%, $c-gray) 20%, transparent);
+            }
+          }
+          &:disabled,
+          &[data-disabled='true'] {
+            background-color: color-mix(in srgb, color-mix(in srgb, $color 20%, $c-gray) 10%, transparent);
+            color: color-mix(in srgb, $color 20%, $c-gray);
+          }
+          #{$self}-closeable {
+            color: $color;
+            &:hover {
+              color: color-mix(in srgb, $color 60%, transparent);
+            }
+          }
+          @if $name == 'surface' {
+            &:focus-visible {
+              outline: 2px solid transparentize($color, 0.2);
+            }
+          }
+        }
+        &-outline,
+        &-dashed {
+          background-color: transparent;
+          border-color: $color;
+          border-width: 1px;
+          color: $color;
+          &#{$self}-actionable:hover:not(:disabled, [data-disabled='true'], [data-read-only='true']) {
+            background-color: color-mix(in srgb, $color 10%, transparent);
+          }
+          &[aria-pressed='true'] {
+            background-color: color-mix(in srgb, $color 15%, transparent);
+            &:hover:not(:disabled, [data-disabled='true'], [data-read-only='true']) {
+              background-color: color-mix(in srgb, $color 20%, transparent);
+            }
+            &:disabled,
+            &[data-disabled='true'] {
+              background-color: color-mix(in srgb, color-mix(in srgb, $color 15%, $c-gray) 15%, transparent);
+              border-color: color-mix(in srgb, $color 15%, $c-gray);
+              color: color-mix(in srgb, $color 15%, $c-gray);
+            }
+          }
+          &:disabled,
+          &[data-disabled='true'] {
+            border-color: color-mix(in srgb, $color 20%, $c-gray);
+            color: color-mix(in srgb, $color 20%, $c-gray);
+          }
+          #{$self}-closeable {
+            color: $color;
+            &:hover {
+              color: color-mix(in srgb, $color 60%, transparent);
+            }
+          }
+          @if $name == 'surface' {
+            &:focus-visible {
+              outline: 2px solid transparentize($color, 0.2);
+            }
+          }
+        }
+        &-outline {
+          border-style: solid;
+        }
+        &-dashed {
+          border-style: dashed;
+        }
+      }
+      #{$self}-closeable {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@mixin icon-atom-tag($type) {
+  align-items: center;
+  @include sui-icon--small;
+  display: flex;
+  justify-content: center;
+  line-height: initial;
+  vertical-align: middle;
+}

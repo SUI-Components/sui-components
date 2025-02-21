@@ -7,9 +7,27 @@ export const icon = (
   </AtomIcon>
 )
 
+export const checkIcon = (
+  <AtomIcon size={ATOM_ICON_SIZES.small}>
+    <AntDesignIcon icon="AiOutlineCheck" style={{color: 'currentColor'}} />
+  </AtomIcon>
+)
+
+export const calendarIcon = (
+  <AtomIcon size={ATOM_ICON_SIZES.small}>
+    <AntDesignIcon icon="AiOutlineCalendar" style={{color: 'currentColor'}} />
+  </AtomIcon>
+)
+
+export const eyeIcon = (
+  <AtomIcon size={ATOM_ICON_SIZES.small}>
+    <AntDesignIcon icon="AiOutlineEye" style={{color: 'currentColor'}} />
+  </AtomIcon>
+)
+
 export const closeIcon = (
   <AtomIcon size={ATOM_ICON_SIZES.small}>
-    <AntDesignIcon icon="AiOutlineClose" style={{color: 'currentColor'}} />
+    <AntDesignIcon icon="AiOutlineCloseCircle" style={{color: 'currentColor'}} />
   </AtomIcon>
 )
 

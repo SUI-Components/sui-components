@@ -30,6 +30,7 @@ describe(json.name, () => {
       'atomTagLinkTypes',
       'atomTagIconPlacements',
       'atomTagSizes',
+      'atomTagColors',
       'linkTypes',
       'default'
     ]
@@ -41,6 +42,7 @@ describe(json.name, () => {
       atomTagIconPlacements,
       atomTagSizes,
       linkTypes,
+      atomTagColors,
       default: AtomTag,
       ...others
     } = library
@@ -81,9 +83,9 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
-      const props = {className: 'extended-classNames', label: 'label'}
+      const props = {className: 'extended-classNames'}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When
@@ -91,7 +93,31 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
     })
 
     describe('Element', () => {
@@ -132,7 +158,7 @@ describe(json.name, () => {
         })
       })
       describe('Button', () => {
-        it('given an href should render a link', () => {
+        it('given an handler should render a button', () => {
           // Given
           const props = {
             label: 'label',
@@ -146,7 +172,7 @@ describe(json.name, () => {
 
           // Then
           expect(tagElement.innerHTML).to.be.a('string')
-          expect(tagElement.nodeName).to.equal('SPAN')
+          expect(tagElement.nodeName).to.equal('BUTTON')
         })
       })
     })
@@ -183,7 +209,9 @@ describe(json.name, () => {
 
       // Then
       const tag = getByRole('button', {name: /actionable/i})
+
       userEvents.click(tag)
+
       sinon.assert.notCalled(spy)
     })
 
@@ -262,12 +290,14 @@ describe(json.name, () => {
       const library = pkg
       const expected = {
         SOLID: 'solid',
-        OUTLINE: 'outline'
+        TINTED: 'tinted',
+        OUTLINE: 'outline',
+        DASHED: 'dashed'
       }
 
       // When
       const {atomTagDesigns: actual} = library
-      const {SOLID, OUTLINE, ...others} = actual
+      const {SOLID, TINTED, OUTLINE, DASHED, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)
@@ -377,6 +407,45 @@ describe(json.name, () => {
       // When
       const {atomTagSizes: actual} = library
       const {XLARGE, LARGE, MEDIUM, SMALL, XSMALL, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomTagColors', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomTagColors: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        PRIMARY: 'primary',
+        ACCENT: 'accent',
+        SUCCESS: 'success',
+        ALERT: 'alert',
+        ERROR: 'error',
+        NEUTRAL: 'neutral',
+        SURFACE: 'surface'
+      }
+
+      // When
+      const {atomTagColors: actual} = library
+      const {PRIMARY, ACCENT, SUCCESS, ALERT, ERROR, NEUTRAL, SURFACE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

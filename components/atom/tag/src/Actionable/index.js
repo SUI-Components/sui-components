@@ -2,10 +2,12 @@ import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
+import PrimitiveInjector from '@s-ui/react-primitive-injector'
+
 import {LINK_TYPES} from '../constants.js'
 import AtomTagActionableIcon from './AtomTagActionableIcon.js'
 import ActionableTagContainer from './Container.js'
-import {getClassNames, ICON_PLACEMENTS, onHandler} from './settings.js'
+import {getClassNames, ICON_PLACEMENTS} from './settings.js'
 import TagLink from './TagLink.js'
 
 const ActionableTag = forwardRef(
@@ -23,39 +25,50 @@ const ActionableTag = forwardRef(
       readOnly,
       disabled,
       title,
-      value = null
+      as: As,
+      value = null,
+      pressed,
+      defaultPressed,
+      ...props
     },
     forwardedRef
   ) => {
+    const isActionableTagContainer = As === undefined
+    const Component = isActionableTagContainer ? ActionableTagContainer : As
     return (
-      <ActionableTagContainer
-        ref={forwardedRef}
+      <PrimitiveInjector
         className={getClassNames({className})}
-        Link={linkFactory}
-        onClick={onHandler({disabled, readOnly}, onClick, {
-          value,
-          label
-        })}
         href={href}
         target={target}
         rel={rel}
-        readOnly={readOnly}
-        disabled={disabled}
+        pressed={pressed}
+        defaultPressed={defaultPressed}
       >
-        <AtomTagActionableIcon
-          {...(iconPlacement === ICON_PLACEMENTS.LEFT && {icon})}
-          iconPlacement={ICON_PLACEMENTS.LEFT}
-        />
-        {label ? (
-          <span className="sui-AtomTag-label" title={title || label}>
-            {label}
-          </span>
-        ) : null}
-        <AtomTagActionableIcon
-          {...(iconPlacement === ICON_PLACEMENTS.RIGHT && {icon})}
-          iconPlacement={ICON_PLACEMENTS.RIGHT}
-        />
-      </ActionableTagContainer>
+        <Component
+          link={linkFactory}
+          ref={forwardedRef}
+          onClick={onClick}
+          readOnly={readOnly}
+          disabled={disabled}
+          value={value}
+          label={label}
+          {...props}
+        >
+          <AtomTagActionableIcon
+            {...(iconPlacement === ICON_PLACEMENTS.LEFT && {icon})}
+            iconPlacement={ICON_PLACEMENTS.LEFT}
+          />
+          {label ? (
+            <span className="sui-AtomTag-label" title={title || label}>
+              {label}
+            </span>
+          ) : null}
+          <AtomTagActionableIcon
+            {...(iconPlacement === ICON_PLACEMENTS.RIGHT && {icon})}
+            iconPlacement={ICON_PLACEMENTS.RIGHT}
+          />
+        </Component>
+      </PrimitiveInjector>
     )
   }
 )
@@ -73,9 +86,12 @@ ActionableTag.propTypes = {
   onClick: PropTypes.func,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   rel: PropTypes.arrayOf(PropTypes.oneOf(Object.values(LINK_TYPES))),
-  linkFactory: PropTypes.func,
+  linkFactory: PropTypes.elementType,
   title: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  as: PropTypes.elementType,
+  pressed: PropTypes.bool,
+  defaultPressed: PropTypes.bool
 }
 
 export default ActionableTag

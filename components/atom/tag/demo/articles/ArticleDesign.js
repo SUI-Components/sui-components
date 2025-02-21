@@ -32,13 +32,19 @@ const ArticleDesign = ({className}) => {
                 <AtomTag label="Tag Structure" design={design} />
               </Cell>
               <Cell style={flexCenteredStyle}>
-                <AtomTag closeIcon={closeIcon} label="Close Tag" design={design} />
+                <AtomTag closeIcon={closeIcon} label="Close Tag" design={design} closeLabel="clear" />
               </Cell>
               <Cell style={flexCenteredStyle}>
                 <AtomTag icon={icon} label="Icon Tag" design={design} />
               </Cell>
               <Cell style={flexCenteredStyle}>
-                <AtomTag closeIcon={closeIcon} icon={icon} label="Icon & Close Tag" design={design} />
+                <AtomTag
+                  closeIcon={closeIcon}
+                  icon={icon}
+                  label="Icon & Close Tag"
+                  design={design}
+                  closeLabel="clear"
+                />
               </Cell>
             </Fragment>
           ))}

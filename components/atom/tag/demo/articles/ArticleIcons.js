@@ -13,9 +13,9 @@ const ArticleIcons = ({className}) => {
         Tags can include an action icon (generally a close icon). This icon will always be located to the right of
         content. You can add use the <Code>icon</Code> and <Code>closeIcon</Code> to added a icon.
       </Paragraph>
-      <div>
+      <div style={{display: 'flex', gap: 16}}>
         <AtomTag icon={icon} iconPlacement="left" label="Icon placement left" />
-        <AtomTag closeIcon={closeIcon} icon={icon} label="Icon & Close Tag" />
+        <AtomTag closeIcon={closeIcon} icon={icon} label="Icon & Close Tag" closeLabel="clear" />
         <AtomTag
           href="https://sui-components.now.sh/"
           icon={icon}
@@ -37,7 +37,14 @@ const ArticleIcons = ({className}) => {
       <Paragraph>
         You can use a handler through the property with prop <Code>onClose</Code> to add event handler.
       </Paragraph>
-      <AtomTag closeIcon={closeIcon} label="Close Tag" value="Close Tag" onClose={handleClose} responsive />
+      <AtomTag
+        closeIcon={closeIcon}
+        label="Close Tag"
+        value="Close Tag"
+        onClose={handleClose}
+        responsive
+        closeLabel="clear"
+      />
     </Article>
   )
 }

@@ -5,7 +5,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "tag"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "tag"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
@@ -13,7 +19,9 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/react-primitive-injector": "1",
+    "@s-ui/react-hooks": "1"
   },
   "repository": {
     "type": "git",

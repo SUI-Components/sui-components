@@ -35,13 +35,13 @@ const ArticleSize = ({className}) => {
                 <AtomTag design={atomTagDesigns.OUTLINE} label="Tag Outline" size={size} />
               </Cell>
               <Cell style={flexCenteredStyle}>
-                <AtomTag closeIcon={closeIcon} label="Close Tag" size={size} />
+                <AtomTag closeIcon={closeIcon} label="Close Tag" size={size} closeLabel="clear" />
               </Cell>
               <Cell style={flexCenteredStyle}>
                 <AtomTag icon={icon} label="Icon Tag" size={size} />
               </Cell>
               <Cell style={flexCenteredStyle}>
-                <AtomTag closeIcon={closeIcon} icon={icon} label="Icon & Close Tag" size={size} disabled />
+                <AtomTag closeIcon={closeIcon} icon={icon} label="Icon & Close Tag" size={size} closeLabel="clear" />
               </Cell>
             </Fragment>
           ))}

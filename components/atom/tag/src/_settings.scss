@@ -18,9 +18,11 @@ $p-atom-tag-s: 0 $p-m !default;
 $p-atom-tag-xs: 0 $p-s !default;
 
 $p-atom-tag-hasIcon-hasClose: (
-  s: $p-atom-tag-s,
-  m: $p-atom-tag-m,
-  l: $p-atom-tag-l
+  xs: 0 $p-s 0 0,
+  s: 0 $p-m 0 0,
+  m: 0 $p-l 0 0,
+  l: 0 $p-xl 0 0,
+  xl: 0 $p-xxl 0 0
 ) !default;
 
 $sz-atom-tag: (
@@ -31,50 +33,42 @@ $sz-atom-tag: (
   'xl' $h-atom-tag-xl $p-atom-tag-xl
 ) !default;
 
-// outline
-$bc-atom-tag-outline: color-variation($c-gray, 3) !default;
-$bdw-atom-tag-outline: $bdw-s !default;
-$bgc-atom-tag-outline: $c-white !default;
-
-// actionable
-$bgc-atom-tag-actionable: $c-primary !default;
-$bgc-atom-tag-actionable--hover: $c-primary-dark !default;
-$c-atom-tag-actionable: $c-white !default;
-$bd-atom-tag-actionable: none !default;
-$thc-atom-tag-actionable: inherit !default;
-$bgc-atom-tag-actionable-invert: $c-white !default;
-$bgc-atom-tag-actionable-invert--hover: $c-primary !default;
-$c-atom-tag-actionable-invert: $c-primary !default;
-$c-atom-tag-actionable-invert--hover: $c-white !default;
-
-// clickable
-$w-atom-tag-clickable: 32px !default;
-
-// closable
-$bgc-atom-tag-closable-icon: transparent !default;
-$c-atom-tag-closable-icon: $c-black !default;
-$bgc-atom-tag-closable-icon--hover: $c-gray !default;
-$c-atom-tag-closable-icon--hover: $c-gray-light-3 !default;
+$c-atom-tag: (
+  primary: (
+    color: $c-primary,
+    onColor: $c-white
+  ),
+  accent: (
+    color: $c-accent,
+    onColor: $c-white
+  ),
+  success: (
+    color: $c-success,
+    onColor: $c-white
+  ),
+  alert: (
+    color: $c-alert,
+    onColor: $c-white
+  ),
+  error: (
+    color: $c-error,
+    onColor: $c-white
+  ),
+  neutral: (
+    color: $c-gray,
+    onColor: $c-white
+  ),
+  surface: (
+    color: $c-white,
+    onColor: $c-black
+  )
+) !default;
 
 // types
 $atom-tag-types: () !default;
 
-@mixin icon-atom-tag($type) {
-  align-items: center;
-  @include sui-icon--small;
-  display: flex;
-  justify-content: center;
-  line-height: initial;
-  vertical-align: middle;
-}
-
-@mixin icon-secondary-clickable-area($size) {
-  &::before {
-    content: '';
-    height: $size;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: $w-atom-tag-clickable;
-  }
-}
+// closable
+$bgc-atom-tag-closable-icon: transparent !default;
+$c-atom-tag-closable-icon: inherit !default;
+$bgc-atom-tag-closable-icon--hover: color-variation($c-atom-tag-closable-icon, 2) !default;
+$c-atom-tag-closable-icon--hover: $c-gray-light-3 !default;

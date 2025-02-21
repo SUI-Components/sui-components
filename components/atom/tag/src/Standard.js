@@ -1,5 +1,7 @@
 import {forwardRef} from 'react'
 
+import {emulateTab} from 'emulate-tab'
+
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
@@ -26,9 +28,25 @@ const StandardTag = forwardRef(
     forwardedRef
   ) => {
     const Component = As === undefined ? 'span' : As
+    const handleKeyDown = event => {
+      if (disabled || readOnly) return
+      switch (event.key) {
+        case 'Delete':
+          onClose()
+          emulateTab()
+          emulateTab.backwards()
+          break
+        case 'Backspace':
+          emulateTab.backwards()
+          setTimeout(onClose(), 0)
+          break
+        default:
+          break
+      }
+    }
     return (
       <PrimitiveInjector
-        className={cx(className, closeIcon !== undefined && !disabled && 'sui-AtomTag-hasClose')}
+        className={cx(className, closeIcon !== undefined && !(disabled || readOnly) && 'sui-AtomTag-hasClose')}
         {...(disabled && {'data-disabled': disabled})}
         {...(readOnly && !disabled && {'data-read-only': readOnly})}
       >
@@ -46,7 +64,9 @@ const StandardTag = forwardRef(
                 value,
                 label
               })}
+              onKeyDown={handleKeyDown}
               title={closeLabel}
+              tabIndex={0}
             >
               <span className="sui-AtomTag-closeableIcon sui-AtomTag-secondary-icon">{closeIcon}</span>
             </button>

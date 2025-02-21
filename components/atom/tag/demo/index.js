@@ -11,6 +11,8 @@ import ArticleReadOnly from './articles/ArticleReadOnly.js'
 import ArticleResponsive from './articles/ArticleResponsive.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleTypes from './articles/ArticleTypes.js'
+import ArticleA11y from './articles/ArticleA11y.js'
+import ArticleKeyboardNavigation from './articles/ArticleKeyboardNavigation.js'
 import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'
@@ -115,5 +117,9 @@ export default () => (
     <ArticleTypes className={CLASS_SECTION} />
     <br />
     <ArticleResponsive className={CLASS_SECTION} />
+    <br />
+    <ArticleA11y className={CLASS_SECTION} />
+    <br />
+    <ArticleKeyboardNavigation className={CLASS_SECTION} />
   </div>
 )

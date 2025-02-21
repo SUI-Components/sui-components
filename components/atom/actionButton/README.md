@@ -58,5 +58,4 @@ return (<AtomActionButton icon={Icon} />)
 @import '~@s-ui/react-atom-action-button/lib/index';
 ```
 
-
 > **Find full description and more examples in the [demo page](#).**

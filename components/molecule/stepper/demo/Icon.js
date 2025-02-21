@@ -10,7 +10,7 @@ const Icon = ({as, icon}) => (
 )
 
 Icon.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   icon: PropTypes.string
 }
 

@@ -4,7 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomInput, {inputSizes} from '@s-ui/react-atom-input'
-import AtomTag, {atomTagSizes} from '@s-ui/react-atom-tag'
+import AtomTag, {atomTagDesigns, atomTagSizes} from '@s-ui/react-atom-tag'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
@@ -31,7 +31,9 @@ const MoleculeInputTags = forwardRef(
       tagSize = atomTagSizes.MEDIUM,
       defaultTags = [],
       tags: tagsFromProps,
+      tagDesign,
       tagsCloseIcon,
+      tagCloseLabel,
       defaultValue = '',
       value: valueFromProps,
       maxTags,
@@ -88,7 +90,7 @@ const MoleculeInputTags = forwardRef(
           })
       }
 
-    const addTag = (ev, {...args}) => {
+    const addTag = (ev, {value, ...args}) => {
       if (value) {
         const nextTags = [...tags]
         let options
@@ -134,6 +136,7 @@ const MoleculeInputTags = forwardRef(
                 id={index}
                 closeIcon={tagsCloseIcon}
                 value={value}
+                design={tagDesign}
                 onClose={removeTag({
                   id: key === undefined ? index : key,
                   value,
@@ -144,7 +147,7 @@ const MoleculeInputTags = forwardRef(
                 responsive={responsive}
                 readOnly={readOnly}
                 disabled={disabled}
-                isFitted
+                closeLabel={tagCloseLabel}
               />
             </span>
           )
@@ -239,7 +242,13 @@ MoleculeInputTags.propTypes = {
   onFocus: PropTypes.func,
 
   /** callback triggered when the user focuses out on the inputTag */
-  onBlur: PropTypes.func
+  onBlur: PropTypes.func,
+
+  /** the design to apply to the tags */
+  tagDesign: PropTypes.oneOf(Object.values(atomTagDesigns)),
+
+  /** label for the clear icons of the tags */
+  tagCloseLabel: PropTypes.string
 }
 
 export default MoleculeInputTags

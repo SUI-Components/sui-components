@@ -6,6 +6,6 @@ export const CLASS_DEMO_SECTION = `${BASE_CLASS_DEMO}-section`
 
 export const closeIcon = (
   <AtomIcon>
-    <AntDesignIcon icon="AiOutlineClose" style={{color: 'currentColor'}} />
+    <AntDesignIcon icon="AiOutlineCloseCircle" style={{color: 'currentColor'}} />
   </AtomIcon>
 )

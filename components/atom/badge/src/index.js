@@ -20,23 +20,22 @@ const AtomBadge = ({
   size = SIZES.SMALL,
   type = TYPES.SUCCESS,
   design = DESIGNS.SOLID,
-  isFitted = false,
+  className,
   ...props
 }) => {
   const truncatedLabel = truncateText(label)
   const classNames = getClassNames({
     icon,
-    iconRight,
     label,
     size,
     type,
     design,
-    isFitted,
+    className,
     ...props
   })
 
   return (
-    <div className={classNames}>
+    <div className={classNames} {...props}>
       {shouldRenderIcon({icon, ...props}) && !iconRight && <span className={CLASS_ICON}>{icon}</span>}
       <span className={CLASS_TEXT} title={truncatedLabel}>
         {label}
@@ -65,9 +64,6 @@ AtomBadge.propTypes = {
   /** Icon to the right (left by default) */
   iconRight: PropTypes.bool,
 
-  /** element becomes border-margin-padding-less */
-  isFitted: PropTypes.bool,
-
   /** Whether show a background color */
   transparent: PropTypes.bool,
 
@@ -78,7 +74,10 @@ AtomBadge.propTypes = {
   type: PropTypes.oneOfType([
     PropTypes.oneOf(Object.values(TYPES)), // Better use one of defined types
     PropTypes.string // Can even custom your own type
-  ])
+  ]),
+
+  /* Custom class name */
+  className: PropTypes.string
 }
 
 export default AtomBadge

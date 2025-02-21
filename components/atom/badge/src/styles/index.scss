@@ -10,13 +10,8 @@ $base-class: '.sui-AtomBadge';
   fill: currentColor;
   display: inline-flex;
   justify-content: center;
-  margin-right: $m-atom-badge-l;
   white-space: $ws-atom-badge;
   cursor: default;
-
-  &:last-child {
-    margin-right: 0;
-  }
 
   &#{$this}-size-small {
     font-size: $fz-atom-badge-s;
@@ -49,10 +44,6 @@ $base-class: '.sui-AtomBadge';
       margin-left: $m-atom-badge-s;
       margin-right: 0;
     }
-  }
-
-  &#{$this}--isFitted {
-    margin: 0;
   }
 
   @each $design-key, $design-value in (solid: $badges, soft: $badge-soft) {

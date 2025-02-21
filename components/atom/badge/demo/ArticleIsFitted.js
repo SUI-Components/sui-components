@@ -14,13 +14,15 @@ const ArticleIsFitted = ({className}) => {
           major version. When it is true, the element is margin-border and also padding-less it order to provide te
           element boundings as is.
         </Paragraph>
-        <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} isFitted />
-        <AtomBadge label="error" type={atomBadgeTypes.ERROR} isFitted />
-        <AtomBadge label="info" type={atomBadgeTypes.INFO} isFitted />
-        <AtomBadge label="alert" type={atomBadgeTypes.ALERT} isFitted />
-        <AtomBadge label="new" type={atomBadgeTypes.NEW} isFitted />
-        <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} isFitted />
-        <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} isFitted />
+        <div style={{display: 'flex', gap: 8}}>
+          <AtomBadge label="success" type={atomBadgeTypes.SUCCESS} isFitted />
+          <AtomBadge label="error" type={atomBadgeTypes.ERROR} isFitted />
+          <AtomBadge label="info" type={atomBadgeTypes.INFO} isFitted />
+          <AtomBadge label="alert" type={atomBadgeTypes.ALERT} isFitted />
+          <AtomBadge label="new" type={atomBadgeTypes.NEW} isFitted />
+          <AtomBadge label="neutral" type={atomBadgeTypes.NEUTRAL} isFitted />
+          <AtomBadge label="primary" type={atomBadgeTypes.PRIMARY} isFitted />
+        </div>
       </div>
     </Article>
   )

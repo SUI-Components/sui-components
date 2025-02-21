@@ -46,16 +46,21 @@ export const truncateText = function (label) {
  * @param  {string} options.type
  * @return {string}
  */
-export const getClassNames = function ({design, iconRight, size, transparent: isTransparent, type, isFitted}) {
-  return cx(BASE_CLASS, `${BASE_CLASS}-size-${size}`, `${BASE_CLASS}-type-${type}`, `${BASE_CLASS}-design-${design}`, {
-    [`${BASE_CLASS}--isTransparent`]: isTransparent,
-    [`${BASE_CLASS}--isFitted`]: isFitted,
-    [CLASS_ICON_RIGHT]: iconRight
-  })
+export const getClassNames = function ({design, iconRight, size, transparent: isTransparent, type, className}) {
+  return cx(
+    BASE_CLASS,
+    `${BASE_CLASS}-size-${size}`,
+    `${BASE_CLASS}-type-${type}`,
+    `${BASE_CLASS}-design-${design}`,
+    {
+      [`${BASE_CLASS}--isTransparent`]: isTransparent
+    },
+    className
+  )
 }
 
 /**
- * Small badges with background can't have icon
+ * Small badges with a background can't have an icon
  * @param  {Object} options
  * @param  {Object} options.icon
  * @param  {string} options.size

@@ -4,13 +4,24 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import ActionableTag from './Actionable/index.js'
-import {DESIGNS, getActionableProps, getStandardProps, ICON_PLACEMENTS, LINK_TYPES, SIZES} from './constants.js'
+import {
+  COLORS,
+  DESIGNS,
+  getActionableProps,
+  getColor,
+  getDesign,
+  getStandardProps,
+  ICON_PLACEMENTS,
+  LINK_TYPES,
+  SIZES
+} from './constants.js'
 import StandardTag from './Standard.js'
 
 const AtomTag = forwardRef(
   (
     {
-      design,
+      design: designProp,
+      color: colorProp,
       href,
       icon,
       iconPlacement = ICON_PLACEMENTS.LEFT,
@@ -20,21 +31,29 @@ const AtomTag = forwardRef(
       type,
       readOnly,
       disabled,
-      isFitted = false,
+      as,
+      pressed,
+      defaultPressed,
+      className,
+      closeLabel,
       ...props
     },
     forwardedRef
   ) => {
-    const isActionable = onClick || href
+    const isActionable = onClick || href || [true, false].includes(pressed) || [true, false].includes(defaultPressed)
+
+    const color = getColor({isActionable, color: colorProp})
+    const design = getDesign({isActionable, design: designProp})
 
     const classNames = cx(
       'sui-AtomTag',
       `sui-AtomTag--size-${size}`,
       design && `sui-AtomTag--design-${design}`,
+      type === undefined && color && `sui-AtomTag--color-${color}`,
       icon && 'sui-AtomTag-hasIcon',
       responsive && 'sui-AtomTag--responsive',
-      type && `sui-AtomTag--${type}`,
-      isFitted && 'sui-AtomTag--isFitted'
+      type && `sui-AtomTag--type-${type}`,
+      className
     )
 
     const [Component, getComponentProps] = isActionable
@@ -54,13 +73,16 @@ const AtomTag = forwardRef(
           type,
           readOnly,
           disabled,
-          isFitted,
+          pressed,
+          defaultPressed,
+          closeLabel,
           ...props
         })}
         ref={forwardedRef}
         disabled={disabled}
         readOnly={readOnly}
         className={classNames}
+        as={as}
       />
     )
   }
@@ -80,6 +102,9 @@ AtomTag.propTypes = {
    * Will only be shown if the onClose fn is defined
    */
   closeIcon: PropTypes.node,
+
+  /** label for clear/close icon **/
+  closeLabel: PropTypes.string,
   /**
    * If defined, onClose will be ignored
    */
@@ -129,8 +154,17 @@ AtomTag.propTypes = {
    * Value of the tag to be returned on actionable tags
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** element becomes border-margin-padding-less */
-  isFitted: PropTypes.bool
+  /**
+   * The elementType of the Tag
+   * **/
+  as: PropTypes.elementType,
+  /**
+   * Color intent of the tag
+   * **/
+  color: PropTypes.oneOf(Object.values(COLORS)),
+  pressed: PropTypes.bool,
+  defaultPressed: PropTypes.bool,
+  className: PropTypes.string
 }
 
 export default AtomTag
@@ -140,3 +174,4 @@ export {DESIGNS as atomTagDesigns}
 export {LINK_TYPES as linkTypes}
 export {LINK_TYPES as atomTagLinkTypes}
 export {SIZES as atomTagSizes}
+export {COLORS as atomTagColors}

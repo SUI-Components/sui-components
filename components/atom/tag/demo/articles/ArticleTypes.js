@@ -1,77 +1,67 @@
-import {useState} from 'react'
-
-import AtomTag, {atomTagDesigns} from 'components/atom/tag/src/index.js'
 import PropTypes from 'prop-types'
 
-import {Article, Cell, Code, Grid, H2, Label, Paragraph, RadioButton} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 
-const noop = () => null
+import AtomTag, {atomTagDesigns} from '../../src/index.js'
+import {closeIcon, icon} from '../settings.js'
 
-const ArticleTypes = ({className, icon, closeIcon}) => {
-  const [disabled, setDisabled] = useState(false)
-  const [outlined, setOutlined] = useState(false)
-  const [actionable, setActionable] = useState(false)
-  const [showIcon, setShowIcon] = useState(false)
-  const [closeable, setCloseable] = useState(false)
-
-  const props = {
-    actionable,
-    disabled,
-    design: outlined ? atomTagDesigns.OUTLINE : atomTagDesigns.SOLID,
-    icon: showIcon ? icon : null,
-    closeIcon: closeable ? closeIcon : null,
-    onClick: actionable ? noop : null
-  }
-
-  const availableFeatures = [
-    {label: 'Actionable', value: actionable, action: setActionable},
-    {label: 'Disabled', value: disabled, action: setDisabled},
-    {label: 'Outline', value: outlined, action: setOutlined},
-    {label: 'Icon', value: showIcon, action: setShowIcon},
-    {label: 'Closeicon', value: closeable, action: setCloseable}
-  ]
-
+const ArticleTypes = ({className}) => {
   return (
     <Article className={className}>
       <H2>Types</H2>
       <Paragraph>
-        Use the <Code>type</Code> in order to color it as desired from a high order component.
+        All color variation can be extended by using the <Code>type</Code> prop
       </Paragraph>
-
-      <Grid cols={5} gutter={[8, 8]} style={{maxWidth: 500}}>
-        {availableFeatures.map(({label, value, action}) => (
-          <Cell>
-            <Grid cols={2} gutter={[8, 8]}>
-              <Cell
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'flex-end'
-                }}
-              >
-                <Label>{label}</Label>
+      <Grid gutter={[8, 0]} rows={3}>
+        <Cell>
+          <Grid cols={5} gutter={[0, 8]}>
+            <Cell />
+            {['alert', 'warning', 'special', 'date'].map(kind => (
+              <Cell key={kind}>
+                <Label>{kind}</Label>
               </Cell>
+            ))}
+          </Grid>
+        </Cell>
+        {Object.entries(atomTagDesigns).map(([designKey, designValue]) => (
+          <Cell key={designKey}>
+            <Grid cols={5} gutter={[0, 8]}>
               <Cell>
-                <RadioButton value={value} label={String(value)} onClick={() => action(val => !val)} fullWidth />
+                <Label>{designKey}</Label>
               </Cell>
+              {['alert', 'warning', 'special', 'date'].map(kind => (
+                <Cell
+                  key={kind}
+                  style={{
+                    padding: 8
+                  }}
+                >
+                  <AtomTag
+                    icon={icon}
+                    label="label"
+                    type={kind}
+                    design={designValue}
+                    closeIcon={closeIcon}
+                    onClick={() => alert('clicked')}
+                  />
+                </Cell>
+              ))}
             </Grid>
           </Cell>
         ))}
       </Grid>
-      <br />
-      <br />
-
-      {['Alert', 'Warning', 'Special', 'Date'].map(type => (
-        <AtomTag label={type} type={type.toLocaleLowerCase()} {...props} />
-      ))}
+      <Paragraph>
+        To customize the extra kinds of types extend the <Code>$atom-tag-types</Code> SCSS variables giving and array of{' '}
+        <Code>'name: (color: $valueA, onColor: $valueB)'</Code>
+      </Paragraph>
     </Article>
   )
 }
 
+ArticleTypes.displayName = 'ArticleTypes'
+
 ArticleTypes.propTypes = {
-  className: PropTypes.string,
-  icon: PropTypes.node,
-  closeIcon: PropTypes.node
+  className: PropTypes.string
 }
 
 export default ArticleTypes

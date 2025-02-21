@@ -1,34 +1,25 @@
+@import '~@s-ui/react-primitive-visually-hidden/lib/index';
 @import '~@s-ui/react-atom-icon/lib/index';
+@import '~@s-ui/react-molecule-input-tags/lib/index';
+@import '~@s-ui/react-atom-kbd/lib/index';
 
 $atom-tag-types: (
-  'alert': (
-    bds: double,
-    bdw: 4px,
-    bgc: red,
-    c: white,
-    bgc-hover: color-variation(red, 2),
-    c-hover: white
+  alert: (
+    color: #830000,
+    onColor: $c-white
   ),
-  'warning': (
-    bgc: orange,
-    c: white,
-    c-hover: white,
-    c-icon-close: blue,
-    c-icon-close-hover: blue,
-    bgc-icon-close-hover: color-variation(blue, 2)
+  warning: (
+    color: #62621b,
+    onColor: $c-white
   ),
-  'special': (
-    bgc: blue,
-    c: white,
-    bgc-hover: color-variation(blue, 2),
-    c-hover: white
+  special: (
+    color: #330066,
+    onColor: $c-white
   ),
-  'date': (
-    bgc: gray,
-    c: white,
-    bgc-hover: color-variation(gray, 2),
-    c-hover: white
+  date: (
+    color: #033b00,
+    onColor: $c-white
   )
 );
 
-@import '../src/index';
+@import '../src/index.scss';

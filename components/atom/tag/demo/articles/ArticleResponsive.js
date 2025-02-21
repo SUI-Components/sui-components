@@ -12,12 +12,13 @@ const ArticleResponsive = ({className}) => {
       <Paragraph>
         Use the <Code>responsive</Code> true for make responsive layout. keep large size in mobile.
       </Paragraph>
-      <div>
+      <div style={{display: 'flex', gap: 16}}>
         <AtomTag
           closeIcon={closeIcon}
           icon={icon}
           label="Icon & Close Tag"
           onClose={handleClose}
+          closeLabel="clear"
           responsive
           size={atomTagSizes.SMALL}
         />
@@ -29,7 +30,14 @@ const ArticleResponsive = ({className}) => {
           responsive
           target="_blank"
         />
-        <AtomTag closeIcon={closeIcon} icon={icon} label="Icon & Close Tag" onClose={handleClose} responsive />
+        <AtomTag
+          closeIcon={closeIcon}
+          icon={icon}
+          label="Icon & Close Tag"
+          onClose={handleClose}
+          responsive
+          closeLabel="clear"
+        />
         <AtomTag
           closeIcon={closeIcon}
           icon={icon}
@@ -37,6 +45,7 @@ const ArticleResponsive = ({className}) => {
           onClose={handleClose}
           responsive
           size={atomTagSizes.LARGE}
+          closeLabel="clear"
         />
       </div>
     </Article>

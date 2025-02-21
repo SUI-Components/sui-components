@@ -5,15 +5,14 @@ $class-input: '#{$base-class}-input';
 
 #{$class-tags} {
   @include sui-atom-input-input;
+  border: none;
   border-radius: $bdrs-molecule-input-tags;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 0 0 $p-m;
-
-  &--focus {
-    @include sui-atom-input-input-focus;
-  }
+  gap: $sz-base;
+  padding: 0 $p-m;
+  $this: &;
 
   &[aria-disabled='true'] {
     background-color: $bg-input-tag-disable;
@@ -23,10 +22,31 @@ $class-input: '#{$base-class}-input';
     }
   }
 
+  #{$base-class-tag}_Container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    &-size {
+      @each $size, $value in $sizes-atom-input {
+        &-#{$size} {
+          height: $value;
+          min-height: $value;
+        }
+      }
+    }
+  }
+
+  & #{$base-class} {
+    &_Container {
+      width: auto;
+    }
+  }
+
   & #{$class-input} {
-    flex: 1;
-    height: 100%;
-    padding-left: 0;
+    padding: 0;
   }
 
   @each $type, $attr in $sizes-atom-input {
@@ -45,17 +65,26 @@ $class-input: '#{$base-class}-input';
       #{$class-tags}-container {
         padding: $attr 0 $attr $attr;
       }
-
-      #{$base-class-tag} {
-        margin-bottom: calc(#{$attr} - 2px);
-        margin-top: calc(#{$attr} - 2px);
-      }
     }
   }
-
-  @each $state, $color in $states-atom-input {
-    &--#{$state} {
-      border-color: $color;
+  &#{$this}--isBorderless {
+    border: none;
+  }
+  &:not(#{$this}--isBorderless) {
+    border: $bd-atom-input-base;
+    &#{$this}--focus {
+      @include sui-atom-input-input-focus;
+    }
+    @each $state, $color in $states-atom-input {
+      &#{$this}--#{$state} {
+        border-color: $color;
+      }
+    }
+    &#{$this}:focus-within:has(#{$class-input}:focus-visible) {
+      outline-style: solid;
+      outline-color: transparentize($c-primary, 0.2);
+      outline-width: 2px;
+      outline-offset: 2px;
     }
   }
 }

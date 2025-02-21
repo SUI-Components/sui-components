@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@s-ui/react-molecule-field": "1",
-    "@s-ui/react-molecule-select": "1"
+    "@s-ui/react-molecule-select": "2"
   },
   "peerDependencies": {
     "@s-ui/component-dependencies": "1"

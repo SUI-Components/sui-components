@@ -3,18 +3,9 @@ import {useRef} from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeField from '@s-ui/react-molecule-field'
-import MoleculeSelect, {moleculeSelectStates} from '@s-ui/react-molecule-select'
+import MoleculeSelect from '@s-ui/react-molecule-select'
 
-const hasErrors = ({successText, errorText}) => {
-  if (errorText) return true
-  if (successText) return false
-}
-
-const getState = ({successText, errorState, alertText}) => {
-  if (successText) return moleculeSelectStates.SUCCESS
-  if (errorState) return moleculeSelectStates.ERROR
-  if (alertText) return moleculeSelectStates.ALERT
-}
+import {getState, hasErrors} from './config.js'
 
 const MoleculeSelectField = ({
   children,
@@ -27,6 +18,7 @@ const MoleculeSelectField = ({
   successText,
   alertText,
   onChange: handleChange,
+  className,
   ...props
 }) => {
   const refSelect = useRef()
@@ -52,7 +44,14 @@ const MoleculeSelectField = ({
       successText={successText}
       alertText={alertText}
     >
-      <MoleculeSelect errorState={errorState} refMoleculeSelect={refSelect} state={selectState} id={id} {...props}>
+      <MoleculeSelect
+        className={className}
+        errorState={errorState}
+        refMoleculeSelect={refSelect}
+        state={selectState}
+        id={id}
+        {...props}
+      >
         {children}
       </MoleculeSelect>
     </MoleculeField>
@@ -62,8 +61,11 @@ const MoleculeSelectField = ({
 MoleculeSelectField.displayName = 'MoleculeSelectField'
 
 MoleculeSelectField.propTypes = {
-  /** cnhildren */
+  /** children */
   children: PropTypes.any,
+
+  /** className */
+  className: PropTypes.string,
 
   /** Error message to display when error state  */
   errorText: PropTypes.string,

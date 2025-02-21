@@ -1,8 +1,8 @@
 // Icon sizes
 
 @mixin sui-icon--small {
-  height: 16px;
-  width: 16px;
+  height: $sz-icon-s;
+  width: $sz-icon-s;
 }
 
 @mixin sui-icon--medium {
@@ -11,11 +11,11 @@
 }
 
 @mixin sui-icon--large {
-  height: 24px;
-  width: 24px;
+  height: $sz-icon-m;
+  width: $sz-icon-m;
 }
 
 @mixin sui-icon--xlarge {
-  height: 48px;
-  width: 48px;
+  height: $sz-icon-xxl;
+  width: $sz-icon-xxl;
 }

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2025-02-21)
+
+
+### Features
+
+* **components/atom/badge:** a11y ([073f30f](https://github.com/SUI-Components/sui-components/commit/073f30f3ef115de3ad456f1e6df598bc660aa83a))
+
+
+
 # 1.29.0 (2023-12-05)
 
 

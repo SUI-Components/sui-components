@@ -18,7 +18,7 @@ const AiOutlineCheck = ({as, size}) => (
   </AtomIcon>
 )
 AiOutlineCheck.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const AiOutlineClose = ({as, size}) => (
@@ -27,13 +27,13 @@ const AiOutlineClose = ({as, size}) => (
   </AtomIcon>
 )
 AiOutlineClose.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 
 const EmptyIcon = ({as, size}) => <AtomIcon as={as} size={size}></AtomIcon>
 EmptyIcon.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const AiOutlineLine = ({as, size}) => (
@@ -42,7 +42,7 @@ const AiOutlineLine = ({as, size}) => (
   </AtomIcon>
 )
 AiOutlineLine.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const AiOutlineInfo = ({as, size}) => (
@@ -51,7 +51,7 @@ const AiOutlineInfo = ({as, size}) => (
   </AtomIcon>
 )
 AiOutlineInfo.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const AiOutlinePause = ({as, size}) => (
@@ -60,7 +60,7 @@ const AiOutlinePause = ({as, size}) => (
   </AtomIcon>
 )
 AiOutlinePause.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const AiOutlinePlus = ({as, size}) => (
@@ -69,7 +69,7 @@ const AiOutlinePlus = ({as, size}) => (
   </AtomIcon>
 )
 AiOutlinePlus.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const BsSquare = ({as, size}) => (
@@ -78,7 +78,7 @@ const BsSquare = ({as, size}) => (
   </AtomIcon>
 )
 BsSquare.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const BsDot = ({as, size}) => (
@@ -87,7 +87,7 @@ const BsDot = ({as, size}) => (
   </AtomIcon>
 )
 BsDot.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const BsFillEmojiSmileFill = ({as, size}) => (
@@ -96,7 +96,7 @@ const BsFillEmojiSmileFill = ({as, size}) => (
   </AtomIcon>
 )
 BsFillEmojiSmileFill.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const BsFillEmojiNeutralFill = ({as, size}) => (
@@ -105,7 +105,7 @@ const BsFillEmojiNeutralFill = ({as, size}) => (
   </AtomIcon>
 )
 BsFillEmojiNeutralFill.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 const BsFillEmojiFrownFill = ({as, size}) => (
@@ -114,7 +114,7 @@ const BsFillEmojiFrownFill = ({as, size}) => (
   </AtomIcon>
 )
 BsFillEmojiFrownFill.propTypes = {
-  as: PropTypes.element,
+  as: PropTypes.elementType,
   size: PropTypes.oneOf(Object.values(CHECKBOX_SIZES))
 }
 

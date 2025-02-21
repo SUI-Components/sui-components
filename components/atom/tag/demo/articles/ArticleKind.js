@@ -183,7 +183,7 @@ const ArticleKind = ({className}) => {
                   return kind === singleSelectionFilter
                 })
                 .map(([emoji, kind]) => {
-                  return <span>{emoji}</span>
+                  return <span key={emoji}>{emoji}</span>
                 })}
             </Cell>
           </Grid>
@@ -266,7 +266,7 @@ const ArticleKind = ({className}) => {
                   return multipleUnionSelectionFilter.includes(kind)
                 })
                 .map(([emoji, kind]) => {
-                  return <span>{emoji}</span>
+                  return <span key={emoji}>{emoji}</span>
                 })}
             </Cell>
           </Grid>
@@ -381,7 +381,7 @@ const ArticleKind = ({className}) => {
                   return multipleIntersectionSelectionFilter.every(filter => kind.includes(filter))
                 })
                 .map(([emoji, kind]) => {
-                  return <span>{emoji}</span>
+                  return <span key={emoji}>{emoji}</span>
                 })}
             </Cell>
           </Grid>

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.10.0 (2025-02-24)
+
+
+### Bug Fixes
+
+* remove unnecessaary dependency ([1ae4dde](https://github.com/SUI-Components/sui-components/commit/1ae4dde9e049ef80ead38b002262b0eb6d429bae))
+
+
+
 # 0.9.0 (2024-08-06)
 
 

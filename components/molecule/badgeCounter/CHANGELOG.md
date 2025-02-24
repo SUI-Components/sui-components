@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.18.0 (2025-02-24)
+
+
+### Features
+
+* open classNames ([2218c0c](https://github.com/SUI-Components/sui-components/commit/2218c0c2f5db80e91f24cb5ae946bb2cc7b9e55d))
+* open props ([8ca2107](https://github.com/SUI-Components/sui-components/commit/8ca210774131de4328ef725f79edeb87954090ae))
+* update to checkboxv3 ([4d4c9e1](https://github.com/SUI-Components/sui-components/commit/4d4c9e150ab03cdd0290f932a85ec1cde5e71e99))
+
+
+
 # 1.17.0 (2022-06-27)
 
 
@@ -180,6 +191,3 @@
 * **molecule/badgeCounter:** position bullet when text ([853a3df](https://github.com/SUI-Components/sui-components/commit/853a3dfad0d92e8c1aa43563d684f09257772980))
 * **molecule/badgeCounter:** rEADME updater ([e5a89b7](https://github.com/SUI-Components/sui-components/commit/e5a89b7266ccbbd8e34e95e10ed3f0d68bc0653a))
 * **molecule/badgeCounter:** small & medium sizes ([3179a9b](https://github.com/SUI-Components/sui-components/commit/3179a9baf4fdf6d0a54cd22eae6a8909df913537))
-
-
-

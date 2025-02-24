@@ -44,7 +44,7 @@
     "@s-ui/helpers": "1",
     "@s-ui/js-compiler": "1",
     "@s-ui/lint": "4",
-    "@s-ui/mono": "2",
+    "@s-ui/mono": "^2.45.0",
     "@s-ui/precommit": "3",
     "@s-ui/studio": "11",
     "@types/chai": "4.3.16",

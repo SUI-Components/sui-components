@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@s-ui/react-atom-input": "5",
-    "@s-ui/react-atom-tag": "3",
+    "@s-ui/react-atom-tag": "4",
     "@s-ui/react-hooks": "1"
   },
   "peerDependencies": {

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.133.0 (2025-02-24)
+
+
+### Features
+
+* link proper tag sizes ([f772113](https://github.com/SUI-Components/sui-components/commit/f772113531fda36005055c6d6c6b13de2b891c22))
+
+
+
 # 8.132.0 (2025-02-04)
 
 

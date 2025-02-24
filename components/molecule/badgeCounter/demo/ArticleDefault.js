@@ -23,19 +23,25 @@ const ArticleDefault = ({className}) => {
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
-          <Label fullWidth>label</Label>
+          <Label htmlFor="badge-counter-default-label" fullWidth>
+            label
+          </Label>
         </Cell>
         <Cell>
-          <Label fullWidth>children</Label>
+          <Label htmlFor="badge-counter-default-children" fullWidth>
+            children
+          </Label>
         </Cell>
         <Cell>
-          <Input onChange={handleChange(setLabel)} value={label} />
+          <Input id="badge-counter-default-label" onChange={handleChange(setLabel)} value={label} />
         </Cell>
         <Cell>
-          <Input onChange={handleChange(setChildren)} value={children} />
+          <Input id="badge-counter-default-children" onChange={handleChange(setChildren)} value={children} />
         </Cell>
         <Cell span={2}>
-          <MoleculeBadgeCounter label={label}>{children}</MoleculeBadgeCounter>
+          <MoleculeBadgeCounter label={label} aria-label={label}>
+            {children}
+          </MoleculeBadgeCounter>
         </Cell>
         <Cell span={2}>
           <AtomButton

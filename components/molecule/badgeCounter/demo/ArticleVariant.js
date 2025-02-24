@@ -19,7 +19,7 @@ const ArticleVariant = ({className}) => {
           <Fragment key={sizesValue}>
             {[undefined, ...Object.values(moleculeBadgeCounterVariants)].map(variantsValue => (
               <Cell key={`${sizesValue}-${variantsValue}`}>
-                <MoleculeBadgeCounter variant={variantsValue} size={sizesValue}>
+                <MoleculeBadgeCounter variant={variantsValue} size={sizesValue} aria-label="notification label">
                   <Button>{`${sizesValue}-${variantsValue}`}</Button>
                 </MoleculeBadgeCounter>
               </Cell>

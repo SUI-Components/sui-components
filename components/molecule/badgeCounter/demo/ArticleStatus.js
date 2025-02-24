@@ -16,7 +16,14 @@ const ArticleStatus = ({className}) => {
       <Grid cols={Object.values(moleculeBadgeCounterStatus).length} gutter={[8, 8]}>
         {Object.values(moleculeBadgeCounterStatus).map(statusValue => (
           <Cell key={statusValue}>
-            <MoleculeBadgeCounter status={statusValue}>
+            <MoleculeBadgeCounter status={statusValue} aria-label="notification">
+              <Button>{statusValue}</Button>
+            </MoleculeBadgeCounter>
+          </Cell>
+        ))}
+        {Object.values(moleculeBadgeCounterStatus).map(statusValue => (
+          <Cell key={statusValue}>
+            <MoleculeBadgeCounter status={statusValue} label={0} aria-label="0 notifications">
               <Button>{statusValue}</Button>
             </MoleculeBadgeCounter>
           </Cell>

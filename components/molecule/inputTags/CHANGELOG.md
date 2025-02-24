@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.2.0 (2025-02-24)
+
+
+### Features
+
+* udpate version ([9e5efdd](https://github.com/SUI-Components/sui-components/commit/9e5efdd242a96237953cb6089f17aaef7fea17e5))
+
+
+
 # 3.1.0 (2025-02-24)
 
 

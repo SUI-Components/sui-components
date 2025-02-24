@@ -5,6 +5,7 @@ import ArticleLabel from './ArticleLabel.js'
 import ArticleSizes from './ArticleSizes.js'
 import ArticleStatus from './ArticleStatus.js'
 import ArticleVariant from './ArticleVariant.js'
+import ArticleA11y from './ArticleA11y.js'
 import {CLASS_SECTION} from './config.js'
 
 export default () => {
@@ -21,6 +22,8 @@ export default () => {
       <ArticleVariant className={CLASS_SECTION} />
       <br />
       <ArticleStatus className={CLASS_SECTION} />
+      <br />
+      <ArticleA11y className={CLASS_SECTION} />
     </div>
   )
 }

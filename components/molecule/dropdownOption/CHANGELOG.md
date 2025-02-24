@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.13.0 (2025-02-24)
+
+
+### Features
+
+* handler changes ([53247cf](https://github.com/SUI-Components/sui-components/commit/53247cf22891d540a900ef2ec3501794d7d49b50))
+
+
+
 # 2.12.0 (2024-10-23)
 
 

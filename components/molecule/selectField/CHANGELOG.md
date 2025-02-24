@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.1.0 (2025-02-24)
+
+
+### Features
+
+* a11y ([35921cc](https://github.com/SUI-Components/sui-components/commit/35921cce09d4738240b3b7291c6293fbdbd96299))
+* update version ([a2cd228](https://github.com/SUI-Components/sui-components/commit/a2cd228d0224af74d586b322f14511f9a9663b38))
+
+
+
 # 1.10.0 (2022-06-23)
 
 
@@ -93,6 +103,3 @@
 * **molecule/selectField:** readme selectField ([d7efdeb](https://github.com/SUI-Components/sui-components/commit/d7efdeb5f50e4bbe803afd459247b48f3413686d))
 * **molecule/selectField:** select field demo ([12bc09c](https://github.com/SUI-Components/sui-components/commit/12bc09c4d73018b06b3539da4738921849dbeb82))
 * **molecule/selectField:** selectFiled demo use cases ([3fa3ecc](https://github.com/SUI-Components/sui-components/commit/3fa3ecc13e6e4d40217ae0e41df3a7cbdfefa15d))
-
-
-

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.42.0 (2025-02-24)
+
+
+### Bug Fixes
+
+* bug ([0462d1f](https://github.com/SUI-Components/sui-components/commit/0462d1ff1618dfe5c78c4610c29d73f6983df9da))
+
+
+
 # 5.41.0 (2025-02-06)
 
 

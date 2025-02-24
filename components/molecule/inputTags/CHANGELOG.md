@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 3.1.0 (2025-02-24)
+
+
+### Features
+
+* a11y ([469ac8b](https://github.com/SUI-Components/sui-components/commit/469ac8b41014c1e6ad74e7e14af0887e5572e826))
+* improve performance, add props and sizes ([9f8c62d](https://github.com/SUI-Components/sui-components/commit/9f8c62d68f9827534816760ac0b4a4f3266fd255))
+
+
+
 # 2.29.0 (2025-02-04)
 
 

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 4.0.0 (2025-02-24)
+
+
+### Features
+
+* add key interactions ([a3d4a26](https://github.com/SUI-Components/sui-components/commit/a3d4a26af0cab921ac8bc9ea3f2393a1b6f11f75))
+* iterate the component ([60c2cd9](https://github.com/SUI-Components/sui-components/commit/60c2cd9cba89677ebadc7d8a8939fe280139686f))
+* sizes renaming ([0e94b58](https://github.com/SUI-Components/sui-components/commit/0e94b58b46abf402d69ce7ac5d0e0bcf5370af7c))
+
+
+
 # 2.55.0 (2024-08-21)
 
 

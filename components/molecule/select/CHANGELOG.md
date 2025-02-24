@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.3.0 (2025-02-24)
+
+
+### Features
+
+* a11y ([06ad2ae](https://github.com/SUI-Components/sui-components/commit/06ad2aeb1fce0c1718e31614e8585128f774dad7))
+* improve focus trap, outline focus, keyboard navigation and many ot ([a8386f8](https://github.com/SUI-Components/sui-components/commit/a8386f80fd9a82480e5ea6d9ca5d7d11153b7601))
+
+
+
 # 1.74.0 (2024-11-22)
 
 

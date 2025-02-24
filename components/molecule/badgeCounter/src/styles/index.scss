@@ -22,14 +22,15 @@ $base-class: '.sui-MoleculeBadgeCounter';
     font-size: $fz-molecule-badge-counter;
     justify-content: center;
 
-    &.is-disabled {
-      background-color: $bgc-molecule-badge-counter-disabled;
-      color: $c-molecule-badge-counter-disabled;
-    }
-
-    &.is-selected {
-      background-color: $bgc-molecule-badge-counter-selected;
-      color: $c-molecule-badge-counter-selected;
+    &--status {
+      @each $status, $statusValue in $molecule-badge-counter-colors {
+        $color: map-get($statusValue, color);
+        $onColor: map-get($statusValue, onColor);
+        &-#{$status} {
+          background-color: $color;
+          color: $onColor;
+        }
+      }
     }
 
     &-dot {

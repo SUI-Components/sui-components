@@ -46,13 +46,6 @@ export const getClassSize = ({size, hasLabel}) => {
   return CLASS_SMALL
 }
 
-export const getClassStatus = ({status}) => {
-  if (status === STATUS.DISABLED) return CLASS_DISABLED
-  if (status === STATUS.SELECTED) return CLASS_SELECTED
-
-  return ''
-}
-
 export const getClassLengthLabel = ({hasLabel, label, size}) => {
   if (!hasLabel || (label + '').length < 3) return ''
 

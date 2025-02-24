@@ -35,9 +35,24 @@ $bdrs-molecule-badge-counter-threeCharacters: $bdrs-xxxl !default;
 $molecule-badge-counter-threeCharacters-diameter: 36px !default;
 
 /* disabled */
-$bgc-molecule-badge-counter-disabled: $c-gray-light-3 !default;
-$c-molecule-badge-counter-disabled: $c-gray !default;
+$bgc-molecule-badge-counter-disabled: $c-gray !default;
+$c-molecule-badge-counter-disabled: $c-white !default;
 
 /* selected */
-$bgc-molecule-badge-counter-selected: $c-primary-light-3 !default;
-$c-molecule-badge-counter-selected: $c-primary !default;
+$bgc-molecule-badge-counter-selected: $c-primary !default;
+$c-molecule-badge-counter-selected: $c-white !default;
+
+$molecule-badge-counter-colors: (
+  default: (
+    color: $bgc-molecule-badge-counter,
+    onColor: $c-molecule-badge-counter
+  ),
+  disabled: (
+    color: $bgc-molecule-badge-counter-disabled,
+    onColor: $c-molecule-badge-counter-disabled
+  ),
+  selected: (
+    color: $bgc-molecule-badge-counter-selected,
+    onColor: $c-molecule-badge-counter-selected
+  )
+) !default;

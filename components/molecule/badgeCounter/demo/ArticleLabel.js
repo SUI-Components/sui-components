@@ -22,20 +22,24 @@ const ArticleLabel = ({className}) => {
       </Paragraph>
       <Grid cols={2} gutter={[8, 8]}>
         <Cell>
-          <Label fullWidth>label</Label>
+          <Label htmlFor="badge-counter-label-label" fullWidth>
+            label
+          </Label>
         </Cell>
         <Cell>
-          <Label fullWidth>labelMax</Label>
+          <Label htmlFor="badge-counter-label-label-max" fullWidth>
+            labelMax
+          </Label>
         </Cell>
         <Cell>
-          <Input onChange={handleChange(setLabel)} value={label} />
+          <Input id="badge-counter-label-label" onChange={handleChange(setLabel)} value={label} />
         </Cell>
         <Cell>
-          <Input onChange={handleChange(setLabelMax)} value={labelMax} />
+          <Input id="badge-counter-label-label-max" onChange={handleChange(setLabelMax)} value={labelMax} />
         </Cell>
         <Cell span={2} />
         <Cell span={2}>
-          <MoleculeBadgeCounter label={label} labelMax={labelMax}>
+          <MoleculeBadgeCounter label={label} labelMax={labelMax} aria-label={label}>
             <Button>children</Button>
           </MoleculeBadgeCounter>
         </Cell>

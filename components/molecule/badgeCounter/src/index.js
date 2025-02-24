@@ -11,7 +11,6 @@ import {
   STATUS,
   VARIANTS,
   getClassSize,
-  getClassStatus,
   getClassLengthLabel
 } from './config.js'
 
@@ -22,8 +21,9 @@ const MoleculeBadgeCounter = ({
   label = '',
   labelMax = MAX_LABEL,
   size = SIZES.MEDIUM,
-  status,
-  variant
+  status = STATUS.DEFAULT,
+  variant,
+  ...props
 }) => {
   const hasLabel = Boolean(label)
   const hasChildren = Boolean(children)
@@ -37,7 +37,7 @@ const MoleculeBadgeCounter = ({
   const classNameBullet = cx(
     CLASS_BULLET,
     getClassSize({size, hasLabel}),
-    getClassStatus({status}),
+    `${CLASS_BULLET}--status-${status}`,
     variant ? `${CLASS_BULLET}-${variant}` : '',
     getClassLengthLabel({hasLabel, label, size}),
     {
@@ -48,7 +48,7 @@ const MoleculeBadgeCounter = ({
 
   return (
     <span className={classNameWrapper}>
-      <span className={classNameBullet} role={role}>
+      <span className={classNameBullet} role={role} {...props}>
         {processedLabel}
       </span>
       {children}
@@ -63,10 +63,10 @@ MoleculeBadgeCounter.propTypes = {
   children: PropTypes.node,
 
   /** Number to be displayed inside the bullet */
-  label: PropTypes.number,
+  label: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** Maximum number to be displayed inside the bullet */
-  labelMax: PropTypes.number,
+  labelMax: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** Size (small, medium or large) */
   size: PropTypes.oneOf(Object.values(SIZES)),

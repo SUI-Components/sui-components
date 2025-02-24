@@ -36,10 +36,12 @@ const ArticleSizes = ({className}) => {
       </Paragraph>
       <Grid cols={1} gutter={[8, 8]}>
         <Cell>
-          <Label fullWidth>label</Label>
+          <Label htmlFor="badge-counter-sizes-label" fullWidth>
+            label
+          </Label>
         </Cell>
         <Cell>
-          <Input onChange={handleChange(setLabel)} value={label} />
+          <Input id="badge-counter-sizes-label" onChange={handleChange(setLabel)} value={label} />
         </Cell>
         <Cell>
           <Label>size</Label>
@@ -58,7 +60,7 @@ const ArticleSizes = ({className}) => {
           </Paragraph>
         </Cell>
         <Cell span={1}>
-          <MoleculeBadgeCounter size={size} label={label}>
+          <MoleculeBadgeCounter size={size} label={label} aria-label={label}>
             <Button>children</Button>
           </MoleculeBadgeCounter>
         </Cell>

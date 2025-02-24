@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2025-02-24)
+
+
+### Features
+
+* performance ([011d6bb](https://github.com/SUI-Components/sui-components/commit/011d6bbb66c5da2bf17af115de4a55a01c4267c4))
+
+
+
 # 2.4.0 (2024-07-25)
 
 

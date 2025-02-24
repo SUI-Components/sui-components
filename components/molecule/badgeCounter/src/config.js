@@ -33,3 +33,29 @@ export const VARIANTS = {
 }
 
 export const MAX_LABEL = 99
+
+export const getClassSize = ({size, hasLabel}) => {
+  if (size !== SIZES.SMALL) {
+    return {
+      [SIZES.MEDIUM]: CLASS_MEDIUM,
+      [SIZES.LARGE]: CLASS_LARGE
+    }[size]
+  } else if (hasLabel && size === SIZES.SMALL) {
+    return CLASS_MEDIUM
+  }
+  return CLASS_SMALL
+}
+
+export const getClassStatus = ({status}) => {
+  if (status === STATUS.DISABLED) return CLASS_DISABLED
+  if (status === STATUS.SELECTED) return CLASS_SELECTED
+
+  return ''
+}
+
+export const getClassLengthLabel = ({hasLabel, label, size}) => {
+  if (!hasLabel || (label + '').length < 3) return ''
+
+  if (size === SIZES.MEDIUM) return CLASS_MEDIUM_THREE_CHARS
+  return CLASS_LARGE_THREE_CHARS
+}

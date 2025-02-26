@@ -1,0 +1,21 @@
+$base-class: '.sui-PrimitiveLinkBox';
+
+#{$base-class} {
+  position: relative;
+
+  #{$base-class}Link {
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  #{$base-class}Raised {
+    z-index: $z-linkbox-raised;
+  }
+}

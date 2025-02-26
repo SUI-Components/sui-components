@@ -1,0 +1,9 @@
+{
+  "name": "@s-ui/react-primitive-link-box-demo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Demo for @s-ui/react-primitive-link-box",
+  "dependencies": {
+    "@s-ui/react-atom-tag": "4"
+  }
+}

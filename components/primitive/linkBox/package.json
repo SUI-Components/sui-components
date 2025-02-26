@@ -1,0 +1,43 @@
+{
+  "name": "@s-ui/react-primitive-link-box",
+  "version": "1.0.0",
+  "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "primitive",
+    "linkbox"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' ./lib"
+  },
+  "peerDependencies": {
+    "@s-ui/theme": "8"
+  },
+  "dependencies": {
+    "@s-ui/react-primitive-injector": "1",
+    "classnames": "2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/sui-components",
+    "directory": "components/primitive/linkBox"
+  },
+  "config": {
+    "title": "linkbox",
+    "category": "primitive",
+    "type": "components"
+  },
+  "bugs": {
+    "url": "https://github.com/SUI-Components/sui-components/issues?q=is%3Aopen+label%3A%22Component%3A+linkBox%22"
+  },
+  "homepage": "https://sui-components.vercel.app/",
+  "license": "MIT"
+}

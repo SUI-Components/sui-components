@@ -12,7 +12,7 @@
 ## Installation
 
 ```sh
-$ npm install sui-primitive-link-box
+$ npm install @s-ui/react-primitive-link-box
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ return (<PrimitiveLinkBox />)
 ```css
 @import '~@s-ui/theme/lib/index';
 /* @import 'your theme'; */
-@import '~sui-primitive-link-box/lib/index';
+@import '~@s-ui/react-primitive-link-box/lib/index';
 ```
 
 

@@ -22,7 +22,7 @@ $ npm install @s-ui/react-primitive-link-box
 #### Import package and use the component
 
 ```js
-import PrimitiveLinkBox from 'sui-primitive-link-box'
+import PrimitiveLinkBox from '@s-ui/react-primitive-link-box'
 
 return (<PrimitiveLinkBox />)
 ```

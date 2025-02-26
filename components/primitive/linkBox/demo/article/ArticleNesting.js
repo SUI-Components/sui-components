@@ -24,7 +24,7 @@ const ArticleNesting = ({className}) => {
             boxShadow: '0px 4px 8px 0px color-mix(in srgb, var(--c-gray) 70%, transparent)'
           }}
         >
-          <H4 as="div" style={{color: 'var(--c-base)'}}>
+          <H4 elementType="div" style={{color: 'var(--c-base)'}}>
             Passed Event
           </H4>
           <div style={{position: 'relative', width: '100%', aspectRatio: '16 / 9'}}>
@@ -40,14 +40,14 @@ const ArticleNesting = ({className}) => {
               />
             </PrimitiveLinkBoxRaised>
           </div>
-          <H1 as="span">
+          <H1 elementType="span">
             <PrimitiveLinkBoxLink>
               <Anchor href="#nesting" style={{color: 'var(--c-base)'}}>
                 WWDC
               </Anchor>
             </PrimitiveLinkBoxLink>
           </H1>
-          <H2 as="div" style={{color: 'var(--c-base)'}}>
+          <H2 elementTypeas="div" style={{color: 'var(--c-base)'}}>
             Worldwide Developers Conference
           </H2>
           <Separator />

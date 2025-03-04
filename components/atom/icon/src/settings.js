@@ -7,7 +7,8 @@ export const ATOM_ICON_COLORS = {
   error: 'error',
   primary: 'primary',
   success: 'success',
-  gray: 'gray'
+  gray: 'gray',
+  white: 'white',
 }
 
 export const ATOM_ICON_SIZES = {

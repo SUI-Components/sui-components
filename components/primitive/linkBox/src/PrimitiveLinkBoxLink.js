@@ -1,7 +1,7 @@
 import {forwardRef} from 'react'
-import PropTypes from 'prop-types'
 
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import PrimitiveInjector from '@s-ui/react-primitive-injector' // import PropTypes from 'prop-types'
 

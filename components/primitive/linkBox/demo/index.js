@@ -1,8 +1,8 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './article/ArticleA11y.js'
 import ArticleDefault from './article/ArticleDefault.js'
 import ArticleNesting from './article/ArticleNesting.js'
-import ArticleA11y from './article/ArticleA11y.js'
 import {demoBaseClassName} from './config.js'
 
 export default () => (

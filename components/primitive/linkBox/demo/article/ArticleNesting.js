@@ -1,8 +1,8 @@
-import {calendarIcon, eyeIcon} from '@s-ui/react-atom-tag-demo/settings'
-import AtomTag, {atomTagColors, atomTagDesigns, atomTagSizes} from '@s-ui/react-atom-tag/src'
 import PropTypes from 'prop-types'
 
 import {Anchor, Article, Box, Code, H1, H2, H4, Paragraph, Separator} from '@s-ui/documentation-library'
+import AtomTag, {atomTagColors, atomTagDesigns, atomTagSizes} from '@s-ui/react-atom-tag/src'
+import {calendarIcon, eyeIcon} from '@s-ui/react-atom-tag-demo/settings'
 
 import PrimitiveLinkBox, {PrimitiveLinkBoxLink, PrimitiveLinkBoxRaised} from '../../src/index.js'
 

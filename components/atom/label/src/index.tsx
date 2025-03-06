@@ -27,7 +27,7 @@ export interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElemen
    */
   optionalText?: string
   /**
-   * Label type: 'success', 'error', 'alert' or 'contrast, use AtomLabelTypes
+   * Label type: 'success', 'error', 'alert' or 'contrast', use AtomLabelTypes
    */
   type?: Type
   /**

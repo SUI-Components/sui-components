@@ -18,7 +18,7 @@ import {
 } from '@s-ui/documentation-library'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {isFunction} from '../../lib/config.js'
+import {isFunction} from '../../src/config.js'
 import AtomCheckbox from '../../src/index.js'
 import {ICONS, PROPS_STATUS, propsFromStatus} from '../settings.js'
 
@@ -73,7 +73,7 @@ const ArticleDefault = ({className}) => {
         <Code>AtomCheckbox</Code> is a component that renders an input type="checkbox" styled.
       </Paragraph>
       <Paragraph>
-        As all diferent input types, checkbox admits the <Code>name</Code> (string) and <Code>value</Code> props.
+        As all different input types, checkbox admits the <Code>name</Code> (string) and <Code>value</Code> props.
       </Paragraph>
       <Paragraph>
         The checkbox is shown as a square. It has only 2 states using the <Code>checked</Code> (boolean) prop.

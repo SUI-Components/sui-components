@@ -32,6 +32,7 @@ const AtomSwitchToggle = forwardRef(
       value,
       fullWidth,
       checked,
+      className,
       ...props
     },
     ref
@@ -75,18 +76,23 @@ const AtomSwitchToggle = forwardRef(
             id={id}
             name={name}
             type="button"
-            className={cx(suitClass({element: 'inputContainer'}), {
-              [suitClass({
-                element: 'inputContainer',
-                modifier: `position-${checked ? 'right' : 'left'}`
-              })]: checked
-            })}
+            className={
+              (cx(suitClass({element: 'inputContainer'}), {
+                [suitClass({
+                  element: 'inputContainer',
+                  modifier: `position-${checked ? 'right' : 'left'}`
+                })]: checked
+              }),
+              className)
+            }
             role="switch"
             aria-checked={checked || design === DESIGNS.SELECT}
             aria-disabled={disabled}
             disabled={disabled}
             {...(!disabled && {tabIndex: 0})}
             onClick={toggleHandler({checked: !checked})}
+            data-state={checked || design === DESIGNS.SELECT}
+            {...props}
           >
             {!isLoading ? <div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div> : null}
             <div className={cx(suitClass({element: 'circle'}))}>
@@ -190,7 +196,11 @@ AtomSwitchToggle.propTypes = {
   /**
    * Is the switch loading
    */
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  /**
+   * Additional classes
+   */
+  className: PropTypes.string
 }
 
 export default AtomSwitchToggle

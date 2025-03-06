@@ -68,7 +68,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {
         className: 'extended-classNames',
@@ -82,7 +82,154 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    describe('design single', () => {
+      const {atomSwitchDesigns} = pkg
+      const design = atomSwitchDesigns.SINGLE
+      it('should extend classNames', () => {
+        // Given
+        const props = {className: 'extended-classNames', design}
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.not.be.null
+      })
+
+      it('should have data attributes', () => {
+        // Given
+        const props = {'data-attribute': 'data-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[data-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+
+      it('should have aria attributes', () => {
+        // Given
+        const props = {'aria-attribute': 'aria-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[aria-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+    })
+
+    describe('design toggle', () => {
+      const {atomSwitchDesigns} = pkg
+      const design = atomSwitchDesigns.TOGGLE
+      it('should extend classNames', () => {
+        // Given
+        const props = {className: 'extended-classNames', design}
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.not.be.null
+      })
+
+      it('should have data attributes', () => {
+        // Given
+        const props = {'data-attribute': 'data-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[data-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+
+      it('should have aria attributes', () => {
+        // Given
+        const props = {'aria-attribute': 'aria-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[aria-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+    })
+
+    describe('design select', () => {
+      const {atomSwitchDesigns} = pkg
+      const design = atomSwitchDesigns.SELECT
+      it('should extend classNames', () => {
+        // Given
+        const props = {className: 'extended-classNames', design}
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.not.be.null
+      })
+
+      it('should have data attributes', () => {
+        // Given
+        const props = {'data-attribute': 'data-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[data-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+
+      it('should have aria attributes', () => {
+        // Given
+        const props = {'aria-attribute': 'aria-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[aria-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
     })
 
     it('should render single type with left label', () => {

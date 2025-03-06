@@ -6,12 +6,12 @@ import {
   CLASS_BULLET,
   CLASS_BULLET_WITH_CHILDREN,
   CLASS_WITH_CHILDREN,
+  getClassLengthLabel,
+  getClassSize,
   MAX_LABEL,
   SIZES,
   STATUS,
-  VARIANTS,
-  getClassSize,
-  getClassLengthLabel
+  VARIANTS
 } from './config.js'
 
 const MoleculeBadgeCounter = ({

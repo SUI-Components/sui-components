@@ -1,8 +1,7 @@
 import {forwardRef} from 'react'
 
-import {emulateTab} from 'emulate-tab'
-
 import cx from 'classnames'
+import {emulateTab} from 'emulate-tab'
 import PropTypes from 'prop-types'
 
 import PrimitiveInjector from '@s-ui/react-primitive-injector'

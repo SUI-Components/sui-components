@@ -25,10 +25,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['atomSwitchSizes', 'atomSwitchTypes', 'default']
+    const libraryExportedMembers = ['atomSwitchSizes', 'atomSwitchDesigns', 'atomSwitchColors', 'default']
 
     // When
-    const {atomSwitchSizes, atomSwitchTypes, default: AtomSwitch, ...others} = library
+    const {atomSwitchSizes, atomSwitchDesigns, atomSwitchColors, default: AtomSwitch, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)
@@ -68,7 +68,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {
         className: 'extended-classNames',
@@ -82,12 +82,160 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    describe('design single', () => {
+      const {atomSwitchDesigns} = pkg
+      const design = atomSwitchDesigns.SINGLE
+      it('should extend classNames', () => {
+        // Given
+        const props = {className: 'extended-classNames', design}
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.not.be.null
+      })
+
+      it('should have data attributes', () => {
+        // Given
+        const props = {'data-attribute': 'data-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[data-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+
+      it('should have aria attributes', () => {
+        // Given
+        const props = {'aria-attribute': 'aria-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[aria-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+    })
+
+    describe('design toggle', () => {
+      const {atomSwitchDesigns} = pkg
+      const design = atomSwitchDesigns.TOGGLE
+      it('should extend classNames', () => {
+        // Given
+        const props = {className: 'extended-classNames', design}
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.not.be.null
+      })
+
+      it('should have data attributes', () => {
+        // Given
+        const props = {'data-attribute': 'data-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[data-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+
+      it('should have aria attributes', () => {
+        // Given
+        const props = {'aria-attribute': 'aria-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[aria-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+    })
+
+    describe('design select', () => {
+      const {atomSwitchDesigns} = pkg
+      const design = atomSwitchDesigns.SELECT
+      it('should extend classNames', () => {
+        // Given
+        const props = {className: 'extended-classNames', design}
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.not.be.null
+      })
+
+      it('should have data attributes', () => {
+        // Given
+        const props = {'data-attribute': 'data-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[data-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
+
+      it('should have aria attributes', () => {
+        // Given
+        const props = {'aria-attribute': 'aria-attribute', design}
+
+        // When
+        const {container} = setup(props)
+        const element = container.querySelector('[aria-attribute]')
+
+        // Then
+        expect(element).to.not.be.null
+      })
     })
 
     it('should render single type with left label', () => {
       // Given
-      const props = {label: 'label', name: 'name', type: 'single'}
+      const {atomSwitchDesigns} = pkg
+      const props = {label: 'label', name: 'name', design: atomSwitchDesigns.SINGLE}
 
       // When
       const {getByText} = setup(props)
@@ -101,7 +249,8 @@ describe(json.name, () => {
 
     it('should render single type with right label', () => {
       // Given
-      const props = {labelRight: 'labelRight', name: 'name', type: 'single'}
+      const {atomSwitchDesigns} = pkg
+      const props = {labelRight: 'labelRight', design: atomSwitchDesigns.SINGLE}
 
       // When
       const {getByText} = setup(props)
@@ -117,10 +266,10 @@ describe(json.name, () => {
       it('given undefined value should switch the status to true after click', () => {
         // Given
         const spy = sinon.spy()
-        const {atomSwitchTypes} = pkg
+        const {atomSwitchDesigns} = pkg
         const props = {
           onToggle: spy,
-          type: atomSwitchTypes.SINGLE
+          design: atomSwitchDesigns.SINGLE
         }
 
         // When
@@ -130,17 +279,17 @@ describe(json.name, () => {
         const element = getByRole('switch')
         userEvents.click(element)
         sinon.assert.callCount(spy, 1)
-        sinon.assert.calledWith(spy, sinon.match(!props.value))
+        sinon.assert.calledWith(spy, sinon.match.truthy, sinon.match({checked: !props.checked}))
       })
 
-      it('given true value should switch the status to false after click', () => {
+      it('given true checked should switch the returned status to false after click', () => {
         // Given
         const spy = sinon.spy()
-        const {atomSwitchTypes} = pkg
+        const {atomSwitchDesigns} = pkg
         const props = {
           onToggle: spy,
-          type: atomSwitchTypes.SINGLE,
-          value: true
+          design: atomSwitchDesigns.SINGLE,
+          checked: true
         }
 
         // When
@@ -150,17 +299,17 @@ describe(json.name, () => {
         const element = getByRole('switch')
         userEvents.click(element)
         sinon.assert.callCount(spy, 1)
-        sinon.assert.calledWith(spy, sinon.match(!props.value))
+        sinon.assert.calledWith(spy, sinon.match.truthy, sinon.match({checked: !props.checked}))
       })
 
-      it('given false value should switch the status to false after click', () => {
+      it('given false checked should switch the status to true after click', () => {
         // Given
         const spy = sinon.spy()
-        const {atomSwitchTypes} = pkg
+        const {atomSwitchDesigns} = pkg
         const props = {
           onToggle: spy,
-          type: atomSwitchTypes.SINGLE,
-          value: false
+          design: atomSwitchDesigns.SINGLE,
+          checked: false
         }
 
         // When
@@ -170,17 +319,36 @@ describe(json.name, () => {
         const element = getByRole('switch')
         userEvents.click(element)
         sinon.assert.callCount(spy, 1)
-        sinon.assert.calledWith(spy, sinon.match(!props.value))
+        sinon.assert.calledWith(spy, sinon.match.truthy, sinon.match({checked: !props.checked}))
       })
 
-      it('given undefined value and disabled element should NOT call the callback', () => {
+      it('given undefined checked and disabled element should NOT call the callback', () => {
         // Given
         const spy = sinon.spy()
-        const {atomSwitchTypes} = pkg
+        const {atomSwitchDesigns} = pkg
         const props = {
           disabled: true,
           onToggle: spy,
-          type: atomSwitchTypes.SINGLE
+          design: atomSwitchDesigns.SINGLE
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        const element = getByRole('switch')
+        userEvents.click(element)
+        sinon.assert.callCount(spy, 0)
+      })
+
+      it('given undefined checked and readOnly element should NOT call the callback', () => {
+        // Given
+        const spy = sinon.spy()
+        const {atomSwitchDesigns} = pkg
+        const props = {
+          readOnly: true,
+          onToggle: spy,
+          design: atomSwitchDesigns.SINGLE
         }
 
         // When
@@ -195,12 +363,14 @@ describe(json.name, () => {
       it('given a label and name should switch the status to true after label click', () => {
         // Given
         const spy = sinon.spy()
-        const {atomSwitchTypes} = pkg
+        const {atomSwitchDesigns} = pkg
         const props = {
           onToggle: spy,
-          type: atomSwitchTypes.SINGLE,
+          design: atomSwitchDesigns.SINGLE,
           label: 'label-test',
-          name: 'name-test'
+          name: 'name-test',
+          checked: false,
+          id: 'id'
         }
 
         // When
@@ -210,7 +380,13 @@ describe(json.name, () => {
         const element = getByLabelText(props.label)
         userEvents.click(element)
         sinon.assert.callCount(spy, 1)
-        sinon.assert.calledWith(spy, sinon.match(!props.value))
+        sinon.assert.calledWith(
+          spy,
+          sinon.match.truthy,
+          sinon.match({
+            checked: !props.checked
+          })
+        )
       })
     })
   })
@@ -251,13 +427,13 @@ describe(json.name, () => {
     })
   })
 
-  describe('atomSwitchTypes', () => {
+  describe('atomSwitchDesigns', () => {
     it('value must be an object enum', () => {
       // Given
       const library = pkg
 
       // When
-      const {atomSwitchTypes: actual} = library
+      const {atomSwitchDesigns: actual} = library
 
       // Then
       expect(actual).to.be.an('object')
@@ -273,8 +449,47 @@ describe(json.name, () => {
       }
 
       // When
-      const {atomSwitchTypes: actual} = library
+      const {atomSwitchDesigns: actual} = library
       const {TOGGLE, SELECT, SINGLE, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomSwitchColors', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomSwitchColors: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        PRIMARY: 'primary',
+        ACCENT: 'accent',
+        SUCCESS: 'success',
+        ALERT: 'alert',
+        ERROR: 'error',
+        NEUTRAL: 'neutral',
+        SURFACE: 'surface'
+      }
+
+      // When
+      const {atomSwitchColors: actual} = library
+      const {PRIMARY, ACCENT, SUCCESS, ALERT, ERROR, NEUTRAL, SURFACE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

@@ -1,13 +1,12 @@
 import {forwardRef} from 'react'
-import PropTypes from 'prop-types'
 
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import PrimitiveInjector from '@s-ui/react-primitive-injector'
 
-import PrimitiveLinkBoxRaised from './PrimitiveLinkBoxRaised.js'
 import PrimitiveLinkBoxLink from './PrimitiveLinkBoxLink.js'
-
+import PrimitiveLinkBoxRaised from './PrimitiveLinkBoxRaised.js'
 import {BASE_CLASS_NAME} from './settings.js'
 
 const PrimitiveLinkBox = forwardRef(({children, as, className, ...props}) => {

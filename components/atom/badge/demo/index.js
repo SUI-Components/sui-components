@@ -1,12 +1,12 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './ArticleA11y.js'
 import ArticleContent from './ArticleContent.js'
 import ArticleCustomType from './ArticleCustomType.js'
 import ArticleDarkMode from './ArticleDarkMode.js'
 import ArticleDesign from './ArticleDesign.js'
 import ArticleSizes from './ArticleSizes.js'
 import ArticleType from './ArticleType.js'
-import ArticleA11y from './ArticleA11y.js'
 import {CLASS_SECTION} from './settings.js'
 
 const Demo = () => {

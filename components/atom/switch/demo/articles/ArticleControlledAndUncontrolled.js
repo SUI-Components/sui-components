@@ -3,6 +3,7 @@ import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, Button, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomSwitch from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
@@ -12,9 +13,9 @@ const ArticleControlledAndUncontrolled = ({className}) => {
   const toggle = () => setState(!state)
   return (
     <Article className={className}>
-      <H2>initialValue and value</H2>
+      <H2>defaultChecked and checked</H2>
       <Paragraph>
-        Use <Code>initialValue</Code> and <Code>value</Code> for uncontrolled and controlled component accordingly.
+        Use <Code>defaultChecked</Code> and <Code>checked</Code> for uncontrolled and controlled component accordingly.
       </Paragraph>
       <Paragraph>
         Controlled components are anchored to its value given as prop, and its key handlers for toggling will not be
@@ -43,10 +44,13 @@ const ArticleControlledAndUncontrolled = ({className}) => {
             Toggle
           </Button>
         </Cell>
-        {['value', 'initialValue'].map((key, j) =>
+        {['checked', 'defaultChecked'].map((key, j) =>
           [true, false].map((value, i) => (
             <Cell key={`${i}-${j}`} style={flexCenteredStyle}>
-              <AtomSwitch label="" name={`${i}-${j}`} {...{[key]: i % 2 ? state : !state}} />
+              <AtomSwitch id={`switch-${key}-${value}`} name={`${i}-${j}`} {...{[key]: i % 2 ? state : !state}} />
+              <PrimitiveVisuallyHidden>
+                <Label htmlFor={`switch-${key}-${value}`}>{`switch ${key} ${value}`}</Label>
+              </PrimitiveVisuallyHidden>
             </Cell>
           ))
         )}

@@ -6,54 +6,58 @@ import PropTypes from 'prop-types'
 import AtomLabel from '@s-ui/react-atom-label'
 import PrimitiveLoadingIcon from '@s-ui/react-primitive-loading-icon'
 
-import {LABELS, TYPES} from '../config.js'
+import {COLORS, DESIGNS, SIZES} from '../config.js'
 import {suitClass, switchClassNames} from './helpers.js'
 
-const {RIGHT, LEFT} = LABELS
-
-export const SingleSwitchTypeRender = forwardRef(
+const AtomSwitchToggle = forwardRef(
   (
     {
+      id,
       disabled,
-      isFitted,
+      isToggle,
+      isLoading,
       label,
       labelLeft,
       iconLeft,
       iconRight,
-      isLoading,
       labelOptionalText,
       labelRight,
+      color,
       name,
       onBlur,
       onFocus,
-      onToggle,
+      toggleHandler,
       size,
-      type,
+      design,
       value,
       fullWidth,
-      isChecked
+      checked,
+      className,
+      ...props
     },
     ref
   ) => {
-    const defaultLabelLeft = labelLeft === LEFT
-    const defaultLabelRight = labelRight === RIGHT
-
-    const showLabelLeft = Boolean(label) || !defaultLabelLeft
-    const showLabelRight = !label && !defaultLabelRight && defaultLabelLeft
-
+    const hasId = !!id
     return (
       <div
         className={switchClassNames({
           size,
-          classType: 'singleType',
+          design: 'toggle',
+          color,
           fullWidth
         })}
       >
+        {label && (
+          <AtomLabel
+            {...{
+              ...(hasId && {htmlFor: id})
+            }}
+            text={label}
+            optionalText={labelOptionalText}
+          />
+        )}
         <div
           className={cx(suitClass({element: 'container'}), {
-            [suitClass({
-              element: 'container--isFitted'
-            })]: isFitted,
             [suitClass({
               element: 'container--fullWidth'
             })]: fullWidth
@@ -62,24 +66,33 @@ export const SingleSwitchTypeRender = forwardRef(
           onBlur={onBlur}
           ref={ref}
         >
-          {showLabelLeft && (
-            <AtomLabel name={name} text={defaultLabelLeft ? label : labelLeft} optionalText={labelOptionalText} />
-          )}
+          <span
+            className={cx(suitClass({element: 'text'}), suitClass({element: 'left'}))}
+            onClick={toggleHandler({checked: false})}
+          >
+            {labelLeft}
+          </span>
           <button
+            id={id}
+            name={name}
             type="button"
-            className={cx(suitClass({element: 'inputContainer'}), {
-              [suitClass({
-                element: 'inputContainer',
-                modifier: 'right'
-              })]: isChecked
-            })}
+            className={
+              (cx(suitClass({element: 'inputContainer'}), {
+                [suitClass({
+                  element: 'inputContainer',
+                  modifier: `position-${checked ? 'right' : 'left'}`
+                })]: checked
+              }),
+              className)
+            }
             role="switch"
-            onClick={onToggle()}
-            aria-checked={isChecked || type === TYPES.SELECT}
+            aria-checked={checked || design === DESIGNS.SELECT}
             aria-disabled={disabled}
             disabled={disabled}
-            id={name}
             {...(!disabled && {tabIndex: 0})}
+            onClick={toggleHandler({checked: !checked})}
+            data-state={checked || design === DESIGNS.SELECT}
+            {...props}
           >
             {!isLoading ? <div className={cx(suitClass({element: 'icon-left'}))}>{iconLeft}</div> : null}
             <div className={cx(suitClass({element: 'circle'}))}>
@@ -91,16 +104,25 @@ export const SingleSwitchTypeRender = forwardRef(
             </div>
             {!isLoading ? <div className={cx(suitClass({element: 'icon-right'}))}>{iconRight}</div> : null}
           </button>
-          {showLabelRight && <AtomLabel name={name} text={labelRight} optionalText={labelOptionalText} />}
+          <span
+            className={cx(suitClass({element: 'text'}), suitClass({element: 'right'}))}
+            onClick={toggleHandler({checked: true})}
+          >
+            {labelRight}
+          </span>
         </div>
       </div>
     )
   }
 )
 
-SingleSwitchTypeRender.displayName = 'SingleSwitchTypeRender'
+AtomSwitchToggle.displayName = 'AtomSwitch.Toggle'
 
-SingleSwitchTypeRender.propTypes = {
+AtomSwitchToggle.propTypes = {
+  /**
+   * HTML id attribute
+   */
+  id: PropTypes.string,
   /**
    * Form element name
    */
@@ -110,53 +132,53 @@ SingleSwitchTypeRender.propTypes = {
    */
   label: PropTypes.string,
   /**
-   * The optional left label text. Proxy from label
-   */
-  labelLeft: PropTypes.string,
-  /**
    * The optional label text. Proxy from label
    */
   labelOptionalText: PropTypes.string,
   /**
-   * The optional right label text. Proxy from label
+   * Left label to be printed
+   */
+  labelLeft: PropTypes.string,
+  /**
+   * Right label to be printed
    */
   labelRight: PropTypes.string,
   /**
    * Size of switch: 'default', 'large'
    */
-  size: PropTypes.oneOf(['default', 'large']),
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /**
+   * Color of switch: 'primary', 'secondary', 'tertiary', 'success', 'error', 'warning', 'info'
+   */
+  color: PropTypes.oneOf(Object.values(COLORS)),
   /**
    * Type of switch: 'toggle' (default), 'select', 'single'
    */
-  type: PropTypes.oneOf(['toggle', 'select', 'single']),
+  design: PropTypes.oneOf(Object.values(DESIGNS)),
   /**
    * Is Input disabled?
    */
   disabled: PropTypes.bool,
   /**
-   * The padding of the container is set to 0
+   * Is Input readOnly?
    */
-  isFitted: PropTypes.bool,
+  readOnly: PropTypes.bool,
   /**
    * Is component toggle
    */
   isToggle: PropTypes.bool,
   /**
-   * Is the switch loading
-   */
-  isLoading: PropTypes.bool,
-  /**
    * Callback on focus element
    */
   onFocus: PropTypes.func,
   /**
-   * Callback on toggle element
+   * Callback on blur element
    */
   onBlur: PropTypes.func,
   /**
-   * Callback on toggle element
+   * HighOrderFunction of the on toggle element Callback
    */
-  onToggle: PropTypes.func,
+  toggleHandler: PropTypes.func,
   /**
    * Value for controlled component
    */
@@ -170,5 +192,15 @@ SingleSwitchTypeRender.propTypes = {
   /** element node which appears inside the switch circle when it's in right position **/
   iconRight: PropTypes.node,
   /** element in right or left position (checked means right)**/
-  isChecked: PropTypes.bool
+  checked: PropTypes.bool,
+  /**
+   * Is the switch loading
+   */
+  isLoading: PropTypes.bool,
+  /**
+   * Additional classes
+   */
+  className: PropTypes.string
 }
+
+export default AtomSwitchToggle

@@ -1,60 +1,64 @@
-import {forwardRef, useState} from 'react'
+import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {SingleSwitchTypeRender} from './SwitchType/single.js'
-import {ToggleSwitchTypeRender} from './SwitchType/toggle.js'
-import {LABELS, SIZES, TYPES} from './config.js'
+import {useControlledState} from '@s-ui/react-hooks/lib/useControlledState'
+
+import AtomSwitchSingle from './SwitchDesign/AtomSwitchSingle.js'
+import AtomSwitchToggle from './SwitchDesign/AtomSwitchToggle.js'
+import {COLORS, DESIGNS, SIZES} from './config.js'
 
 const AtomSwitch = forwardRef(
   (
     {
-      disabled = false,
-      isFitted = false,
-      initialValue = false,
-      labelLeft = LABELS.LEFT,
-      labelRight = LABELS.RIGHT,
+      disabled,
+      readOnly,
+      checked,
+      defaultChecked = false,
+      className,
+      labelLeft,
+      labelRight,
+      id,
+      name,
+      color = COLORS.PRIMARY,
       size = SIZES.DEFAULT,
-      type = TYPES.TOGGLE,
+      design = DESIGNS.TOGGLE,
       onToggle: onToggleCallback,
       value,
       ...props
     },
     ref
   ) => {
-    const [isToggle, setIsToggle] = useState(initialValue)
-    const isChecked = value !== undefined ? value : isToggle
+    const [innerChecked, setInnedChecked] = useControlledState(checked, defaultChecked)
 
-    const onToggle = forcedValue => event => {
-      let newIsToggle = forcedValue !== undefined ? forcedValue : !isToggle
-      if (value === undefined) {
-        // if its uncontrolled component
-        setIsToggle(newIsToggle)
-      } else {
-        newIsToggle = !value
+    const toggleHandler =
+      ({checked}) =>
+      event => {
+        if (readOnly || disabled) return null
+        setInnedChecked(checked)
+        typeof onToggleCallback === 'function' && onToggleCallback(event, {value, checked})
       }
-      typeof onToggleCallback === 'function' && onToggleCallback(newIsToggle)
-    }
 
-    const commonProps = {
-      disabled,
-      isFitted,
-      initialValue,
-      labelLeft,
-      labelRight,
-      size,
-      type,
-      ...props,
-      isToggle,
-      isChecked,
-      onToggle,
-      value
-    }
+    const Component = design === DESIGNS.SINGLE ? AtomSwitchSingle : AtomSwitchToggle
 
-    return type === TYPES.SINGLE ? (
-      <SingleSwitchTypeRender ref={ref} {...commonProps} />
-    ) : (
-      <ToggleSwitchTypeRender ref={ref} {...commonProps} />
+    return (
+      <Component
+        id={id}
+        name={name}
+        className={className}
+        color={color}
+        ref={ref}
+        checked={innerChecked}
+        disabled={disabled}
+        readOnly={readOnly}
+        value={value}
+        labelLeft={labelLeft}
+        labelRight={labelRight}
+        size={size}
+        design={design}
+        toggleHandler={toggleHandler}
+        {...props}
+      />
     )
   }
 )
@@ -62,20 +66,29 @@ const AtomSwitch = forwardRef(
 AtomSwitch.displayName = 'AtomSwitch'
 
 AtomSwitch.propTypes = {
+  /** Id of the switch */
+  id: PropTypes.string,
+
+  /** Form element name */
+  name: PropTypes.string,
+
+  /** Whether switch is checked on init. Controlled state component */
+  checked: PropTypes.bool,
+
   /** Whether switch is checked on init. Uncontrolled state component */
-  initialValue: PropTypes.bool,
+  defaultChecked: PropTypes.bool,
 
   /** Size of switch: 'default', 'large' */
-  size: PropTypes.oneOf([SIZES.DEFAULT, SIZES.LARGE]),
+  size: PropTypes.oneOf(Object.values(SIZES)),
 
   /** Type of switch: 'toggle' (default), 'select', 'single' */
-  type: PropTypes.oneOf([TYPES.TOGGLE, TYPES.SELECT, TYPES.SINGLE]),
+  design: PropTypes.oneOf(Object.values(DESIGNS)),
 
   /** Is Input disabled? */
   disabled: PropTypes.bool,
 
-  /** The padding of the container is set to 0 */
-  isFitted: PropTypes.bool,
+  /** Is Input readOnly? */
+  readOnly: PropTypes.bool,
 
   /** Is the switch loading **/
   isLoading: PropTypes.bool,
@@ -86,9 +99,6 @@ AtomSwitch.propTypes = {
   /** Right label to be printed */
   labelRight: PropTypes.string,
 
-  /** Form element name */
-  name: PropTypes.string.isRequired,
-
   /** The label itself. Proxy from label */
   label: PropTypes.string,
 
@@ -98,6 +108,9 @@ AtomSwitch.propTypes = {
   /** Callback to be called when switching. Flag whenever switch is active or not sent */
   onToggle: PropTypes.func,
 
+  /** Color of the switch: 'primary', 'accent', 'success', 'alert', 'error', 'neutral', 'surface' */
+  color: PropTypes.oneOf(Object.values(COLORS)),
+
   /** Callback fired when the element gets focused **/
   onFocus: PropTypes.func,
 
@@ -106,13 +119,19 @@ AtomSwitch.propTypes = {
 
   /** Whether switch is checked. Controlled state component. Don't combine with initialValue prop! */
   value: PropTypes.bool,
+
   /** element node which appears inside the switch circle when it's in left position **/
   iconLeft: PropTypes.node,
+
   /** element node which appears inside the switch circle when it's in right position **/
-  iconRight: PropTypes.node
+  iconRight: PropTypes.node,
+
+  /** className to be added to the container **/
+  className: PropTypes.string
 }
 
 export {SIZES as atomSwitchSizes}
-export {TYPES as atomSwitchTypes}
+export {DESIGNS as atomSwitchDesigns}
+export {COLORS as atomSwitchColors}
 
 export default AtomSwitch

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 
 import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomSwitch, {atomSwitchSizes} from '../../src/index.js'
 import {flexCenteredStyle} from '../settings.js'
@@ -19,7 +20,10 @@ const ArticleLoading = ({className}) => (
       ))}
       {Object.values(atomSwitchSizes).map((size, index) => (
         <Cell key={index} style={flexCenteredStyle}>
-          <AtomSwitch isLoading size={size} name="name" />
+          <AtomSwitch id={`switch-loading-size-${size}`} isLoading size={size} name="name" />
+          <PrimitiveVisuallyHidden>
+            <Label htmlFor={`switch-loading-size-${size}`}>switch loading size {size}</Label>
+          </PrimitiveVisuallyHidden>
         </Cell>
       ))}
     </Grid>

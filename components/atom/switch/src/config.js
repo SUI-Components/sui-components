@@ -7,13 +7,18 @@ export const SIZES = {
   LARGE: 'large'
 }
 
-export const TYPES = {
+export const DESIGNS = {
   TOGGLE: 'toggle',
   SELECT: 'select',
   SINGLE: 'single'
 }
 
-export const LABELS = {
-  LEFT: 'Off',
-  RIGHT: 'On'
+export const COLORS = {
+  PRIMARY: 'primary',
+  ACCENT: 'accent',
+  SUCCESS: 'success',
+  ALERT: 'alert',
+  ERROR: 'error',
+  NEUTRAL: 'neutral',
+  SURFACE: 'surface'
 }

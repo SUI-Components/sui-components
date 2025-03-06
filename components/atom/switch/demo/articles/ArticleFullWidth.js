@@ -12,10 +12,16 @@ const ArticleFullWidth = ({className}) => (
       Use <Code>fullWidth</Code> to fill the container
     </Paragraph>
     <Grid cols={1} style={{width: 400}}>
-      <Cell style={flexCenteredStyle}>
-        <AtomSwitch fullWidth type="single" label="fullWidth" name="name">
-          ☼
-        </AtomSwitch>
+      <Cell style={{...flexCenteredStyle, border: '1px solid var(--c-base-inverse)', padding: 10}}>
+        <AtomSwitch
+          fullWidth
+          type="single"
+          label="fullWidth"
+          name="name"
+          id="switch-full-width"
+          labelRight="off"
+          labelLeft="on"
+        />
       </Cell>
     </Grid>
   </Article>

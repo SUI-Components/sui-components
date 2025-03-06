@@ -25,20 +25,21 @@ $m-atom-switch-circle-large--active: $w-atom-switch-large - $w-atom-switch-circl
 $bdw-atom-switch-input-container-large: $bdw-s !default;
 $h-atom-switch-input-container-large: $h-atom-switch-large !default;
 
-$c-atom-switch--active: color-variation($c-primary, 1) !default;
-$c-atom-switch--active-shadow: rgba($c-black, 0.2);
 $c-atom-switch--default: color-variation($c-gray, 3) !default;
+$c-atom-switch-shadow: color-variation($c-black, 3) !default;
+$c-atom-switch--active: color-variation($c-primary, 1) !default;
+$c-atom-switch--active-shadow: color-variation($c-black, 3) !default;
 $c-atom-switch-circle: $c-white;
 
 $bdw-atom-switch-default: $bdw-s !default;
 $bd-atom-switch-default: $bdw-atom-switch-default solid color-variation($c-atom-switch--default, $c-dark-step) !default;
 $bxsh-atom-switch-container: 0 0 4px 0 transparent !default;
 
-$atom-switch-transition-time: 0.3s !default;
+$atom-switch-transition-time: 0.2s !default;
 
 $bd-atom-switch-circle: $bdw-s solid $c-atom-switch-circle !default;
 $bd-atom-switch-circle--focus: $bdw-s solid $c-atom-switch-circle !default;
-$bxsh-atom-switch-circle: 2px 0 2px 0 $c-gray-light !default;
+$bxsh-atom-switch-circle: 0 0 4px 1px $c-atom-switch-shadow !default;
 $m-atom-switch-circle: 0px !default;
 
 $c-atom-switch-circle-loading: currentColor !default;
@@ -47,14 +48,52 @@ $w-atom-switch-circle-loading: 60% !default;
 $h-atom-switch-circle-loading: 60% !default;
 $l-atom-switch-circle-loading: 20% !default;
 
-$t-atom-switch-circle-loading-small: 0 !default;
-$w-atom-switch-circle-loading-small: 100% !default;
-$h-atom-switch-circle-loading-small: 100% !default;
-$l-atom-switch-circle-loading-small: 0 !default;
+$t-atom-switch-circle-loading-small: -10% !default;
+$w-atom-switch-circle-loading-small: 70% !default;
+$h-atom-switch-circle-loading-small: 70% !default;
+$l-atom-switch-circle-loading-small: 15% !default;
 
 $bd-atom-switch-disabled: $bdw-atom-switch-default solid $c-gray-lightest !default;
 $bd-atom-switch-circle-disabled: $bd-atom-switch-default !default;
 $bgc-atom-switch-disabled: $c-gray-lightest !default;
 $bgc-atom-switch-circle-disabled: $c-gray-lightest !default;
 $bgc-atom-switch-disabled--active: $c-atom-switch--active !default;
-$bd-atom-switch-disabled--active: $bdw-atom-switch-default solid $c-atom-switch--active !default;
+$bd-atom-switch-disabled--active: $bdw-atom-switch-default solid color-variation($c-atom-switch--active, $c-dark-step) !default;
+
+$c-atom-switch--active-array: (
+  primary: (
+    bgc: $c-atom-switch--active,
+    bdc: color-variation($c-atom-switch--active, -1),
+    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+  ),
+  accent: (
+    bgc: $c-accent,
+    bdc: color-variation($c-accent, -1),
+    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+  ),
+  success: (
+    bgc: $c-success,
+    bdc: color-variation($c-success, -1),
+    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+  ),
+  alert: (
+    bgc: $c-alert,
+    bdc: color-variation($c-alert, -1),
+    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+  ),
+  error: (
+    bgc: $c-error,
+    bdc: color-variation($c-error, -1),
+    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+  ),
+  neutral: (
+    bgc: $c-gray,
+    bdc: color-variation($c-gray, -1),
+    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+  ),
+  surface: (
+    bgc: $c-white,
+    bdc: color-variation($c-white, 1),
+    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+  )
+);

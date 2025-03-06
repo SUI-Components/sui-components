@@ -5,10 +5,10 @@ import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomSwitch, {atomSwitchColors} from '../../src/index.js'
 
-const DisabledArticle = ({className}) => (
+const ArticleReadOnly = ({className}) => (
   <Article className={className}>
-    <H2>Disabled</H2>
-    <Paragraph>This prop is available to get a blocked status component</Paragraph>
+    <H2>ReadOnly</H2>
+    <Paragraph>This prop is available to get a read-only status component</Paragraph>
     <Grid gutter={[0, 8]}>
       <Grid cols={Object.values(atomSwitchColors).length + 1} gutter={[8, 0]}>
         <Cell>
@@ -26,9 +26,9 @@ const DisabledArticle = ({className}) => (
             padding: '8px 16px'
           }}
         >
-          <AtomSwitch id={`disabled-switch-unchecked`} defaultChecked={false} disabled />
+          <AtomSwitch id={`readOnly-switch-unchecked`} defaultChecked={false} readOnly />
           <PrimitiveVisuallyHidden>
-            <Label htmlFor={`disabled-switch-unchecked`}>Default switch</Label>
+            <Label htmlFor={`readOnly-switch-unchecked`}>Default switch</Label>
           </PrimitiveVisuallyHidden>
         </Cell>
         {Object.entries(atomSwitchColors).map(([colorName, colorValue], index) => (
@@ -39,9 +39,9 @@ const DisabledArticle = ({className}) => (
               ...(colorValue === atomSwitchColors.SURFACE && {backgroundColor: 'var(--c-base-inverse)'})
             }}
           >
-            <AtomSwitch id={`disabled-switch-${colorName}`} color={colorValue} defaultChecked disabled />
+            <AtomSwitch id={`readOnly-switch-${colorName}`} color={colorValue} defaultChecked readOnly />
             <PrimitiveVisuallyHidden>
-              <Label htmlFor={`disabled-switch-${colorName}`}>Default switch</Label>
+              <Label htmlFor={`readOnly-switch-${colorName}`}>Default switch</Label>
             </PrimitiveVisuallyHidden>
           </Cell>
         ))}
@@ -50,10 +50,10 @@ const DisabledArticle = ({className}) => (
   </Article>
 )
 
-DisabledArticle.displayName = 'DisabledArticle'
+ArticleReadOnly.displayName = 'ArticleReadOnly'
 
-DisabledArticle.propTypes = {
+ArticleReadOnly.propTypes = {
   className: PropTypes.string
 }
 
-export default DisabledArticle
+export default ArticleReadOnly

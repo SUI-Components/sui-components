@@ -69,7 +69,8 @@ const AtomSwitchSingle = forwardRef(
                 ...(!hasId && {onClick: toggleHandler({checked: true})})
               }}
             >
-              {typeof labelLeft === 'string' ? <AtomLabel>{label || labelLeft}</AtomLabel> : label || labelLeft}
+              {!!label && typeof label === 'string' ? <AtomLabel>{label}</AtomLabel> : label}
+              {!label && labelLeft && typeof labelLeft === 'string' ? <AtomLabel>{labelLeft}</AtomLabel> : labelLeft}
             </PrimitiveInjector>
           )}
           <button
@@ -118,7 +119,7 @@ const AtomSwitchSingle = forwardRef(
                 ...(!hasId && {onClick: toggleHandler({checked: true})})
               }}
             >
-              {typeof labelLeft === 'string' ? <AtomLabel>{label || labelRight}</AtomLabel> : label || labelRight}
+              {typeof labelRight === 'string' ? <AtomLabel>{labelRight}</AtomLabel> : labelRight}
             </PrimitiveInjector>
           )}
         </div>

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 
 import {useControlledState} from '@s-ui/react-hooks/lib/useControlledState'
 
-import AtomSwitchSingle from './SwitchType/AtomSwitchSingle.js'
-import AtomSwitchToggle from './SwitchType/AtomSwitchToggle.js'
+import AtomSwitchSingle from './SwitchDesign/AtomSwitchSingle.js'
+import AtomSwitchToggle from './SwitchDesign/AtomSwitchToggle.js'
 import {COLORS, DESIGNS, SIZES} from './config.js'
 
 const AtomSwitch = forwardRef(

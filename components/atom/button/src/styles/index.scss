@@ -45,13 +45,15 @@ $base-class: '.sui-AtomButton';
 
     &--first {
       &#{$base-class} {
-        border-radius: $bdrs-atom-button-first;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
       }
     }
 
     &--last {
       &#{$base-class} {
-        border-radius: $bdrs-atom-button-last;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
       }
     }
 

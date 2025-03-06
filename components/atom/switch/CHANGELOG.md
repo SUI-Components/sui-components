@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.0.0 (2025-03-06)
+
+
+### Features
+
+* major ([52a9725](https://github.com/SUI-Components/sui-components/commit/52a9725cfd537afef89ef481c770b27cc9290520))
+* modify and add a11y layers to switch ([dd7455f](https://github.com/SUI-Components/sui-components/commit/dd7455fc165309178c06c4b0dd80c754d9b404eb))
+
+
+
 # 1.34.0 (2024-05-06)
 
 

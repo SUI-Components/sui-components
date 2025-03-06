@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-switch",
-  "version": "1.34.0",
+  "version": "2.0.0",
   "description": "",
   "publishConfig": {
     "access": "public"

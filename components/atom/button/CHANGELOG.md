@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.99.0 (2025-03-06)
+
+
+### Features
+
+* Allow circular buttons in groups ([8554977](https://github.com/SUI-Components/sui-components/commit/8554977ca34709b6e2bd3f5b5c03ff876ff88e55))
+
+
+
 # 1.98.0 (2025-02-04)
 
 

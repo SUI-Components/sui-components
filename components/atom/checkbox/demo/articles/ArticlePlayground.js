@@ -20,6 +20,7 @@ import {
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomCheckbox, {atomCheckboxSizes, atomCheckboxStatus} from '../../src/index.js'
 import {ICONS} from '../settings.js'
@@ -81,13 +82,19 @@ const ArticlePlayground = ({className}) => {
               <Label>name</Label>
             </Cell>
             <Cell>
-              <Input value={name} onChange={event => setName(event.target.value)} />
+              <Input id="name" value={name} onChange={event => setName(event.target.value)} />
+              <PrimitiveVisuallyHidden>
+                <Label htmlFor="name">name</Label>
+              </PrimitiveVisuallyHidden>
             </Cell>
             <Cell>
               <Label>value</Label>
             </Cell>
             <Cell>
-              <Input value={value} onChange={event => setValue(event.target.value)} />
+              <Input id="value" value={value} onChange={event => setValue(event.target.value)} />
+              <PrimitiveVisuallyHidden>
+                <Label htmlFor="value">value</Label>
+              </PrimitiveVisuallyHidden>
             </Cell>
           </Grid>
           <Grid cols={2} gutter={[0, 8]}>
@@ -106,13 +113,24 @@ const ArticlePlayground = ({className}) => {
                   }
                 }}
               >
-                <RadioButton value={[false, false]} label="false" checked={!defaultChecked && !defaultIndeterminate} />
-                <RadioButton value={[true, false]} label="true" checked={defaultChecked} />
+                <RadioButton
+                  aria-label="status-default-checked"
+                  value={[false, false]}
+                  label="false"
+                  checked={!defaultChecked && !defaultIndeterminate}
+                />
+                <RadioButton
+                  aria-label="status-default-unchecked"
+                  value={[true, false]}
+                  label="true"
+                  checked={defaultChecked}
+                />
               </RadioButtonGroup>
             </Cell>
             <Cell>
               <RadioButton
                 value={[false, true]}
+                aria-label="status-default-indeterminate"
                 label="indeterminate"
                 checked={defaultIndeterminate}
                 onClick={() => setDefaultState([false, true])}
@@ -130,9 +148,24 @@ const ArticlePlayground = ({className}) => {
                   setState([checked, checked ? false : indeterminate])
                 }}
               >
-                <RadioButton value={undefined} label="undefined" checked={checked === undefined} />
-                <RadioButton value={false} label="false" checked={checked === false} />
-                <RadioButton value={true} label="true" checked={checked && !indeterminate} />
+                <RadioButton
+                  aria-label="status-checked-undefined"
+                  value={undefined}
+                  label="undefined"
+                  checked={checked === undefined}
+                />
+                <RadioButton
+                  aria-label="status-checked-false"
+                  value={false}
+                  label="false"
+                  checked={checked === false}
+                />
+                <RadioButton
+                  aria-label="status-checked-true"
+                  value={true}
+                  label="true"
+                  checked={checked && !indeterminate}
+                />
               </RadioButtonGroup>
             </Cell>
             <Cell>
@@ -141,9 +174,24 @@ const ArticlePlayground = ({className}) => {
                   setState([indeterminate ? false : checked, indeterminate])
                 }}
               >
-                <RadioButton value={undefined} label="undefined" checked={indeterminate === undefined} />
-                <RadioButton value={false} label="false" checked={indeterminate === false} />
-                <RadioButton value={true} label="true" checked={indeterminate && !checked} />
+                <RadioButton
+                  aria-label="status-indeterminate-undefined"
+                  value={undefined}
+                  label="undefined"
+                  checked={indeterminate === undefined}
+                />
+                <RadioButton
+                  aria-label="status-indeterminate-false"
+                  value={false}
+                  label="false"
+                  checked={indeterminate === false}
+                />
+                <RadioButton
+                  aria-label="status-indeterminate-true"
+                  value={true}
+                  label="true"
+                  checked={indeterminate && !checked}
+                />
               </RadioButtonGroup>
             </Cell>
           </Grid>
@@ -157,13 +205,20 @@ const ArticlePlayground = ({className}) => {
                   setCheckedIcon(icon)
                 }}
               >
-                <RadioButton value={undefined} label="undefined" checked={checkedIcon === undefined} />
                 <RadioButton
+                  aria-label="status-checked-icon-undefined"
+                  value={undefined}
+                  label="undefined"
+                  checked={checkedIcon === undefined}
+                />
+                <RadioButton
+                  aria-label="status-checked-icon-check"
                   value="AiOutlineCheck"
                   label={<ICONS.AiOutlineCheck />}
                   checked={checkedIcon === 'AiOutlineCheck'}
                 />
                 <RadioButton
+                  aria-label="status-checked-icon-smile"
                   value="BsFillEmojiSmileFill"
                   label={<ICONS.BsFillEmojiSmileFill />}
                   checked={checkedIcon === 'BsFillEmojiSmileFill'}
@@ -179,13 +234,20 @@ const ArticlePlayground = ({className}) => {
                   setIndeterminateIcon(icon)
                 }}
               >
-                <RadioButton value={undefined} label="undefined" checked={indeterminateIcon === undefined} />
                 <RadioButton
+                  aria-label="status-indeterminate-icon-undefined"
+                  value={undefined}
+                  label="undefined"
+                  checked={indeterminateIcon === undefined}
+                />
+                <RadioButton
+                  aria-label="status-indeterminate-icon-line"
                   value="AiOutlineLine"
                   label={<ICONS.AiOutlineLine />}
                   checked={indeterminateIcon === 'AiOutlineLine'}
                 />
                 <RadioButton
+                  aria-label="status-indeterminate-icon-neutral"
                   value="BsFillEmojiNeutralFill"
                   label={<ICONS.BsFillEmojiNeutralFill />}
                   checked={indeterminateIcon === 'BsFillEmojiNeutralFill'}
@@ -201,13 +263,20 @@ const ArticlePlayground = ({className}) => {
                   setUncheckedIcon(icon)
                 }}
               >
-                <RadioButton value={undefined} label="undefined" checked={uncheckedIcon === undefined} />
                 <RadioButton
+                  aria-label="status-uncheck-icon-undefined"
+                  value={undefined}
+                  label="undefined"
+                  checked={uncheckedIcon === undefined}
+                />
+                <RadioButton
+                  aria-label="status-uncheck-icon-close"
                   value="AiOutlineClose"
                   label={<ICONS.AiOutlineClose />}
                   checked={uncheckedIcon === 'AiOutlineClose'}
                 />
                 <RadioButton
+                  aria-label="status-uncheck-icon-frown"
                   value="BsFillEmojiFrownFill"
                   label={<ICONS.BsFillEmojiFrownFill />}
                   checked={uncheckedIcon === 'BsFillEmojiFrownFill'}
@@ -225,13 +294,20 @@ const ArticlePlayground = ({className}) => {
                   setSize(size)
                 }}
               >
-                <RadioButton value={undefined} label="undefined" checked={size === undefined} />
                 <RadioButton
+                  aria-label="status-size-undefined"
+                  value={undefined}
+                  label="undefined"
+                  checked={size === undefined}
+                />
+                <RadioButton
+                  aria-label="status-size-small"
                   value={atomCheckboxSizes.SMALL}
                   label={atomCheckboxSizes.SMALL}
                   checked={size === atomCheckboxSizes.SMALL}
                 />
                 <RadioButton
+                  aria-label="status-size-medium"
                   value={atomCheckboxSizes.MEDIUM}
                   label={atomCheckboxSizes.MEDIUM}
                   checked={size === atomCheckboxSizes.MEDIUM}
@@ -247,18 +323,26 @@ const ArticlePlayground = ({className}) => {
                   setStatus(status)
                 }}
               >
-                <RadioButton value={undefined} label="undefined" checked={status === undefined} />
                 <RadioButton
+                  aria-label="status-status-undefined"
+                  value={undefined}
+                  label="undefined"
+                  checked={status === undefined}
+                />
+                <RadioButton
+                  aria-label="status-status-success"
                   value={atomCheckboxStatus.SUCCESS}
                   label={atomCheckboxStatus.SUCCESS}
                   checked={status === atomCheckboxStatus.SUCCESS}
                 />
                 <RadioButton
+                  aria-label="status-status-alert"
                   value={atomCheckboxStatus.ALERT}
                   label={atomCheckboxStatus.ALERT}
                   checked={status === atomCheckboxStatus.ALERT}
                 />
                 <RadioButton
+                  aria-label="status-status-error"
                   value={atomCheckboxStatus.ERROR}
                   label={atomCheckboxStatus.ERROR}
                   checked={status === atomCheckboxStatus.ERROR}
@@ -272,6 +356,7 @@ const ArticlePlayground = ({className}) => {
             </Cell>
             <Cell>
               <RadioButton
+                aria-label="status-disabled"
                 value={disabled}
                 label="disabled"
                 checked={disabled}
@@ -282,7 +367,7 @@ const ArticlePlayground = ({className}) => {
               <Label>Reload</Label>
             </Cell>
             <Cell>
-              <Button style={{display: 'flex', alignItems: 'center'}} onClick={reload}>
+              <Button aria-label="checkbox-reload" style={{display: 'flex', alignItems: 'center'}} onClick={reload}>
                 <AtomIcon>
                   <AntDesignIcon icon="AiOutlineReload" style={{color: 'currentColor'}} />
                 </AtomIcon>
@@ -312,8 +397,12 @@ const ArticlePlayground = ({className}) => {
                   uncheckedIcon={UncheckedIcon}
                   indeterminateIcon={IndeterminateIcon}
                   onChange={handleClick}
+                  id="playground"
                 />
               )}
+              <PrimitiveVisuallyHidden>
+                <Label htmlFor="playground">playground</Label>
+              </PrimitiveVisuallyHidden>
             </Cell>
             <Cell>
               <Label>Checked:</Label> <Code>{`${values.checked}`}</Code>

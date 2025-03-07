@@ -3,6 +3,7 @@ import {Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, Cell, Code, Grid, H2, H3, Label, Paragraph} from '@s-ui/documentation-library'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomCheckbox from '../../src/index.js'
 import {CHECKBOX_STATUS, flexCenteredStyle, ICONS} from '../settings.js'
@@ -37,16 +38,21 @@ const ArticleStatus = ({className}) => (
             checked: {checked: true},
             indeterminate: {indeterminate: true},
             unchecked: {checked: false}
-          }).map(([label, props], index2) => (
+          }).map(([label, {checked, indeterminate}], index2) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
-                  id={`${index}-${index2}`}
+                  id={`status-${status}-checked-${checked}-${index}-${index2}`}
                   checkedIcon={ICONS.AiOutlineCheck}
                   indeterminateIcon={ICONS.AiOutlineLine}
-                  {...{...props}}
-                  status={status}
+                  aria-label={`status-${status}-checked-${checked}`}
+                  {...{...{checked, indeterminate}, ...(status !== '' && {status})}}
                 />
+                <PrimitiveVisuallyHidden>
+                  <Label
+                    htmlFor={`status-${status}-checked-${checked}-${index}-${index2}`}
+                  >{`status-${status}-checked-${checked}-${index}-${index2}`}</Label>
+                </PrimitiveVisuallyHidden>
               </Cell>
             </Fragment>
           ))}

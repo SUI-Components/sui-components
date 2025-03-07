@@ -76,15 +76,16 @@ const AtomSwitchToggle = forwardRef(
             id={id}
             name={name}
             type="button"
-            className={
-              (cx(suitClass({element: 'inputContainer'}), {
+            className={cx(
+              suitClass({element: 'inputContainer'}),
+              {
                 [suitClass({
                   element: 'inputContainer',
                   modifier: `position-${checked ? 'right' : 'left'}`
                 })]: checked
-              }),
-              className)
-            }
+              },
+              className
+            )}
             role="switch"
             aria-checked={checked || design === DESIGNS.SELECT}
             aria-disabled={disabled}

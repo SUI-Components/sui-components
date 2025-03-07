@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2025-03-07)
+
+
+### Bug Fixes
+
+* hotfix styling not changing ([f767316](https://github.com/SUI-Components/sui-components/commit/f767316cff48987db9b96e68be2f59fcf300a5ed))
+
+
+
 # 2.0.0 (2025-03-06)
 
 

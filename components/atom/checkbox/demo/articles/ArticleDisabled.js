@@ -3,6 +3,7 @@ import {Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, Cell, Code, Grid, H2, H3, Label, Paragraph} from '@s-ui/documentation-library'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomCheckbox from '../../src/index.js'
 import {flexCenteredStyle, ICONS} from '../settings.js'
@@ -56,7 +57,15 @@ const ArticleDisabled = ({className}) => (
           }).map(([label, props2], index2) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
-                <AtomCheckbox id={`${index1}-${index2}`} {...{...props1, ...props2}} disabled />
+                <AtomCheckbox
+                  id={`disabled-${index1}-${index2}`}
+                  {...{...props1, ...props2}}
+                  disabled
+                  aria-label="checkbox-diabled"
+                />
+                <PrimitiveVisuallyHidden>
+                  <Label htmlFor={`disabled-${index1}-${index2}`}>{`disabled-${index1}-${index2}`}</Label>
+                </PrimitiveVisuallyHidden>
               </Cell>
             </Fragment>
           ))}
@@ -105,7 +114,15 @@ const ArticleDisabled = ({className}) => (
           }).map(([label, props2], index2) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
-                <AtomCheckbox id={`${index1}-${index2}`} {...{...props1, ...props2}} readOnly />
+                <AtomCheckbox
+                  id={`readOnly-${index1}-${index2}`}
+                  {...{...props1, ...props2}}
+                  readOnly
+                  aria-label="checkbox-readonly"
+                />
+                <PrimitiveVisuallyHidden>
+                  <Label htmlFor={`readOnly-${index1}-${index2}`}>{`readOnly-${index1}-${index2}`}</Label>
+                </PrimitiveVisuallyHidden>
               </Cell>
             </Fragment>
           ))}

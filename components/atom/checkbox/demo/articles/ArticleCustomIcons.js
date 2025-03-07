@@ -2,7 +2,18 @@ import {useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {Article, Cell, Code, Grid, H2, Paragraph, RadioButton, RadioButtonGroup} from '@s-ui/documentation-library'
+import {
+  Article,
+  Cell,
+  Code,
+  Grid,
+  H2,
+  Label,
+  Paragraph,
+  RadioButton,
+  RadioButtonGroup
+} from '@s-ui/documentation-library'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomCheckbox from '../../src/index.js'
 import {flexCenteredStyle, ICONS} from '../settings.js'
@@ -31,11 +42,13 @@ const ArticleCustomIcons = ({className}) => {
             onChange={(event, value) => value && setState({checkedIcon: value})}
           >
             <RadioButton
+              aria-label="outline-check"
               value="AiOutlineCheck"
               label={<ICONS.AiOutlineCheck />}
               checked={state.checkedIcon === 'AiOutlineCheck'}
             />
             <RadioButton
+              aria-label="outline-close"
               value="AiOutlineClose"
               label={<ICONS.AiOutlineClose />}
               checked={state.checkedIcon === 'AiOutlineClose'}
@@ -47,7 +60,12 @@ const ArticleCustomIcons = ({className}) => {
             checkedIcon={ICONS[checkedIcon] || null}
             indeterminateIcon={ICONS[indeterminateIcon] || null}
             checked
+            id="icon-custom-checked"
+            aria-label="icon-custom-checked"
           />
+          <PrimitiveVisuallyHidden>
+            <Label htmlFor="icon-custom-checked">icon custom checked</Label>
+          </PrimitiveVisuallyHidden>
         </Cell>
       </Grid>
       <Paragraph>
@@ -62,21 +80,25 @@ const ArticleCustomIcons = ({className}) => {
             onChange={(event, value) => value && setState({indeterminateIcon: value})}
           >
             <RadioButton
+              aria-label="outline-line"
               value="AiOutlineLine"
               label={<ICONS.AiOutlineLine />}
               checked={state.indeterminateIcon === 'AiOutlineLine'}
             />
             <RadioButton
+              aria-label="outline-info"
               value="AiOutlineInfo"
               label={<ICONS.AiOutlineInfo />}
               checked={state.indeterminateIcon === 'AiOutlineInfo'}
             />
             <RadioButton
+              aria-label="outline-pause"
               value="AiOutlinePause"
               label={<ICONS.AiOutlinePause />}
               checked={state.indeterminateIcon === 'AiOutlinePause'}
             />
             <RadioButton
+              aria-label="outline-plus"
               value="AiOutlinePlus"
               label={<ICONS.AiOutlinePlus />}
               checked={state.indeterminateIcon === 'AiOutlinePlus'}
@@ -88,7 +110,12 @@ const ArticleCustomIcons = ({className}) => {
             checkedIcon={ICONS[checkedIcon] || null}
             indeterminateIcon={ICONS[indeterminateIcon] || null}
             indeterminate
+            id="icon-custom-indeterminate"
+            aria-label="icon-custom-indeterminate"
           />
+          <PrimitiveVisuallyHidden>
+            <Label htmlFor="icon-custom-indeterminate">icon custom checked</Label>
+          </PrimitiveVisuallyHidden>
         </Cell>
       </Grid>
     </Article>

@@ -39,10 +39,12 @@ const AtomCheckbox = forwardRef(
       status,
       size = CHECKBOX_SIZES.MEDIUM,
       value,
+      className,
       ...props
     },
     forwardedRef
   ) => {
+    console.log('props', props)
     const inputRef = useRef()
     const [checked, setChecked, isCheckedControlled] = useControlledState(checkedProp, defaultCheckedProp)
     const name = nameProp || id
@@ -136,7 +138,8 @@ const AtomCheckbox = forwardRef(
         className={cx(
           BASE_CLASS,
           `${BASE_CLASS}--native-${isNative ? 'enabled' : 'disabled'}`,
-          `${BASE_CLASS}--size-${size}`
+          `${BASE_CLASS}--size-${size}`,
+          className
         )}
       >
         <input
@@ -148,23 +151,27 @@ const AtomCheckbox = forwardRef(
           disabled={disabled}
           {...readOnlyAttributes}
           checked={checked}
-          {...(Object.values(CHECKBOX_STATUS).includes(status) && {
-            'data-status': status
-          })}
-          aria-hidden={!isNative}
           aria-checked={pressedValue({checked, indeterminate})}
-          indeterminate={indeterminate ? 'true' : undefined}
+          data-indeterminate={indeterminate ? 'true' : undefined}
           onChange={handleChange(inputRef)}
-          {...props}
+          {...{
+            ...(!isNative && {'aria-hidden': 'true'}),
+            ...(Object.values(CHECKBOX_STATUS).includes(status) && {
+              'data-status': status
+            }),
+            ...props
+          }}
         />
         <CheckboxIcon
           disabled={disabled}
           size={iconSize || size}
           status={status}
           checked={checked}
-          indeterminate={indeterminate}
+          data-indeterminate={indeterminate}
           onClick={handleClick}
+          isNative={isNative}
           icon={Icon}
+          {...props}
         />
       </span>
     )
@@ -184,7 +191,7 @@ AtomCheckbox.propTypes = {
    * Defines the value associated with the button's name when it's submitted with the form data.
    * This value is passed to the server in params when the form is submitted using this button.
    */
-  value: PropTypes.oneOf([PropTypes.number, PropTypes.string, PropTypes.bool]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.bool]),
 
   /* Name attribute for the input */
   name: PropTypes.string,
@@ -226,7 +233,10 @@ AtomCheckbox.propTypes = {
   onChange: PropTypes.func,
 
   /* Will set a red/green/orange border if set to 'error' / 'success' / 'alert' */
-  status: PropTypes.oneOf(Object.values(CHECKBOX_STATUS))
+  status: PropTypes.oneOf(Object.values(CHECKBOX_STATUS)),
+
+  /* Additional classes */
+  className: PropTypes.string
 }
 
 export default AtomCheckbox

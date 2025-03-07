@@ -2,6 +2,7 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './articles/ArticleA11y.js'
 import ArticleCustomIcons from './articles/ArticleCustomIcons.js'
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDisabled from './articles/ArticleDisabled.js'
@@ -33,6 +34,8 @@ const Demo = () => {
       <ArticleCustomIcons className={CLASS_SECTION} />
       <br />
       <ArticlePlayground className={CLASS_SECTION} />
+      <br />
+      <ArticleA11y className={CLASS_SECTION} />
     </div>
   )
 }

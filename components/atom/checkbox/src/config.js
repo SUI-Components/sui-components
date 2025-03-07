@@ -11,13 +11,17 @@ export const CHECKBOX_STATUS = {
 
 export const CHECKBOX_SIZES = {SMALL: 'small', MEDIUM: 'medium'}
 
-export const className = ({size, checked, disabled, indeterminate}) =>
-  cx(CLASS_ICON, {
-    [`${CLASS_ICON}--${size}`]: Object.values(CHECKBOX_SIZES).includes(size),
-    'is-checked': checked,
-    'is-disabled': disabled,
-    'is-indeterminate': indeterminate
-  })
+export const className = ({size, checked, disabled, indeterminate, className}) =>
+  cx(
+    CLASS_ICON,
+    {
+      [`${CLASS_ICON}--${size}`]: Object.values(CHECKBOX_SIZES).includes(size),
+      'is-checked': checked,
+      'is-disabled': disabled,
+      'is-indeterminate': indeterminate
+    },
+    className
+  )
 
 export const pressedValue = ({checked, indeterminate}) => {
   if (checked) {

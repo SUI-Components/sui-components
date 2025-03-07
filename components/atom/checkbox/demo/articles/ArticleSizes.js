@@ -3,6 +3,7 @@ import {Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import AtomCheckbox from '../../src/index.js'
 import {CHECKBOX_SIZE, flexCenteredStyle, ICONS} from '../settings.js'
@@ -41,13 +42,17 @@ const ArticleSizes = ({className}) => (
             <Fragment key={index2}>
               <Cell style={flexCenteredStyle}>
                 <AtomCheckbox
-                  id={`${index}-${index2}`}
+                  id={`size-${index}-${index2}`}
                   checkedIcon={ICONS.AiOutlineCheck}
                   indeterminateIcon={ICONS.AiOutlineLine}
                   checked={propChecked}
                   indeterminate={propIndeterminate}
                   size={size}
+                  aria-label={`checkbox-size-${size}-checked-${propChecked}`}
                 />
+                <PrimitiveVisuallyHidden>
+                  <Label htmlFor={`size-${index}-${index2}`}>{`size-${index}-${index2}`}</Label>
+                </PrimitiveVisuallyHidden>
               </Cell>
             </Fragment>
           ))}

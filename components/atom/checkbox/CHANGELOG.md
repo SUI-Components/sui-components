@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.10.0 (2025-03-07)
+
+
+### Bug Fixes
+
+* add a11y defs ([cf35620](https://github.com/SUI-Components/sui-components/commit/cf356201a7530c8b90f3de55c92e787384d53693))
+
+
+
 # 3.9.0 (2025-01-25)
 
 

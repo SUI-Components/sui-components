@@ -44,7 +44,6 @@ const AtomCheckbox = forwardRef(
     },
     forwardedRef
   ) => {
-    console.log('props', props)
     const inputRef = useRef()
     const [checked, setChecked, isCheckedControlled] = useControlledState(checkedProp, defaultCheckedProp)
     const name = nameProp || id

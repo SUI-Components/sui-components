@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.11.0 (2025-03-07)
+
+
+### Bug Fixes
+
+* remove unnecesary log ([7b81d25](https://github.com/SUI-Components/sui-components/commit/7b81d258e7d438f5d8832b52135482ce1ba0ae3c))
+
+
+
 # 3.10.0 (2025-03-07)
 
 

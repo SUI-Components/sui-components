@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.16.0 (2025-03-10)
+
+
+### Features
+
+* Add new shape prop ([e338d32](https://github.com/SUI-Components/sui-components/commit/e338d32a9f27812fb48e93d2056cd6b0fb594cfa))
+* Add new xsmall spacing ([f35c27d](https://github.com/SUI-Components/sui-components/commit/f35c27d5b9a928122ebb6c88c778616862c080fa))
+* Add shape demo ([f2b3a1e](https://github.com/SUI-Components/sui-components/commit/f2b3a1e3fa262f3eacc619d4dc07ea2130724760))
+
+
+
 # 2.15.0 (2024-04-29)
 
 

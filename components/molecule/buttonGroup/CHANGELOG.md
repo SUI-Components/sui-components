@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.17.0 (2025-03-10)
+
+
+### Bug Fixes
+
+* broken version ([aaa9bd3](https://github.com/SUI-Components/sui-components/commit/aaa9bd332466a8d4de72cfbf1f137228d0d457dd))
+
+
+
 # 2.16.0 (2025-03-10)
 
 

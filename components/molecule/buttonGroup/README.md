@@ -84,4 +84,15 @@ import AtomButtom, {atomButtonGroupPositions} from '@s-ui/react-atom-button'
 </MoleculeButtonGroup>
 ```
 
+
+### Shape
+
+```js
+<MoleculeButtonGroup type="secondary" shape={moleculeButtonGroupShapes.CIRCULAR} spaced="xsmall">
+  <AtomButtom>A</AtomButtom>
+  <AtomButtom>B</AtomButtom>
+  <AtomButtom>C</AtomButtom>
+</MoleculeButtonGroup>
+```
+
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/buttonGroup).**

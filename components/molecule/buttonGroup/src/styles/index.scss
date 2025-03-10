@@ -7,6 +7,10 @@ $base-class: '.sui-MoleculeButtonGroup';
     display: flex;
   }
 
+  &--spaced-xsmall {
+    gap: $p-xs;
+  }
+
   &--spaced-small {
     gap: $g-s;
   }

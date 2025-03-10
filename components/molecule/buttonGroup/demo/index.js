@@ -4,6 +4,7 @@ import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleDesign from './articles/ArticleDesign.js'
 import ArticleDisplay from './articles/ArticleDisplay.js'
 import ArticleMode from './articles/ArticleMode.js'
+import ArticleShape from './articles/ArticleShape.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleSpaced from './articles/ArticleSpaced.js'
 import ArticleVertical from './articles/ArticleVertical.js'
@@ -29,6 +30,8 @@ const Demo = () => {
       <ArticleMode className={CLASS_SECTION} />
       <br />
       <ArticleVertical className={CLASS_SECTION} />
+      <br />
+      <ArticleShape className={CLASS_SECTION} />
     </div>
   )
 }

@@ -3,7 +3,8 @@ import {Children} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
+import {atomButtonDesigns, atomButtonShapes, atomButtonSizes} from '@s-ui/react-atom-button'
+import {SHAPES} from '@s-ui/react-atom-button/src/config.js'
 import Injector from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
@@ -11,9 +12,9 @@ import {DEFAULT_COLUMNS, DISPLAY, SPACED} from './config.js'
 import {BASE_CLASS} from './settings.js'
 
 const getGroupPosition =
-  ({groupPositions, numChildren, spaced}) =>
+  ({groupPositions, numChildren, spaced, shape}) =>
   index => {
-    if (spaced) {
+    if (spaced && !shape) {
       return groupPositions.UNSET
     } else {
       if (index === 0) return groupPositions.FIRST
@@ -40,6 +41,7 @@ const MoleculeButtonGroup = ({
   onClick,
   spaced,
   isVertical,
+  shape,
   ...props
 }) => {
   const numChildren = children.length
@@ -47,7 +49,8 @@ const MoleculeButtonGroup = ({
   const getGroupPositionByIndex = getGroupPosition({
     spaced,
     groupPositions,
-    numChildren
+    numChildren,
+    shape
   })
 
   const getClassSpaced = ({spaced = SPACED.MEDIUM}) => {
@@ -83,6 +86,7 @@ const MoleculeButtonGroup = ({
           fullWidth={fullWidth}
           spaced={spaced}
           onClick={onClick}
+          shape={shape}
         >
           {child}
         </Injector>
@@ -151,7 +155,10 @@ MoleculeButtonGroup.propTypes = {
   display: PropTypes.oneOf(Object.values(DISPLAY)),
 
   /** buttons should have a vertical layout */
-  isVertical: PropTypes.bool
+  isVertical: PropTypes.bool,
+
+  /** Shape of button */
+  shape: PropTypes.oneOf(Object.values(SHAPES))
 }
 
 export default MoleculeButtonGroup
@@ -159,6 +166,7 @@ export default MoleculeButtonGroup
 export {
   atomButtonDesigns as moleculeButtonGroupDesigns,
   atomButtonSizes as moleculeButtonGroupSizes,
+  atomButtonShapes as moleculeButtonGroupShapes,
   SPACED as moleculeButtonGroupSpaced,
   DISPLAY as moleculeButtonGroupDisplay
 }

@@ -29,6 +29,7 @@ describe(json.name, () => {
       'moleculeButtonGroupDesigns',
       'moleculeButtonGroupDisplay',
       'moleculeButtonGroupSpaced',
+      'moleculeButtonGroupShapes',
       'default'
     ]
 
@@ -38,6 +39,7 @@ describe(json.name, () => {
       moleculeButtonGroupDesigns,
       moleculeButtonGroupDisplay,
       moleculeButtonGroupSpaced,
+      moleculeButtonGroupShapes,
       default: MoleculeButtonGroup,
       ...others
     } = library

@@ -1,8 +1,8 @@
 $c-atom-label: inherit !default;
 $c-atom-label-optional: $c-gray-dark !default;
 $c-atom-label-contrast: var(--c-base-inverse, $c-white) !default;
-$c-atom-label-disabled: inherit !default;
-$o-atom-label-disabled: 0.3 !default;
+$c-atom-label-disabled: $c-gray-dark-2 !default;
+$o-atom-label-disabled: 0.7 !default;
 $fw-atom-label: inherit !default;
 $c-atom-label-type: (
   success $c-success,

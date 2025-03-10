@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 
-import AtomCheckbox, {atomCheckboxSizes, atomCheckboxStatus} from '@s-ui/react-atom-checkbox'
+import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import MoleculeField from '@s-ui/react-molecule-field'
 import cx from 'classnames'
 
-import {BASE_CLASS} from './settings.js'
+import {BASE_CLASS, SIZES, STATUSES} from './settings.js'
 
 const MoleculeCheckboxField = ({
   id,
@@ -85,4 +85,4 @@ MoleculeCheckboxField.propTypes = {
 
 export default MoleculeCheckboxField
 
-export {atomCheckboxStatus as moleculeCheckboxFieldStatus, atomCheckboxSizes as moleculeCheckboxFieldSizes}
+export {STATUSES as moleculeCheckboxFieldStatus, SIZES as moleculeCheckboxFieldSizes}

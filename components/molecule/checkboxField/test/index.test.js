@@ -36,7 +36,7 @@ describe(json.name, () => {
   describe(Component.displayName, () => {
     it('should render without crashing', () => {
       // Given
-      const props = {}
+      const props = {label: 'label'}
 
       // When
       const component = <Component {...props} />
@@ -49,7 +49,7 @@ describe(json.name, () => {
 
     it('should NOT render null', () => {
       // Given
-      const props = {}
+      const props = {label: 'label'}
 
       // When
       const {container} = setup(props)
@@ -59,10 +59,11 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {
-        className: 'extended-classNames'
+        className: 'extended-classNames',
+        label: 'label'
       }
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
@@ -71,14 +72,39 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {label: 'label', 'data-attribute': 'data-attribute'}
+
+      // When
+      const {container} = setup(props)
+
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {label: 'label', 'aria-attribute': 'aria-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
     })
 
     describe('props', () => {
       describe('label & nodeLabel', () => {
         it('should render the empty component if there is not label or nodeLabel props', async () => {
           // Given
-          const props = {}
+          const props = {label: 'label'}
 
           // When
           const {container} = setup(props)

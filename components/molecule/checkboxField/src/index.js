@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 
 import AtomCheckbox, {atomCheckboxSizes, atomCheckboxStatus} from '@s-ui/react-atom-checkbox'
 import MoleculeField from '@s-ui/react-molecule-field'
+import cx from 'classnames'
 
 import {BASE_CLASS} from './settings.js'
 
@@ -16,10 +17,11 @@ const MoleculeCheckboxField = ({
   helpText,
   onChange,
   disabled,
+  className,
   ...props
 }) => {
   return (
-    <div className={BASE_CLASS}>
+    <div className={cx(BASE_CLASS, className)}>
       <MoleculeField
         name={id}
         label={label}
@@ -75,7 +77,10 @@ MoleculeCheckboxField.propTypes = {
   inline: PropTypes.bool,
 
   /* Boolean to decide if elements should be disabled */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+
+  /** Additional classes */
+  className: PropTypes.string
 }
 
 export default MoleculeCheckboxField

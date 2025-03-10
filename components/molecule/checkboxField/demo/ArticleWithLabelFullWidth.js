@@ -1,7 +1,7 @@
 import MoleculeCheckboxField from 'components/molecule/checkboxField/src'
 import PropTypes from 'prop-types'
 
-import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
+import {Article, Button, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
 const styleBorderedContainer = {
   display: 'flex',
@@ -27,7 +27,7 @@ export const ArticleWithLabelFullWidth = ({className}) => {
         nodeLabel={
           <div style={styleBorderedContainer}>
             <div style={styleCenteredText}>I'm full width</div>
-            <button>Action</button>
+            <Button>Action</Button>
           </div>
         }
         // eslint-disable-next-line no-console

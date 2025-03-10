@@ -7,6 +7,7 @@ import ArticleStatus from './ArticleStatus.js'
 import ArticleWithCustomCheckedIcon from './ArticleWithCustomCheckedIcon.js'
 import ArticleWithHelpText from './ArticleWithHelpText.js'
 import ArticleWithLabelFullWidth from './ArticleWithLabelFullWidth.js'
+import ArticleA11y from './ArticleA11y.js'
 
 import './index.scss'
 
@@ -30,6 +31,7 @@ const Demo = () => {
         <br />
         <ArticleWithCustomCheckedIcon className={CLASS_NAME} />
         <br />
+        <ArticleA11y className={CLASS_NAME} />
       </div>
     </div>
   )

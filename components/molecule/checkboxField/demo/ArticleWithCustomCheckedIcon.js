@@ -15,7 +15,7 @@ export const ArticleWithCustomCheckedIcon = ({className}) => {
         id="custom-checked-icon-id"
         name="custom-checked-icon-name"
         value="value"
-        label={<div>I'm a label as a react node clickable</div>}
+        nodeLabel={<div>I'm a label as a react node clickable</div>}
         checkedIcon={CheckedIcon}
         uncheckedIcon={UncheckedIcon}
         onChange={(e, {name, value, checked}) => {

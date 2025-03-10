@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2025-03-10)
+
+
+### Features
+
+* a11y check ([7a87972](https://github.com/SUI-Components/sui-components/commit/7a87972e52f397471466b249844b49431d7c151e))
+
+
+
 # 1.10.0 (2025-01-07)
 
 

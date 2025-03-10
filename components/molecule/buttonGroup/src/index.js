@@ -4,7 +4,6 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {atomButtonDesigns, atomButtonShapes, atomButtonSizes} from '@s-ui/react-atom-button'
-import {SHAPES} from '@s-ui/react-atom-button/src/config.js'
 import Injector from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
@@ -158,7 +157,7 @@ MoleculeButtonGroup.propTypes = {
   isVertical: PropTypes.bool,
 
   /** Shape of button */
-  shape: PropTypes.oneOf(Object.values(SHAPES))
+  shape: PropTypes.oneOf(Object.values(atomButtonShapes))
 }
 
 export default MoleculeButtonGroup

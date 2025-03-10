@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.3.0 (2025-03-10)
+
+
+### Features
+
+* add porp spreading and open props and a11y layer ([0e1b618](https://github.com/SUI-Components/sui-components/commit/0e1b618d8e641180d17cf12c63fa4308811d7dc9))
+
+
+
 # 5.2.0 (2024-05-06)
 
 

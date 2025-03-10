@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.4.0 (2025-03-10)
+
+
+### Bug Fixes
+
+* build method warning ([4316a94](https://github.com/SUI-Components/sui-components/commit/4316a948085b9ddf4ef45ab716874845f1a23afa))
+
+
+
 # 5.3.0 (2025-03-10)
 
 

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.47.0 (2025-03-13)
+
+
+### Features
+
+* add overflow hidden to prevent content overflow ([e9c0303](https://github.com/SUI-Components/sui-components/commit/e9c03033252c7a97bb38f3ba102286c5a175f3f1))
+
+
+
 # 1.46.0 (2024-09-23)
 
 

@@ -22,6 +22,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
     display: flex;
     justify-content: space-between;
     max-width: $mw-select-popover;
+    overflow: hidden;
     padding: $p-m $p-l;
     user-select: none;
 

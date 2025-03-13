@@ -27,48 +27,6 @@ $base-class: '.sui-AtomButton';
     margin-left: $m-consecutive-atom-button;
   }
 
-  &-group {
-    margin-left: -1px;
-    margin-right: 0;
-    padding: 0 $p-atom-button-group-sides;
-
-    & + & {
-      margin-left: -1px;
-      margin-right: 0;
-    }
-
-    &--middle {
-      &#{$base-class} {
-        border-radius: 0;
-      }
-    }
-
-    &--first {
-      &#{$base-class} {
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-      }
-    }
-
-    &--last {
-      &#{$base-class} {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
-    }
-
-    &--selected {
-      &#{$base-class} {
-        border-radius: $bdrs-atom-button-group-selected;
-        box-shadow: $bxsh-atom-button-group-selected;
-      }
-    }
-
-    &--focused {
-      border: $bd-atom-button-group-focused;
-    }
-  }
-
   &-inner,
   &-content {
     display: inline-flex;
@@ -194,6 +152,7 @@ $base-class: '.sui-AtomButton';
           }
         }
       }
+
       &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
         $c-atom-button-focused: color-variation($color, -1) !default;
         $c-atom-button-link-focused: $c-atom-button-focused !default;
@@ -323,9 +282,52 @@ $base-class: '.sui-AtomButton';
 
   &--empty {
     padding: 0;
+
     #{$base-class}-leftIcon,
     #{$base-class}-rightIcon {
       margin: 0;
+    }
+  }
+
+  &-group {
+    margin-left: -1px;
+    margin-right: 0;
+    padding: 0 $p-atom-button-group-sides;
+
+    & + & {
+      margin-left: -1px;
+      margin-right: 0;
+    }
+
+    &--middle {
+      &#{$base-class} {
+        border-radius: 0;
+      }
+    }
+
+    &--first {
+      &#{$base-class} {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &--last {
+      &#{$base-class} {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    &--selected {
+      &#{$base-class} {
+        border-radius: $bdrs-atom-button-group-selected;
+        box-shadow: $bxsh-atom-button-group-selected;
+      }
+    }
+
+    &--focused {
+      border: $bd-atom-button-group-focused;
     }
   }
 }

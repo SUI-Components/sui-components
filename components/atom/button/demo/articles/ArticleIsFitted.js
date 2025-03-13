@@ -3,9 +3,8 @@ import {useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {Article, Box, Code, H2, ListItem, Paragraph, RadioButton, UnorderedList} from '@s-ui/documentation-library'
-
 import AtomButton, {atomButtonGroupPositions} from '../../src/index.js'
-import {atomButtonShapesIterator} from '../settings.js'
+import {atomButtonShapesIterator, atomButtonSizesIterator} from '../settings.js'
 
 const ArticleIsFitted = ({className}) => {
   const [isFitted, setIsFitted] = useState()
@@ -41,25 +40,57 @@ const ArticleIsFitted = ({className}) => {
         <Paragraph>It works even with group not affecting its spacings</Paragraph>
 
         {atomButtonShapesIterator.map(([{key, shape}]) => (
-          <Box key={key} style={{padding: 8, display: 'flex', gap: 8, alignItems: 'center'}}>
+          <Box key={key} style={{padding: 8}}>
             <div>{`Shape="${shape}"`}</div>
-            <div>
-              <AtomButton shape={shape} groupPosition={atomButtonGroupPositions.FIRST} isFitted={isFitted}>
-                button 1
-              </AtomButton>
-              <AtomButton shape={shape} groupPosition={atomButtonGroupPositions.MIDDLE} isFitted={isFitted}>
-                button 2
-              </AtomButton>
-              <AtomButton shape={shape} groupPosition={atomButtonGroupPositions.MIDDLE} isFitted={isFitted}>
-                button 3
-              </AtomButton>
-              <AtomButton shape={shape} groupPosition={atomButtonGroupPositions.MIDDLE} isFitted={isFitted}>
-                button 4
-              </AtomButton>
-              <AtomButton shape={shape} groupPosition={atomButtonGroupPositions.LAST} isFitted={isFitted}>
-                button 5
-              </AtomButton>
-            </div>
+            {[[{key: 'null', size: 'normal'}], ...atomButtonSizesIterator].map(([{key: k, size}]) => {
+              return (
+                <div key={`${key}-${k}`} style={{display: 'flex', gap: 8, alignItems: 'center', margin: 8}}>
+                  <div>{`Size=${size}`}</div>
+                  <div>
+                    <AtomButton
+                      shape={shape}
+                      size={size}
+                      groupPosition={atomButtonGroupPositions.FIRST}
+                      isFitted={isFitted}
+                    >
+                      button 1
+                    </AtomButton>
+                    <AtomButton
+                      shape={shape}
+                      size={size}
+                      groupPosition={atomButtonGroupPositions.MIDDLE}
+                      isFitted={isFitted}
+                    >
+                      button 2
+                    </AtomButton>
+                    <AtomButton
+                      shape={shape}
+                      size={size}
+                      groupPosition={atomButtonGroupPositions.MIDDLE}
+                      isFitted={isFitted}
+                    >
+                      button 3
+                    </AtomButton>
+                    <AtomButton
+                      shape={shape}
+                      size={size}
+                      groupPosition={atomButtonGroupPositions.MIDDLE}
+                      isFitted={isFitted}
+                    >
+                      button 4
+                    </AtomButton>
+                    <AtomButton
+                      shape={shape}
+                      size={size}
+                      groupPosition={atomButtonGroupPositions.LAST}
+                      isFitted={isFitted}
+                    >
+                      button 5
+                    </AtomButton>
+                  </div>
+                </div>
+              )
+            })}
           </Box>
         ))}
       </div>

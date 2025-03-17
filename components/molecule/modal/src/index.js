@@ -1,44 +1,42 @@
-import {forwardRef} from 'react'
-
-import PropTypes from 'prop-types'
-
-import MoleculeModalContent from './Content/index.js'
-import MoleculeModalFooter from './Footer/index.js'
 import {MODAL_SIZES} from './config.js'
-import MoleculeModal from './MoleculeModal.js'
-import MoleculeModalWithoutAnimation from './MoleculeModalWithoutAnimation.js'
-import MoleculeModalWithURLState from './MoleculeModalWithURLState.js'
 
-const MoleculeModalWithAnimation = forwardRef(({onClose, onAnimationEnd, ...rest}, ref) => {
-  return <MoleculeModal ref={ref} onAnimationEnd={onAnimationEnd} onClose={onClose} {...rest} />
-})
+import Root from './Modal.Root.js'
+import Trigger from './Modal.Trigger.js'
+import Portal from './Modal.Portal.js'
+import Content from './Modal.Content.js'
+import Header from './Modal.Header.js'
+import Title from './Modal.Title.js'
+import Description from './Modal.Description.js'
+import Body from './Modal.Body.js'
+import Footer from './Modal.Footer.js'
+import Overlay from './Modal.Overlay.js'
 
-MoleculeModalWithAnimation.displayName = `(${MoleculeModal.displayName})WithAnimation`
-MoleculeModalWithAnimation.contextTypes = MoleculeModal.contextTypes
-MoleculeModalWithAnimation.propTypes = {
-  onClose: PropTypes.func,
-  onAnimationEnd: PropTypes.func
+export const Modal = {
+  Trigger,
+  Portal,
+  Content,
+  Header,
+  Title,
+  Description,
+  Body,
+  Footer,
+  Overlay
 }
 
-MoleculeModalWithAnimation.displayName = 'MoleculeModal'
+const MoleculeModal = Root
 
-MoleculeModalWithAnimation.Content = MoleculeModalContent
-MoleculeModalWithAnimation.Footer = MoleculeModalFooter
+MoleculeModal.displayName = 'MoleculeModal.Root'
 
-MoleculeModal.Content = MoleculeModalContent
-MoleculeModal.Footer = MoleculeModalFooter
-
-export {
-  MODAL_SIZES as MoleculeModalSizes,
-  MODAL_SIZES as moleculeModalSizes,
-  MODAL_SIZES,
-  MoleculeModal,
-  MoleculeModalContent,
-  MoleculeModalFooter,
-  MoleculeModalWithURLState,
-  MoleculeModalWithURLState as MoleculeModalWithUrlState,
-  MoleculeModalWithAnimation,
-  MoleculeModalWithoutAnimation
-}
+MoleculeModal.Trigger = Trigger
+MoleculeModal.Portal = Portal
+MoleculeModal.Content = Content
+MoleculeModal.Header = Header
+MoleculeModal.Title = Title
+MoleculeModal.Description = Description
+MoleculeModal.Body = Body
+MoleculeModal.Footer = Footer
+MoleculeModal.Overlay = Overlay
 
 export default MoleculeModal
+
+export {MODAL_SIZES as moleculeModalSizes}

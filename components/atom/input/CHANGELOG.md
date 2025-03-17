@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.44.0 (2025-03-17)
+
+
+### Features
+
+* lint ([6fa05d0](https://github.com/SUI-Components/sui-components/commit/6fa05d00ad0637572cdb2193cbb9bbb8c7c3f631))
+
+
+
 # 5.43.0 (2025-03-12)
 
 

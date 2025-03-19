@@ -5,6 +5,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import Button from '@s-ui/react-atom-button'
+import AtomIcon from '@s-ui/react-atom-icon'
 import IconClose from '@s-ui/react-icons/lib/Close'
 
 import {
@@ -121,7 +122,13 @@ const MoleculeNotification = memo(
         <div className={wrapperClassName}>
           <div className={contentClassName}>
             <div className={iconLeftClassName}>
-              <span className={`${CLASS}-icon`}>{icon || ICONS[type]}</span>
+              <span className={`${CLASS}-icon`}>
+                {icon ?? (
+                  <AtomIcon role="presentation" aria-hidden="true">
+                    {ICONS[type]}
+                  </AtomIcon>
+                )}
+              </span>
             </div>
             <div className={innerWrapperClassName}>{children || text}</div>
             {showCloseButton && (

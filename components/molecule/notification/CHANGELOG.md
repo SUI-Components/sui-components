@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.35.0 (2025-03-20)
+
+
+### Features
+
+* added aria-hidden and role prestation to notification icon t ([c280af2](https://github.com/SUI-Components/sui-components/commit/c280af220181e9f379789264349b13d3f43670de))
+
+
+
 # 1.34.0 (2022-10-01)
 
 
@@ -393,6 +402,3 @@
 * **molecule/notification:** update readme ([af1be2a](https://github.com/SUI-Components/sui-components/commit/af1be2a8bf23b3281b67d3a8d6ba45b37645ceab))
 * **molecule/notification:** use new breackpoints ([d314a80](https://github.com/SUI-Components/sui-components/commit/d314a802c7ad2fea1fd9236d160d825142516a25))
 * **molecule/notification:** use new icons ([c3e143c](https://github.com/SUI-Components/sui-components/commit/c3e143c4df924957e7dcd8450fb7a5be584a77a4))
-
-
-

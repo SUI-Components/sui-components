@@ -5,3 +5,41 @@
 
 @import './styles/index.scss';
 @import './SUILoader/index.scss';
+
+.sui-AtomSpinner {
+  // ...existing code...
+
+  &--noAnimation {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  &-visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+
+// Add animation speed variants
+.sui-AtomSpinner--speed {
+  &-slow {
+    animation-duration: 2s;
+  }
+  &-default {
+    animation-duration: 1.5s;
+  }
+  &-fast {
+    animation-duration: 1s;
+  }
+}

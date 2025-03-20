@@ -177,4 +177,27 @@ describe(json.name, () => {
       })
     })
   })
+
+  describe('accessibility features', () => {
+    it('should have correct ARIA attributes', () => {
+      const props = {
+        ariaLabel: 'Loading content',
+        ariaLive: 'polite'
+      }
+      const {container} = setup(props)
+      const spinner = container.firstChild
+
+      expect(spinner).to.have.attribute('role', 'status')
+      expect(spinner).to.have.attribute('aria-live', 'polite')
+      expect(spinner).to.have.attribute('aria-label', 'Loading content')
+    })
+
+    it('should respect animation preferences', () => {
+      const props = {
+        disableAnimation: true
+      }
+      const {container} = setup(props)
+      expect(container.firstChild).to.have.class('sui-AtomSpinner--noAnimation')
+    })
+  })
 })

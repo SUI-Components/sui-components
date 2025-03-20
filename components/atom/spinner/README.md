@@ -103,5 +103,30 @@ return (
 )
 ```
 
+## Accessibility Features
+
+The Spinner component is WCAG 2.2 compliant and includes the following accessibility features:
+
+- Uses appropriate ARIA role="status" for loading state
+- Provides screen reader feedback via aria-live regions
+- Respects user's motion preferences (prefers-reduced-motion)
+- Supports customizable ARIA labels
+- Does not interfere with keyboard navigation
+- Offers animation speed control
+
+### Usage with Accessibility Options
+
+```jsx
+// Basic usage with accessibility props
+<AtomSpinner 
+  ariaLabel="Loading profile data"
+  ariaLive="polite"
+  speed="slow"
+  disableAnimation={false}
+/>
+
+// For users who prefer reduced motion
+<AtomSpinner disableAnimation={true} />
+```
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/spinner/demo).**

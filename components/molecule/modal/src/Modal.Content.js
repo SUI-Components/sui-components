@@ -14,7 +14,7 @@ const Content = forwardRef(
     {
       as: As = 'div',
       className,
-      size,
+      size = MODAL_SIZES.MEDIUM,
       onOpenAutoFocus,
       onCloseAutoFocus,
       onEscapeKeyDown,
@@ -34,13 +34,17 @@ const Content = forwardRef(
         onPointerDownOutside={onPointerDownOutside}
         onInteractOutside={onInteractOutside}
       >
-        <As className={cx(BASE_CLASS_CONTENT, {[`${BASE_CLASS_CONTENT}--size-${size}`]: size}, className)} {...props} />
+        <As
+          data-sui-component={Content.displayName}
+          className={cx(BASE_CLASS_CONTENT, {[`${BASE_CLASS_CONTENT}--size-${size}`]: size}, className)}
+          {...props}
+        />
       </RadixContent>
     )
   }
 )
 
-Content.displayName = 'MoleculeModal.Overlay'
+Content.displayName = 'MoleculeModal.Content'
 
 Content.propTypes = {
   /* Render the passed value as the correspondent HTML tag or the component if a function is passed */

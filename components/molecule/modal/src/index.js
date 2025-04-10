@@ -1,7 +1,8 @@
 import {MODAL_SIZES} from './config.js'
 
 import Root from './Modal.Root.js'
-import Trigger from './Modal.Trigger.js'
+import OpenTrigger from './Modal.OpenTrigger.js'
+import CloseTrigger from './Modal.CloseTrigger.js'
 import Portal from './Modal.Portal.js'
 import Content from './Modal.Content.js'
 import Header from './Modal.Header.js'
@@ -10,9 +11,13 @@ import Description from './Modal.Description.js'
 import Body from './Modal.Body.js'
 import Footer from './Modal.Footer.js'
 import Overlay from './Modal.Overlay.js'
+import CloseIconButton from './Modal.CloseIconButton.js'
 
-export const Modal = {
-  Trigger,
+export {
+  Root as Modal,
+  Root,
+  OpenTrigger,
+  CloseTrigger,
   Portal,
   Content,
   Header,
@@ -20,14 +25,16 @@ export const Modal = {
   Description,
   Body,
   Footer,
-  Overlay
+  Overlay,
+  CloseIconButton
 }
 
 const MoleculeModal = Root
 
 MoleculeModal.displayName = 'MoleculeModal.Root'
 
-MoleculeModal.Trigger = Trigger
+MoleculeModal.OpenTrigger = OpenTrigger
+MoleculeModal.CloseTrigger = CloseTrigger
 MoleculeModal.Portal = Portal
 MoleculeModal.Content = Content
 MoleculeModal.Header = Header
@@ -36,6 +43,7 @@ MoleculeModal.Description = Description
 MoleculeModal.Body = Body
 MoleculeModal.Footer = Footer
 MoleculeModal.Overlay = Overlay
+MoleculeModal.CloseIconButton = CloseIconButton
 
 export default MoleculeModal
 

@@ -1,5 +1,14 @@
 $base-class: '.sui-MoleculeModal';
 
-#{$base-class} {
+@import '../Modal.Overlay.index.scss';
+@import '../Modal.Content.index.scss';
+@import '../Modal.Header.index.scss';
+@import '../Modal.Title.index.scss';
+@import '../Modal.Body.index.scss';
+@import '../Modal.Description.index.scss';
+@import '../Modal.Footer.index.scss';
+@import '../Modal.OpenTrigger.index.scss';
+@import '../Modal.CloseIconButton.index.scss';
 
+#{$base-class} {
 }

@@ -1,0 +1,6 @@
+$base-class-element: '#{$base-class}-Footer';
+
+#{$base-class-element} {
+  padding-inline: $px-molecule-modal-footer;
+  padding-block: $py-molecule-modal-footer;
+}

@@ -1,0 +1,11 @@
+$base-class-element: '#{$base-class}-Header';
+
+#{$base-class-element} {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-inline: $px-molecule-modal-header;
+  padding-block: $py-molecule-modal-header;
+  height: $h-molecule-modal-header;
+}

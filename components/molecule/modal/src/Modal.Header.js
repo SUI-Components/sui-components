@@ -10,7 +10,12 @@ const BASE_CLASS_HEADER = `${BASE_CLASS}-Header`
 /** The header content of the modal. **/
 const Header = forwardRef(({as: As = 'header', className, children, ...props}, forwardedRef) => {
   return (
-    <As className={cx(BASE_CLASS_HEADER, className)} {...props} ref={forwardedRef}>
+    <As
+      data-sui-component={Header.displayName}
+      className={cx(BASE_CLASS_HEADER, className)}
+      {...props}
+      ref={forwardedRef}
+    >
       {children}
     </As>
   )

@@ -1,0 +1,8 @@
+$base-class-element: '#{$base-class}-Title';
+
+#{$base-class-element} {
+  margin: 0;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

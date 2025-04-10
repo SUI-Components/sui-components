@@ -18,7 +18,12 @@ const BASE_CLASS_DESCRIPTION = `${BASE_CLASS}-Description`
 const Description = forwardRef(({as: As = 'p', className, ...props}, forwardedRef) => {
   return (
     <RadixDescription asChild={true}>
-      <As className={cx(BASE_CLASS_DESCRIPTION, className)} ref={forwardedRef} {...props} />
+      <As
+        data-sui-component={Description.displayName}
+        className={cx(BASE_CLASS_DESCRIPTION, className)}
+        ref={forwardedRef}
+        {...props}
+      />
     </RadixDescription>
   )
 })

@@ -12,7 +12,12 @@ const BASE_CLASS_OVERLAY = `${BASE_CLASS}-Overlay`
 const Overlay = forwardRef(({as: As = 'div', forceMount, className, ...props}, forwardedRef) => {
   return (
     <RadixOverlay asChild={true} forceMount={forceMount}>
-      <As className={cx(BASE_CLASS_OVERLAY, className)} {...props} ref={forwardedRef} />
+      <As
+        data-sui-component={Overlay.displayName}
+        className={cx(BASE_CLASS_OVERLAY, className)}
+        {...props}
+        ref={forwardedRef}
+      />
     </RadixOverlay>
   )
 })

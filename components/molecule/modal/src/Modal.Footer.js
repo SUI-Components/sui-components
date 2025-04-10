@@ -10,7 +10,12 @@ const BASE_CLASS_FOOTER = `${BASE_CLASS}-Footer`
 /** The body content of the modal. **/
 const Footer = forwardRef(({as: As = 'footer', className, children, ...props}, forwardedRef) => {
   return (
-    <As className={cx(BASE_CLASS_FOOTER, className)} {...props} ref={forwardedRef}>
+    <As
+      data-sui-component={Footer.displayName}
+      className={cx(BASE_CLASS_FOOTER, className)}
+      {...props}
+      ref={forwardedRef}
+    >
       {children}
     </As>
   )

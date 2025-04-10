@@ -1,0 +1,12 @@
+$base-class-element: '#{$base-class}-Overlay';
+
+#{$base-class-element} {
+  background-color: $bgc-molecule-modal-overlay;
+  position: fixed;
+  inset: 0;
+  display: block;
+  top: 0;
+  bottom: 0;
+  z-index: calc($z-molecule-modal - 1);
+
+}

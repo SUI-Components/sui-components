@@ -1,0 +1,33 @@
+@use 'sass:math';
+
+$base-class-element: '#{$base-class}-Body';
+
+#{$base-class-element} {
+  padding-inline: $px-molecule-modal-body;
+  margin-block: $py-molecule-modal-body;
+  padding-right: math.div($px-molecule-modal-body, 2) + math.div($sz-base, 2);
+  margin-right: math.div($px-molecule-modal-body, 2) - math.div($sz-base, 2);
+  overflow-y: auto;
+  flex-grow: 1;
+  width: calc(100% - 2 * (#{$px-molecule-modal-body}));
+  &::-webkit-scrollbar {
+    width: $sz-base;
+    border-radius: $sz-base;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $bgc-molecule-modal-body-scrollbar-track;
+    border-radius: $sz-base;
+    background-clip: content-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $bdc-molecule-modal-body-scrollbar-track;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $bgc-molecule-modal-body-scrollbar-thumb;
+    border-radius: $sz-base;
+    background-clip: content-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $bdc-molecule-modal-body-scrollbar-thumb;
+  }
+}

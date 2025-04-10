@@ -18,7 +18,12 @@ const BASE_CLASS_TITLE = `${BASE_CLASS}-Title`
 const Title = forwardRef(({as: As = 'h2', className, ...props}, forwardedRef) => {
   return (
     <RadixTitle asChild={true}>
-      <As className={cx(BASE_CLASS_TITLE, className)} ref={forwardedRef} {...props} />
+      <As
+        data-sui-component={Title.displayName}
+        className={cx(BASE_CLASS_TITLE, className)}
+        ref={forwardedRef}
+        {...props}
+      />
     </RadixTitle>
   )
 })

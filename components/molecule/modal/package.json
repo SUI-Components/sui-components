@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
+    "@s-ui/react-primitive-visually-hidden": "1",
+    "@s-ui/react-atom-icon": "1",
     "@s-ui/react-hooks": "1",
     "@radix-ui/react-dialog": "1.1.6",
     "classnames": "2.5.1"

@@ -109,6 +109,7 @@ export const OWN_PROPS = [
   'loadingText',
   'negative',
   'rightIcon',
+  'shape',
   'type'
 ]
 

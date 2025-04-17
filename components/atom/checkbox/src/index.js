@@ -19,6 +19,12 @@ import {
   updateStatus
 } from './config.js'
 
+const getTestId = (testId, icon, suffix) => {
+  if (!testId) return undefined
+  if (icon) return `${testId}-${suffix}`
+  return testId
+}
+
 const AtomCheckbox = forwardRef(
   (
     {
@@ -161,7 +167,7 @@ const AtomCheckbox = forwardRef(
             }),
             ...props
           }}
-          data-testid={testId ? `${testId}-input` : undefined}
+          data-testid={getTestId(testId, Icon, 'input')}
         />
         <CheckboxIcon
           disabled={disabled}
@@ -173,7 +179,7 @@ const AtomCheckbox = forwardRef(
           isNative={isNative}
           icon={Icon}
           {...props}
-          data-testid={testId ? `${testId}-icon` : undefined}
+          data-testid={getTestId(testId, Icon, 'icon')}
         />
       </span>
     )

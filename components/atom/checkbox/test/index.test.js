@@ -87,6 +87,21 @@ describe(json.name, () => {
       expect(element).to.not.be.null
     })
 
+    it('should have data test id', () => {
+      // Given
+      const testId = 'demo-testid'
+
+      const props = {'data-testid': testId}
+
+      // When
+      const component = setup(props)
+      const {getByTestId} = component
+      const elementWithDefaultTestId = getByTestId(testId)
+
+      // Then
+      expect(elementWithDefaultTestId).to.not.be.null
+    })
+
     it('should have aria attributes', () => {
       // Given
       const props = {'aria-attribute': 'aria-attribute'}
@@ -135,6 +150,21 @@ describe(json.name, () => {
 
         // Then
         expect(element).to.not.be.null
+      })
+
+      it('should have data test id', () => {
+        // Given
+        const testId = 'demo-testid'
+
+        const props = {'data-testid': testId}
+
+        // When
+        const component = setup(props)
+        const {getByTestId} = component
+        const elementWithDefaultTestId = getByTestId(testId)
+
+        // Then
+        expect(elementWithDefaultTestId).to.not.be.null
       })
 
       it('should have aria attributes', () => {

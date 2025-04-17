@@ -40,6 +40,7 @@ const AtomCheckbox = forwardRef(
       size = CHECKBOX_SIZES.MEDIUM,
       value,
       className,
+      'data-testid': testId,
       ...props
     },
     forwardedRef
@@ -160,6 +161,7 @@ const AtomCheckbox = forwardRef(
             }),
             ...props
           }}
+          data-testid={testId ? `${testId}-input` : undefined}
         />
         <CheckboxIcon
           disabled={disabled}
@@ -171,6 +173,7 @@ const AtomCheckbox = forwardRef(
           isNative={isNative}
           icon={Icon}
           {...props}
+          data-testid={testId ? `${testId}-icon` : undefined}
         />
       </span>
     )
@@ -235,7 +238,10 @@ AtomCheckbox.propTypes = {
   status: PropTypes.oneOf(Object.values(CHECKBOX_STATUS)),
 
   /* Additional classes */
-  className: PropTypes.string
+  className: PropTypes.string,
+
+  /* data-testid attribute for testing purposes */
+  'data-testid': PropTypes.string
 }
 
 export default AtomCheckbox

@@ -109,6 +109,7 @@ const ArticleDefault = ({className}) => {
             indeterminateIcon={ICONS.AiOutlineLine}
             indeterminate={indeterminateStatus}
             checked={checkedStatus}
+            data-testid="checkBoxExample"
           />
           <PrimitiveVisuallyHidden>
             <Label htmlFor="checkBoxExample">checkBoxExampleButton</Label>

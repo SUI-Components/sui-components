@@ -739,6 +739,30 @@ describe(json.name, () => {
         expect(element).to.not.be.null
       })
 
+      it('should have different data test ids for internal checkbox and icon', () => {
+        // Given
+        const testId = 'demo-testid'
+
+        const props = {
+          'data-testid': testId,
+          checkedIcon: () => <i />,
+          uncheckedIcon: () => <i />,
+          indeterminateIcon: () => <i />
+        }
+
+        // When
+        const component = setup(props)
+        const {getByTestId, queryByTestId} = component
+        const elementWithDefaultTestId = queryByTestId(testId)
+        const inputElement = getByTestId(`${testId}-input`)
+        const iconElement = getByTestId(`${testId}-icon`)
+
+        // Then
+        expect(elementWithDefaultTestId).to.be.null
+        expect(inputElement).to.not.be.null
+        expect(iconElement).to.not.be.null
+      })
+
       it('should have aria attributes', () => {
         // Given
         const props = {

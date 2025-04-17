@@ -21,6 +21,7 @@ import {
 
 const getTestId = (testId, icon, suffix) => {
   if (!testId) return undefined
+  if (!suffix) return testId
   if (icon) return `${testId}-${suffix}`
   return testId
 }
@@ -167,7 +168,7 @@ const AtomCheckbox = forwardRef(
             }),
             ...props
           }}
-          data-testid={getTestId(testId, Icon, 'input')}
+          data-testid={getTestId(testId, Icon)}
         />
         <CheckboxIcon
           disabled={disabled}

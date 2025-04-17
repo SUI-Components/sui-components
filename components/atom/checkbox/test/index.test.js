@@ -782,13 +782,11 @@ describe(json.name, () => {
 
         // When
         const component = setup(props)
-        const {getByTestId, queryByTestId} = component
-        const elementWithDefaultTestId = queryByTestId(testId)
-        const inputElement = getByTestId(`${testId}-input`)
+        const {getByTestId} = component
+        const inputElement = getByTestId(testId)
         const iconElement = getByTestId(`${testId}-icon`)
 
         // Then
-        expect(elementWithDefaultTestId).to.be.null
         expect(inputElement).to.not.be.null
         expect(iconElement).to.not.be.null
       })

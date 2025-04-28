@@ -9,7 +9,6 @@ import {
   getClassNames,
   shouldRenderIcon,
   SIZES,
-  truncateText,
   TYPES
 } from './config.js'
 
@@ -21,9 +20,9 @@ const AtomBadge = ({
   type = TYPES.SUCCESS,
   design = DESIGNS.SOLID,
   className,
+  title,
   ...props
 }) => {
-  const truncatedLabel = truncateText(label)
   const classNames = getClassNames({
     icon,
     label,
@@ -37,7 +36,7 @@ const AtomBadge = ({
   return (
     <div className={classNames} {...props}>
       {shouldRenderIcon({icon, ...props}) && !iconRight && <span className={CLASS_ICON}>{icon}</span>}
-      <span className={CLASS_TEXT} title={truncatedLabel}>
+      <span className={CLASS_TEXT} title={title}>
         {label}
       </span>
       {shouldRenderIcon({icon, ...props}) && iconRight && (
@@ -77,7 +76,10 @@ AtomBadge.propTypes = {
   ]),
 
   /* Custom class name */
-  className: PropTypes.string
+  className: PropTypes.string,
+
+  /** Custom title attribute for the badge */
+  title: PropTypes.string
 }
 
 export default AtomBadge

@@ -11,7 +11,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
 import json from '../package.json'
-import {MAX_LABEL_LENGTH, shouldRenderIcon, truncateText} from '../src/config.js'
+import {shouldRenderIcon} from '../src/config.js'
 import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
@@ -99,6 +99,30 @@ describe(json.name, () => {
 
       // Then
       expect(element).to.not.be.null
+    })
+
+    it(`should have a title attribute when it's defined`, () => {
+      // Given
+      const props = {label: 'label', title: 'title'}
+
+      // When
+      const {getByText} = setup(props)
+      const element = getByText(props.label)
+
+      // Then
+      expect(element).to.have.attribute('title', props.title)
+    })
+
+    it(`should NOT have a title attribute when it's NOT defined`, () => {
+      // Given
+      const props = {label: 'label'}
+
+      // When
+      const {getByText} = setup(props)
+      const element = getByText(props.label)
+
+      // Then
+      expect(element).to.not.have.attribute('title')
     })
   })
 
@@ -208,32 +232,6 @@ describe(json.name, () => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
         expect(actual[expectedKey]).to.equal(expectedValue)
       })
-    })
-  })
-
-  describe('truncateText', () => {
-    it('given small string should return full string', () => {
-      // Given
-      const expected = 'Lorem ipsum dolor sit amet'
-
-      // When
-      const actual = truncateText(expected)
-
-      // Then
-      expect(actual).to.equal(expected)
-    })
-
-    it('given large string should return first part of the string', () => {
-      // Given
-      const expected =
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent luctus, massa nec tincidunt semper, ex ipsum fermentum elit, convallis auctor sem nunc ut neque. Proin a mi eu libero condimentum viverra a a metus. Phasellus tincidunt placerat viverra. Cras in consectetur ex, eget viverra leo. Phasellus lacinia hendrerit cursus. Nulla facilisi. Nunc cursus ligula metus, eget pretium urna lacinia a. Morbi vel convallis elit. Donec sollicitudin augue non vulputate pellentesque.'
-
-      // When
-      const actual = truncateText(expected)
-
-      // Then
-      expect(actual.length).to.equal(MAX_LABEL_LENGTH)
-      expect(actual).to.equal(expected.slice(0, MAX_LABEL_LENGTH))
     })
   })
 

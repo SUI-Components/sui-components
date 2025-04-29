@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-coachmark",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "",
   "publishConfig": {
     "access": "public"

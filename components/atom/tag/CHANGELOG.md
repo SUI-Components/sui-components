@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 4.1.0 (2025-04-29)
+
+
+### Bug Fixes
+
+* add tests for title attribute handling ([b5ef2f7](https://github.com/SUI-Components/sui-components/commit/b5ef2f73a65d5ce1f5ca63cbb619761e3c82c03e))
+* update title attribute to use only title prop ([5c7839e](https://github.com/SUI-Components/sui-components/commit/5c7839ee527e3e8f16f2bf8ad5769825c353a7d0))
+* update title attribute to use only title prop instead of fallback to label ([49f447a](https://github.com/SUI-Components/sui-components/commit/49f447a521c4d887ac5365cd4a51f96926492b71))
+
+
+
 # 4.0.0 (2025-02-24)
 
 

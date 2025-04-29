@@ -11,7 +11,7 @@ import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
-import {fireEvent} from '@testing-library/react'
+import {fireEvent, screen} from '@testing-library/react'
 
 import CloseIcon from '../demo/CloseIcon.js'
 import {examlpeHeadImage, exampleActionButtons, exampleBadge, exampleImage} from '../demo/config.js'
@@ -126,7 +126,7 @@ describe(json.name, () => {
       })
 
       // Is renderer in a react portal, we can only test it in that way
-      const badgeText = document.querySelector('[title="NEW"]')
+      const badgeText = screen.getByText('NEW')
       const closeButton = document.querySelector('[role="button"][title="Skip"]')
       const lastButton = document.querySelector('[role="button"][title="Last"]')
       const image = document.querySelector('[alt="announcement"]')

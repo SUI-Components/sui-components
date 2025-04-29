@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 0.11.0 (2025-04-29)
+
+
+### Bug Fixes
+
+* update badge text selection to use screen.getByText for improved ([8203708](https://github.com/SUI-Components/sui-components/commit/8203708328d41de3831dd4ae4c429b1f6b41ce8d))
+
+
+
 # 0.10.0 (2025-02-24)
 
 

@@ -59,7 +59,7 @@ const ActionableTag = forwardRef(
             iconPlacement={ICON_PLACEMENTS.LEFT}
           />
           {label ? (
-            <span className="sui-AtomTag-label" title={title || label}>
+            <span className="sui-AtomTag-label" title={title}>
               {label}
             </span>
           ) : null}

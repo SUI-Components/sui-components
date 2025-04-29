@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+
 import {screen} from '@testing-library/react'
 
 import json from '../package.json'
@@ -33,10 +34,12 @@ describe(json.name, () => {
       'Title',
       'Description',
       'Body',
+      'ScrollArea',
       'Footer',
       'Overlay',
       'CloseIconButton',
       'moleculeModalSizes',
+      'moleculeModalAnimations',
       'default'
     ]
 
@@ -51,11 +54,13 @@ describe(json.name, () => {
       Header,
       Title,
       Body,
+      ScrollArea,
       Description,
       Footer,
       Overlay,
       CloseIconButton,
       moleculeModalSizes,
+      moleculeModalAnimations,
       default: MoleculeModalDefault,
       ...others
     } = library
@@ -689,6 +694,85 @@ describe(json.name, () => {
       })
     })
 
+    describe('default.ScrollArea', () => {
+      const {Modal, Portal, Content, Header, Body, ScrollArea, Description, Title} = pkg
+      const Component = ({...props}) => (
+        <Modal open>
+          <Portal>
+            <Content>
+              <Header>
+                <Title>title</Title>
+              </Header>
+              <Body>
+                <ScrollArea {...props} />
+              </Body>
+            </Content>
+          </Portal>
+        </Modal>
+      )
+      const setup = setupEnvironment(Component)
+
+      it('should render without crashing', () => {
+        // Given
+        const props = {
+          children: <Description>'scroll-area'</Description>
+        }
+
+        // When
+        const component = <Component {...props} />
+
+        // Then
+        const div = document.createElement('div')
+        ReactDOM.render(component, div)
+        ReactDOM.unmountComponentAtNode(div)
+      })
+
+      it('should NOT render null', () => {
+        // Given
+        const props = {
+          children: <Description>'scroll-area'</Description>
+        }
+
+        // When
+        const {container} = setup(props)
+        const dialog = screen.getByRole('dialog')
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.have.lengthOf(0)
+        expect(dialog.innerHTML).to.be.a('string')
+        expect(dialog.innerHTML).to.not.have.lengthOf(0)
+      })
+
+      it('should extend classNames', () => {
+        // Given
+        const props = {
+          children: <Description>'scroll-area'</Description>,
+          className: 'extended-classNames'
+        }
+        const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
+
+        // When
+        const {container} = setup(props)
+        const dialog = screen.getByRole('dialog')
+        const findClassName = findSentence(props.className)
+
+        // Then
+        expect(findClassName(container.innerHTML)).to.be.null
+        expect(findClassName(dialog.innerHTML)).to.not.be.null
+      })
+
+      it('displayName', () => {
+        // Given
+        const {displayName} = ScrollArea
+
+        // When
+
+        // Then
+        expect(displayName).to.equal('MoleculeModal.ScrollArea')
+      })
+    })
+
     describe('default.Description', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title} = pkg
       const Component = ({...props}) => (
@@ -1033,6 +1117,41 @@ describe(json.name, () => {
       // When
       const {moleculeModalSizes: actual} = library
       const {XSMALL, SMALL, MEDIUM, LARGE, FULL, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('moleculeModalAnimations', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {moleculeModalAnimations: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        FADE: 'fade',
+        SLIDE: 'slide',
+        NONE: 'none'
+      }
+
+      // When
+      const {moleculeModalAnimations: actual} = library
+      const {FADE, SLIDE, NONE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

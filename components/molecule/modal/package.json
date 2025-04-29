@@ -24,7 +24,8 @@
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-hooks": "1",
     "@radix-ui/react-dialog": "1.1.6",
-    "classnames": "2.5.1"
+    "classnames": "2.5.1",
+    "react-element-scroll-hook": "1.1.0"
   },
   "repository": {
     "type": "git",

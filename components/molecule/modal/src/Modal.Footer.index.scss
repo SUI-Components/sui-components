@@ -1,6 +1,14 @@
 $base-class-element: '#{$base-class}-Footer';
 
 #{$base-class-element} {
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
   padding-inline: $px-molecule-modal-footer;
   padding-block: $py-molecule-modal-footer;
+  box-sizing: border-box;
+  height: #{'calc(' + $h-molecule-modal-footer + ' + ' + 2 * $py-molecule-modal-footer + ')'};
+  min-height: #{'calc(' + $h-molecule-modal-footer + ' + ' + 2 * $py-molecule-modal-footer + ')'};
 }

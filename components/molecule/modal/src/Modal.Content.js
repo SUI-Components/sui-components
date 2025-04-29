@@ -1,10 +1,12 @@
-import {forwardRef} from 'react'
-import cx from 'classnames'
+import {forwardRef, useEffect} from 'react'
 
+import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import {Content as RadixContent} from '@radix-ui/react-dialog'
 
-import {BASE_CLASS, MODAL_SIZES} from './config.js'
+import {useModalContext} from './hooks/index.js'
+import {BASE_CLASS, MODAL_ANIMATIONS, MODAL_SIZES} from './config.js'
 
 const BASE_CLASS_CONTENT = `${BASE_CLASS}-Content`
 
@@ -15,17 +17,29 @@ const Content = forwardRef(
       as: As = 'div',
       className,
       size = MODAL_SIZES.MEDIUM,
+      animation = MODAL_ANIMATIONS.FADE,
       onOpenAutoFocus,
       onCloseAutoFocus,
       onEscapeKeyDown,
       onPointerDownOutside,
       onInteractOutside,
+      forceMount,
+      children,
       ...props
     },
     forwardedRef
   ) => {
+    const {forceMount: forceMountContext, setAnimation, isMounted, hasAnimation} = useModalContext()
+    const forceMountValue = forceMount !== undefined ? forceMount : forceMountContext
+
+    useEffect(() => {
+      setAnimation(animation)
+    }, [animation])
+    if (!isMounted) return null
+
     return (
       <RadixContent
+        forceMount={forceMountValue || hasAnimation}
         asChild={true}
         ref={forwardedRef}
         onOpenAutoFocus={onOpenAutoFocus}
@@ -36,9 +50,16 @@ const Content = forwardRef(
       >
         <As
           data-sui-component={Content.displayName}
+          data-animation={animation}
           className={cx(BASE_CLASS_CONTENT, {[`${BASE_CLASS_CONTENT}--size-${size}`]: size}, className)}
           {...props}
-        />
+        >
+          <div
+            className={cx(`${BASE_CLASS_CONTENT}-Container`, {[`${BASE_CLASS_CONTENT}-Container--size-${size}`]: size})}
+          >
+            {children}
+          </div>
+        </As>
       </RadixContent>
     )
   }
@@ -72,7 +93,13 @@ Content.propTypes = {
   onInteractOutside: PropTypes.func,
 
   /** Size of the modal **/
-  size: PropTypes.oneOf(Object.values(MODAL_SIZES))
+  size: PropTypes.oneOf(Object.values(MODAL_SIZES)),
+
+  /** Animation to be used when opening the modal **/
+  animation: PropTypes.oneOf(Object.values(MODAL_ANIMATIONS)),
+
+  /** The content of the component. **/
+  children: PropTypes.node
 }
 
 export default Content

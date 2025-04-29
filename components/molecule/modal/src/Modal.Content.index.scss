@@ -1,7 +1,8 @@
+@use 'sass:math';
+
 $base-class-element: '#{$base-class}-Content';
 
 #{$base-class-element} {
-  background-color: $bkg-molecule-modal-content;
   position: fixed;
   inset: 0;
   display: flex;
@@ -9,14 +10,24 @@ $base-class-element: '#{$base-class}-Content';
   width: 100dvw;
   height: 100dvh;
   border-radius: 0;
-  overflow: hidden;
   z-index: $z-molecule-modal-content;
+  overflow: hidden;
+  &-Container {
+    background-color: $bkg-molecule-modal-content;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 0;
+  }
 
   @include media-breakpoint-up(xs) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: $bdrs-molecule-modal-content;
+    padding: 0;
     &--size {
       @each $sizeName, $sizeValue in $s-molecule-modal-content {
         &-#{$sizeName} {
@@ -24,13 +35,116 @@ $base-class-element: '#{$base-class}-Content';
           width: calc(100% - 2 * $mx-molecule-modal-content);
           max-height: calc(100% - 2 * $my-molecule-modal-content);
           height: fit-content;
+          padding: $sz-base;
+          #{$base-class-element}-Container {
+            border-radius: $bdrs-molecule-modal-content;
+            box-shadow: 0 0 $sz-base math.div($sz-base, 2) transparentize($c-black, 0.9);
+          }
         }
+      }
+    }
+    &[data-animation='fade'] {
+      &[data-state='open'] {
+        animation: sui-modal-content-fade-in $animdur-molecule-modal-portal ease-in;
+      }
+      &[data-state='closed'] {
+        animation: sui-modal-content-fade-out $animdur-molecule-modal-portal ease-out;
+      }
+    }
+    &[data-animation='slide'] {
+      &[data-state='open'] {
+        animation: sui-modal-content-slide-in $animdur-molecule-modal-portal ease-in;
+      }
+      &[data-state='closed'] {
+        animation: sui-modal-content-slide-out $animdur-molecule-modal-portal ease-out;
+      }
+    }
+    &[data-animation='bloom'] {
+      &[data-state='open'] {
+        animation: sui-modal-content-bloom-in $animdur-molecule-modal-portal ease-in;
+      }
+      &[data-state='closed'] {
+        animation: sui-modal-content-bloom-out $animdur-molecule-modal-portal ease-out;
       }
     }
   }
   &:has(#{#{$base-class}-CloseIconButton}) {
     #{$base-class}-Header {
       padding-right: $pr-molecule-modal-content-header-close-icon-button;
+    }
+  }
+  @keyframes sui-modal-content-fade-in {
+    0% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(0);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  @keyframes sui-modal-content-fade-out {
+    0% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
+
+  @keyframes sui-modal-content-slide-in {
+    0% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, 0%) scale(1);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  @keyframes sui-modal-content-slide-out {
+    0% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, 0%) scale(1);
+    }
+  }
+
+  @keyframes sui-modal-content-bloom-in {
+    0% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  @keyframes sui-modal-content-bloom-out {
+    0% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 }

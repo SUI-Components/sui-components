@@ -1,8 +1,8 @@
-import {forwardRef} from 'react'
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {Close as RadixCloseTrigger} from '@radix-ui/react-dialog'
+
 import PrimitiveInjector from '@s-ui/react-primitive-injector'
 
 import {BASE_CLASS} from './config.js'
@@ -10,13 +10,13 @@ import {BASE_CLASS} from './config.js'
 const BASE_CLASS_CLOSE_TRIGGER = `${BASE_CLASS}-CloseTrigger`
 
 /** The trigger slot that closes the dialog. **/
-const CloseTrigger = forwardRef(({as: As = PrimitiveInjector, className, ariaLabel, ...props}, forwardedRef) => {
+const CloseTrigger = ({as: As = PrimitiveInjector, className, ariaLabel, ...props}) => {
   return (
     <RadixCloseTrigger asChild={true}>
-      <As className={cx(BASE_CLASS_CLOSE_TRIGGER, className)} ref={forwardedRef} aria-label={ariaLabel} {...props} />
+      <As className={cx(BASE_CLASS_CLOSE_TRIGGER, className)} aria-label={ariaLabel} {...props} />
     </RadixCloseTrigger>
   )
-})
+}
 
 CloseTrigger.displayName = 'MoleculeModal.CloseTrigger'
 

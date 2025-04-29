@@ -2,10 +2,13 @@ $base-class-element: '#{$base-class}-Header';
 
 #{$base-class-element} {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  flex-flow: nowrap;
   justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
   padding-inline: $px-molecule-modal-header;
   padding-block: $py-molecule-modal-header;
-  height: $h-molecule-modal-header;
+  box-sizing: border-box;
+  height: #{'calc(' + $h-molecule-modal-header + ' + ' + 2 * $py-molecule-modal-header + ')'};
+  min-height: #{'calc(' + $h-molecule-modal-header + ' + ' + 2 * $py-molecule-modal-header + ')'};
 }

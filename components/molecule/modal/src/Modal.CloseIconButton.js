@@ -1,8 +1,9 @@
 import {forwardRef} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import AtomIcon, {atomIconSizes} from '@s-ui/react-atom-icon'
-import PropTypes from 'prop-types'
 
 import {BASE_CLASS} from './config.js'
 
@@ -14,13 +15,13 @@ const BASE_CLASS_CLOSE_ICON_BUTTON = `${BASE_CLASS}-CloseIconButton`
 const CloseIconButton = forwardRef(({as: As = 'button', className, size, ariaLabel, ...props}, forwardedRef) => {
   return (
     <As
+      {...props}
       data-sui-component={CloseIconButton.displayName}
       className={cx(BASE_CLASS_CLOSE_ICON_BUTTON, className)}
+      focusable="false"
       aria-busy="false"
       aria-live="off"
-      focusable="false"
       aria-label={ariaLabel}
-      {...props}
     >
       <AtomIcon size={size} aria-hidden="true">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

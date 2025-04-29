@@ -1,7 +1,8 @@
 import {forwardRef} from 'react'
-import cx from 'classnames'
 
+import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import {Description as RadixDescription} from '@radix-ui/react-dialog'
 
 import {BASE_CLASS} from './config.js'

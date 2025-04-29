@@ -1,8 +1,19 @@
+import {useEffect} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {Portal as RadixPortal} from '@radix-ui/react-dialog'
+
+import {useModalContext} from './hooks/index.js'
 
 /** When used, portals your overlay and content parts into the body. **/
 const Portal = ({forceMount, container, ...props}) => {
+  const {setForceMount} = useModalContext()
+
+  useEffect(() => {
+    setForceMount(forceMount)
+  }, [forceMount])
+
   return <RadixPortal forceMount={forceMount} container={container} {...props} />
 }
 

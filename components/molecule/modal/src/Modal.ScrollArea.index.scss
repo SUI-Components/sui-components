@@ -1,0 +1,82 @@
+@use 'sass:math';
+
+$base-class-element: '#{$base-class}-ScrollArea';
+
+#{$base-class-element} {
+  overflow-y: auto;
+
+  &:focus-visible {
+    outline: none;
+  }
+  &:not([data-scroll-y='no-scroll-y']) {
+    padding-right: $sz-base;
+    scrollbar-gutter: stable;
+  }
+  &[data-scroll-y='scroll-top'] {
+    mask-image: linear-gradient(
+      180deg,
+      $c-white calc(100% - $h-molecule-modal-scroll-area-scrollbar-scroll-shadow),
+      transparent
+    );
+  }
+  &[data-scroll-y='scroll-middle-y'] {
+    mask-image: linear-gradient(
+      $c-white,
+      $c-white,
+      transparent 0,
+      $c-white $h-molecule-modal-scroll-area-scrollbar-scroll-shadow,
+      $c-white calc(100% - $h-molecule-modal-scroll-area-scrollbar-scroll-shadow),
+      transparent
+    );
+  }
+  &[data-scroll-y='scroll-bottom'] {
+    mask-image: linear-gradient(
+      0deg,
+      $c-white calc(100% - $h-molecule-modal-scroll-area-scrollbar-scroll-shadow),
+      transparent
+    );
+  }
+
+  &-Wrapper {
+    flex-grow: 1;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    &:not(#{$base-class-element}-Wrapper-is-inset) {
+      margin-inline: $px-molecule-modal-scroll-area;
+      margin-block: $py-molecule-modal-scroll-area;
+    }
+    &:has(#{$base-class-element}-Wrapper-is-inset) {
+      margin-inline: 0;
+      margin-block: 0;
+    }
+    &:has(#{$base-class-element}:focus-visible) {
+      box-shadow: none;
+      outline: 2px solid transparentize($c-primary, 0.2);
+      outline-offset: 2px;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: $w-molecule-modal-scroll-area-scrollbar;
+    border-radius: $bdrs-molecule-modal-scroll-area-scrollbar;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $bgc-molecule-modal-scroll-area-scrollbar-track;
+    border-radius: $sz-base;
+    background-clip: content-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $bdc-molecule-modal-scroll-area-scrollbar-track;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $bgc-molecule-modal-scroll-area-scrollbar-thumb;
+    border-radius: $sz-base;
+    background-clip: content-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $bdc-molecule-modal-scroll-area-scrollbar-thumb;
+  }
+}

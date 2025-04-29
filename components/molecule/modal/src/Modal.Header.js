@@ -1,7 +1,7 @@
 import {forwardRef} from 'react'
 
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {BASE_CLASS} from './config.js'
 

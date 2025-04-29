@@ -1,5 +1,29 @@
 # CHANGELOG
 
+# 2.3.0 (2025-04-29)
+
+
+### Bug Fixes
+
+* add tests for title attribute presence and remove truncateText tests ([5c02b48](https://github.com/SUI-Components/sui-components/commit/5c02b4885bf08980aa2d51dcb808019de0c3a7cc))
+* remove truncateText function to simplify code ([09f53f6](https://github.com/SUI-Components/sui-components/commit/09f53f66185e7027a2967acd364bf52b6348890f))
+* replace truncated label with custom title attribute ([e1a0790](https://github.com/SUI-Components/sui-components/commit/e1a0790268012a5be803f3c6b8ed3e354dbf8724))
+
+
+
+# 2.2.0 (2025-02-21)
+
+
+
+# 2.1.0 (2025-02-21)
+
+
+### Features
+
+* a11y ([073f30f](https://github.com/SUI-Components/sui-components/commit/073f30f3ef115de3ad456f1e6df598bc660aa83a))
+
+
+
 # 2.2.0 (2025-02-21)
 
 
@@ -305,6 +329,3 @@
 ### Features
 
 * **atom/badge:** renamed as atomBadge + sui-theme migration ([8ad423b](https://github.com/SUI-Components/sui-components/commit/8ad423b8ad2ac0f6fdf92e60f511b4b2f2d3a635))
-
-
-

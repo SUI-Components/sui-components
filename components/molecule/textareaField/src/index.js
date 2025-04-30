@@ -64,7 +64,11 @@ const MoleculeTextareaField = ({
     }
   }
 
-  const helpTextComputed = computeHelpText()
+  const helpTextComputed = (
+    <div aria-live="polite" aria-atomic="true">
+      {computeHelpText()}
+    </div>
+  )
 
   return (
     <MoleculeField

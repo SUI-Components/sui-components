@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.12.0 (2025-04-30)
+
+
+### Features
+
+* add aria props to character counter ([bae54ed](https://github.com/SUI-Components/sui-components/commit/bae54edde3b00175fc68ea85ad24b13f95536922))
+
+
+
 # 3.11.0 (2024-05-06)
 
 

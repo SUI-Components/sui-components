@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 8.134.0 (2025-05-05)
+
+
+### Features
+
+* use native functions to lighten and darken colors ([55b220c](https://github.com/SUI-Components/sui-components/commit/55b220caa8433a3c73631ff3cf1261cc2ec03edc))
+* use white and black variables from theme ([e7c082c](https://github.com/SUI-Components/sui-components/commit/e7c082c6956fe744278af35cd9c6a1ff55f1820a))
+
+
+
 # 8.133.0 (2025-02-24)
 
 

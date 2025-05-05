@@ -68,7 +68,7 @@ const MoleculeTextareaField = ({
 
   const helpTextComputed = (
     <div aria-live="polite" aria-atomic="true">
-      <p className={`${BASE_CLASS}HelpText`}>{computeHelpText()}</p>
+      <p className={`${BASE_CLASS}-helpText`}>{computeHelpText()}</p>
     </div>
   )
 

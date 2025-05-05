@@ -25,7 +25,7 @@ const Root = ({
 }) => {
   const [open, setOpen] = useControlledState(isOpen, defaultIsOpen)
   const activeElementRef = useRef()
-  const [forceMount, setForceMount] = useState(false)
+  const [forceMount, setForceMount] = useState(undefined)
   const [animation, setAnimation] = useState(undefined)
 
   /**

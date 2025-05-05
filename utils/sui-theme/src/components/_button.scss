@@ -189,11 +189,11 @@
   color: $color;
 
   &:hover {
-    background-color: color-mix(in srgb, $background-color, white 15%);
+    background-color: color-mix(in srgb, $background-color, $c-white 15%);
   }
 
   &:active {
-    background-color: color-mix(in srgb, $background-color, black 10%);
+    background-color: color-mix(in srgb, $background-color, $c-black 10%);
   }
 
   & > [class$='icon'],

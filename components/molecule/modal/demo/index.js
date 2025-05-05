@@ -1,80 +1,59 @@
-/* eslint react/prop-types: 0 */
-import {Anchor, Code, H1, ListItem, Paragraph, Text, UnorderedList} from '@s-ui/documentation-library'
+import {Bold, H1, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
-import ArticleAnimation from './ArticleAnimation.js'
-import ArticleCloseIcon from './ArticleCloseIcon.js'
-import ArticleDefault from './ArticleDefault.js'
-import ArticleModal from './ArticleModal.js'
-import ArticleSize from './ArticleSize.js'
+import ArticleAPI from './articles/ArticleAPI.js'
+import ArticleControlled from './articles/ArticleControlled.js'
+import ArticleDefault from './articles/ArticleDefault.js'
+import ArticleEffect from './articles/ArticleEffect.js'
+import ArticleForm from './articles/ArticleForm.js'
+import ArticleInset from './articles/ArticleInset.js'
+import ArticleSize from './articles/ArticleSize.js'
+import ArticleURLState from './articles/ArticleURLState.js'
+import {CLASS_SECTION} from './config.js'
 
-const BASE_CLASS_DEMO = `DemoMoleculeModal`
-const CLASS_SECTION = `${BASE_CLASS_DEMO}-section`
-
-const Demo = () => (
-  <div className="sui-StudioPreview">
-    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+const Demo = () => {
+  return (
+    <div className="sui-StudioPreview DemoMoleculeModal">
       <H1>Modal</H1>
       <Paragraph>
         Modal windows focus users' attention to inform them about a specific interaction. They may require users to make
         a decision or warn them when an error may have very significant consequences.
       </Paragraph>
-
-      <Paragraph>The package also have:</Paragraph>
-      <UnorderedList>
-        <ListItem>
-          <Text>
-            <Code>MoleculeModalWithAnimation</Code>
-            (default)
-          </Text>
-        </ListItem>
-        <ListItem>
-          <Text>
-            <Anchor href="#MoleculeModal">
-              <Code>MoleculeModal</Code>
-            </Anchor>{' '}
-            (base)
-          </Text>
-        </ListItem>
-        <ListItem>
-          <Anchor href="#MoleculeModalWithoutAnimation">
-            <Text>
-              <Code>MoleculeModalWithoutAnimation</Code>
-            </Text>
-          </Anchor>
-        </ListItem>
-        <ListItem>
-          <Anchor href="#MoleculeModalWithURLState">
-            <Text>
-              <Code>MoleculeModalWithURLState</Code>
-            </Text>
-          </Anchor>
-        </ListItem>
-      </UnorderedList>
       <Paragraph>
-        User can also compound <Code>MoleculeModal</Code> using:
+        Its important to differentiate between modal and alert-modal components. The first one is used to inform users
+        about a specific interaction, while the second one is used to inform users about an error that may have very
+        significant consequences.
       </Paragraph>
       <UnorderedList>
         <ListItem>
-          <Code>MoleculeModalContent</Code>
+          <Bold>Modal</Bold>: A <Bold>general-purpose</Bold> popup component. It can contain <Bold>any</Bold> custom
+          content — forms, text, images, buttons, whatever you want. It’s meant to <Bold>0hold a conversation</Bold>{' '}
+          with the user: present information, ask for input, etc. Think of it like a <Bold>blank canvas</Bold> for any
+          modal window.
         </ListItem>
         <ListItem>
-          <Code>MoleculeModalFooter</Code>
+          <Bold>AlertModal</Bold>: A <Bold>specific kind</Bold> of dialog used for <Bold>critical actions</Bold> that
+          interrupt the user — like confirming deletion, discarding changes, logging out, etc. It{' '}
+          <Bold>demands a response</Bold>
+          (Confirm/Cancel) and is designed to be more <Bold>urgent and accessible</Bold>.
         </ListItem>
       </UnorderedList>
       <ArticleDefault className={CLASS_SECTION} />
       <br />
+      <ArticleControlled className={CLASS_SECTION} />
+      <br />
       <ArticleSize className={CLASS_SECTION} />
       <br />
-      <ArticleCloseIcon className={CLASS_SECTION} />
+      <ArticleInset className={CLASS_SECTION} />
       <br />
-      <H1 id="MoleculeModal">MoleculeModal</H1>
-      <Paragraph>Base component. Full customizable by props.</Paragraph>
-      <ArticleModal className={CLASS_SECTION} />
-      <H1 id="MoleculeModalWithoutAnimation">MoleculeModalWithoutAnimation</H1>
-      <ArticleAnimation className={CLASS_SECTION} />
-      {/* <H1 id="MoleculeModalWithURLState">MoleculeModalWithURLState</H1> */}
+      <ArticleEffect className={CLASS_SECTION} />
+      <br />
+      <ArticleForm className={CLASS_SECTION} />
+      <br />
+      <ArticleURLState className={CLASS_SECTION} />
+      <br />
+      <ArticleAPI className={CLASS_SECTION} />
     </div>
-  </div>
-)
+  )
+}
 
 export default Demo

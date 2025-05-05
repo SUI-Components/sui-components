@@ -1,0 +1,9 @@
+$base-class-element: '#{$base-class}-Description';
+
+#{$base-class-element} {
+  margin-inline: $mx-molecule-modal-description;
+  margin-block: $my-molecule-modal-description;
+
+  padding-inline: $px-molecule-modal-description;
+  padding-block: $py-molecule-modal-description;
+}

@@ -1,7 +1,30 @@
+@import '~@s-ui/react-atom-button/lib/index.scss';
+@import '~@s-ui/react-atom-icon/lib/index.scss';
+
 @import '../src/index';
 
 $base-class: '.DemoMoleculeModal';
+$base-class-section: #{$base-class}-section;
 
 #{$base-class} {
-  // css code here
+  #{$base-class-section} {
+    .container {
+      display: block;
+      columns: 6 250px;
+      column-gap: 1fr;
+    }
+    .item {
+      display: flex;
+      width: 100%;
+      padding: 0;
+      margin: 0 0 1rem 0;
+      border-radius: $bdrs-xl;
+      overflow: hidden;
+      &:focus-visible {
+        box-shadow: none;
+        outline: 2px solid transparentize($c-primary, 0.2);
+        outline-offset: 2px;
+      }
+    }
+  }
 }

@@ -1,0 +1,13 @@
+$px-molecule-modal-scroll-area: $px-molecule-modal-content !default;
+$py-molecule-modal-scroll-area: $py-molecule-modal-content !default;
+
+$w-molecule-modal-scroll-area-scrollbar: $sz-base !default;
+$bdrs-molecule-modal-scroll-area-scrollbar: $sz-base !default;
+
+$bgc-molecule-modal-scroll-area-scrollbar-track: color-mix(in srgb, $c-black 10%, $c-white) !default;
+$bdc-molecule-modal-scroll-area-scrollbar-track: color-mix(in srgb, $c-black 20%, $c-white) !default;
+
+$bgc-molecule-modal-scroll-area-scrollbar-thumb: color-mix(in srgb, $c-black 30%, $c-white) !default;
+$bdc-molecule-modal-scroll-area-scrollbar-thumb: transparent !default;
+
+$h-molecule-modal-scroll-area-scrollbar-scroll-shadow: 5 * $sz-base !default;

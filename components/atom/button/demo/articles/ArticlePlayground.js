@@ -27,7 +27,7 @@ import {
 } from '../settings.js'
 
 const ArticlePlayground = ({className}) => {
-  const [state, setState] = useState({content: 'button', link: false})
+  const [state, setState] = useState({content: 'button', link: undefined})
   const {negative, content, icon, leftIcon, rightIcon, socialButtons, link} = state
   return (
     <Article className={CLASS_SECTION}>
@@ -36,7 +36,7 @@ const ArticlePlayground = ({className}) => {
         <Code>negative</Code>: proper usage with dark backgrounds.
       </Paragraph>
       <Paragraph>
-        <Code>disabled</Code>: button is not trigerable.
+        <Code>disabled</Code>: button is not triggerable.
       </Paragraph>
       <Paragraph>
         <Code>isLoading</Code> and <Code>loadingText</Code>: button status loading and its replacement text displayed.

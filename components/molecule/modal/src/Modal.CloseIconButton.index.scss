@@ -1,0 +1,27 @@
+$base-class-element: '#{$base-class}-CloseIconButton';
+
+#{$base-class-element} {
+  position: absolute;
+  top: $t-molecule-modal-close-icon-button;
+  right: $r-molecule-modal-close-icon-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $mih-molecule-modal-close-icon-button;
+  min-width: $miw-molecule-modal-close-icon-button;
+  border-radius: $bdrs-molecule-modal-close-icon-button;
+  background-color: $bgc-molecule-modal-close-icon-button;
+  padding: 2px;
+  border: none;
+  color: $c-molecule-modal-close-icon-button;
+  margin: $sz-base;
+  &:hover {
+    background-color: $bgc-molecule-modal-close-icon-button-hover;
+    cursor: pointer;
+  }
+  &:focus-visible {
+    box-shadow: none;
+    outline: 2px solid transparentize($c-primary, 0.2);
+    outline-offset: 2px;
+  }
+}

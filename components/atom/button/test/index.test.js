@@ -20,7 +20,7 @@ describe(json.name, () => {
   const {default: Component} = pkg
   const setup = setupEnvironment(Component)
 
-  const {atomButtonColors, atomButtonDesigns} = pkg
+  const {atomButtonDesigns} = pkg
 
   it('library should include defined exported elements', () => {
     // Given
@@ -30,7 +30,6 @@ describe(json.name, () => {
       'atomButtonColors',
       'atomButtonDesigns',
       'atomButtonSizes',
-      'atomButtonTypes',
       'atomButtonAlignment',
       'atomButtonShapes',
       'atomButtonElevations',
@@ -43,7 +42,6 @@ describe(json.name, () => {
       atomButtonColors,
       atomButtonDesigns,
       atomButtonSizes,
-      atomButtonTypes,
       atomButtonAlignment,
       atomButtonShapes,
       atomButtonElevations,
@@ -153,164 +151,6 @@ describe(json.name, () => {
         // Then
         expect(ref.current).to.not.equal(undefined)
         expect(ref.current.nodeName).to.equal('A')
-      })
-    })
-
-    describe('deprecated type usage', () => {
-      describe("type='primary'", () => {
-        it("given deprecated type='primary' should convert it to color='primary' and design='solid'", () => {
-          // Given
-          const props = {
-            type: 'primary'
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.SOLID])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
-
-        it("given deprecated type='primary' and link flag should convert it to color='primary' and design='link'", () => {
-          // Given
-          const props = {
-            type: 'primary',
-            link: true
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
-      })
-
-      describe("type='accent'", () => {
-        it("given deprecated type='accent' should convert it to color='accent' and design='solid'", () => {
-          // Given
-          const props = {
-            type: 'accent'
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.accent)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.SOLID])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
-
-        it("given deprecated type='accent' and link flag should convert it to color='accent' and design='link'", () => {
-          // Given
-          const props = {
-            type: 'accent',
-            link: true
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.accent)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
-      })
-
-      describe("type='secondary'", () => {
-        it("given deprecated type='secondary' should convert it to color='accent' and design='solid'", () => {
-          // Given
-          const props = {
-            type: 'secondary'
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.OUTLINE])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
-
-        it("given deprecated type='secondary' and link flag should convert it to color='accent' and design='link'", () => {
-          // Given
-          const props = {
-            type: 'secondary',
-            link: true
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
-      })
-
-      describe("type='tertiary'", () => {
-        it("given deprecated type='tertiary' should convert it to color='accent' and design='solid'", () => {
-          // Given
-          const props = {
-            type: 'tertiary'
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.FLAT])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
-
-        it("given deprecated type='tertiary' and link flag should convert it to color='accent' and design='link'", () => {
-          // Given
-          const props = {
-            type: 'tertiary',
-            link: true
-          }
-          const classes = createClasses([...Object.values(atomButtonColors), ...Object.values(atomButtonDesigns)])
-          const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
-
-          // When
-          const {container} = setup(props)
-          const findColorClassName = findSentence(classes.primary)
-          const findDesignClassName = findSentence(classes[atomButtonDesigns.LINK])
-
-          // Then
-          expect(findColorClassName(container.innerHTML)).to.not.be.null
-          expect(findDesignClassName(container.innerHTML)).to.not.be.null
-        })
       })
     })
 
@@ -618,32 +458,6 @@ describe(json.name, () => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
         expect(actual[expectedKey]).to.equal(expectedValue)
       })
-    })
-  })
-
-  describe('atomButtonTypes', () => {
-    it('value must be an array', () => {
-      // Given
-      const library = pkg
-
-      // When
-      const {atomButtonTypes: actual} = library
-
-      // Then
-      expect(actual).to.be.an('array')
-    })
-
-    it('value must contain the defined array values', () => {
-      // Given
-      const library = pkg
-      const expected = ['primary', 'accent', 'secondary', 'tertiary']
-
-      // When
-      const {atomButtonTypes: actual} = library
-
-      // Then
-      expect(actual.length).to.equal(expected.length)
-      expect(actual).to.have.members(expected)
     })
   })
 

@@ -13,7 +13,6 @@ import {
   CLASSES,
   cleanProps,
   COLORS,
-  deprecated,
   DESIGNS,
   ELEVATIONS,
   getModifiers,
@@ -21,13 +20,10 @@ import {
   GROUP_POSITIONS,
   ICON_POSITIONS,
   SHAPES,
-  SIZES,
-  typeConversion,
-  TYPES,
-  TYPES_CONVERSION
+  SIZES
 } from './config.js'
 
-const AtomButton = forwardRef((props, ref) => {
+const AtomButton = forwardRef((props, forwardedRef) => {
   const {
     alignment,
     className,
@@ -45,13 +41,11 @@ const AtomButton = forwardRef((props, ref) => {
     rightIcon,
     size,
     title,
-    type,
     shape,
     elevation,
-    isFitted,
     selected,
     value
-  } = getPropsWithDefaultValues(typeConversion(props))
+  } = getPropsWithDefaultValues(props)
 
   const classNames = cx(
     CLASS,
@@ -67,7 +61,6 @@ const AtomButton = forwardRef((props, ref) => {
     {[`${CLASS}--${shape}`]: Object.values(SHAPES).includes(shape)},
     {
       [`${CLASS}--loading`]: isLoading,
-      [`${CLASS}--fitted`]: isFitted,
       [`${CLASS}--elevation-${elevation}`]: !!elevation
     },
     className
@@ -77,13 +70,12 @@ const AtomButton = forwardRef((props, ref) => {
 
   return (
     <Button
+      ref={forwardedRef}
       {...newProps}
-      type={type}
       link={link}
       className={classNames}
       title={title}
       disabled={disabled || isLoading}
-      forwardingRef={ref}
       value={value}
     >
       <span className={`${CLASS}-inner`}>
@@ -150,19 +142,6 @@ AtomButton.propTypes = {
    */
   title: PropTypes.string,
   /**
-   * DEPRECATED. Type of button: 'primary' (default), 'accent', 'secondary', 'tertiary'
-   */
-  type: PropTypes.oneOfType([
-    PropTypes.oneOf(['button', 'submit', 'reset']),
-    deprecated(PropTypes.oneOf(TYPES), (props, propName, componentName) => {
-      const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}. You should use now ${'\x1b[32m'}design${'\u001b[39m'} and ${'\x1b[32m'}color${'\u001b[39m'} props.`
-      console.groupCollapsed(deprecatedMessage) // eslint-disable-line
-      console.warn(deprecatedMessage) // eslint-disable-line
-      console.table(TYPES_CONVERSION) // eslint-disable-line
-      console.groupEnd() // eslint-disable-line
-    })
-  ]),
-  /**
    * Design style of button: 'solid' (default), 'outline', 'flat', 'link'
    */
   design: PropTypes.oneOf(Object.values(DESIGNS)),
@@ -179,7 +158,7 @@ AtomButton.propTypes = {
    */
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   /**
-   * If true loading state will be enabled
+   * If true loading state is enabled
    */
   isLoading: PropTypes.bool,
   /**
@@ -231,18 +210,6 @@ AtomButton.propTypes = {
    */
   linkFactory: PropTypes.func,
   /**
-   * if true, type="submit" (needed when several buttons coexist under the same form)
-   */
-  isSubmit: PropTypes.bool,
-  /**
-   * if true, type="button" (needed when several buttons coexist under the same form)
-   */
-  isButton: PropTypes.bool,
-  /**
-   * if true, the element becomes (border+padding+margin)-less
-   */
-  isFitted: PropTypes.bool,
-  /**
    *  Selected: style for selected button in a button group.
    */
   selected: PropTypes.bool,
@@ -258,7 +225,6 @@ export {GROUP_POSITIONS as atomButtonGroupPositions}
 export {COLORS as atomButtonColors}
 export {DESIGNS as atomButtonDesigns}
 export {SIZES as atomButtonSizes}
-export {TYPES as atomButtonTypes}
 export {ALIGNMENT as atomButtonAlignment}
 export {SHAPES as atomButtonShapes}
 export {ELEVATIONS as atomButtonElevations}

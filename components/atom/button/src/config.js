@@ -1,14 +1,11 @@
 import {cloneElement} from 'react'
 
+import ButtonLink from './ButtonLink.js'
+
 /**
  * Base class for the component
  */
 export const CLASS = 'sui-AtomButton'
-
-/**
- * {Deprecated} Types of buttons
- */
-export const TYPES = ['primary', 'accent', 'secondary', 'tertiary']
 
 /**
  * Different designs for the button
@@ -93,7 +90,6 @@ export const ICON_POSITIONS = {
  * Props for the button to filter the rest of attributes
  */
 export const OWN_PROPS = [
-  ...TYPES,
   ...Object.values(SIZES),
   'alignment',
   'children',
@@ -108,8 +104,7 @@ export const OWN_PROPS = [
   'leftIcon',
   'loadingText',
   'negative',
-  'rightIcon',
-  'type'
+  'rightIcon'
 ]
 
 /**
@@ -126,13 +121,6 @@ export const ATOM_ICON_SIZES_MAPPER = {
   default: 'small',
   small: 'small',
   large: 'medium'
-}
-
-export const TYPES_CONVERSION = {
-  primary: {design: DESIGNS.SOLID, color: 'primary'},
-  accent: {design: DESIGNS.SOLID, color: 'accent'},
-  secondary: {design: DESIGNS.OUTLINE, color: 'primary'},
-  tertiary: {design: DESIGNS.FLAT, color: 'primary'}
 }
 
 export const createClasses = (array, sufix = '') =>
@@ -167,60 +155,11 @@ export const getModifiers = props => {
   return Object.keys(props).filter(name => props[name] && MODIFIERS.includes(name))
 }
 
-export function deprecated(
-  validator,
-  callback = (props, propName, componentName) => {
-    const deprecatedMessage = `The prop ${'\x1b[32m'}${propName}${'\u001b[39m'} is DEPRECATED on ${'\x1b[32m'}${componentName}${'\u001b[39m'}.`
-    console.warn(deprecatedMessage) // eslint-disable-line
-  }
-) {
-  return function deprecated(props, propName, componentName, ...rest) {
-    if (props[propName] != null && process.env.NODE_ENV === 'development') {
-      callback(props, propName, componentName, ...rest)
-    }
-    return validator(props, propName, componentName, ...rest)
-  }
-}
-
-export const typeConversion = ({type, design, color, link, href, ...other}) => {
-  const result = {
-    design,
-    color,
-    link,
-    href,
-    ...other
-  }
-  switch (type) {
-    case 'primary':
-      result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
-      break
-    case 'accent':
-      result.color = color || 'accent'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID)
-      break
-    case 'secondary':
-      result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.OUTLINE)
-      break
-    case 'tertiary':
-      result.color = color || 'primary'
-      result.design = design || (link || href ? DESIGNS.LINK : DESIGNS.FLAT)
-      break
-    default:
-      result.type = type
-      result.color = color || 'primary'
-      break
-  }
-  return result
-}
-
-export const getPropsWithDefaultValues = ({type, design, color, alignment, link, href, ...other}) => ({
+export const getPropsWithDefaultValues = ({design, color, alignment, link, href, ...other}) => ({
   ...other,
   link,
-  type,
   design: design || (link || href ? DESIGNS.LINK : DESIGNS.SOLID),
-  color: color || 'colors',
+  color: color || COLORS.PRIMARY,
   alignment: alignment || ALIGNMENT.CENTER
 })
 
@@ -241,4 +180,18 @@ export const prepareAtomIcon = (atomIconElement, {size}) => {
     color: undefined,
     size: atomIconElement?.props?.size || ATOM_ICON_SIZES_MAPPER[size]
   })
+}
+
+export const useElement = ({as: As, link, linkFactory: Link = ButtonLink, href, target, disabled, ...props} = {}) => {
+  const isLink = !!link
+  const Element = As || isLink ? Link : 'button'
+
+  const defaultRel = target === '_blank' ? 'noopener' : undefined
+  const rel = props.rel || defaultRel
+  const propsToPass = {
+    ...props,
+    ...(Element === 'button' && {disabled}),
+    ...(isLink && {href, target, rel})
+  }
+  return [Element, propsToPass]
 }

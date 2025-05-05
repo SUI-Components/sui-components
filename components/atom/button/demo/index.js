@@ -8,7 +8,6 @@ import ArticleColor from './articles/ArticleColor.js'
 import ArticleDesign from './articles/ArticleDesign.js'
 import ArticleDesignColor from './articles/ArticleDesignColor.js'
 import ArticleElevation from './articles/ArticleElevation.js'
-import ArticleIsFitted from './articles/ArticleIsFitted.js'
 import ArticleKeyboardNavigation from './articles/ArticleKeyboardNavigation.js'
 import ArticleLink from './articles/ArticleLink.js'
 import ArticleNegative from './articles/ArticleNegative.js'
@@ -17,7 +16,6 @@ import ArticleShape from './articles/ArticleShape.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleSocialColor from './articles/ArticleSocialColor.js'
 import {CLASS_SECTION} from './settings.js'
-import TypeDeprecatedArticle from './TypeDeprecatedArticle.js'
 
 const Demo = () => {
   return (
@@ -44,11 +42,7 @@ const Demo = () => {
       <br />
       <ArticleLink className={CLASS_SECTION} />
       <br />
-      <TypeDeprecatedArticle />
-      <br />
       <ArticlePlayground className={CLASS_SECTION} />
-      <br />
-      <ArticleIsFitted className={CLASS_SECTION} />
       <br />
       <ArticleA11y className={CLASS_SECTION} />
       <br />

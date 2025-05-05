@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-button",
-  "version": "1.100.0",
+  "version": "2.0.0",
   "description": "Atom Element: SUI button",
   "publishConfig": {
     "access": "public"
@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "latest",
-    "@s-ui/react-primitive-loading-icon": "1"
+    "@s-ui/react-primitive-loading-icon": "1",
+    "@s-ui/react-primitive-polymorphic-element": "1"
   },
   "repository": {
     "type": "git",

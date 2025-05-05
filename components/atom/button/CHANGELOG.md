@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.0.0 (2025-05-05)
+
+
+### Features
+
+* remove unnecesary code ([342fb8a](https://github.com/SUI-Components/sui-components/commit/342fb8aa2d8e99b1d43ca65356b759a456f3410a))
+
+
+
 # 1.100.0 (2025-03-13)
 
 

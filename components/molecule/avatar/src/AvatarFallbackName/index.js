@@ -21,7 +21,7 @@ const MoleculeAvatarFallbackName = ({
   })
 
   return (
-    <p className={className} aria-hidden="true" aria-label={nameProp} style={{backgroundColor}} {...others}>
+    <p className={className} aria-hidden aria-label={nameProp} style={{backgroundColor}} {...others}>
       {name}
     </p>
   )

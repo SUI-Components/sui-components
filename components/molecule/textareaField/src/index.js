@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import AtomTextarea, {AtomTextareaSizes as SIZES, AtomTextareaStates} from '@s-ui/react-atom-textarea'
 import MoleculeField from '@s-ui/react-molecule-field'
 
+import {BASE_CLASS} from './config.js'
+
 const hasErrors = ({successText, errorText}) => {
   if (errorText) return true
   if (successText) return false
@@ -64,7 +66,11 @@ const MoleculeTextareaField = ({
     }
   }
 
-  const helpTextComputed = computeHelpText()
+  const helpTextComputed = (
+    <div aria-live="polite" aria-atomic="true">
+      <p className={`${BASE_CLASS}-helpText`}>{computeHelpText()}</p>
+    </div>
+  )
 
   return (
     <MoleculeField

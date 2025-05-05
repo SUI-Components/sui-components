@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-upload",
-  "version": "3.11.0",
+  "version": "3.12.0",
   "description": "",
   "main": "lib/index.js",
   "publishConfig": {

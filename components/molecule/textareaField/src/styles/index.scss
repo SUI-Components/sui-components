@@ -1,5 +1,7 @@
-$base-class: '.sui-MoleculeSelectField';
+$base-class: '.sui-TextareaField';
 
 #{$base-class} {
-  // do your magic 💅
+  &-helpText {
+    margin: 0;
+  }
 }

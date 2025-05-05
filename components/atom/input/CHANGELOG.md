@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 5.44.0 (2025-03-17)
+
+
+### Features
+
+* lint ([6fa05d0](https://github.com/SUI-Components/sui-components/commit/6fa05d00ad0637572cdb2193cbb9bbb8c7c3f631))
+
+
+
+# 5.43.0 (2025-03-12)
+
+
+### Features
+
+* avoid submit the form, if the input password type is inside a form ([276c6c5](https://github.com/SUI-Components/sui-components/commit/276c6c579904c6433e0fdb772d7874a07d657fce))
+
+
+
 # 5.42.0 (2025-02-24)
 
 

@@ -1,5 +1,24 @@
 # CHANGELOG
 
+# 3.13.0 (2025-05-05)
+
+
+### Features
+
+* rename class name ([4c23f5a](https://github.com/SUI-Components/sui-components/commit/4c23f5a4a69d9311b0c60ffa094f07370671851e))
+* use paragraph element on counter ([7aecb4d](https://github.com/SUI-Components/sui-components/commit/7aecb4d90af9ccb6f172d15bc4f5ebbe39bd4620))
+
+
+
+# 3.12.0 (2025-04-30)
+
+
+### Features
+
+* add aria props to character counter ([bae54ed](https://github.com/SUI-Components/sui-components/commit/bae54edde3b00175fc68ea85ad24b13f95536922))
+
+
+
 # 3.11.0 (2024-05-06)
 
 

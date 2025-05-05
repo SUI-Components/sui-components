@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-notification",
-  "version": "1.34.0",
+  "version": "1.35.0",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-icon": "1",
     "@s-ui/react-icons": "1"
   },
   "peerDependencies": {

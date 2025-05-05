@@ -37,6 +37,7 @@ const Password = forwardRef(
         />
         <button
           onClick={toggle}
+          type="button"
           className={cx(
             BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
             shape && `${BASE_CLASS_PASSWORD_TOGGLE_BUTTON}-shape-${shape}`

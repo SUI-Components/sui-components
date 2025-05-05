@@ -215,6 +215,35 @@ describe(json.name, () => {
       sinon.assert.notCalled(spy)
     })
 
+    it('should add a title attribute when defined', () => {
+      // Given
+      const props = {
+        label: 'tag with title',
+        title: 'title'
+      }
+
+      // When
+      const {getByText} = setup(props)
+      const tag = getByText(props.label)
+
+      // Then
+      expect(tag).to.have.attribute('title', 'title')
+    })
+
+    it('should not add a title attribute when not defined', () => {
+      // Given
+      const props = {
+        label: 'tag without title'
+      }
+
+      // When
+      const {getByText} = setup(props)
+      const tag = getByText(props.label)
+
+      // Then
+      expect(tag).to.not.have.attribute('title')
+    })
+
     describe('closeIcon', () => {
       it('given a closeIcon and clicking on it should fire onClose event', () => {
         // Given

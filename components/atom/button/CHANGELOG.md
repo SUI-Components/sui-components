@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.100.0 (2025-03-13)
+
+
+### Features
+
+* Allow button to have first and last with shape and size ([4c459e6](https://github.com/SUI-Components/sui-components/commit/4c459e65733f189e5a33884d8968982f3023b244))
+
+
+
 # 1.99.0 (2025-03-06)
 
 

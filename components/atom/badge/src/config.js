@@ -30,15 +30,6 @@ export const CLASS_ICON_RIGHT = `${CLASS_ICON}--iconRight`
 export const CLASS_TEXT = `${CLASS_ICON}-text`
 
 /**
- * Cuts off exceeded char limit
- * @param  {string} label
- * @return {string}
- */
-export const truncateText = function (label) {
-  return label.length < MAX_LABEL_LENGTH ? label : label.substr(0, MAX_LABEL_LENGTH)
-}
-
-/**
  * @param  {object} options
  * @param  {string} options.size
  * @param  {boolean} options.transparent

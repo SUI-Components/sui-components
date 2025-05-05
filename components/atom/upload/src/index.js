@@ -41,7 +41,7 @@ const AtomUpload = ({
         <input type="hiden" {...getInputProps()} />
         <span className={classNameIcon}>{IconStatus}</span>
         <div className={CLASS_BLOCK_TEXT}>
-          <h4 className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</h4>
+          <p className={CLASS_BLOCK_TEXT_MAIN}>{textStatus}</p>
           {isActive && (hasTextExplanation || hasButton) && (
             <>
               {Button}

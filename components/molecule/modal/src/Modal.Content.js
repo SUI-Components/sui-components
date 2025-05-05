@@ -35,7 +35,8 @@ const Content = forwardRef(
     useEffect(() => {
       setAnimation(animation)
     }, [animation])
-    if (!isMounted) return null
+
+    if (forceMountValue === false || !isMounted) return null
 
     return (
       <RadixContent

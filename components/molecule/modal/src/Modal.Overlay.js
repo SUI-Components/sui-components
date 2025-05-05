@@ -13,9 +13,10 @@ const BASE_CLASS_OVERLAY = `${BASE_CLASS}-Overlay`
 /** A layer that covers the inert portion of the view when the dialog is open. **/
 const Overlay = forwardRef(({as: As = 'div', forceMount, className, ...props}, forwardedRef) => {
   const {forceMount: forceMountContext, isMounted, hasAnimation} = useModalContext()
+
   const forceMountValue = forceMount !== undefined ? forceMount : forceMountContext
 
-  if (!forceMountValue && !isMounted) return null
+  if (forceMountValue === false && !isMounted) return null
 
   return (
     <RadixOverlay asChild={true} forceMount={forceMountValue || hasAnimation}>

@@ -390,11 +390,12 @@ describe(json.name, () => {
     })
 
     describe('default.Content', () => {
-      const {Modal, Content, Portal} = pkg
+      const {Modal, Content, Portal, Header, Title, Body, Description, Overlay} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content {...props} />
+            <Overlay />
           </Portal>
         </Modal>
       )
@@ -459,12 +460,84 @@ describe(json.name, () => {
         // Then
         expect(displayName).to.equal('MoleculeModal.Content')
       })
+
+      it('should NOT add Content when Portal forceMount is set to false', () => {
+        // Given
+        const setup = setupEnvironment(() => (
+          <Modal isOpen>
+            <Portal>
+              <Content {...props} />
+              <Overlay />
+            </Portal>
+          </Modal>
+        ))
+        const props = {
+          'data-testid': 'content',
+          forceMount: false,
+          children: (
+            <>
+              <Header>
+                <Title>title</Title>
+              </Header>
+              <Body>
+                <Description>description</Description>
+              </Body>
+            </>
+          )
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.have.lengthOf(0)
+        expect(function () {
+          screen.getByTestId(props['data-testid'])
+        }).to.throw()
+      })
+
+      it('should NOT add Content when Portal forceMount is set to true and Content forceMount prop is set to false', () => {
+        // Given
+        const setup = setupEnvironment(({...props}) => (
+          <Modal>
+            <Portal forceMount>
+              <Content {...props} />
+              <Overlay />
+            </Portal>
+          </Modal>
+        ))
+        const props = {
+          'data-testid': 'content',
+          forceMount: false,
+          children: (
+            <>
+              <Header>
+                <Title>title</Title>
+              </Header>
+              <Body>
+                <Description>description</Description>
+              </Body>
+            </>
+          )
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.have.lengthOf(0)
+        expect(function () {
+          screen.getByTestId(props['data-testid'])
+        }).to.throw()
+      })
     })
 
     describe('default.Header', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header {...props} />
@@ -541,7 +614,7 @@ describe(json.name, () => {
     describe('default.Title', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header>
@@ -620,7 +693,7 @@ describe(json.name, () => {
     describe('default.Body', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header>
@@ -697,7 +770,7 @@ describe(json.name, () => {
     describe('default.ScrollArea', () => {
       const {Modal, Portal, Content, Header, Body, ScrollArea, Description, Title} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header>
@@ -776,7 +849,7 @@ describe(json.name, () => {
     describe('default.Description', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header>
@@ -855,7 +928,7 @@ describe(json.name, () => {
     describe('default.Footer', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title, Footer} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header>
@@ -935,7 +1008,7 @@ describe(json.name, () => {
     describe('default.Overlay', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title, Overlay} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header>
@@ -1010,12 +1083,77 @@ describe(json.name, () => {
         // Then
         expect(displayName).to.equal('MoleculeModal.Overlay')
       })
+
+      it('should add Overlay when Portal forceMount is set to true', () => {
+        // Given
+        const setup = setupEnvironment(() => (
+          <Modal>
+            <Portal forceMount>
+              <Content>
+                <Header>
+                  <Title>title</Title>
+                </Header>
+                <Body>
+                  <Description>description</Description>
+                </Body>
+              </Content>
+              <Overlay {...props} />
+            </Portal>
+          </Modal>
+        ))
+        const props = {
+          'data-testid': 'overlay'
+        }
+
+        // When
+        const {container} = setup(props)
+        const overlay = screen.getByTestId(props['data-testid'])
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.have.lengthOf(0)
+        expect(overlay.innerHTML).to.be.a('string')
+        expect(overlay.outerHTML).to.not.have.lengthOf(0)
+      })
+
+      it('should NOT add Overlay when Portal forceMount is set to true and Overlay forceMount prop is set to false', () => {
+        // Given
+        const setup = setupEnvironment(({...props}) => (
+          <Modal>
+            <Portal forceMount>
+              <Content>
+                <Header>
+                  <Title>title</Title>
+                </Header>
+                <Body>
+                  <Description>description</Description>
+                </Body>
+              </Content>
+              <Overlay {...props} />
+            </Portal>
+          </Modal>
+        ))
+        const props = {
+          'data-testid': 'overlay',
+          forceMount: false
+        }
+
+        // When
+        const {container} = setup(props)
+
+        // Then
+        expect(container.innerHTML).to.be.a('string')
+        expect(container.innerHTML).to.have.lengthOf(0)
+        expect(function () {
+          screen.getByTestId(props['data-testid'])
+        }).to.throw()
+      })
     })
 
     describe('default.CloseIconButton', () => {
       const {Modal, Portal, Content, Header, Body, Description, Title, Overlay, CloseIconButton} = pkg
       const Component = ({...props}) => (
-        <Modal open>
+        <Modal isOpen>
           <Portal>
             <Content>
               <Header>
@@ -1089,6 +1227,104 @@ describe(json.name, () => {
         expect(displayName).to.equal('MoleculeModal.Overlay')
       })
     })
+
+    describe('interactions', () => {
+      const {Modal, OpenTrigger, Portal, Content, Header, Body, Description, Title, Footer, CloseTrigger} = pkg
+      const Component = ({...props}) => (
+        <Modal>
+          <OpenTrigger>
+            <button>open</button>
+          </OpenTrigger>
+          <Portal>
+            <Content>
+              <Header>
+                <Title>title</Title>
+              </Header>
+              <Body>
+                <Description {...props} />
+              </Body>
+              <Footer>
+                <CloseTrigger>
+                  <button>close modal</button>
+                </CloseTrigger>
+              </Footer>
+            </Content>
+          </Portal>
+        </Modal>
+      )
+      const setup = setupEnvironment(Component)
+
+      it('should open when clicking on OpenTrigger', () => {
+        // Given
+        const props = {
+          children: 'description'
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        expect(getByRole('button')).to.not.be.null
+        expect(function () {
+          screen.getByRole('dialog')
+        }).to.throw()
+
+        // And
+
+        // When
+        const openTrigger = getByRole('button')
+        openTrigger.click()
+
+        // Then
+        expect(function () {
+          screen.getByRole('dialog')
+        }).to.not.throw()
+      })
+
+      it('should open when clicking on OpenTrigger and Close when clicking on CloseTrigger', () => {
+        // Given
+        const props = {
+          children: 'description'
+        }
+
+        // When
+        const {getByRole} = setup(props)
+
+        // Then
+        expect(getByRole('button')).to.not.be.null
+        expect(function () {
+          screen.getByRole('dialog')
+        }).to.throw()
+
+        // And
+
+        // When
+        const openTrigger = getByRole('button', {
+          name: /open/i
+        })
+        openTrigger.click()
+
+        // Then
+        expect(function () {
+          screen.getByRole('dialog')
+        }).to.not.throw()
+
+        // And
+
+        // Given
+        const closeTrigger = screen.getByRole('button', {
+          name: /close modal/i
+        })
+
+        // When
+        closeTrigger.click()
+
+        // Then
+        expect(function () {
+          screen.getByRole('dialog')
+        }).to.throw()
+      })
+    })
   })
 
   describe('moleculeModalSizes', () => {
@@ -1146,12 +1382,13 @@ describe(json.name, () => {
       const expected = {
         FADE: 'fade',
         SLIDE: 'slide',
+        BLOOM: 'bloom',
         NONE: 'none'
       }
 
       // When
       const {moleculeModalAnimations: actual} = library
-      const {FADE, SLIDE, NONE, ...others} = actual
+      const {FADE, SLIDE, BLOOM, NONE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

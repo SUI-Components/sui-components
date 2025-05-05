@@ -2,7 +2,7 @@ import {createContext} from 'react'
 
 const defaultContext = {
   isOpen: false,
-  forceMount: false,
+  forceMount: undefined,
   setForceMount: () => {},
   animation: 'none',
   setAnimation: () => {},

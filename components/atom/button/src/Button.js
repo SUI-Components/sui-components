@@ -1,36 +1,24 @@
+import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
-import ButtonLink from './ButtonLink.js'
+import {useElement} from './config.js'
 
-const Button = ({
-  children,
-  href,
-  target,
-  disabled,
-  isSubmit, // eslint-disable-line react/prop-types
-  isButton, // eslint-disable-line react/prop-types
-  link,
-  linkFactory: Link = ButtonLink,
-  forwardingRef, // eslint-disable-line react/prop-types
-  className,
-  ...attrs
-}) => {
-  if (isSubmit) attrs.type = 'submit'
-  if (isButton) attrs.type = 'button'
-
-  const defaultRel = target === '_blank' ? 'noopener' : undefined
-  const rel = attrs.rel || defaultRel
-
-  const [Component, props] = link ? [Link, {href, target, rel}] : ['button', {disabled}]
+const Button = forwardRef(({children, className, ...attrs}, forwardedRef) => {
+  const [Element, props] = useElement({...attrs})
 
   return (
-    <Component className={className} ref={forwardingRef} {...props} {...attrs}>
+    <Element ref={forwardedRef} className={className} {...props} {...attrs}>
       {children}
-    </Component>
+    </Element>
   )
-}
+})
 
 Button.propTypes = {
+  /**
+   * Render the passed value as the correspondent HTML tag or the component if a function is passed
+   */
+  as: PropTypes.elementType,
   /**
    * Content to be included in the button
    */

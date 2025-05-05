@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "latest",
-    "@s-ui/react-primitive-loading-icon": "1"
+    "@s-ui/react-primitive-loading-icon": "1",
+    "@s-ui/react-primitive-polymorphic-element": "1"
   },
   "repository": {
     "type": "git",

@@ -19,7 +19,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-button": "2",
     "@s-ui/react-hook-use-portal": "1",
     "@s-ui/react-primitive-injector": "1"
   },

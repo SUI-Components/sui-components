@@ -4,6 +4,6 @@
   "private": true,
   "description": "Demo for @s-ui/react-atom-table",
   "dependencies": {
-    "@s-ui/react-atom-button": "1"
+    "@s-ui/react-atom-button": "2"
   }
 }

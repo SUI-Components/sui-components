@@ -35,7 +35,7 @@ const BreadcrumbBasic = ({
   const numItems = items.length - 1
 
   return (
-    <nav aria-label="breadcrumb" role="navigation">
+    <nav aria-label="breadcrumb">
       <div
         className={breadcrumbClassName({
           isExpanded: isExpandedState,

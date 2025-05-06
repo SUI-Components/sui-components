@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.29.0 (2025-05-06)
+
+
+### Features
+
+* remove redundant role attribute from nav element ([031e20f](https://github.com/SUI-Components/sui-components/commit/031e20ff645e380b4ccbe5af3bc94b2c1b4c861a))
+
+
+
 # 1.28.0 (2024-05-06)
 
 

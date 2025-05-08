@@ -23,7 +23,7 @@
     "@s-ui/react-atom-input": "5",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-molecule-dropdown-list": "2",
-    "@s-ui/react-molecule-input-tags": "2",
+    "@s-ui/react-molecule-input-tags": "3",
     "@s-ui/react-primitive-injector": "1",
     "lodash.isequal": "4.5"
   },

@@ -64,36 +64,36 @@ $c-atom-switch--active-array: (
   primary: (
     bgc: $c-atom-switch--active,
     bdc: color-variation($c-atom-switch--active, -1),
-    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+    bxsh: $bxsh-atom-switch-circle
   ),
   accent: (
     bgc: $c-accent,
     bdc: color-variation($c-accent, -1),
-    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+    bxsh: $bxsh-atom-switch-circle
   ),
   success: (
     bgc: $c-success,
     bdc: color-variation($c-success, -1),
-    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+    bxsh: $bxsh-atom-switch-circle
   ),
   alert: (
     bgc: $c-alert,
     bdc: color-variation($c-alert, -1),
-    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+    bxsh: $bxsh-atom-switch-circle
   ),
   error: (
     bgc: $c-error,
     bdc: color-variation($c-error, -1),
-    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+    bxsh: $bxsh-atom-switch-circle
   ),
   neutral: (
     bgc: $c-gray,
     bdc: color-variation($c-gray, -1),
-    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+    bxsh: $bxsh-atom-switch-circle
   ),
   surface: (
     bgc: $c-white,
     bdc: color-variation($c-white, 1),
-    bxsh: 0 0 4px 1px $c-atom-switch-shadow
+    bxsh: $bxsh-atom-switch-circle
   )
 );

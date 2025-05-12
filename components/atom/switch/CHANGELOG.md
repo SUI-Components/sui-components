@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.3.0 (2025-05-12)
+
+
+### Bug Fixes
+
+* update import path for useControlledState ([dc4c163](https://github.com/SUI-Components/sui-components/commit/dc4c163d16e6fa037fe851a1273cfd3e012a7897))
+
+
+
+# 2.2.0 (2025-05-12)
+
+
+### Bug Fixes
+
+* Fix Box Shadow variable for variants ([3704e72](https://github.com/SUI-Components/sui-components/commit/3704e7248f12c24b23cd14d8910dbf9c3e73ce6b))
+
+
+
 # 2.1.0 (2025-03-07)
 
 

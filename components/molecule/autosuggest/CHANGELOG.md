@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.70.0 (2025-05-09)
+
+
+### Features
+
+* upgrade @s-ui/react-molecule-input-tags to v3 ([c8ada31](https://github.com/SUI-Components/sui-components/commit/c8ada31f458fa4846cb33ea3d400efb97eff41d3))
+
+
+
 # 2.69.0 (2023-12-29)
 
 
@@ -774,6 +783,3 @@
 * **molecule/autosuggest:** uX suggestions ([3ff8c03](https://github.com/SUI-Components/sui-components/commit/3ff8c03eb794d8d88dcf4de96657be7c0e77f78a))
 * **molecule/autosuggest:** with hoc withStateValueTags ([835cb7a](https://github.com/SUI-Components/sui-components/commit/835cb7ad402e4b9ed415b39b9d45296278521729))
 * **molecule/autosuggest:** withStateTags fixing and isOpen ([97414d2](https://github.com/SUI-Components/sui-components/commit/97414d27fc3d2cd6162ad94e636ba59e077cb2c5))
-
-
-

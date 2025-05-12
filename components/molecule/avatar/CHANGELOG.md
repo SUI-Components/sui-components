@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.18.0 (2025-05-05)
+
+
+### Bug Fixes
+
+* follow the sui agreements ([e3e9a05](https://github.com/SUI-Components/sui-components/commit/e3e9a05307d01a7f64c84bc6da2b5c17eaea1374))
+
+
+### Features
+
+* refactor ([138be5f](https://github.com/SUI-Components/sui-components/commit/138be5f44a7699f8ac5b97e0fd9829cfc1b1dcef))
+* use paragraph and aria hide the name fallback so it cannot be read ([e9dbb7b](https://github.com/SUI-Components/sui-components/commit/e9dbb7b89b9ac595f7fbf8326f8b790b1e2a7127))
+
+
+
 # 1.17.0 (2022-10-17)
 
 
@@ -160,6 +175,3 @@
 * **molecule/avatar:** add avatar component ([0911044](https://github.com/SUI-Components/sui-components/commit/0911044da69c9642817735161376294c0bc679b1))
 * **molecule/avatar:** reduce bundle (optimize svg) ([f15e2d4](https://github.com/SUI-Components/sui-components/commit/f15e2d43fff7550d1a0aaf1615304bd06daca81b))
 * **molecule/avatar:** remove className prop ext ([8925680](https://github.com/SUI-Components/sui-components/commit/89256808477c9b3dbb92cceb4c7ff0408bd11a0b))
-
-
-

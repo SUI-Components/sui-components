@@ -38,7 +38,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@s-ui/documentation-library": "2",
     "@s-ui/helpers": "1",

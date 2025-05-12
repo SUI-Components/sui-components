@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2025-05-12)
+
+
+### Features
+
+* add isInset to the footer ([36ebde0](https://github.com/SUI-Components/sui-components/commit/36ebde0e482224986d9834fabd385d29a5fcf39d))
+
+
+
 # 2.0.0 (2025-05-05)
 
 

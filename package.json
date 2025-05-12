@@ -75,10 +75,6 @@
       "optimizations": {
         "splitFrameworkOnChunk": true,
         "useExperimentalMinifier": true
-      },
-      "alias": {
-        "react/jsx-dev-runtime": "react/jsx-dev-runtime.js",
-        "react/jsx-runtime": "react/jsx-runtime.js"
       }
     },
     "sui-mono": {

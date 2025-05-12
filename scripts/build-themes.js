@@ -15,7 +15,7 @@ const THEMES_PACKAGES = [
   '@adv-ui/adv-theme',
   '@adv-ui/cf-theme',
   '@adv-ui/ep-theme',
-  '@adv-ui/fc-theme@10.130.0',
+  '@adv-ui/fc-theme',
   '@adv-ui/hab-theme',
   '@adv-ui/hb-theme-v2',
   '@adv-ui/ij-theme',

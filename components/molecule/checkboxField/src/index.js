@@ -1,8 +1,8 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomCheckbox from '@s-ui/react-atom-checkbox'
 import MoleculeField from '@s-ui/react-molecule-field'
-import cx from 'classnames'
 
 import {BASE_CLASS, SIZES, STATUSES} from './settings.js'
 

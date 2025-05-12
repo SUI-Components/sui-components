@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './ArticleA11y.js'
 import ArticleDisabled from './ArticleDisabled.js'
 import ArticleSize from './ArticleSize.js'
 import ArticleStatus from './ArticleStatus.js'
 import ArticleWithCustomCheckedIcon from './ArticleWithCustomCheckedIcon.js'
 import ArticleWithHelpText from './ArticleWithHelpText.js'
 import ArticleWithLabelFullWidth from './ArticleWithLabelFullWidth.js'
-import ArticleA11y from './ArticleA11y.js'
 
 import './index.scss'
 

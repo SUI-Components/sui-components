@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@s-ui/react-atom-icon": "1.14.0",
     "@s-ui/react-layout-media-query": "1",

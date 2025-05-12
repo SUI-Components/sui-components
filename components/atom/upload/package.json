@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@loadable/component": "5.15.x",
-    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-button": "2",
     "react-dropzone": "11.5.1"
   },
   "peerDependencies": {

@@ -8,11 +8,11 @@ import {BASE_CLASS} from './config.js'
 const BASE_CLASS_FOOTER = `${BASE_CLASS}-Footer`
 
 /** The body content of the modal. **/
-const Footer = forwardRef(({as: As = 'footer', className, children, ...props}, forwardedRef) => {
+const Footer = forwardRef(({as: As = 'footer', isInset, className, children, ...props}, forwardedRef) => {
   return (
     <As
       data-sui-component={Footer.displayName}
-      className={cx(BASE_CLASS_FOOTER, className)}
+      className={cx(BASE_CLASS_FOOTER, {[`${BASE_CLASS_FOOTER}-is-inset`]: isInset}, className)}
       {...props}
       ref={forwardedRef}
     >
@@ -31,7 +31,10 @@ Footer.propTypes = {
   className: PropTypes.string,
 
   /** The content of the modal footer */
-  children: PropTypes.node
+  children: PropTypes.node,
+
+  /** The component is inset, borderless */
+  isInset: PropTypes.bool
 }
 
 export default Footer

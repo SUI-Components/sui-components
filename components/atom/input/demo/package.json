@@ -8,12 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-button": "2",
     "@s-ui/react-atom-label": "1",
     "@s-ui/react-primitive-visually-hidden": "1",
     "@s-ui/react-atom-kbd": "1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

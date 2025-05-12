@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@s-ui/react-atom-button": "1"
+    "@s-ui/react-atom-button": "2"
   }
 }

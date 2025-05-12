@@ -9,10 +9,10 @@
   "keywords": [],
   "private": true,
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@s-ui/hoc": "1",
-    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-button": "2",
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-molecule-autosuggest-field": "2",
     "@s-ui/react-molecule-dropdown-option": "2",

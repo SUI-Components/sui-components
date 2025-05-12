@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-button-demo",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-atom-kbd": "1",

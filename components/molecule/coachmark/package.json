@@ -22,7 +22,7 @@
     "@s-ui/theme": "8"
   },
   "dependencies": {
-    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-button": "2",
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-atom-image": "2",
     "react-joyride": "2"

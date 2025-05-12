@@ -11,28 +11,14 @@ import MoleculeSelectPopover, {
 import IconClose from '@s-ui/react-icons/lib/Close'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
-import MoleculeModal from '@s-ui/react-molecule-modal'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 
+import CustomContentWrapper from './Custom/CustomContentWrapper.js'
+import CustomRenderActions from './Custom/CustomRenderActions.js'
 import {IconArrowDown, IconCheck, IconHalfCheck} from './Icons/index.js'
+import {demoExample} from './config.js'
 
 import './index.scss'
-
-const demoExample = [
-  {id: 'nested-01', label: 'Compra', checked: false},
-  {id: 'nested-02', label: 'Alquiler', checked: false},
-  {id: 'nested-03', label: 'Alquiler con opción a compra', checked: false}
-]
-
-const CustomRenderActions = ({cancelButtonText, onCancel, onAccept, acceptButtonText}) => {
-  return (
-    <>
-      <button onClick={onAccept}>{acceptButtonText}</button>
-      <button onClick={onCancel}>{cancelButtonText}</button>
-      this is awesome!
-    </>
-  )
-}
 
 const Demo = () => {
   const [items, setItems] = useState(demoExample)
@@ -79,24 +65,6 @@ const Demo = () => {
 
     hasForceClosePopover && setForceClosePopover(false)
   }
-
-  const renderContentWrapper = ({actions, content, isOpen, setIsOpen}) => {
-    const handleClose = () => setIsOpen(false)
-
-    return (
-      <MoleculeModal
-        fitWindow
-        iconClose={<IconClose size="medium" />}
-        isContentless
-        isOpen={isOpen}
-        onClose={handleClose}
-      >
-        <MoleculeModal.Content withoutIndentation>{content}</MoleculeModal.Content>
-        {!actionsAreHidden && actions}
-      </MoleculeModal>
-    )
-  }
-  console.log(unconfirmedItems)
 
   const checkedItems = items.filter(item => item.checked)
   const isSelected = checkedItems.length > 0
@@ -265,7 +233,7 @@ const Demo = () => {
               setForceClosePopover({})
             }
           }}
-          renderContentWrapper={customContentWrapper && renderContentWrapper}
+          renderContentWrapper={customContentWrapper && CustomContentWrapper}
           renderSelect={renderSelect && <button>Now I'm a button!</button>}
           forceClosePopover={forceClosePopover}
           fullWidth={isFullWidth}

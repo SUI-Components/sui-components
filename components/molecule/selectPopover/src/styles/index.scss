@@ -97,6 +97,8 @@ $base-class: '.sui-MoleculeSelectPopover ';
       border-top: $bdt-select-popover-action-bar;
       padding: $p-l;
       text-align: right;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     // placements

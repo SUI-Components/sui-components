@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.48.0 (2025-05-12)
+
+
+### Bug Fixes
+
+* add css rules for proper action sscetion accomodation ([c3beb6d](https://github.com/SUI-Components/sui-components/commit/c3beb6d7c28d7f1af72ea3c3e0ee0323f99bbac2))
+
+
+
 # 1.47.0 (2025-03-13)
 
 

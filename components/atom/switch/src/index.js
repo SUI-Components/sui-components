@@ -2,7 +2,7 @@ import {forwardRef} from 'react'
 
 import PropTypes from 'prop-types'
 
-import {useControlledState} from '@s-ui/react-hooks/lib/useControlledState'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import AtomSwitchSingle from './SwitchDesign/AtomSwitchSingle.js'
 import AtomSwitchToggle from './SwitchDesign/AtomSwitchToggle.js'

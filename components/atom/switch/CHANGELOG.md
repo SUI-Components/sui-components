@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2025-05-12)
+
+
+### Bug Fixes
+
+* update import path for useControlledState ([dc4c163](https://github.com/SUI-Components/sui-components/commit/dc4c163d16e6fa037fe851a1273cfd3e012a7897))
+
+
+
 # 2.2.0 (2025-05-12)
 
 

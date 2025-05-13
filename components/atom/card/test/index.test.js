@@ -15,6 +15,12 @@ import * as pkg from '../src/index.js'
 
 chai.use(chaiDOM)
 
+const DATA_TEST_ID = 'atom-card'
+
+const sharedProps = {
+  'data-testId': DATA_TEST_ID
+}
+
 describe(json.name, () => {
   const {default: Component} = pkg
   const setup = setupEnvironment(Component)
@@ -64,7 +70,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {content: noop, className: 'extended-classNames'}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
@@ -74,45 +80,61 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
     })
 
     it('should have link class when having onClick', () => {
       const props = {
         onClick: () => console.log('Hello!'), // eslint-disable-line no-console
-        content: () => <span>card with click</span>
+        content: () => <span>card with click</span>,
+        ...sharedProps
       }
-      const {getByRole} = setup(props)
-      const card = getByRole('button')
+      const {getByTestId} = setup(props)
+      const card = getByTestId(DATA_TEST_ID)
       expect(card).to.have.class('sui-AtomCard-link')
     })
 
     it('should have link class when having href', () => {
       const props = {
         href: 'http://www.google.com',
-        content: () => <span>card with click</span>
+        content: () => <span>card with click</span>,
+        ...sharedProps
       }
-      const {getByRole} = setup(props)
-      const card = getByRole('button')
+      const {getByTestId} = setup(props)
+      const card = getByTestId(DATA_TEST_ID)
       expect(card).to.have.class('sui-AtomCard-link')
     })
 
     it('should NOT have link class when not having href or onClick', () => {
       const props = {
-        content: () => <span>card with click</span>
+        content: () => <span>card with click</span>,
+        ...sharedProps
       }
-      const {getByRole} = setup(props)
-      const card = getByRole('button')
+      const {getByTestId} = setup(props)
+      const card = getByTestId(DATA_TEST_ID)
       expect(card).to.have.not.class('sui-AtomCard-link')
+    })
+
+    it('should not have role button when href is provided', () => {
+      const props = {
+        href: 'http://www.google.com',
+        content: () => <span>card with click</span>,
+        'data-testid': 'atom-card'
+      }
+      const {getByTestId, queryByRole} = setup(props)
+      expect(queryByRole('button')).to.be.null
+      const card = getByTestId('atom-card')
+      expect(card).to.have.class('sui-AtomCard-link')
     })
 
     it('should have rounded class when having borders rounded', () => {
       const props = {
         rounded: 's',
-        content: () => <span>card</span>
+        content: () => <span>card</span>,
+        ...sharedProps
       }
-      const {getByRole} = setup(props)
-      const card = getByRole('button')
+      const {getByTestId} = setup(props)
+      const card = getByTestId(DATA_TEST_ID)
       expect(card).to.have.class('sui-AtomCard--rounded-s')
       expect(card).to.have.not.class('sui-AtomCard--rounded-m')
       expect(card).to.have.not.class('sui-AtomCard--rounded-l')
@@ -120,10 +142,11 @@ describe(json.name, () => {
 
     it('should NOT have rounded class when not having border rounded ', () => {
       const props = {
-        content: () => <span>card</span>
+        content: () => <span>card</span>,
+        ...sharedProps
       }
-      const {getByRole} = setup(props)
-      const card = getByRole('button')
+      const {getByTestId} = setup(props)
+      const card = getByTestId(DATA_TEST_ID)
       expect(card).to.have.not.class('sui-AtomCard--rounded-s')
       expect(card).to.have.not.class('sui-AtomCard--rounded-m')
       expect(card).to.have.not.class('sui-AtomCard--rounded-l')
@@ -132,10 +155,11 @@ describe(json.name, () => {
     it('should have box-shadow class when having elevated border', () => {
       const props = {
         elevation: 's',
-        content: () => <span>card</span>
+        content: () => <span>card</span>,
+        ...sharedProps
       }
-      const {getByRole} = setup(props)
-      const card = getByRole('button')
+      const {getByTestId} = setup(props)
+      const card = getByTestId(DATA_TEST_ID)
       expect(card).to.have.class('sui-AtomCard--elevation-s')
       expect(card).to.have.not.class('sui-AtomCard--elevation-m')
       expect(card).to.have.not.class('sui-AtomCard--elevation-l')
@@ -143,10 +167,11 @@ describe(json.name, () => {
 
     it('should NOT have rounded class when not having elevated border ', () => {
       const props = {
-        content: () => <span>card</span>
+        content: () => <span>card</span>,
+        ...sharedProps
       }
-      const {getByRole} = setup(props)
-      const card = getByRole('button')
+      const {getByTestId} = setup(props)
+      const card = getByTestId(DATA_TEST_ID)
       expect(card).to.have.not.class('sui-AtomCard--elevation-s')
       expect(card).to.have.not.class('sui-AtomCard--elevation-m')
       expect(card).to.have.not.class('sui-AtomCard--elevation-l')

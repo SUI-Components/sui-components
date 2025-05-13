@@ -119,7 +119,7 @@ describe(json.name, () => {
       const props = {
         href: 'http://www.google.com',
         content: () => <span>card with click</span>,
-        'data-testid': 'atom-card'
+        ...sharedProps
       }
       const {getByTestId, queryByRole} = setup(props)
       expect(queryByRole('button')).to.be.null

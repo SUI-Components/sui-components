@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.27.0 (2025-05-13)
+
+
+### Features
+
+* efactor test to use sharedProps for data-testid ([4d553a4](https://github.com/SUI-Components/sui-components/commit/4d553a4efc08d4c53efdc2b02a79eaa94307cc52))
+* enhance tests with shared props and improve className assertions ([9402056](https://github.com/SUI-Components/sui-components/commit/940205699d6bab7da3674ae089f7fa5276b3ba55))
+* improve accessibility by adding role attribute conditionally ([3c7ca9a](https://github.com/SUI-Components/sui-components/commit/3c7ca9a34f54aa88b56e72531cc6f043cd45bd12))
+
+
+
 # 1.26.0 (2024-05-06)
 
 

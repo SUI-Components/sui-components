@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-card",
-  "version": "1.26.0",
+  "version": "1.27.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "card"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "card"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

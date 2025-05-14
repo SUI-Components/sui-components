@@ -31,7 +31,8 @@ const AccordionItem = forwardRef(
       label,
       onClick,
       content,
-      maxHeight
+      maxHeight,
+      ...props
     },
     forwardedRef
   ) => {
@@ -69,6 +70,7 @@ const AccordionItem = forwardRef(
           value={value}
           content={content}
           maxHeight={maxHeight}
+          {...props}
         >
           {children}
         </AccordionItemPanel>

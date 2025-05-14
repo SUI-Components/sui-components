@@ -17,6 +17,12 @@ import userEvents from '@testing-library/user-event'
 import json from '../package.json'
 import * as pkg from '../src/index.js'
 
+const DATA_TEST_ID = 'accordion-panel-item'
+
+const sharedProps = {
+  'data-testId': DATA_TEST_ID
+}
+
 chai.use(chaiDOM)
 
 describe(json.name, () => {
@@ -227,6 +233,7 @@ describe(json.name, () => {
             value={1}
             content="content 1"
             maxHeight={100}
+            {...sharedProps}
           />,
           <MoleculeAccordionItem
             key={1}
@@ -237,8 +244,9 @@ describe(json.name, () => {
             value={2}
             content="content 2"
             maxHeight={100}
+            {...sharedProps}
           />,
-          <MoleculeAccordionItem key={2} label="label 3" value={3} content="content 3" />
+          <MoleculeAccordionItem key={2} label="label 3" value={3} content="content 3" {...sharedProps} />
         ],
         onChange: spy,
         values: [1, 2]
@@ -246,7 +254,7 @@ describe(json.name, () => {
       const {getAllByTestId} = setup(props)
 
       // When
-      const panels = getAllByTestId('accordion-panel')
+      const panels = getAllByTestId(DATA_TEST_ID)
 
       // Then
       panels.forEach(panel => {

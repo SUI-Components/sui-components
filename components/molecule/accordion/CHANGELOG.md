@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.15.0 (2025-05-14)
+
+
+### Features
+
+* Remove role attribute and update tests ([9be1a71](https://github.com/SUI-Components/sui-components/commit/9be1a7157c17cdc90b601a9d6c76485fc1ba273f))
+* Update aria attributes for a11y ([0924e16](https://github.com/SUI-Components/sui-components/commit/0924e16224134cf5f07835bd18fd2018946257fb))
+
+
+
 # 2.14.0 (2023-10-30)
 
 
@@ -366,6 +376,3 @@
 * **molecule/accordion:** turn on children validation ([e43e0c2](https://github.com/SUI-Components/sui-components/commit/e43e0c22d6891cd44e69b4a5ebf8e54d61d9966b))
 * **molecule/accordion:** uX QA add prop to force scrollbar visible ([af09ff0](https://github.com/SUI-Components/sui-components/commit/af09ff0bdeeea2439f9f5bb8c08146ccd0ef5f18))
 * **molecule/accordion:** uX QA change content padding ([a2e9dbf](https://github.com/SUI-Components/sui-components/commit/a2e9dbf76ee43de94c3cf95a08fa7e4f0b37163f))
-
-
-

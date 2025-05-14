@@ -24,7 +24,8 @@ const AccordionItemPanel = forwardRef(
       maxHeight: maxHeightProp,
       value,
       animationDuration: animationDurationProp,
-      disabled
+      disabled,
+      ...props
     },
     forwardedRef
   ) => {
@@ -41,10 +42,8 @@ const AccordionItemPanel = forwardRef(
       <div
         id={id}
         ref={forwardedRef}
-        role="region"
         className={cx(BASE_CLASS_ITEM_PANEL, BASE_CLASS_ELEMENT)}
         aria-expanded={values.includes(value)}
-        aria-labelledby={headerId}
         aria-disabled={disabled}
         style={{
           overflowY: height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',
@@ -57,6 +56,7 @@ const AccordionItemPanel = forwardRef(
             maxHeight: maxHeight === 0 ? height : maxHeight
           })
         }}
+        {...props}
       >
         <Poly
           as={as}

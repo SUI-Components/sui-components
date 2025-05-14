@@ -48,11 +48,14 @@ const MoleculeField = ({
     fullWidth && CLASS_FULLWIDTH
   )
 
+  const helpTextId = `${name}-help-text`
+
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
       return cloneElement(child, {
-        onChange: onChangeFromProps
+        onChange: onChangeFromProps,
+        ...(helpText && {[`aria-describedby`]: helpTextId})
       })
     })
 
@@ -92,7 +95,7 @@ const MoleculeField = ({
         {!disabled && validationTextValue && (
           <AtomValidationText type={validationTextStatus} text={validationTextValue} />
         )}
-        {helpText && <AtomHelpText text={helpText} />}
+        {helpText && <AtomHelpText id={helpTextId} text={helpText} />}
       </div>
     </div>
   )

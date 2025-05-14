@@ -19,6 +19,7 @@ const MoleculeSelectSingleSelection = forwardRef(
     {
       value = '',
       children,
+      'aria-describedby': ariaDescribedBy,
       isOpen,
       onToggle,
       onTriggerClick,
@@ -87,7 +88,7 @@ const MoleculeSelectSingleSelection = forwardRef(
           size={selectSize}
           tabIndex={tabIndex}
         >
-          <AtomInput ref={forwardedRef} inputMode={inputTypes.NONE} noBorder />
+          <AtomInput aria-describedby={ariaDescribedBy} ref={forwardedRef} inputMode={inputTypes.NONE} noBorder />
         </MoleculeInputSelect>
         <div className={CLASS_SEARCH_CONTAINER}>
           {hasSearch && <Search ref={refSearch} />}
@@ -109,6 +110,7 @@ const MoleculeSelectSingleSelection = forwardRef(
 MoleculeSelectSingleSelection.propTypes = {
   value: PropTypes.string,
   children: PropTypes.node,
+  'aria-describedby': PropTypes.string,
   isOpen: PropTypes.bool,
   onToggle: PropTypes.func,
   onChange: PropTypes.func,

@@ -1,3 +1,4 @@
+/* eslint-disable sui/default-component-test */
 /*
  * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
  * */
@@ -242,10 +243,10 @@ describe(json.name, () => {
         onChange: spy,
         values: [1, 2]
       }
-      const {getAllByRole} = setup(props)
+      const {getAllByTestId} = setup(props)
 
       // When
-      const panels = getAllByRole('region')
+      const panels = getAllByTestId('accordion-panel')
 
       // Then
       panels.forEach(panel => {

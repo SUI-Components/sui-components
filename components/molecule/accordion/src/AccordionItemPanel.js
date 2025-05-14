@@ -41,10 +41,9 @@ const AccordionItemPanel = forwardRef(
       <div
         id={id}
         ref={forwardedRef}
-        role="region"
         className={cx(BASE_CLASS_ITEM_PANEL, BASE_CLASS_ELEMENT)}
         aria-expanded={values.includes(value)}
-        aria-labelledby={headerId}
+        data-testid="accordion-panel"
         aria-disabled={disabled}
         style={{
           overflowY: height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',

@@ -257,11 +257,12 @@ describe(json.name, () => {
       const panels = getAllByTestId(DATA_TEST_ID)
 
       // Then
+      const classNameExpanded = 'sui-MoleculeAccordionItemPanel--expanded'
       panels.forEach(panel => {
         if (['content 1', 'content 2'].includes(panel.innerText)) {
-          expect(Boolean(panel.hasAttribute('aria-expanded'))).to.be.true
+          expect(panel.classList.contains(classNameExpanded)).to.be.true
         } else if (['content 3'].includes(panel.innerText)) {
-          expect(Boolean(panel.hasAttribute('aria-collapsed'))).to.be.false
+          expect(panel.classList.contains(classNameExpanded)).to.be.false
         }
         expect(['content 1', 'content 2', 'content 3'].some(text => panel.innerText === text)).to.be.true
       })

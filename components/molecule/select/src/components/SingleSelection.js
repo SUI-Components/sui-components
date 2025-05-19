@@ -87,7 +87,7 @@ const MoleculeSelectSingleSelection = forwardRef(
           size={selectSize}
           tabIndex={tabIndex}
         >
-          <AtomInput ref={forwardedRef} inputMode={inputTypes.NONE} noBorder />
+          <AtomInput ref={forwardedRef} inputMode={inputTypes.NONE} noBorder {...props} />
         </MoleculeInputSelect>
         <div className={CLASS_SEARCH_CONTAINER}>
           {hasSearch && <Search ref={refSearch} />}

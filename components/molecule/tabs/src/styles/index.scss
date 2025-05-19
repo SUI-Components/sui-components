@@ -271,12 +271,6 @@ $item-base-class: '#{$base-class}-item';
       margin: $m-m;
     }
 
-    &-label {
-      font-weight: $fw-semibold;
-      background-color: transparent;
-      border-color: transparent;
-    }
-
     svg {
       fill: $c-sui-molecule-tabs;
     }

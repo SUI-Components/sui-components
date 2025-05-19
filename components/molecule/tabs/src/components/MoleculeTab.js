@@ -1,4 +1,4 @@
-import {forwardRef, useEffect, useRef} from 'react'
+import {forwardRef, useEffect, useRef, createElement} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -24,6 +24,7 @@ const MoleculeTab = forwardRef(
       icon,
       id = 'molecule-tab-content',
       isIntersecting,
+      renderLabelAs = 'span',
       label,
       numTab,
       onChange
@@ -62,7 +63,7 @@ const MoleculeTab = forwardRef(
       >
         {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
         {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
-        <button className={CLASS_TAB_LABEL}>{label}</button>
+        {createElement(renderLabelAs, {className: CLASS_TAB_LABEL}, label)}
       </li>
     )
   }
@@ -97,7 +98,10 @@ MoleculeTab.propTypes = {
   disabled: PropTypes.bool,
 
   /** determines if the container element is intersecting in the view **/
-  isIntersecting: PropTypes.bool
+  isIntersecting: PropTypes.bool,
+
+  /** renderLabelAs: the element used to render the label */
+  renderLabelAs: PropTypes.elementType
 }
 
 export default MoleculeTab

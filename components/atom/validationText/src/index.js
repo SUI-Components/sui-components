@@ -6,11 +6,11 @@ import Injector from '@s-ui/react-primitive-injector'
 
 import {getClassNames, TYPES} from './settings.js'
 
-const AtomValidationText = forwardRef(({type, text}, forwardedRef) => {
+const AtomValidationText = forwardRef(({text, type, ...props}, forwardedRef) => {
   const isTextString = typeof text === 'string'
   const Component = isTextString ? 'span' : Injector
   return (
-    <Component className={getClassNames(type)} {...(isTextString && {ref: forwardedRef})}>
+    <Component className={getClassNames(type)} {...props} {...(isTextString && {ref: forwardedRef})}>
       {text}
     </Component>
   )

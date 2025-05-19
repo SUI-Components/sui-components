@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.4.0 (2025-05-19)
+
+
+### Features
+
+* add aria-describedby to input ([39b5cbf](https://github.com/SUI-Components/sui-components/commit/39b5cbf0695fb1a83068db4ab61f654dbda7c561))
+* filter mutiselect props only ([0851e15](https://github.com/SUI-Components/sui-components/commit/0851e15a05d69e3741440bcbb65e86e2c99a0312))
+* spread props ([2f7e73c](https://github.com/SUI-Components/sui-components/commit/2f7e73cf915cbe3a22d49c67365a5e55f16d9d1b))
+
+
+
 # 2.3.0 (2025-02-24)
 
 

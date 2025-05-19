@@ -5,7 +5,14 @@ import PropTypes from 'prop-types'
 
 import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs'
 
-import {CLASS_TAB, CLASS_TAB_ACTIVE, CLASS_TAB_COUNT, CLASS_TAB_DISABLED, CLASS_TAB_ICON} from './config.js'
+import {
+  CLASS_TAB,
+  CLASS_TAB_ACTIVE,
+  CLASS_TAB_COUNT,
+  CLASS_TAB_DISABLED,
+  CLASS_TAB_ICON,
+  CLASS_TAB_LABEL
+} from './config.js'
 
 const MoleculeTab = forwardRef(
   (
@@ -55,7 +62,7 @@ const MoleculeTab = forwardRef(
       >
         {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
         {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
-        <span>{label}</span>
+        <button className={CLASS_TAB_LABEL}>{label}</button>
       </li>
     )
   }

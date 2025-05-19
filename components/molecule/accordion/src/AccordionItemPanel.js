@@ -38,12 +38,15 @@ const AccordionItemPanel = forwardRef(
     } = useAccordionContext({isExpanded, value})
     const maxHeight = maxHeightProp !== undefined ? maxHeightProp : maxHeightContext
     const animationDuration = animationDurationProp || animationDurationContext
+
+    const className = cx(BASE_CLASS_ITEM_PANEL, BASE_CLASS_ELEMENT, {
+      [`${BASE_CLASS_ITEM_PANEL}--expanded`]: values.includes(value)
+    })
     return (
       <div
         id={id}
         ref={forwardedRef}
-        className={cx(BASE_CLASS_ITEM_PANEL, BASE_CLASS_ELEMENT)}
-        aria-expanded={values.includes(value)}
+        className={className}
         aria-disabled={disabled}
         style={{
           overflowY: height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',

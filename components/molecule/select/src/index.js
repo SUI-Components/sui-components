@@ -48,6 +48,7 @@ const MoleculeSelect = forwardRef(
       keysSelection = SELECTION_KEYS,
       multiselection = false,
       hasSearch = false,
+      iconCloseTag,
       tagSize,
       searchIcon,
       searchPlaceholder,
@@ -301,7 +302,10 @@ const MoleculeSelect = forwardRef(
             selectSize={selectSize}
             tagSize={tagSize}
             multiselection={multiselection}
-            keysSelection={keysSelection}
+            {...(multiselection && {
+              iconCloseTag,
+              keysSelection
+            })}
           >
             {numOptions > 0 ? extendedChildren : noResults}
           </Select>

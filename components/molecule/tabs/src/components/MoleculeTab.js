@@ -29,6 +29,13 @@ const MoleculeTab = forwardRef(
       !disabled && onChange(ev, {numTab})
     }
 
+    const handleKeyDown = ev => {
+      if (!disabled && (ev.key === 'Enter' || ev.key === ' ')) {
+        ev.preventDefault()
+        onChange(ev, {numTab})
+      }
+    }
+
     useEffect(() => {
       if (autoScrollIntoView && active && isIntersecting) {
         innerRef.current.scrollIntoView({
@@ -44,16 +51,26 @@ const MoleculeTab = forwardRef(
       [CLASS_TAB_DISABLED]: disabled
     })
 
+    const ariaLabel = typeof label === 'string' ? undefined : `Tab ${numTab}`
+
     return (
       <li
         className={className}
         onClick={handleChange}
+        onKeyDown={handleKeyDown}
         ref={useMergeRefs(innerRef, forwardedRef)}
         role="tab"
+        tabIndex={disabled ? -1 : 0}
         aria-selected={active}
+        aria-disabled={disabled}
         aria-controls={`${id}-${numTab}`}
+        aria-label={ariaLabel}
       >
-        {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
+        {icon && (
+          <span className={CLASS_TAB_ICON} aria-hidden="true">
+            {icon}
+          </span>
+        )}
         {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}
         <span>{label}</span>
       </li>

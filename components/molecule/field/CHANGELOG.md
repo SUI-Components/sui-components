@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.40.0 (2025-05-19)
+
+
+### Features
+
+* set id to atom help text on molecule field, and pass aria-described ([9528b21](https://github.com/SUI-Components/sui-components/commit/9528b2165faa425f9577c8f23a3f80f046cbb888))
+
+
+
 # 1.39.0 (2024-04-04)
 
 

@@ -11,14 +11,15 @@ export const BASE_CLASS = `${BASE}-input`
 // Enums
 export const TYPES = {
   DATE: 'date',
+  EMAIL: 'email',
   MASK: 'mask',
+  NONE: 'none',
   NUMBER: 'number',
   PASSWORD: 'password',
+  SEARCH: 'search',
   SUI_PASSWORD: 'sui-password',
-  TEXT: 'text',
   TEL: 'tel',
-  EMAIL: 'email',
-  NONE: 'none'
+  TEXT: 'text'
 }
 
 export const SIZES = {

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.12.0 (2025-05-19)
+
+
+### Features
+
+* add id to atom help text ([8482c5e](https://github.com/SUI-Components/sui-components/commit/8482c5e829fdba67ed741c6b54166dc181468f17))
+* spread props ([8f15039](https://github.com/SUI-Components/sui-components/commit/8f15039ebfd0e95c940e3a653eeaedb6b2eed1b5))
+
+
+
 # 1.11.0 (2025-03-10)
 
 

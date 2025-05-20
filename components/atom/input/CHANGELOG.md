@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 5.45.0 (2025-05-20)
+
+
+### Features
+
+* add new example search type ([5ef60f0](https://github.com/SUI-Components/sui-components/commit/5ef60f0aadd7eb531a5db02272931484a651aa51))
+* add new type to config ([29c9b04](https://github.com/SUI-Components/sui-components/commit/29c9b049553744dcf34203234fe34e717f70e46f))
+* modify tests with de new type ([0a4ec8e](https://github.com/SUI-Components/sui-components/commit/0a4ec8e7e33ceee38919ebc909e33ebdd7d41045))
+
+
+
 # 5.44.0 (2025-03-17)
 
 

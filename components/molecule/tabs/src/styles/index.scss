@@ -245,6 +245,14 @@ $item-base-class: '#{$base-class}-item';
     width: 100%;
     scroll-snap-align: $ssa-sui-molecule-tabs;
 
+    &:focus-visible {
+      box-shadow: $bxsh-focus;
+      outline: $bdw-s solid $c-primary;
+      outline-offset: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
     &:first-of-type {
       margin: $m-sui-molecule-tabs-first-item;
     }

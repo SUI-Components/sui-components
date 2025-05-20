@@ -23,6 +23,13 @@ const ArticleType = ({className}) => {
             }
           ],
           [
+            'SEARCH',
+            {type: inputTypes.SEARCH},
+            {
+              description: 'Elements of type search create basic single-line text fields'
+            }
+          ],
+          [
             'DATE',
             {type: inputTypes.DATE, charsSize: 10},
             {

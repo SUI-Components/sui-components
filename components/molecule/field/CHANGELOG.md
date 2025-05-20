@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.41.0 (2025-05-20)
+
+
+### Features
+
+* pass id to validation text, and pass role alert if status is ERROR ([5aa5776](https://github.com/SUI-Components/sui-components/commit/5aa57768a0b4a2a41c56b07f1cb597af1aa7f2f2))
+
+
+
 # 1.40.0 (2025-05-19)
 
 

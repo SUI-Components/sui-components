@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2025-05-20)
+
+
+### Features
+
+* spread props ([f6b7307](https://github.com/SUI-Components/sui-components/commit/f6b730795fc6fdbd305b6082b671b7509f969489))
+
+
+
 # 1.10.0 (2025-01-07)
 
 

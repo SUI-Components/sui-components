@@ -246,7 +246,7 @@ $item-base-class: '#{$base-class}-item';
     scroll-snap-align: $ssa-sui-molecule-tabs;
 
     &:focus-visible {
-      outline: $outline-sui-molecule-tabs-focus-visible;
+      outline: $ol-sui-molecule-tabs-focus-visible;
     }
 
     &:first-of-type {

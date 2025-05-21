@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.42.0 (2025-05-21)
+
+
+### Features
+
+* test the relationship between help/validation text and the input co ([94b6a94](https://github.com/SUI-Components/sui-components/commit/94b6a9469703f52b1a23756a33212f2dbdaf6c5e))
+
+
+
 # 1.41.0 (2025-05-20)
 
 

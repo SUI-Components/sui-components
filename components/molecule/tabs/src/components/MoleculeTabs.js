@@ -74,6 +74,21 @@ const MoleculeTabs = ({
           focusTab(potentialNextTabIndex)
         }
       }
+    } else if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault() // Prevent default action (e.g., scrolling for space)
+      const focusedTabElement = event.target
+      const focusedTabIndex = tabRefs.current.findIndex(ref => ref === focusedTabElement)
+
+      if (focusedTabIndex !== -1) {
+        const targetChild = childrenArray[focusedTabIndex]
+        if (targetChild && !targetChild.props.disabled) {
+          // Only call onChange if the focused tab is not already active
+          if (focusedTabIndex !== activeTabIndex) {
+            onChange(event, {numTab: focusedTabIndex + 1})
+            // Focus is already on the tab due to Tab key navigation
+          }
+        }
+      }
     }
   }
 

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 2.40.0 (2025-05-21)
+
+
+### Features
+
+* improve accessibility with keyboard navigation and aria attributes ([8babe73](https://github.com/SUI-Components/sui-components/commit/8babe73c1db6e56c97be68abaef6a748c71501c5))
+* manually adjust outline style ([9fc4c5b](https://github.com/SUI-Components/sui-components/commit/9fc4c5b7ec838281b61789a9fe37f8254eeaf9e0))
+* manually adjust styles ([c89a3db](https://github.com/SUI-Components/sui-components/commit/c89a3dbe712d0c61f7efa7092aa6ab0c3e03af88))
+* manually make tabs actionable via enter and space keys ([335649f](https://github.com/SUI-Components/sui-components/commit/335649fde94f009ddd658e4348dfd3d75ea9fd43))
+
+
+
 # 2.39.0 (2024-05-08)
 
 

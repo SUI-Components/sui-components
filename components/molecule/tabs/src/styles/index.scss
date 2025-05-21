@@ -247,7 +247,7 @@ $item-base-class: '#{$base-class}-item';
 
     &:focus-visible {
       outline: $ol-sui-molecule-tabs-focus-visible;
-      outline-offset: $oo-sui-molecule-tabs-focus-visible;
+      outline-offset: $olo-sui-molecule-tabs-focus-visible;
       position: relative;
       z-index: 1;
     }

@@ -6,7 +6,7 @@ import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomButton from '@s-ui/react-atom-button'
 
 import Modal from '../../src/index.js'
-import LoremIpsum from '../utils/LoremIpsum.js'
+import {LoremIpsum} from '../utils/index.js'
 
 const ArticleControlled = ({className}) => {
   const [isOpen, setIsOpen] = useState(undefined)

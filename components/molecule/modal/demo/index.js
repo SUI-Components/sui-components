@@ -8,6 +8,8 @@ import ArticleForm from './articles/ArticleForm.js'
 import ArticleInset from './articles/ArticleInset.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleURLState from './articles/ArticleURLState.js'
+import ArticleA11y from './articles/ArticleA11y.js'
+import ArticleKeyboardNavigation from './articles/ArticleKeyboardNavigation.js'
 import {CLASS_SECTION} from './config.js'
 
 const Demo = () => {
@@ -26,9 +28,9 @@ const Demo = () => {
       <UnorderedList>
         <ListItem>
           <Bold>Modal</Bold>: A <Bold>general-purpose</Bold> popup component. It can contain <Bold>any</Bold> custom
-          content — forms, text, images, buttons, whatever you want. It’s meant to <Bold>0hold a conversation</Bold>{' '}
-          with the user: present information, ask for input, etc. Think of it like a <Bold>blank canvas</Bold> for any
-          modal window.
+          content — forms, text, images, buttons, whatever you want. It’s meant to <Bold>hold a conversation</Bold> with
+          the user: present information, ask for input, etc. Think of it like a <Bold>blank canvas</Bold> for any modal
+          window.
         </ListItem>
         <ListItem>
           <Bold>AlertModal</Bold>: A <Bold>specific kind</Bold> of dialog used for <Bold>critical actions</Bold> that
@@ -52,6 +54,10 @@ const Demo = () => {
       <ArticleURLState className={CLASS_SECTION} />
       <br />
       <ArticleAPI className={CLASS_SECTION} />
+      <br />
+      <ArticleA11y className={CLASS_SECTION} />
+      <br />
+      <ArticleKeyboardNavigation className={CLASS_SECTION} />
     </div>
   )
 }

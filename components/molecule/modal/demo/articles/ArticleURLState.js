@@ -11,7 +11,7 @@ import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 import Modal from '../../src/index.js'
 import {getParams, setParams} from '../config.js'
 import {getPhoto, getPhotos} from '../data/photos.js'
-import LoremIpsum from '../utils/LoremIpsum.js'
+import {LoremIpsum} from '../utils/index.js'
 
 const photos = getPhotos({length: 30})
 

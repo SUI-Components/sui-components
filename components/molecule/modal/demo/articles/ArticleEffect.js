@@ -6,7 +6,7 @@ import {Article, Cell, Code, Grid, H2, ListItem, Paragraph, UnorderedList} from 
 import AtomButton from '@s-ui/react-atom-button'
 
 import Modal, {moleculeModalAnimations} from '../../src/index.js'
-import LoremIpsum from '../utils/LoremIpsum.js'
+import {LoremIpsum} from '../utils/index.js'
 
 const ArticleEffect = ({className}) => {
   const [paragraphs, setParagraphs] = useState(8)

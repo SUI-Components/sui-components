@@ -6,7 +6,7 @@ import {Article, Cell, Code, Grid, H2, ListItem, Paragraph, UnorderedList} from 
 import AtomButton from '@s-ui/react-atom-button'
 
 import Modal, {moleculeModalSizes} from '../../src/index.js'
-import LoremIpsum from '../utils/LoremIpsum.js'
+import {LoremIpsum} from '../utils/index.js'
 
 const ArticleSize = ({className}) => {
   const [size, setSize] = useState(undefined)

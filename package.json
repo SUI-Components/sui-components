@@ -12,6 +12,7 @@
     "bundler:postinstall": "node ./node_modules/@s-ui/bundler/scripts/postinstall.js",
     "check:release": "sui-mono check",
     "clean": "rm -rf ./node_modules && rm -f package-lock.json",
+    "clean:cache": "npm cache clean --force",
     "co": "sui-mono commit",
     "commit-msg": "validate-commit-msg",
     "dev": "sui-studio dev",

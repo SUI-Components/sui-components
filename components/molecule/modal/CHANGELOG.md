@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2025-05-22)
+
+
+### Features
+
+* finalize the documentation ([694dd4b](https://github.com/SUI-Components/sui-components/commit/694dd4bbcb145b304f1b6fc7568bc61916c5959b))
+
+
+
 # 2.1.0 (2025-05-12)
 
 

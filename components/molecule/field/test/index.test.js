@@ -1,3 +1,4 @@
+/* eslint-disable sui/default-component-test */
 /*
  * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
  * */
@@ -96,6 +97,11 @@ describe(json.name, () => {
         expect(container.innerHTML).to.not.have.lengthOf(0)
         const helpTextElement = await findByText(props.helpText)
         expect(helpTextElement.innerHTML).to.equal(props.helpText)
+
+        const helpTextId = `${props.name}-help-text`
+        expect(helpTextElement).to.have.attribute('id', helpTextId)
+        expect(helpTextElement).to.not.have.attribute('role', 'alert')
+        expect(container.querySelector(`[aria-describedby="${helpTextId}"]`)).to.not.be.null
       })
     })
 
@@ -175,6 +181,11 @@ describe(json.name, () => {
         expect(container.querySelector(`[data-status="${props.status}"]`)).to.not.be.null
         const statusTextElement = await findByText(props.statusText)
         expect(statusTextElement.innerHTML).to.equal(props.statusText)
+
+        const helpTextId = `${props.name}-help-text`
+        expect(statusTextElement).to.have.attribute('id', helpTextId)
+        expect(statusTextElement).to.not.have.attribute('role', 'alert')
+        expect(container.querySelector(`[aria-describedby="${helpTextId}"]`)).to.not.be.null
       })
 
       it('given a successText will properly render', async function () {
@@ -196,6 +207,11 @@ describe(json.name, () => {
         expect(container.querySelector(`[data-status="${status}"]`)).to.not.be.null
         const successTextElement = await findByText(props.successText)
         expect(successTextElement.innerHTML).to.equal(props.successText)
+
+        const helpTextId = `${props.name}-help-text`
+        expect(successTextElement).to.have.attribute('id', helpTextId)
+        expect(successTextElement).to.not.have.attribute('role', 'alert')
+        expect(container.querySelector(`[aria-describedby="${helpTextId}"]`)).to.not.be.null
       })
 
       it('given a error status will properly render', async function () {
@@ -217,6 +233,11 @@ describe(json.name, () => {
         expect(container.querySelector(`[data-status="${props.status}"]`)).to.not.be.null
         const statusTextElement = await findByText(props.statusText)
         expect(statusTextElement.innerHTML).to.equal(props.statusText)
+
+        const helpTextId = `${props.name}-help-text`
+        expect(statusTextElement).to.have.attribute('id', helpTextId)
+        expect(statusTextElement).to.have.attribute('role', 'alert')
+        expect(container.querySelector(`[aria-describedby="${helpTextId}"]`)).to.not.be.null
       })
 
       it('given a errorText will properly render', async function () {
@@ -238,6 +259,11 @@ describe(json.name, () => {
         expect(container.querySelector(`[data-status="${status}"]`)).to.not.be.null
         const errorTextElement = await findByText(props.errorText)
         expect(errorTextElement.innerHTML).to.equal(props.errorText)
+
+        const helpTextId = `${props.name}-help-text`
+        expect(errorTextElement).to.have.attribute('id', helpTextId)
+        expect(errorTextElement).to.have.attribute('role', 'alert')
+        expect(container.querySelector(`[aria-describedby="${helpTextId}"]`)).to.not.be.null
       })
 
       it('given a alert status will properly render', async function () {
@@ -259,6 +285,11 @@ describe(json.name, () => {
         expect(container.querySelector(`[data-status="${props.status}"]`)).to.not.be.null
         const statusTextElement = await findByText(props.statusText)
         expect(statusTextElement.innerHTML).to.equal(props.statusText)
+
+        const helpTextId = `${props.name}-help-text`
+        expect(statusTextElement).to.have.attribute('id', helpTextId)
+        expect(statusTextElement).to.not.have.attribute('role', 'alert')
+        expect(container.querySelector(`[aria-describedby="${helpTextId}"]`)).to.not.be.null
       })
 
       it('given a alertText will properly render', async function () {
@@ -280,6 +311,11 @@ describe(json.name, () => {
         expect(container.querySelector(`[data-status="${status}"]`)).to.not.be.null
         const alertTextElement = await findByText(props.alertText)
         expect(alertTextElement.innerHTML).to.equal(props.alertText)
+
+        const helpTextId = `${props.name}-help-text`
+        expect(alertTextElement).to.have.attribute('id', helpTextId)
+        expect(alertTextElement).to.not.have.attribute('role', 'alert')
+        expect(container.querySelector(`[aria-describedby="${helpTextId}"]`)).to.not.be.null
       })
     })
   })

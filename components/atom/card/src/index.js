@@ -25,7 +25,8 @@ const AtomCard = ({
   href,
   blank,
   onClick,
-  tabIndex
+  tabIndex,
+  ...props
 }) => {
   const onClickHandler = e => {
     typeof onClick === 'function' ? onClick(e) : redirectToHref({href, blank})
@@ -48,7 +49,14 @@ const AtomCard = ({
   )
 
   return (
-    <div className={classNames} tabIndex={tabIndex} role="button" onClick={onClickHandler} onKeyDown={redirectOnEnter}>
+    <div
+      className={classNames}
+      onClick={onClickHandler}
+      onKeyDown={redirectOnEnter}
+      tabIndex={tabIndex}
+      {...(!href && {role: 'button'})}
+      {...props}
+    >
       {Media && (
         <div className={CLASS_MEDIA}>
           <Media />

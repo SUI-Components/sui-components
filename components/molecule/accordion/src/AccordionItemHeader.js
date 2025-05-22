@@ -91,12 +91,9 @@ const AccordionItemHeader = forwardRef(
             `${BASE_CLASS_ITEM_HEADER}Button`,
             `${BASE_CLASS_ITEM_HEADER}Button--icon-position-${iconPosition}`
           )}
-          aria-pressed={isExpanded}
+          aria-expanded={isExpanded}
           aria-controls={panelId}
-          {...{
-            ...(disabled && {'aria-disabled': disabled, disabled}),
-            ...(label && {'aria-label': label})
-          }}
+          {...(disabled && {'aria-disabled': disabled, disabled})}
           onClick={handleClick}
         >
           <Injector

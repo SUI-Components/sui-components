@@ -48,14 +48,6 @@ const MoleculeField = ({
     fullWidth && CLASS_FULLWIDTH
   )
 
-  const extendedChildren = Children.toArray(children)
-    .filter(Boolean)
-    .map((child, index) => {
-      return cloneElement(child, {
-        onChange: onChangeFromProps
-      })
-    })
-
   const typeValidationLabel = useTypeValidationLabel({
     useContrastLabel,
     errorText,
@@ -72,6 +64,18 @@ const MoleculeField = ({
     status,
     statusText
   })
+
+  const helpTextId = `${name}-help-text`
+  const isHelpOrValidationText = helpText || validationTextValue
+
+  const extendedChildren = Children.toArray(children)
+    .filter(Boolean)
+    .map((child, index) => {
+      return cloneElement(child, {
+        onChange: onChangeFromProps,
+        ...(isHelpOrValidationText && {[`aria-describedby`]: helpTextId})
+      })
+    })
 
   return (
     <div
@@ -90,9 +94,14 @@ const MoleculeField = ({
       <div className={cx(CLASS_INPUT_CONTAINER, isAligned && `${CLASS_INPUT_CONTAINER}--aligned`)}>
         {!inline && extendedChildren}
         {!disabled && validationTextValue && (
-          <AtomValidationText type={validationTextStatus} text={validationTextValue} />
+          <AtomValidationText
+            id={helpTextId}
+            text={validationTextValue}
+            type={validationTextStatus}
+            {...(validationTextStatus === AtomValidationTextTypes.ERROR && {role: 'alert'})}
+          />
         )}
-        {helpText && <AtomHelpText text={helpText} />}
+        {helpText && <AtomHelpText id={helpTextId} text={helpText} />}
       </div>
     </div>
   )

@@ -51,7 +51,9 @@ const MoleculeTab = forwardRef(
         ref={useMergeRefs(innerRef, forwardedRef)}
         role="tab"
         aria-selected={active}
+        aria-disabled={disabled} // Add aria-disabled attribute
         aria-controls={`${id}-${numTab}`}
+        tabIndex={disabled ? -1 : 0} // Make disabled tabs not focusable
       >
         {icon && <span className={CLASS_TAB_ICON}>{icon}</span>}
         {!isNaN(count) && <span className={CLASS_TAB_COUNT}>{count}</span>}

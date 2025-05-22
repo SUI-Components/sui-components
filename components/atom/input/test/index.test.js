@@ -859,19 +859,20 @@ describe(json.name, () => {
       const library = pkg
       const expected = {
         DATE: 'date',
+        EMAIL: 'email',
         MASK: 'mask',
+        NONE: 'none',
         NUMBER: 'number',
         PASSWORD: 'password',
+        SEARCH: 'search',
         SUI_PASSWORD: 'sui-password',
-        TEXT: 'text',
         TEL: 'tel',
-        EMAIL: 'email',
-        NONE: 'none'
+        TEXT: 'text'
       }
 
       // When
       const {inputTypes: actual} = library
-      const {DATE, MASK, NUMBER, PASSWORD, SUI_PASSWORD, TEXT, TEL, EMAIL, NONE, ...others} = actual
+      const {DATE, MASK, NUMBER, PASSWORD, SUI_PASSWORD, SEARCH, TEXT, TEL, EMAIL, NONE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

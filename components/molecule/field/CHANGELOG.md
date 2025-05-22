@@ -1,5 +1,32 @@
 # CHANGELOG
 
+# 1.42.0 (2025-05-21)
+
+
+### Features
+
+* test the relationship between help/validation text and the input co ([94b6a94](https://github.com/SUI-Components/sui-components/commit/94b6a9469703f52b1a23756a33212f2dbdaf6c5e))
+
+
+
+# 1.41.0 (2025-05-20)
+
+
+### Features
+
+* pass id to validation text, and pass role alert if status is ERROR ([5aa5776](https://github.com/SUI-Components/sui-components/commit/5aa57768a0b4a2a41c56b07f1cb597af1aa7f2f2))
+
+
+
+# 1.40.0 (2025-05-19)
+
+
+### Features
+
+* set id to atom help text on molecule field, and pass aria-described ([9528b21](https://github.com/SUI-Components/sui-components/commit/9528b2165faa425f9577c8f23a3f80f046cbb888))
+
+
+
 # 1.39.0 (2024-04-04)
 
 

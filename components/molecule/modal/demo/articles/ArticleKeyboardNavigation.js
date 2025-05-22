@@ -39,10 +39,10 @@ const ArticleKeyboardNavigation = ({className}) => {
       </H3>
       <UnorderedList>
         <ListItem>
-          <AtomKbd>Space</AtomKbd>: Activates the Tag.
+          <AtomKbd>Space</AtomKbd>: Closes the Modal.
         </ListItem>
         <ListItem>
-          <AtomKbd>Enter</AtomKbd>: Activates the Tag.
+          <AtomKbd>Enter</AtomKbd>: Closes the Modal.
         </ListItem>
       </UnorderedList>
       <H3>
@@ -50,10 +50,10 @@ const ArticleKeyboardNavigation = ({className}) => {
       </H3>
       <UnorderedList>
         <ListItem>
-          <AtomKbd>Space</AtomKbd>: Activates the Tag.
+          <AtomKbd>Space</AtomKbd>: Closes the Modal.
         </ListItem>
         <ListItem>
-          <AtomKbd>Enter</AtomKbd>: Activates the Tag.
+          <AtomKbd>Enter</AtomKbd>: Closes the Modal.
         </ListItem>
       </UnorderedList>
     </Article>

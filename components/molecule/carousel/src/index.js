@@ -136,9 +136,9 @@ MoleculeCarousel.displayName = 'MoleculeCarousel'
 MoleculeCarousel.propTypes = {
   /** Component to be used as the left arrow for the slider */
   arrowLeft: PropTypes.element,
-  /** Label to be used as the left arrow for the slider */
+  /** Label to be used as the left arrow label for the slider */
   arrowLeftLabel: PropTypes.string,
-  /** Component to be used as the right arrow for the slider */
+  /** Label to be used as the right arrow label for the slider */
   arrowRightLabel: PropTypes.string,
   /** Component to be used as the right arrow for the slider */
   arrowRight: PropTypes.element,

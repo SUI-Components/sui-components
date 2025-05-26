@@ -236,11 +236,11 @@ const CarouselContainer = ({
 CarouselContainer.propTypes = {
   /** Element to be used as the left arrow for the slider */
   arrowLeft: PropTypes.element,
-  /** Label to be used as the left arrow for the slider */
+  /** Label to be used as the left arrow label for the slider */
   arrowLeftLabel: PropTypes.string,
   /** Element to be used as the right arrow for the slider */
   arrowRight: PropTypes.element,
-  /** Label to be used as the right arrow for the slider */
+  /** Label to be used as the right arrow label for the slider */
   arrowRightLabel: PropTypes.string,
   /** Children to be used as slides for the slider */
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,

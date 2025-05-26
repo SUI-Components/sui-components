@@ -12,7 +12,9 @@ import slidy from './slidy.js'
 
 const CarouselContainer = ({
   arrowLeft,
+  arrowLeftLabel,
   arrowRight,
+  arrowRightLabel,
   children,
   classNameBase,
   onNext,
@@ -191,7 +193,7 @@ const CarouselContainer = ({
           `${classNameBase}-arrowLeft`,
           arrowLeft ? `${classNameBase}-arrowCustom` : `${classNameBase}-prev`
         )}
-        label={arrowLeft ? null : 'Previous'}
+        label={arrowLeft ? null : arrowLeftLabel}
         role={arrowLeft ? null : 'button'}
         hasArrows={hasArrows}
         disabled={index === 0 && !hasInfiniteLoop}
@@ -205,7 +207,7 @@ const CarouselContainer = ({
           `${classNameBase}-arrowRight`,
           arrowRight ? `${classNameBase}-arrowCustom` : `${classNameBase}-next`
         )}
-        label={arrowRight ? null : 'Next'}
+        label={arrowRight ? null : arrowRightLabel}
         role={arrowRight ? null : 'button'}
         hasArrows={hasArrows}
         disabled={(items.length <= numOfSlides || index === items.length - numOfSlides) && !hasInfiniteLoop}
@@ -234,8 +236,12 @@ const CarouselContainer = ({
 CarouselContainer.propTypes = {
   /** Element to be used as the left arrow for the slider */
   arrowLeft: PropTypes.element,
+  /** Label to be used as the left arrow label for the slider */
+  arrowLeftLabel: PropTypes.string,
   /** Element to be used as the right arrow for the slider */
   arrowRight: PropTypes.element,
+  /** Label to be used as the right arrow label for the slider */
+  arrowRightLabel: PropTypes.string,
   /** Children to be used as slides for the slider */
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
   /** Class base to create all clases for elements. Styles might break if you modify it. */

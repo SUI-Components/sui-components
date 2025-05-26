@@ -19,7 +19,9 @@ const MoleculeCarousel = forwardRef(
   (
     {
       arrowLeft,
+      arrowLeftLabel = 'Previous',
       arrowRight,
+      arrowRightLabel = 'Next',
       children,
       classNameBase = BASE_CLASS,
       onDestroy,
@@ -96,7 +98,9 @@ const MoleculeCarousel = forwardRef(
         {showSlider && (
           <CarouselContainer
             arrowLeft={arrowLeft}
+            arrowLeftLabel={arrowLeftLabel}
             arrowRight={arrowRight}
+            arrowRightLabel={arrowRightLabel}
             children={children}
             classNameBase={classNameBase}
             onDestroy={onDestroy}
@@ -132,6 +136,10 @@ MoleculeCarousel.displayName = 'MoleculeCarousel'
 MoleculeCarousel.propTypes = {
   /** Component to be used as the left arrow for the slider */
   arrowLeft: PropTypes.element,
+  /** Label to be used as the left arrow label for the slider */
+  arrowLeftLabel: PropTypes.string,
+  /** Label to be used as the right arrow label for the slider */
+  arrowRightLabel: PropTypes.string,
   /** Component to be used as the right arrow for the slider */
   arrowRight: PropTypes.element,
   /** Children to be used as slides for the slider */

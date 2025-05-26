@@ -193,7 +193,7 @@ const CarouselContainer = ({
           `${classNameBase}-arrowLeft`,
           arrowLeft ? `${classNameBase}-arrowCustom` : `${classNameBase}-prev`
         )}
-        label={arrowLeftLabel}
+        label={arrowLeft ? null : arrowLeftLabel}
         role={arrowLeft ? null : 'button'}
         hasArrows={hasArrows}
         disabled={index === 0 && !hasInfiniteLoop}
@@ -207,7 +207,7 @@ const CarouselContainer = ({
           `${classNameBase}-arrowRight`,
           arrowRight ? `${classNameBase}-arrowCustom` : `${classNameBase}-next`
         )}
-        label={arrowRightLabel}
+        label={arrowRight ? null : arrowRightLabel}
         role={arrowRight ? null : 'button'}
         hasArrows={hasArrows}
         disabled={(items.length <= numOfSlides || index === items.length - numOfSlides) && !hasInfiniteLoop}

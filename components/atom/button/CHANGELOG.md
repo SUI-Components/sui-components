@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2025-05-26)
+
+
+### Features
+
+* Add shape to OWN_PROPS ([0ee7d12](https://github.com/SUI-Components/sui-components/commit/0ee7d1285aba9690c8b15f59f0f95c7b2cba26b6))
+
+
+
 # 2.0.0 (2025-05-05)
 
 

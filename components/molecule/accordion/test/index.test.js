@@ -259,9 +259,9 @@ describe(json.name, () => {
       // Then
       panels.forEach(panel => {
         if (['content 1', 'content 2'].includes(panel.innerText)) {
-          expect(Boolean(panel.hasAttribute('aria-expanded'))).to.be.true
+          expect(Boolean(panel.classList.contains('sui-MoleculeAccordionItemPanel--expanded'))).to.be.true
         } else if (['content 3'].includes(panel.innerText)) {
-          expect(Boolean(panel.hasAttribute('aria-collapsed'))).to.be.false
+          expect(Boolean(panel.classList.contains('sui-MoleculeAccordionItemPanel--collapsed'))).to.be.true
         }
         expect(['content 1', 'content 2', 'content 3'].some(text => panel.innerText === text)).to.be.true
       })

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.16.0 (2025-05-26)
+
+
+### Bug Fixes
+
+* Remove aria-expanded attr from AccordionItemPanel ([0105d28](https://github.com/SUI-Components/sui-components/commit/0105d284bf0dc16ecd3df5ed2864e9401e7c78bb))
+
+
+
 # 2.15.0 (2025-05-14)
 
 

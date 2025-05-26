@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.7.0 (2025-05-26)
+
+
+### Features
+
+* add custom labels for navigation arrows ([b264d97](https://github.com/SUI-Components/sui-components/commit/b264d978a212df61de6234324b502a0e14b2e95b))
+* remove default labels for navigation arrows ([117a43b](https://github.com/SUI-Components/sui-components/commit/117a43b81d5aa2d1c4afb7acc786430877d1fd57))
+
+
+
 # 1.6.0 (2025-05-26)
 
 

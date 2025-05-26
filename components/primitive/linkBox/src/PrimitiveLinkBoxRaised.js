@@ -7,11 +7,11 @@ import PrimitiveInjector from '@s-ui/react-primitive-injector' // import PropTyp
 
 import {BASE_CLASS_NAME} from './settings.js'
 
-const PrimitiveLinkBoxRaised = forwardRef(({children, as, className, ...props}) => {
+const PrimitiveLinkBoxRaised = forwardRef(({children, as, className, ...props}, forwardedRef) => {
   if (children === undefined) return null
   const Component = as === undefined && typeof children === 'string' ? 'span' : PrimitiveInjector
   return (
-    <Component className={cx(`${BASE_CLASS_NAME}Raised`, className)} {...props}>
+    <Component ref={forwardedRef} className={cx(`${BASE_CLASS_NAME}Raised`, className)} {...props}>
       {children}
     </Component>
   )

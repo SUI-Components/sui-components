@@ -25,7 +25,7 @@ const ArticleDynamicContent = ({className}) => {
       </ButtonGroup>
       <br />
       <br />
-      <MoleculeCarousel>
+      <MoleculeCarousel arrowLeftLabel="Previous" arrowRightLabel="Next">
         {new Array(itemsNumber).fill('').map((_, index) => (
           <img key={index} alt={`${index}`} src={`https://placehold.co/300x90/808080/000000?text=Item ${index + 1}`} />
         ))}

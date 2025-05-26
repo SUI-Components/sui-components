@@ -26,6 +26,8 @@ const ArticleHandlers = ({className}) => {
         </ListItem>
       </UnorderedList>
       <MoleculeCarousel
+        arrowLeftLabel="Previous"
+        arrowRightLabel="Next"
         onInit={handle('onInit')}
         onDestroy={handle('onDestroy')}
         onSlideAfter={handle('onSlideAfter')}

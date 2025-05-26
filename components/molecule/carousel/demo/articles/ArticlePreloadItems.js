@@ -12,7 +12,7 @@ const ArticlePreloadItems = ({className}) => (
       an empty image while sliding. You could preload as much as images as you want by using the
       <Code>itemsToPreload</Code> (number) prop in order to avoid that effect if you wish.
     </Paragraph>
-    <MoleculeCarousel itemsToPreload={3}>
+    <MoleculeCarousel arrowLeftLabel="Previous" arrowRightLabel="Next" itemsToPreload={3}>
       <img alt="1" src="https://placehold.co/300x90/808080/000000?text=Item 1" />
       <img alt="2" src="https://placehold.co/300x80/808080/000000?text=Item 2" />
       <img alt="3" src="https://placehold.co/300x100/808080/000000?text=Item 3" />

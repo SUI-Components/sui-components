@@ -19,9 +19,9 @@ const MoleculeCarousel = forwardRef(
   (
     {
       arrowLeft,
-      arrowLeftLabel = 'Previous',
+      arrowLeftLabel,
       arrowRight,
-      arrowRightLabel = 'Next',
+      arrowRightLabel,
       children,
       classNameBase = BASE_CLASS,
       onDestroy,

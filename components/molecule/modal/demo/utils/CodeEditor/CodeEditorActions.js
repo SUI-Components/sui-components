@@ -55,7 +55,7 @@ const CodeEditorActions = ({className, onChange, ...props}) => {
     }
   }
   return (
-    <div role="listbox" aria-label="code editor actions" className={cx('demo-live', 'demo-live-actions-wrapper')}>
+    <div aria-label="code editor actions" className={cx('demo-live', 'demo-live-actions-wrapper')}>
       <div
         role="listbox"
         onKeyDown={handleKeyDown}
@@ -81,6 +81,7 @@ const CodeEditorActions = ({className, onChange, ...props}) => {
           ref={setRef(0)}
           data-index={0}
           onClick={handleClick}
+          aria-label="code view"
         >
           <VSCodeIcon icon="VscCode" style={{color: 'currentColor'}} />
         </button>
@@ -93,6 +94,7 @@ const CodeEditorActions = ({className, onChange, ...props}) => {
           ref={setRef(1)}
           data-index={1}
           onClick={handleClick}
+          aria-label="dual view"
         >
           <VSCodeIcon icon="VscMultipleWindows" style={{color: 'currentColor'}} />
         </button>
@@ -105,6 +107,7 @@ const CodeEditorActions = ({className, onChange, ...props}) => {
           ref={setRef(2)}
           data-index={2}
           onClick={handleClick}
+          aria-label="preview view"
         >
           <VSCodeIcon icon="VscSymbolMethod" style={{color: 'currentColor'}} />
         </button>

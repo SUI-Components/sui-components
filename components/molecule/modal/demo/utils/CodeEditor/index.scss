@@ -17,7 +17,7 @@ $base-class: '.demo-live';
   &-container {
     position: relative;
     &-wrapper {
-      margin: calc(-1 * var(--sz-1));
+      margin: calc(var(--sz-5) + 1 * var(--sz-1)) calc(-1 * var(--sz-1)) calc(-1 * var(--sz-1)) calc(-1 * var(--sz-1));
       padding: var(--sz-1);
     }
     border-radius: var(--sz-1);

@@ -51,11 +51,13 @@ $base-class-item-panel: '#{$base-class-item}Panel';
   #{$base-class-item-panel} {
     border-width: 0;
   }
-  #{$base-class-item-panel}[aria-expanded='false'] {
-    border-top-width: 0;
-  }
-  #{$base-class-item-panel}[aria-expanded='true'] {
-    border-top-width: $bdw-accordion-item;
+  #{$base-class-item-panel} {
+    &--collapsed {
+      border-top-width: 0;
+    }
+    &--expanded {
+      border-top-width: $bdw-accordion-item;
+    }
   }
 }
 
@@ -174,13 +176,10 @@ $base-class-item-panel: '#{$base-class-item}Panel';
 #{$base-class-item-panel} {
   overflow: hidden;
 
-  &[aria-expanded='false'] {
+  &--collapsed {
     max-height: 0;
     opacity: 0;
     border-bottom: 0;
-  }
-  &[aria-collapsed='true'] {
-    opacity: 1;
   }
   #{$base-class-item-panel}Content {
     background-color: $bgc-accordion-item-panel;

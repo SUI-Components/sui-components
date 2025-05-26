@@ -11,7 +11,7 @@ const ArticleKeyboardNavigation = ({className}) => (
       You could use the <Code>keyboardNavigation</Code> prop in order to activate keyboard navigation. Try to use the
       left and right arrow in order to navigate the next slider.
     </Paragraph>
-    <MoleculeCarousel hasKeyboardNavigation>
+    <MoleculeCarousel arrowLeftLabel="Previous" arrowRightLabel="Next" hasKeyboardNavigation>
       <img alt="1" src="https://via.placeholder.com/300x90/808080/000000?text=Item 1" />
       <img alt="2" src="https://via.placeholder.com/300x80/808080/000000?text=Item 2" />
       <img alt="3" src="https://via.placeholder.com/300x100/808080/000000?text=Item 3" />

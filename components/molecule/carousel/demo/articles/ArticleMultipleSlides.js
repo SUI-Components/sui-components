@@ -11,7 +11,7 @@ const ArticleMultipleSlides = ({className}) => (
     <Paragraph>
       Use <Code>numOfSlides</Code> prop to determine the number of slides that will be shown at once.
     </Paragraph>
-    <MoleculeCarousel numOfSlides={3} defaultSlide={4}>
+    <MoleculeCarousel arrowLeftLabel="Previous" arrowRightLabel="Next" numOfSlides={3} defaultSlide={4}>
       <img alt="1" src="https://via.placeholder.com/300x90/808000/000000?text=Item 1" />
       <img alt="2" src="https://via.placeholder.com/300x80/008080/000000?text=Item 2" />
       <img alt="3" src="https://via.placeholder.com/300x100/800080/000000?text=Item 3" />
@@ -31,7 +31,7 @@ const ArticleMultipleSlides = ({className}) => (
       be used. For example, if numOfSlides is 5, but you have only two slides, it will show only two using the full
       width.
     </Paragraph>
-    <MoleculeCarousel numOfSlides={3}>
+    <MoleculeCarousel arrowLeftLabel="Previous" arrowRightLabel="Next" numOfSlides={3}>
       <img alt="1" src="https://via.placeholder.com/300x90/808000/000000?text=Item 1" />
       <img alt="2" src="https://via.placeholder.com/300x80/008080/000000?text=Item 2" />
     </MoleculeCarousel>
@@ -41,7 +41,7 @@ const ArticleMultipleSlides = ({className}) => (
       <Code>isSanitized</Code> in order to avoid changing the <Code>numOfSlides</Code> prop on the fly. This mean the
       space will be divided by the numOfSlides even if there's no slides enough to show.
     </Paragraph>
-    <MoleculeCarousel numOfSlides={3} isSanitized={false}>
+    <MoleculeCarousel arrowLeftLabel="Previous" arrowRightLabel="Next" numOfSlides={3} isSanitized={false}>
       <img alt="1" src="https://via.placeholder.com/300x90/808000/000000?text=Item 1" />
       <img alt="2" src="https://via.placeholder.com/300x80/008080/000000?text=Item 2" />
     </MoleculeCarousel>

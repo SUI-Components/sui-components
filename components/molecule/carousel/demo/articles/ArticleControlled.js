@@ -29,6 +29,8 @@ const ArticleControlled = ({className}) => {
       </div>
       <br />
       <MoleculeCarousel
+        arrowLeftLabel="Previous"
+        arrowRightLabel="Next"
         slide={index}
         onSlideAfter={handle('onSlideAfter')}
         onSlideBefore={handle('onSlideBefore')}

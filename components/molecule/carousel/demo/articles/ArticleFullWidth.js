@@ -11,7 +11,7 @@ const ArticleFullWidth = ({className}) => (
       By default, slides uses the full width of the container. So, if you're using an image, it uses all the width
       available. You could avoid this by using the prop <Code>isFullWidth</Code>.
     </Paragraph>
-    <MoleculeCarousel isFullWidth>
+    <MoleculeCarousel isFullWidth arrowLeftLabel="Previous" arrowRightLabel="Next">
       <img alt="1" src="https://via.placeholder.com/300x90/808080/000000?text=Item 1" />
       <img alt="2" src="https://via.placeholder.com/300x80/808080/000000?text=Item 2" />
       <img alt="3" src="https://via.placeholder.com/300x100/808080/000000?text=Item 3" />
@@ -24,7 +24,7 @@ const ArticleFullWidth = ({className}) => (
       automatically detect the height.
     </Paragraph>
     <Box styles={{padding: 0, height: 300}}>
-      <MoleculeCarousel isFullWidth>
+      <MoleculeCarousel isFullWidth arrowLeftLabel="Previous" arrowRightLabel="Next">
         <img style={{height: 300}} alt="1" src="https://via.placeholder.com/300x90/808080/000000?text=Item 1" />
         <img style={{height: 300}} alt="2" src="https://via.placeholder.com/300x80/808080/000000?text=Item 2" />
         <img style={{height: 300}} alt="3" src="https://via.placeholder.com/300x100/808080/000000?text=Item 3" />

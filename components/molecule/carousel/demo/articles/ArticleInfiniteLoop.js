@@ -12,7 +12,7 @@ const ArticleInfiniteLoop = ({className}) => (
       means when it arrive to the last slide, and the user clicks on next it starts again. And when the carousel is on
       the first slide, and the user clicks on previous, it goes to the last slide.
     </Paragraph>
-    <MoleculeCarousel hasInfiniteLoop>
+    <MoleculeCarousel arrowLeftLabel="Previous" arrowRightLabel="Next" hasInfiniteLoop>
       <img alt="1" src="https://via.placeholder.com/300x90/808080/000000?text=Item 1" />
       <img alt="2" src="https://via.placeholder.com/300x80/808080/000000?text=Item 2" />
       <img alt="3" src="https://via.placeholder.com/300x100/808080/000000?text=Item 3" />

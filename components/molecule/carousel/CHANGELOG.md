@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.6.0 (2025-05-26)
+
+
+### Features
+
+* add arrowLabels props ([84f236e](https://github.com/SUI-Components/sui-components/commit/84f236e7abf8b57c38512dcbee1dd17c46af646b))
+* apply feedback ([05261d7](https://github.com/SUI-Components/sui-components/commit/05261d7fab71fdaeb47eb5ab92afbce5c929ae67))
+* apply feedback ([e7f2d2e](https://github.com/SUI-Components/sui-components/commit/e7f2d2ed53ad2a045948d9d69995f8e738daab7a))
+
+
+
 # 1.5.0 (2024-10-29)
 
 

@@ -104,7 +104,8 @@ export const OWN_PROPS = [
   'leftIcon',
   'loadingText',
   'negative',
-  'rightIcon'
+  'rightIcon',
+  'shape'
 ]
 
 /**

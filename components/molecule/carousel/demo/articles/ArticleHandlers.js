@@ -34,10 +34,10 @@ const ArticleHandlers = ({className}) => {
         onNext={handle('onNext')}
         onSlide={handle('onSlide')}
       >
-        <img alt="1" src="https://via.placeholder.com/300x90/808080/000000?text=Item 1" />
-        <img alt="2" src="https://via.placeholder.com/300x80/808080/000000?text=Item 2" />
-        <img alt="3" src="https://via.placeholder.com/300x100/808080/000000?text=Item 3" />
-        <img alt="4" src="https://via.placeholder.com/300x80/808080/000000?text=Item 4" />
+        <img alt="1" src="https://placehold.co/300x90/808080/000000?text=Item 1" />
+        <img alt="2" src="https://placehold.co/300x80/808080/000000?text=Item 2" />
+        <img alt="3" src="https://placehold.co/300x100/808080/000000?text=Item 3" />
+        <img alt="4" src="https://placehold.co/300x80/808080/000000?text=Item 4" />
       </MoleculeCarousel>
     </Article>
   )

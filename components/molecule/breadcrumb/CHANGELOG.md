@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.31.0 (2025-05-27)
+
+
+### Features
+
+* add a11y layer ([1d4bdb5](https://github.com/SUI-Components/sui-components/commit/1d4bdb5a01816a4992ade40baafb8f7fc9c261b2))
+
+
+
 # 1.30.0 (2025-05-27)
 
 

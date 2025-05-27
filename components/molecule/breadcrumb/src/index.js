@@ -6,7 +6,7 @@ import ChevronRight from '@s-ui/react-icons/lib/Chevronright'
 import {BASE_CLASS, breadcrumbClassName, isFunction} from './settings.js'
 
 const BreadcrumbBasic = ({
-  ariaLabelText,
+  labelAttr,
   items,
   icon,
   linkFactory: Link = ({to, href, className, children}) => (
@@ -36,7 +36,7 @@ const BreadcrumbBasic = ({
   const numItems = items.length - 1
 
   return (
-    <nav aria-label={ariaLabelText}>
+    <nav aria-label={labelAttr}>
       <div
         className={breadcrumbClassName({
           isExpanded: isExpandedState,
@@ -71,7 +71,7 @@ BreadcrumbBasic.propTypes = {
   /**
    * Aria label for the breadcrumb
    */
-  ariaLabelText: PropTypes.string,
+  labelAttr: PropTypes.string,
   /**
    * List of link objects
    */

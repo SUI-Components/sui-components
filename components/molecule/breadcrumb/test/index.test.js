@@ -5,6 +5,7 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
+import {createRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -77,7 +78,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {
         className: 'extended-classNames',
@@ -97,7 +98,31 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should return forwardRef html breadcrumb element when giving a ref to the component', () => {
+      // Given
+      const props = {
+        items: [
+          {
+            label: 'item 0'
+          },
+          {
+            label: 'item 1'
+          }
+        ]
+      }
+      const ref = createRef()
+
+      // When
+      const component = <Component {...props} ref={ref} />
+      const div = document.createElement('div')
+      ReactDOM.render(component, div)
+
+      // Then
+      expect(ref.current).to.not.equal(undefined)
+      expect(ref.current.nodeName).to.equal('NAV')
     })
   })
 })

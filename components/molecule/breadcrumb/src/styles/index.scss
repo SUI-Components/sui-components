@@ -28,6 +28,7 @@ $base-class: '.sui-BreadcrumbBasic';
     @include reset-list;
     display: flex;
     flex-wrap: wrap;
+    padding: $sz-base;
 
     .is-scrollable & {
       flex-wrap: nowrap;
@@ -64,16 +65,26 @@ $base-class: '.sui-BreadcrumbBasic';
     height: $size-breadcrumb-icon;
     margin-right: $m-breadcrumb-items;
     width: $size-breadcrumb-icon;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &-link {
     @include reset-link;
     color: $c-breadcrumb-link;
     text-decoration: $td-breadcrumb-link;
+    border-radius: $bdrs-m;
 
     &:hover {
       color: $c-breadcrumb-link-hover;
       text-decoration: $td-breadcrumb-link-hover;
+    }
+    &:focus-visible {
+      &:focus-visible {
+        outline: 2px solid transparentize($c-primary, 0.2);
+        outline-offset: 2px;
+      }
     }
   }
 }

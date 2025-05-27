@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.30.0 (2025-05-27)
+
+
+### Features
+
+* add ariaLabelText prop for accessibility ([8827b93](https://github.com/SUI-Components/sui-components/commit/8827b9318df62a4b736b38f521cdd8bd52c9b88c))
+* add ariaLabelText prop for accessibility in demo componen ([7ee2b27](https://github.com/SUI-Components/sui-components/commit/7ee2b273b5706539361e4855415bf5ac00afa64a))
+* rename ariaLabelText prop to labelAttr for consistency ([1dbb0e7](https://github.com/SUI-Components/sui-components/commit/1dbb0e735619403eb4131af30f52ea9ce077dfda))
+* replace ariaLabelText prop with labelAttr for consistency ([cd5dee2](https://github.com/SUI-Components/sui-components/commit/cd5dee2fd07391e87ba84f0a09cc5e758bc9332e))
+
+
+
 # 1.29.0 (2025-05-06)
 
 

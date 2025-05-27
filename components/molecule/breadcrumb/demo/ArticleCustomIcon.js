@@ -34,10 +34,10 @@ const ArticleCustomIcon = ({className, items}) => {
           <RadioButton key={key} value={iconValue} checked={iconID === iconValue} />
         ))}
       </RadioButtonGroup>
-      <MoleculeBreadcrumb items={items} icon={getCustomIcon(iconID)} />
+      <MoleculeBreadcrumb labelAttr="breadcrumb" items={items} icon={getCustomIcon(iconID)} />
       <Paragraph>Icon might be even a text (or string) Component node</Paragraph>
       <Input value={text} onChange={event => setText(event.target.value)} />
-      <MoleculeBreadcrumb items={items} icon={getCustomTextIcon(text)} />
+      <MoleculeBreadcrumb labelAttr="breadcrumb" items={items} icon={getCustomTextIcon(text)} />
     </Article>
   )
 }

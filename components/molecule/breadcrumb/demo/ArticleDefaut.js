@@ -12,7 +12,7 @@ const ArticleDefault = ({className, items}) => {
         MoleculeBreadcrumb must have valid <Code>items</Code>, which is an array of elements (object) with label and
         url.
       </Paragraph>
-      <MoleculeBreadcrumb items={items} />
+      <MoleculeBreadcrumb labelAttr="breadcrumb" items={items} />
     </Article>
   )
 }

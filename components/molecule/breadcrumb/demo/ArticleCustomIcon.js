@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 import PropTypes from 'prop-types'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import {
   AntDesignIcon,
@@ -10,7 +11,8 @@ import {
   Input,
   Paragraph,
   RadioButton,
-  RadioButtonGroup
+  RadioButtonGroup,
+  Label
 } from '@s-ui/documentation-library'
 
 import MoleculeBreadcrumb from '../src/index.js'
@@ -22,6 +24,8 @@ const getCustomIcon = icon =>
 const ArticleCustomIcon = ({className, items}) => {
   const [iconID, setIconID] = useState(undefined)
   const [text, setText] = useState('/')
+  const Icon = getCustomIcon(iconID)
+  const TextIcon = getCustomTextIcon(text)
   return (
     <Article className={className}>
       <H2>Custom Icon</H2>
@@ -34,10 +38,13 @@ const ArticleCustomIcon = ({className, items}) => {
           <RadioButton key={key} value={iconValue} checked={iconID === iconValue} />
         ))}
       </RadioButtonGroup>
-      <MoleculeBreadcrumb labelAttr="breadcrumb" items={items} icon={getCustomIcon(iconID)} />
+      <MoleculeBreadcrumb aria-label="breadcrumb" items={items} icon={Icon ? <Icon /> : undefined} />
       <Paragraph>Icon might be even a text (or string) Component node</Paragraph>
-      <Input value={text} onChange={event => setText(event.target.value)} />
-      <MoleculeBreadcrumb labelAttr="breadcrumb" items={items} icon={getCustomTextIcon(text)} />
+      <PrimitiveVisuallyHidden>
+        <Label htmlFor="customTextIcon">Custom Text Icon value</Label>
+      </PrimitiveVisuallyHidden>
+      <Input value={text} id="customTextIcon" onChange={event => setText(event.target.value)} />
+      <MoleculeBreadcrumb aria-label="breadcrumb" items={items} icon={TextIcon ? <TextIcon /> : undefined} />
     </Article>
   )
 }

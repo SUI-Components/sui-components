@@ -11,7 +11,7 @@ const ArticleScrollable = ({className, items}) => {
       <Paragraph>
         Breadcrumb can avoid the line break using the <Code>isScrollable</Code> boolean prop.
       </Paragraph>
-      <MoleculeBreadcrumb labelAttr="breadcrumb" items={items} isScrollable />
+      <MoleculeBreadcrumb aria-label="breadcrumb" items={items} isScrollable />
     </Article>
   )
 }

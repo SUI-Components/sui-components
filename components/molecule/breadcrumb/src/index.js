@@ -1,77 +1,91 @@
+import {forwardRef, Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 import ChevronRight from '@s-ui/react-icons/lib/Chevronright'
 
+import PrimitiveInjector from '@s-ui/react-primitive-injector'
+
 import {BASE_CLASS, breadcrumbClassName, isFunction} from './settings.js'
 
-const BreadcrumbBasic = ({
-  labelAttr,
-  items,
-  icon,
-  linkFactory: Link = ({to, href, className, children}) => (
-    <a href={to || href} className={className}>
-      {children}
-    </a>
-  ),
-  isScrollable = false,
-  isExpanded,
-  defaultIsExpanded = false,
-  onExpand,
-  onCollapse,
-  onClick
-}) => {
-  const [isExpandedState, setIsExpandedState] = useControlledState(isExpanded, defaultIsExpanded)
-  const handleClick = event => {
-    setIsExpandedState(!isExpandedState)
-    isFunction(onClick) && onClick(event, {value: !isExpandedState})
-    if (isExpandedState) {
-      isFunction(onCollapse) && onCollapse(event, {value: false})
-    } else {
-      isFunction(onExpand) && onExpand(event, {value: true})
+const Breadcrumb = forwardRef(
+  (
+    {
+      items,
+      icon = <ChevronRight svgClass={`${BASE_CLASS}-icon`} />,
+      linkFactory: Link = ({to, href, className, children, ...props}) => (
+        <a href={to || href} className={className} {...props}>
+          {children}
+        </a>
+      ),
+      isScrollable = false,
+      isExpanded,
+      defaultIsExpanded = false,
+      onExpand,
+      onCollapse,
+      onClick,
+      className,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const [isExpandedState, setIsExpandedState] = useControlledState(isExpanded, defaultIsExpanded)
+    const handleClick = event => {
+      setIsExpandedState(!isExpandedState)
+      isFunction(onClick) && onClick(event, {value: !isExpandedState})
+      if (isExpandedState) {
+        isFunction(onCollapse) && onCollapse(event, {value: false})
+      } else {
+        isFunction(onExpand) && onExpand(event, {value: true})
+      }
     }
+
+    const numItems = items.length - 1
+
+    return (
+      <nav {...props} ref={forwardedRef}>
+        <div
+          className={breadcrumbClassName({
+            isExpanded: isExpandedState,
+            isScrollable,
+            className
+          })}
+        >
+          <button onClick={handleClick} className={`${BASE_CLASS}-btn`}>
+            ...
+          </button>
+          <ul className={`${BASE_CLASS}-list`}>
+            {items.map(({url, label, ...rest}, index) => {
+              const [Element, elementProps] = url
+                ? [Link, {to: url, href: url, className: `${BASE_CLASS}-link`, children: label}]
+                : [PrimitiveInjector, {children: label}]
+              return (
+                <Fragment key={index}>
+                  {index !== 0 && index <= numItems && (
+                    <li className={`${BASE_CLASS}-icon`} role="presentation" aria-hidden="true">
+                      {icon}
+                    </li>
+                  )}
+                  <li className={`${BASE_CLASS}-listItem`}>
+                    <Element {...{...elementProps, ...rest}} />
+                  </li>
+                </Fragment>
+              )
+            })}
+          </ul>
+        </div>
+      </nav>
+    )
   }
+)
 
-  const IconAngle = icon || ChevronRight
-  const numItems = items.length - 1
+Breadcrumb.displayName = 'Breadcrumb'
 
-  return (
-    <nav aria-label={labelAttr}>
-      <div
-        className={breadcrumbClassName({
-          isExpanded: isExpandedState,
-          isScrollable
-        })}
-      >
-        <button onClick={handleClick} className={`${BASE_CLASS}-btn`}>
-          ...
-        </button>
-        <ul className={`${BASE_CLASS}-list`}>
-          {items.map(({url, label}, index) => (
-            <li className={`${BASE_CLASS}-listItem`} key={index}>
-              {index !== 0 && index <= numItems && <IconAngle svgClass={`${BASE_CLASS}-icon`} />}
-              {url ? (
-                <Link to={url} href={url} className={`${BASE_CLASS}-link`}>
-                  {label}
-                </Link>
-              ) : (
-                label
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
-  )
-}
-
-BreadcrumbBasic.displayName = 'BreadcrumbBasic'
-
-BreadcrumbBasic.propTypes = {
+Breadcrumb.propTypes = {
   /**
-   * Aria label for the breadcrumb
+   * Additional class names to extend the component
    */
-  labelAttr: PropTypes.string,
+  className: PropTypes.string,
   /**
    * List of link objects
    */
@@ -88,9 +102,9 @@ BreadcrumbBasic.propTypes = {
     })
   ).isRequired,
   /**
-   * Comments custom icon (React component).
+   * Icon node to be used as a separator between items.
    */
-  icon: PropTypes.func,
+  icon: PropTypes.node,
   /**
    * Function for creating links so it allows to customize it
    */
@@ -115,4 +129,4 @@ BreadcrumbBasic.propTypes = {
   onClick: PropTypes.func
 }
 
-export default BreadcrumbBasic
+export default Breadcrumb

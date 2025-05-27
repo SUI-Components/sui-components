@@ -57,13 +57,12 @@ const AtomCard = ({
       {...(!href && {role: 'button'})}
       {...props}
     >
+      <div className={CLASS_INFO}>{Content && <Content />}</div>
       {Media && (
         <div className={CLASS_MEDIA}>
           <Media />
         </div>
       )}
-
-      <div className={CLASS_INFO}>{Content && <Content />}</div>
     </div>
   )
 }

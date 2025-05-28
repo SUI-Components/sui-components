@@ -3,12 +3,12 @@ import {cloneElement, Fragment, useCallback, useEffect, useMemo, useRef, useStat
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import usePortal from '@s-ui/react-hook-use-portal'
 
 import SelectIcon from './components/SelectIcon.js'
 import {BASE_CLASS, getContentId, getLabelId, getPlacement, OVERLAY_TYPES, PLACEMENTS, SHAPES, SIZES} from './config.js'
 import RenderActions from './RenderActions.js'
-
 function usePrevious(value) {
   const ref = useRef()
   useEffect(() => {
@@ -48,7 +48,7 @@ const MoleculeSelectPopover = ({
   renderSelect: renderSelectProp,
   renderActions: renderActionsProp,
   selectText,
-  shape,
+  shape = SHAPES.CIRCULAR,
   size = 'm',
   title
 }) => {
@@ -190,22 +190,17 @@ const MoleculeSelectPopover = ({
     }
 
     return (
-      <button
+      <AtomButton
         aria-controls={contentId}
         aria-expanded={isOpen}
         aria-haspopup
         aria-labelledby={labelId}
-        className={cx(
-          `${BASE_CLASS}-select`,
-          shape && `${BASE_CLASS}-select--${shape}`,
-          `${BASE_CLASS}-select--${size}`,
-          {
-            [`${BASE_CLASS}-select--withRemoveOption`]: removeButtonOptions,
-            'is-open': isOpen,
-            'is-selected': isSelected
-          }
-        )}
-        {...newSelectProps}
+        ref={selectRef}
+        shape={shape}
+        size={size}
+        design={atomButtonDesigns.OUTLINE}
+        onClick={handleOpenToggle}
+        selected={isSelected}
       >
         <span className={`${BASE_CLASS}-selectText`} id={labelId}>
           {selectText}
@@ -213,7 +208,7 @@ const MoleculeSelectPopover = ({
         <div className={`${BASE_CLASS}-selectIcon`}>
           <SelectIcon iconArrowDown={IconArrowDown} removeButtonOptions={removeButtonOptions} />
         </div>
-      </button>
+      </AtomButton>
     )
   }
 

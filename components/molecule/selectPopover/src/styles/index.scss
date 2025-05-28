@@ -56,6 +56,12 @@ $base-class: '.sui-MoleculeSelectPopover ';
       }
     }
 
+    &:focus-visible {
+      box-shadow: $bxsh-atom-button-focus;
+      outline: 2px solid transparentize($c-primary, 0.2);
+      outline-offset: 2px;
+    }
+
     &:hover,
     &.is-open {
       background-color: $bgc-select-popover-hover;

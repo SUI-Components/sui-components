@@ -19,6 +19,12 @@ export const ATOM_ICON_SIZES = {
   extraExtraLarge: 'extraExtraLarge'
 }
 
+export const ATOM_ICON_SHAPES = {
+  SQUARED: 'squared',
+  ROUNDED: 'rounded',
+  CIRCULAR: 'circular'
+}
+
 export const ATOM_ICON_RENDERS = {
   eager: 'eager',
   lazy: 'lazy'

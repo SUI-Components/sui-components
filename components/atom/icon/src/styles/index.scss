@@ -19,16 +19,30 @@ $base-class: '.sui-AtomIcon';
 
   // Colors
   @each $key, $value in $atom-icon-colors {
-    &#{$base-class}--#{$key} svg {
+    &#{$base-class}--color-#{$key} svg {
       fill: $value;
     }
   }
 
   // Sizes
-  @each $key, $value in $atom-icon-sizes {
-    &#{$base-class}--#{$key} svg {
-      height: $value;
-      width: $value;
+  @each $size-key, $size-value in $atom-icon-sizes {
+    &#{$base-class}--size-#{$size-key} {
+      svg {
+        height: $size-value;
+        width: $size-value;
+      }
+
+      &#{$base-class}--shape-squared {
+        @include icon-squared();
+      }
+
+      &#{$base-class}--shape-rounded {
+        @include icon-rounded();
+      }
+
+      &#{$base-class}--shape-circular {
+        @include icon-circle($size-value);
+      }
     }
   }
 

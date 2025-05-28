@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.51.0 (2025-05-28)
+
+
+### Features
+
+* add focus visible to button ([992f084](https://github.com/SUI-Components/sui-components/commit/992f08441ba81e984b0a9e71ea61ad997a49ee21))
+
+
+
 # 1.50.0 (2025-05-28)
 
 

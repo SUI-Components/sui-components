@@ -116,6 +116,7 @@ $base-class: '.sui-MoleculeSelectPopover ';
 
     #{$self}-select {
       max-width: none;
+      width: 100%;
     }
   }
 

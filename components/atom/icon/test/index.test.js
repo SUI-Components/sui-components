@@ -35,9 +35,11 @@ describe(json.name, () => {
       ATOM_ICON_COLORS,
       ATOM_ICON_SIZES,
       ATOM_ICON_RENDERS,
+      ATOM_ICON_SHAPES,
       atomIconColors,
       atomIconSizes,
       atomIconRenders,
+      atomIconShapes,
       default: AtomIcon,
       ...others
     } = library
@@ -256,7 +258,7 @@ describe(json.name, () => {
 
       // When
       const {atomIconShapes: actual} = library
-      const {eager, lazy, ...others} = actual
+      const {SQUARED, ROUNDED, CIRCULAR, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

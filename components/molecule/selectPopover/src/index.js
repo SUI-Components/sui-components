@@ -1,4 +1,4 @@
-import {cloneElement, Fragment, useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {cloneElement, Fragment, useCallback, useEffect, useMemo, useMemo, useRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -233,7 +233,8 @@ const MoleculeSelectPopover = ({
       contentWrapperRef, // required for `handleClickOutside` to work
       id: contentId,
       isOpen,
-      setIsOpen
+      setIsOpen,
+      id: contentId
     }
 
     /**

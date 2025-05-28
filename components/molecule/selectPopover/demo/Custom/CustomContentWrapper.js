@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import MoleculeModal from '@s-ui/react-molecule-modal'
 
-const CustomContentWrapper = ({actions, content, id, isOpen, setIsOpen}) => {
+const CustomContentWrapper = ({actions, content, isOpen, id, setIsOpen}) => {
   return (
     <MoleculeModal isOpen={isOpen}>
       <MoleculeModal.Overlay />

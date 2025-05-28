@@ -36,3 +36,6 @@ const placements = {
 export const getPlacement = placement => {
   return placements[placement]
 }
+
+export const getContentId = id => `content-${id}`
+export const getLabelId = id => `label-${id}`

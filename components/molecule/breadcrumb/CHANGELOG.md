@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2025-05-28)
+
+
+### Bug Fixes
+
+* icon available in bith modes ([9fed0ea](https://github.com/SUI-Components/sui-components/commit/9fed0ea9d9ffc0e8f832c90a1be52ab9f1d19a86))
+
+
+
 # 1.31.0 (2025-05-27)
 
 

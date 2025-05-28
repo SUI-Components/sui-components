@@ -24,6 +24,10 @@ class DynamicMoleculePagination extends Component {
     return (
       <div>
         <MoleculePagination
+          ariaLabel="Paginación"
+          prevLinkAriaLabel="Página previa"
+          nextLinkAriaLabel="Página siguiente"
+          pagePrefixAriaLabel="Página"
           {...Icons}
           {...this.props}
           page={page}

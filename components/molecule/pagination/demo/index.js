@@ -44,9 +44,24 @@ const Demo = () => {
         <H2>Size</H2>
         <div className={CLASS_DEMO_SECTION}>
           <H3>Small</H3>
-          <MoleculePagination totalPages={25} page={17} size="small" />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+            size="small"
+          />
           <H3>Large</H3>
-          <MoleculePagination totalPages={25} page={17} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+          />
         </div>
 
         <H2>Responsive with LayoutMediaQuery</H2>
@@ -89,7 +104,14 @@ const Demo = () => {
           <Paragraph>
             <code>totalPages=25 page=7</code>
           </Paragraph>
-          <MoleculePagination totalPages={25} page={7} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={7}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <h4>Basic with links and linkFactory</h4>
@@ -100,6 +122,10 @@ const Demo = () => {
             </code>
           </Paragraph>
           <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
             totalPages={25}
             page={7}
             linkFactory={linkFactory}
@@ -112,56 +138,130 @@ const Demo = () => {
           <Paragraph>
             <code>totalPages=25 page=7</code>
           </Paragraph>
-          <MoleculePagination totalPages={25} page={7} {...Icons} {...OnClicks} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={7}
+            {...Icons}
+            {...OnClicks}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>w/ Prev & Next</H4>
           <p>
             <code>totalPages=25 page=17</code>
           </p>
-          <MoleculePagination totalPages={25} page={17} {...Icons} {...OnClicks} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+            {...Icons}
+            {...OnClicks}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>w/ Prev</H4>
           <p>
             <code>totalPages=25 page=27</code>
           </p>
-          <MoleculePagination totalPages={25} page={27} {...Icons} {...OnClicks} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={27}
+            {...Icons}
+            {...OnClicks}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>No Arrows</H4>
           <p>
             <code>totalPages=25 page=7</code>
           </p>
-          <MoleculePagination totalPages={25} page={17} {...OnClicks} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+            {...OnClicks}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>Different Texts</H4>
           <p>
             <code>totalPages=25 page=7</code>
           </p>
-          <MoleculePagination totalPages={25} page={17} {...Icons} {...Texts} {...OnClicks} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+            {...Icons}
+            {...Texts}
+            {...OnClicks}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>Out of range current page</H4>
           <p>
             <code>totalPages=25 page=-2</code>
           </p>
-          <MoleculePagination totalPages={25} page={-2} {...Icons} {...Texts} {...OnClicks} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={-2}
+            {...Icons}
+            {...Texts}
+            {...OnClicks}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <h4>Hide Disabled</h4>
           <p>
             <code>totalPages=25 page=2</code>
           </p>
-          <MoleculePagination totalPages={25} page={2} hideDisabled {...Icons} {...Texts} {...OnClicks} />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={2}
+            hideDisabled
+            {...Icons}
+            {...Texts}
+            {...OnClicks}
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>Show edges</H4>
           <p>
             <code>totalPages=25 page=15 showEdges</code>
           </p>
-          <MoleculePagination totalPages={25} page={15} showEdges />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={15}
+            showEdges
+          />
         </div>
 
         <h3>Compressed Version</h3>
@@ -170,42 +270,104 @@ const Demo = () => {
           <p>
             <code>totalPages=25 page=1</code>
           </p>
-          <MoleculePagination totalPages={25} page={1} {...Icons} {...OnClicks} compressed />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={1}
+            {...Icons}
+            {...OnClicks}
+            compressed
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>w/ Prev & Next</H4>
           <p>
             <code>totalPages=25 page=17</code>
           </p>
-          <MoleculePagination totalPages={25} page={17} {...Icons} {...OnClicks} compressed />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+            {...Icons}
+            {...OnClicks}
+            compressed
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>Out of range current page</H4>
           <p>
             <code>totalPages=25 page=27</code>
           </p>
-          <MoleculePagination totalPages={25} page={27} {...Icons} {...OnClicks} compressed />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={27}
+            {...Icons}
+            {...OnClicks}
+            compressed
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <h4>No Arrows</h4>
           <p>
             <code>totalPages=25 page=17</code>
           </p>
-          <MoleculePagination totalPages={25} page={17} {...OnClicks} compressed />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+            {...OnClicks}
+            compressed
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>Different Texts</H4>
           <p>
             <code>totalPages=25 page=17</code>
           </p>
-          <MoleculePagination totalPages={25} page={17} {...Icons} {...Texts} {...OnClicks} compressed />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={17}
+            {...Icons}
+            {...Texts}
+            {...OnClicks}
+            compressed
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>Hide Disabled</H4>
           <p>
             <code>totalPages=25 page=1</code>
           </p>
-          <MoleculePagination totalPages={25} page={1} {...Icons} {...Texts} {...OnClicks} compressed hideDisabled />
+          <MoleculePagination
+            ariaLabel="Paginación"
+            prevLinkAriaLabel="Página previa"
+            nextLinkAriaLabel="Página siguiente"
+            pagePrefixAriaLabel="Página"
+            totalPages={25}
+            page={1}
+            {...Icons}
+            {...Texts}
+            {...OnClicks}
+            compressed
+            hideDisabled
+          />
         </div>
         <div className={CLASS_DEMO_SECTION}>
           <H4>Change Navigation Buttons</H4>

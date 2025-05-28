@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2025-05-28)
+
+
+### Features
+
+* add shapes to the icon ([63e1d07](https://github.com/SUI-Components/sui-components/commit/63e1d071abc9f249793c5bdfbcef1c5d30a9cf11))
+
+
+
 # 1.20.0 (2025-05-28)
 
 

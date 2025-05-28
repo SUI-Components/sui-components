@@ -4,6 +4,7 @@ import {Code, H1, ListItem, Paragraph, Strong, UnorderedList} from '@s-ui/docume
 import ArticleA11y from './articles/ArticleA11y.js'
 import ArticleColorInheritance from './articles/ArticleColorInheritance.js'
 import ArticleColorsAndSizes from './articles/ArticleColorsAndSizes.js'
+import ArticleShapesAndSizes from './articles/ArticleShapesAndSizes.js'
 import ArticleLazy from './articles/ArticleLazy.js'
 import ArticlePolymorphic from './articles/ArticlePolymorphic.js'
 import ArticleSpan from './articles/ArticleSpan.js'
@@ -39,6 +40,8 @@ export default function () {
         Definition and give you some colors, sizes and interesting features like lazy-load rendering.
       </Paragraph>
       <ArticleColorsAndSizes className={CLASS_SECTION} />
+      <br />
+      <ArticleShapesAndSizes className={CLASS_SECTION} />
       <br />
       <ArticleColorInheritance className={CLASS_SECTION} />
       <br />

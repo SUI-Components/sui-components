@@ -18,3 +18,15 @@ $atom-icon-colors: (
 );
 
 $bxsh-atom-icon-focus: none !default;
+
+@mixin icon-squared() {
+  border-radius: 0;
+}
+
+@mixin icon-rounded() {
+  border-radius: $bdrs-m;
+}
+
+@mixin icon-circle($size) {
+  border-radius: #{$size * 0.5};
+}

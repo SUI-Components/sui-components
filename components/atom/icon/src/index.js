@@ -3,19 +3,28 @@ import PropTypes from 'prop-types'
 
 import Icon from './Icon.js'
 import LazyIcon from './LazyIcon.js'
-import {ATOM_ICON_COLORS, ATOM_ICON_RENDERS, ATOM_ICON_SIZES, BASE_CLASS} from './settings.js'
+import {ATOM_ICON_COLORS, ATOM_ICON_RENDERS, ATOM_ICON_SIZES, ATOM_ICON_SHAPES, BASE_CLASS} from './settings.js'
 
 const AtomIcon = ({
   as = 'span',
   children,
   className: classNameProp,
+  shape,
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
   render = ATOM_ICON_RENDERS.eager,
   style: _ignoredStyle, // eslint-disable-line react/prop-types
   ...props
 }) => {
-  const className = cx(BASE_CLASS, `${BASE_CLASS}--${size}`, color && `${BASE_CLASS}--${color}`, classNameProp)
+  const className = cx(
+    BASE_CLASS,
+    {
+      [`${BASE_CLASS}--size-${size}`]: size,
+      [`${BASE_CLASS}--color-${color}`]: color,
+      [`${BASE_CLASS}--shape-${shape}`]: shape
+    },
+    classNameProp
+  )
 
   const IconRender = render === ATOM_ICON_RENDERS.eager ? Icon : LazyIcon
 
@@ -51,7 +60,11 @@ AtomIcon.propTypes = {
    */
   render: PropTypes.oneOf(Object.values(ATOM_ICON_RENDERS)),
   /** CSS Classes to add to icon */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+   * CSS styles border radius
+   */
+  shape: PropTypes.oneOf(Object.values(ATOM_ICON_SHAPES))
 }
 
 export default AtomIcon
@@ -60,7 +73,9 @@ export {
   ATOM_ICON_COLORS,
   ATOM_ICON_SIZES,
   ATOM_ICON_RENDERS,
+  ATOM_ICON_SHAPES,
   ATOM_ICON_COLORS as atomIconColors,
   ATOM_ICON_SIZES as atomIconSizes,
-  ATOM_ICON_RENDERS as atomIconRenders
+  ATOM_ICON_RENDERS as atomIconRenders,
+  ATOM_ICON_SHAPES as atomIconShapes
 }

@@ -20,6 +20,11 @@ $ npm install @s-ui/react-molecule-pagination --save
 ```js
 import MoleculePagination from '@s-ui/react-molecule-pagination'
 
+const ariaLabel = 'Paginación'
+const prevLinkAriaLabel = 'Página previa'
+const nextLinkAriaLabel = 'Página siguiente'
+const pagePrefixAriaLabel = 'Página'
+
 const prevButtonIcon = () => <span>&lt;</span>
 const nextButtonIcon = () => <span>&gt;</span>
 const prevButtonText = 'Anterior'
@@ -31,32 +36,79 @@ const onSelectPage = (e, {page}) => { console.log({e, page}) }
 
 ### Basic usage
 ```js
-<MoleculePagination totalPages={25} page={7} />
+<MoleculePagination
+  ariaLabel={ariaLabel}
+  prevLinkAriaLabel={prevLinkAriaLabel}
+  nextLinkAriaLabel={nextLinkAriaLabel}
+  pagePrefixAriaLabel={pagePrefixAriaLabel} 
+  totalPages={25} 
+  page={7} 
+  />
 ```
 
 ### Range of 5 pages
 ```js
-<MoleculePagination totalPages={25} page={7} showPages={5}/>
+<MoleculePagination
+  ariaLabel={ariaLabel}
+  prevLinkAriaLabel={prevLinkAriaLabel}
+  nextLinkAriaLabel={nextLinkAriaLabel}
+  pagePrefixAriaLabel={pagePrefixAriaLabel} 
+  totalPages={25} 
+  page={7}
+  showPages={5}
+  />
 ```
 
 ### With icons
 ```js
-<MoleculePagination totalPages={25} page={7} prevButtonIcon={prevButtonIcon} nextButtonIcon={nextButtonIcon}/>
+<MoleculePagination
+  ariaLabel={ariaLabel}
+  prevLinkAriaLabel={prevLinkAriaLabel}
+  nextLinkAriaLabel={nextLinkAriaLabel}
+  pagePrefixAriaLabel={pagePrefixAriaLabel} 
+  totalPages={25} 
+  page={7}
+  prevButtonIcon={prevButtonIcon}
+  nextButtonIcon={nextButtonIcon}
+  />
 ```
 
 ### With translations
 ```js
-<MoleculePagination totalPages={25} page={7} prevButtonText={prevButtonText} nextButtonText={nextButtonText}/>
+<MoleculePagination
+  ariaLabel={ariaLabel}
+  prevLinkAriaLabel={prevLinkAriaLabel}
+  nextLinkAriaLabel={nextLinkAriaLabel}
+  pagePrefixAriaLabel={pagePrefixAriaLabel} 
+  totalPages={25} 
+  page={7}
+  prevButtonText={prevButtonText}
+  nextButtonText={nextButtonText}
+  />
 ```
 
 ### With callbacks
 ```js
-<MoleculePagination totalPages={25} page={7} onSelectNext={onSelectNext} onSelectPrev={onSelectPrev} onSelectPage={onSelectPage}/>
+<MoleculePagination
+  ariaLabel={ariaLabel}
+  prevLinkAriaLabel={prevLinkAriaLabel}
+  nextLinkAriaLabel={nextLinkAriaLabel}
+  pagePrefixAriaLabel={pagePrefixAriaLabel} 
+  totalPages={25} 
+  page={7}
+  onSelectNext={onSelectNext}
+  onSelectPrev={onSelectPrev}
+  onSelectPage={onSelectPage}
+  />
 ```
 
 ### Full example
 ```js
 <MoleculePagination 
+  ariaLabel={ariaLabel}
+  prevLinkAriaLabel={prevLinkAriaLabel}
+  nextLinkAriaLabel={nextLinkAriaLabel}
+  pagePrefixAriaLabel={pagePrefixAriaLabel} 
   totalPages={25} 
   page={7} 
   prevButtonIcon={prevButtonIcon}

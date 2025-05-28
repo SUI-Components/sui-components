@@ -239,6 +239,7 @@ const Demo = () => {
           fullWidth={isFullWidth}
           hideActions={actionsAreHidden}
           iconArrowDown={IconArrowDown}
+          id="molecule-select-popover-demo"
           isDisabled={isDisabled}
           isSelected={isSelected}
           onAccept={() => setItems(unconfirmedItems)}

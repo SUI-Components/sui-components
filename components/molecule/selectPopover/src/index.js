@@ -1,4 +1,4 @@
-import {cloneElement, Fragment, useCallback, useEffect, useRef, useState} from 'react'
+import {cloneElement, Fragment, useCallback, useEffect, useMemo, useRef, useState} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import usePortal from '@s-ui/react-hook-use-portal'
 
 import SelectIcon from './components/SelectIcon.js'
-import {BASE_CLASS, getPlacement, OVERLAY_TYPES, PLACEMENTS, SHAPES, SIZES} from './config.js'
+import {BASE_CLASS, getContentId, getLabelId, getPlacement, OVERLAY_TYPES, PLACEMENTS, SHAPES, SIZES} from './config.js'
 import RenderActions from './RenderActions.js'
 
 function usePrevious(value) {
@@ -63,6 +63,8 @@ const MoleculeSelectPopover = ({
   const {Portal} = usePortal({target: overlayContentRef.current})
 
   const hasOverlay = Boolean(overlayContentRef.current) && overlayType !== OVERLAY_TYPES.NONE
+
+  const {contentId, labelId} = useMemo(() => ({contentId: getContentId(id), labelId: getLabelId(id)}), [id])
 
   useEffect(() => {
     forceClosePopover && setIsOpen(false)
@@ -188,7 +190,11 @@ const MoleculeSelectPopover = ({
     }
 
     return (
-      <div
+      <button
+        aria-controls={contentId}
+        aria-expanded={isOpen}
+        aria-haspopup
+        aria-labelledby={labelId}
         className={cx(
           `${BASE_CLASS}-select`,
           shape && `${BASE_CLASS}-select--${shape}`,
@@ -201,11 +207,13 @@ const MoleculeSelectPopover = ({
         )}
         {...newSelectProps}
       >
-        <span className={`${BASE_CLASS}-selectText`}>{selectText}</span>
+        <span className={`${BASE_CLASS}-selectText`} id={labelId}>
+          {selectText}
+        </span>
         <div className={`${BASE_CLASS}-selectIcon`}>
           <SelectIcon iconArrowDown={IconArrowDown} removeButtonOptions={removeButtonOptions} />
         </div>
-      </div>
+      </button>
     )
   }
 
@@ -228,6 +236,7 @@ const MoleculeSelectPopover = ({
       ),
       content: children,
       contentWrapperRef, // required for `handleClickOutside` to work
+      id: contentId,
       isOpen,
       setIsOpen
     }
@@ -244,7 +253,7 @@ const MoleculeSelectPopover = ({
      */
     return (
       pieces.isOpen && (
-        <div className={popoverClassName} ref={contentWrapperRef}>
+        <div className={popoverClassName} id={contentId} ref={contentWrapperRef}>
           <div className={`${BASE_CLASS}-popoverContent`}>{pieces.content}</div>
           {!hideActions && pieces.actions}
         </div>

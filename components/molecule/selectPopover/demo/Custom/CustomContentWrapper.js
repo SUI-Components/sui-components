@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 
 import MoleculeModal from '@s-ui/react-molecule-modal'
 
-const CustomContentWrapper = ({actions, content, isOpen, setIsOpen}) => {
+const CustomContentWrapper = ({actions, content, id, isOpen, setIsOpen}) => {
   return (
     <MoleculeModal isOpen={isOpen}>
       <MoleculeModal.Overlay />
       <MoleculeModal.Portal>
-        <MoleculeModal.Content>
+        <MoleculeModal.Content id={id}>
           <MoleculeModal.Header>
             <MoleculeModal.Title>Custom select popover</MoleculeModal.Title>
           </MoleculeModal.Header>
@@ -32,6 +32,7 @@ CustomContentWrapper.displayName = 'CustomContentWrapper'
 CustomContentWrapper.propTypes = {
   actions: PropTypes.any,
   content: PropTypes.any,
+  id: PropTypes.string,
   isOpen: PropTypes.bool,
   setIsOpen: PropTypes.func
 }

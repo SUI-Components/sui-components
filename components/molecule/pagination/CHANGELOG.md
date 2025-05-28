@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.21.0 (2025-05-28)
+
+
+### Features
+
+* add accessibility labels to pagination component ([31f706d](https://github.com/SUI-Components/sui-components/commit/31f706dd494b8635802ac0311b8c971dc7005c43))
+* add aria labels for accessibility and nav tag html ([fa199c0](https://github.com/SUI-Components/sui-components/commit/fa199c0a3ed4c6c1aca8eac8e6d3ddd3a72d2f83))
+* update README ([0c1b525](https://github.com/SUI-Components/sui-components/commit/0c1b52556f1c3ef8492c1a032a25dc7c29961bf7))
+
+
+
 # 2.20.0 (2022-06-23)
 
 
@@ -244,6 +255,3 @@
 * **molecule/pagination:** removed console ([47d8adf](https://github.com/SUI-Components/sui-components/commit/47d8adf192b968f85f43fa57f5868c6870238f39))
 * **molecule/pagination:** removed console ([7d50346](https://github.com/SUI-Components/sui-components/commit/7d50346b42eaa818fd452322ad518b8f6347fb52))
 * **molecule/pagination:** svg icons demo arrows prev & next ([eb02535](https://github.com/SUI-Components/sui-components/commit/eb0253514d984db5d95f5371d40a659fd43c5c03))
-
-
-

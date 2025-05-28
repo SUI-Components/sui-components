@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.49.0 (2025-05-28)
+
+
+### Features
+
+* add getContentId and getLabelId functions for improved acce ([c633eb2](https://github.com/SUI-Components/sui-components/commit/c633eb267454d60f140e75f2ed13538d3d4f3895))
+* add id attribute for demo accessibility ([de16dcc](https://github.com/SUI-Components/sui-components/commit/de16dccd388ed7aa1666287da10faf0c5f2df07c))
+* add id prop for CustomContentWrapper accessibility ([41976e2](https://github.com/SUI-Components/sui-components/commit/41976e29dd322c466c318a712c3a98f1c9cdde58))
+* enhance accessibility with contentId and labelId integratio ([0d17460](https://github.com/SUI-Components/sui-components/commit/0d1746021d1015326d3daeaf80cc4805e24a617f))
+
+
+
 # 1.48.0 (2025-05-12)
 
 

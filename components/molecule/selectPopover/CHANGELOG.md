@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.50.0 (2025-05-28)
+
+
+### Bug Fixes
+
+* set width to 100% for select element ([ac65f12](https://github.com/SUI-Components/sui-components/commit/ac65f121198715146baec79e502aeb05d0a893fc))
+
+
+
 # 1.49.0 (2025-05-28)
 
 

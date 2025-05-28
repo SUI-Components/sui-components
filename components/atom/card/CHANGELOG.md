@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.28.0 (2025-05-28)
+
+
+### Features
+
+* adjust flex-direction for better layout consistency ([f90922e](https://github.com/SUI-Components/sui-components/commit/f90922e50652340ca60091d80c853c25f151fba3))
+* move Content rendering above Media for better accessibility ([1c57d8b](https://github.com/SUI-Components/sui-components/commit/1c57d8b475195c9676db6b92c5295ad34e08dd16))
+
+
+
 # 1.27.0 (2025-05-13)
 
 

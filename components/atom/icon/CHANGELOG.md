@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.20.0 (2025-05-28)
+
+
+### Features
+
+* Correct focus styles for a11y ([6920e4b](https://github.com/SUI-Components/sui-components/commit/6920e4be5ebbaa48392f1fdbabab88fe26b508c3))
+* Enhance focus styles ([fc39faf](https://github.com/SUI-Components/sui-components/commit/fc39fafeb881de01f16707cbb51394136f1d653c))
+
+
+
 # 1.19.0 (2025-02-07)
 
 

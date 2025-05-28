@@ -13,6 +13,7 @@ import PageButton from './PageButton.js'
 import {BASE_CLASS, defaultCreateUrl, DIVIDER, noop} from './settings.js'
 
 const MoleculePagination = ({
+  ariaLabel,
   onSelectNext = noop,
   onSelectPage = noop,
   onSelectPrev = noop,
@@ -35,7 +36,10 @@ const MoleculePagination = ({
   size,
   nonSelectedPageButtonColor = 'primary',
   prevButtonColor = 'primary',
+  pagePrefixAriaLabel,
+  prevLinkAriaLabel,
   nextButtonColor = 'primary',
+  nextLinkAriaLabel,
   linkFactory,
   createUrl = defaultCreateUrl,
   urlPattern = '#',
@@ -74,108 +78,125 @@ const MoleculePagination = ({
     }
 
   return (
-    <ul className={BASE_CLASS}>
-      {!isHidePrev && (
-        <li className={`${BASE_CLASS}-item`}>
-          <AtomButton
-            onClick={handleClickPrev}
-            design={prevButtonDesign}
-            color={prevButtonColor}
-            disabled={!prevPage}
-            shape={shape}
-            size={size}
-            leftIcon={PrevButtonIcon && <PrevButtonIcon />}
-            {...linkProps(prevPage)}
-          >
-            {prevButtonText}
-          </AtomButton>
-        </li>
-      )}
-      {compressed ? (
-        <PageButton
-          page={page}
-          design={selectedPageButtonDesign}
-          color={selectedPageButtonColor}
-          onSelectPage={onSelectPage}
-          shape={shape}
-          size={size}
-          {...linkProps(page)}
-        >
-          {page}
-        </PageButton>
-      ) : (
-        <>
-          {showEdges && range[0] !== FIRST_PAGE && (
-            <>
-              <PageButton
-                page={FIRST_PAGE}
-                design={page === FIRST_PAGE ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
-                color={page === FIRST_PAGE ? selectedPageButtonColor : nonSelectedPageButtonColor}
-                onSelectPage={onSelectPage}
-                shape={shape}
-                size={size}
-                {...linkProps(FIRST_PAGE)}
-              >
-                {FIRST_PAGE}
-              </PageButton>
-              {range[0] - 1 > FIRST_PAGE && <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>}
-            </>
-          )}
-          {range.map(pageRange => (
-            <PageButton
-              key={pageRange}
-              page={pageRange}
-              design={pageRange === page ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
-              color={pageRange === page ? selectedPageButtonColor : nonSelectedPageButtonColor}
-              onSelectPage={onSelectPage}
+    <nav aria-label={ariaLabel}>
+      <ul className={BASE_CLASS}>
+        {!isHidePrev && (
+          <li className={`${BASE_CLASS}-item`}>
+            <AtomButton
+              aria-label={prevLinkAriaLabel}
+              aria-disabled={!prevPage}
+              onClick={handleClickPrev}
+              design={prevButtonDesign}
+              color={prevButtonColor}
+              disabled={!prevPage}
               shape={shape}
               size={size}
-              {...linkProps(pageRange)}
+              leftIcon={PrevButtonIcon && <PrevButtonIcon />}
+              {...linkProps(prevPage)}
             >
-              {pageRange}
-            </PageButton>
-          ))}
-          {showEdges && totalPages > 1 && range[range.length - 1] !== totalPages && (
-            <>
-              {totalPages - range[range.length - 1] > 1 && <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>}
+              {prevButtonText}
+            </AtomButton>
+          </li>
+        )}
+        {compressed ? (
+          <PageButton
+            aria-current="page"
+            aria-label={`${pagePrefixAriaLabel} ${page}`}
+            page={page}
+            design={selectedPageButtonDesign}
+            color={selectedPageButtonColor}
+            onSelectPage={onSelectPage}
+            shape={shape}
+            size={size}
+            {...linkProps(page)}
+          >
+            {page}
+          </PageButton>
+        ) : (
+          <>
+            {showEdges && range[0] !== FIRST_PAGE && (
+              <>
+                <PageButton
+                  aria-label={`${pagePrefixAriaLabel} ${FIRST_PAGE}`}
+                  page={FIRST_PAGE}
+                  design={page === FIRST_PAGE ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
+                  color={page === FIRST_PAGE ? selectedPageButtonColor : nonSelectedPageButtonColor}
+                  onSelectPage={onSelectPage}
+                  shape={shape}
+                  size={size}
+                  {...linkProps(FIRST_PAGE)}
+                  {...(page === FIRST_PAGE && {'aria-current': 'page'})}
+                >
+                  {FIRST_PAGE}
+                </PageButton>
+                {range[0] - 1 > FIRST_PAGE && <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>}
+              </>
+            )}
+            {range.map(pageRange => (
               <PageButton
-                page={totalPages}
-                design={page === totalPages ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
-                color={page === totalPages ? selectedPageButtonColor : nonSelectedPageButtonColor}
+                aria-label={`${pagePrefixAriaLabel} ${pageRange}`}
+                key={pageRange}
+                page={pageRange}
+                design={pageRange === page ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
+                color={pageRange === page ? selectedPageButtonColor : nonSelectedPageButtonColor}
                 onSelectPage={onSelectPage}
                 shape={shape}
                 size={size}
-                {...linkProps(totalPages)}
+                {...linkProps(pageRange)}
+                {...(pageRange === page && {'aria-current': 'page'})}
               >
-                {totalPages}
+                {pageRange}
               </PageButton>
-            </>
-          )}
-        </>
-      )}
-      {!isHideNext && (
-        <li className={`${BASE_CLASS}-item`}>
-          <AtomButton
-            onClick={handleClickNext}
-            design={nextButtonDesign}
-            color={nextButtonColor}
-            disabled={!nextPage}
-            shape={shape}
-            size={size}
-            rightIcon={NextButtonIcon && <NextButtonIcon />}
-            {...linkProps(nextPage)}
-          >
-            {nextButtonText}
-          </AtomButton>
-        </li>
-      )}
-    </ul>
+            ))}
+            {showEdges && totalPages > 1 && range[range.length - 1] !== totalPages && (
+              <>
+                {totalPages - range[range.length - 1] > 1 && <li className={`${BASE_CLASS}-divider`}>{DIVIDER}</li>}
+                <PageButton
+                  aria-label={`${pagePrefixAriaLabel} ${totalPages}`}
+                  page={totalPages}
+                  design={page === totalPages ? selectedPageButtonDesign : nonSelectedPageButtonDesign}
+                  color={page === totalPages ? selectedPageButtonColor : nonSelectedPageButtonColor}
+                  onSelectPage={onSelectPage}
+                  shape={shape}
+                  size={size}
+                  {...linkProps(totalPages)}
+                  {...(totalPages === page && {'aria-current': 'page'})}
+                >
+                  {totalPages}
+                </PageButton>
+              </>
+            )}
+          </>
+        )}
+        {!isHideNext && (
+          <li className={`${BASE_CLASS}-item`}>
+            <AtomButton
+              aria-disabled={!nextPage}
+              aria-label={nextLinkAriaLabel}
+              onClick={handleClickNext}
+              design={nextButtonDesign}
+              color={nextButtonColor}
+              disabled={!nextPage}
+              shape={shape}
+              size={size}
+              rightIcon={NextButtonIcon && <NextButtonIcon />}
+              {...linkProps(nextPage)}
+            >
+              {nextButtonText}
+            </AtomButton>
+          </li>
+        )}
+      </ul>
+    </nav>
   )
 }
 
 MoleculePagination.displayName = 'MoleculePagination'
 
 MoleculePagination.propTypes = {
+  /** Aria label nav */
+  ariaLabel: PropTypes.string,
+
   /** Total number of pages */
   totalPages: isValidTotalPages.isRequired,
 
@@ -200,8 +221,17 @@ MoleculePagination.propTypes = {
   /** Icon to be displayed on the previous button */
   prevButtonIcon: PropTypes.any,
 
+  /** Prefix aria label page */
+  pagePrefixAriaLabel: PropTypes.string,
+
+  /** Aria label prev button */
+  prevLinkAriaLabel: PropTypes.string,
+
   /** Text to be displayed on the next button */
   nextButtonText: PropTypes.string,
+
+  /** Aria label next button */
+  nextLinkAriaLabel: PropTypes.string,
 
   /** Icon to be displayed on the next button */
   nextButtonIcon: PropTypes.any,

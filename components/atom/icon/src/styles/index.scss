@@ -8,8 +8,13 @@ $base-class: '.sui-AtomIcon';
   overflow: visible;
   background: transparent;
   color: inherit;
+  &:focus {
+    outline: none;
+  }
   &:focus-visible {
-    outline-width: 0;
+    box-shadow: $bxsh-atom-icon-focus;
+    outline: 2px solid transparentize($c-primary, 0.2);
+    outline-offset: 2px;
   }
 
   // Colors

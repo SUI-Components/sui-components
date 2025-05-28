@@ -6,6 +6,7 @@ $class-media: '#{$base-class}-media';
   border-radius: $bdrs-atom-card;
   display: flex;
   padding: $p-atom-card-small;
+  flex-direction: row-reverse;
 
   @include media-breakpoint-up(m) {
     padding: $p-atom-card;
@@ -51,7 +52,7 @@ $class-media: '#{$base-class}-media';
   }
 
   &#{$base-class}--vertical {
-    flex-direction: column;
+    flex-direction: column-reverse;
 
     #{$class-media} {
       width: 100%;
@@ -59,14 +60,14 @@ $class-media: '#{$base-class}-media';
   }
 
   &#{$base-class}--responsive {
-    flex-direction: column;
+    flex-direction: column-reverse;
 
     #{$class-media} {
       width: 100%;
     }
 
     @include media-breakpoint-up($mq-responsive-breakpoint-name) {
-      flex-direction: row;
+      flex-direction: row-reverse;
 
       #{$class-media} {
         width: $w-atom-card-media;

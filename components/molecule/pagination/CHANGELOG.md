@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.22.0 (2025-05-28)
+
+
+### Bug Fixes
+
+* lint readme file ([4ef8c52](https://github.com/SUI-Components/sui-components/commit/4ef8c5268ce9975a26e621cef084d491c117d2e7))
+
+
+
 # 2.21.0 (2025-05-28)
 
 

@@ -101,6 +101,50 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.not.be.null
     })
 
+    it('should have data attributes', () => {
+      // Given
+      const props = {
+        items: [
+          {
+            label: 'item 0'
+          },
+          {
+            label: 'item 1'
+          }
+        ],
+        'data-attribute': 'data-attribute'
+      }
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {
+        items: [
+          {
+            label: 'item 0'
+          },
+          {
+            label: 'item 1'
+          }
+        ],
+        'aria-attribute': 'aria-attribute'
+      }
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
     it('should return forwardRef html breadcrumb element when giving a ref to the component', () => {
       // Given
       const props = {

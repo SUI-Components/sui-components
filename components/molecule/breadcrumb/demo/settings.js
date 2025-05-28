@@ -29,6 +29,7 @@ export const breadcrumbItems = [
   },
   {
     label: 'current section',
-    'aria-label': 'current section'
+    'aria-label': 'current section',
+    'aria-current': 'page'
   }
 ]

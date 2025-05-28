@@ -15,7 +15,7 @@ import {
   Label
 } from '@s-ui/documentation-library'
 
-import MoleculeBreadcrumb from '../src/index.js'
+import MoleculeBreadcrumb from '../../src/index.js'
 
 const getCustomTextIcon = text => props => text && <span {...props}>{`${text}`}&nbsp;</span>
 const getCustomIcon = icon =>

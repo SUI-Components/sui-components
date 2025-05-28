@@ -1,4 +1,4 @@
-import {forwardRef, Fragment} from 'react'
+import {forwardRef, Fragment, isValidElement} from 'react'
 import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
@@ -12,7 +12,7 @@ const Breadcrumb = forwardRef(
   (
     {
       items,
-      icon = <ChevronRight svgClass={`${BASE_CLASS}-icon`} />,
+      icon: Icon = <ChevronRight svgClass={`${BASE_CLASS}-icon`} />,
       linkFactory: Link = ({to, href, className, children, ...props}) => (
         <a href={to || href} className={className} {...props}>
           {children}
@@ -41,6 +41,7 @@ const Breadcrumb = forwardRef(
     }
 
     const numItems = items.length - 1
+    const icon = isValidElement(Icon) ? Icon : <Icon />
 
     return (
       <nav {...props} ref={forwardedRef}>
@@ -55,10 +56,10 @@ const Breadcrumb = forwardRef(
             ...
           </button>
           <ul className={`${BASE_CLASS}-list`}>
-            {items.map(({url, label, ...rest}, index) => {
+            {items.map(({url, label, 'aria-current': ariaCurrent, ...rest}, index) => {
               const [Element, elementProps] = url
                 ? [Link, {to: url, href: url, className: `${BASE_CLASS}-link`, children: label}]
-                : [PrimitiveInjector, {children: label}]
+                : [PrimitiveInjector, {children: typeof label === 'string' ? <span>{label}</span> : label}]
               return (
                 <Fragment key={index}>
                   {index !== 0 && index <= numItems && (
@@ -66,7 +67,7 @@ const Breadcrumb = forwardRef(
                       {icon}
                     </li>
                   )}
-                  <li className={`${BASE_CLASS}-listItem`}>
+                  <li className={`${BASE_CLASS}-listItem`} aria-current={ariaCurrent}>
                     <Element {...{...elementProps, ...rest}} />
                   </li>
                 </Fragment>

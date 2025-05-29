@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.33.0 (2025-05-29)
+
+
+### Features
+
+* Align breadcrumb items centrally in flex container ([c182542](https://github.com/SUI-Components/sui-components/commit/c1825422e0098dfd610958ee427ef801e64b11ec))
+
+
+
 # 1.32.0 (2025-05-28)
 
 

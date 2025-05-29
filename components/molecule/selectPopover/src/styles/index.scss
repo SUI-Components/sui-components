@@ -20,8 +20,11 @@ $base-class: '.sui-MoleculeSelectPopover ';
     color: $c-select-popover;
     cursor: $cur-select-popover-select;
     display: flex;
-    font-family: inherit;
-    font-size: $fz-select-popover-select;
+    font: {
+      family: $ff-select-popover-select;
+      size: $fz-select-popover-select;
+      weight: $fw-select-popover-select;
+    }
     justify-content: space-between;
     max-width: $mw-select-popover;
     overflow: hidden;

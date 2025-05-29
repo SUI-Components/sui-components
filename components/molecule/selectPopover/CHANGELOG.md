@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.54.0 (2025-05-29)
+
+
+### Features
+
+* add font-weight and font-family properties for select popov ([483447b](https://github.com/SUI-Components/sui-components/commit/483447b23e022f4013ff144ac5f71bb781b04b96))
+* refactor font properties to use shorthand notation ([4280240](https://github.com/SUI-Components/sui-components/commit/42802403d72568c7cc954e40efce342f3cb73419))
+
+
+
 # 1.53.0 (2025-05-29)
 
 

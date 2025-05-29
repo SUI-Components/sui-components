@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.52.0 (2025-05-29)
+
+
+### Features
+
+* add data attribute to AtomButton for better accessibility ([c5851d7](https://github.com/SUI-Components/sui-components/commit/c5851d7e8abaf3257fada8ec1cd3da02ef757ccb))
+* update AtomButton properties for better accessibility ([2d5fb06](https://github.com/SUI-Components/sui-components/commit/2d5fb061ba53a66a682b77baae369906ea13aba4))
+* update remove button selector for improved clarity ([d7bcce5](https://github.com/SUI-Components/sui-components/commit/d7bcce57733e6a6b5f1644b39c3afcf39ab635ad))
+
+
+
 # 1.51.0 (2025-05-28)
 
 

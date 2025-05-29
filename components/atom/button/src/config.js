@@ -185,7 +185,7 @@ export const prepareAtomIcon = (atomIconElement, {size}) => {
 
 export const useElement = ({as: As, link, linkFactory: Link = ButtonLink, href, target, disabled, ...props} = {}) => {
   const isLink = !!link
-  const Element = As || isLink ? Link : 'button'
+  const Element = As || (isLink ? Link : 'button')
 
   const defaultRel = target === '_blank' ? 'noopener' : undefined
   const rel = props.rel || defaultRel

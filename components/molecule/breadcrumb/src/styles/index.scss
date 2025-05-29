@@ -29,6 +29,7 @@ $base-class: '.sui-BreadcrumbBasic';
     display: flex;
     flex-wrap: wrap;
     padding: $sz-base;
+    align-items: center;
 
     .is-scrollable & {
       flex-wrap: nowrap;

@@ -28,6 +28,7 @@ const SelectIcon = ({iconArrowDown: IconArrowDown, removeButtonOptions}) => {
     <div className={`${BASE_CLASS}-selectIcon--withRemoveOption`}>
       <AtomButton
         as="div"
+        data-sui-component="clear-select-icon"
         design={design}
         shape={shape}
         size={size}

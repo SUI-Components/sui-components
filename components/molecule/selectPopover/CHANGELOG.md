@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.53.0 (2025-05-29)
+
+
+### Features
+
+* add font-family and font-size to select popover ([b9774e1](https://github.com/SUI-Components/sui-components/commit/b9774e14fa162624db11e4e82c66c721baaf1c4d))
+* define font size for select popover ([e7fbf6c](https://github.com/SUI-Components/sui-components/commit/e7fbf6c91eca52751e6dafce9d183070f03be3ed))
+
+
+
 # 1.52.0 (2025-05-29)
 
 

@@ -27,12 +27,20 @@ const SelectIcon = ({iconArrowDown: IconArrowDown, removeButtonOptions}) => {
   return (
     <div className={`${BASE_CLASS}-selectIcon--withRemoveOption`}>
       <AtomButton
-        design={isShown ? design : atomButtonDesigns.LINK}
+        as="div"
+        design={design}
         shape={shape}
         size={size}
         negative={negative}
         rightIcon={isShown ? <RightIcon /> : <IconArrowDown />}
+        role="button"
         onClick={isShown ? handleOnButtonClick : NO_OP}
+        onKeyDown={evt => {
+          if (evt.key === 'Enter' || evt.key === ' ') {
+            handleOnButtonClick(evt)
+          }
+        }}
+        tabIndex={0}
       />
     </div>
   )

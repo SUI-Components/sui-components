@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types'
+
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import AtomImage from '../src/index.js'
-import {CLASS_SECTION} from './settings.js'
+import AtomImage from '../../src/index.js'
 
-const ViewportDemo = () => {
+const ArticleViewport = ({className}) => {
   const sizes = [360, 540, 480, 640, 720, 960, 1280, 1600, 1920, 2048, 2160, 2560, 3200]
   return (
-    <Article className={CLASS_SECTION}>
+    <Article className={className}>
       <H2>Responsive Images</H2>
       <Paragraph>
         AtomImage also provides a simple way of displaying an image in its best depending on the device it is being
@@ -33,4 +34,10 @@ const ViewportDemo = () => {
   )
 }
 
-export default ViewportDemo
+ArticleViewport.displayName = 'ArticleViewport'
+
+ArticleViewport.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleViewport

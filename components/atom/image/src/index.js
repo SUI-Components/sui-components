@@ -1,9 +1,10 @@
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useRef, useState, forwardRef} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import Injector from '@s-ui/react-primitive-injector'
+import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import ErrorImage from './ErrorImage.js'
 import {
@@ -20,83 +21,102 @@ import {
 } from './settings.js'
 import {htmlImgProps} from './types.js'
 
-const AtomImage = ({
-  alt,
-  bgStyles,
-  decoding = DECODING.AUTO,
-  errorIcon,
-  errorText,
-  fetchpriority = FETCHPRIORITY.AUTO,
-  loading = LOADING.EAGER,
-  onError = () => {},
-  onLoad = () => {},
-  placeholder,
-  skeleton,
-  sources = [],
-  spinner,
-  ...imgProps
-}) => {
-  const imageRef = useRef()
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(false)
-  const {src} = imgProps
+const AtomImage = forwardRef(
+  (
+    {
+      as: As = 'div',
+      alt,
+      bgStyles,
+      decoding = DECODING.AUTO,
+      errorIcon,
+      errorText,
+      fetchpriority = FETCHPRIORITY.AUTO,
+      loading = LOADING.EAGER,
+      onError = () => {},
+      onLoad = () => {},
+      placeholder,
+      skeleton,
+      sources = [],
+      spinner,
+      className,
+      ...imgProps
+    },
+    forwardedRef
+  ) => {
+    const imageRef = useRef()
+    const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(false)
+    const {src} = imgProps
 
-  useEffect(() => {
-    setIsLoading(true)
-    setError(false)
-  }, [src, setIsLoading, setError])
+    useEffect(() => {
+      setIsLoading(true)
+      setError(false)
+    }, [src, setIsLoading, setError])
 
-  const handleLoad = useCallback(() => {
-    const loadCompleted = imageRef?.current?.complete
-    if (loadCompleted === true) {
-      setIsLoading(!loadCompleted)
-      onLoad && onLoad()
+    const handleLoad = useCallback(() => {
+      const loadCompleted = imageRef?.current?.complete
+      if (loadCompleted === true) {
+        setIsLoading(!loadCompleted)
+        onLoad && onLoad()
+      }
+    }, [onLoad, setIsLoading])
+
+    useEffect(() => {
+      handleLoad()
+    }, [handleLoad, imageRef])
+
+    const handleError = () => {
+      setIsLoading(false)
+      setError(true)
+      onError && onError()
     }
-  }, [onLoad, setIsLoading])
 
-  useEffect(() => {
-    handleLoad()
-  }, [handleLoad, imageRef])
+    const figureStyles = {
+      backgroundImage: `url(${placeholder || skeleton})`
+    }
 
-  const classNames = cx(BASE_CLASS, `is-${isLoading ? 'loading' : 'loaded'}`, error && `is-error`)
-
-  const classNamesFigure = cx(BASE_CLASS_FIGURE, placeholder && CLASS_PLACEHOLDER, skeleton && CLASS_SKELETON)
-
-  const handleError = () => {
-    setIsLoading(false)
-    setError(true)
-    onError && onError()
+    return (
+      <PolymorphicElement
+        as={As}
+        className={cx(
+          BASE_CLASS,
+          {
+            'is-error': error,
+            'is-loading': isLoading,
+            'is-loaded': !isLoading
+          },
+          className
+        )}
+        ref={forwardedRef}
+      >
+        <figure
+          className={cx(BASE_CLASS_FIGURE, placeholder && CLASS_PLACEHOLDER, skeleton && CLASS_SKELETON)}
+          style={!error && (placeholder || skeleton) ? figureStyles : {}}
+        >
+          <picture>
+            {sources.map((source, idx) => (
+              <source key={idx} {...source} />
+            ))}
+            <img
+              alt={alt}
+              className={CLASS_IMAGE}
+              decoding={decoding}
+              fetchpriority={fetchpriority}
+              loading={loading}
+              onError={handleError}
+              onLoad={handleLoad}
+              ref={imageRef}
+              data-element="image"
+              {...imgProps}
+            />
+          </picture>
+        </figure>
+        {!error && isLoading && spinner && <Injector classNames={CLASS_SPINNER}>{spinner}</Injector>}
+        {error && <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />}
+      </PolymorphicElement>
+    )
   }
-
-  const figureStyles = {
-    backgroundImage: `url(${placeholder || skeleton})`
-  }
-
-  return (
-    <div className={classNames}>
-      <figure className={classNamesFigure} style={!error && (placeholder || skeleton) ? figureStyles : {}}>
-        <picture>
-          {sources.map((source, idx) => (
-            <source key={idx} {...source} />
-          ))}
-          <img
-            alt={alt}
-            className={CLASS_IMAGE}
-            decoding={decoding}
-            fetchpriority={fetchpriority}
-            loading={loading}
-            onError={handleError}
-            onLoad={handleLoad}
-            ref={imageRef}
-            {...imgProps}
-          />
-        </picture>
-      </figure>
-      {!error && isLoading && spinner && <Injector classNames={CLASS_SPINNER}>{spinner}</Injector>}
-      {error && <ErrorImage className={CLASS_ERROR} icon={errorIcon} text={errorText} />}
-    </div>
-  )
-}
+)
 
 AtomImage.displayName = 'AtomImage'
 AtomImage.propTypes = {

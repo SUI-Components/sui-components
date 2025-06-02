@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types'
+
 import {Article, Bold, Code, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
-import AtomImage from '../src/index.js'
-import {CLASS_SECTION, IMAGES} from './settings.js'
+import AtomImage from '../../src/index.js'
+import {IMAGES} from '../settings.js'
 
-const DefaultDemo = () => (
-  <Article className={CLASS_SECTION}>
+const ArticleDefault = ({className}) => (
+  <Article className={className}>
     <H2>Default</H2>
     <Paragraph>The minimum required props to get a proper AtomImage are:</Paragraph>
     <UnorderedList>
@@ -25,4 +27,10 @@ const DefaultDemo = () => (
   </Article>
 )
 
-export default DefaultDemo
+ArticleDefault.displayName = 'ArticleDefault'
+
+ArticleDefault.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleDefault

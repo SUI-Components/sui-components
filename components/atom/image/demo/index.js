@@ -1,13 +1,16 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
-import DefaultDemo from './DefaultDemo.js'
-import FallbackImageDemo from './FallbackImageDemo.js'
-import LazyImageDemo from './LazyImageDemo.js'
-import LcpImageDemo from './LcpImageDemo.js'
-import PlaceHolderDemo from './PlaceHolderDemo.js'
-import SkeletonDemo from './SkeletonDemo.js'
-import SpinnerDemo from './SpinnerDemo.js'
-import ViewportDemo from './ViewportDemo.js'
+import ArticleDefault from './article/ArticleDefault.js'
+import ArticleFallbackImage from './article/ArticleFallbackImage.js'
+import ArticleLazyImage from './article/ArticleLazyImage.js'
+import ArticleLcpImage from './article/ArticleLcpImage.js'
+import ArticlePlaceHolder from './article/ArticlePlaceHolder.js'
+import ArticleSkeleton from './article/ArticleSkeleton.js'
+import ArticleSpinner from './article/ArticleSpinner.js'
+import ArticleViewport from './article/ArticleViewport.js'
+import ArticleA11y from './article/ArticleA11y.js'
+
+import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'
 
@@ -16,26 +19,27 @@ const Demo = () => {
     <div className="sui-StudioPreview">
       <H1>Image</H1>
       <Paragraph>
-        AtomImage is a component that loads an image inside, maintaining all the accesibility attributes. This component
-        can be set to show a placeholder image, a skeleton and/or a spinner while the final image is being loaded. This
-        component will also show an Error Box if the image could't be loaded
+        AtomImage is a component that loads an image inside, maintaining all the accessibility attributes. This
+        component can be set to show a placeholder image, a skeleton and/or a spinner while the final image is being
+        loaded. This component will also show an Error Box if the image couldn't be loaded
       </Paragraph>
-      <LcpImageDemo />
+      <ArticleDefault className={CLASS_SECTION} />
       <br />
-      <DefaultDemo />
+      <ArticleLcpImage className={CLASS_SECTION} />
       <br />
-      <PlaceHolderDemo />
+      <ArticlePlaceHolder className={CLASS_SECTION} />
       <br />
-      <SkeletonDemo />
+      <ArticleSkeleton className={CLASS_SECTION} />
       <br />
-      <FallbackImageDemo />
+      <ArticleFallbackImage className={CLASS_SECTION} />
       <br />
-      <SpinnerDemo />
+      <ArticleSpinner className={CLASS_SECTION} />
       <br />
-      <ViewportDemo />
+      <ArticleViewport className={CLASS_SECTION} />
       <br />
-      <LazyImageDemo />
+      <ArticleLazyImage className={CLASS_SECTION} />
       <br />
+      <ArticleA11y className={CLASS_SECTION} />
     </div>
   )
 }

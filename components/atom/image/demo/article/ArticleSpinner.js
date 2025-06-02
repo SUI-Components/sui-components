@@ -1,14 +1,16 @@
 import {useRef, useState} from 'react'
+import PropTypes from 'prop-types'
+
 import useIntersection from 'react-use/lib/useIntersection'
 import useThrottleFn from 'react-use/lib/useThrottleFn'
 
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
 import AtomSpinner from '@s-ui/react-atom-spinner'
 
-import AtomImage from '../src/index.js'
-import {CLASS_SECTION, IMAGES} from './settings.js'
+import AtomImage from '../../src/index.js'
+import {IMAGES} from '../settings.js'
 
-const SpinnerDemo = () => {
+const ArticleSpinner = ({className}) => {
   const articleRef = useRef()
   const intersection = useIntersection(articleRef, {
     root: null,
@@ -32,7 +34,7 @@ const SpinnerDemo = () => {
   )
 
   return (
-    <Article className={CLASS_SECTION}>
+    <Article className={className}>
       <H2>Spinner Loader</H2>
       <Paragraph>
         AtomImage can show an spinner loader while the image is loading using the <Code>spinner</Code> (React.node) prop
@@ -50,4 +52,10 @@ const SpinnerDemo = () => {
   )
 }
 
-export default SpinnerDemo
+ArticleSpinner.displayName = 'ArticleSpinner'
+
+ArticleSpinner.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleSpinner

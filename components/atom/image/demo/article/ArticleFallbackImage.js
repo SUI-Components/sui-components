@@ -1,14 +1,16 @@
 import {useRef, useState} from 'react'
+import PropTypes from 'prop-types'
+
 import useIntersection from 'react-use/lib/useIntersection'
 import useThrottleFn from 'react-use/lib/useThrottleFn'
 
 import {Article, Code, H2, Label, ListItem, Paragraph, RadioButton, UnorderedList} from '@s-ui/documentation-library'
 
-import AtomImage from '../src/index.js'
-import ImageNotFoundIcon from './ImageNotFoundIcon.js'
-import {CLASS_SECTION, defaultErrorText, IMAGES} from './settings.js'
+import AtomImage from '../../src/index.js'
+import ImageNotFoundIcon from '../ImageNotFoundIcon.js'
+import {defaultErrorText, IMAGES} from '../settings.js'
 
-const FallbackImageDemo = () => {
+const ArticleFallbackImage = ({className}) => {
   const articleRef = useRef()
   const intersection = useIntersection(articleRef, {
     root: null,
@@ -32,7 +34,7 @@ const FallbackImageDemo = () => {
     [isIntersecting]
   )
   return (
-    <Article className={CLASS_SECTION}>
+    <Article className={className}>
       <H2>FallBack Image</H2>
       <Paragraph>
         The AtomImage provides a service to customize a fallback response in order to indicate the URL provided as{' '}
@@ -83,4 +85,10 @@ const FallbackImageDemo = () => {
   )
 }
 
-export default FallbackImageDemo
+ArticleFallbackImage.displayName = 'ArticleFallbackImage'
+
+ArticleFallbackImage.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleFallbackImage

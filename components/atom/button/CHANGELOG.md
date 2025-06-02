@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2025-05-29)
+
+
+### Bug Fixes
+
+* correct conditional logic for element rendering ([aa6f57c](https://github.com/SUI-Components/sui-components/commit/aa6f57c118e5e65aa43371dffdd52a136d2a46cb))
+
+
+
 # 2.1.0 (2025-05-26)
 
 

@@ -40,3 +40,7 @@ $trf-select-popover-select-icon-has-custom-wrapper--is-open: rotate(-90deg) !def
 $l-select-popover--right: 0 !default;
 $r-select-popover--left: 0 !default;
 $p-select-popover: absolute !default;
+
+$ff-select-popover-select: inherit !default;
+$fz-select-popover-select: $fz-base !default;
+$fw-select-popover-select: $fw-semi-bold !default;

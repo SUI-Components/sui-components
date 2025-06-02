@@ -286,9 +286,8 @@ describe(json.name, () => {
       const {container} = setup(props)
 
       // Then
-      const removeButton = container.querySelector(
-        '[class="sui-MoleculeSelectPopover-selectIcon--withRemoveOption"] button'
-      )
+      const removeButton = container.querySelector('[data-sui-component="clear-select-icon"]')
+
       fireEvent.click(removeButton)
 
       sinon.assert.calledOnce(spy)

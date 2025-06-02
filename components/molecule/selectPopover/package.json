@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-select-popover",
-  "version": "1.51.0",
+  "version": "1.54.0",
   "description": "",
   "publishConfig": {
     "access": "public"

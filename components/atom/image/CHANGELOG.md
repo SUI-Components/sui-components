@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.17.0 (2025-06-03)
+
+
+### Features
+
+* a11y ([fc0a038](https://github.com/SUI-Components/sui-components/commit/fc0a0386573ff57f7cdd3f8ffe04bdbc92a436d8))
+
+
+
 # 2.16.0 (2022-10-03)
 
 
@@ -244,6 +253,3 @@
 * **atom/image:** propTypes inside file because of playground ([4a106b8](https://github.com/SUI-Components/sui-components/commit/4a106b8709781142a9807dfb7d032d5f64b363fd))
 * **atom/image:** removed component prop (added SASS variable) and removed unnecesary css props ([546f9f1](https://github.com/SUI-Components/sui-components/commit/546f9f113f7df7940fad993ca1ae5f8aee86c56f))
 * **atom/image:** type checking, skeleton and refactor ([87d4dc3](https://github.com/SUI-Components/sui-components/commit/87d4dc37174b6b7d0a6e16635fd29c1f8a05a921))
-
-
-

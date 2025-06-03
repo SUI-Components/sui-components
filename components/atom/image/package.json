@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-image",
-  "version": "2.16.0",
+  "version": "2.17.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "image"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "image"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

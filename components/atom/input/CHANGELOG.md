@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.46.0 (2025-06-03)
+
+
+### Features
+
+* border radius aligmnet between components ([d9eb0df](https://github.com/SUI-Components/sui-components/commit/d9eb0dff62b9ec4378063bb5418fb31eb453173b))
+
+
+
 # 5.45.0 (2025-05-20)
 
 

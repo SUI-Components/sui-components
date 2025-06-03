@@ -13,8 +13,9 @@
   "dependencies": {
     "@s-ui/react-hook-use-portal": "1",
     "@s-ui/react-icons": "1",
+    "@s-ui/react-atom-icon": "1",
     "@s-ui/react-molecule-dropdown-option": "2",
     "@s-ui/react-molecule-modal": "2",
-    "@s-ui/react-molecule-select": "1"
+    "@s-ui/react-molecule-select": "2"
   }
 }

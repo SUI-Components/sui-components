@@ -14,7 +14,7 @@ const SelectIcon = ({iconArrowDown: IconArrowDown, removeButtonOptions}) => {
     isShown = false,
     negative = false,
     onClick = NO_OP,
-    rightIcon: RightIcon,
+    rightIcon: ClearRightIcon,
     shape = atomButtonShapes.CIRCULAR,
     size = atomButtonSizes.MEDIUM
   } = removeButtonOptions
@@ -33,7 +33,7 @@ const SelectIcon = ({iconArrowDown: IconArrowDown, removeButtonOptions}) => {
         shape={shape}
         size={size}
         negative={negative}
-        rightIcon={isShown ? <RightIcon /> : <IconArrowDown />}
+        rightIcon={isShown ? <ClearRightIcon /> : <IconArrowDown />}
         role="button"
         onClick={isShown ? handleOnButtonClick : NO_OP}
         onKeyDown={evt => {

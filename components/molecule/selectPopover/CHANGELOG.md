@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.55.0 (2025-06-03)
+
+
+### Features
+
+* modify demo dependencies and rename clear icon ([255559b](https://github.com/SUI-Components/sui-components/commit/255559bf59d057e851c1f8d6f16fbb0ecc8f6217))
+
+
+
 # 1.54.0 (2025-05-29)
 
 

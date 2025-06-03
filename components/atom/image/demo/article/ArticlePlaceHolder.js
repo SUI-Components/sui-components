@@ -1,14 +1,16 @@
 import {useRef, useState} from 'react'
+import PropTypes from 'prop-types'
+
 import useIntersection from 'react-use/lib/useIntersection'
 import useThrottleFn from 'react-use/lib/useThrottleFn'
 
 import {Anchor, Article, Bold, Code, H2, Paragraph} from '@s-ui/documentation-library'
 
-import AtomImage from '../src/index.js'
-import ConnectionViewer from './ConnectionViewer.js'
-import {CLASS_SECTION, IMAGES} from './settings.js'
+import AtomImage from '../../src/index.js'
+import ConnectionViewer from '../ConnectionViewer.js'
+import {IMAGES} from '../settings.js'
 
-const PlaceHolderDemo = () => {
+const ArticlePlaceHolder = ({className}) => {
   const articleRef = useRef()
   const intersection = useIntersection(articleRef, {
     root: null,
@@ -29,7 +31,7 @@ const PlaceHolderDemo = () => {
     [isIntersecting]
   )
   return (
-    <Article className={CLASS_SECTION}>
+    <Article className={className}>
       <H2>Placeholder</H2>
       <Paragraph>
         The prop <Code>placeholder</Code> admits the url (string) of an image. this image is blur fully covering the
@@ -50,12 +52,17 @@ const PlaceHolderDemo = () => {
       <Paragraph>
         <Bold>Tip</Bold>: to better understand the behavior change the connection to a lower one (For example 2g). if
         you are using chrome you can find out how to configure it{' '}
-        <Anchor href="https://developers.google.com/web/tools/chrome-devtools/network#throttle">here</Anchor>
-        .
-        <ConnectionViewer />
+        <Anchor href="https://developers.google.com/web/tools/chrome-devtools/network#throttle">here</Anchor>.
       </Paragraph>
+      <ConnectionViewer />
     </Article>
   )
 }
 
-export default PlaceHolderDemo
+ArticlePlaceHolder.displayName = 'ArticlePlaceHolder'
+
+ArticlePlaceHolder.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticlePlaceHolder

@@ -1,14 +1,16 @@
 import {useRef, useState} from 'react'
+import PropTypes from 'prop-types'
+
 import useIntersection from 'react-use/lib/useIntersection'
 import useThrottleFn from 'react-use/lib/useThrottleFn'
 
 import {Anchor, Article, Bold, Code, H2, Label, Paragraph, RadioButton} from '@s-ui/documentation-library'
 
-import AtomImage from '../src/index.js'
-import ConnectionViewer from './ConnectionViewer.js'
-import {CLASS_SECTION, IMAGES} from './settings.js'
+import AtomImage from '../../src/index.js'
+import ConnectionViewer from '../ConnectionViewer.js'
+import {IMAGES} from '../settings.js'
 
-const SkeletonDemo = () => {
+const ArticleSkeleton = ({className}) => {
   const articleRef = useRef()
   const intersection = useIntersection(articleRef, {
     root: null,
@@ -29,7 +31,7 @@ const SkeletonDemo = () => {
     [isIntersecting]
   )
   return (
-    <Article className={CLASS_SECTION}>
+    <Article className={className}>
       <H2>Skeleton</H2>
       <Paragraph>
         The prop <Code>skeleton</Code> admits the url (string) of an image. this image is <Label>NOT</Label> blur but
@@ -50,10 +52,9 @@ const SkeletonDemo = () => {
       <Paragraph>
         <Bold>Tip</Bold>: to better understand the behavior change the connection to a lower one (For example 2g). if
         you are using chrome you can find out how to configure it{' '}
-        <Anchor href="https://developers.google.com/web/tools/chrome-devtools/network#throttle">here</Anchor>
-        .
-        <ConnectionViewer />
+        <Anchor href="https://developers.google.com/web/tools/chrome-devtools/network#throttle">here</Anchor>.
       </Paragraph>
+      <ConnectionViewer />
       <Paragraph>–––</Paragraph>
       <Paragraph>
         <Bold>Disclaimer</Bold>: In case of combining <Code>skeleton</Code> and <Code>placeholder</Code> props it will
@@ -70,4 +71,10 @@ const SkeletonDemo = () => {
   )
 }
 
-export default SkeletonDemo
+ArticleSkeleton.displayName = 'ArticleSkeleton'
+
+ArticleSkeleton.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleSkeleton

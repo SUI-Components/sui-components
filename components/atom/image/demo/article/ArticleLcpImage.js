@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types'
+
 import {Article, Bold, Code, H2, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
-import AtomImage, {DECODING, FETCHPRIORITY, LOADING} from '../src/index.js'
-import {CLASS_SECTION, IMAGES} from './settings.js'
+import AtomImage, {DECODING, FETCHPRIORITY, LOADING} from '../../src/index.js'
+import {IMAGES} from '../settings.js'
 
-const LcpImageDemo = () => (
-  <Article className={CLASS_SECTION}>
+const ArticleLcpImage = ({className}) => (
+  <Article className={className}>
     <H2>LCP Image</H2>
     <Paragraph>
       Attributes to optimize image that is a{' '}
@@ -47,4 +49,10 @@ const LcpImageDemo = () => (
   </Article>
 )
 
-export default LcpImageDemo
+ArticleLcpImage.displayName = 'ArticleLcpImage'
+
+ArticleLcpImage.propTypes = {
+  className: PropTypes.string
+}
+
+export default ArticleLcpImage

@@ -30,7 +30,7 @@ const ConnectionViewer = () => {
         <Small>rtt</Small>:
       </Cell>
       <Cell style={{...flexCenteredStyle, justifyContent: 'flex-start'}}>
-        <Small>{`${rtt}}`} ms.</Small>
+        <Small>{`${rtt}`} ms.</Small>
       </Cell>
     </Grid>
   )

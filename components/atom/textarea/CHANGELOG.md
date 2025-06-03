@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.23.0 (2025-06-03)
+
+
+### Features
+
+* border radius styling alignment ([72bc412](https://github.com/SUI-Components/sui-components/commit/72bc412f2b998afee591d0bc3af86670e4b44595))
+
+
+
 # 2.22.0 (2025-01-28)
 
 

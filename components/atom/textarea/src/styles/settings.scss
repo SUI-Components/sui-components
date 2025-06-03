@@ -11,7 +11,7 @@ $lh-atom-textarea: $lh-l !default;
 $bgc-atom-textarea: initial !default;
 $bgc-atom-textarea--disabled: $c-gray-lightest !default;
 $bd-atom-textarea: $bdw-s solid $c-gray-light !default;
-$bdrs-atom-textarea: 0 !default;
+$bdrs-atom-textarea: $bdrs-m !default;
 $bd-atom-textarea--disabled: $bdw-s solid initial !default;
 $c-atom-textarea: var(--c-base-inverse, initial) !default;
 $c-atom-textarea--disabled: $c-gray-light !default;

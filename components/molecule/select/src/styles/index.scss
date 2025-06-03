@@ -10,7 +10,7 @@ $class-select-atom-search-container: '#{$class-select-atom-search}-container';
   display: flex;
   flex-grow: 1;
   width: 100%;
-  border-radius: $bdrs-atom-input;
+  border-radius: $bdrs-select;
   position: relative;
   $this: &;
   &:not(#{$base-class}--isBorderless) {
@@ -20,6 +20,7 @@ $class-select-atom-search-container: '#{$class-select-atom-search}-container';
       outline-color: transparentize($c-primary, 0.2);
       outline-width: 2px;
       outline-offset: 2px;
+      border-radius: $bdrs-select;
     }
   }
 

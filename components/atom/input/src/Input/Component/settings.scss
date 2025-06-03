@@ -4,7 +4,7 @@ $c-atom-input-disabled: $c-atom-input-placeholder !default;
 $bd-atom-input-disabled: $bd-atom-input-base !default;
 $m-atom-input-type-left: $m-m !default;
 $m-atom-input-type-right: $m-m !default;
-$bdrs-atom-input: 0 !default;
+$bdrs-atom-input: $bdrs-m !default;
 $bdrs-atom-input-shapes: (
   square: $bdrs-none,
   rounded: $bdrs-m,

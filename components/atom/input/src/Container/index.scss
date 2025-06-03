@@ -7,6 +7,7 @@ $base-class-container: '#{$base-class}_Container';
   border-radius: $bdrs-atom-input;
   $this: &;
   &:not(#{$base-class-container}-noBorder) {
+    border-radius: $bdrs-atom-input;
     &#{$this}-shape {
       @each $shapeMapKey, $shapeMapValue in $bdrs-atom-input-shapes {
         &-#{$shapeMapKey} {

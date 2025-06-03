@@ -8,14 +8,13 @@ import MoleculeSelectPopover, {
   selectPopoverSizes
 } from 'components/molecule/selectPopover/src/index.js'
 
-import IconClose from '@s-ui/react-icons/lib/Close'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeSelect from '@s-ui/react-molecule-select'
 
 import CustomContentWrapper from './Custom/CustomContentWrapper.js'
 import CustomRenderActions from './Custom/CustomRenderActions.js'
-import {IconArrowDown, IconCheck, IconHalfCheck} from './Icons/index.js'
+import {IconArrowDown, IconCheck, IconHalfCheck, IconClose} from './Icons/index.js'
 import {demoExample} from './config.js'
 
 import './index.scss'

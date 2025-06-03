@@ -24,7 +24,9 @@ $base-class: '.sui-AtomTextarea';
   }
 
   &:focus {
-    @include sui-atom-input-input-focus;
+    box-shadow: none;
+    outline: 2px solid transparentize($c-primary, 0.2);
+    outline-offset: 2px;
   }
 
   &--short {

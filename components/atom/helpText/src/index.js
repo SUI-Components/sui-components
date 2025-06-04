@@ -1,4 +1,5 @@
-import {forwardRef} from 'react'
+import {forwardRef, isValidElement} from 'react'
+import cx from 'classnames'
 
 import PropTypes from 'prop-types'
 
@@ -6,11 +7,19 @@ import Injector from '@s-ui/react-primitive-injector'
 
 import {BASE_CLASS} from './settings.js'
 
-const AtomHelpText = forwardRef(({text, ...props}, forwardedRef) => {
+const AtomHelpText = forwardRef(({as: As = 'span', className, text, ...props}, forwardedRef) => {
   const isTextString = typeof text === 'string'
-  const Component = isTextString ? 'span' : Injector
+  const isReferenceable = isValidElement(text) || typeof text === 'string'
+  const Component = isTextString ? As : Injector
   return (
-    <Component className={BASE_CLASS} {...props} {...(isTextString && {ref: forwardedRef})}>
+    <Component
+      className={cx(BASE_CLASS, className)}
+      {...props}
+      {...{
+        ...(isReferenceable && {ref: forwardedRef}),
+        ...(!isTextString && {as: As})
+      }}
+    >
       {text}
     </Component>
   )
@@ -19,6 +28,8 @@ const AtomHelpText = forwardRef(({text, ...props}, forwardedRef) => {
 AtomHelpText.displayName = 'AtomHelpText'
 
 AtomHelpText.propTypes = {
+  as: PropTypes.elementType,
+  className: PropTypes.string,
   text: PropTypes.oneOfType([PropTypes.element, PropTypes.node]).isRequired
 }
 

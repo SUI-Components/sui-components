@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2025-06-04)
+
+
+### Features
+
+* a11y features ([65d873e](https://github.com/SUI-Components/sui-components/commit/65d873e8d713d289796a11e57cb5a9c0e2c230f9))
+
+
+
 # 1.12.0 (2025-05-19)
 
 

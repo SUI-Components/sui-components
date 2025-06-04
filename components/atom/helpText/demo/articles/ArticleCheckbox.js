@@ -14,7 +14,7 @@ const ArticleCheckbox = ({className}) => {
   return (
     <Article className={className}>
       <H2>Checkbox</H2>
-      <AtomCheckbox checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
+      <AtomCheckbox checked={isChecked} onChange={() => setIsChecked(!isChecked)} />{' '}
       <AtomLabel text="An important decision" inline="left" />
       <AtomHelpText text="Write here why the user should check this" />
     </Article>

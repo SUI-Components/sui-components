@@ -15,6 +15,7 @@
     "@s-ui/react-atom-icon": "1",
     "@s-ui/react-atom-input": "5",
     "@s-ui/react-atom-label": "1",
-    "@s-ui/react-atom-textarea": "2"
+    "@s-ui/react-atom-textarea": "2",
+    "@s-ui/react-atom-kbd": "1"
   }
 }

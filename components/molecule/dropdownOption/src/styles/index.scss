@@ -101,6 +101,10 @@ $base-class: '.sui-MoleculeDropdownOption';
     align-items: stretch;
     justify-content: center;
     padding: $pt-molecule-dropdown-option-with-description $pl-molecule-dropdown-option;
+
+    &.is-selected {
+      color: $c-molecule-dropdown-option-selected-text;
+    }
   }
 
   &--withDescriptionAndAddon {

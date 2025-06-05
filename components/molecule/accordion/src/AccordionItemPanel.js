@@ -46,7 +46,9 @@ const AccordionItemPanel = forwardRef(
     return (
       <div
         id={id}
+        aria-role="region"
         ref={forwardedRef}
+        aria-labelledby={headerId}
         className={accordionItemPanelClassName}
         aria-disabled={disabled}
         style={{

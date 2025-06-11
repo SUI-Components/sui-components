@@ -99,8 +99,8 @@ const PhotosPreview = ({
         list[index].blob = blob
         list[index].isModified = true
 
-        const {url} = await callbackUploadPhotoHandler(blob, callbackUploadPhoto, list[index].url)
-        list[index].url = url
+        const response = await callbackUploadPhotoHandler(blob, callbackUploadPhoto, list[index].url)
+        list[index] = {...list[index], ...response}
 
         setFiles(list)
         setNotificationError(DEFAULT_NOTIFICATION_ERROR)

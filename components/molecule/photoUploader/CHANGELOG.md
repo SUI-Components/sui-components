@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.34.0 (2025-06-11)
+
+
+### Bug Fixes
+
+* Pass external props on rotate action ([00be8c3](https://github.com/SUI-Components/sui-components/commit/00be8c3dab0c8277ced9d9bf4d3369ba847d8825))
+
+
+
 # 2.33.0 (2024-12-10)
 
 

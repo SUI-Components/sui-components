@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.35.0 (2025-06-12)
+
+
+### Bug Fixes
+
+* Migrate isButton prop to type=button ([b0dc9b9](https://github.com/SUI-Components/sui-components/commit/b0dc9b9bdb5c8ffccb0fc2928858a44dd8d94aa4))
+
+
+
 # 2.34.0 (2025-06-11)
 
 

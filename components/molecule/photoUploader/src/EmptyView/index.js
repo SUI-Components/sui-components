@@ -40,7 +40,7 @@ const EmptyView = ({
         {dividerText ? <span className={TEXT_STATE_DIVIDER_CLASS_NAME}>{dividerText}</span> : null}
       </div>
       <div className={BUTTON_STATE_CLASS_NAME}>
-        <Button color={buttonColor} design={buttonDesign} isButton shape={buttonShape} size={buttonSize}>
+        <Button color={buttonColor} design={buttonDesign} type="button" shape={buttonShape} size={buttonSize}>
           {buttonText}
         </Button>
       </div>

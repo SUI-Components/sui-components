@@ -36,7 +36,8 @@ const MoleculeAutosuggestSingleSelection = ({
   size,
   tabIndex,
   type,
-  value = ''
+  value = '',
+  noBorder = false
 }) => {
   const handleSelection = (ev, {value, ...args}) => {
     typeof onChange === 'function' && onChange(ev, {value, ...args})
@@ -87,6 +88,7 @@ const MoleculeAutosuggestSingleSelection = ({
         tabIndex={tabIndex}
         type={type}
         value={value}
+        noBorder={noBorder}
       >
         <AtomInput />
       </InputWithClearUI>

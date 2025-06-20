@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.47.0 (2025-06-20)
+
+
+### Features
+
+* highlight the input field on focus ([2220c0f](https://github.com/SUI-Components/sui-components/commit/2220c0fa66f2fd0f99399f9a54a1d83905b8e96a))
+
+
+
 # 5.46.0 (2025-06-03)
 
 

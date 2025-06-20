@@ -37,7 +37,7 @@ const MoleculeAutosuggestSingleSelection = ({
   tabIndex,
   type,
   value = '',
-  noBorder = false
+  noBorder
 }) => {
   const handleSelection = (ev, {value, ...args}) => {
     typeof onChange === 'function' && onChange(ev, {value, ...args})

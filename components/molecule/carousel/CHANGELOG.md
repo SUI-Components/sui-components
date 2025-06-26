@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.8.0 (2025-06-26)
+
+
+### Bug Fixes
+
+* optimize useEffect dependencies by removing unnecessary slide ref ([66471dd](https://github.com/SUI-Components/sui-components/commit/66471dde82a4e0ee85a6ebc59fb220fe928db84f))
+* simplify slide handling in useEffect ([d1602a2](https://github.com/SUI-Components/sui-components/commit/d1602a2e1ff60a030bd341e02bcc18b8a53d0a10))
+
+
+### Features
+
+* correct test assertion for onSlide handler call ([a20e868](https://github.com/SUI-Components/sui-components/commit/a20e8685b987b6341e41e75a60cded2e9831c331))
+
+
+
 # 1.7.0 (2025-05-26)
 
 

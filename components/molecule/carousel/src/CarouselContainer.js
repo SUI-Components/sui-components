@@ -51,7 +51,7 @@ const CarouselContainer = ({
     () => {
       handleFn(slidyInstance.goTo)(slide)
     },
-    [slide, index] // eslint-disable-line
+    [index] // eslint-disable-line
   )
 
   useEffect(

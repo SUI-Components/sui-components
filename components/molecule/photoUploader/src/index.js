@@ -20,6 +20,7 @@ import {
   DEFAULT_FILE_TYPES_ACCEPTED,
   DEFAULT_IMAGE_ASPECT_RATIO,
   DEFAULT_IMAGE_ROTATION_DEGREES,
+  DEFAULT_INPUT_ID,
   DEFAULT_MAX_FILE_SIZE_ACCEPTED,
   DEFAULT_MAX_IMAGE_HEIGHT,
   DEFAULT_MAX_IMAGE_WIDTH,
@@ -66,6 +67,7 @@ const MoleculePhotoUploader = forwardRef(
       errorFormatPhotoUploadedText,
       errorInitialPhotoDownloadErrorText,
       errorSaveImageEndpoint,
+      id = DEFAULT_INPUT_ID,
       infoIcon = noop,
       initialPhotos = [],
       limitPhotosUploadedNotification,
@@ -275,7 +277,7 @@ const MoleculePhotoUploader = forwardRef(
       <>
         <div className={mainClassName}>
           <div {...getRootProps({className: dropzoneClassName})}>
-            <input {...getInputProps()} ref={inputRef} />
+            <input {...getInputProps()} ref={inputRef} id={id} />
             {isPhotoUploaderEmpty && !isDragActive && (
               <EmptyView
                 onClick={onEmptyViewClick}
@@ -286,6 +288,7 @@ const MoleculePhotoUploader = forwardRef(
                 buttonSize={addPhotoButtonSize}
                 icon={dragPhotosIcon()}
                 iconSize={dragPhotosIconSize}
+                inputId={id}
                 text={dragPhotoTextInitialContent}
                 dividerText={dragPhotoDividerTextInitialContent}
               />
@@ -306,6 +309,7 @@ const MoleculePhotoUploader = forwardRef(
                 dragDelay={dragDelay}
                 errorInitialPhotoDownloadErrorText={errorInitialPhotoDownloadErrorText}
                 files={files}
+                inputId={id}
                 isPhotoUploaderFully={isPhotoUploaderFully}
                 mainPhotoLabel={mainPhotoLabel}
                 outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
@@ -436,6 +440,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Text showed when the user drag files into the dropzone, to indicate he can drop */
   dropPhotosHereText: PropTypes.string.isRequired,
+
+  /** Id of the input element */
+  id: PropTypes.string,
 
   /**
    *  In this string you can add

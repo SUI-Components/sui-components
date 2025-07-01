@@ -1,3 +1,5 @@
+export const DEFAULT_INPUT_ID = 'sui-MoleculePhotoUploader-id'
+
 export const BASE_CLASS_NAME = 'sui-MoleculePhotoUploader'
 export const DROPZONE_CLASS_NAME = `${BASE_CLASS_NAME}-dropzone`
 export const THUMB_CLASS_NAME = `${BASE_CLASS_NAME}-thumb`

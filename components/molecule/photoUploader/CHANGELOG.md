@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.36.0 (2025-07-02)
+
+
+### Features
+
+* add a focus visible styling, to be wcag compliant ([5fc7e5a](https://github.com/SUI-Components/sui-components/commit/5fc7e5a35eb692ca0ce020b0978fbd3fe0822f0b))
+* add a relation between label and input, also aria-hide the ([2a2792b](https://github.com/SUI-Components/sui-components/commit/2a2792bc2b3d6a94f16237f978ddc4c581f082ff))
+* add default id for the input ([f17f29c](https://github.com/SUI-Components/sui-components/commit/f17f29c0dab7e6e30b125de8624acd148bb5ecf3))
+* add id prop to main component ([38a8f40](https://github.com/SUI-Components/sui-components/commit/38a8f40e845068fd2bc4bc22e1b2212ff470f936))
+* pass input id to skeleton ([bdb4d35](https://github.com/SUI-Components/sui-components/commit/bdb4d355b9e859e5167bde163469ef970a891435))
+* render upload button as a label ([4b3a6e4](https://github.com/SUI-Components/sui-components/commit/4b3a6e41c9d85ef2b1c835efe2c655aa83f4ea47))
+
+
+
 # 2.35.0 (2025-06-12)
 
 

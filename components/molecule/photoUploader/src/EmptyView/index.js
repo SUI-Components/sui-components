@@ -25,12 +25,19 @@ const EmptyView = ({
   buttonSize = BUTTON_SIZE,
   icon,
   iconSize,
+  inputId,
   text,
   onClick,
   dividerText = ALTERNATIVE_ACTION_TEXT
 }) => {
   return (
-    <div onClick={onClick} className={EMPTY_VIEW_CLASS_NAME}>
+    <div
+      className={EMPTY_VIEW_CLASS_NAME}
+      onClick={ev => {
+        ev.preventDefault()
+        onClick()
+      }}
+    >
       <div className={ICON_EMPTY_VIEW_CLASS_NAME}>
         <AtomIcon size={iconSize}>{icon}</AtomIcon>
       </div>
@@ -40,7 +47,14 @@ const EmptyView = ({
         {dividerText ? <span className={TEXT_STATE_DIVIDER_CLASS_NAME}>{dividerText}</span> : null}
       </div>
       <div className={BUTTON_STATE_CLASS_NAME}>
-        <Button color={buttonColor} design={buttonDesign} type="button" shape={buttonShape} size={buttonSize}>
+        <Button
+          as="label"
+          color={buttonColor}
+          design={buttonDesign}
+          htmlFor={inputId}
+          shape={buttonShape}
+          size={buttonSize}
+        >
           {buttonText}
         </Button>
       </div>
@@ -58,6 +72,7 @@ EmptyView.propTypes = {
   buttonSize: PropTypes.string,
   icon: PropTypes.node.isRequired,
   iconSize: PropTypes.string.isRequired,
+  inputId: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   dividerText: PropTypes.string,
   onClick: PropTypes.func

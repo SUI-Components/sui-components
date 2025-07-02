@@ -40,6 +40,7 @@ const PhotosPreview = ({
   dragDelay,
   errorInitialPhotoDownloadErrorText,
   files,
+  inputId,
   isPhotoUploaderFully,
   mainPhotoLabel,
   outputImageAspectRatioDisabled,
@@ -214,7 +215,9 @@ const PhotosPreview = ({
     >
       <>
         {thumbCards(files)}
-        {!isPhotoUploaderFully() && <SkeletonCard icon={addMorePhotosIcon()} text={addPhotoTextSkeleton} />}
+        {!isPhotoUploaderFully() && (
+          <SkeletonCard icon={addMorePhotosIcon()} inputId={inputId} text={addPhotoTextSkeleton} />
+        )}
       </>
     </ReactSortable>
   )
@@ -237,6 +240,7 @@ PhotosPreview.propTypes = {
   dragDelay: PropTypes.number.isRequired,
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
+  inputId: PropTypes.string.isRequired,
   isPhotoUploaderFully: PropTypes.bool.isRequired,
   mainPhotoLabel: PropTypes.string.isRequired,
   outputImageAspectRatioDisabled: PropTypes.isRequired,

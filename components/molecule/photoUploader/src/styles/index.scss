@@ -21,6 +21,11 @@ $skeleton-class: '#{$base-class}-skeleton';
       padding: $p-photo-uploader-desktop;
     }
 
+    &:focus-visible {
+      outline: 2px solid transparentize($c-primary, 0.2);
+      outline-offset: 2px;
+    }
+
     &--empty {
       background: $bg-photo-uploader-empty;
       border: $bd-photo-uploader-dropzone-empty;

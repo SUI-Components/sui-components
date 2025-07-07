@@ -1,3 +1,4 @@
+import {forwardRef} from 'react'
 import {flushSync} from 'react-dom'
 import {ReactSortable} from 'react-sortablejs'
 
@@ -27,17 +28,19 @@ import {PREVIEW_CARD_CLASS_NAME} from './config.js'
 
 const PhotosPreview = ({
   _callbackPhotosUploaded,
-  _onSortPhotoStart,
   _onSortPhotoEnd,
+  _onSortPhotoStart,
   _scrollToBottom,
   addMorePhotosIcon,
   addPhotoTextSkeleton,
+  ariaLabel,
   callbackUploadPhoto,
   content,
   defaultFormatToBase64Options,
+  deleteButtonAriaLabel,
   deleteIcon,
-  dragIcon,
   dragDelay,
+  dragIcon,
   errorInitialPhotoDownloadErrorText,
   files,
   inputId,
@@ -45,9 +48,11 @@ const PhotosPreview = ({
   mainPhotoLabel,
   outputImageAspectRatioDisabled,
   rejectPhotosIcon,
+  retryButtonAriaLabel,
+  retryIcon,
+  rotateButtonAriaLabel,
   rotateIcon,
   rotationDirection,
-  retryIcon,
   setFiles,
   setIsLoading,
   setNotificationError,
@@ -166,20 +171,23 @@ const PhotosPreview = ({
         <li className={thumbClassName} key={`${file?.preview}${index}`} onClick={e => e.stopPropagation()}>
           {file && (
             <ThumbCard
-              iconSize={thumbIconSize}
-              image={file}
-              index={index}
-              mainPhotoLabel={mainPhotoLabel}
               callbackDeleteItem={_deleteItem}
               callbackRetryUpload={_retryUpload}
               callbackRotateItem={_rotateItem}
               content={content}
-              rotateIcon={rotateIcon()}
+              deleteButtonAriaLabel={deleteButtonAriaLabel}
               deleteIcon={deleteIcon()}
               dragIcon={dragIcon()}
-              retryIcon={retryIcon()}
-              rejectPhotosIcon={rejectPhotosIcon()}
+              iconSize={thumbIconSize}
+              image={file}
+              index={index}
+              mainPhotoLabel={mainPhotoLabel}
               outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
+              rejectPhotosIcon={rejectPhotosIcon()}
+              retryButtonAriaLabel={retryButtonAriaLabel}
+              retryIcon={retryIcon()}
+              rotateButtonAriaLabel={rotateButtonAriaLabel}
+              rotateIcon={rotateIcon()}
               viewType={viewType}
             />
           )}
@@ -193,12 +201,15 @@ const PhotosPreview = ({
 
   return (
     <ReactSortable
+      // This is a workaround to pass aria-label as prop to ReactSortable custom tag component,
+      // since it does not support it directly.
+      id={ariaLabel}
       className={previewCardClass}
       handle=".sui-MoleculePhotoUploader-thumbCard-imageContainer"
       ghostClass={`${THUMB_CLASS_NAME}--ghost`}
       dragClass={`${THUMB_CLASS_NAME}--drag`}
       chosenClass={`${THUMB_CLASS_NAME}--chosen`}
-      tag="ul"
+      tag={PhotosPreviewCustomTagComponent}
       list={files}
       setList={(newList, sortable) => {
         if (sortable) {
@@ -227,17 +238,19 @@ PhotosPreview.displayName = 'PhotosPreview'
 
 PhotosPreview.propTypes = {
   _callbackPhotosUploaded: PropTypes.func.isRequired,
-  _onSortPhotoStart: PropTypes.func.isRequired,
   _onSortPhotoEnd: PropTypes.func.isRequired,
+  _onSortPhotoStart: PropTypes.func.isRequired,
   _scrollToBottom: PropTypes.func.isRequired,
   addMorePhotosIcon: PropTypes.node.isRequired,
   addPhotoTextSkeleton: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
   callbackUploadPhoto: PropTypes.func,
   content: PropTypes.func,
   defaultFormatToBase64Options: PropTypes.object.isRequired,
+  deleteButtonAriaLabel: PropTypes.string.isRequired,
   deleteIcon: PropTypes.node.isRequired,
-  dragIcon: PropTypes.node,
   dragDelay: PropTypes.number.isRequired,
+  dragIcon: PropTypes.node,
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
   inputId: PropTypes.string.isRequired,
@@ -245,9 +258,11 @@ PhotosPreview.propTypes = {
   mainPhotoLabel: PropTypes.string.isRequired,
   outputImageAspectRatioDisabled: PropTypes.isRequired,
   rejectPhotosIcon: PropTypes.node.isRequired,
+  retryButtonAriaLabel: PropTypes.string.isRequired,
+  retryIcon: PropTypes.node.isRequired,
+  rotateButtonAriaLabel: PropTypes.string.isRequired,
   rotateIcon: PropTypes.node.isRequired,
   rotationDirection: PropTypes.oneOf(Object.values(ROTATION_DIRECTION)),
-  retryIcon: PropTypes.node.isRequired,
   setFiles: PropTypes.func.isRequired,
   setIsLoading: PropTypes.func.isRequired,
   setNotificationError: PropTypes.func.isRequired,
@@ -256,3 +271,17 @@ PhotosPreview.propTypes = {
 }
 
 export default PhotosPreview
+
+const PhotosPreviewCustomTagComponent = forwardRef(({id: ariaLabel, children, className}, ref) => {
+  return (
+    <ul className={className} aria-label={ariaLabel} ref={ref}>
+      {children}
+    </ul>
+  )
+})
+PhotosPreviewCustomTagComponent.displayName = 'PhotosPreviewCustomTagComponent'
+PhotosPreviewCustomTagComponent.propTypes = {
+  id: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string
+}

@@ -310,16 +310,26 @@ $skeleton-class: '#{$base-class}-skeleton';
         border-radius: 0 0 $bdrs-photo-uploader-thumb-card 0;
       }
 
+      &Icon {
+        color: $c-photo-uploader-action-buttons;
+      }
+
       &:hover {
         @include media-breakpoint-up(m) {
           background: $bg-photo-uploader-action-buttons-hover;
-          color: $c-photo-uploader-action-buttons-hover;
+
+          #{$thumb-class}Card-buttonIcon {
+            color: $c-photo-uploader-action-buttons-hover;
+          }
         }
       }
 
       &:active {
         background: $bg-photo-uploader-action-buttons-hover;
-        color: $c-photo-uploader-action-buttons-hover;
+
+        #{$thumb-class}Card-buttonIcon {
+          color: $c-photo-uploader-action-buttons-hover;
+        }
       }
 
       &:last-child {
@@ -355,31 +365,52 @@ $skeleton-class: '#{$base-class}-skeleton';
 }
 
 #{$skeleton-class} {
-  align-items: center;
   background-color: $bg-photo-uploader-skeleton;
-  border: $bd-photo-uploader;
   border-radius: $bdrs-photo-uploader-skeleton;
-  color: $c-photo-uploader-skeleton;
-  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  font-weight: $fw-semi-bold;
-  justify-content: center;
-  overflow: hidden;
   width: $w-photo-uploader-skeleton;
+
+  &Button {
+    background-color: transparent;
+    border: $bd-photo-uploader;
+    border-radius: $bdrs-photo-uploader-skeleton;
+    color: $c-photo-uploader-skeleton;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-weight: $fw-semi-bold;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+
+    &:hover {
+      color: $c-photo-uploader-skeleton-hover;
+    }
+
+    &:active {
+      color: $c-photo-uploader-skeleton-hover;
+    }
+
+    &:focus-visible {
+      outline: 2px solid transparentize($c-primary, 0.2);
+      outline-offset: 2px;
+    }
+  }
 
   @include media-breakpoint-up(m) {
     width: $w-photo-uploader-skeleton-desktop;
   }
 
-  &:hover {
+  &:hover,
+  &:hover #{$skeleton-class}Button {
     @include media-breakpoint-up(m) {
       background: $bg-photo-uploader-skeleton-hover;
       color: $c-photo-uploader-skeleton-hover;
     }
   }
 
-  &:active {
+  &:active,
+  &:active #{$skeleton-class}Button {
     background: $bg-photo-uploader-skeleton-hover;
     color: $c-photo-uploader-skeleton-hover;
   }

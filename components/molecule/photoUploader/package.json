@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-photo-uploader",
-  "version": "2.36.0",
+  "version": "2.37.0",
   "description": "",
   "publishConfig": {
     "access": "public"

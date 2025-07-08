@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 2.37.0 (2025-07-08)
+
+
+### Features
+
+* add a workaround on photo previews list to have a readable ([19d8904](https://github.com/SUI-Components/sui-components/commit/19d8904527a62bf74bb777923613ff65254189bf))
+* add aria label props ([2ca4702](https://github.com/SUI-Components/sui-components/commit/2ca4702a97b62df0938913766ab726c96b75500b))
+* add more images skeleton thumbcard has now a navigable butt ([d7669e8](https://github.com/SUI-Components/sui-components/commit/d7669e8baabb2d7afca107997e3b73cc6828fd8a))
+* modify styles to adapt accessible navigation ([8d30cb8](https://github.com/SUI-Components/sui-components/commit/8d30cb83891c1f82eb29da33db2032be309a38c8))
+* replace clickable divs with accessible buttons, navigable a ([60bbfc2](https://github.com/SUI-Components/sui-components/commit/60bbfc293dfddd5d16ab054794cff14cbc6ace5c))
+
+
+
 # 2.36.0 (2025-07-02)
 
 

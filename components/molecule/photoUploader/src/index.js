@@ -53,6 +53,7 @@ const MoleculePhotoUploader = forwardRef(
       callbackPhotosUploaded = noop,
       callbackUploadPhoto,
       content,
+      deleteButtonAriaLabel = '',
       deleteIcon,
       dragIcon = noop,
       disableScrollToBottom = false,
@@ -85,8 +86,11 @@ const MoleculePhotoUploader = forwardRef(
       onSortPhotoEnd = noop,
       outputImageAspectRatio = DEFAULT_IMAGE_ASPECT_RATIO,
       outputImageAspectRatioDisabled = false,
+      photosPreviewAriaLabel,
       rejectPhotosIcon,
+      retryButtonAriaLabel = '',
       retryIcon,
+      rotateButtonAriaLabel = '',
       rotateIcon,
       rotationDirection = ROTATION_DIRECTION.counterclockwise,
       thumbIconSize,
@@ -295,18 +299,20 @@ const MoleculePhotoUploader = forwardRef(
             )}
             {!isPhotoUploaderEmpty && (
               <PhotosPreview
+                _callbackPhotosUploaded={_callbackPhotosUploaded}
                 _onSortPhotoEnd={_onSortPhotoEnd}
                 _onSortPhotoStart={_onSortPhotoStart}
-                _callbackPhotosUploaded={_callbackPhotosUploaded}
                 _scrollToBottom={_scrollToBottom}
                 addMorePhotosIcon={addMorePhotosIcon}
                 addPhotoTextSkeleton={addPhotoTextSkeleton}
+                ariaLabel={photosPreviewAriaLabel ?? addPhotoTextButton}
                 callbackUploadPhoto={callbackUploadPhoto}
                 content={content}
                 defaultFormatToBase64Options={DEFAULT_FORMAT_TO_BASE_64_OPTIONS}
+                deleteButtonAriaLabel={deleteButtonAriaLabel}
                 deleteIcon={deleteIcon}
-                dragIcon={dragIcon}
                 dragDelay={dragDelay}
+                dragIcon={dragIcon}
                 errorInitialPhotoDownloadErrorText={errorInitialPhotoDownloadErrorText}
                 files={files}
                 inputId={id}
@@ -314,9 +320,11 @@ const MoleculePhotoUploader = forwardRef(
                 mainPhotoLabel={mainPhotoLabel}
                 outputImageAspectRatioDisabled={outputImageAspectRatioDisabled}
                 rejectPhotosIcon={rejectPhotosIcon}
+                retryButtonAriaLabel={retryButtonAriaLabel}
+                retryIcon={retryIcon}
+                rotateButtonAriaLabel={rotateButtonAriaLabel}
                 rotateIcon={rotateIcon}
                 rotationDirection={rotationDirection}
-                retryIcon={retryIcon}
                 setFiles={setFiles}
                 setIsLoading={setIsLoading}
                 setNotificationError={setNotificationError}
@@ -410,6 +418,11 @@ MoleculePhotoUploader.propTypes = {
 
   /** Component to render inside content space */
   content: PropTypes.elementType,
+
+  /**
+   * Aria label for the delete button on thumbcards
+   */
+  deleteButtonAriaLabel: PropTypes.string,
 
   /** Icon placed in the button that deletes image */
   deleteIcon: PropTypes.func.isRequired,
@@ -523,11 +536,24 @@ MoleculePhotoUploader.propTypes = {
   /** Disable cropping funcionality */
   outputImageAspectRatioDisabled: PropTypes.bool,
 
+  /** Aria label for the photos preview */
+  photosPreviewAriaLabel: PropTypes.string,
+
   /** Icon showed at the dropzone when an user drags (before drop!) not allowed files  */
   rejectPhotosIcon: PropTypes.func.isRequired,
 
+  /**
+   * Aria label for the retry button on thumbcards
+   */
+  retryButtonAriaLabel: PropTypes.string,
+
   /** Icon placed in the button that retry download initial image, when it fails */
   retryIcon: PropTypes.func.isRequired,
+
+  /**
+   * Aria label for the rotate button on thumbcards
+   */
+  rotateButtonAriaLabel: PropTypes.string,
 
   /** Icon placed in the button that rotate image */
   rotateIcon: PropTypes.func.isRequired,

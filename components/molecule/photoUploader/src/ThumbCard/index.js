@@ -1,7 +1,8 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
+import AtomButton, {atomButtonDesigns, atomButtonSizes} from '@s-ui/react-atom-button'
+import AtomIcon, {ATOM_ICON_COLORS, ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {DEFAULT_VIEW_TYPE, VIEW_TYPE} from './../config.js'
 import {
@@ -14,26 +15,29 @@ import {
 } from './config.js'
 
 const ThumbCard = ({
-  iconSize = ATOM_ICON_SIZES.small,
   callbackDeleteItem,
   callbackRetryUpload,
   callbackRotateItem,
   content: Content = () => null,
+  deleteButtonAriaLabel,
   deleteIcon,
   dragIcon,
-  index,
+  iconSize = ATOM_ICON_SIZES.small,
   image,
+  index,
   mainPhotoLabel,
   outputImageAspectRatioDisabled,
   rejectPhotosIcon,
+  retryButtonAriaLabel,
   retryIcon,
+  rotateButtonAriaLabel,
   rotateIcon,
   viewType
 }) => {
   const hasErrors = image.hasErrors
 
   const isDefaultView = viewType === DEFAULT_VIEW_TYPE
-  const isListtView = viewType === VIEW_TYPE.LIST
+  const isListView = viewType === VIEW_TYPE.LIST
 
   const counterClass = cx(`${THUMB_CARD_CLASS_NAME}-counter`, {
     [`${THUMB_CARD_CLASS_NAME}-mainCounter`]: index === 0 && isDefaultView
@@ -43,9 +47,11 @@ const ThumbCard = ({
     [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled
   })
 
+  const thumbCardLabel = index === 0 && isDefaultView ? mainPhotoLabel : index + 1
+
   return (
     <div className={THUMB_CARD_CLASS_NAME}>
-      <div className={counterClass}>{index === 0 && isDefaultView ? mainPhotoLabel : index + 1}</div>
+      <div className={counterClass}>{thumbCardLabel}</div>
       <div className={CONTAINER_THUMB_CARD_CLASS_NAME}>
         {hasErrors ? (
           <div className={`${ICON_THUMB_CARD_CLASS_NAME}`}>
@@ -53,23 +59,65 @@ const ThumbCard = ({
           </div>
         ) : (
           <>
-            {isListtView && <AtomIcon size={iconSize}>{dragIcon}</AtomIcon>}
+            {isListView && <AtomIcon size={iconSize}>{dragIcon}</AtomIcon>}
             <img src={image.preview} className={imageThumbClass} />
           </>
         )}
       </div>
       <Content file={image} index={index} />
       <div className={ACTION_THUMB_CARD_CLASS_NAME}>
-        <div className={BUTTON_THUMB_CARD_CLASS_NAME} onClick={() => callbackDeleteItem(index)}>
-          <AtomIcon size={iconSize}>{deleteIcon}</AtomIcon>
+        <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
+          <AtomButton
+            aria-label={`${deleteButtonAriaLabel} ${thumbCardLabel}`}
+            design={atomButtonDesigns.LINK}
+            fullWidth
+            onClick={() => callbackDeleteItem(index)}
+            size={atomButtonSizes.SMALL}
+            tabIndex="0"
+            type="button"
+          >
+            <div className={`${BUTTON_THUMB_CARD_CLASS_NAME}Icon`}>
+              <AtomIcon color={ATOM_ICON_COLORS.currentColor} size={iconSize}>
+                {deleteIcon}
+              </AtomIcon>
+            </div>
+          </AtomButton>
         </div>
         {hasErrors ? (
-          <div className={BUTTON_THUMB_CARD_CLASS_NAME} onClick={e => callbackRetryUpload(index)}>
-            <AtomIcon size={iconSize}>{retryIcon}</AtomIcon>
+          <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
+            <AtomButton
+              aria-label={`${retryButtonAriaLabel} ${thumbCardLabel}`}
+              design={atomButtonDesigns.LINK}
+              fullWidth
+              onClick={() => callbackRetryUpload(index)}
+              size={atomButtonSizes.SMALL}
+              tabIndex="0"
+              type="button"
+            >
+              <div className={`${BUTTON_THUMB_CARD_CLASS_NAME}Icon`}>
+                <AtomIcon color={ATOM_ICON_COLORS.currentColor} size={iconSize}>
+                  {retryIcon}
+                </AtomIcon>
+              </div>
+            </AtomButton>
           </div>
         ) : (
-          <div className={BUTTON_THUMB_CARD_CLASS_NAME} onClick={e => callbackRotateItem(index)}>
-            <AtomIcon size={iconSize}>{rotateIcon}</AtomIcon>
+          <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
+            <AtomButton
+              aria-label={`${rotateButtonAriaLabel} ${thumbCardLabel}`}
+              design={atomButtonDesigns.LINK}
+              fullWidth
+              onClick={() => callbackRotateItem(index)}
+              size={atomButtonSizes.SMALL}
+              tabIndex="0"
+              type="button"
+            >
+              <div className={`${BUTTON_THUMB_CARD_CLASS_NAME}Icon`}>
+                <AtomIcon color={ATOM_ICON_COLORS.currentColor} size={iconSize}>
+                  {rotateIcon}
+                </AtomIcon>
+              </div>
+            </AtomButton>
           </div>
         )}
       </div>
@@ -80,19 +128,22 @@ const ThumbCard = ({
 ThumbCard.displayName = 'ThumbCard'
 
 ThumbCard.propTypes = {
-  iconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
   callbackDeleteItem: PropTypes.func,
   callbackRetryUpload: PropTypes.func,
   callbackRotateItem: PropTypes.func,
   content: PropTypes.func,
+  deleteButtonAriaLabel: PropTypes.string.isRequired,
   deleteIcon: PropTypes.node.isRequired,
   dragIcon: PropTypes.node.isRequired,
-  index: PropTypes.number,
+  iconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
   image: PropTypes.object.isRequired,
+  index: PropTypes.number,
   mainPhotoLabel: PropTypes.string,
   outputImageAspectRatioDisabled: PropTypes.bool,
   rejectPhotosIcon: PropTypes.node.isRequired,
+  retryButtonAriaLabel: PropTypes.string.isRequired,
   retryIcon: PropTypes.node.isRequired,
+  rotateButtonAriaLabel: PropTypes.string.isRequired,
   rotateIcon: PropTypes.node.isRequired,
   viewType: PropTypes.oneOf(Object.keys(VIEW_TYPE))
 }

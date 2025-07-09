@@ -29,7 +29,7 @@ import AtomSwitch from '@s-ui/react-atom-switch'
 return (
   <AtomSwitch
     disabled={false}
-    initialValue={false}
+    defaultChecked={false}
     isFitted={false}
     isLoading={true}
     label="Label"
@@ -52,9 +52,9 @@ return (
   <AtomSwitch
     labelLeft="Off"
     labelRight="On"
-    onToggle={value => handleChangeFromParent(value)}
+    onToggle={checked => handleChangeFromParent(checked)}
     design="toggle"
-    value={value}
+    checked={checked}
   />
 )
 ```

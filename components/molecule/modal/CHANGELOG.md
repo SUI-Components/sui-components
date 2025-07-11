@@ -1,42 +1,5 @@
 # CHANGELOG
 
-# 2.2.0 (2025-05-22)
-
-
-### Features
-
-* finalize the documentation ([694dd4b](https://github.com/SUI-Components/sui-components/commit/694dd4bbcb145b304f1b6fc7568bc61916c5959b))
-
-
-
-# 2.1.0 (2025-05-12)
-
-
-### Features
-
-* add isInset to the footer ([36ebde0](https://github.com/SUI-Components/sui-components/commit/36ebde0e482224986d9834fabd385d29a5fcf39d))
-
-
-
-# 2.0.0 (2025-05-05)
-
-
-### Bug Fixes
-
-* small bug ([e167117](https://github.com/SUI-Components/sui-components/commit/e1671177ee498f432adcf6341768af5f89492e40))
-
-
-### Features
-
-* add tests ([319570b](https://github.com/SUI-Components/sui-components/commit/319570b72d991fcbbd82a670470fcb6811c39756))
-* bug ([c8ea721](https://github.com/SUI-Components/sui-components/commit/c8ea721f7fca470a483e09c81076f9a5fab6b2ab))
-* new compounded modal ([036ab4c](https://github.com/SUI-Components/sui-components/commit/036ab4cbde8fbaff33128f6b1483fc6b6b6b8b7b))
-* version upgrade ([fedd7ac](https://github.com/SUI-Components/sui-components/commit/fedd7ac2f9e39a0118f1dbfe64adeab8e2beda40))
-* wip ([17a9880](https://github.com/SUI-Components/sui-components/commit/17a98805106cf5837619b4899d28aa3f703f4a30))
-* wip ([abc8394](https://github.com/SUI-Components/sui-components/commit/abc839416fb7c535a1d2a1a8546c3cce119b5264))
-
-
-
 # 1.52.0 (2024-05-08)
 
 

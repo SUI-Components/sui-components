@@ -1,0 +1,19 @@
+$base-class-content: '#{$base-class}Content';
+
+#{$base-class-content} {
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+  margin: $m-molecule-modal-content;
+  overflow-y: auto;
+  padding: $pt-molecule-modal-content $pr-molecule-modal-content $pb-molecule-modal-content $pl-molecule-modal-content;
+  position: relative;
+
+  &--without-indentation {
+    margin: 0;
+    padding: 0;
+  }
+
+  &--visible-overflow {
+    overflow-y: visible;
+  }
+}

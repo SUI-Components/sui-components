@@ -1,0 +1,6 @@
+$base-class-footer: '#{$base-class}Footer';
+
+#{$base-class-footer} {
+  padding: $pt-molecule-modal-footer $pr-molecule-modal-footer $pb-molecule-modal-footer $pl-molecule-modal-footer;
+  border-top: $bd-molecule-modal-footer;
+}

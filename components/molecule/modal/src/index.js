@@ -1,52 +1,43 @@
-import {MODAL_ANIMATIONS, MODAL_SIZES} from './config.js'
-import Body from './Modal.Body.js'
-import CloseIconButton from './Modal.CloseIconButton.js'
-import CloseTrigger from './Modal.CloseTrigger.js'
-import Content from './Modal.Content.js'
-import Description from './Modal.Description.js'
-import Footer from './Modal.Footer.js'
-import Header from './Modal.Header.js'
-import OpenTrigger from './Modal.OpenTrigger.js'
-import Overlay from './Modal.Overlay.js'
-import Portal from './Modal.Portal.js'
-import Root from './Modal.Root.js'
-import ScrollArea from './Modal.ScrollArea.js'
-import Title from './Modal.Title.js'
+import {forwardRef} from 'react'
 
-export {
-  Root as Modal,
-  Root,
-  OpenTrigger,
-  CloseTrigger,
-  Portal,
-  Content,
-  Header,
-  Title,
-  Description,
-  Body,
-  ScrollArea,
-  Footer,
-  Overlay,
-  CloseIconButton
+import PropTypes from 'prop-types'
+
+import MoleculeModalContent from './Content/index.js'
+import MoleculeModalFooter from './Footer/index.js'
+import {MODAL_SIZES} from './config.js'
+import MoleculeModal from './MoleculeModal.js'
+import MoleculeModalWithoutAnimation from './MoleculeModalWithoutAnimation.js'
+import MoleculeModalWithURLState from './MoleculeModalWithURLState.js'
+
+const MoleculeModalWithAnimation = forwardRef(({onClose, onAnimationEnd, ...rest}, ref) => {
+  return <MoleculeModal ref={ref} onAnimationEnd={onAnimationEnd} onClose={onClose} {...rest} />
+})
+
+MoleculeModalWithAnimation.displayName = 'MoleculeModalWithAnimation'
+MoleculeModalWithAnimation.propTypes = {
+  onClose: PropTypes.func,
+  onAnimationEnd: PropTypes.func
 }
 
-const MoleculeModal = Root
+MoleculeModalWithAnimation.displayName = 'MoleculeModal'
 
-MoleculeModal.displayName = 'MoleculeModal.Root'
+MoleculeModalWithAnimation.Content = MoleculeModalContent
+MoleculeModalWithAnimation.Footer = MoleculeModalFooter
 
-MoleculeModal.OpenTrigger = OpenTrigger
-MoleculeModal.CloseTrigger = CloseTrigger
-MoleculeModal.Portal = Portal
-MoleculeModal.Content = Content
-MoleculeModal.Header = Header
-MoleculeModal.Title = Title
-MoleculeModal.Description = Description
-MoleculeModal.Body = Body
-MoleculeModal.ScrollArea = ScrollArea
-MoleculeModal.Footer = Footer
-MoleculeModal.Overlay = Overlay
-MoleculeModal.CloseIconButton = CloseIconButton
+MoleculeModal.Content = MoleculeModalContent
+MoleculeModal.Footer = MoleculeModalFooter
+
+export {
+  MODAL_SIZES as MoleculeModalSizes,
+  MODAL_SIZES as moleculeModalSizes,
+  MODAL_SIZES,
+  MoleculeModal,
+  MoleculeModalContent,
+  MoleculeModalFooter,
+  MoleculeModalWithURLState,
+  MoleculeModalWithURLState as MoleculeModalWithUrlState,
+  MoleculeModalWithAnimation,
+  MoleculeModalWithoutAnimation
+}
 
 export default MoleculeModal
-
-export {MODAL_SIZES as moleculeModalSizes, MODAL_ANIMATIONS as moleculeModalAnimations}

@@ -1,5 +1,7 @@
 export const BASE_CLASS = 'sui-MoleculeModal'
 
+export const SUPPORTED_KEYS = ['Escape']
+
 export const MODAL_SIZES = {
   XSMALL: 'xsmall',
   SMALL: 'small',
@@ -8,12 +10,6 @@ export const MODAL_SIZES = {
   FULL: 'full'
 }
 
-export const MODAL_ANIMATIONS = {
-  FADE: 'fade',
-  SLIDE: 'slide',
-  BLOOM: 'bloom',
-  NONE: 'none'
+export const toggleWindowScroll = disableScroll => {
+  window.document.body.classList.toggle('is-MoleculeModal-open', disableScroll)
 }
-
-export const ANIMATION_ENTER_DELAY = 0
-export const ANIMATION_EXIT_DELAY = 200

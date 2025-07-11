@@ -1,5 +1,0 @@
-$bgc-molecule-modal-overlay: color-mix(
-  in srgb,
-  $bg-molecule-modal #{'#{$op-molecule-modal * 100}%'},
-  transparent
-) !default;

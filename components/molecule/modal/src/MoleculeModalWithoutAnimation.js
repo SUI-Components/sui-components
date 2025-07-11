@@ -8,8 +8,7 @@ const MoleculeModalWithoutAnimation = forwardRef(({...rest}, ref) => {
   return <MoleculeModal ref={ref} withAnimation={false} {...rest} />
 })
 
-MoleculeModalWithoutAnimation.displayName = `(${MoleculeModal.displayName})WithoutAnimation`
-MoleculeModalWithoutAnimation.contextTypes = MoleculeModal.contextTypes
+MoleculeModalWithoutAnimation.displayName = 'MoleculeModalWithoutAnimation'
 MoleculeModalWithoutAnimation.propTypes = {
   onClose: PropTypes.func,
   onAnimationEnd: PropTypes.func

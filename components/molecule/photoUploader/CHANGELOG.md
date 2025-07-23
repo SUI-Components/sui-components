@@ -1,5 +1,50 @@
 # CHANGELOG
 
+# 2.37.0 (2025-07-08)
+
+
+### Features
+
+* add a workaround on photo previews list to have a readable ([19d8904](https://github.com/SUI-Components/sui-components/commit/19d8904527a62bf74bb777923613ff65254189bf))
+* add aria label props ([2ca4702](https://github.com/SUI-Components/sui-components/commit/2ca4702a97b62df0938913766ab726c96b75500b))
+* add more images skeleton thumbcard has now a navigable butt ([d7669e8](https://github.com/SUI-Components/sui-components/commit/d7669e8baabb2d7afca107997e3b73cc6828fd8a))
+* modify styles to adapt accessible navigation ([8d30cb8](https://github.com/SUI-Components/sui-components/commit/8d30cb83891c1f82eb29da33db2032be309a38c8))
+* replace clickable divs with accessible buttons, navigable a ([60bbfc2](https://github.com/SUI-Components/sui-components/commit/60bbfc293dfddd5d16ab054794cff14cbc6ace5c))
+
+
+
+# 2.36.0 (2025-07-02)
+
+
+### Features
+
+* add a focus visible styling, to be wcag compliant ([5fc7e5a](https://github.com/SUI-Components/sui-components/commit/5fc7e5a35eb692ca0ce020b0978fbd3fe0822f0b))
+* add a relation between label and input, also aria-hide the ([2a2792b](https://github.com/SUI-Components/sui-components/commit/2a2792bc2b3d6a94f16237f978ddc4c581f082ff))
+* add default id for the input ([f17f29c](https://github.com/SUI-Components/sui-components/commit/f17f29c0dab7e6e30b125de8624acd148bb5ecf3))
+* add id prop to main component ([38a8f40](https://github.com/SUI-Components/sui-components/commit/38a8f40e845068fd2bc4bc22e1b2212ff470f936))
+* pass input id to skeleton ([bdb4d35](https://github.com/SUI-Components/sui-components/commit/bdb4d355b9e859e5167bde163469ef970a891435))
+* render upload button as a label ([4b3a6e4](https://github.com/SUI-Components/sui-components/commit/4b3a6e41c9d85ef2b1c835efe2c655aa83f4ea47))
+
+
+
+# 2.35.0 (2025-06-12)
+
+
+### Bug Fixes
+
+* Migrate isButton prop to type=button ([b0dc9b9](https://github.com/SUI-Components/sui-components/commit/b0dc9b9bdb5c8ffccb0fc2928858a44dd8d94aa4))
+
+
+
+# 2.34.0 (2025-06-11)
+
+
+### Bug Fixes
+
+* Pass external props on rotate action ([00be8c3](https://github.com/SUI-Components/sui-components/commit/00be8c3dab0c8277ced9d9bf4d3369ba847d8825))
+
+
+
 # 2.33.0 (2024-12-10)
 
 

@@ -49,11 +49,9 @@ const CarouselContainer = ({
 
   useEffect(
     () => {
-      if (slide !== index) {
-        handleFn(slidyInstance.goTo)(slide)
-      }
+      handleFn(slidyInstance.goTo)(slide)
     },
-    [slide, index] // eslint-disable-line
+    [index] // eslint-disable-line
   )
 
   useEffect(

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.18.0 (2025-06-06)
+
+
+### Features
+
+* remove aria-role ([7537398](https://github.com/SUI-Components/sui-components/commit/7537398104c6cb2361ed412ab593bd5ce962fa4f))
+
+
+
+# 2.17.0 (2025-06-05)
+
+
+### Features
+
+* add aria attributes and role ([dec3cc9](https://github.com/SUI-Components/sui-components/commit/dec3cc9e2fd033f08cd3e47e227b02ba611f4d2b))
+
+
+
 # 2.16.0 (2025-05-26)
 
 

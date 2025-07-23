@@ -237,7 +237,7 @@ describe(json.name, () => {
       )
     })
 
-    it('should NOT call onSlide handler when changing the slide controlled index', () => {
+    it('should call onSlide handler when changing the slide controlled index', () => {
       // Given
       const spy = sinon.spy()
       const elementsText = ['slide 1', 'slide 2', 'slide 3', 'slide 4', 'slide 5']
@@ -259,7 +259,7 @@ describe(json.name, () => {
       rerender(<Component {...{...props, slide: 0}} />)
 
       // Then
-      sinon.assert.callCount(spy, 0)
+      sinon.assert.callCount(spy, 1)
     })
 
     it('should call onPrevious handler when pressing left arrow key', () => {

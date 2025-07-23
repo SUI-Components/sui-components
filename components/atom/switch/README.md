@@ -1,6 +1,5 @@
 # AtomSwitch
 
-
 The switch is the radio button when there’re only 2 exclusive options. “On/off” is a common and clear example for explaining this component.
 
 In order to collect the result of this switch there is a callback `onToggle`, this callback receives a flag on `true` if select is active. If you're using a `select` type of this component, `false` means the first option and `true` the second one.
@@ -30,7 +29,7 @@ import AtomSwitch from '@s-ui/react-atom-switch'
 return (
   <AtomSwitch
     disabled={false}
-    initialValue={false}
+    defaultChecked={false}
     isFitted={false}
     isLoading={true}
     label="Label"
@@ -39,7 +38,7 @@ return (
     labelRight="On"
     onToggle={flag => console.log(`Switch value is ${flag}`)}
     size="default"
-    type="toggle"
+    design="toggle"
   />
 )
 ```
@@ -53,9 +52,9 @@ return (
   <AtomSwitch
     labelLeft="Off"
     labelRight="On"
-    onToggle={value => handleChangeFromParent(value)}
-    type="toggle"
-    value={value}
+    onToggle={checked => handleChangeFromParent(checked)}
+    design="toggle"
+    checked={checked}
   />
 )
 ```

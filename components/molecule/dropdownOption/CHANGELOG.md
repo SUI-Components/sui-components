@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.14.0 (2025-06-05)
+
+
+### Features
+
+* set color to description text when option is selected ([8c038b6](https://github.com/SUI-Components/sui-components/commit/8c038b610685fdf1c1e5fe9e4e645ebae5dd528c))
+
+
+
 # 2.13.0 (2025-02-24)
 
 

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.71.0 (2025-06-20)
+
+
+### Features
+
+* forward the noBorder prop from the input to make it compatibl ([140b3d4](https://github.com/SUI-Components/sui-components/commit/140b3d4bf80566cd632b4ae20e4f08e60d603d96))
+* set noBorder as undefined ([12daea0](https://github.com/SUI-Components/sui-components/commit/12daea0c9a8d45b81adab4a5e38b4f156ff1e4cc))
+
+
+
 # 2.70.0 (2025-05-09)
 
 

@@ -14,7 +14,7 @@ const PlaceHolder = ({
   const validText = text || `${validWidth}x${validHeight} placeholder`
   return (
     <img
-      src={`https://via.placeholder.com/${validWidth}x${validHeight}.${format}/${backgroundHEXColor}/${textHEXColor}/?text=${validText}`}
+      src={`https://placehold.co/${validWidth}x${validHeight}/${backgroundHEXColor}/${textHEXColor}/${format}?text=${validText}`}
       alt={validText}
       {...otherProps}
     />

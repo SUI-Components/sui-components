@@ -1,0 +1,151 @@
+$base-class: '.sui-AtomCard';
+
+$base-class-element: '#{$base-class}';
+$base-class-element-wrapper: '#{$base-class}-Wrapper';
+$base-class-element-container: '#{$base-class}-Container';
+$base-class-element-container-content: '#{$base-class-element-container}-Content';
+$base-class-element-panel: '#{$base-class}-Panel';
+
+#{$base-class-element-wrapper} {
+  width: calc(100% + 2 * #{$sz-base});
+  height: calc(100% + 2 * #{$sz-base});
+  margin: calc(-1 * #{$sz-base});
+
+  #{$base-class-element} {
+    //margin: calc(-1 * #{$sz-base});
+    padding: $sz-base;
+    box-sizing: content-box;
+    width: calc(100% - 2 * #{$sz-base});
+    height: calc(100% - 2 * #{$sz-base});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #{$base-class-element-container} {
+      border-radius: $bdrs-atom-card;
+      position: relative;
+      overflow: hidden;
+      width: calc(100% - 2 * #{$sz-base});
+      height: calc(100% - 2 * #{$sz-base});
+      display: grid;
+
+      #{$base-class-element-container-content} {
+        overflow: hidden;
+        grid-area: 1 / 1;
+        z-index: 1;
+      }
+
+      #{$base-class-element-panel} {
+        grid-area: 1 / 1;
+      }
+
+      &-design {
+        &-filled {
+          color: var(--atom-card-on-color);
+          border: 0;
+
+          #{$base-class-element-panel} {
+            background-color: var(--atom-card-color);
+          }
+        }
+
+        &-tinted {
+          color: var(--atom-card-on-color-mix);
+          border: 0;
+
+          #{$base-class-element-panel} {
+            background-color: color-mix(in srgb, var(--atom-card-color) 20%, var(--atom-card-color-mix));
+          }
+        }
+
+        &-outlined {
+          color: var(--atom-card-color);
+
+          #{$base-class-element-panel} {
+            background-color: transparent;
+            border: $bdw-atom-card solid var(--atom-card-color);
+          }
+        }
+
+        &-dashed {
+          color: var(--atom-card-color);
+
+          #{$base-class-element-panel} {
+            background-color: transparent;
+            border: $bdw-atom-card dashed var(--atom-card-color);
+          }
+        }
+
+        &-ghosted {
+          color: var(--atom-card-color);
+          border: 0;
+
+          #{$base-class-element-panel} {
+            background-color: color-mix(in srgb, var(--atom-card-color) 20%, transparent);
+          }
+        }
+
+        &-glassed {
+          color: var(--atom-card-color);
+          backdrop-filter: blur(4px);
+          border: 0;
+
+          #{$base-class-element-panel} {
+            background-color: color-mix(in srgb, var(--atom-card-color) 20%, transparent);
+          }
+        }
+      }
+
+      @each $color-key, $color-values in $atom-card-colors {
+        &-color-#{$color-key} {
+          --atom-card-color: #{nth($color-values, 1)};
+          --atom-card-on-color: #{nth($color-values, 2)};
+          --atom-card-color-mix: #{nth($color-values, 3)};
+          --atom-card-on-color-mix: #{nth($color-values, 4)};
+        }
+      }
+
+      @each $color-key, $color-values in $atom-card-corner-sizes {
+        &-cornerSize-#{$color-key} {
+          border-radius: $color-values;
+          > #{$base-class-element-panel} {
+            border-radius: $color-values;
+          }
+        }
+      }
+
+      @each $elevation-key, $elevation-value in $atom-card-elevations {
+        &-elevation-#{$elevation-key} {
+          box-shadow: $elevation-value;
+          #{$base-class-element-panel} {
+            box-shadow: $elevation-value;
+          }
+        }
+      }
+
+      &:not(#{$base-class-element-container}-is-inset) {
+        padding-inline: $px-atom-card;
+        padding-block: $py-atom-card;
+        #{$base-class-element-panel} {
+          margin-inline: calc(-1 * #{$px-atom-card});
+          margin-block: calc(-1 * #{$py-atom-card});
+        }
+      }
+
+      &:has(#{$base-class-element-container}-is-inset) {
+        padding-inline: 0;
+        margin-block: 0;
+        #{$base-class-element-panel} {
+          padding-inline: 0;
+          margin-block: 0;
+        }
+      }
+
+      &:focus-visible {
+        box-shadow: $bxsh-atom-card;
+        outline: 2px solid transparentize($c-primary, 0.2);
+        outline-offset: 2px;
+      }
+    }
+  }
+}

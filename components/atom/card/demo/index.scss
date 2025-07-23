@@ -1,0 +1,82 @@
+@import '~@s-ui/react-molecule-avatar/lib/index.scss';
+@import '~@s-ui/react-atom-kbd/lib/index.scss';
+@import '~@s-ui/react-atom-button/lib/index.scss';
+@import '~@s-ui/react-primitive-link-box/lib/index.scss';
+@import '~@s-ui/react-atom-tag/lib/index.scss';
+@import '~@s-ui/react-atom-icon/lib/index.scss';
+@import '~@s-ui/react-atom-input/lib/index.scss';
+
+@import '../src/index.scss';
+
+@import './utils/Demo/index.scss';
+
+$base-class: '.DemoAtomCard';
+$base-class-section: #{$base-class}-section;
+
+#{$base-class-section} {
+  // Do your magic
+  .ColorDesignDemo {
+    &.ColorDesignDemo-color-surface {
+      --c-white: var(--studio-c-surface);
+      --c-black: var(--studio-c-on-surface);
+      --sz-1: #{$sz-base};
+      --sz-2: #{2 * $sz-base};
+      background: repeating-linear-gradient(
+        -45deg,
+        color-mix(in srgb, var(--c-black) 30%, transparent),
+        color-mix(in srgb, var(--c-black) 30%, transparent) var(--sz-1),
+        color-mix(in srgb, var(--c-black) 50%, transparent) var(--sz-1),
+        color-mix(in srgb, var(--c-black) 50%, transparent) var(--sz-2)
+      );
+    }
+  }
+  .card-linkbox-features {
+    list-style-type: none;
+    list-style-position: outside;
+    padding-left: 1.2em;
+    > li {
+      padding-left: 1rem;
+      text-indent: -1rem;
+      &.check:before {
+        content: '✓ ';
+      }
+      &.uncheck:before {
+        content: '✗ ';
+      }
+    }
+  }
+  .demo-card-link-box {
+    transition: transform 0.2s ease-in-out;
+    &.hovered {
+      transform: scale(1.02);
+    }
+  }
+  .demo-card-button {
+    transition: transform 0.2s ease-in-out;
+    img {
+      filter: grayscale(0.9);
+      transition: filter 0.2s ease-in-out;
+    }
+    .cover {
+      transition: background-color 0.2s ease-in-out;
+      background-color: color-mix(in srgb, var(--c-primary) 5%, transparent);
+    }
+    &[aria-pressed='true'] {
+      img {
+        filter: grayscale(0);
+      }
+      .cover {
+        background-color: color-mix(in srgb, var(--c-primary) 0%, transparent);
+      }
+    }
+    &:hover {
+      transform: scale(1.02);
+      img {
+        filter: grayscale(0.1);
+      }
+      .cover {
+        background-color: color-mix(in srgb, var(--c-primary) 0%, transparent);
+      }
+    }
+  }
+}

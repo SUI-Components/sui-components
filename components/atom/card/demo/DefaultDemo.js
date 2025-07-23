@@ -6,32 +6,15 @@ import {
   Code,
   Grid,
   H2,
-  H3,
   Label,
   ListItem,
   Paragraph,
   RadioButton,
-  Text,
   UnorderedList
 } from '@s-ui/documentation-library'
 
 import AtomCard, {atomCardElevation, atomCardRounded} from '../src/index.js'
-import PlaceHolder from './PlaceHolder.js'
-
-const getPlaceholder =
-  ({width, height, text, style}) =>
-  () =>
-    <PlaceHolder height={height} width={width} text={text} style={style} />
-
-const getContent =
-  (...props) =>
-  () =>
-    (
-      <div {...props}>
-        <H3 style={{margin: 0}}>content title</H3>
-        <Text>content text</Text>
-      </div>
-    )
+import {getContent, getPlaceholder} from './config.js'
 
 const DefaultDemo = () => {
   const [media, setMedia] = useState(true)

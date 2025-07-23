@@ -11,6 +11,15 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@s-ui/react-layout-media-query": "1"
+    "@s-ui/react-layout-media-query": "1",
+    "@s-ui/react-primitive-visually-hidden": "1",
+    "@s-ui/react-primitive-link-box": "1",
+    "@s-ui/react-molecule-avatar": "1",
+    "@s-ui/react-atom-button": "2",
+    "@s-ui/react-atom-tag": "3",
+    "@s-ui/react-atom-icon": "1",
+    "@s-ui/react-atom-input": "5",
+    "@s-ui/react-atom-kbd": "1",
+    "lorem-ipsum": "2.0.4"
   }
 }

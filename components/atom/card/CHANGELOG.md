@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.0.0 (2025-07-24)
+
+
+### Features
+
+* abstraction for any purpose ([0dc9927](https://github.com/SUI-Components/sui-components/commit/0dc992717a8417db75465d4da8629680d851d10f))
+
+
+
 # 1.28.0 (2025-05-28)
 
 

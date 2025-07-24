@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2025-07-24)
+
+
+### Features
+
+* safari oppening modal ([291b69e](https://github.com/SUI-Components/sui-components/commit/291b69ea748ca2d373a25818fc7a7e38522c3cea))
+
+
+
 # 2.4.0 (2025-07-24)
 
 

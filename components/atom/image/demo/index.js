@@ -1,5 +1,6 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './article/ArticleA11y.js'
 import ArticleDefault from './article/ArticleDefault.js'
 import ArticleFallbackImage from './article/ArticleFallbackImage.js'
 import ArticleLazyImage from './article/ArticleLazyImage.js'
@@ -8,8 +9,6 @@ import ArticlePlaceHolder from './article/ArticlePlaceHolder.js'
 import ArticleSkeleton from './article/ArticleSkeleton.js'
 import ArticleSpinner from './article/ArticleSpinner.js'
 import ArticleViewport from './article/ArticleViewport.js'
-import ArticleA11y from './article/ArticleA11y.js'
-
 import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'

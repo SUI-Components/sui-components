@@ -22,7 +22,7 @@ const ArticleA11y = ({className}) => {
         <ListItem>Make sure you have tabbing focus indicators for all elements that need to be highlighted.</ListItem>
         <ListItem>
           Ensure that the card's content is accessible to screen readers, including any text, links, or buttons within
-          the card. Every media (carrusel, images, videos...) you add to your site needs to have an alt attribute.
+          the card. Every media (carousel, images, videos...) you add to your site needs to have an alt attribute.
         </ListItem>
         <UnorderedList>
           <ListItem>If the media content is informational, check it has proper alt elements on each.</ListItem>
@@ -43,11 +43,6 @@ const ArticleA11y = ({className}) => {
           button or link's purpose.
         </ListItem>
       </UnorderedList>
-
-      <Paragraph>
-        This component adheres to the button{' '}
-        <Anchor href="https://www.w3.org/WAI/ARIA/apg/patterns/button/">role requirements</Anchor>.
-      </Paragraph>
     </Article>
   )
 }

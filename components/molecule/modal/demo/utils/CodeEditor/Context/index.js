@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
 import {createContext, useContext} from 'react'
+
+import PropTypes from 'prop-types'
 
 const defaultContext = {
   codeView: false,

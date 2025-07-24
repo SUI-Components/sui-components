@@ -1,11 +1,12 @@
 import {useRef} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {VSCodeIcon} from '@s-ui/documentation-library'
 
 import {useCodeEditorContext} from './Context/index.js'
-import {viewsIndex, getViewIndex} from './config.js'
+import {getViewIndex, viewsIndex} from './config.js'
 
 const CodeEditorActions = ({className, onChange, ...props}) => {
   const {codeView, setCodeView, previewView, setPreviewView} = useCodeEditorContext()

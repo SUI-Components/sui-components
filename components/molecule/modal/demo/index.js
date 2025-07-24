@@ -1,15 +1,15 @@
 import {Bold, H1, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 
+import ArticleA11y from './articles/ArticleA11y.js'
 import ArticleAPI from './articles/ArticleAPI.js'
 import ArticleControlled from './articles/ArticleControlled.js'
 import ArticleDefault from './articles/ArticleDefault.js'
 import ArticleEffect from './articles/ArticleEffect.js'
 import ArticleForm from './articles/ArticleForm.js'
 import ArticleInset from './articles/ArticleInset.js'
+import ArticleKeyboardNavigation from './articles/ArticleKeyboardNavigation.js'
 import ArticleSize from './articles/ArticleSize.js'
 import ArticleURLState from './articles/ArticleURLState.js'
-import ArticleA11y from './articles/ArticleA11y.js'
-import ArticleKeyboardNavigation from './articles/ArticleKeyboardNavigation.js'
 import {CLASS_SECTION} from './config.js'
 
 const Demo = () => {

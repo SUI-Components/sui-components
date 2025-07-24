@@ -31,10 +31,11 @@ $base-class-element: '#{$base-class}-Content';
     &--size {
       @each $sizeName, $sizeValue in $s-molecule-modal-content {
         &-#{$sizeName} {
+          height: auto;
+          height: fit-content;
           max-width: $sizeValue;
           width: calc(100% - 2 * $mx-molecule-modal-content);
           max-height: calc(100% - 2 * $my-molecule-modal-content);
-          height: fit-content;
           padding: $sz-base;
           #{$base-class-element}-Container {
             border-radius: $bdrs-molecule-modal-content;

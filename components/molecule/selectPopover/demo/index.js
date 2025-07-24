@@ -14,7 +14,7 @@ import MoleculeSelect from '@s-ui/react-molecule-select'
 
 import CustomContentWrapper from './Custom/CustomContentWrapper.js'
 import CustomRenderActions from './Custom/CustomRenderActions.js'
-import {IconArrowDown, IconCheck, IconHalfCheck, IconClose} from './Icons/index.js'
+import {IconArrowDown, IconCheck, IconClose, IconHalfCheck} from './Icons/index.js'
 import {demoExample} from './config.js'
 
 import './index.scss'

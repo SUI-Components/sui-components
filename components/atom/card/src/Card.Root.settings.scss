@@ -1,0 +1,106 @@
+@use 'sass:math';
+
+$p-atom-card: $p-l !default;
+$px-atom-card: $p-atom-card !default;
+$py-atom-card: $p-atom-card !default;
+
+$bxsh-atom-card: none !default;
+$bdrs-atom-card: $bdrs-m !default;
+
+$bdw-atom-card: $bdw-s !default;
+
+$atom-card-designs: ('filled', 'outlined' 'dashed', 'ghosted', 'glassed') !default;
+$atom-card-colors: (
+  'primary': (
+    $c-primary,
+    $c-white,
+    $c-white,
+    $c-primary
+  ),
+  'accent': (
+    $c-accent,
+    $c-white,
+    $c-white,
+    $c-accent
+  ),
+  'neutral': (
+    $c-gray,
+    $c-white,
+    $c-white,
+    $c-gray
+  ),
+  'success': (
+    $c-success,
+    $c-white,
+    $c-white,
+    $c-success
+  ),
+  'alert': (
+    $c-alert,
+    $c-white,
+    $c-white,
+    $c-alert
+  ),
+  'error': (
+    $c-error,
+    $c-white,
+    $c-white,
+    $c-error
+  ),
+  'surface': (
+    $c-white,
+    $c-black,
+    $c-black,
+    $c-white
+  )
+) !default;
+
+$atom-card-elevation-xs: color-mix(in srgb, #000000 15%, transparent) 0 0 $sz-base * 0.125 $sz-base * 0.0625;
+$atom-card-elevation-s: color-mix(in srgb, #000000 15%, transparent) 0 0 $sz-base * 0.25 $sz-base * 0.125;
+$atom-card-elevation-m: color-mix(in srgb, #000000 15%, transparent) 0 0 $sz-base * 0.5 $sz-base * 0.25;
+$atom-card-elevation-l: color-mix(in srgb, #000000 15%, transparent) 0 0 $sz-base * 1 $sz-base * 0.5;
+$atom-card-elevation-xl: color-mix(in srgb, #000000 15%, transparent) 0 0 $sz-base * 2 $sz-base * 1;
+
+$atom-card-elevations: (
+  'xl': #{$atom-card-elevation-xl,
+  $atom-card-elevation-l,
+  $atom-card-elevation-m,
+  $atom-card-elevation-s,
+  $atom-card-elevation-xs},
+  'l': #{$atom-card-elevation-l,
+  $atom-card-elevation-m,
+  $atom-card-elevation-s,
+  $atom-card-elevation-xs},
+  'm': #{$atom-card-elevation-m,
+  $atom-card-elevation-s,
+  $atom-card-elevation-xs},
+  's': #{$atom-card-elevation-s,
+  $atom-card-elevation-xs},
+  'xs': #{$atom-card-elevation-xs},
+  'none': none,
+  '-xs': #{$atom-card-elevation-xs inset},
+  '-s': #{$atom-card-elevation-s inset,
+  $atom-card-elevation-xs inset},
+  '-m': #{$atom-card-elevation-m inset,
+  $atom-card-elevation-s inset,
+  $atom-card-elevation-xs inset},
+  '-l': #{$atom-card-elevation-l inset,
+  $atom-card-elevation-m inset,
+  $atom-card-elevation-s inset,
+  $atom-card-elevation-xs inset},
+  '-xl': #{$atom-card-elevation-xl inset,
+  $atom-card-elevation-l inset,
+  $atom-card-elevation-m inset,
+  $atom-card-elevation-s inset,
+  $atom-card-elevation-xs inset}
+) !default;
+
+$atom-card-corner-sizes: (
+  none: 0,
+  s: $bdrs-s,
+  m: $bdrs-m,
+  l: $bdrs-l,
+  xl: $bdrs-xl,
+  xxl: $bdrs-xxl,
+  xxxl: $bdrs-xxxl
+) !default;

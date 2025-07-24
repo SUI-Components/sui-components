@@ -1,0 +1,23 @@
+.Demo {
+  --c-white: var(--studio-c-surface);
+  --c-black: var(--studio-c-on-surface);
+  --sz-1-2: #{0.5 * $sz-base};
+  --sz-1: #{$sz-base};
+  --sz-2: #{2 * $sz-base};
+  padding: var(--sz-2);
+  border-radius: var(--sz-1);
+  background: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--c-black) 0%, transparent),
+    color-mix(in srgb, var(--c-black) 0%, transparent) var(--sz-1),
+    color-mix(in srgb, var(--c-black) 5%, transparent) var(--sz-1),
+    color-mix(in srgb, var(--c-black) 5%, transparent) var(--sz-2)
+  );
+  box-sizing: content-box;
+  &-Container {
+    width: 100%;
+    border-radius: var(--sz-1-2);
+    overflow: hidden;
+    position: relative;
+  }
+}

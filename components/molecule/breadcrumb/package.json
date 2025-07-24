@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-breadcrumb",
-  "version": "1.33.0",
+  "version": "1.34.0",
   "description": "SUI Breadcrumb Basic",
   "publishConfig": {
     "access": "public"

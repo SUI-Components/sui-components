@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 1.7.0 (2025-07-24)
+
+
+
 # 1.6.0 (2022-10-06)
 
 
@@ -57,6 +61,3 @@
 ### Features
 
 * **atom/skeleton:** add first iteration of skeleton component ([d435a84](https://github.com/SUI-Components/sui-components/commit/d435a847c9e44aae3615a0ea47d8d02d037375c5))
-
-
-

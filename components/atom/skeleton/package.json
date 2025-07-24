@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-skeleton",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Display the loading state of a component while avoiding layout shift",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "skeleton"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "skeleton"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

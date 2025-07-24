@@ -1,6 +1,6 @@
 import {forwardRef, isValidElement} from 'react'
-import cx from 'classnames'
 
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import Injector from '@s-ui/react-primitive-injector'

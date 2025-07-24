@@ -5,15 +5,15 @@ import {
   Article,
   Bold,
   Box,
+  Cell,
   Code,
+  Grid,
   H2,
   H3,
+  ListItem,
   Paragraph,
   Strong,
-  UnorderedList,
-  ListItem,
-  Grid,
-  Cell
+  UnorderedList
 } from '@s-ui/documentation-library'
 import AtomKbd from '@s-ui/react-atom-kbd'
 

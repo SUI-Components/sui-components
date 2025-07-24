@@ -2,10 +2,10 @@
 
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './articles/ArticleA11y.js'
 import ArticleCheckbox from './articles/ArticleCheckbox.js'
 import ArticleInput from './articles/ArticleInput.js'
 import ArticleTextArea from './articles/ArticleTextArea.js'
-import ArticleA11y from './articles/ArticleA11y.js'
 import {CLASS_SECTION} from './settings.js'
 
 import './index.scss'

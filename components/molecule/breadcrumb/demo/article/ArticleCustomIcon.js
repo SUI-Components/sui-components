@@ -1,7 +1,6 @@
 import {useState} from 'react'
 
 import PropTypes from 'prop-types'
-import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import {
   AntDesignIcon,
@@ -9,11 +8,12 @@ import {
   Code,
   H2,
   Input,
+  Label,
   Paragraph,
   RadioButton,
-  RadioButtonGroup,
-  Label
+  RadioButtonGroup
 } from '@s-ui/documentation-library'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
 import MoleculeBreadcrumb from '../../src/index.js'
 

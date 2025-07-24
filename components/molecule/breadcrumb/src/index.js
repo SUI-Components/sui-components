@@ -1,9 +1,9 @@
 import {forwardRef, Fragment, isValidElement} from 'react'
+
 import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 import ChevronRight from '@s-ui/react-icons/lib/Chevronright'
-
 import PrimitiveInjector from '@s-ui/react-primitive-injector'
 
 import {BASE_CLASS, breadcrumbClassName, isFunction} from './settings.js'

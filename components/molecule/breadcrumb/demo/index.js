@@ -1,11 +1,10 @@
 import {H1, Paragraph} from '@s-ui/documentation-library'
 
+import ArticleA11y from './article/ArticleA11y.js'
 import ArticleCustomIcon from './article/ArticleCustomIcon.js'
 import ArticleDefault from './article/ArticleDefaut.js'
-import ArticleScrollable from './article/ArticleScrollable.js'
-import ArticleA11y from './article/ArticleA11y.js'
 import ArticleKeyboardNavigation from './article/ArticleKeyboardNavigation.js'
-
+import ArticleScrollable from './article/ArticleScrollable.js'
 import {breadcrumbItems, CLASS_SECTION} from './settings.js'
 
 export default () => {

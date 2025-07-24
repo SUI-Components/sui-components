@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2025-07-24)
+
+
+### Bug Fixes
+
+* css rule for being visible in safari ([e86973b](https://github.com/SUI-Components/sui-components/commit/e86973bb511890a150ebe40bfb8606ba314e78a8))
+
+
+
 # 2.2.0 (2025-05-22)
 
 

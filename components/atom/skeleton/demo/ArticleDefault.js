@@ -26,7 +26,7 @@ const Content = ({placeholder}) => (
     <H2>{placeholder ? <AtomSkeleton /> : 'Title H2'}</H2>
     <Grid cols={10} gutter={[8, 8]}>
       <Cell span={3}>
-        <img style={{width: '100%', borderRadius: '50%'}} src="https://via.placeholder.com/150" />
+        <img style={{width: '100%', borderRadius: '50%'}} src="https://placehold.co/150" />
       </Cell>
       <Cell span={7}>
         <Paragraph>{placeholder ? <AtomSkeleton count={3} /> : loremIpsum}</Paragraph>

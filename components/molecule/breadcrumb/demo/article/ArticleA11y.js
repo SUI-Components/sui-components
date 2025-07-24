@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import {
   Anchor,
   Article,
+  Bold,
   Box,
+  Cell,
   Code,
+  Grid,
   H2,
   H3,
-  Bold,
   ListItem,
-  Grid,
-  Cell,
   Paragraph,
   Strong,
   UnorderedList

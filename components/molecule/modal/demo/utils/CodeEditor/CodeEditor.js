@@ -1,10 +1,10 @@
 import {useState} from 'react'
 import {LiveEditor, LiveError, LivePreview, LiveProvider} from 'react-live'
+
 import cx from 'classnames'
 import {themes} from 'prism-react-renderer'
-import usePrefersColorScheme from 'use-prefers-color-scheme'
-
 import PropTypes from 'prop-types'
+import usePrefersColorScheme from 'use-prefers-color-scheme'
 
 import {CodeEditorProvider} from './Context/index.js'
 import CodeEditorActions from './CodeEditorActions.js'

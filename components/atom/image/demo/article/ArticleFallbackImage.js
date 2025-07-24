@@ -1,8 +1,8 @@
 import {useRef, useState} from 'react'
-import PropTypes from 'prop-types'
-
 import useIntersection from 'react-use/lib/useIntersection'
 import useThrottleFn from 'react-use/lib/useThrottleFn'
+
+import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Label, ListItem, Paragraph, RadioButton, UnorderedList} from '@s-ui/documentation-library'
 

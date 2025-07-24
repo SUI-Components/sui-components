@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 
 import {Article, Code, H2, H3} from '@s-ui/documentation-library'
-
 import AtomButton from '@s-ui/react-atom-button'
-import {CodeEditor} from '../utils/index.js'
+
 import Modal from '../../src/index.js'
+import {CodeEditor} from '../utils/index.js'
 
 const components = {
   AtomButton,

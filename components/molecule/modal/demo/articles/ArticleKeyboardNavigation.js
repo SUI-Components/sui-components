@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import {Article, H2, H3, ListItem, Paragraph, Bold, Code, UnorderedList} from '@s-ui/documentation-library'
+import {Article, Bold, Code, H2, H3, ListItem, Paragraph, UnorderedList} from '@s-ui/documentation-library'
 import AtomKbd from '@s-ui/react-atom-kbd'
 
 const ArticleKeyboardNavigation = ({className}) => {

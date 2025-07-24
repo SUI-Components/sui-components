@@ -19,13 +19,13 @@ const ArticleViewport = ({className}) => {
       </Paragraph>
       <div style={{height: 300}} className="viewport-demo">
         <AtomImage
-          src="https://via.placeholder.com/50"
+          src="https://placehold.co/50"
           alt=""
           sources={sizes
             .sort((a, b) => a - b)
             .reverse()
             .map(value => ({
-              srcSet: `https://via.placeholder.com/${value}x300`,
+              srcSet: `https://placehold.co/${value}x300`,
               media: `(min-width: ${value}px)`
             }))}
         />

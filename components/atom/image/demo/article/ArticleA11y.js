@@ -8,10 +8,10 @@ import {
   Code,
   H2,
   H3,
+  ListItem,
   Paragraph,
   Strong,
-  UnorderedList,
-  ListItem
+  UnorderedList
 } from '@s-ui/documentation-library'
 
 const ArticleA11y = ({className}) => {

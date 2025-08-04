@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.48.0 (2025-08-04)
+
+
+### Features
+
+* add aria-pressed attribute to password toggle button ([5f7c143](https://github.com/SUI-Components/sui-components/commit/5f7c1434cb9b208eb2121bd1927cf00906ce9277))
+
+
+
 # 5.47.0 (2025-06-20)
 
 

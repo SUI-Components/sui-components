@@ -38,6 +38,7 @@ const Password = forwardRef(
         <button
           onClick={toggle}
           type="button"
+          aria-pressed={type !== PASSWORD}
           className={cx(
             BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
             shape && `${BASE_CLASS_PASSWORD_TOGGLE_BUTTON}-shape-${shape}`

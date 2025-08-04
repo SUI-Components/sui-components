@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.49.0 (2025-08-04)
+
+
+### Features
+
+* add aria-label to password toggle button ([b1ddc61](https://github.com/SUI-Components/sui-components/commit/b1ddc614aa9be143f45a75ae88da58c46ad16d00))
+
+
+
 # 5.48.0 (2025-08-04)
 
 

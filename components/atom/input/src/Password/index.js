@@ -10,7 +10,7 @@ import Input from '../Input/index.js'
 import {BASE_CLASS_PASSWORD, BASE_CLASS_PASSWORD_TOGGLE_BUTTON, PASSWORD, TEXT} from './config.js'
 
 const Password = forwardRef(
-  ({onChange, shape, pwShowLabel, pwHideLabel, value, defaultValue = '', ...props}, forwardedRef) => {
+  ({onChange, shape, pwShowLabel, pwHideLabel, toggleAriaLabel, value, defaultValue = '', ...props}, forwardedRef) => {
     const [type, setType] = useState(PASSWORD)
     const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
 
@@ -39,6 +39,7 @@ const Password = forwardRef(
           onClick={toggle}
           type="button"
           aria-pressed={type !== PASSWORD}
+          aria-label={toggleAriaLabel}
           className={cx(
             BASE_CLASS_PASSWORD_TOGGLE_BUTTON,
             shape && `${BASE_CLASS_PASSWORD_TOGGLE_BUTTON}-shape-${shape}`
@@ -56,6 +57,8 @@ Password.propTypes = {
   pwShowLabel: PropTypes.node,
   /* Text to be shown to hide the password on click */
   pwHideLabel: PropTypes.node,
+  /* Aria label for the toggle button */
+  toggleAriaLabel: PropTypes.string,
   /* Event launched on every input change */
   onChange: PropTypes.func,
   /* The name of the control */

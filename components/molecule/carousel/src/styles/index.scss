@@ -26,6 +26,12 @@ $base-class: '.sui-MoleculeCarousel';
       background-color: $c-gray-light-3;
       outline: none;
     }
+    &:focus-visible {
+      opacity: 1;
+      box-shadow: $bxsh-molecule-carousel-arrow;
+      outline: 2px solid transparentize($c-primary, 0.2);
+      outline-offset: 2px;
+    }
     &:hover {
       background-color: $c-gray-light-4;
     }

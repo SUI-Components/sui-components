@@ -30,6 +30,7 @@ const MoleculeDropdownList = forwardRef(
       visible,
       onKeyDown,
       'aria-label': ariaLabel,
+      className,
       ...props
     },
     forwardedRef
@@ -47,7 +48,8 @@ const MoleculeDropdownList = forwardRef(
       `${BASE_CLASS}--size-${size}`,
       {
         [CLASS_HIDDEN]: !visible
-      }
+      },
+      className
     )
 
     const getFocusedOptionIndex = options => {
@@ -118,6 +120,10 @@ MoleculeDropdownList.propTypes = {
 
   /** Content to be included in the list (MoleculeDropdownOption) */
   children: PropTypes.node,
+  /**
+   * class attribute
+   */
+  className: PropTypes.string,
 
   /** callback on select option */
   onSelect: PropTypes.func,

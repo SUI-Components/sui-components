@@ -22,7 +22,7 @@ $base-class: '.sui-MoleculeCarousel';
     background-color: $c-gray-light-2;
     border: none;
 
-    &:focus {
+    &:focus:not(:focus-visible) {
       background-color: $c-gray-light-3;
       outline: none;
     }

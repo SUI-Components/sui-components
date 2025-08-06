@@ -39,6 +39,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   tags = [],
   type,
   value = '',
+  otherDropdownListProps: {className: dropdownListClassname, ...otherDropdownListProps} = {},
   ...restProps
 }) => {
   const innerRefInput = useRef()
@@ -124,6 +125,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         tagsCloseIcon={iconCloseTag}
         type={type}
         value={value}
+        {...restProps}
       >
         <MoleculeInputTags />
       </InputWithClearUI>
@@ -137,7 +139,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
           value={tags}
           visible={isOpen && Children.count(children) > 0}
           design={design}
-          {...restProps}
+          className={dropdownListClassname}
+          ownProps={otherDropdownListProps}
         >
           {children}
         </MoleculeDropdownList>

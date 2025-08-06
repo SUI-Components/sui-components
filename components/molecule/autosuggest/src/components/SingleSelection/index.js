@@ -38,6 +38,7 @@ const MoleculeAutosuggestSingleSelection = ({
   type,
   value = '',
   noBorder,
+  otherDropdownListProps: {className: dropdownListClassname, ...otherDropdownListProps} = {},
   ...restProps
 }) => {
   const handleSelection = (ev, {value, ...args}) => {
@@ -62,6 +63,7 @@ const MoleculeAutosuggestSingleSelection = ({
     typeof onClickRightIcon === 'function' && onClickRightIcon(ev, {...args, value})
   }
 
+  console.log('otherDropdownListProps', {otherDropdownListProps})
   return (
     <>
       <InputWithClearUI
@@ -90,6 +92,7 @@ const MoleculeAutosuggestSingleSelection = ({
         type={type}
         value={value}
         noBorder={noBorder}
+        {...restProps}
       >
         <AtomInput />
       </InputWithClearUI>
@@ -102,7 +105,8 @@ const MoleculeAutosuggestSingleSelection = ({
           highlightQuery={value}
           onKeyDown={onKeyDown}
           design={design}
-          {...restProps}
+          className={dropdownListClassname}
+          ownProps={otherDropdownListProps}
         >
           {children}
         </MoleculeDropdownList>

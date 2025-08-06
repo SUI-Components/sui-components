@@ -31,6 +31,7 @@ const MoleculeDropdownList = forwardRef(
       onKeyDown,
       'aria-label': ariaLabel,
       className,
+      ownProps = {},
       ...props
     },
     forwardedRef
@@ -40,17 +41,6 @@ const MoleculeDropdownList = forwardRef(
 
     const [typedWord, setTypedWord] = useState('')
     const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)
-
-    const classNames = cx(
-      BASE_CLASS,
-      `${BASE_CLASS}--position-${position}`,
-      `${BASE_CLASS}--design-${design}`,
-      `${BASE_CLASS}--size-${size}`,
-      {
-        [CLASS_HIDDEN]: !visible
-      },
-      className
-    )
 
     const getFocusedOptionIndex = options => {
       const currentElementFocused = document.activeElement
@@ -96,7 +86,24 @@ const MoleculeDropdownList = forwardRef(
     if (!visible && !alwaysRender) return null
 
     return (
-      <ul ref={ref} tabIndex={0} onKeyDown={handleKeyDown} className={classNames} role="listbox" aria-label={ariaLabel}>
+      <ul
+        ref={ref}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        className={cx(
+          BASE_CLASS,
+          `${BASE_CLASS}--position-${position}`,
+          `${BASE_CLASS}--design-${design}`,
+          `${BASE_CLASS}--size-${size}`,
+          {
+            [CLASS_HIDDEN]: !visible
+          },
+          className
+        )}
+        role="listbox"
+        aria-label={ariaLabel}
+        {...ownProps}
+      >
         {Children.toArray(children)
           .filter(Boolean)
           .map((child, index) => (
@@ -147,7 +154,10 @@ MoleculeDropdownList.propTypes = {
   visible: PropTypes.bool,
 
   /** Keydown handler callback **/
-  onKeyDown: PropTypes.func
+  onKeyDown: PropTypes.func,
+
+  /** props object to add to the unordered list **/
+  ownProps: PropTypes.object
 }
 
 export default MoleculeDropdownList

@@ -28,6 +28,7 @@ const MoleculeAutosuggest = ({
   errorState,
   id = '',
   isOpen,
+  isOpenDefault = false,
   keysCloseList = CLOSE_KEYS_LIST,
   keysSelection = SELECT_KEYS_LIST,
   multiselection,
@@ -41,12 +42,13 @@ const MoleculeAutosuggest = ({
   refMoleculeAutosuggest: refMoleculeAutosuggestFromProps = {},
   refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
   state,
+  className,
   ...restProps
 }) => {
   const innerRefMoleculeAutosuggest = useRef()
   const refMoleculeAutosuggest = useMergeRefs(innerRefMoleculeAutosuggest, refMoleculeAutosuggestFromProps)
 
-  const [isOpenState, setIsOpenState, isControlled] = useControlledState(isOpen, !!isOpen)
+  const [isOpenState, setIsOpenState, isControlled] = useControlledState(isOpen, isOpenDefault)
 
   const refsMoleculeAutosuggestOptions = useRef([])
   const innerRefMoleculeAutosuggestInput = useRef()
@@ -78,16 +80,6 @@ const MoleculeAutosuggest = ({
         selectKey: keysSelection
       })
     })
-
-  const className = cx(
-    BASE_CLASS,
-    errorState && `${BASE_CLASS}--${AUTOSUGGEST_STATES.ERROR}`,
-    errorState === false && `${BASE_CLASS}--${AUTOSUGGEST_STATES.SUCCESS}`,
-    state && `${BASE_CLASS}--${state}`,
-    {
-      [CLASS_DISABLED]: disabled
-    }
-  )
 
   const closeList = ev => {
     const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
@@ -220,7 +212,16 @@ const MoleculeAutosuggest = ({
     <div
       ref={refMoleculeAutosuggest}
       tabIndex="0"
-      className={className}
+      className={cx(
+        BASE_CLASS,
+        errorState && `${BASE_CLASS}--${AUTOSUGGEST_STATES.ERROR}`,
+        errorState === false && `${BASE_CLASS}--${AUTOSUGGEST_STATES.SUCCESS}`,
+        state && `${BASE_CLASS}--${state}`,
+        {
+          [CLASS_DISABLED]: disabled
+        },
+        className
+      )}
       onKeyDown={handleKeyDown}
       onFocus={handleFocusIn}
       onBlur={handleFocusOut}
@@ -240,6 +241,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** children */
   children: PropTypes.any,
+
+  /** HTML class attribute */
+  className: PropTypes.string,
 
   /** if the component is disabled or not */
   disabled: PropTypes.bool,
@@ -261,6 +265,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** if list of options is displayed or not */
   isOpen: PropTypes.bool,
+
+  /** if list of options is displayed or not uncontrolled mode on first render */
+  isOpenDefault: PropTypes.bool,
 
   /** list of key identifiers that will close the list */
   keysCloseList: PropTypes.array,

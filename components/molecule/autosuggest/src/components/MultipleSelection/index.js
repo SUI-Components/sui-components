@@ -38,7 +38,8 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   tabIndex,
   tags = [],
   type,
-  value = ''
+  value = '',
+  ...restProps
 }) => {
   const innerRefInput = useRef()
   const moleculeInputRef = useMergeRefs(innerRefInput, refInput)
@@ -136,6 +137,7 @@ const MoleculeAutosuggestFieldMultiSelection = ({
           value={tags}
           visible={isOpen && Children.count(children) > 0}
           design={design}
+          {...restProps}
         >
           {children}
         </MoleculeDropdownList>

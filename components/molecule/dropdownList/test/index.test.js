@@ -78,7 +78,7 @@ describe(json.name, () => {
 
     it('should extend classNames', () => {
       // Given
-      const props = {className: 'extended-classNames', label: 'label'}
+      const props = {className: 'extended-classNames'}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
       // When

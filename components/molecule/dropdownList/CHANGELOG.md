@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 2.6.0 (2025-08-07)
+
+
+### Features
+
+* add className prop to the default component classes ([23efd9e](https://github.com/SUI-Components/sui-components/commit/23efd9ea82b153c87f9628be2f4b7bb3673e843a))
+* add prop spreading to the dropdownList ([16acb72](https://github.com/SUI-Components/sui-components/commit/16acb7225452b5553143f7a85f7ecd31116fe567))
+* update test ([4886b86](https://github.com/SUI-Components/sui-components/commit/4886b869b0c9663592fa7dad387acabd3a8f7720))
+* update test ([6846c95](https://github.com/SUI-Components/sui-components/commit/6846c9587b87129d31c754813317f74e34b15d5a))
+
+
+
 # 2.5.0 (2025-02-24)
 
 

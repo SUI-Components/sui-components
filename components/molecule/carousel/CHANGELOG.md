@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.9.0 (2025-08-07)
+
+
+### Features
+
+* Enhance arrow focus visibility ([8d8e774](https://github.com/SUI-Components/sui-components/commit/8d8e774f030203406d2f8090198670b3f6e3097f))
+* Update focus styles for arrow buttons ([0cd3e73](https://github.com/SUI-Components/sui-components/commit/0cd3e73d1bd4e6b847bf4f504dc804f1a925bfb2))
+
+
+
 # 1.8.0 (2025-06-26)
 
 

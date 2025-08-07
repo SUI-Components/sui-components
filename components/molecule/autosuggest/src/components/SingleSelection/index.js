@@ -63,7 +63,6 @@ const MoleculeAutosuggestSingleSelection = ({
     typeof onClickRightIcon === 'function' && onClickRightIcon(ev, {...args, value})
   }
 
-  console.log('otherDropdownListProps', {otherDropdownListProps})
   return (
     <>
       <InputWithClearUI

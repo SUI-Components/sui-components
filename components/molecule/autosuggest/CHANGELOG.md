@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 2.72.0 (2025-08-07)
+
+
+### Features
+
+* add prop spreading to the dropdownList ([16acb72](https://github.com/SUI-Components/sui-components/commit/16acb7225452b5553143f7a85f7ecd31116fe567))
+* remove console.log ([c073bfb](https://github.com/SUI-Components/sui-components/commit/c073bfb9b54969f298e62269c7f669938a3fd4ca))
+* restore test ([72f4225](https://github.com/SUI-Components/sui-components/commit/72f4225e972e1a024527a368fc6795935e6b6d71))
+* Use prop spreading in the DropdownList component to support a ([e008cb6](https://github.com/SUI-Components/sui-components/commit/e008cb61f0277c0e1a03bcd8855e86a249a5c01d))
+
+
+
 # 2.71.0 (2025-06-20)
 
 

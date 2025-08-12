@@ -10,7 +10,7 @@
 
 ## Performance Metrics
 
-<a href="https://pages.github.mpi-internal.com/scmspain/design-systems/sui/index.html" target="_blank">Design System Dashboard</a>
+<a href="https://sui-components.github.io/design-system-dashboard/sui/index.html" target="_blank">Design System Dashboard</a>
 
 <a href="coverage/index.html" target="_blank">Test coverage</a>
 

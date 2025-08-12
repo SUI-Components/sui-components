@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.50.0 (2025-08-12)
+
+
+### Bug Fixes
+
+* remove wrong style added ([aa79309](https://github.com/SUI-Components/sui-components/commit/aa79309bd5e46004450f498904ba12959da96d96))
+
+
+
 # 5.49.0 (2025-08-04)
 
 

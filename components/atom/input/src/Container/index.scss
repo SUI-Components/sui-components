@@ -22,10 +22,4 @@ $base-class-container: '#{$base-class}_Container';
       outline-offset: 2px;
     }
   }
-  &-noBorder:focus-within:has(#{$base-class-input}:focus-visible) {
-    outline-style: solid;
-    outline-color: transparentize($c-primary, 0.2);
-    outline-width: 2px;
-    outline-offset: 2px;
-  }
 }

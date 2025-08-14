@@ -1,5 +1,32 @@
 # CHANGELOG
 
+# 5.50.0 (2025-08-12)
+
+
+### Bug Fixes
+
+* remove wrong style added ([aa79309](https://github.com/SUI-Components/sui-components/commit/aa79309bd5e46004450f498904ba12959da96d96))
+
+
+
+# 5.49.0 (2025-08-04)
+
+
+### Features
+
+* add aria-label to password toggle button ([b1ddc61](https://github.com/SUI-Components/sui-components/commit/b1ddc614aa9be143f45a75ae88da58c46ad16d00))
+
+
+
+# 5.48.0 (2025-08-04)
+
+
+### Features
+
+* add aria-pressed attribute to password toggle button ([5f7c143](https://github.com/SUI-Components/sui-components/commit/5f7c1434cb9b208eb2121bd1927cf00906ce9277))
+
+
+
 # 5.47.0 (2025-06-20)
 
 

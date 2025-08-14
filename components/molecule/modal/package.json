@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-modal",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "",
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.15.0 (2025-08-19)
+
+
+### Features
+
+* add accesible focus visible outline ([11788c6](https://github.com/SUI-Components/sui-components/commit/11788c6373a48492d4afb8cd69dca4b124969439))
+* add outline-style ([cabbc29](https://github.com/SUI-Components/sui-components/commit/cabbc29d4cf82a9430c07589be245c87d330f3c4))
+* add outline-width ([2058b45](https://github.com/SUI-Components/sui-components/commit/2058b45ff6fae55a1cd3b77d8289edf3dd6ab221))
+
+
+
 # 2.14.0 (2025-06-05)
 
 

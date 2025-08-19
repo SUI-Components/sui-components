@@ -99,6 +99,7 @@ $base-class: '.sui-MoleculeDropdownOption';
   &:focus-visible {
     outline-color: $oc-dropdown-option-focus-visible;
     outline-offset: $oo-dropdown-option-focus-visible;
+    outline-width: $ow-dropdown-option-focus-visible;
   }
 
   &--withDescription {

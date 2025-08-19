@@ -96,6 +96,11 @@ $base-class: '.sui-MoleculeDropdownOption';
     }
   }
 
+  &:focus-visible {
+    outline-color: $oc-dropdown-option-focus-visible;
+    outline-offset: $oo-dropdown-option-focus-visible;
+  }
+
   &--withDescription {
     flex-direction: column;
     align-items: stretch;

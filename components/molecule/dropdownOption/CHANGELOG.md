@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.16.0 (2025-08-25)
+
+
+### Features
+
+* update aria attributes for accessibility ([23c7539](https://github.com/SUI-Components/sui-components/commit/23c75398d499941b0cef1045a735676ea9e07352))
+
+
+
 # 2.15.0 (2025-08-19)
 
 

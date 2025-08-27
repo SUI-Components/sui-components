@@ -9,14 +9,6 @@ $class-label-link: '#{$class-label}Link';
   display: flex;
   margin-left: $m-l-molecule-rating-stars;
 
-  &.is-hoverable {
-    cursor: pointer;
-  }
-
-  &.is-active {
-    color: $c-molecule-rating-svg-hover;
-  }
-
   svg {
     fill: currentColor;
     height: 100%;

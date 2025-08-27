@@ -1,6 +1,5 @@
 import {useState} from 'react'
 
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
@@ -8,16 +7,16 @@ import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import {BASE_CLASS, DEFAULTS_STAR_HOVER as DEFAULTS} from './settings.js'
 
 const MoleculeRatingStarHover = ({
-  iconStar = DEFAULTS.IconStarEmpty,
   initialRating = 0,
   onClick,
   size,
-  ratingValues = DEFAULTS.ratingValues
+  ratingValues = DEFAULTS.ratingValues,
+  IconStarEmpty = DEFAULTS.IconStarEmpty,
+  IconStarFilled = DEFAULTS.IconStarFilled,
+  IconStarHalfFilled = DEFAULTS.IconStarHalfFilled
 }) => {
   const [selectedRating, setSelectedRating] = useState(null)
   const [rating, setRating] = useState(initialRating)
-
-  const StarHover = iconStar
 
   const handleClick = (e, {value}) => {
     setRating(value)
@@ -27,13 +26,12 @@ const MoleculeRatingStarHover = ({
   const renderStars = () =>
     ratingValues.map(value => {
       const isActive = rating >= value || value <= selectedRating
-      const className = cx(BASE_CLASS, 'is-hoverable', {
-        [`is-active`]: isActive
-      })
+      const StarHover = isActive ? IconStarFilled : IconStarEmpty
+
       return (
         <div
           key={value}
-          className={className}
+          className={BASE_CLASS}
           onClick={e => handleClick(e, {value})}
           onMouseOver={() => setSelectedRating(value)}
           onMouseOut={() => setSelectedRating(null)}
@@ -49,17 +47,23 @@ const MoleculeRatingStarHover = ({
 MoleculeRatingStarHover.displayName = 'MoleculeRatingStarHover'
 
 MoleculeRatingStarHover.propTypes = {
-  /** current values of the stars */
-  ratingValues: PropTypes.array,
+  /** Icon for star filled */
+  IconStarFilled: PropTypes.node,
 
-  /** Icon for star */
-  iconStar: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+  /** Icon for star half filled */
+  IconStarHalfFilled: PropTypes.node,
+
+  /** Icon for star empty */
+  IconStarEmpty: PropTypes.node,
 
   /** init value assigned to rating */
   initialRating: PropTypes.number,
 
   /** Callback used component hovered */
   onClick: PropTypes.func,
+
+  /** current values of the stars */
+  ratingValues: PropTypes.array,
 
   /** size */
   size: PropTypes.oneOf(Object.values(ATOM_ICON_SIZES))

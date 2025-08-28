@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-button-group",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "description": "",
   "publishConfig": {
     "access": "public"

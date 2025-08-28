@@ -8,7 +8,7 @@ import Injector from '@s-ui/react-primitive-injector'
 import Poly from '@s-ui/react-primitive-polymorphic-element'
 
 import {DEFAULT_COLUMNS, DISPLAY, SPACED} from './config.js'
-import {BASE_CLASS} from './settings.js'
+import {BASE_CLASS, divideProps} from './settings.js'
 
 const getGroupPosition =
   ({groupPositions, numChildren, spaced, shape}) =>
@@ -31,6 +31,8 @@ const MoleculeButtonGroup = ({
   design,
   display,
   negative,
+  role,
+  className,
   groupPositions = {
     FIRST: 'first',
     MIDDLE: 'middle',
@@ -41,7 +43,7 @@ const MoleculeButtonGroup = ({
   spaced,
   isVertical,
   shape,
-  ...props
+  ...rest
 }) => {
   const numChildren = children.length
 
@@ -70,6 +72,8 @@ const MoleculeButtonGroup = ({
   const CLASS_DISPLAY = getClassDisplay({display})
   const CLASS_DISPLAY_COLUMNS = getClassDisplayColumns({display, columns})
 
+  const [ownProps, childProps] = divideProps(rest)
+
   const extendedChildren = Children.toArray(children)
     .filter(Boolean)
     .map((child, index) => {
@@ -77,7 +81,7 @@ const MoleculeButtonGroup = ({
 
       return (
         <Injector
-          {...props}
+          {...childProps}
           negative={negative}
           size={size}
           design={design}
@@ -99,8 +103,11 @@ const MoleculeButtonGroup = ({
         display && CLASS_DISPLAY,
         display && CLASS_DISPLAY_COLUMNS,
         spaced && CLASS_SPACED,
-        isVertical && `${BASE_CLASS}--vertical`
+        isVertical && `${BASE_CLASS}--vertical`,
+        className
       )}
+      role={{role}}
+      {...ownProps}
     >
       {extendedChildren}
     </Poly>
@@ -157,7 +164,13 @@ MoleculeButtonGroup.propTypes = {
   isVertical: PropTypes.bool,
 
   /** Shape of button */
-  shape: PropTypes.oneOf(Object.values(atomButtonShapes))
+  shape: PropTypes.oneOf(Object.values(atomButtonShapes)),
+
+  /** Additional classes */
+  className: PropTypes.string,
+
+  /** The HTML role **/
+  role: PropTypes.string
 }
 
 export default MoleculeButtonGroup

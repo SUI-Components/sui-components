@@ -80,7 +80,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it.skip('should NOT extend classNames', () => {
+    it.skip('should extend classNames', () => {
       // Given
       const props = {
         children: [<AtomButton key={0}>A</AtomButton>, <AtomButton key={1}>B</AtomButton>],
@@ -93,7 +93,39 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {
+        'data-attribute': 'data-attribute',
+        children: [<AtomButton key={0}>A</AtomButton>, <AtomButton key={1}>B</AtomButton>],
+        className: 'extended-classNames'
+      }
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {
+        'aria-attribute': 'aria-attribute',
+        children: [<AtomButton key={0}>A</AtomButton>, <AtomButton key={1}>B</AtomButton>],
+        className: 'extended-classNames'
+      }
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
     })
   })
 

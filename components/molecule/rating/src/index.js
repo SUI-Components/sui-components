@@ -6,7 +6,6 @@ import StarHover from './components/StarHover.js'
 import {BASE_CLASS, CLASS_CONTAINER_STARS, CLASS_LABEL, CLASS_LABEL_LINK, CLASS_LINK, SIZES} from './settings.js'
 
 const MoleculeRating = ({
-  iconStar,
   initialRating,
   isHovered = false,
   numStars = 5,
@@ -42,11 +41,11 @@ const MoleculeRating = ({
             .map((_, index) => <Star size={size} key={index} index={index} value={value} {...props} />)
         ) : (
           <StarHover
-            iconStar={iconStar}
             initialRating={initialRating}
             onClick={onClick}
             ratingValues={ratingValues}
             size={size}
+            {...props}
           />
         )}
       </div>
@@ -89,10 +88,7 @@ MoleculeRating.propTypes = {
   linkFactory: PropTypes.func,
 
   /** Callback used component hovered */
-  onClick: PropTypes.func,
-
-  /** Icon custom to StarHover  */
-  iconStar: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+  onClick: PropTypes.func
 }
 
 export default MoleculeRating

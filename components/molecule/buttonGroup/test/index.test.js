@@ -80,7 +80,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it.skip('should extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {
         children: [<AtomButton key={0}>A</AtomButton>, <AtomButton key={1}>B</AtomButton>],

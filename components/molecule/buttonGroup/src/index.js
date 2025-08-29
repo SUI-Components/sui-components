@@ -106,7 +106,7 @@ const MoleculeButtonGroup = ({
         isVertical && `${BASE_CLASS}--vertical`,
         className
       )}
-      role={{role}}
+      role={role}
       {...ownProps}
     >
       {extendedChildren}

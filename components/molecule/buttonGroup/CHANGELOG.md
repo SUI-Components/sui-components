@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.19.0 (2025-08-29)
+
+
+### Bug Fixes
+
+* hotfix ([ddc269e](https://github.com/SUI-Components/sui-components/commit/ddc269ec1ade7ffd3e0fa3457340f73716f1b0b9))
+
+
+
 # 2.18.0 (2025-08-28)
 
 

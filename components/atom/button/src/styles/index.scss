@@ -5,7 +5,8 @@ $base-class: '.sui-AtomButton';
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
 
   border-radius: $bdrs-atom-button;
-  border: $bdw-atom-button;
+  border-style: solid;
+  border-width: $bdw-atom-button-design-outline;
   box-sizing: border-box;
   display: inline-block;
   position: relative;

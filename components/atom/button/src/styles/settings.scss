@@ -61,7 +61,7 @@ $c-atom-button-colors: (
 $ff-atom-button: $ff-sans-serif !default;
 
 $bdrs-atom-button: $bdrs-m !default;
-$bdw-atom-button: $bdw-s solid !default;
+$bdw-atom-button-design-outline: $bdw-s !default;
 $bgc-atom-button: $c-primary !default;
 $bgc-atom-button-light: color-variation($bgc-atom-button, 4) !default;
 $bgc-atom-button-dark: color-variation($bgc-atom-button, -1) !default;

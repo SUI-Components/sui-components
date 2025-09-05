@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.3.0 (2025-09-05)
+
+
+### Features
+
+* add -atom-button token ([94c57d8](https://github.com/SUI-Components/sui-components/commit/94c57d88f9ffa5561850f27c1f1f5a159fa0085c))
+* split border props in outline design ([85dd169](https://github.com/SUI-Components/sui-components/commit/85dd16976e2c4a1daf9d5582226c382537466d3f))
+
+
+
 # 2.2.0 (2025-05-29)
 
 

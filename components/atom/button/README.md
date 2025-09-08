@@ -42,9 +42,7 @@ import Button from '@s-ui/react-atom-button'
 
 return (
   <div>
-    <Button onClick={() => alert('Primary with onClick')}>
-      Primary with onClick
-    </Button>
+    <Button onClick={() => alert('Primary with onClick')}>Primary with onClick</Button>
     <Button type="accent" title="Title: Lorem Ipsum">
       Accent with title
     </Button>
@@ -181,12 +179,7 @@ When `link` property is passed, the component will render an html link.
 import Button from '@s-ui/react-atom-button'
 
 return (
-  <Button
-    link
-    href="https://www.adevinta.com"
-    target="_blank"
-    rel="nofollow noopener"
-  >
+  <Button link href="https://www.adevinta.com" target="_blank" rel="nofollow noopener">
     Link
   </Button>
 )
@@ -195,12 +188,7 @@ return (
 output:
 
 ```html
-<a
-  class="sui-AtomButton sui-AtomButton--link"
-  href="https://www.adevinta.com"
-  target="_blank"
-  >Link</a
->
+<a class="sui-AtomButton sui-AtomButton--link" href="https://www.adevinta.com" target="_blank">Link</a>
 ```
 
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/atom/button).**

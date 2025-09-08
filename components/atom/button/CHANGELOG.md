@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.4.0 (2025-09-08)
+
+
+### Features
+
+* bump version ([909d410](https://github.com/SUI-Components/sui-components/commit/909d4103961fe6efabf6d823f00a67e2c985f6ea))
+* remove css button + button sibblings rule ([a24066d](https://github.com/SUI-Components/sui-components/commit/a24066d71242b0c9ee1eecf5766f3739a912f723))
+
+
+
 # 2.3.0 (2025-09-05)
 
 

@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 2.19.0 (2025-08-29)
+
+
+### Bug Fixes
+
+* hotfix ([ddc269e](https://github.com/SUI-Components/sui-components/commit/ddc269ec1ade7ffd3e0fa3457340f73716f1b0b9))
+
+
+
+# 2.18.0 (2025-08-28)
+
+
+### Features
+
+* split props between own and chilf ([ffaa1b5](https://github.com/SUI-Components/sui-components/commit/ffaa1b51f3c7bbc37a7bcae047fd1e11858cca32))
+
+
+
 # 2.17.0 (2025-03-10)
 
 

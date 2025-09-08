@@ -4,6 +4,9 @@ $mih-dropdown-option: 40px !default;
 $h-dropdown-option: $mih-dropdown-option !default; // deprecated
 $bgc-dropdown-option-hover: $c-gray-light-4 !default;
 $c-dropdown-option-hover: inherit !default;
+$oc-dropdown-option-focus-visible: $c-primary !default;
+$oo-dropdown-option-focus-visible: $m-xs !default;
+$ow-dropdown-option-focus-visible: 2px !default;
 
 $c-molecule-dropdown-option--highlight-mark: initial !default;
 $bdr-molecule-dropdown-option: 0 !default;

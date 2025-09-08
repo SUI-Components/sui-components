@@ -43,4 +43,16 @@ $base-class-password: '#{$base-class-input}-password';
       outline-offset: 2px;
     }
   }
+
+  &--state-error {
+    border-color: $c-atom-input--error;
+  }
+
+  &--state-success {
+    border-color: $c-atom-input--success;
+  }
+
+  &--state-alert {
+    border-color: $c-atom-input--alert;
+  }
 }

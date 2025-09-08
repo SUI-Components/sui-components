@@ -24,10 +24,6 @@ $base-class: '.sui-AtomButton';
   text-transform: $tt-atom-button;
   white-space: nowrap;
 
-  & + &:not(&--fitted):not(&-group) {
-    margin-left: $m-consecutive-atom-button;
-  }
-
   &-inner,
   &-content {
     display: inline-flex;

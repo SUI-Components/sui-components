@@ -15,12 +15,14 @@ $base-class: '.sui-AtomBadge';
 
   &#{$this}-size-small {
     font-size: $fz-atom-badge-s;
+    font-weight: $fw-atom-badge-s;
     line-height: $h-atom-badge-s;
     height: $h-atom-badge-s;
     padding: $p-atom-badge-s;
   }
   &#{$this}-size-medium {
     font-size: $fz-atom-badge-m;
+    font-weight: $fw-atom-badge-m;
     line-height: $h-atom-badge-m;
     height: $h-atom-badge-m;
     padding: $p-atom-badge-m;
@@ -28,6 +30,7 @@ $base-class: '.sui-AtomBadge';
 
   &#{$this}-size-large {
     font-size: $fz-atom-badge-l;
+    font-weight: $fw-atom-badge-l;
     line-height: $h-atom-badge-l;
     height: $h-atom-badge-l;
     padding: $p-atom-badge-l;

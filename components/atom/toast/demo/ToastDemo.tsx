@@ -4,9 +4,15 @@ import PropTypes from 'prop-types'
 
 import {Article, Cell, Grid, Label} from '@s-ui/documentation-library'
 
-import AtomToast from '../src/index.js'
+import AtomToast, {type AtomToastProps} from '../src/index'
 
-const ToastDemo = ({className, onClose, iconClose, ...toastProps}) => {
+interface ToastDemoProps extends AtomToastProps {
+  className?: string
+  iconClose?: React.ReactNode
+  onClose?: () => void
+}
+
+const ToastDemo = ({className, onClose, iconClose, ...toastProps}: ToastDemoProps) => {
   return (
     <AtomToast onClose={onClose} iconClose={iconClose} {...toastProps}>
       <Article className={className}>

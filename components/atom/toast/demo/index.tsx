@@ -1,6 +1,6 @@
-import {useState} from 'react'
+import {type ChangeEvent, type FormEvent, useState} from 'react'
 
-import {atomToastAutoCloseTimes, atomToastPositions} from 'components/atom/toast/src/index.js'
+import {atomToastAutoCloseTimes} from 'components/atom/toast/src/index'
 
 import {
   AntDesignIcon,
@@ -21,18 +21,24 @@ import {
 } from '@s-ui/documentation-library'
 import AtomIcon from '@s-ui/react-atom-icon'
 
-import ToastDemo from './ToastDemo.js'
+import {type AutoCloseTime, type Position, AUTO_CLOSE_TIMES} from '../src/config'
+import type {AtomToastProps} from '../src/index'
+import ToastDemo from './ToastDemo'
 
 import './index.scss'
 
+interface AtomToastPropsWithId extends AtomToastProps {
+  id: number
+}
+
 const Demo = () => {
-  const [toasts, setToasts] = useState([])
-  const pushToast = props => {
+  const [toasts, setToasts] = useState<AtomToastPropsWithId[]>([])
+  const pushToast = (props: AtomToastProps) => {
     const newToasts = [...toasts, {id: performance.now(), ...props}]
     setToasts(newToasts)
     return newToasts
   }
-  const popToast = id => {
+  const popToast = (id: number) => {
     if (!show) {
       const newToasts = toasts.filter(toast => toast.id !== id)
       setToasts(newToasts)
@@ -41,12 +47,47 @@ const Demo = () => {
     return toasts
   }
 
-  const [iconClose, setIconClose] = useState()
+  const [iconClose, setIconClose] = useState<React.ReactNode>()
   const [show, setShow] = useState(true)
   const [autoClose, setAutoClose] = useState(true)
-  const [autoCloseTime, setAutoCloseTime] = useState(atomToastAutoCloseTimes.short)
-  const [globalClose, setGlobalClose] = useState()
+  const [autoCloseTime, setAutoCloseTime] = useState<AutoCloseTime>(AUTO_CLOSE_TIMES.short)
+  const [globalClose, setGlobalClose] = useState(false)
   const [effect, setEffect] = useState(true)
+
+  const gridOptions: Array<{
+    position?: Position
+    span?: number
+    style: React.CSSProperties
+  }> = [
+    {
+      position: 'top-left',
+      style: {justifyContent: 'flex-start', display: 'flex'}
+    },
+    {
+      position: 'top',
+      style: {justifyContent: 'center', display: 'flex'}
+    },
+    {
+      position: 'top-right',
+      style: {justifyContent: 'flex-end', display: 'flex'}
+    },
+    {
+      span: 3,
+      style: {justifyContent: 'center', display: 'flex'}
+    },
+    {
+      position: 'bottom-left',
+      style: {justifyContent: 'flex-start', display: 'flex'}
+    },
+    {
+      position: 'bottom',
+      style: {justifyContent: 'center', display: 'flex'}
+    },
+    {
+      position: 'bottom-right',
+      style: {justifyContent: 'flex-end', display: 'flex'}
+    }
+  ]
 
   return (
     <div className="sui-StudioPreview">
@@ -62,38 +103,9 @@ const Demo = () => {
         </Paragraph>
         <Box outline>
           <Grid cols={3} gutter={[8, 8]}>
-            {[
-              {
-                position: atomToastPositions.topLeft,
-                style: {justifyContent: 'flex-start', display: 'flex'}
-              },
-              {
-                position: atomToastPositions.top,
-                style: {justifyContent: 'center', display: 'flex'}
-              },
-              {
-                position: atomToastPositions.topRight,
-                style: {justifyContent: 'flex-end', display: 'flex'}
-              },
-              {
-                span: 3,
-                style: {justifyContent: 'center', display: 'flex'}
-              },
-              {
-                position: atomToastPositions.bottomLeft,
-                style: {justifyContent: 'flex-start', display: 'flex'}
-              },
-              {
-                position: atomToastPositions.bottom,
-                style: {justifyContent: 'center', display: 'flex'}
-              },
-              {
-                position: atomToastPositions.bottomRight,
-                style: {justifyContent: 'flex-end', display: 'flex'}
-              }
-            ].map(({position, span, style}, index) => (
-              <Cell key={position || index} span={span}>
-                {position ? (
+            {gridOptions.map(({position, span, style}, index) => (
+              <Cell key={position !== undefined ? position : index} span={span}>
+                {position !== undefined ? (
                   <div style={style}>
                     <Button onClick={() => pushToast({position})}>{position}</Button>
                   </div>
@@ -112,7 +124,7 @@ const Demo = () => {
             autoCloseTime={autoCloseTime}
             effect={effect}
             iconClose={
-              iconClose && (
+              iconClose !== undefined && (
                 <AtomIcon>
                   <AntDesignIcon icon={iconClose} style={{color: 'currentColor'}} />
                 </AtomIcon>
@@ -151,7 +163,7 @@ const Demo = () => {
             <Grid cols={1} gutter={[8, 0]}>
               <Cell>
                 <RadioButtonGroup
-                  onChange={(event, value) => {
+                  onChange={(_event: FormEvent, value: AutoCloseTime) => {
                     setAutoCloseTime(value === undefined ? autoCloseTime : value)
                   }}
                 >
@@ -168,7 +180,13 @@ const Demo = () => {
                 </RadioButtonGroup>
               </Cell>
               <Cell>
-                <Input value={autoCloseTime} onChange={event => setAutoCloseTime(event.target.value)} tyype="number" />
+                <Input
+                  value={autoCloseTime}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                    setAutoCloseTime(Number(event.target.value) as AutoCloseTime)
+                  }
+                  type="number"
+                />
               </Cell>
             </Grid>
           </Cell>
@@ -191,21 +209,21 @@ const Demo = () => {
                   The <Code>iconClose</Code> (node) prop gives the posibility to customize the closing button.
                 </Paragraph>
                 <RadioButtonGroup
-                  onChange={(event, value) => {
+                  onChange={(_event: ChangeEvent<HTMLInputElement>, value: React.ReactNode) => {
                     setIconClose(value)
                   }}
                 >
-                  {[undefined, 'AiOutlineClose', 'AiOutlinePoweroff', 'AiFillCloseCircle'].map((iconKey, index) => (
+                  {[undefined, 'AiOutlineClose', 'AiOutlinePoweroff', 'AiFillCloseCircle'].map(iconKey => (
                     <RadioButton
-                      key={`${iconKey}`}
+                      key={iconKey}
                       checked={iconClose === iconKey}
                       label={
-                        iconKey ? (
+                        iconKey !== undefined ? (
                           <AtomIcon>
                             <AntDesignIcon icon={iconKey} style={{color: 'currentColor'}} />
                           </AtomIcon>
                         ) : (
-                          `${iconKey}`
+                          String(iconKey)
                         )
                       }
                       value={iconKey}

@@ -1,7 +1,5 @@
 import {type ChangeEvent, type FormEvent, useState} from 'react'
 
-import {atomToastAutoCloseTimes} from 'components/atom/toast/src/index'
-
 import {
   AntDesignIcon,
   Article,
@@ -23,6 +21,7 @@ import AtomIcon from '@s-ui/react-atom-icon'
 
 import {type AutoCloseTime, type Position, AUTO_CLOSE_TIMES} from '../src/config'
 import type {AtomToastProps} from '../src/index'
+import {atomToastAutoCloseTimes} from '../src/index'
 import ToastDemo from './ToastDemo'
 
 import './index.scss'

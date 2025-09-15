@@ -64,7 +64,7 @@ describe(json.name, () => {
     })
   })
 
-  /* describe('atomToastAutoCloseTimes', () => {
+  describe('atomToastAutoCloseTimes', () => {
     it('value must be a defined string-key pair filled', () => {
       // Given
       const library = pkg
@@ -83,8 +83,8 @@ describe(json.name, () => {
       expect(Object.keys(actual)).to.have.members(Object.keys(expected))
       Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
-        expect(actual[expectedKey]).to.equal(expectedValue)
+        expect(actual[expectedKey as keyof typeof actual]).to.equal(expectedValue)
       })
     })
-  }) */
+  })
 })

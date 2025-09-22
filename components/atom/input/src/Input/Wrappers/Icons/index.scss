@@ -10,6 +10,27 @@
     padding-right: $pr-atom-input-input;
   }
 
+  &-button {
+    position: relative;
+    padding: 0;
+    min-width: 0;
+
+    // Expand clickable area
+    &::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      bottom: -8px;
+      left: -8px;
+      right: -8px;
+      background: transparent;
+    }
+
+    &-container {
+      width: 24px;
+    }
+  }
+
   &-icon {
     align-items: center;
     color: $c-atom-input-icon;
@@ -21,12 +42,6 @@
     top: $t-atom-input-icon;
     transform: translateY($trf-ty-atom-input-icon);
     width: $w-atom-input-icon;
-    pointer-events: none;
-
-    &--withHandler {
-      cursor: pointer;
-      pointer-events: auto;
-    }
 
     &--left {
       left: $l-atom-input-icon;
@@ -34,11 +49,6 @@
 
     &--right {
       right: $r-atom-input-icon;
-    }
-
-    & > * {
-      height: 100%;
-      width: 100%;
     }
   }
 }

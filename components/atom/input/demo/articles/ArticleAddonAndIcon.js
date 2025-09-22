@@ -130,6 +130,87 @@ const ArticleAddonAndIcon = ({className}) => {
           />
         </Cell>
       </Grid>
+      <H2>Interactive Icons</H2>
+      <Paragraph>
+        Icons can be made interactive by adding click handlers. This is useful for actions like search, clear input, or
+        triggering additional functionality.
+      </Paragraph>
+
+      <Grid cols={1} gutter={[8, 8]}>
+        <Paragraph>Left Icon Actions</Paragraph>
+        <Cell>
+          <PrimitiveVisuallyHidden>
+            <AtomLabel htmlFor="input-info-action" text="Information input with help action" />
+          </PrimitiveVisuallyHidden>
+          <AtomInput
+            id="input-info-action"
+            placeholder="Enter your email address"
+            leftIcon={<AntDesignIcon icon="AiOutlineInfoCircle" style={{color: '#1890ff'}} />}
+            ariaLabelLeftIcon="Show help information"
+            onClickLeftIcon={() => alert('Email format: example@domain.com')}
+          />
+        </Cell>
+
+        <Cell>
+          <Paragraph>Right Icon Actions</Paragraph>
+          <PrimitiveVisuallyHidden>
+            <AtomLabel htmlFor="input-clear-action" text="Input with clear action" />
+          </PrimitiveVisuallyHidden>
+          <AtomInput
+            id="input-clear-action"
+            placeholder="Type something to clear..."
+            rightIcon={<AntDesignIcon icon="AiOutlineClose" />}
+            ariaLabelRightIcon="Clear input"
+            onClickRightIcon={() => {
+              document.getElementById('input-clear-action').value = ''
+            }}
+          />
+        </Cell>
+      </Grid>
+
+      <H2>Button Customization</H2>
+      <Paragraph>
+        Use <Code>leftIconButtonProps</Code> and <Code>rightIconButtonProps</Code> to customize the appearance and
+        behavior of icon buttons with any AtomButton properties.
+      </Paragraph>
+
+      <Grid cols={1} gutter={[8, 8]}>
+        <Cell>
+          <Paragraph>
+            <strong>Custom Button Designs</strong>
+          </Paragraph>
+          <PrimitiveVisuallyHidden>
+            <AtomLabel htmlFor="input-solid-design" text="Search input with solid design button" />
+          </PrimitiveVisuallyHidden>
+          <AtomInput
+            id="input-solid-design"
+            placeholder="Search with solid design..."
+            leftIcon={<AntDesignIcon icon="AiOutlineSearch" />}
+            ariaLabelLeftIcon="Search"
+            onClickLeftIcon={() => alert('Searching...')}
+            leftIconButtonProps={{
+              design: 'solid',
+              color: 'primary'
+            }}
+          />
+        </Cell>
+
+        <Cell>
+          <PrimitiveVisuallyHidden>
+            <AtomLabel htmlFor="input-outline-design" text="Filter input with outline design button" />
+          </PrimitiveVisuallyHidden>
+          <AtomInput
+            id="input-outline-design"
+            placeholder="Filter with outline design..."
+            rightIcon={<AntDesignIcon icon="AiOutlineFilter" />}
+            ariaLabelRightIcon="Apply filters"
+            onClickRightIcon={() => alert('Applying filters...')}
+            rightIconButtonProps={{
+              design: 'outline'
+            }}
+          />
+        </Cell>
+      </Grid>
     </Article>
   )
 }

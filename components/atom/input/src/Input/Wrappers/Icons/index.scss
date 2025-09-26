@@ -19,15 +19,15 @@
     &::before {
       content: '';
       position: absolute;
-      top: -8px;
-      bottom: -8px;
-      left: -8px;
-      right: -8px;
+      top: -$m-m;
+      bottom: -$m-m;
+      left: -$m-m;
+      right: -$m-m;
       background: transparent;
     }
 
     &-container {
-      width: 24px;
+      width: $sz-icon-m;
     }
   }
 

@@ -2,10 +2,7 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./lib",
-    "rootDir": "./src",
-    "allowImportingTsExtensions": true,
-  	"allowJs": true,
+    "rootDirs": ["src", "demo", "test"]
   },
-  "exclude": ["lib"],
-  "include": ["src", "demo", "test"]
+  "exclude": ["lib"]
 }

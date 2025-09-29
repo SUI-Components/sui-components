@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import {Article, Cell, Grid, Label} from '@s-ui/documentation-library'
 
-import AtomToast, {type AtomToastProps} from '../src/index'
+import AtomToast, {type AtomToastProps} from '../src/index.tsx'
 
 interface ToastDemoProps extends AtomToastProps {
   className?: string

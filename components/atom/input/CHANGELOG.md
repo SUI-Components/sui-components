@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.51.0 (2025-09-08)
+
+
+### Bug Fixes
+
+* fix error state styles in password input ([282273c](https://github.com/SUI-Components/sui-components/commit/282273cfc31d102fd17174d8ebef7070ac6fe4d7))
+
+
+
 # 5.50.0 (2025-08-12)
 
 

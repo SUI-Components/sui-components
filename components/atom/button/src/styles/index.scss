@@ -5,7 +5,8 @@ $base-class: '.sui-AtomButton';
   @include button-icon($icon-sz-atom-button, $icon-m-atom-button);
 
   border-radius: $bdrs-atom-button;
-  border: $bdw-s solid;
+  border-style: solid;
+  border-width: $bdw-atom-button-design-outline;
   box-sizing: border-box;
   display: inline-block;
   position: relative;
@@ -22,10 +23,6 @@ $base-class: '.sui-AtomButton';
   text-decoration: none;
   text-transform: $tt-atom-button;
   white-space: nowrap;
-
-  & + &:not(&--fitted):not(&-group) {
-    margin-left: $m-consecutive-atom-button;
-  }
 
   &-inner,
   &-content {

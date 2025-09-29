@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.22.0 (2025-08-28)
+
+
+### Features
+
+* change demo ([c284e5d](https://github.com/SUI-Components/sui-components/commit/c284e5d3c0b2d63a5848f5739eb741a964e9f235))
+* change funcionality to make rate ([a10364d](https://github.com/SUI-Components/sui-components/commit/a10364da7f2e44451d9aaec472102e7d0a8339c0))
+
+
+
 # 1.21.0 (2022-10-01)
 
 
@@ -220,6 +230,3 @@
 * **molecule/rating:** links ([021c31b](https://github.com/SUI-Components/sui-components/commit/021c31b0153d32a856ab53184da45bf7a0e05399))
 * **molecule/rating:** removed unnecesary prop link ([e7d3180](https://github.com/SUI-Components/sui-components/commit/e7d3180622b6ae62d2f9d2c1cee09f0791c7e7cb))
 * **molecule/rating:** working implementation w/ isolated stars ([7dda4ba](https://github.com/SUI-Components/sui-components/commit/7dda4ba64c5cfedf3d6c358ded2e4fcba5acc4bd))
-
-
-

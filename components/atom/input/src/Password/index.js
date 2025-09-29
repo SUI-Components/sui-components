@@ -5,12 +5,15 @@ import PropTypes from 'prop-types'
 
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
-import {INPUT_SHAPES} from '../config.js'
+import {INPUT_SHAPES, INPUT_STATES} from '../config.js'
 import Input from '../Input/index.js'
 import {BASE_CLASS_PASSWORD, BASE_CLASS_PASSWORD_TOGGLE_BUTTON, PASSWORD, TEXT} from './config.js'
 
 const Password = forwardRef(
-  ({onChange, shape, pwShowLabel, pwHideLabel, toggleAriaLabel, value, defaultValue = '', ...props}, forwardedRef) => {
+  (
+    {onChange, shape, pwShowLabel, pwHideLabel, toggleAriaLabel, value, defaultValue = '', state, ...props},
+    forwardedRef
+  ) => {
     const [type, setType] = useState(PASSWORD)
     const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
 
@@ -25,7 +28,13 @@ const Password = forwardRef(
     }
 
     return (
-      <div className={cx(BASE_CLASS_PASSWORD, shape && `${BASE_CLASS_PASSWORD}-shape-${shape}`)}>
+      <div
+        className={cx(
+          BASE_CLASS_PASSWORD,
+          shape && `${BASE_CLASS_PASSWORD}-shape-${shape}`,
+          state && `${BASE_CLASS_PASSWORD}--state-${state}`
+        )}
+      >
         <Input
           ref={forwardedRef}
           shape={shape}
@@ -70,7 +79,9 @@ Password.propTypes = {
   /* The default value of the control */
   defaultValue: PropTypes.string,
   /** Sets the shape of the input field. It can be 'rounded', 'square' or 'circle' */
-  shape: PropTypes.oneOf(Object.values(INPUT_SHAPES))
+  shape: PropTypes.oneOf(Object.values(INPUT_SHAPES)),
+  /** 'success', 'error' or 'alert' */
+  state: PropTypes.oneOf(Object.values(INPUT_STATES))
 }
 
 export default Password

@@ -20,8 +20,8 @@ import {
 import AtomIcon from '@s-ui/react-atom-icon'
 
 import {type AutoCloseTime, type Position, AUTO_CLOSE_TIMES} from '../src/config'
-import {type AtomToastProps, atomToastAutoCloseTimes} from '../src/index.tsx'
-import ToastDemo from './ToastDemo.tsx'
+import {type AtomToastProps, atomToastAutoCloseTimes} from '../src/index'
+import ToastDemo from './ToastDemo'
 
 import './index.scss'
 

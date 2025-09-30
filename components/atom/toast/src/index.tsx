@@ -1,27 +1,46 @@
-import {useCallback, useEffect, useRef, useState} from 'react'
+import type React from 'react'
+import {type PropsWithChildren, useCallback, useEffect, useRef, useState} from 'react'
 
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 
-import {AUTO_CLOSE_TIMES, BASE_CLASS, EFFECT_DELAY, POSITIONS} from './config.js'
+import {type AutoCloseTime, type Position, AUTO_CLOSE_TIMES, BASE_CLASS} from './config'
+import {EFFECT_DELAY} from './config'
+
+export interface AtomToastProps {
+  /** Enable/disable auto close */
+  autoClose?: boolean
+  /** Auto close times: 'short' (3000s), 'medium' (6000s), 'long' (9000s) */
+  autoCloseTime?: AutoCloseTime
+  /** Enable/disable toast transition */
+  effect?: boolean
+  /** Custom close icon  */
+  iconClose?: React.ReactNode
+  /** On close callback */
+  onClose?: () => void
+  /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
+  position?: Position
+  show?: boolean
+  /** Enable/disable global close */
+  globalClose?: boolean
+}
 
 const AtomToast = ({
   autoClose = true,
   autoCloseTime = AUTO_CLOSE_TIMES.medium,
-  children,
   effect = true,
-  globalClose = false,
-  iconClose = null,
+  iconClose,
   onClose,
-  position = POSITIONS.topRight,
-  show: showFromProps = true
-}) => {
+  position = 'top-right',
+  show: showFromProps = true,
+  globalClose = false,
+  children
+}: PropsWithChildren<AtomToastProps>) => {
   const [show, setShow] = useState(showFromProps)
   const [delay, setDelay] = useState(true)
 
-  const autoCloseTimeout = useRef()
-  const delayTimeout = useRef()
-  const toastRef = useRef()
+  const autoCloseTimeout = useRef<NodeJS.Timeout>()
+  const delayTimeout = useRef<NodeJS.Timeout>()
+  const toastRef = useRef<HTMLDivElement>(null)
 
   const containerClassName = cx(`${BASE_CLASS}-container`, `${BASE_CLASS}-position--${position}`, {
     [`${BASE_CLASS}-effect--${position}`]: effect,
@@ -69,8 +88,10 @@ const AtomToast = ({
 
   useEffect(() => {
     if (globalClose) {
-      const handleClickOutside = e => {
-        if (!toastRef.current.contains(e.target)) {
+      const handleClickOutside = (e: MouseEvent) => {
+        const targetNode = e.target as Node
+
+        if (toastRef.current !== null && !toastRef.current.contains(targetNode)) {
           handleClose()
         }
       }
@@ -98,26 +119,6 @@ const AtomToast = ({
 
 AtomToast.displayName = 'AtomToast'
 
-AtomToast.propTypes = {
-  /** Enable/disable auto close */
-  autoClose: PropTypes.bool,
-  /** Auto close times: 'short' (3000s), 'medium' (6000s), 'long' (9000s) */
-  autoCloseTime: PropTypes.oneOf(Object.keys(AUTO_CLOSE_TIMES)),
-  /** Toast content */
-  children: PropTypes.node.isRequired,
-  /** Enable/disable toast transition */
-  effect: PropTypes.bool,
-  /** Custom close icon  */
-  iconClose: PropTypes.node,
-  /** On close callback */
-  onClose: PropTypes.func,
-  /** Positions: 'top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right' */
-  position: PropTypes.oneOf(Object.values(POSITIONS)),
-  /** Show/hide notification */
-  show: PropTypes.bool,
-  /** Enable/disable global close */
-  globalClose: PropTypes.bool
-}
+export {AUTO_CLOSE_TIMES as atomToastAutoCloseTimes}
 
-export {POSITIONS as atomToastPositions, AUTO_CLOSE_TIMES as atomToastAutoCloseTimes}
 export default AtomToast

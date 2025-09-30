@@ -17,7 +17,7 @@ chai.use(chaiDOM)
 
 describe(json.name, () => {
   const {default: Component} = pkg
-  const setup = window.setupEnvironment<pkg.AtomLabelProps>(Component)
+  const setup = setupEnvironment<pkg.AtomLabelProps>(Component)
 
   it('library should include defined exported elements', () => {
     // Given

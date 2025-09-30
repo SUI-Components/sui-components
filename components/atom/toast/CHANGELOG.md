@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2025-09-30)
+
+
+### Bug Fixes
+
+* fix import path ([70ec371](https://github.com/SUI-Components/sui-components/commit/70ec3716c9052a2f76cc29fad1d8ea157cbe187f))
+
+
+
 # 1.9.0 (2022-06-23)
 
 
@@ -98,6 +107,3 @@
 * **atom/toast:** move params to config ([46cf5b4](https://github.com/SUI-Components/sui-components/commit/46cf5b42f4ea7cf54634cbff8ed94ab7a3f79a14))
 * **atom/toast:** readme and rename config vars ([e838dfd](https://github.com/SUI-Components/sui-components/commit/e838dfd20ce90a0ba3ae3c5a3d85f80ce25b000d))
 * **atom/toast:** sort scss vars ([d52cb14](https://github.com/SUI-Components/sui-components/commit/d52cb14caca2a07109fb0bc9b642cb423543ac31))
-
-
-

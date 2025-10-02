@@ -80,7 +80,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
@@ -90,7 +90,7 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
     })
 
     describe('ColorPanel', () => {
@@ -194,6 +194,9 @@ describe(json.name, () => {
         const findClassName = findSentence(`sui-atom-panel--${pkg.atomPanelColors.BASE}-overlay-100`)
 
         // Then
+        expect(`sui-atom-panel--${pkg.atomPanelColors.BASE}-overlay-100`).to.equal(
+          `sui-atom-panel--${'base'}-overlay-100`
+        )
         expect(findClassName(container.innerHTML)).to.be.not.null
       })
 

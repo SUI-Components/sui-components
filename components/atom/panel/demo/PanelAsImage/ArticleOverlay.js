@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 
 import {Article, Code, H2, Paragraph} from '@s-ui/documentation-library'
-import AtomPanel from '@s-ui/react-atom-panel'
 
-import {atomPanelAlpha, atomPanelColors} from '../../src/index.js'
+import AtomPanel, {atomPanelAlpha, atomPanelColors} from '../../src/index.js'
 import {flexItem, flexWrapper} from '../config.js'
 
 const ArticleOverlay = ({className}) => {

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.22.0 (2025-10-02)
+
+
+### Features
+
+* add default values in the proper file ([291d22c](https://github.com/SUI-Components/sui-components/commit/291d22cba962597f6778ce554248ef6ebf140f70))
+* add forward ref ([bf28bfa](https://github.com/SUI-Components/sui-components/commit/bf28bfa618803ad60ff40148b7c1d1e195fb999d))
+
+
+
 # 1.21.0 (2025-10-02)
 
 

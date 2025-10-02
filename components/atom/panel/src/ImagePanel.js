@@ -19,8 +19,17 @@ const ImagePanel = forwardRef(
     {
       as = 'div',
       id,
+      src,
       verticalAlign = DEFAULT_VERTICAL_ALIGNMENT,
       horizontalAlign = DEFAULT_HORIZONTAL_ALIGNMENT,
+      resized,
+      overlayColor,
+      overlayAlpha,
+      color,
+      rounded,
+      elevation,
+      isFullWidth,
+      isFullHeight,
       children,
       className,
       ...props
@@ -32,8 +41,22 @@ const ImagePanel = forwardRef(
         ref={forwardedRef}
         as={as}
         id={id}
-        className={getImageClassNames({className, ...props})}
-        style={getImageStyles(props)}
+        className={getImageClassNames({
+          verticalAlign,
+          horizontalAlign,
+          resized,
+          overlayColor,
+          overlayAlpha,
+          color,
+          rounded,
+          elevation,
+          isFullWidth,
+          isFullHeight,
+          className,
+          ...props
+        })}
+        style={getImageStyles({src, ...props})}
+        {...props}
       >
         {children}
       </PolymorphicElement>
@@ -46,6 +69,10 @@ ImagePanel.displayName = 'ImagePanel'
 ImagePanel.propTypes = {
   as: PropTypes.elementType,
   id: PropTypes.string,
+  /**
+   * Background image
+   */
+  src: PropTypes.string,
   children: PropTypes.node,
   isFullWidth: PropTypes.bool,
   isFullHeight: PropTypes.bool,

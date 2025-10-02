@@ -3,7 +3,7 @@ import {type PropsWithChildren, useCallback, useEffect, useRef, useState} from '
 
 import cx from 'classnames'
 
-import {type AutoCloseTime, type Position, AUTO_CLOSE_TIMES, BASE_CLASS} from './config'
+import {type AutoCloseTime, type Position, AUTO_CLOSE_TIMES, BASE_CLASS, POSITIONS} from './config'
 import {EFFECT_DELAY} from './config'
 
 export interface AtomToastProps {
@@ -119,6 +119,6 @@ const AtomToast = ({
 
 AtomToast.displayName = 'AtomToast'
 
-export {AUTO_CLOSE_TIMES as atomToastAutoCloseTimes}
+export {POSITIONS as atomToastPositions, AUTO_CLOSE_TIMES as atomToastAutoCloseTimes}
 
 export default AtomToast

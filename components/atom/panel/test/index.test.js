@@ -13,6 +13,14 @@ import chaiDOM from 'chai-dom'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
+import {
+  DEFAULT_ALPHA,
+  DEFAULT_BORDER_RADIUS,
+  DEFAULT_COLOR,
+  DEFAULT_ELEVATION,
+  DEFAULT_HORIZONTAL_ALIGNMENT,
+  DEFAULT_VERTICAL_ALIGNMENT
+} from '../src/settings.js'
 
 chai.use(chaiDOM)
 
@@ -561,7 +569,6 @@ describe(json.name, () => {
       })
     })
   })
-
   describe('atomPanelVerticalAlign', () => {
     it('value must be an object enum', () => {
       // Given
@@ -745,6 +752,27 @@ describe(json.name, () => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
         expect(actual[expectedKey]).to.equal(expectedValue)
       })
+    })
+  })
+
+  describe('defaultValues', () => {
+    it('should DEFAULT_ALPHA be 100', () => {
+      expect(DEFAULT_ALPHA).to.equal('100')
+    })
+    it('should DEFAULT_COLOR be accent', () => {
+      expect(DEFAULT_COLOR).to.equal('accent')
+    })
+    it('should DEFAULT_ELEVATION be none', () => {
+      expect(DEFAULT_ELEVATION).to.equal('none')
+    })
+    it('should DEFAULT_BORDER_RADIUS be none', () => {
+      expect(DEFAULT_BORDER_RADIUS).to.equal('none')
+    })
+    it('should DEFAULT_VERTICAL_ALIGNMENT be center', () => {
+      expect(DEFAULT_VERTICAL_ALIGNMENT).to.equal('center')
+    })
+    it('should DEFAULT_HORIZONTAL_ALIGNMENT be center', () => {
+      expect(DEFAULT_HORIZONTAL_ALIGNMENT).to.equal('center')
     })
   })
 })

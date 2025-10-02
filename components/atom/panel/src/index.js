@@ -1,31 +1,33 @@
 import PropTypes from 'prop-types'
 
 import ColorPanel from './ColorPanel.js'
-import {ALPHA, BORDER_RADIUS, COLORS, ELEVATION, isImagePanel} from './constants.js'
+import {ALPHA, BORDER_RADIUS, COLORS, ELEVATION, isImagePanel} from './settings.js'
 import ImagePanel, {HORIZONTAL_ALIGNMENTS, VERTICAL_ALIGNMENTS} from './ImagePanel.js'
 
-const AtomPanel = function ({
+const AtomPanel = ({
   alpha,
   color,
   elevation = ELEVATION.NONE,
   horizontalAlign = HORIZONTAL_ALIGNMENTS.CENTER,
   rounded = BORDER_RADIUS.NONE,
   src,
+  className,
   verticalAlign = VERTICAL_ALIGNMENTS.CENTER,
   ...props
-}) {
-  return isImagePanel({src}) ? (
-    <ImagePanel
+}) => {
+  const [Component, componentProps] = isImagePanel({src})
+    ? [ImagePanel, {src, horizontalAlign, verticalAlign}]
+    : [ColorPanel, {alpha}]
+
+  return (
+    <Component
+      className={className}
       color={color}
       elevation={elevation}
-      horizontalAlign={horizontalAlign}
       rounded={rounded}
-      src={src}
-      verticalAlign={verticalAlign}
+      {...componentProps}
       {...props}
     />
-  ) : (
-    <ColorPanel alpha={alpha} color={color} elevation={elevation} rounded={rounded} {...props} />
   )
 }
 
@@ -76,7 +78,11 @@ AtomPanel.propTypes = {
   /**
    * Sets the element's height to 100%
    */
-  isFullHeight: PropTypes.bool
+  isFullHeight: PropTypes.bool,
+  /**
+   * Additional classes
+   */
+  className: PropTypes.string
 }
 
 export default AtomPanel

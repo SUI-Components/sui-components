@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2025-10-02)
+
+
+### Features
+
+* add data aria attributes ([206f829](https://github.com/SUI-Components/sui-components/commit/206f829ca3be4c7e5c2eabebe7f4337bd079874b))
+
+
+
 # 1.22.0 (2025-10-02)
 
 

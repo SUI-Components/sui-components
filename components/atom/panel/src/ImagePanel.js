@@ -1,3 +1,4 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
@@ -13,26 +14,32 @@ import {
   getImageStyles
 } from './settings.js'
 
-const ImagePanel = ({
-  as = 'div',
-  id,
-  verticalAlign = DEFAULT_VERTICAL_ALIGNMENT,
-  horizontalAlign = DEFAULT_HORIZONTAL_ALIGNMENT,
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <PolymorphicElement
-      as={as}
-      id={id}
-      className={getImageClassNames({className, ...props})}
-      style={getImageStyles(props)}
-    >
-      {children}
-    </PolymorphicElement>
-  )
-}
+const ImagePanel = forwardRef(
+  (
+    {
+      as = 'div',
+      id,
+      verticalAlign = DEFAULT_VERTICAL_ALIGNMENT,
+      horizontalAlign = DEFAULT_HORIZONTAL_ALIGNMENT,
+      children,
+      className,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    return (
+      <PolymorphicElement
+        ref={forwardedRef}
+        as={as}
+        id={id}
+        className={getImageClassNames({className, ...props})}
+        style={getImageStyles(props)}
+      >
+        {children}
+      </PolymorphicElement>
+    )
+  }
+)
 
 ImagePanel.displayName = 'ImagePanel'
 

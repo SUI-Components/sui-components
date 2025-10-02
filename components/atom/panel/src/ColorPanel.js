@@ -1,24 +1,27 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import {ALPHA, BORDER_RADIUS, COLORS, DEFAULT_ALPHA, DEFAULT_COLOR, ELEVATION, getColorClassNames} from './settings.js'
 
-const ColorPanel = ({
-  as = 'div',
-  alpha = DEFAULT_ALPHA,
-  color = DEFAULT_COLOR,
-  children,
-  id,
-  className,
-  ...otherProps
-}) => {
-  return (
-    <PolymorphicElement as={as} id={id} className={getColorClassNames({className, alpha, color, ...otherProps})}>
-      {children}
-    </PolymorphicElement>
-  )
-}
+const ColorPanel = forwardRef(
+  (
+    {as = 'div', alpha = DEFAULT_ALPHA, color = DEFAULT_COLOR, children, id, className, ...otherProps},
+    forwardedRef
+  ) => {
+    return (
+      <PolymorphicElement
+        ref={forwardedRef}
+        as={as}
+        id={id}
+        className={getColorClassNames({className, alpha, color, ...otherProps})}
+      >
+        {children}
+      </PolymorphicElement>
+    )
+  }
+)
 
 ColorPanel.displayName = 'ColorPanel'
 

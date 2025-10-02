@@ -1,3 +1,4 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import ColorPanel from './ColorPanel.js'
@@ -14,32 +15,38 @@ import {
 } from './settings.js'
 import ImagePanel from './ImagePanel.js'
 
-const AtomPanel = ({
-  alpha,
-  color,
-  elevation = DEFAULT_ELEVATION,
-  horizontalAlign,
-  verticalAlign,
-  rounded = DEFAULT_BORDER_RADIUS,
-  src,
-  className,
-  ...props
-}) => {
-  const [Component, componentProps] = isImagePanel({src})
-    ? [ImagePanel, {src, horizontalAlign, verticalAlign}]
-    : [ColorPanel, {alpha}]
+const AtomPanel = forwardRef(
+  (
+    {
+      alpha,
+      color,
+      elevation = DEFAULT_ELEVATION,
+      horizontalAlign,
+      verticalAlign,
+      rounded = DEFAULT_BORDER_RADIUS,
+      src,
+      className,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const [Component, componentProps] = isImagePanel({src})
+      ? [ImagePanel, {src, horizontalAlign, verticalAlign}]
+      : [ColorPanel, {alpha}]
 
-  return (
-    <Component
-      className={className}
-      color={color}
-      elevation={elevation}
-      rounded={rounded}
-      {...componentProps}
-      {...props}
-    />
-  )
-}
+    return (
+      <Component
+        ref={forwardedRef}
+        className={className}
+        color={color}
+        elevation={elevation}
+        rounded={rounded}
+        {...componentProps}
+        {...props}
+      />
+    )
+  }
+)
 
 AtomPanel.displayName = 'AtomPanel'
 

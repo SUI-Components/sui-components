@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-panel",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "panel"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "panel"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

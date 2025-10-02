@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.21.0 (2025-10-02)
+
+
+### Features
+
+* add classnames ([2d6a5da](https://github.com/SUI-Components/sui-components/commit/2d6a5dab99893bd81be5620299c711dabcda75a8))
+* open classNames ([ea5d834](https://github.com/SUI-Components/sui-components/commit/ea5d834a861d8edd675aeb962e05801bc8078d57))
+
+
+
 # 1.20.0 (2023-03-27)
 
 
@@ -215,6 +225,3 @@
 * **atom/panel:** default color for image panels and playground overlay examples ([6515ed0](https://github.com/SUI-Components/sui-components/commit/6515ed03717870d3b299c82c4f99daacbac2e104))
 * **atom/panel:** improve each sass ([abe2147](https://github.com/SUI-Components/sui-components/commit/abe21479f7eb02aaf49c7c09c0599bd789d0bb1c))
 * **atom/panel:** refactor + new playground ([3f7188e](https://github.com/SUI-Components/sui-components/commit/3f7188e1a0d87dcc5914b9cf01ddcb680c9d46be))
-
-
-

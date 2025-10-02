@@ -7,11 +7,21 @@ import {
   ELEVATION,
   HORIZONTAL_ALIGNMENTS,
   VERTICAL_ALIGNMENTS,
+  DEFAULT_VERTICAL_ALIGNMENT,
+  DEFAULT_HORIZONTAL_ALIGNMENT,
   getImageClassNames,
   getImageStyles
 } from './settings.js'
 
-const ImagePanel = ({as = 'div', id, children, className, ...props}) => {
+const ImagePanel = ({
+  as = 'div',
+  id,
+  verticalAlign = DEFAULT_VERTICAL_ALIGNMENT,
+  horizontalAlign = DEFAULT_HORIZONTAL_ALIGNMENT,
+  children,
+  className,
+  ...props
+}) => {
   return (
     <PolymorphicElement
       as={as}

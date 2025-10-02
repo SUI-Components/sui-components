@@ -1,18 +1,30 @@
 import PropTypes from 'prop-types'
 
 import ColorPanel from './ColorPanel.js'
-import {ALPHA, BORDER_RADIUS, COLORS, ELEVATION, isImagePanel} from './settings.js'
-import ImagePanel, {HORIZONTAL_ALIGNMENTS, VERTICAL_ALIGNMENTS} from './ImagePanel.js'
+import {
+  ALPHA,
+  BORDER_RADIUS,
+  COLORS,
+  ELEVATION,
+  DEFAULT_HORIZONTAL_ALIGNMENT,
+  DEFAULT_VERTICAL_ALIGNMENT,
+  DEFAULT_ELEVATION,
+  DEFAULT_BORDER_RADIUS,
+  HORIZONTAL_ALIGNMENTS,
+  VERTICAL_ALIGNMENTS,
+  isImagePanel
+} from './settings.js'
+import ImagePanel from './ImagePanel.js'
 
 const AtomPanel = ({
   alpha,
   color,
-  elevation = ELEVATION.NONE,
-  horizontalAlign = HORIZONTAL_ALIGNMENTS.CENTER,
-  rounded = BORDER_RADIUS.NONE,
+  elevation = DEFAULT_ELEVATION,
+  horizontalAlign = DEFAULT_HORIZONTAL_ALIGNMENT,
+  verticalAlign = DEFAULT_VERTICAL_ALIGNMENT,
+  rounded = DEFAULT_BORDER_RADIUS,
   src,
   className,
-  verticalAlign = VERTICAL_ALIGNMENTS.CENTER,
   ...props
 }) => {
   const [Component, componentProps] = isImagePanel({src})

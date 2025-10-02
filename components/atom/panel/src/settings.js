@@ -56,18 +56,26 @@ export const VERTICAL_ALIGNMENTS = {
 
 export const DEFAULT_ALPHA = ALPHA.CONTRAST
 export const DEFAULT_COLOR = COLORS.ACCENT
+export const DEFAULT_ELEVATION = ELEVATION.NONE
+export const DEFAULT_BORDER_RADIUS = BORDER_RADIUS.NONE
+export const DEFAULT_VERTICAL_ALIGNMENT = VERTICAL_ALIGNMENTS.CENTER
+export const DEFAULT_HORIZONTAL_ALIGNMENT = HORIZONTAL_ALIGNMENTS.CENTER
+
+const BASE_CLASS = 'sui-atom-panel'
+const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
+const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
 
 export const getColorClassNames = function ({color, alpha, rounded, elevation, isFullWidth, isFullHeight, className}) {
-  const BASE_CLASS = 'sui-atom-panel'
-  const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
   return cx(
     BASE_CLASS,
-    rounded !== BORDER_RADIUS.NONE && `${BASE_CLASS}--rounded-${rounded}`,
     COLOR_PANEL_CLASS,
-    color && `${COLOR_PANEL_CLASS}--${color}-${alpha}`,
-    elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`,
-    isFullWidth && `${BASE_CLASS}--fullWidth`,
-    isFullHeight && `${BASE_CLASS}--fullHeight`,
+    {
+      [`${BASE_CLASS}--rounded-${rounded}`]: ![BORDER_RADIUS.NONE, undefined].includes(rounded),
+      [`${COLOR_PANEL_CLASS}--${color}-${alpha}`]: color,
+      [`${BASE_CLASS}--elevation-${elevation}`]: elevation !== ELEVATION.NONE,
+      [`${BASE_CLASS}--fullWidth`]: isFullWidth,
+      [`${BASE_CLASS}--fullHeight`]: isFullHeight
+    },
     className
   )
 }
@@ -77,7 +85,7 @@ export const getImageClassNames = function ({
   horizontalAlign,
   resized,
   overlayColor,
-  overlayAlpha = ALPHA[DEFAULT_ALPHA],
+  overlayAlpha = DEFAULT_ALPHA,
   color,
   rounded,
   elevation,
@@ -85,27 +93,27 @@ export const getImageClassNames = function ({
   isFullHeight,
   className
 }) {
-  const BASE_CLASS = 'sui-atom-panel'
-  const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
-
   return cx(
     BASE_CLASS,
-    rounded !== BORDER_RADIUS.NONE && `${BASE_CLASS}--rounded-${rounded}`,
-    `${IMAGE_PANEL_CLASS}--vertical-${verticalAlign}`,
-    `${IMAGE_PANEL_CLASS}--horizontal-${horizontalAlign}`,
-    overlayColor && `${BASE_CLASS}--${overlayColor}-overlay-${overlayAlpha}`,
-    `${BASE_CLASS}-color--${color}`,
-    resized && `${IMAGE_PANEL_CLASS}--resized`,
-    isFullWidth && `${BASE_CLASS}--fullWidth`,
-    isFullHeight && `${BASE_CLASS}--fullHeight`,
-    elevation !== ELEVATION.NONE && `${BASE_CLASS}--elevation-${elevation}`,
+    {
+      [`${BASE_CLASS}-color--${color}`]: color,
+      [`${BASE_CLASS}--${overlayColor}-overlay-${overlayAlpha}`]: overlayColor,
+      [`${BASE_CLASS}--elevation-${elevation}`]: elevation !== ELEVATION.NONE,
+      [`${BASE_CLASS}--rounded-${rounded}`]: rounded !== BORDER_RADIUS.NONE,
+      [`${BASE_CLASS}--fullWidth`]: isFullWidth,
+      [`${BASE_CLASS}--fullHeight`]: isFullHeight,
+      [`${IMAGE_PANEL_CLASS}--resized`]: resized,
+      [`${IMAGE_PANEL_CLASS}--vertical-${verticalAlign}`]: verticalAlign,
+      [`${IMAGE_PANEL_CLASS}--horizontal-${horizontalAlign}`]: horizontalAlign
+    },
     className
   )
 }
 
-export const getImageStyles = function ({src}) {
+export const getImageStyles = function ({src, styles = {}} = {}) {
   const url = `url(${src})`
   return {
-    backgroundImage: url
+    backgroundImage: url,
+    ...styles
   }
 }

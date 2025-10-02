@@ -65,8 +65,8 @@ const BASE_CLASS = 'sui-atom-panel'
 const COLOR_PANEL_CLASS = 'sui-atom-panel-color'
 const IMAGE_PANEL_CLASS = `${BASE_CLASS}-image`
 
-export const getColorClassNames = function ({color, alpha, rounded, elevation, isFullWidth, isFullHeight, className}) {
-  return cx(
+export const getColorClassNames = ({color, alpha, rounded, elevation, isFullWidth, isFullHeight, className}) =>
+  cx(
     BASE_CLASS,
     COLOR_PANEL_CLASS,
     {
@@ -78,9 +78,8 @@ export const getColorClassNames = function ({color, alpha, rounded, elevation, i
     },
     className
   )
-}
 
-export const getImageClassNames = function ({
+export const getImageClassNames = ({
   verticalAlign,
   horizontalAlign,
   resized,
@@ -92,8 +91,8 @@ export const getImageClassNames = function ({
   isFullWidth,
   isFullHeight,
   className
-}) {
-  return cx(
+}) =>
+  cx(
     BASE_CLASS,
     {
       [`${BASE_CLASS}-color--${color}`]: color,
@@ -108,7 +107,6 @@ export const getImageClassNames = function ({
     },
     className
   )
-}
 
 export const getImageStyles = function ({src, styles = {}} = {}) {
   const url = `url(${src})`

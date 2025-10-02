@@ -7,7 +7,19 @@ import {ALPHA, BORDER_RADIUS, COLORS, DEFAULT_ALPHA, DEFAULT_COLOR, ELEVATION, g
 
 const ColorPanel = forwardRef(
   (
-    {as = 'div', alpha = DEFAULT_ALPHA, color = DEFAULT_COLOR, children, id, className, ...otherProps},
+    {
+      as = 'div',
+      alpha = DEFAULT_ALPHA,
+      color = DEFAULT_COLOR,
+      children,
+      id,
+      className,
+      rounded,
+      elevation,
+      isFullHeight,
+      isFullWidth,
+      ...otherProps
+    },
     forwardedRef
   ) => {
     return (
@@ -15,7 +27,17 @@ const ColorPanel = forwardRef(
         ref={forwardedRef}
         as={as}
         id={id}
-        className={getColorClassNames({className, alpha, color, ...otherProps})}
+        className={getColorClassNames({
+          className,
+          alpha,
+          color,
+          rounded,
+          elevation,
+          isFullHeight,
+          isFullWidth,
+          ...otherProps
+        })}
+        {...otherProps}
       >
         {children}
       </PolymorphicElement>

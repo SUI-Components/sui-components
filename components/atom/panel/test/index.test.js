@@ -102,6 +102,30 @@ describe(json.name, () => {
       expect(findClassName(container.innerHTML)).to.not.be.null
     })
 
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
     describe('forwardRef', () => {
       it('should return forwardRef html DIV element when giving a ref to the component', () => {
         // Given

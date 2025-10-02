@@ -22,10 +22,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['atomToastAutoCloseTimes', 'default']
+    const libraryExportedMembers = ['atomToastAutoCloseTimes', 'atomToastPositions', 'default']
 
     // When
-    const {atomToastAutoCloseTimes, default: AtomToast, ...others} = library
+    const {atomToastAutoCloseTimes, atomToastPositions, default: AtomToast, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

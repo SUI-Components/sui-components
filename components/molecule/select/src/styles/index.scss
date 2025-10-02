@@ -23,6 +23,16 @@ $class-select-atom-search-container: '#{$class-select-atom-search}-container';
       border-radius: $bdrs-select;
     }
   }
+  #{$class-select-atom-input-input} {
+    padding-right: $pr-atom-input + -$mr-select-list-arrow + $w-select-list-arrow;
+  }
+  #{$class-select-atom-input-tags} {
+    padding-right: $pr-select-atom-input-tags + -$mr-select-list-arrow + $w-select-list-arrow;
+    padding-left: $pl-atom-input;
+    #{$class-select-atom-input-input} {
+      padding-right: 0;
+    }
+  }
 
   &.is-disabled {
     cursor: default;

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2025-10-02)
+
+
+### Bug Fixes
+
+* export atomToastPositions to preserve the previous API ([58a72cb](https://github.com/SUI-Components/sui-components/commit/58a72cbec30e5ebda9ed0b0eb63e0ab89f39e1e9))
+
+
+
 # 1.10.0 (2025-09-30)
 
 

@@ -44,14 +44,15 @@ const AtomTable = ({
         {body.map((row, index) => (
           <tr
             key={index}
-            className={
-              (cx(`${ROW_BASE_CLASS}`, {
+            className={cx(
+              `${ROW_BASE_CLASS}`,
+              {
                 [`${ROW_BASE_CLASS}--actionable`]: isRowActionable,
                 [`${ROW_BASE_CLASS}--zebraStriped`]: zebraStriped
-              }),
+              },
               typeof rowClass === 'string' && rowClass,
-              typeof rowClass === 'function' && rowClass(row, index))
-            }
+              typeof rowClass === 'function' && rowClass(row, index)
+            )}
             {...(isRowActionable && {onClick: () => handleOnRowClick(index)})}
           >
             {row.map((cell, index) => {

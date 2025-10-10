@@ -50,8 +50,8 @@ const AtomTable = ({
                 [`${ROW_BASE_CLASS}--actionable`]: isRowActionable,
                 [`${ROW_BASE_CLASS}--zebraStriped`]: zebraStriped
               },
-              typeof rowClass === 'string' && rowClass,
-              typeof rowClass === 'function' && rowClass(row, index)
+              typeof rowClass === 'function' && rowClass(row, index),
+              typeof rowClass === 'string' && rowClass
             )}
             {...(isRowActionable && {onClick: () => handleOnRowClick(index)})}
           >

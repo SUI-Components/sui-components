@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.17.0 (2025-10-10)
+
+
+### Bug Fixes
+
+* bump ([6d65804](https://github.com/SUI-Components/sui-components/commit/6d65804d77dbe3a1df1819aa8228cc6604466155))
+* classnames of the row ([ffc8b99](https://github.com/SUI-Components/sui-components/commit/ffc8b9960f423ce8a85752f673cc9bd0ee1af75d))
+
+
+### Features
+
+* bump ([797b3b9](https://github.com/SUI-Components/sui-components/commit/797b3b9d97b31419125dc730a34384dbd50e3fde))
+
+
+
 # 1.16.0 (2025-10-09)
 
 

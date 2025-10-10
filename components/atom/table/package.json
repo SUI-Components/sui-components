@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-table",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "",
   "publishConfig": {
     "access": "public"

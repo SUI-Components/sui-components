@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 2.4.0 (2025-09-08)
+
+
+### Features
+
+* bump version ([909d410](https://github.com/SUI-Components/sui-components/commit/909d4103961fe6efabf6d823f00a67e2c985f6ea))
+* remove css button + button sibblings rule ([a24066d](https://github.com/SUI-Components/sui-components/commit/a24066d71242b0c9ee1eecf5766f3739a912f723))
+
+
+
+# 2.3.0 (2025-09-05)
+
+
+### Features
+
+* add -atom-button token ([94c57d8](https://github.com/SUI-Components/sui-components/commit/94c57d88f9ffa5561850f27c1f1f5a159fa0085c))
+* split border props in outline design ([85dd169](https://github.com/SUI-Components/sui-components/commit/85dd16976e2c4a1daf9d5582226c382537466d3f))
+
+
+
 # 2.2.0 (2025-05-29)
 
 

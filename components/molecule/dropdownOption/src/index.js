@@ -113,7 +113,7 @@ const MoleculeDropdownOption = forwardRef(
         role="option"
         data-value={value}
         aria-label={value}
-        aria-checked={innerSelected}
+        {...(checkbox ? {'aria-checked': innerSelected} : {'aria-selected': innerSelected})}
         {...Object.fromEntries(Object.entries(props).filter(([key]) => !['className', 'style'].includes(key)))}
       >
         {checkbox && (

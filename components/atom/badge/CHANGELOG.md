@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.4.0 (2025-09-12)
+
+
+### Features
+
+* add font weight tokens ([ba2764d](https://github.com/SUI-Components/sui-components/commit/ba2764ddca7e1cbbf61d50b573df6876ac608c4a))
+
+
+
 # 2.3.0 (2025-04-29)
 
 

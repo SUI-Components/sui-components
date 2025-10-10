@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.73.0 (2025-08-22)
+
+
+### Features
+
+* bump ([18787bd](https://github.com/SUI-Components/sui-components/commit/18787bdb1b3c8d707cd27cdd104d752c389384d1))
+
+
+
 # 2.72.0 (2025-08-07)
 
 

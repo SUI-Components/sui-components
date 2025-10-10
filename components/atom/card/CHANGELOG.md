@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2025-10-10)
+
+
+### Bug Fixes
+
+* border radius ([d36e2c3](https://github.com/SUI-Components/sui-components/commit/d36e2c3a5b135c738f71cf1e79427e3c7575708e))
+
+
+
 # 2.0.0 (2025-07-24)
 
 

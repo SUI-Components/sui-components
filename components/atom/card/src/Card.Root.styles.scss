@@ -37,6 +37,7 @@ $base-class-element-panel: '#{$base-class}-Panel';
 
       #{$base-class-element-panel} {
         grid-area: 1 / 1;
+        border-radius: $bdrs-atom-card;
       }
 
       &-design {

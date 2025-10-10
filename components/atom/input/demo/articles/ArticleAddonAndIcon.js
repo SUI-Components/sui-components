@@ -171,7 +171,7 @@ const ArticleAddonAndIcon = ({className}) => {
       <H2>Button Customization</H2>
       <Paragraph>
         Use <Code>leftIconButtonProps</Code> and <Code>rightIconButtonProps</Code> to customize the appearance and
-        behavior of icon buttons with any AtomButton properties.
+        behavior of icon buttons.
       </Paragraph>
 
       <Grid cols={1} gutter={[8, 8]}>
@@ -189,8 +189,7 @@ const ArticleAddonAndIcon = ({className}) => {
             ariaLabelLeftIcon="Search"
             onClickLeftIcon={() => alert('Searching...')}
             leftIconButtonProps={{
-              design: 'solid',
-              color: 'primary'
+              style: {backgroundColor: '#1890ff', color: '#fff'}
             }}
           />
         </Cell>
@@ -206,7 +205,7 @@ const ArticleAddonAndIcon = ({className}) => {
             ariaLabelRightIcon="Apply filters"
             onClickRightIcon={() => alert('Applying filters...')}
             rightIconButtonProps={{
-              design: 'outline'
+              style: {backgroundColor: 'red', color: '#fff'}
             }}
           />
         </Cell>

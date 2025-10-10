@@ -11,6 +11,7 @@
   }
 
   &-button {
+    @include reset-button;
     position: relative;
     padding: 0;
     min-width: 0;
@@ -28,6 +29,11 @@
 
     &-container {
       width: $sz-icon-m;
+    }
+
+    &:hover {
+      background-color: $c-gray-light-3;
+      border-radius: $p-xs;
     }
   }
 

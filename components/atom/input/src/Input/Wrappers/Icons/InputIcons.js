@@ -1,8 +1,6 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import Button from '@s-ui/react-atom-button'
-
 import {
   BASE_CLASS_ICON,
   BASE_CLASS_ICON_BUTTON,
@@ -37,8 +35,6 @@ const InputIcons = ({
   }
 
   const defaultButtonProps = {
-    design: 'flat',
-    color: 'neutral',
     type: 'button'
   }
 
@@ -52,7 +48,7 @@ const InputIcons = ({
       {leftIcon && (
         <>
           {onClickLeftIcon ? (
-            <Button
+            <button
               className={cx(
                 BASE_CLASS_ICON_COMPONENT,
                 BASE_CLASS_ICON_COMPONENT_LEFT,
@@ -66,7 +62,7 @@ const InputIcons = ({
               tabIndex={0}
             >
               <div className={BASE_CLASS_ICON_BUTTON_CONTAINER}>{leftIcon}</div>
-            </Button>
+            </button>
           ) : (
             <span className={cx(BASE_CLASS_ICON_COMPONENT, BASE_CLASS_ICON_COMPONENT_LEFT)}>{leftIcon}</span>
           )}
@@ -76,7 +72,7 @@ const InputIcons = ({
       {rightIcon && (
         <>
           {onClickRightIcon ? (
-            <Button
+            <button
               className={cx(
                 BASE_CLASS_ICON_COMPONENT,
                 BASE_CLASS_ICON_COMPONENT_RIGHT,
@@ -89,7 +85,7 @@ const InputIcons = ({
               aria-label={ariaLabelRightIcon}
             >
               <div className={BASE_CLASS_ICON_BUTTON_CONTAINER}>{rightIcon}</div>
-            </Button>
+            </button>
           ) : (
             <span className={cx(BASE_CLASS_ICON_COMPONENT, BASE_CLASS_ICON_COMPONENT_RIGHT)}>{rightIcon}</span>
           )}

@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-table",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "table"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "table"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

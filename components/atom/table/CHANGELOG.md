@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.16.0 (2025-10-09)
+
+
+### Features
+
+* open rowClass prop ([10d3413](https://github.com/SUI-Components/sui-components/commit/10d341395cc4a761d0ebc9777a11c8abc81cf1ef))
+
+
+
 # 1.15.0 (2023-08-30)
 
 
@@ -149,6 +158,3 @@
 ### Features
 
 * **atom/table:** new component Atom Table ([1f91c67](https://github.com/SUI-Components/sui-components/commit/1f91c674572a82a1affd827a55eabce4d096f303))
-
-
-

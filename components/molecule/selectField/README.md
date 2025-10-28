@@ -152,5 +152,4 @@ import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 const MoleculeSelectFieldWithState = withStateValue(MoleculeSelectField)
 ```
 
-
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/molecule/selectField/demo).**

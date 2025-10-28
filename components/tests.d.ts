@@ -7,10 +7,8 @@ interface SetupEnvironmentOptions extends RenderOptions {
 }
 
 declare global {
-  interface Window {
-    setupEnvironment: <T>(
-      Component: FC<T>,
-      {contexts, hydrate, queries, wrapper}?: SetupEnvironmentOptions
-    ) => (props: {[k: string]: unknown}) => RenderResult
-  }
+  const setupEnvironment: <T>(
+    Component: FC<T>,
+    {contexts, hydrate, queries, wrapper}?: SetupEnvironmentOptions
+  ) => (props: {[k: string]: unknown}) => RenderResult
 }

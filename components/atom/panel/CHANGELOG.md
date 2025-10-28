@@ -1,5 +1,34 @@
 # CHANGELOG
 
+# 1.23.0 (2025-10-02)
+
+
+### Features
+
+* add data aria attributes ([206f829](https://github.com/SUI-Components/sui-components/commit/206f829ca3be4c7e5c2eabebe7f4337bd079874b))
+
+
+
+# 1.22.0 (2025-10-02)
+
+
+### Features
+
+* add default values in the proper file ([291d22c](https://github.com/SUI-Components/sui-components/commit/291d22cba962597f6778ce554248ef6ebf140f70))
+* add forward ref ([bf28bfa](https://github.com/SUI-Components/sui-components/commit/bf28bfa618803ad60ff40148b7c1d1e195fb999d))
+
+
+
+# 1.21.0 (2025-10-02)
+
+
+### Features
+
+* add classnames ([2d6a5da](https://github.com/SUI-Components/sui-components/commit/2d6a5dab99893bd81be5620299c711dabcda75a8))
+* open classNames ([ea5d834](https://github.com/SUI-Components/sui-components/commit/ea5d834a861d8edd675aeb962e05801bc8078d57))
+
+
+
 # 1.20.0 (2023-03-27)
 
 
@@ -215,6 +244,3 @@
 * **atom/panel:** default color for image panels and playground overlay examples ([6515ed0](https://github.com/SUI-Components/sui-components/commit/6515ed03717870d3b299c82c4f99daacbac2e104))
 * **atom/panel:** improve each sass ([abe2147](https://github.com/SUI-Components/sui-components/commit/abe21479f7eb02aaf49c7c09c0599bd789d0bb1c))
 * **atom/panel:** refactor + new playground ([3f7188e](https://github.com/SUI-Components/sui-components/commit/3f7188e1a0d87dcc5914b9cf01ddcb680c9d46be))
-
-
-

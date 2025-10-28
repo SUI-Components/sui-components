@@ -1,15 +1,21 @@
 {
   "name": "@s-ui/react-atom-toast",
-  "version": "1.9.0",
+  "version": "1.12.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "toast"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "toast"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",
-    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:js": "sui-js-compiler",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {

@@ -5,6 +5,7 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
+import {createRef} from 'react'
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
@@ -12,6 +13,14 @@ import chaiDOM from 'chai-dom'
 
 import json from '../package.json'
 import * as pkg from '../src/index.js'
+import {
+  DEFAULT_ALPHA,
+  DEFAULT_BORDER_RADIUS,
+  DEFAULT_COLOR,
+  DEFAULT_ELEVATION,
+  DEFAULT_HORIZONTAL_ALIGNMENT,
+  DEFAULT_VERTICAL_ALIGNMENT
+} from '../src/settings.js'
 
 chai.use(chaiDOM)
 
@@ -80,7 +89,7 @@ describe(json.name, () => {
       expect(container.innerHTML).to.not.have.lengthOf(0)
     })
 
-    it('should NOT extend classNames', () => {
+    it('should extend classNames', () => {
       // Given
       const props = {className: 'extended-classNames'}
       const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
@@ -90,7 +99,65 @@ describe(json.name, () => {
       const findClassName = findSentence(props.className)
 
       // Then
-      expect(findClassName(container.innerHTML)).to.be.null
+      expect(findClassName(container.innerHTML)).to.not.be.null
+    })
+
+    it('should have data attributes', () => {
+      // Given
+      const props = {'data-attribute': 'data-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[data-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    it('should have aria attributes', () => {
+      // Given
+      const props = {'aria-attribute': 'aria-attribute'}
+
+      // When
+      const {container} = setup(props)
+      const element = container.querySelector('[aria-attribute]')
+
+      // Then
+      expect(element).to.not.be.null
+    })
+
+    describe('forwardRef', () => {
+      it('should return forwardRef html DIV element when giving a ref to the component', () => {
+        // Given
+        const props = {}
+        const ref = createRef()
+
+        // When
+        const component = <Component {...props} ref={ref} />
+        const div = document.createElement('div')
+        ReactDOM.render(component, div)
+
+        // Then
+        expect(ref.current).to.not.equal(undefined)
+        expect(ref.current.nodeName).to.equal('DIV')
+      })
+
+      it('should return forwardRef html DIV element when giving a ref to the component', () => {
+        // Given
+        const props = {
+          src: '#'
+        }
+        const ref = createRef()
+
+        // When
+        const component = <Component {...props} ref={ref} />
+        const div = document.createElement('div')
+        ReactDOM.render(component, div)
+
+        // Then
+        expect(ref.current).to.not.equal(undefined)
+        expect(ref.current.nodeName).to.equal('DIV')
+      })
     })
 
     describe('ColorPanel', () => {
@@ -194,6 +261,9 @@ describe(json.name, () => {
         const findClassName = findSentence(`sui-atom-panel--${pkg.atomPanelColors.BASE}-overlay-100`)
 
         // Then
+        expect(`sui-atom-panel--${pkg.atomPanelColors.BASE}-overlay-100`).to.equal(
+          `sui-atom-panel--${'base'}-overlay-100`
+        )
         expect(findClassName(container.innerHTML)).to.be.not.null
       })
 
@@ -499,7 +569,6 @@ describe(json.name, () => {
       })
     })
   })
-
   describe('atomPanelVerticalAlign', () => {
     it('value must be an object enum', () => {
       // Given
@@ -683,6 +752,27 @@ describe(json.name, () => {
         expect(Object.keys(actual).includes(expectedKey)).to.be.true
         expect(actual[expectedKey]).to.equal(expectedValue)
       })
+    })
+  })
+
+  describe('defaultValues', () => {
+    it('should DEFAULT_ALPHA be 100', () => {
+      expect(DEFAULT_ALPHA).to.equal('100')
+    })
+    it('should DEFAULT_COLOR be accent', () => {
+      expect(DEFAULT_COLOR).to.equal('accent')
+    })
+    it('should DEFAULT_ELEVATION be none', () => {
+      expect(DEFAULT_ELEVATION).to.equal('none')
+    })
+    it('should DEFAULT_BORDER_RADIUS be none', () => {
+      expect(DEFAULT_BORDER_RADIUS).to.equal('none')
+    })
+    it('should DEFAULT_VERTICAL_ALIGNMENT be center', () => {
+      expect(DEFAULT_VERTICAL_ALIGNMENT).to.equal('center')
+    })
+    it('should DEFAULT_HORIZONTAL_ALIGNMENT be center', () => {
+      expect(DEFAULT_HORIZONTAL_ALIGNMENT).to.equal('center')
     })
   })
 })

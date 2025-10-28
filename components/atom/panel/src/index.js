@@ -1,33 +1,52 @@
+import {forwardRef} from 'react'
 import PropTypes from 'prop-types'
 
 import ColorPanel from './ColorPanel.js'
-import {ALPHA, BORDER_RADIUS, COLORS, ELEVATION, isImagePanel} from './constants.js'
-import ImagePanel, {HORIZONTAL_ALIGNMENTS, VERTICAL_ALIGNMENTS} from './ImagePanel.js'
+import {
+  ALPHA,
+  BORDER_RADIUS,
+  COLORS,
+  ELEVATION,
+  DEFAULT_ELEVATION,
+  DEFAULT_BORDER_RADIUS,
+  HORIZONTAL_ALIGNMENTS,
+  VERTICAL_ALIGNMENTS,
+  isImagePanel
+} from './settings.js'
+import ImagePanel from './ImagePanel.js'
 
-const AtomPanel = function ({
-  alpha,
-  color,
-  elevation = ELEVATION.NONE,
-  horizontalAlign = HORIZONTAL_ALIGNMENTS.CENTER,
-  rounded = BORDER_RADIUS.NONE,
-  src,
-  verticalAlign = VERTICAL_ALIGNMENTS.CENTER,
-  ...props
-}) {
-  return isImagePanel({src}) ? (
-    <ImagePanel
-      color={color}
-      elevation={elevation}
-      horizontalAlign={horizontalAlign}
-      rounded={rounded}
-      src={src}
-      verticalAlign={verticalAlign}
-      {...props}
-    />
-  ) : (
-    <ColorPanel alpha={alpha} color={color} elevation={elevation} rounded={rounded} {...props} />
-  )
-}
+const AtomPanel = forwardRef(
+  (
+    {
+      alpha,
+      color,
+      elevation = DEFAULT_ELEVATION,
+      horizontalAlign,
+      verticalAlign,
+      rounded = DEFAULT_BORDER_RADIUS,
+      src,
+      className,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const [Component, componentProps] = isImagePanel({src})
+      ? [ImagePanel, {src, horizontalAlign, verticalAlign}]
+      : [ColorPanel, {alpha}]
+
+    return (
+      <Component
+        ref={forwardedRef}
+        className={className}
+        color={color}
+        elevation={elevation}
+        rounded={rounded}
+        {...componentProps}
+        {...props}
+      />
+    )
+  }
+)
 
 AtomPanel.displayName = 'AtomPanel'
 
@@ -76,7 +95,11 @@ AtomPanel.propTypes = {
   /**
    * Sets the element's height to 100%
    */
-  isFullHeight: PropTypes.bool
+  isFullHeight: PropTypes.bool,
+  /**
+   * Additional classes
+   */
+  className: PropTypes.string
 }
 
 export default AtomPanel

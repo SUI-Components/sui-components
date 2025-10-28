@@ -67,7 +67,6 @@ const contentBody = [
 ]
 
 return <AtomTable head={contentHead} body={contentBody} />
-
-
+  
 > **Find full description and more examples in the [demo page](#).**
 ```

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2025-10-02)
+
+
+### Features
+
+* select arrow overlaps the input value ([0cebb6c](https://github.com/SUI-Components/sui-components/commit/0cebb6c3b688be9e9618b81c73a9eb1a3c77a186))
+
+
+
 # 2.5.0 (2025-06-03)
 
 

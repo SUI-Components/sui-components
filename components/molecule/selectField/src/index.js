@@ -19,6 +19,7 @@ const MoleculeSelectField = ({
   alertText,
   onChange: handleChange,
   className,
+  disabled,
   ...props
 }) => {
   const refSelect = useRef()
@@ -33,6 +34,7 @@ const MoleculeSelectField = ({
 
   return (
     <MoleculeField
+      disabled={disabled}
       errorText={errorText}
       helpText={helpText}
       inline={inline}
@@ -46,6 +48,7 @@ const MoleculeSelectField = ({
     >
       <MoleculeSelect
         className={className}
+        disabled={disabled}
         errorState={errorState}
         refMoleculeSelect={refSelect}
         state={selectState}
@@ -66,6 +69,9 @@ MoleculeSelectField.propTypes = {
 
   /** className */
   className: PropTypes.string,
+
+  /** Boolean to decide if element is disabled */
+  disabled: PropTypes.bool,
 
   /** Error message to display when error state  */
   errorText: PropTypes.string,

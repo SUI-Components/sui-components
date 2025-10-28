@@ -1,8 +1,6 @@
 import type {FC, LabelHTMLAttributes} from 'react'
 
-import cx from 'classnames'
-
-import {CLASSNAME, FONT_SIZES, TYPES} from './settings'
+import {getClass, FONT_SIZES, TYPES} from './settings'
 
 export type FontSize = typeof FONT_SIZES[keyof typeof FONT_SIZES]
 export type Type = typeof TYPES[keyof typeof TYPES]
@@ -38,24 +36,11 @@ export interface AtomLabelProps extends Pick<LabelHTMLAttributes<HTMLLabelElemen
    * class attribute
    */
   className?: string
+  /**
+   * Disabled: faded with no interaction.
+   */
+  disabled?: boolean
 }
-
-const getClass = ({
-  inline,
-  type,
-  fontSize,
-  className
-}: Pick<AtomLabelProps, 'inline' | 'type' | 'fontSize' | 'className'>) =>
-  cx(
-    CLASSNAME,
-    {
-      [`${CLASSNAME}--${fontSize as string}`]: Boolean(fontSize),
-      [`${CLASSNAME}--${type as string}`]: Boolean(type),
-      [`${CLASSNAME}--inlineLeft`]: inline === 'left',
-      [`${CLASSNAME}--inlineRight`]: inline === 'right'
-    },
-    className
-  )
 
 const AtomLabel: FC<AtomLabelProps> = ({
   name,
@@ -67,11 +52,12 @@ const AtomLabel: FC<AtomLabelProps> = ({
   htmlFor,
   onClick,
   className,
+  disabled,
   ...props
 }) => (
   <label
     htmlFor={htmlFor ?? name}
-    className={getClass({inline, type, fontSize, className})}
+    className={getClass({inline, type, fontSize, className, disabled})}
     onClick={onClick}
     {...props}
   >

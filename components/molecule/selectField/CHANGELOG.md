@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.2.0 (2025-10-28)
+
+
+### Features
+
+* force release ([d6468f8](https://github.com/SUI-Components/sui-components/commit/d6468f8800363826fb269a7a0f10e5dfb1d337f7))
+* pass down disabled prop to molecule select field ([84afbb6](https://github.com/SUI-Components/sui-components/commit/84afbb6029238aeb3aaae824f6d5646679f07430))
+
+
+
 # 2.1.0 (2025-02-24)
 
 

@@ -46,6 +46,7 @@ $class-select-atom-search-container: '#{$class-select-atom-search}-container';
     }
 
     #{$class-input}-arrow {
+      opacity: $o-molecule-select-arrow-disabled;
       svg {
         fill: $c-molecule-select-arrow-disabled !important;
       }

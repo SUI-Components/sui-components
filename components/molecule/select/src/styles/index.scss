@@ -46,7 +46,6 @@ $class-select-atom-search-container: '#{$class-select-atom-search}-container';
     }
 
     #{$class-input}-arrow {
-      opacity: $o-molecule-select-arrow-disabled;
       svg {
         fill: $c-molecule-select-arrow-disabled !important;
       }
@@ -105,6 +104,10 @@ $class-select-atom-search-container: '#{$class-select-atom-search}-container';
       right: -$mr-select-list-arrow;
       height: $h-select-list-arrow;
       width: $w-select-list-arrow;
+
+      &--disabled {
+        opacity: $o-molecule-select-arrow-disabled;
+      }
 
       &--down {
         transform: rotate(0deg);

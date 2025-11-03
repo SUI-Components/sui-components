@@ -109,7 +109,9 @@ $item-base-class: '#{$base-class}-item';
 
   &--highlighted#{$base-class}--horizontal,
   &--highlighted#{$base-class}--fullWidth {
-    border-bottom: $bb-sui-molecule-tabs-fullwidth;
+    #{$base-class}-scroller {
+      border-bottom: $bb-sui-molecule-tabs-fullwidth;
+    }
 
     #{$item-base-class} {
       border: 0 none transparent;

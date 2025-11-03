@@ -14,15 +14,18 @@ $base-class-line: '#{$base-class}Line';
       margin-top: $m-base;
     }
   }
+
   &-container {
     &--error {
       background: $bg-progress-bar--error;
       border: $bd-line-progress-container--error;
     }
+
     &--loading {
       background: $bg-progress-bar--loading;
       border: $bd-line-progress-container--loading;
     }
+
     &--success {
       background: $bg-progress-bar--success;
       border: $bd-line-progress-container--success;
@@ -46,6 +49,7 @@ $base-class-line: '#{$base-class}Line';
   }
 
   &Line {
+    $this: &;
     background-color: $c-progress-bar-fill;
     border-radius: $bdrs-progress-bar;
     display: block;
@@ -53,9 +57,9 @@ $base-class-line: '#{$base-class}Line';
     overflow: hidden;
     position: absolute;
 
-    &#{$base-class}Line--color {
+    &#{$this}--color {
       @each $colorName, $colorValue in $c-progress-bar-fill-array {
-        &-#{$colorName} {
+        &-#{$colorName}:not(#{$this}--status-error):not(#{$this}--status-loading):not(#{$this}--status-success) {
           background-color: $colorValue;
         }
       }
@@ -64,15 +68,32 @@ $base-class-line: '#{$base-class}Line';
     &--animated {
       transition: width $trsdu-progress-bar $trstf-progress-bar;
     }
+
     &#{$base-class}LineDouble--color {
       @each $colorName, $colorValue in $c-progress-bar-fill-array {
-        &-#{$colorName} {
+        &-#{$colorName}:not(#{$this}--status-error):not(#{$this}--status-loading):not(#{$this}--status-success) {
           background-color: $colorValue;
         }
       }
     }
+
+    &#{$base-class}Line--status {
+      &-error {
+        background-color: $c-atom-line-progress-bar-status--error;
+      }
+
+      &-loading {
+        background-color: $c-atom-line-progress-bar-status--loading;
+      }
+
+      &-success {
+        background-color: $c-atom-line-progress-bar-status--success;
+      }
+    }
   }
+
   &ExtraLine {
+    $this: &;
     background-color: $c-progress-extra-bar-fill;
     border-radius: $br-progress-bar;
     display: block;
@@ -86,23 +107,23 @@ $base-class-line: '#{$base-class}Line';
 
     &#{$base-class}Line--color {
       @each $colorName, $colorValue in $c-progress-extra-bar-fill-array {
-        &-#{$colorName} {
+        &-#{$colorName}:not(#{$base-class}Line--status-error):not(#{$base-class}Line--status-loading):not(#{$base-class}Line--status-success) {
           background-color: $colorValue;
         }
       }
     }
-  }
-  &Line,
-  &ExtraLine {
-    &--status {
+
+    &#{$base-class}Line--status {
       &-error {
-        background-color: $c-atom-line-progress-bar-status--error;
+        background-color: color-mix(in srgb, $c-atom-line-progress-bar-status--error, $c-black);
       }
+
       &-loading {
-        background-color: $c-atom-line-progress-bar-status--loading;
+        background-color: color-mix(in srgb, $c-atom-line-progress-bar-status--loading, $c-black);
       }
+
       &-success {
-        background-color: $c-atom-line-progress-bar-status--success;
+        background-color: color-mix(in srgb, $c-atom-line-progress-bar-status--success, $c-black);
       }
     }
   }

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.34.0 (2025-11-03)
+
+
+### Features
+
+* add colors ([8d71a54](https://github.com/SUI-Components/sui-components/commit/8d71a54ffef798f773175c49da2c48200355058b))
+* add disabled prop ([aab3484](https://github.com/SUI-Components/sui-components/commit/aab3484c23b5b68410ef7e015473e5527e53cf35))
+
+
+
 # 1.33.0 (2025-10-03)
 
 

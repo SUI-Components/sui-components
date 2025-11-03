@@ -93,14 +93,12 @@ Circle.propTypes = {
   modifier: PropTypes.oneOf(Object.values(MODIFIERS)),
   /** The percentage of the current progress */
   percentage: PropTypes.number.isRequired,
-  /** width of the stroke  */
-  strokeWidth: PropTypes.node.isRequired,
   /** boolean to activate/desactivate animations */
   withAnimation: PropTypes.bool,
   /** The size of the progress stroke, by default it is undefined, it can be "small", "medium" or "large" */
-  progressStrokeWidth: PropTypes.literal,
+  progressStrokeWidth: PropTypes.number,
   /** The size of the main stroke, by default it is undefined, it can be "small", "medium" or "large" */
-  mainStrokeWidth: PropTypes.literal,
+  mainStrokeWidth: PropTypes.number,
   /** The shape of the end of line, it can be "round" or "square" */
   strokeLineCap: PropTypes.string,
   /** size of the circle [small, large]  */

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.15.0 (2025-11-03)
+
+
+### Features
+
+* add colors ([8d71a54](https://github.com/SUI-Components/sui-components/commit/8d71a54ffef798f773175c49da2c48200355058b))
+* styles ([c20c61c](https://github.com/SUI-Components/sui-components/commit/c20c61c03cb6cd26afde1fa8a758df242aae99cd))
+
+
+
 # 2.14.0 (2024-07-17)
 
 

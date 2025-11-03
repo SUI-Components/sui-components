@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-progress-bar",
-  "version": "2.14.0",
+  "version": "2.15.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "progressBar"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "progressBar"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

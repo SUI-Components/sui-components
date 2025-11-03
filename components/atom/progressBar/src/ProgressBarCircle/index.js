@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {LINE_CAPS, SIZES, STATUS} from '../settings.js'
+import {COLORS, LINE_CAPS, SIZES, STATUS} from '../settings.js'
 import Circle from './Circle/index.js'
 import Indicator from './Indicator.js'
 import {BASE_CLASS_NAME, SIZE_TO_WIDTH_LINE_MAP, STROKE_SIZE_MAP} from './settings.js'
@@ -16,7 +16,8 @@ const ProgressBarCircle = ({
   children,
   mainStrokeSize,
   progressStrokeSize,
-  strokeLineCap = LINE_CAPS.SQUARE
+  strokeLineCap = LINE_CAPS.SQUARE,
+  color
 }) => {
   const mainStrokeWidth = STROKE_SIZE_MAP[mainStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
   const progressStrokeWidth = STROKE_SIZE_MAP[progressStrokeSize] || SIZE_TO_WIDTH_LINE_MAP[size]
@@ -32,6 +33,7 @@ const ProgressBarCircle = ({
         size={size}
         strokeLineCap={strokeLineCap}
         withAnimation={isAnimatedOnChange}
+        color={color}
       />
       {!hideIndicator && (
         <Indicator percentage={percentage} size={size} status={status} errorIcon={errorIcon}>
@@ -67,13 +69,16 @@ ProgressBarCircle.propTypes = {
   strokeLineCap: PropTypes.oneOf(Object.values(LINE_CAPS)),
 
   /** The size of the progress stroke, by default it is undefined, it can be "small", "medium" or "large" */
-  progressStrokeSize: PropTypes.literal,
+  progressStrokeSize: PropTypes.number,
 
   /** The size of the main stroke, by default it is undefined, it can be "small", "medium" or "large" */
-  mainStrokeSize: PropTypes.literal,
+  mainStrokeSize: PropTypes.number,
 
   /** Component to render inside the circle instead of the current progress */
-  children: PropTypes.node
+  children: PropTypes.node,
+
+  /** color of the circle */
+  color: PropTypes.oneOf(Object.values(COLORS))
 }
 
 export default ProgressBarCircle

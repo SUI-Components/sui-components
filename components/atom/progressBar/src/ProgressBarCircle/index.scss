@@ -123,6 +123,13 @@ $base-class-circle: '#{$base-class}Circle';
   }
 
   &-path {
+    &#{$base-class-circle}-path--color {
+      @each $colorName, $colorValue in $c-progress-bar-fill-array {
+        &-#{$colorName} {
+          stroke: $colorValue;
+        }
+      }
+    }
     stroke: $c-atom-circle-progress-bar-path;
   }
 }

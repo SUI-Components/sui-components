@@ -1,17 +1,18 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 import {
   BORDER_RADIUS,
-  ELEVATION,
-  HORIZONTAL_ALIGNMENTS,
-  VERTICAL_ALIGNMENTS,
-  DEFAULT_VERTICAL_ALIGNMENT,
   DEFAULT_HORIZONTAL_ALIGNMENT,
+  DEFAULT_VERTICAL_ALIGNMENT,
+  ELEVATION,
   getImageClassNames,
-  getImageStyles
+  getImageStyles,
+  HORIZONTAL_ALIGNMENTS,
+  VERTICAL_ALIGNMENTS
 } from './settings.js'
 
 const ImagePanel = forwardRef(

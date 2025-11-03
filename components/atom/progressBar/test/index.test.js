@@ -28,6 +28,7 @@ describe(json.name, () => {
       'atomProgressBarStatus',
       'atomProgressBarLineCaps',
       'atomProgressBarStrokeSizes',
+      'atomProgressBarColors',
       'default'
     ]
 
@@ -38,6 +39,7 @@ describe(json.name, () => {
       atomProgressBarStatus,
       atomProgressBarLineCaps,
       atomProgressBarStrokeSizes,
+      atomProgressBarColors,
       default: AtomProgressBar,
       ...others
     } = library
@@ -268,6 +270,44 @@ describe(json.name, () => {
       // When
       const {atomProgressBarStatus: actual} = library
       const {LOADING, PROGRESS, ERROR, SUCCESS, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomProgressBarColors', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomProgressBarColors: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        PRIMARY: 'primary',
+        SECONDARY: 'secondary',
+        SUCCESS: 'success',
+        ALERT: 'alert',
+        ERROR: 'error',
+        NEUTRAL: 'neutral'
+      }
+
+      // When
+      const {atomProgressBarColors: actual} = library
+      const {PRIMARY, SECONDARY, SUCCESS, ALERT, ERROR, NEUTRAL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

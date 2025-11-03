@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {SIZES, STATUS} from '../settings.js'
+import {COLORS, SIZES, STATUS} from '../settings.js'
 import Line from './Line.js'
 import {
   BASE_CLASS,
@@ -23,6 +23,7 @@ const ProgressBarLine = ({
   mainBarPercentage,
   extraBarPercentage,
   status,
+  color,
   size = SIZES.MEDIUM
 }) => {
   const percentageArray = usePercentage({
@@ -52,13 +53,17 @@ const ProgressBarLine = ({
         {percentageArray.map((percentageValue, currentIndex, array) => {
           const index = array.length - 1 - currentIndex
           const isExtra = array.length === 2 && currentIndex === 0
+          const baseClassLine = {
+            undefined: '',
+            1: BASE_CLASS_LINE_SIMPLE,
+            2: BASE_CLASS_LINE_DOUBLE
+          }[array.length]
           return (
             <Line
               key={index}
-              className={cx({
-                [BASE_CLASS_LINE_SIMPLE]: array.length === 1,
-                [BASE_CLASS_LINE_DOUBLE]: array.length === 2,
-                [`${BASE_CLASS_LINE}--status-${status}`]: status
+              className={cx(baseClassLine, {
+                [`${BASE_CLASS_LINE}--status-${status}`]: status,
+                [`${BASE_CLASS_LINE}--color-${color}`]: color
               })}
               isAnimatedOnChange={isAnimatedOnChange}
               percentage={array[index]}
@@ -93,7 +98,9 @@ ProgressBarLine.propTypes = {
   /** Current status of the progress [progress, loading, error]  */
   status: PropTypes.oneOf(Object.values(STATUS)),
   /** The size of the circle, it can be "small" or "large"  */
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  /** color of the circle */
+  color: PropTypes.oneOf(Object.values(COLORS))
 }
 
 export default ProgressBarLine

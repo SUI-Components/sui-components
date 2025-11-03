@@ -4,6 +4,14 @@ $bg-progress-bar--loading: $bg-progress-bar !default;
 $bg-progress-bar--error: $bg-progress-bar !default;
 $bc-progress-bar: $c-gray-light !default;
 $c-progress-bar-fill: $c-primary !default;
+$c-progress-bar-fill-array: (
+  primary: $c-progress-bar-fill,
+  secondary: $c-secondary,
+  neutral: $c-gray-light-2,
+  success: $c-success,
+  error: $c-error,
+  alert: $c-alert
+) !default;
 
 $trsdu-progress-bar: 500ms !default;
 $trstf-progress-bar: linear !default;
@@ -24,6 +32,14 @@ $bdrs-progress-bar: $br-progress-bar !default;
 $h-progress-bar: $m-base !default;
 $h-progress-bar: $m-base !default;
 $c-progress-extra-bar-fill: $c-primary-dark-3 !default;
+$c-progress-extra-bar-fill-array: (
+  primary: $c-progress-extra-bar-fill,
+  secondary: $c-secondary-dark-3,
+  neutral: $c-gray,
+  success: $c-success-dark-3,
+  error: $c-error-dark-3,
+  alert: $c-alert-dark-3
+) !default;
 
 $trsdu-progress-exrta-bar: 500ms !default;
 // this component uses $bdrs for border radius

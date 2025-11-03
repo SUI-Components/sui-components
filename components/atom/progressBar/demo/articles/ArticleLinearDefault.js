@@ -14,7 +14,12 @@ import {
   RadioButtonGroup
 } from '@s-ui/documentation-library'
 
-import AtomProgressBar, {atomProgressBarSizes, atomProgressBarStatus, atomProgressBarTypes} from '../../src/index.js'
+import AtomProgressBar, {
+  atomProgressBarColors,
+  atomProgressBarSizes,
+  atomProgressBarStatus,
+  atomProgressBarTypes
+} from '../../src/index.js'
 import {getShuffledValue} from '../settings.js'
 
 const ArticleLinearDefault = ({className}) => {
@@ -26,6 +31,8 @@ const ArticleLinearDefault = ({className}) => {
   const [indicatorTotal, setIndicatorTotal] = useState()
   const [status, setStatus] = useState()
   const [size, setSize] = useState()
+  const [color, setColor] = useState()
+
   return (
     <Article className={className}>
       <H2 id="linear-progress-bar">Linear Progress Bar</H2>
@@ -127,10 +134,27 @@ const ArticleLinearDefault = ({className}) => {
             ))}
           </RadioButtonGroup>
         </Cell>
-        <Cell span={2}>
+        <Cell>
+          <Label>color</Label>
+        </Cell>
+        <Cell span={1}>
           <Label>isBorderless</Label>
         </Cell>
-        <Cell span={2}>
+        <Cell>
+          <RadioButtonGroup value={color} onChange={(event, value) => setColor(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarColors)].map(
+              ([, atomProgressBarLineCapsValue]) => (
+                <RadioButton
+                  key={`${atomProgressBarLineCapsValue}`}
+                  label={`${atomProgressBarLineCapsValue}`}
+                  value={atomProgressBarLineCapsValue}
+                  checked={color === atomProgressBarLineCapsValue}
+                />
+              )
+            )}
+          </RadioButtonGroup>
+        </Cell>
+        <Cell span={1}>
           <RadioButton
             onClick={() => {
               setIsBorderless(!isBorderless)
@@ -153,6 +177,7 @@ const ArticleLinearDefault = ({className}) => {
             hideIndicator={hideIndicator}
             indicatorBottom={indicatorBottom}
             indicatorTotal={indicatorTotal}
+            color={color}
           />
         </Cell>
       </Grid>

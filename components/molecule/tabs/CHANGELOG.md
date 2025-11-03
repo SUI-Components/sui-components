@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.41.0 (2025-11-03)
+
+
+### Features
+
+* fixed molecule tabs divider ([91f6d67](https://github.com/SUI-Components/sui-components/commit/91f6d67ecad1b875460150690b5bfd22383318e7))
+
+
+
 # 2.40.0 (2025-05-21)
 
 

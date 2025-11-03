@@ -1,6 +1,6 @@
 import type {FC, LabelHTMLAttributes} from 'react'
 
-import {getClass, FONT_SIZES, TYPES} from './settings'
+import {FONT_SIZES, getClass, TYPES} from './settings'
 
 export type FontSize = typeof FONT_SIZES[keyof typeof FONT_SIZES]
 export type Type = typeof TYPES[keyof typeof TYPES]

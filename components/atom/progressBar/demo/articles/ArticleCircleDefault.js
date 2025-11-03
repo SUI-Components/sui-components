@@ -15,6 +15,7 @@ import {
 } from '@s-ui/documentation-library'
 
 import AtomProgressBar, {
+  atomProgressBarColors,
   atomProgressBarLineCaps,
   atomProgressBarSizes,
   atomProgressBarStatus,
@@ -34,6 +35,7 @@ const ArticleCircleDefault = ({className}) => {
   const [indicatorTotal, setIndicatorTotal] = useState()
   const [status, setStatus] = useState()
   const [size, setSize] = useState()
+  const [color, setColor] = useState()
 
   return (
     <Article className={className}>
@@ -174,7 +176,24 @@ const ArticleCircleDefault = ({className}) => {
           </RadioButtonGroup>
         </Cell>
         <Cell>
+          <Label>color</Label>
+        </Cell>
+        <Cell>
           <Label>strokeLineCap</Label>
+        </Cell>
+        <Cell>
+          <RadioButtonGroup value={color} onChange={(event, value) => setColor(value)}>
+            {[['undefined', undefined], ...Object.entries(atomProgressBarColors)].map(
+              ([, atomProgressBarLineCapsValue]) => (
+                <RadioButton
+                  key={`${atomProgressBarLineCapsValue}`}
+                  label={`${atomProgressBarLineCapsValue}`}
+                  value={atomProgressBarLineCapsValue}
+                  checked={color === atomProgressBarLineCapsValue}
+                />
+              )
+            )}
+          </RadioButtonGroup>
         </Cell>
         <Cell>
           <RadioButtonGroup value={strokeLineCap} onChange={(event, value) => setStrokeLineCap(value)}>
@@ -206,6 +225,7 @@ const ArticleCircleDefault = ({className}) => {
             strokeLineCap={strokeLineCap}
             mainStrokeSize={mainStrokeSize}
             progressStrokeSize={progressStrokeSize}
+            color={color}
           />
         </Cell>
       </Grid>

@@ -30,3 +30,12 @@ export const STATUS = {
   ERROR: 'error',
   SUCCESS: 'success'
 }
+
+export const COLORS = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  SUCCESS: 'success',
+  ALERT: 'alert',
+  ERROR: 'error',
+  NEUTRAL: 'neutral'
+}

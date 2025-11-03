@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
+import {COLORS} from '../../settings.js'
 import {MAX_TRANSITION_TIME_IN_MS, MODIFIERS, SIZES} from './settings.js'
 
 const Circle = ({
@@ -13,7 +14,8 @@ const Circle = ({
   withAnimation = true,
   mainStrokeWidth,
   progressStrokeWidth,
-  strokeLineCap
+  strokeLineCap,
+  color
 }) => {
   const [currentPercentage, setCurrentPercentage] = useState(percentage)
   const [transitionTime, setTransitionTime] = useState(0)
@@ -72,7 +74,8 @@ const Circle = ({
       />
       <path
         className={cx(`${baseClassName}-path`, {
-          [`${baseClassName}-path--${modifier}`]: !!modifier
+          [`${baseClassName}-path--${modifier}`]: !!modifier,
+          [`${baseClassName}-path--color-${color}`]: !!color
         })}
         {...getPathStyles({percentage, strokeWidth: progressStrokeWidth})}
         strokeLinecap={strokeLineCap}
@@ -101,7 +104,9 @@ Circle.propTypes = {
   /** The shape of the end of line, it can be "round" or "square" */
   strokeLineCap: PropTypes.string,
   /** size of the circle [small, large]  */
-  size: PropTypes.oneOf(Object.values(SIZES)).isRequired
+  size: PropTypes.oneOf(Object.values(SIZES)).isRequired,
+  /** color of the circle */
+  color: PropTypes.oneOf(Object.values(COLORS))
 }
 
 export default Circle

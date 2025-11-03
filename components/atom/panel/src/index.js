@@ -1,19 +1,20 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 import ColorPanel from './ColorPanel.js'
+import ImagePanel from './ImagePanel.js'
 import {
   ALPHA,
   BORDER_RADIUS,
   COLORS,
-  ELEVATION,
-  DEFAULT_ELEVATION,
   DEFAULT_BORDER_RADIUS,
+  DEFAULT_ELEVATION,
+  ELEVATION,
   HORIZONTAL_ALIGNMENTS,
-  VERTICAL_ALIGNMENTS,
-  isImagePanel
+  isImagePanel,
+  VERTICAL_ALIGNMENTS
 } from './settings.js'
-import ImagePanel from './ImagePanel.js'
 
 const AtomPanel = forwardRef(
   (

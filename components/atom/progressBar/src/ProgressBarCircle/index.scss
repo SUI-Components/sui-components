@@ -4,6 +4,9 @@ $base-class-circle: '#{$base-class}Circle';
   background-color: transparent;
   font-size: $fz-atom-circle-progress-bar-text--outer;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 
   &--small {
     height: $h-atom-circle-progress-bar-circle-small;
@@ -48,8 +51,15 @@ $base-class-circle: '#{$base-class}Circle';
     padding: 0;
     position: absolute;
     text-align: center;
-    &--small:not(&--error) {
-      margin-left: $ml-atom-circle-progress-bar-text--outer;
+    &--small {
+      top: 0;
+      bottom: 0;
+      left: 100%;
+      display: flex;
+      align-items: center;
+      &:not(&--error) {
+        margin-left: $ml-atom-circle-progress-bar-text--outer;
+      }
     }
 
     &--medium {
@@ -81,6 +91,13 @@ $base-class-circle: '#{$base-class}Circle';
       align-items: center;
       svg {
         fill: $c-atom-circle-progress-bar-trail--error;
+      }
+    }
+    &--color {
+      @each $colorName, $colorValue in $c-progress-bar-fill-array {
+        &-#{$colorName} {
+          color: $colorValue;
+        }
       }
     }
   }

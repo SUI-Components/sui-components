@@ -55,7 +55,7 @@ AtomBadge.propTypes = {
   design: PropTypes.oneOf(Object.values(DESIGNS)),
 
   /** Badge text to be shown */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType(PropTypes.string, PropTypes.node).isRequired,
 
   /** Custom svg icon to be shown */
   icon: PropTypes.node,

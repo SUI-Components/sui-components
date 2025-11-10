@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-atom-progress-bar",
-  "version": "2.15.0",
+  "version": "2.16.0",
   "description": "",
   "publishConfig": {
     "access": "public"

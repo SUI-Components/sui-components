@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.16.0 (2025-11-10)
+
+
+### Bug Fixes
+
+* proptypes ([cbece88](https://github.com/SUI-Components/sui-components/commit/cbece884775f600ce17a5c5c9cd116872a1dad20))
+
+
+### Features
+
+* add color tint to the indicator properly ([e41e9c4](https://github.com/SUI-Components/sui-components/commit/e41e9c47b28017ade4af1d2997b7bb3ba47c4c92))
+
+
+
 # 2.15.0 (2025-11-03)
 
 

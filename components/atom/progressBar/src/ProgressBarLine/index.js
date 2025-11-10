@@ -35,7 +35,8 @@ const ProgressBarLine = ({
     hideIndicator,
     indicatorBottom,
     percentage: percentageArray[0],
-    indicatorTotal
+    indicatorTotal,
+    color
   })
 
   return (

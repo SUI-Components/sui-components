@@ -4,7 +4,7 @@ import ProgressBarCircle from './ProgressBarCircle/index.js'
 import ProgressBarLine from './ProgressBarLine/index.js'
 import {COLORS, LINE_CAPS, SIZES, STATUS, STROKE_SIZES, TYPES} from './settings.js'
 
-const AtomProgressBar = ({type = TYPES.LINE, status = STATUS.PROGRESS, color = COLORS.PRIMARY, size, ...props}) => {
+const AtomProgressBar = ({type = TYPES.LINE, status = STATUS.PROGRESS, color, size, ...props}) => {
   switch (type) {
     case TYPES.CIRCLE:
       return <ProgressBarCircle size={size} status={status} color={color} {...props} />

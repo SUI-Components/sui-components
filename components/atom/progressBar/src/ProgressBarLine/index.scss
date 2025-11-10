@@ -1,20 +1,6 @@
 $base-class-line: '#{$base-class}Line';
 
 #{$base-class} {
-  &-indicator {
-    display: inline-block;
-    font-size: $fz-s;
-    line-height: $lh-s;
-
-    &--top {
-      margin-bottom: $m-base;
-    }
-
-    &--bottom {
-      margin-top: $m-base;
-    }
-  }
-
   &-container {
     &--error {
       background: $bg-progress-bar--error;
@@ -56,6 +42,27 @@ $base-class-line: '#{$base-class}Line';
     height: 100%;
     overflow: hidden;
     position: absolute;
+
+    &-indicator {
+      display: inline-block;
+      font-size: $fz-s;
+      line-height: $lh-s;
+
+      &--top {
+        margin-bottom: $m-base;
+      }
+
+      &--bottom {
+        margin-top: $m-base;
+      }
+      &--color {
+        @each $colorName, $colorValue in $c-progress-bar-fill-array {
+          &-#{$colorName} {
+            color: $colorValue;
+          }
+        }
+      }
+    }
 
     &#{$this}--color {
       @each $colorName, $colorValue in $c-progress-bar-fill-array {

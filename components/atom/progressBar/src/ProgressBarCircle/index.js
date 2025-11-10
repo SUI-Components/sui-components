@@ -36,7 +36,7 @@ const ProgressBarCircle = ({
         color={color}
       />
       {!hideIndicator && (
-        <Indicator percentage={percentage} size={size} status={status} errorIcon={errorIcon}>
+        <Indicator color={color} percentage={percentage} size={size} status={status} errorIcon={errorIcon}>
           {children}
         </Indicator>
       )}

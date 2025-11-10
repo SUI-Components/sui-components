@@ -1,9 +1,14 @@
 import Indicator from './Indicator/index.js'
 
-const useIndicator = ({hideIndicator, indicatorBottom, percentage, indicatorTotal}) => {
+const useIndicator = ({hideIndicator, indicatorBottom, percentage, indicatorTotal, color}) => {
   if (hideIndicator) return []
   const indicator = (
-    <Indicator indicatorBottom={indicatorBottom} percentage={percentage} indicatorTotal={indicatorTotal} />
+    <Indicator
+      color={color}
+      indicatorBottom={indicatorBottom}
+      percentage={percentage}
+      indicatorTotal={indicatorTotal}
+    />
   )
   return [!indicatorBottom ? indicator : null, indicatorBottom ? indicator : null]
 }

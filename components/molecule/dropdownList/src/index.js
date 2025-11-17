@@ -38,7 +38,6 @@ const MoleculeDropdownList = forwardRef(
   ) => {
     const refDropdownList = useRef()
     const ref = useMergeRefs(refDropdownList, forwardedRef)
-    console.log('ARIA LABELLEDBY', ariaLabelledby, ariaLabel)
 
     const [typedWord, setTypedWord] = useState('')
     const debouncedTypedWord = useDebounce(typedWord, DEBOUNCE_TIME)

@@ -225,15 +225,16 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
-        EXTRA_LARGE: 'extraLarge',
+        EXTRA_SMALL: 'extraSmall',
         LARGE: 'large',
         MEDIUM: 'medium',
-        SMALL: 'small'
+        SMALL: 'small',
+        EXTRA_LARGE: 'extraLarge'
       }
 
       // When
       const {atomProgressBarSizes: actual} = library
-      const {EXTRA_LARGE, LARGE, MEDIUM, SMALL, ...others} = actual
+      const {EXTRA_LARGE, LARGE, MEDIUM, SMALL, EXTRA_SMALL, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

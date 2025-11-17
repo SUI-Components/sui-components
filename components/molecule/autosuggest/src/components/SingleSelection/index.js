@@ -8,6 +8,7 @@ import InputWithClearUI from '../InputWithClearUI/index.js'
 
 const MoleculeAutosuggestSingleSelection = ({
   autoFocus,
+  'aria-expanded': ariaExpanded,
   ariaLabel,
   autoComplete = 'nope',
   children,
@@ -15,6 +16,7 @@ const MoleculeAutosuggestSingleSelection = ({
   disabled,
   iconClear,
   id,
+  dropdownListId,
   innerRefInput: refInput = {},
   inputMode,
   isOpen,
@@ -64,6 +66,11 @@ const MoleculeAutosuggestSingleSelection = ({
   return (
     <>
       <InputWithClearUI
+        role="combobox"
+        aria-haspopup="true"
+        aria-autocomplete="list"
+        aria-controls={dropdownListId}
+        aria-expanded={ariaExpanded}
         ariaLabel={ariaLabel}
         autoComplete={autoComplete}
         autoFocus={autoFocus}
@@ -94,6 +101,8 @@ const MoleculeAutosuggestSingleSelection = ({
       </InputWithClearUI>
       {(value || isOpen) && (
         <MoleculeDropdownList
+          id={dropdownListId}
+          aria-labelledby={id}
           size={size}
           onSelect={handleSelection}
           visible={isOpen && Children.count(children) > 0}

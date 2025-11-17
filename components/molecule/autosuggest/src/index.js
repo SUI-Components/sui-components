@@ -89,6 +89,13 @@ const MoleculeAutosuggest = ({
     }
   )
 
+  const accessibilityProps = {
+    tabIndex: '0',
+    role: 'combobox',
+    'aria-expanded': isOpenState,
+    ...(multiselection && {'aria-controls': id})
+  }
+
   const closeList = ev => {
     const {current: domMoleculeAutosuggest} = innerRefMoleculeAutosuggest
     handleToggle(ev, {isOpen: false})
@@ -209,6 +216,7 @@ const MoleculeAutosuggest = ({
     onSelect,
     onToggle: handleToggle,
     state,
+    ...(!multiselection && {...accessibilityProps}),
     ...restProps
   }
 
@@ -219,15 +227,12 @@ const MoleculeAutosuggest = ({
   return (
     <div
       ref={refMoleculeAutosuggest}
-      tabIndex="0"
       className={className}
       onKeyDown={handleKeyDown}
       onFocus={handleFocusIn}
       onBlur={handleFocusOut}
       onClick={handleClick}
-      role="combobox"
-      aria-controls={id}
-      aria-expanded={isOpenState}
+      {...(multiselection && {...accessibilityProps})}
     >
       <AutosuggestSelection {...autosuggestSelectionProps} />
     </div>

@@ -50,6 +50,7 @@ $c-atom-line-progress-bar-status--loading: $c-gray-lightest !default;
 $c-atom-line-progress-bar-status--success: $c-success !default;
 
 $size-atom-line-progress-bar: (
+  extraSmall: $sz-base * 0.25,
   small: $sz-base * 0.5,
   medium: $sz-base,
   large: $sz-base * 2,

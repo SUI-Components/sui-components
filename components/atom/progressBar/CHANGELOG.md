@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.17.0 (2025-11-17)
+
+
+### Features
+
+* new sizes and strokes ([ec9b549](https://github.com/SUI-Components/sui-components/commit/ec9b549838fdce9e22fdb23afa74ab4c79ebc029))
+
+
+
 # 2.16.0 (2025-11-10)
 
 

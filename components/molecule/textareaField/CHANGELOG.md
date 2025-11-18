@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 3.14.0 (2025-11-18)
+
+
+### Features
+
+* add resize prop to AtomTextarea ([b0ff22e](https://github.com/SUI-Components/sui-components/commit/b0ff22e65fc1f70b2ac8c1050f788fca8f439e8a))
+* update exported members in MoleculeTextarea test ([8f3177a](https://github.com/SUI-Components/sui-components/commit/8f3177a47f23bee18a7e8da6b0718d82a917ff40))
+
+
+
 # 3.13.0 (2025-05-05)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-molecule-textarea-field",
-  "version": "3.13.0",
+  "version": "3.14.0",
   "description": "",
   "publishConfig": {
     "access": "public"

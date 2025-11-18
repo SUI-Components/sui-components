@@ -2,7 +2,11 @@ import {useEffect, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
-import AtomTextarea, {AtomTextareaSizes as SIZES, AtomTextareaStates} from '@s-ui/react-atom-textarea'
+import AtomTextarea, {
+  AtomTextareaResizes as RESIZES,
+  AtomTextareaSizes as SIZES,
+  AtomTextareaStates
+} from '@s-ui/react-atom-textarea'
 import MoleculeField from '@s-ui/react-molecule-field'
 
 import {BASE_CLASS} from './config.js'
@@ -31,6 +35,7 @@ const MoleculeTextareaField = ({
   nodeLabel,
   maxChars = 4000,
   onChange = NOOP,
+  resize,
   successText,
   textCharacters = 'characters',
   value = '',
@@ -86,7 +91,14 @@ const MoleculeTextareaField = ({
       onChange={onChangeHandler}
       disabled={disabled}
     >
-      <AtomTextarea id={id} errorState={errorState} state={textAreaState} value={internalValue} {...props} />
+      <AtomTextarea
+        id={id}
+        errorState={errorState}
+        resize={resize}
+        state={textAreaState}
+        value={internalValue}
+        {...props}
+      />
     </MoleculeField>
   )
 }
@@ -143,9 +155,13 @@ MoleculeTextareaField.propTypes = {
   autoHideHelpText: PropTypes.bool,
 
   /** Prop to handle if the user can exceed the maxChars length  */
-  isMaxCharBlocked: PropTypes.bool
+  isMaxCharBlocked: PropTypes.bool,
+
+  /** Resize property for the textarea */
+  resize: PropTypes.oneOf(Object.values(RESIZES))
 }
 
 export default MoleculeTextareaField
 
 export const MoleculeTextareaSizes = SIZES
+export const MoleculeTextareaResizes = RESIZES

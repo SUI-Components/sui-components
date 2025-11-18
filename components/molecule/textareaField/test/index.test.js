@@ -24,10 +24,10 @@ describe(json.name, () => {
   it('library should include defined exported elements', () => {
     // Given
     const library = pkg
-    const libraryExportedMembers = ['MoleculeTextareaSizes', 'default']
+    const libraryExportedMembers = ['MoleculeTextareaResizes', 'MoleculeTextareaSizes', 'default']
 
     // When
-    const {MoleculeTextareaSizes, default: MoleculeTextAreaField, ...others} = library
+    const {MoleculeTextareaResizes, MoleculeTextareaSizes, default: MoleculeTextAreaField, ...others} = library
 
     // Then
     expect(Object.keys(library).length).to.equal(libraryExportedMembers.length)

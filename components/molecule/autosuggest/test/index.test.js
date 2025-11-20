@@ -162,14 +162,11 @@ describe(json.name, () => {
 
       // When
       const {getByRole} = setup(props)
-      const autoSuggestElement = getByRole('combobox')
-      const autoSuggestInputElement = getByRole('textbox')
+      const autoSuggestInputElement = getByRole('combobox')
 
       // Then
       expect(() => getByRole('listbox')).to.throw()
       expect(() => getByRole('option')).to.throw()
-      expect(autoSuggestElement.innerHTML).to.be.a('string')
-      expect(autoSuggestElement.innerHTML).to.not.have.lengthOf(0)
       expect(autoSuggestInputElement.value).to.equal('')
     })
 
@@ -187,11 +184,11 @@ describe(json.name, () => {
 
       // When
       const {getByRole, getAllByRole} = setup(props)
+      const combo = getByRole('combobox')
 
       // Then
-      expect(getByRole('combobox').innerHTML).to.be.a('string')
-      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
-      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(combo.tagName).to.eq('INPUT')
+      expect(combo.value).to.equal(props.value)
       expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
       expect(() =>
         getAllByRole('option', {
@@ -218,11 +215,11 @@ describe(json.name, () => {
 
       // When
       const {getByRole, getAllByRole} = setup(props)
+      const combo = getByRole('combobox')
 
       // Then
-      expect(getByRole('combobox').innerHTML).to.be.a('string')
-      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
-      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(combo.tagName).to.eq('INPUT')
+      expect(combo.value).to.equal(props.value)
       expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
       expect(() =>
         getAllByRole('option', {
@@ -250,11 +247,11 @@ describe(json.name, () => {
 
       // When
       const {getByRole, getAllByRole} = setup(props)
+      const combo = getByRole('combobox')
 
       // Then
-      expect(getByRole('combobox').innerHTML).to.be.a('string')
-      expect(getByRole('combobox').innerHTML).to.not.have.lengthOf(0)
-      expect(getByRole('textbox').value).to.equal(props.value)
+      expect(combo.tagName).to.eq('INPUT')
+      expect(combo.value).to.equal(props.value)
       expect(() => getByRole('listbox', {hidden: true})).to.not.throw()
       expect(() =>
         getAllByRole('option', {
@@ -294,17 +291,17 @@ describe(json.name, () => {
             // When
             const {getByRole, rerender} = setup(props)
             keyDownEvents.forEach(keyDownEvent => fireEvent.keyDown(getByRole('combobox'), keyDownEvent))
-            fireEvent.change(getByRole('textbox'), changeEvent)
+            fireEvent.change(getByRole('combobox'), changeEvent)
 
             // Then
-            expect(getByRole('textbox').value).to.equal('')
+            expect(getByRole('combobox').value).to.equal('')
 
             // And
             // When
 
             rerender(<Component {...props} />)
 
-            expect(getByRole('textbox').value).to.equal(changeEvent.target.value)
+            expect(getByRole('combobox').value).to.equal(changeEvent.target.value)
             sinon.assert.called(spy)
           })
         })

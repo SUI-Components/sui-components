@@ -21,6 +21,7 @@ const MoleculeDropdownList = forwardRef(
   (
     {
       children,
+      id,
       onSelect,
       position = POSITIONS.BOTTOM,
       alwaysRender = true,
@@ -30,6 +31,7 @@ const MoleculeDropdownList = forwardRef(
       visible,
       onKeyDown,
       'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledby,
       ...props
     },
     forwardedRef
@@ -94,7 +96,16 @@ const MoleculeDropdownList = forwardRef(
     if (!visible && !alwaysRender) return null
 
     return (
-      <ul ref={ref} tabIndex={0} onKeyDown={handleKeyDown} className={classNames} role="listbox" aria-label={ariaLabel}>
+      <ul
+        id={id}
+        ref={ref}
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        className={classNames}
+        role="listbox"
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
+      >
         {Children.toArray(children)
           .filter(Boolean)
           .map((child, index) => (
@@ -110,11 +121,17 @@ const MoleculeDropdownList = forwardRef(
 MoleculeDropdownList.displayName = 'MoleculeDropdownList'
 
 MoleculeDropdownList.propTypes = {
+  /** HTML id attribute */
+  id: PropTypes.string,
+
   /** No matter if is visible or invisible, render always the content */
   alwaysRender: PropTypes.bool,
 
   /** aria-label for accessibility */
   'aria-label': PropTypes.string,
+
+  /** aria-labelledby for accessibility */
+  'aria-labelledby': PropTypes.string,
 
   /** Content to be included in the list (MoleculeDropdownOption) */
   children: PropTypes.node,

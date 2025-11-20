@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.74.0 (2025-11-20)
+
+
+### Features
+
+* apply a11y requirements ([2c4f737](https://github.com/SUI-Components/sui-components/commit/2c4f737acb677b84db784606c31b24a92beaf4cd))
+* fix test ([8f11e59](https://github.com/SUI-Components/sui-components/commit/8f11e595c3d53fe95e123d5bc5cd7ceeddd8d039))
+* restore test ([795f0dd](https://github.com/SUI-Components/sui-components/commit/795f0dd600bee645cbc857cd4c65c6084a3f66af))
+
+
+
 # 2.73.0 (2025-08-22)
 
 

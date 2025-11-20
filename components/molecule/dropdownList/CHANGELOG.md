@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.7.0 (2025-11-20)
+
+
+### Features
+
+* apply a11y requirements ([5184bc4](https://github.com/SUI-Components/sui-components/commit/5184bc4454ccc92cfe9841880ffae72a6099cdc2))
+* remove console.log ([4768cd6](https://github.com/SUI-Components/sui-components/commit/4768cd6282a380b556bee79f80fbbf18f4c417c2))
+
+
+
 # 2.6.0 (2025-08-07)
 
 

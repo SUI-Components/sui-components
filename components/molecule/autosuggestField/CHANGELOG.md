@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.12.0 (2025-11-20)
+
+
+### Features
+
+* add prop spreading to the dropdownList ([16acb72](https://github.com/SUI-Components/sui-components/commit/16acb7225452b5553143f7a85f7ecd31116fe567))
+
+
+
 # 2.11.0 (2022-10-06)
 
 
@@ -145,6 +154,3 @@
 * **molecule/autosuggestField:** demo working ([b113ed7](https://github.com/SUI-Components/sui-components/commit/b113ed77a14538deb19406d499efcda72c95b2fb))
 * **molecule/autosuggestField:** iconClose README ([19120c3](https://github.com/SUI-Components/sui-components/commit/19120c3703af72bce41e0503f9e1aa591525fca3))
 * **molecule/autosuggestField:** new component ([f5b35aa](https://github.com/SUI-Components/sui-components/commit/f5b35aa47697abf96e512e64e79e280f44fec6de))
-
-
-

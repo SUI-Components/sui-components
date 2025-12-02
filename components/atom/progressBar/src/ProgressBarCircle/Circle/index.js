@@ -66,7 +66,8 @@ const Circle = ({
     >
       <path
         className={cx(`${baseClassName}-trail`, {
-          [`${baseClassName}-trail--${modifier}`]: !!modifier
+          [`${baseClassName}-trail--${modifier}`]: !!modifier,
+          [`${baseClassName}-trail--color-${color}`]: !!color
         })}
         {...getPathStyles({percentage: 100, strokeWidth: mainStrokeWidth})}
         strokeWidth={mainStrokeWidth}

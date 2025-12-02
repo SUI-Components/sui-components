@@ -48,7 +48,8 @@ const ProgressBarLine = ({
           [`${CLASS_CONTAINER_BAR}--borderless`]: isBorderless,
           [`${CLASS_CONTAINER_BAR}--success`]: status === STATUS.SUCCESS,
           [`${CLASS_CONTAINER_BAR}--error`]: status === STATUS.ERROR,
-          [`${CLASS_CONTAINER_BAR}--loading`]: status === STATUS.LOADING
+          [`${CLASS_CONTAINER_BAR}--loading`]: status === STATUS.LOADING,
+          [`${CLASS_CONTAINER_BAR}--color-${color}`]: color
         })}
       >
         {percentageArray.map((percentageValue, currentIndex, array) => {

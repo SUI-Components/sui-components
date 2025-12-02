@@ -143,6 +143,13 @@ $base-class-circle: '#{$base-class}Circle';
     &--success {
       stroke: $c-atom-circle-progress-bar-trail--success;
     }
+    &#{$base-class-circle}-trail--color {
+      @each $colorName, $colorValue in $c-progress-bar-fill-array {
+        &-#{$colorName} {
+          stroke: color-mix(in srgb, $c-white, $colorValue 16%);
+        }
+      }
+    }
   }
 
   &-path {

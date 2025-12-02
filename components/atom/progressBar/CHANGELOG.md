@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.18.0 (2025-12-02)
+
+
+### Features
+
+* tint color trail in progress circle ([6ade162](https://github.com/SUI-Components/sui-components/commit/6ade1620d43e20a1771cd17b4233eb70fb895117))
+
+
+
 # 2.17.0 (2025-11-17)
 
 

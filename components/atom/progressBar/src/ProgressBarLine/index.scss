@@ -27,9 +27,19 @@ $base-class-line: '#{$base-class}Line';
     height: $h-progress-bar; /* Can be anything */
     position: relative;
     box-sizing: border-box;
-    @each $size-key, $size-value in $size-atom-line-progress-bar {
-      &--size-#{$size-key} {
-        height: $size-value;
+    &--size {
+      @each $size-key, $size-value in $size-atom-line-progress-bar {
+        &-#{$size-key} {
+          height: $size-value;
+        }
+      }
+    }
+    &--color {
+      @each $colorName, $colorValue in $c-progress-bar-fill-array {
+        &-#{$colorName} {
+          background-color: color-mix(in srgb, $c-white, $colorValue 16%);
+          border-color: color-mix(in srgb, $bc-progress-bar, $colorValue 16%);
+        }
       }
     }
   }

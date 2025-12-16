@@ -333,7 +333,7 @@ describe(json.name, () => {
 
       // When
       const {moleculePaginationDesigns: actual} = library
-      const {SOLID, OUTLINE, FLAT, LINK, ...others} = actual
+      const {SOLID, OUTLINE, FLAT, LINK, OUTLINE_ANIMATED, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

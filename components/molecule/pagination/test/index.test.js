@@ -326,6 +326,7 @@ describe(json.name, () => {
       const expected = {
         SOLID: 'solid',
         OUTLINE: 'outline',
+        OUTLINE_ANIMATED: 'outline-animated',
         FLAT: 'flat',
         LINK: 'link'
       }

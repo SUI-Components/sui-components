@@ -32,14 +32,13 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
 
       - name: Build dependencies
         run: |
           npm run install:ci
-          npm run install:themes
           npm run build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -61,9 +60,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
 
       - name: Linting
         run: |
@@ -83,9 +82,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
 
       - name: Install
         run: npm run install:ci
@@ -121,8 +120,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          cache: "npm"
 
       - name: Install xvfb for headless testing
         run: sudo apt-get install xvfb
@@ -178,9 +177,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
 
       - name: Comment Coverage
         if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
@@ -238,10 +237,10 @@ jobs:
           GITHUB_USER: sui-bot
           GITHUB_EMAIL: cloud-accounts@scmspain.com
         with:
-          add: 'README.md'
+          add: "README.md"
           author_name: ${{ env.GITHUB_USER }}
           author_email: ${{ env.GITHUB_EMAIL }}
-          message: 'chore(Root): Update coverage badges'
+          message: "chore(Root): Update coverage badges"
 
       - name: Release components
         if: github.event_name == 'push'
@@ -267,8 +266,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          cache: "npm"
 
       - uses: actions/download-artifact@v4
         with:

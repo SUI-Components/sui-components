@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.23.0 (2025-12-18)
+
+
+### Features
+
+* fix test after button changes ([ac601c9](https://github.com/SUI-Components/sui-components/commit/ac601c95a6687f1ed08757629c41feccb23665b1))
+* fox tests ([e9d04c2](https://github.com/SUI-Components/sui-components/commit/e9d04c233d29ef78fef3f92eac883eb093968843))
+
+
+
 # 2.22.0 (2025-05-28)
 
 

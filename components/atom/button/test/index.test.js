@@ -412,13 +412,14 @@ describe(json.name, () => {
       const expected = {
         SOLID: 'solid',
         OUTLINE: 'outline',
+        OUTLINE_ANIMATED: 'outline-animated',
         FLAT: 'flat',
         LINK: 'link'
       }
 
       // When
       const {atomButtonDesigns: actual} = library
-      const {SOLID, OUTLINE, FLAT, LINK, ...others} = actual
+      const {SOLID, OUTLINE, OUTLINE_ANIMATED, FLAT, LINK, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

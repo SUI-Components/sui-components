@@ -66,6 +66,13 @@ $bgc-atom-button: $c-primary !default;
 $bgc-atom-button-light: color-variation($bgc-atom-button, 4) !default;
 $bgc-atom-button-dark: color-variation($bgc-atom-button, -1) !default;
 $bgc-atom-button-light-contrast: color-variation($bgc-atom-button, 3) !default;
+$bg-atom-button-design-outline-animated: linear-gradient(
+  180deg,
+  color-variation($bgc-atom-button, -1),
+  color-variation($bgc-atom-button, -2)
+) !default;
+$msk-atom-button-design-outline-animated: linear-gradient($c-white 0 0) content-box, linear-gradient($c-white 0 0) !default;
+$bdrs-atom-button-design-outline-animated: 999px !default;
 
 $sz-atom-button-small: $p-base * 4 !default;
 $fz-atom-button-small: $fz-s !default;
@@ -151,4 +158,19 @@ $td-atom-button-link: none !default;
 
 @mixin button-circular($size) {
   border-radius: #{$size * 0.5};
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 0%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 200% 100%;
+    filter: hue-rotate(30deg);
+  }
+  100% {
+    background-position: 0% 0%;
+    filter: hue-rotate(0deg);
+  }
 }

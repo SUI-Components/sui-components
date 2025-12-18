@@ -13,6 +13,7 @@ export const CLASS = 'sui-AtomButton'
 export const DESIGNS = {
   SOLID: 'solid',
   OUTLINE: 'outline',
+  OUTLINE_ANIMATED: 'outline-animated',
   FLAT: 'flat',
   LINK: 'link'
 }

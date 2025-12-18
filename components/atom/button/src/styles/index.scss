@@ -66,7 +66,7 @@ $base-class: '.sui-AtomButton';
     position: absolute;
   }
 
-  &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
+  &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--outline-animated):not(#{$base-class}--flat) {
     background: transparent;
     user-select: text;
     border: none;
@@ -119,6 +119,7 @@ $base-class: '.sui-AtomButton';
       }
 
       &#{$base-class}--outline,
+      &#{$base-class}--outline-animated,
       &#{$base-class}--flat {
         $bgc-atom-button-focused: color-variation($color, 4) !default;
         $bgc-atom-button-focused-invert: color-variation($color, -1) !default;
@@ -150,7 +151,7 @@ $base-class: '.sui-AtomButton';
         }
       }
 
-      &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--flat) {
+      &#{$base-class}--link:not(#{$base-class}--solid):not(#{$base-class}--outline):not(#{$base-class}--outline-animated):not(#{$base-class}--flat) {
         $c-atom-button-focused: color-variation($color, -1) !default;
         $c-atom-button-link-focused: $c-atom-button-focused !default;
         $c-atom-button-focused-invert: color-variation($color-invert, -1) !default;
@@ -171,7 +172,27 @@ $base-class: '.sui-AtomButton';
     }
   }
 
+  &--outline-animated {
+    border: 0;
+
+    &::before {
+      content: '';
+      inset: 0;
+      position: absolute;
+      border-radius: inherit;
+      padding: $p-xs;
+      background: $bg-atom-button-design-outline-animated;
+      mask: $msk-atom-button-design-outline-animated;
+      mask-composite: exclude;
+
+      // TODO Test animation proposal. Should be added to variables if accepted.
+      background-size: 300% 300%;
+      animation: flow 4s ease-in-out infinite;
+    }
+  }
+
   &--outline,
+  &--outline-animated,
   &--negative {
     background: none;
   }

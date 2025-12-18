@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2025-12-18)
+
+
+### Features
+
+* add new outline-animated button design ([6f86b58](https://github.com/SUI-Components/sui-components/commit/6f86b58170fdaa042d01ac9ed94a9e42f36d7da2))
+
+
+
 # 2.4.0 (2025-09-08)
 
 

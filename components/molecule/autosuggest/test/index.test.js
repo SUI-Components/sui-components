@@ -383,6 +383,42 @@ describe(json.name, () => {
           await waitFor(() => expect(sinon.assert.called(onBlurSpy)))
         })
       })
+
+      describe('rightIcon', () => {
+        it('should render rightIcon when provided in multiselection mode', () => {
+          // Given
+          const testID = 'right-icon-test'
+          const props = {
+            multiselection: true,
+            rightIcon: <svg data-testid={testID} />
+          }
+
+          // When
+          const {getByTestId} = setup(props)
+
+          // Then
+          expect(() => getByTestId(testID)).to.not.throw()
+        })
+
+        it('should call onClickRightIcon handler when rightIcon is clicked in multiselection mode', () => {
+          // Given
+          const onClickRightIconSpy = sinon.spy()
+          const testID = 'right-icon-test'
+          const props = {
+            multiselection: true,
+            rightIcon: <svg data-testid={testID} />,
+            onClickRightIcon: onClickRightIconSpy
+          }
+
+          // When
+          const {getByTestId} = setup(props)
+          const rightIconElement = getByTestId(testID)
+          fireEvent.click(rightIconElement)
+
+          // Then
+          sinon.assert.calledOnce(onClickRightIconSpy)
+        })
+      })
     })
   })
 

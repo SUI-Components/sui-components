@@ -2,7 +2,7 @@
 import {Article, Code, H2, H3, Paragraph} from '@s-ui/documentation-library'
 
 import {MoleculeAutosuggestWithStateTags} from '../config.js'
-import {iconClose} from '../Icons/index.js'
+import {iconClose, iconSearch} from '../Icons/index.js'
 
 const ArticleMultipleSelection = () => {
   return (

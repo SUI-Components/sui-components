@@ -40,6 +40,17 @@ const ArticleMultipleSelection = () => {
         multiselection
         disabled
       />
+      <H3>With Right Icon and onClick handler</H3>
+      <MoleculeAutosuggestWithStateTags
+        placeholder="Type a Country name..."
+        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
+        iconCloseTag={iconClose}
+        rightIcon={iconSearch}
+        onClickRightIcon={(ev, args) => {
+          console.log('Right icon clicked!', args)
+        }}
+        multiselection
+      />
     </Article>
   )
 }

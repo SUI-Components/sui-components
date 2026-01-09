@@ -1,60 +1,37 @@
-/* eslint-disable  no-console */
-import {Article, Code, H2, H3, Paragraph} from '@s-ui/documentation-library'
+import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
-import {MoleculeAutosuggestWithStateTags} from '../config.js'
-import {iconClose, iconSearch} from '../Icons/index.js'
+import ArticleArrayObjects from './ArticleArrayObjects/index.js'
+import ArticleDependantSelection from './ArticleDependantSelection/index.js'
+import ArticleIsOpenProp from './ArticleIsOpenProp/index.js'
+import ArticleMultipleSelection from './ArticleMultipleSelection/index.js'
+import ArticleSingleSelection from './ArticleSingleSelection/index.js'
 
-const ArticleMultipleSelection = () => {
-  return (
-    <Article>
-      <H2>Multiple Selection</H2>
+import './index.scss'
+
+const Demo = () => (
+  <div className="sui-StudioPreview">
+    <div className="sui-StudioPreview-content sui-StudioDemo-preview">
+      <H1>Autosuggest</H1>
       <Paragraph>
-        This component allows you to add new options (such as tags) even if they are not available among the available
-        options of <Code>DropdownList</Code>
+        This component should only be used when the input is writable (resulting in a search of the{' '}
+        <Code>DropdownList</Code> options)
       </Paragraph>
-      <H3>with Placeholder</H3>
-      <MoleculeAutosuggestWithStateTags
-        placeholder="Type a Country name..."
-        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
-        onClear={() => console.log('Clear pressed')}
-        iconCloseTag={iconClose}
-        iconClear={iconClose}
-        multiselection
-      />
-      <H3>With preselected Value</H3>
-      <MoleculeAutosuggestWithStateTags
-        tags={['India', 'Luxembourg']}
-        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
-        onClear={() => console.log('Clear pressed')}
-        iconCloseTag={iconClose}
-        iconClear={iconClose}
-        multiselection
-      />
-      <H3>Disabled</H3>
-      <MoleculeAutosuggestWithStateTags
-        tags={['India', 'Luxembourg']}
-        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
-        onClear={() => console.log('Clear pressed')}
-        iconCloseTag={iconClose}
-        iconClear={iconClose}
-        multiselection
-        disabled
-      />
-      <H3>With Right Icon and onClick handler</H3>
-      <MoleculeAutosuggestWithStateTags
-        placeholder="Type a Country name..."
-        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
-        iconCloseTag={iconClose}
-        rightIcon={iconSearch}
-        onClickRightIcon={(ev, args) => {
-          console.log('Right icon clicked!', args)
-        }}
-        multiselection
-      />
-    </Article>
-  )
-}
+      <Paragraph>
+        In this demo, we only use the default size of <Code>DropdownList</Code> and basic options of{' '}
+        <Code>DropdownOption</Code> components. Keep in mind, those two components has more possibilities if you need
+        it.
+      </Paragraph>
+      <ArticleSingleSelection />
+      <br />
+      <ArticleMultipleSelection />
+      <br />
+      <ArticleDependantSelection />
+      <br />
+      <ArticleIsOpenProp />
+      <br />
+      <ArticleArrayObjects />
+    </div>
+  </div>
+)
 
-ArticleMultipleSelection.propTypes = {}
-
-export default ArticleMultipleSelection
+export default Demo

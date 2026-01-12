@@ -81,6 +81,47 @@ const suggestions = ['John','Johnny']
 </MoleculeAutosuggest>
 ```
 
+#### With Right Icon
+You can add a right icon to the multiselection input:
+```js
+<MoleculeAutosuggest
+  value={'Jo'}
+  placeholder="Select some options..."
+  iconCloseTag={<IconCloseTag />}
+  iconClear={<IconClear />}
+  rightIcon={<IconInfo />}
+  multiselection
+>
+  {suggestions.map((suggestion, i) => (
+    <MoleculeAutosuggestOption key={i} value={suggestion}>
+      {option}
+    </MoleculeAutosuggestOption>
+  ))}
+</MoleculeAutosuggest>
+```
+
+#### With Right Icon and Click Handler
+The right icon can be interactive with an `onClickRightIcon` callback:
+```js
+<MoleculeAutosuggest
+  value={'Jo'}
+  placeholder="Select some options..."
+  iconCloseTag={<IconCloseTag />}
+  iconClear={<IconClear />}
+  rightIcon={<IconSearch />}
+  onClickRightIcon={(ev, {value}) => {
+    console.log('Right icon clicked with value:', value)
+  }}
+  multiselection
+>
+  {suggestions.map((suggestion, i) => (
+    <MoleculeAutosuggestOption key={i} value={suggestion}>
+      {option}
+    </MoleculeAutosuggestOption>
+  ))}
+</MoleculeAutosuggest>
+```
+
 ### Managing State
 
 #### Custom component from `MoleculeAutosuggest` that handle State

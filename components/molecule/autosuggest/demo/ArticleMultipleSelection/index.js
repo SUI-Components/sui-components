@@ -2,7 +2,7 @@
 import {Article, Code, H2, H3, Paragraph} from '@s-ui/documentation-library'
 
 import {MoleculeAutosuggestWithStateTags} from '../config.js'
-import {iconClose} from '../Icons/index.js'
+import {iconClose, iconSearch} from '../Icons/index.js'
 
 const ArticleMultipleSelection = () => {
   return (
@@ -39,6 +39,17 @@ const ArticleMultipleSelection = () => {
         iconClear={iconClose}
         multiselection
         disabled
+      />
+      <H3>With Right Icon and onClick handler</H3>
+      <MoleculeAutosuggestWithStateTags
+        placeholder="Type a Country name..."
+        onChangeTags={(_, {tags, ...args}) => console.log('onChangeTags', {tags, ...args})}
+        iconCloseTag={iconClose}
+        rightIcon={iconSearch}
+        onClickRightIcon={(ev, args) => {
+          console.log('Right icon clicked!', args)
+        }}
+        multiselection
       />
     </Article>
   )

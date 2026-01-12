@@ -27,12 +27,14 @@ const MoleculeAutosuggestFieldMultiSelection = ({
   onChange,
   onChangeTags,
   onClear,
+  onClickRightIcon,
   onInputKeyDown,
   onSelect,
   onKeyDown,
   onToggle,
   placeholder,
   required,
+  rightIcon,
   shape,
   size,
   tabIndex,
@@ -94,6 +96,10 @@ const MoleculeAutosuggestFieldMultiSelection = ({
     }
   }
 
+  const handleRightClick = (ev, args = {}) => {
+    typeof onClickRightIcon === 'function' && onClickRightIcon(ev, {...args, value})
+  }
+
   return (
     <>
       <InputWithClearUI
@@ -114,9 +120,11 @@ const MoleculeAutosuggestFieldMultiSelection = ({
         onChangeTags={handleChangeTags}
         onClick={onToggle}
         onClickClear={handleClear}
+        onClickRightIcon={handleRightClick}
         onKeyDown={onInputKeyDown}
         placeholder={!tags.length ? placeholder : ''}
         required={required}
+        rightIcon={rightIcon}
         shape={shape}
         tabIndex={tabIndex}
         tags={tags}

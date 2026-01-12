@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.75.0 (2026-01-12)
+
+
+### Features
+
+* update docu ([#2960](https://github.com/SUI-Components/sui-components/issues/2960)) ([a008b2e](https://github.com/SUI-Components/sui-components/commit/a008b2e9d809067e8b8e1e65e35a70be7df1793a))
+
+
+
 # 2.74.0 (2025-11-20)
 
 

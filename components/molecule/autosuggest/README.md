@@ -38,11 +38,13 @@ const suggestions = ['John','Johnny']
   iconClear={<IconClose />}
   state="success"
 >
+
   {suggestions.map((suggestion, i) => (
     <MoleculeAutosuggestOption key={i} value={suggestion}>
       {option}
     </MoleculeAutosuggestOption>
   ))}
+
 </MoleculeAutosuggest>
 ```
 

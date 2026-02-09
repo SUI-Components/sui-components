@@ -349,6 +349,7 @@ const MoleculePhotoUploader = forwardRef(
               />
             )}
           </div>
+          <h1>here be dragons</h1>
           <DragNotification
             icon={infoIcon()}
             onCloseCallback={() => setNotificationError(DEFAULT_NOTIFICATION_ERROR)}

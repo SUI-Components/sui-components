@@ -43,6 +43,7 @@ const PhotosPreview = ({
   dragIcon,
   errorInitialPhotoDownloadErrorText,
   files,
+  hideDeleteButton,
   inputId,
   isPhotoUploaderFully,
   mainPhotoLabel,
@@ -178,6 +179,7 @@ const PhotosPreview = ({
               deleteButtonAriaLabel={deleteButtonAriaLabel}
               deleteIcon={deleteIcon()}
               dragIcon={dragIcon()}
+              hideDeleteButton={hideDeleteButton}
               iconSize={thumbIconSize}
               image={file}
               index={index}
@@ -253,6 +255,7 @@ PhotosPreview.propTypes = {
   dragIcon: PropTypes.node,
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
+  hideDeleteButton: PropTypes.bool,
   inputId: PropTypes.string.isRequired,
   isPhotoUploaderFully: PropTypes.bool.isRequired,
   mainPhotoLabel: PropTypes.string.isRequired,

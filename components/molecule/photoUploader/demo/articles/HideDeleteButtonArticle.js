@@ -17,6 +17,7 @@ import {
   _errorFormatPhotoUploaded,
   _errorInitialPhotoDownloadError,
   _limitPhotosUploaded,
+  _limitPhotosUploadedNotification,
   _mainPhotoLabel,
   _maxPhotos,
   _notificationErrorFormatPhotoUploaded,
@@ -37,7 +38,7 @@ const HideDeleteButtonArticle = ({className}) => {
     <Article className={className}>
       <H2>Hide Delete Button</H2>
       <Paragraph>
-        When <Code>hideDeleteButton</Code> prop is set to <Code>true</Code>, the delete button will be hidden from the
+        When <Code>showDeleteButton</Code> prop is set to <Code>false</Code>, the delete button will be hidden from the
         thumb cards. This is useful when you want to prevent users from deleting uploaded photos.
       </Paragraph>
       <Paragraph>Try uploading some photos below to see how the delete button is hidden:</Paragraph>
@@ -57,9 +58,10 @@ const HideDeleteButtonArticle = ({className}) => {
         errorFileExcededMaxSizeText={_errorFileExcededMaxSize}
         errorFormatPhotoUploadedText={_errorFormatPhotoUploaded}
         errorInitialPhotoDownloadErrorText={_errorInitialPhotoDownloadError}
-        hideDeleteButton={true}
+        showDeleteButton={false}
         infoIcon={_infoIcon}
         limitPhotosUploadedText={_limitPhotosUploaded}
+        limitPhotosUploadedNotification={_limitPhotosUploadedNotification}
         mainPhotoLabel={_mainPhotoLabel}
         maxPhotos={_maxPhotos}
         notificationErrorFormatPhotoUploaded={_notificationErrorFormatPhotoUploaded}
@@ -72,7 +74,7 @@ const HideDeleteButtonArticle = ({className}) => {
   )
 }
 
-HideDeleteButtonArticle.displayName = 'HideDeleteButtonArticle'
+HideDeleteButtonArticle.displayName = 'ShowDeleteButtonArticle'
 
 HideDeleteButtonArticle.propTypes = {
   className: PropTypes.string

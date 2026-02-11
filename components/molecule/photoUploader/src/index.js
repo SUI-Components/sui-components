@@ -68,7 +68,7 @@ const MoleculePhotoUploader = forwardRef(
       errorFormatPhotoUploadedText,
       errorInitialPhotoDownloadErrorText,
       errorSaveImageEndpoint,
-      hideDeleteButton = false,
+      showDeleteButton = true,
       id = DEFAULT_INPUT_ID,
       infoIcon = noop,
       initialPhotos = [],
@@ -314,7 +314,7 @@ const MoleculePhotoUploader = forwardRef(
                 deleteIcon={deleteIcon}
                 dragDelay={dragDelay}
                 dragIcon={dragIcon}
-                hideDeleteButton={hideDeleteButton}
+                showDeleteButton={showDeleteButton}
                 errorInitialPhotoDownloadErrorText={errorInitialPhotoDownloadErrorText}
                 files={files}
                 inputId={id}
@@ -456,8 +456,8 @@ MoleculePhotoUploader.propTypes = {
   /** Text showed when the user drag files into the dropzone, to indicate he can drop */
   dropPhotosHereText: PropTypes.string.isRequired,
 
-  /** Hide the delete button on thumb cards */
-  hideDeleteButton: PropTypes.bool,
+  /** Show the delete button on thumb cards */
+  showDeleteButton: PropTypes.bool,
 
   /** Id of the input element */
   id: PropTypes.string,

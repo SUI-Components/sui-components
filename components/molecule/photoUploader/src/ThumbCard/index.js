@@ -22,7 +22,7 @@ const ThumbCard = ({
   deleteButtonAriaLabel,
   deleteIcon,
   dragIcon,
-  hideDeleteButton = false,
+  showDeleteButton = true,
   iconSize = ATOM_ICON_SIZES.small,
   image,
   index,
@@ -67,7 +67,7 @@ const ThumbCard = ({
       </div>
       <Content file={image} index={index} />
       <div className={ACTION_THUMB_CARD_CLASS_NAME}>
-        {!hideDeleteButton && (
+        {showDeleteButton && (
           <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
             <AtomButton
               aria-label={`${deleteButtonAriaLabel} ${thumbCardLabel}`}
@@ -138,7 +138,7 @@ ThumbCard.propTypes = {
   deleteButtonAriaLabel: PropTypes.string.isRequired,
   deleteIcon: PropTypes.node.isRequired,
   dragIcon: PropTypes.node.isRequired,
-  hideDeleteButton: PropTypes.bool,
+  showDeleteButton: PropTypes.bool,
   iconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
   image: PropTypes.object.isRequired,
   index: PropTypes.number,

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 2.38.0 (2026-02-11)
+
+
+### Features
+
+* add hide delete button demo ([0bb8418](https://github.com/SUI-Components/sui-components/commit/0bb84182ebfe00833c2d8965689bbf71ec5cbb47))
+* hide delete button ([c1e18d0](https://github.com/SUI-Components/sui-components/commit/c1e18d0ad3ed02f33dd4261b623b59b88b36c8c5))
+* update demo with new prop ([8524304](https://github.com/SUI-Components/sui-components/commit/85243042ba18fbcc59a35b1dec7ccff9329fa3b1))
+* update prop name ([c8553f2](https://github.com/SUI-Components/sui-components/commit/c8553f2f7936f7043637015fc44ff0a44fe26ed4))
+
+
+
 # 2.37.0 (2025-07-08)
 
 

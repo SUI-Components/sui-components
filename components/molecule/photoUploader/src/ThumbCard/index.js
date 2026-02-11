@@ -22,6 +22,7 @@ const ThumbCard = ({
   deleteButtonAriaLabel,
   deleteIcon,
   dragIcon,
+  showDeleteButton = true,
   iconSize = ATOM_ICON_SIZES.small,
   image,
   index,
@@ -66,23 +67,25 @@ const ThumbCard = ({
       </div>
       <Content file={image} index={index} />
       <div className={ACTION_THUMB_CARD_CLASS_NAME}>
-        <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
-          <AtomButton
-            aria-label={`${deleteButtonAriaLabel} ${thumbCardLabel}`}
-            design={atomButtonDesigns.LINK}
-            fullWidth
-            onClick={() => callbackDeleteItem(index)}
-            size={atomButtonSizes.SMALL}
-            tabIndex="0"
-            type="button"
-          >
-            <div className={`${BUTTON_THUMB_CARD_CLASS_NAME}Icon`}>
-              <AtomIcon color={ATOM_ICON_COLORS.currentColor} size={iconSize}>
-                {deleteIcon}
-              </AtomIcon>
-            </div>
-          </AtomButton>
-        </div>
+        {showDeleteButton && (
+          <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
+            <AtomButton
+              aria-label={`${deleteButtonAriaLabel} ${thumbCardLabel}`}
+              design={atomButtonDesigns.LINK}
+              fullWidth
+              onClick={() => callbackDeleteItem(index)}
+              size={atomButtonSizes.SMALL}
+              tabIndex="0"
+              type="button"
+            >
+              <div className={`${BUTTON_THUMB_CARD_CLASS_NAME}Icon`}>
+                <AtomIcon color={ATOM_ICON_COLORS.currentColor} size={iconSize}>
+                  {deleteIcon}
+                </AtomIcon>
+              </div>
+            </AtomButton>
+          </div>
+        )}
         {hasErrors ? (
           <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
             <AtomButton
@@ -135,6 +138,7 @@ ThumbCard.propTypes = {
   deleteButtonAriaLabel: PropTypes.string.isRequired,
   deleteIcon: PropTypes.node.isRequired,
   dragIcon: PropTypes.node.isRequired,
+  showDeleteButton: PropTypes.bool,
   iconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
   image: PropTypes.object.isRequired,
   index: PropTypes.number,

@@ -301,7 +301,7 @@ $skeleton-class: '#{$base-class}-skeleton';
       display: flex;
       justify-content: center;
       padding: $p-photo-uploader-action-buttons;
-      width: 50%;
+      width: 100%;
 
       &:first-of-type {
         border-radius: 0 0 0 $bdrs-photo-uploader-thumb-card;

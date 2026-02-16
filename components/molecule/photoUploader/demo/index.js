@@ -1,7 +1,9 @@
 import {Code, H1, Paragraph} from '@s-ui/documentation-library'
 
 import DefaultArticle from './articles/DefaultArticle.js'
+import HideBothButtonsArticle from './articles/HideBothButtonsArticle.js'
 import HideDeleteButtonArticle from './articles/HideDeleteButtonArticle.js'
+import HideRotateButtonArticle from './articles/HideRotateButtonArticle.js'
 import InitialPhotosArticle from './articles/InitialPhotosArticle.js'
 import WithContentArticle from './articles/WithContentArticle.js'
 import {CLASS_DEMO_SECTION} from './config.js'
@@ -17,6 +19,10 @@ const Demo = () => {
       <DefaultArticle className={CLASS_DEMO_SECTION} />
       <br />
       <HideDeleteButtonArticle className={CLASS_DEMO_SECTION} />
+      <br />
+      <HideRotateButtonArticle className={CLASS_DEMO_SECTION} />
+      <br />
+      <HideBothButtonsArticle className={CLASS_DEMO_SECTION} />
       <br />
       <InitialPhotosArticle className={CLASS_DEMO_SECTION} />
       <br />

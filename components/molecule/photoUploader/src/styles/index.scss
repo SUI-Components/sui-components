@@ -270,6 +270,10 @@ $skeleton-class: '#{$base-class}-skeleton';
       object-fit: cover;
       width: $w-photo-uploader-thumb-image;
 
+      &--rotateAndDeleteButtonsHidden {
+        border-radius: $bdrs-photo-uploader-thumb-card;
+      }
+
       @include media-breakpoint-up(m) {
         height: $h-photo-uploader-thumb-image-desktop;
         width: $w-photo-uploader-thumb-image-desktop;

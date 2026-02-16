@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.39.0 (2026-02-16)
+
+
+### Features
+
+* hide rotate icon ([1bf464c](https://github.com/SUI-Components/sui-components/commit/1bf464c16c9fc553a02d3aace7112fe3d54e071e))
+* hide rotate icon ([a7ed919](https://github.com/SUI-Components/sui-components/commit/a7ed919ae6a1a36bb29fea0300191c8b1e2bb916))
+
+
+
 # 2.38.0 (2026-02-11)
 
 

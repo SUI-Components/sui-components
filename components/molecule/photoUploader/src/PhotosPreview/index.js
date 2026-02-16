@@ -44,6 +44,7 @@ const PhotosPreview = ({
   errorInitialPhotoDownloadErrorText,
   files,
   showDeleteButton,
+  showRotateButton,
   inputId,
   isPhotoUploaderFully,
   mainPhotoLabel,
@@ -180,6 +181,7 @@ const PhotosPreview = ({
               deleteIcon={deleteIcon()}
               dragIcon={dragIcon()}
               showDeleteButton={showDeleteButton}
+              showRotateButton={showRotateButton}
               iconSize={thumbIconSize}
               image={file}
               index={index}
@@ -256,6 +258,7 @@ PhotosPreview.propTypes = {
   errorInitialPhotoDownloadErrorText: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
   showDeleteButton: PropTypes.bool,
+  showRotateButton: PropTypes.bool,
   inputId: PropTypes.string.isRequired,
   isPhotoUploaderFully: PropTypes.bool.isRequired,
   mainPhotoLabel: PropTypes.string.isRequired,

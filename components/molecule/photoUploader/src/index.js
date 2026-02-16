@@ -69,6 +69,7 @@ const MoleculePhotoUploader = forwardRef(
       errorInitialPhotoDownloadErrorText,
       errorSaveImageEndpoint,
       showDeleteButton = true,
+      showRotateButton = true,
       id = DEFAULT_INPUT_ID,
       infoIcon = noop,
       initialPhotos = [],
@@ -315,6 +316,7 @@ const MoleculePhotoUploader = forwardRef(
                 dragDelay={dragDelay}
                 dragIcon={dragIcon}
                 showDeleteButton={showDeleteButton}
+                showRotateButton={showRotateButton}
                 errorInitialPhotoDownloadErrorText={errorInitialPhotoDownloadErrorText}
                 files={files}
                 inputId={id}
@@ -458,6 +460,9 @@ MoleculePhotoUploader.propTypes = {
 
   /** Show the delete button on thumb cards */
   showDeleteButton: PropTypes.bool,
+
+  /** Show the rotate button on thumb cards */
+  showRotateButton: PropTypes.bool,
 
   /** Id of the input element */
   id: PropTypes.string,

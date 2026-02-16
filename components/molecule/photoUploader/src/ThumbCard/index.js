@@ -23,6 +23,7 @@ const ThumbCard = ({
   deleteIcon,
   dragIcon,
   showDeleteButton = true,
+  showRotateButton = true,
   iconSize = ATOM_ICON_SIZES.small,
   image,
   index,
@@ -45,7 +46,8 @@ const ThumbCard = ({
   })
 
   const imageThumbClass = cx(IMAGE_THUMB_CARD_CLASS_NAME, {
-    [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled
+    [`${IMAGE_THUMB_CARD_CLASS_NAME}--ratioDisabled`]: outputImageAspectRatioDisabled,
+    [`${IMAGE_THUMB_CARD_CLASS_NAME}--rotateAndDeleteButtonsHidden`]: !showDeleteButton && !showRotateButton
   })
 
   const thumbCardLabel = index === 0 && isDefaultView ? mainPhotoLabel : index + 1
@@ -105,23 +107,25 @@ const ThumbCard = ({
             </AtomButton>
           </div>
         ) : (
-          <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
-            <AtomButton
-              aria-label={`${rotateButtonAriaLabel} ${thumbCardLabel}`}
-              design={atomButtonDesigns.LINK}
-              fullWidth
-              onClick={() => callbackRotateItem(index)}
-              size={atomButtonSizes.SMALL}
-              tabIndex="0"
-              type="button"
-            >
-              <div className={`${BUTTON_THUMB_CARD_CLASS_NAME}Icon`}>
-                <AtomIcon color={ATOM_ICON_COLORS.currentColor} size={iconSize}>
-                  {rotateIcon}
-                </AtomIcon>
-              </div>
-            </AtomButton>
-          </div>
+          showRotateButton && (
+            <div className={BUTTON_THUMB_CARD_CLASS_NAME}>
+              <AtomButton
+                aria-label={`${rotateButtonAriaLabel} ${thumbCardLabel}`}
+                design={atomButtonDesigns.LINK}
+                fullWidth
+                onClick={() => callbackRotateItem(index)}
+                size={atomButtonSizes.SMALL}
+                tabIndex="0"
+                type="button"
+              >
+                <div className={`${BUTTON_THUMB_CARD_CLASS_NAME}Icon`}>
+                  <AtomIcon color={ATOM_ICON_COLORS.currentColor} size={iconSize}>
+                    {rotateIcon}
+                  </AtomIcon>
+                </div>
+              </AtomButton>
+            </div>
+          )
         )}
       </div>
     </div>
@@ -139,6 +143,7 @@ ThumbCard.propTypes = {
   deleteIcon: PropTypes.node.isRequired,
   dragIcon: PropTypes.node.isRequired,
   showDeleteButton: PropTypes.bool,
+  showRotateButton: PropTypes.bool,
   iconSize: PropTypes.oneOf(Object.keys(ATOM_ICON_SIZES)),
   image: PropTypes.object.isRequired,
   index: PropTypes.number,

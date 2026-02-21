@@ -10,6 +10,33 @@
     padding-right: $pr-atom-input-input;
   }
 
+  &-button {
+    @include reset-button;
+    position: relative;
+    padding: 0;
+    min-width: 0;
+
+    // Expand clickable area
+    &::before {
+      content: '';
+      position: absolute;
+      top: -$m-m;
+      bottom: -$m-m;
+      left: -$m-m;
+      right: -$m-m;
+      background: transparent;
+    }
+
+    &-container {
+      width: $sz-icon-m;
+    }
+
+    &:hover {
+      background-color: $c-gray-light-3;
+      border-radius: $p-xs;
+    }
+  }
+
   &-icon {
     align-items: center;
     color: $c-atom-input-icon;
@@ -21,12 +48,6 @@
     top: $t-atom-input-icon;
     transform: translateY($trf-ty-atom-input-icon);
     width: $w-atom-input-icon;
-    pointer-events: none;
-
-    &--withHandler {
-      cursor: pointer;
-      pointer-events: auto;
-    }
 
     &--left {
       left: $l-atom-input-icon;
@@ -34,11 +55,6 @@
 
     &--right {
       right: $r-atom-input-icon;
-    }
-
-    & > * {
-      height: 100%;
-      width: 100%;
     }
   }
 }

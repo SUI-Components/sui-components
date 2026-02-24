@@ -86,6 +86,7 @@ const MoleculeSelectSingleSelection = forwardRef(
           required={required}
           size={selectSize}
           tabIndex={tabIndex}
+          {...props}
         >
           <AtomInput ref={forwardedRef} inputMode={inputTypes.NONE} noBorder {...props} />
         </MoleculeInputSelect>

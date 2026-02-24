@@ -9,6 +9,7 @@ import {moleculeDropdownListSizes} from '@s-ui/react-molecule-dropdown-list'
 export const BASE_CLASS = `sui-MoleculeSelect`
 export const CLASS_FOCUS = `${BASE_CLASS}--focus`
 export const CLASS_DISABLED = `is-disabled`
+export const CLASS_READ_ONLY = `is-read-only`
 
 export const SELECT_STATES = {
   ERROR: 'error',
@@ -36,7 +37,7 @@ export const getOptionData = children => {
   return optionsData
 }
 
-export const getClassName = ({state, errorState, disabled, className, isBorderless}) =>
+export const getClassName = ({state, errorState, disabled, readOnly, className, isBorderless}) =>
   cx(
     BASE_CLASS,
     errorState && `${BASE_CLASS}--${SELECT_STATES.ERROR}`,
@@ -44,7 +45,8 @@ export const getClassName = ({state, errorState, disabled, className, isBorderle
     state && `${BASE_CLASS}--${state}`,
     isBorderless && `${BASE_CLASS}--isBorderless`,
     {
-      [CLASS_DISABLED]: disabled
+      [CLASS_DISABLED]: disabled,
+      [CLASS_READ_ONLY]: readOnly
     },
     className
   )

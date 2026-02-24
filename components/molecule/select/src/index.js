@@ -67,6 +67,7 @@ const MoleculeSelect = forwardRef(
     },
     forwardedRef
   ) => {
+    console.log('molecule select props', {props, disabled, readOnly})
     const [focusedFirstOption, setFocusedFirstOption] = useState(false)
     const refOptions = useRef({})
     const [innerValue, setInnerValue] = useControlledState(value, defaultValue)
@@ -115,7 +116,7 @@ const MoleculeSelect = forwardRef(
 
     const numOptions = Children.toArray(extendedChildren).length
 
-    const className = getClassName({state, errorState, disabled, className: classNameFromProps, isBorderless})
+    const className = getClassName({state, errorState, disabled, readOnly, className: classNameFromProps, isBorderless})
 
     const handleToggle = useCallback(
       (ev, {isOpen, isOutsideEvent} = {isOutsideEvent: false}) => {
@@ -151,13 +152,13 @@ const MoleculeSelect = forwardRef(
 
     const handleOutsideClick = useCallback(
       ev => {
-        if (disabled) return
+        if (disabled || readOnly) return
         if (refMoleculeSelect.current && !refMoleculeSelect.current.contains(ev.target)) {
           // outside click
           closeList(ev, {isOutsideEvent: true})
         }
       },
-      [closeList, disabled]
+      [closeList, disabled, readOnly]
     )
 
     const focusFirstOption = useCallback(
@@ -240,7 +241,7 @@ const MoleculeSelect = forwardRef(
       typeof onBlur === 'function' && onBlur(event)
     }
 
-    const handleFocusIn = () => !disabled && !hasSearch && onFocus && onFocus()
+    const handleFocusIn = () => !disabled && !readOnly && !hasSearch && onFocus && onFocus()
 
     const handleClick = ev => {
       ev.persist()

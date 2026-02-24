@@ -99,7 +99,6 @@ const MoleculeAutosuggestSingleSelection = ({
         type={type}
         value={value}
         noBorder={noBorder}
-        {...rest}
       >
         <AtomInput />
       </InputWithClearUI>

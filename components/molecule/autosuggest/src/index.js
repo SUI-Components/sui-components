@@ -38,6 +38,7 @@ const MoleculeAutosuggest = ({
   onFocus,
   onSelect,
   onToggle,
+  readOnly = false,
   refMoleculeAutosuggest: refMoleculeAutosuggestFromProps = {},
   refMoleculeAutosuggestInput: refMoleculeAutosuggestInputFromProps = {},
   state,
@@ -215,6 +216,7 @@ const MoleculeAutosuggest = ({
     onKeyDown: handleKeyDown,
     onSelect,
     onToggle: handleToggle,
+    readOnly,
     state,
     ...(!multiselection && {...accessibilityProps}),
     ...restProps
@@ -314,6 +316,9 @@ MoleculeAutosuggest.propTypes = {
 
   /** list of values to be displayed on the select */
   options: PropTypes.array,
+
+  /** if the component is read-only or not */
+  readOnly: PropTypes.bool,
 
   /** object generated w/ React.createRef method to get a DOM reference of wrapper div */
   refMoleculeAutosuggest: PropTypes.object,

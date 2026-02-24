@@ -67,7 +67,6 @@ const MoleculeSelect = forwardRef(
     },
     forwardedRef
   ) => {
-    console.log('molecule select props', {props, disabled, readOnly})
     const [focusedFirstOption, setFocusedFirstOption] = useState(false)
     const refOptions = useRef({})
     const [innerValue, setInnerValue] = useControlledState(value, defaultValue)

@@ -31,6 +31,7 @@ const MoleculeAutosuggestSingleSelection = ({
   onSelect,
   onToggle,
   placeholder,
+  readOnly,
   required,
   rightButton,
   rightIcon,
@@ -39,7 +40,8 @@ const MoleculeAutosuggestSingleSelection = ({
   tabIndex,
   type,
   value = '',
-  noBorder
+  noBorder,
+  ...rest
 }) => {
   const handleSelection = (ev, {value, ...args}) => {
     typeof onChange === 'function' && onChange(ev, {value, ...args})
@@ -53,7 +55,7 @@ const MoleculeAutosuggestSingleSelection = ({
   }
 
   const handleClear = (ev, args = {}) => {
-    if (!disabled) {
+    if (!disabled && !readOnly) {
       typeof onChange === 'function' && onChange(null, {...args, value: ''})
       typeof onClear === 'function' && onClear(ev)
     }
@@ -76,7 +78,7 @@ const MoleculeAutosuggestSingleSelection = ({
         autoFocus={autoFocus}
         button={rightButton}
         disabled={disabled}
-        iconClear={!disabled && iconClear}
+        iconClear={!disabled && !readOnly && iconClear}
         id={id}
         reference={refInput}
         inputMode={inputMode}
@@ -89,6 +91,7 @@ const MoleculeAutosuggestSingleSelection = ({
         onClickRightIcon={handleRightClick}
         onKeyDown={onInputKeyDown}
         placeholder={placeholder}
+        readOnly={readOnly}
         required={required}
         rightIcon={rightIcon}
         shape={shape}

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.7.0 (2026-02-25)
+
+
+### Features
+
+* remove log ([4e78c3b](https://github.com/SUI-Components/sui-components/commit/4e78c3b89498bbc53e3670203465fdaca0ab1c41))
+* setup read only in molecules autosuggest ([59419b2](https://github.com/SUI-Components/sui-components/commit/59419b271f47de4afe8887f2b12d0401635da9ca))
+
+
+
 # 2.6.0 (2025-10-02)
 
 

@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.76.0 (2026-02-25)
+
+
+### Features
+
+* avoid rest ([3083bf2](https://github.com/SUI-Components/sui-components/commit/3083bf29a568c056da586e87878a925a4d8487f6))
+* setup autosuggest component ([cc01235](https://github.com/SUI-Components/sui-components/commit/cc01235e9965575c6ac576707edc9513be54064c))
+
+
+
 # 2.75.0 (2026-01-12)
 
 

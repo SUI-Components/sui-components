@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.34.0 (2026-02-26)
+
+
+### Features
+
+* use static imports for vite compatibility ([618c771](https://github.com/SUI-Components/sui-components/commit/618c7713a7d507ea1c3168255f24e6835e3fb26a))
+
+
+
 # 1.33.0 (2024-09-17)
 
 

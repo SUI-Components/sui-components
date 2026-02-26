@@ -1,11 +1,17 @@
 {
   "name": "@s-ui/react-atom-video-player",
-  "version": "1.33.0",
+  "version": "1.34.0",
   "description": "",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["@s-ui", "react", "component", "atom", "videoPlayer"],
+  "keywords": [
+    "@s-ui",
+    "react",
+    "component",
+    "atom",
+    "videoPlayer"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rimraf ./lib && npm run build:js && npm run build:styles",

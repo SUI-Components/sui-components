@@ -1,4 +1,4 @@
-import {createRef, forwardRef, Suspense, useRef} from 'react'
+import {createRef, forwardRef, Suspense, useEffect, useRef, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -34,6 +34,13 @@ const AtomVideoPlayer = forwardRef(
     },
     forwardedRef = createRef()
   ) => {
+    // SSR-safe: Only render on client-side to avoid Suspense issues
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+      setIsClient(true)
+    }, [])
+
     const [Component, props] = useVideoPlayer({
       autoPlay,
       controls,
@@ -57,6 +64,15 @@ const AtomVideoPlayer = forwardRef(
 
     const needsToRenderFallbackComponent =
       fallbackWhileNotOnViewport === true && autoPlay === AUTOPLAY.ON_VIEWPORT && !autoPlayState
+
+    // Don't render during SSR - only on client
+    if (!isClient) {
+      return (
+        <div ref={componentRef} className={BASE_CLASS}>
+          {fallbackComponent}
+        </div>
+      )
+    }
 
     return (
       <div ref={componentRef} className={BASE_CLASS}>

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2026-03-04)
+
+
+### Features
+
+* remove some warnings in scss ([14184d0](https://github.com/SUI-Components/sui-components/commit/14184d0319f018a90c8ffdf05aad064106f923a1))
+
+
+
 # 2.4.0 (2025-09-12)
 
 

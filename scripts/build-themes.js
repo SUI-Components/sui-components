@@ -11,18 +11,7 @@ const globby = require('globby')
 
 const INSTALL_FLAGS = ['--silent', '--no-save', '--no-audit', '--no-fund', '--no-package-lock']
 
-const THEMES_PACKAGES = [
-  '@adv-ui/adv-theme',
-  '@adv-ui/cf-theme',
-  '@adv-ui/ep-theme',
-  '@adv-ui/fc-theme',
-  '@adv-ui/hab-theme',
-  '@adv-ui/hb-theme-v2',
-  '@adv-ui/ij-theme',
-  '@adv-ui/ma-theme',
-  '@adv-ui/mt-theme',
-  '@adv-ui/adit-boros-tcf-ui-consent'
-]
+const THEMES_PACKAGES = []
 
 const cwd = process.cwd()
 const {CI, NODE_AUTH_TOKEN} = process.env

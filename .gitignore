@@ -1,6 +1,7 @@
 # project
 public/
 .sui/
+.ai/
 
 # environment
 .env

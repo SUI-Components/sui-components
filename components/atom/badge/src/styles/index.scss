@@ -55,7 +55,7 @@ $base-class: '.sui-AtomBadge';
         $bgc: map-get($element, bgc);
         $c: map-get($element, c);
 
-        &#{$this}-type-#{$type} {
+        &#{$this}-type-#{'' + $type} {
           background-color: $bgc;
           @if ($c != $c-atom-badge) {
             color: $c;

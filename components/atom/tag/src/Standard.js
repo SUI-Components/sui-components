@@ -52,9 +52,9 @@ const StandardTag = forwardRef(
         <Component ref={forwardedRef} {...props}>
           {icon && <span className="sui-AtomTag-icon">{icon}</span>}
           {label ? (
-            <span className="sui-AtomTag-label" title={title}>
+            <p className="sui-AtomTag-label" title={title || label}>
               {label}
-            </span>
+            </p>
           ) : null}
           {closeIcon && !(disabled || readOnly) && (
             <button

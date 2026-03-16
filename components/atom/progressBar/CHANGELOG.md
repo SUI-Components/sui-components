@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.19.0 (2026-03-16)
+
+
+### Features
+
+* make borderless work for atom progressbar ([3075c26](https://github.com/SUI-Components/sui-components/commit/3075c265bc72f01a445e792decaade43cdd338eb))
+
+
+
 # 2.18.0 (2025-12-02)
 
 

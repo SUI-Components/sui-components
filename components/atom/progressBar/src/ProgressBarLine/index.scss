@@ -17,16 +17,13 @@ $base-class-line: '#{$base-class}Line';
       border: $bd-line-progress-container--success;
     }
 
-    &--borderless {
-      border: none;
-    }
-
     background: $bg-progress-bar;
     border: $bd-line-progress-container;
     border-radius: $bdrs-progress-container;
     height: $h-progress-bar; /* Can be anything */
     position: relative;
     box-sizing: border-box;
+
     &--size {
       @each $size-key, $size-value in $size-atom-line-progress-bar {
         &-#{$size-key} {
@@ -34,6 +31,7 @@ $base-class-line: '#{$base-class}Line';
         }
       }
     }
+
     &--color {
       @each $colorName, $colorValue in $c-progress-bar-fill-array {
         &-#{$colorName} {
@@ -41,6 +39,10 @@ $base-class-line: '#{$base-class}Line';
           border-color: color-mix(in srgb, $bc-progress-bar, $colorValue 16%);
         }
       }
+    }
+
+    &--borderless {
+      border: none;
     }
   }
 

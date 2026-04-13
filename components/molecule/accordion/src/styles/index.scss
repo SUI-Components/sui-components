@@ -174,10 +174,10 @@ $base-class-item-panel: '#{$base-class-item}Panel';
 }
 
 #{$base-class-item-panel} {
-  overflow: hidden;
+  // overflow and collapse are handled by grid-template-rows animation (JS inline style).
+  // overflow: hidden lives on the inner WrapperRef child (required for 0fr collapse to work).
 
   &--collapsed {
-    max-height: 0;
     opacity: 0;
     border-bottom: 0;
   }

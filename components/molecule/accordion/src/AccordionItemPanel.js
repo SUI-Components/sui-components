@@ -72,7 +72,13 @@ const AccordionItemPanel = forwardRef(
           // grid-template-rows:0fr can collapse it to zero height. These cannot live
           // inside the !isFragment spread because isFragment is a function (always truthy),
           // making !isFragment always false — the spread never executes.
-          style={{overflow: 'hidden', minHeight: 0}}
+          style={{
+            // overflow must be 'hidden' while collapsed so 0fr clips the content.
+            // Once expanded, switch to 'visible' so popovers/dropdowns inside the
+            // panel can overflow outside its bounds (e.g. make/model picker on desktop).
+            overflow: values.includes(value) ? 'visible' : 'hidden',
+            minHeight: 0
+          }}
           {...{
             ...(!isFragment && {
               className: `${BASE_CLASS_ITEM_PANEL_CONTENT}Wrapper`
@@ -83,8 +89,7 @@ const AccordionItemPanel = forwardRef(
             className={`${BASE_CLASS_ITEM_PANEL_CONTENT}WrapperRef`}
             ref={contentRef}
             style={{
-              // min-height: 0 is required for grid-template-rows: 0fr to collapse the child to zero
-              overflow: 'hidden',
+              overflow: values.includes(value) ? 'visible' : 'hidden',
               minHeight: 0,
               // maxHeight prop caps panel height and enables scroll — applied here (not on
               // the outer grid wrapper) so it constrains content without affecting the animation

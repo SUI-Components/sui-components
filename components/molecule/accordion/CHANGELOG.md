@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.19.0 (2026-04-16)
+
+
+### Bug Fixes
+
+* allow overflow visible when expanded to prevent popover clipping ([7036990](https://github.com/SUI-Components/sui-components/commit/703699047da46be5827cbd267d167116577c14e3))
+* fix accordion in iOS Safari 26.4 ([b7021f9](https://github.com/SUI-Components/sui-components/commit/b7021f95ab53b1215e4884815649eb6d6ef6dd05))
+
+
+
 # 2.18.0 (2025-06-06)
 
 

@@ -52,27 +52,53 @@ const AccordionItemPanel = forwardRef(
         className={accordionItemPanelClassName}
         aria-disabled={disabled}
         style={{
-          overflowY: height > maxHeight && maxHeight !== 0 ? 'scroll' : 'hidden',
-          transition: `max-height ${animationDuration}ms ${
+          // grid-template-rows animation is layout-safe: siblings are pushed down
+          // correctly in all browsers including iOS Safari ≥16.4.
+          // max-height animation was replaced because it requires transform/will-change
+          // hacks to avoid Safari repaint corruption, and those hacks break document flow.
+          display: 'grid',
+          gridTemplateRows: values.includes(value) ? '1fr' : '0fr',
+          transition: `grid-template-rows ${animationDuration}ms ${
             values.includes(value) ? 'ease-out' : 'ease-in'
           }, opacity 0s linear ${values.includes(value) ? 0 : animationDuration}ms, border-top-width 0s linear ${
             values.includes(value) ? 0 : animationDuration
-          }ms`,
-          ...(values.includes(value) && {
-            maxHeight: maxHeight === 0 ? height : maxHeight
-          })
+          }ms`
         }}
         {...props}
       >
         <Poly
           as={as}
+          // overflow:hidden + min-height:0 must be on the direct grid child so that
+          // grid-template-rows:0fr can collapse it to zero height. These cannot live
+          // inside the !isFragment spread because isFragment is a function (always truthy),
+          // making !isFragment always false — the spread never executes.
+          style={{
+            // overflow must be 'hidden' while collapsed so 0fr clips the content.
+            // Once expanded, switch to 'visible' so popovers/dropdowns inside the
+            // panel can overflow outside its bounds (e.g. make/model picker on desktop).
+            overflow: values.includes(value) ? 'visible' : 'hidden',
+            minHeight: 0
+          }}
           {...{
             ...(!isFragment && {
               className: `${BASE_CLASS_ITEM_PANEL_CONTENT}Wrapper`
             })
           }}
         >
-          <div className={`${BASE_CLASS_ITEM_PANEL_CONTENT}WrapperRef`} ref={contentRef}>
+          <div
+            className={`${BASE_CLASS_ITEM_PANEL_CONTENT}WrapperRef`}
+            ref={contentRef}
+            style={{
+              overflow: values.includes(value) ? 'visible' : 'hidden',
+              minHeight: 0,
+              // maxHeight prop caps panel height and enables scroll — applied here (not on
+              // the outer grid wrapper) so it constrains content without affecting the animation
+              ...(maxHeight !== 0 && {
+                maxHeight,
+                overflowY: height > maxHeight ? 'scroll' : 'hidden'
+              })
+            }}
+          >
             {inject(children, [
               {
                 props: {

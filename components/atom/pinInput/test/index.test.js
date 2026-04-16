@@ -1570,6 +1570,74 @@ describe(json.name, () => {
         expect(focusPosition).to.equal(initialFocusPosition + 1)
         expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
       })
+
+      it("given an 'Unidentified' key event (mobile virtual keyboard) should NOT change anything", () => {
+        // Given
+        const args = {value: '123456'}
+        const eventArgs = {key: 'Unidentified'}
+
+        // When
+        const hook = setupReducerEnvironment(args)
+        let [store, dispatch] = hook.result.current
+
+        const {focusPosition: initialFocusPosition, innerValue} = store
+
+        // Then
+        expect(initialFocusPosition).to.equal(0)
+        expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+        // And
+        // Given
+        const onChange = () => null
+        const keyboardEvent = new KeyboardEvent('keydown', {...eventArgs})
+
+        // When
+        dispatch(atomPinInputActions.setKey({event: keyboardEvent, onChange}))
+        hook.rerender()
+
+        // Then
+        store = hook.result.current[0]
+        const focusPosition = store.focusPosition
+        const newInnerValue = store.innerValue
+        expect(focusPosition).to.equal(initialFocusPosition)
+        expect(newInnerValue.filter(Boolean).join('')).to.equal(args.value)
+      })
+
+      it('given a synthetic input event (mobile fallback) with a valid char changes innerValue and increments focusPosition', () => {
+        // Given
+        const args = {value: '123456'}
+
+        // When
+        const hook = setupReducerEnvironment(args)
+        let [store, dispatch] = hook.result.current
+
+        const {focusPosition: initialFocusPosition, innerValue} = store
+
+        // Then
+        expect(initialFocusPosition).to.equal(0)
+        expect(innerValue.filter(Boolean).join('')).to.equal(args.value)
+
+        // And
+        // Given
+        const onChange = () => null
+        const syntheticEvent = {key: '9', preventDefault: () => {}}
+
+        // When
+        dispatch(atomPinInputActions.setKey({event: syntheticEvent, onChange}))
+        hook.rerender()
+
+        // Then
+        store = hook.result.current[0]
+        const focusPosition = store.focusPosition
+        const newInnerValue = store.innerValue
+        expect(focusPosition).to.equal(initialFocusPosition + 1)
+        expect(newInnerValue.filter(Boolean).join('')).to.equal(
+          args.value
+            .split('')
+            .map((value, index) => (index === initialFocusPosition ? '9' : value))
+            .join('')
+        )
+      })
     })
 
     describe('atomPinInputActions', () => {

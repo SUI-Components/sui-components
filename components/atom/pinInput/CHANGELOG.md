@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2026-04-16)
+
+
+### Bug Fixes
+
+* Allow virtual keyboard on Android devices to interact with pinInput ([5d5251e](https://github.com/SUI-Components/sui-components/commit/5d5251e8a73dc422d6a210d7b75a770eed621484))
+
+
+
 # 1.11.0 (2022-10-11)
 
 
@@ -144,6 +153,3 @@
 * **components/atom/pinInput:** updated documentation and changed test title ([e47b1f9](https://github.com/SUI-Components/sui-components/commit/e47b1f9faf0a7ddcf4a707a3b773582540a9fb13))
 * **components/atom/pinInput:** work in progress... ([d7e6e14](https://github.com/SUI-Components/sui-components/commit/d7e6e140531432778e223705f535386fa82cac83))
 * **components/molecule/validationCode:** fixing validation code clear ([35addef](https://github.com/SUI-Components/sui-components/commit/35addef5bc8d46ba8c179bb052322df475a49cf0))
-
-
-

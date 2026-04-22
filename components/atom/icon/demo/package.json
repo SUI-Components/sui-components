@@ -11,6 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@s-ui/react-atom-button": "2"
+    "@s-ui/react-atom-button": "2",
+    "@tabler/icons-react": "2.24.0"
   }
 }

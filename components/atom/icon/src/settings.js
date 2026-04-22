@@ -30,6 +30,11 @@ export const ATOM_ICON_RENDERS = {
   lazy: 'lazy'
 }
 
+export const ATOM_ICON_DESIGNS = {
+  FILLED: 'filled',
+  OUTLINE: 'outline'
+}
+
 export const IMG_ROLE = 'img'
 
 export const getAttributes = title =>

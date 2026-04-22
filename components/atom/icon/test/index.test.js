@@ -296,7 +296,7 @@ describe(json.name, () => {
 
       // When
       const {atomIconDesigns: actual} = library
-      const {SOLID, OUTLINE, ...others} = actual
+      const {FILLED, OUTLINE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

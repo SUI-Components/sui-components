@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.23.0 (2026-04-22)
+
+
+### Features
+
+* add ArticleDesign demo and update dependencies ([c59cb1f](https://github.com/SUI-Components/sui-components/commit/c59cb1fc95ba80124045066e46ee343665ed679b))
+* add ArticleDesign demo and update dependencies ([a38d75e](https://github.com/SUI-Components/sui-components/commit/a38d75efdfed0741d914a6c12d2bc6d806b7e38e))
+
+
+
 # 1.22.0 (2025-07-24)
 
 

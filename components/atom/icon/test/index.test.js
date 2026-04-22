@@ -23,10 +23,12 @@ describe(json.name, () => {
       'ATOM_ICON_SIZES',
       'ATOM_ICON_RENDERS',
       'ATOM_ICON_SHAPES',
+      'ATOM_ICON_DESIGNS',
       'atomIconColors',
       'atomIconSizes',
       'atomIconRenders',
       'atomIconShapes',
+      'atomIconDesigns',
       'default'
     ]
 
@@ -36,10 +38,12 @@ describe(json.name, () => {
       ATOM_ICON_SIZES,
       ATOM_ICON_RENDERS,
       ATOM_ICON_SHAPES,
+      ATOM_ICON_DESIGNS,
       atomIconColors,
       atomIconSizes,
       atomIconRenders,
       atomIconShapes,
+      atomIconDesigns,
       default: AtomIcon,
       ...others
     } = library
@@ -259,6 +263,40 @@ describe(json.name, () => {
       // When
       const {atomIconShapes: actual} = library
       const {SQUARED, ROUNDED, CIRCULAR, ...others} = actual
+
+      // Then
+      expect(Object.keys(others).length).to.equal(0)
+      expect(Object.keys(actual)).to.have.members(Object.keys(expected))
+      Object.entries(expected).forEach(([expectedKey, expectedValue]) => {
+        expect(Object.keys(actual).includes(expectedKey)).to.be.true
+        expect(actual[expectedKey]).to.equal(expectedValue)
+      })
+    })
+  })
+
+  describe('atomIconDesigns', () => {
+    it('value must be an object enum', () => {
+      // Given
+      const library = pkg
+
+      // When
+      const {atomIconDesigns: actual} = library
+
+      // Then
+      expect(actual).to.be.an('object')
+    })
+
+    it('value must be a defined string-key pair filled', () => {
+      // Given
+      const library = pkg
+      const expected = {
+        FILLED: 'filled',
+        OUTLINE: 'outline'
+      }
+
+      // When
+      const {atomIconDesigns: actual} = library
+      const {FILLED, OUTLINE, ...others} = actual
 
       // Then
       expect(Object.keys(others).length).to.equal(0)

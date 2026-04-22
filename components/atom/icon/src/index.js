@@ -3,7 +3,14 @@ import PropTypes from 'prop-types'
 
 import Icon from './Icon.js'
 import LazyIcon from './LazyIcon.js'
-import {ATOM_ICON_COLORS, ATOM_ICON_RENDERS, ATOM_ICON_SHAPES, ATOM_ICON_SIZES, BASE_CLASS} from './settings.js'
+import {
+  ATOM_ICON_COLORS,
+  ATOM_ICON_RENDERS,
+  ATOM_ICON_SHAPES,
+  ATOM_ICON_SIZES,
+  BASE_CLASS,
+  ATOM_ICON_DESIGNS
+} from './settings.js'
 
 const AtomIcon = ({
   as = 'span',
@@ -13,6 +20,7 @@ const AtomIcon = ({
   color = ATOM_ICON_COLORS.currentColor,
   size = ATOM_ICON_SIZES.small,
   render = ATOM_ICON_RENDERS.eager,
+  design = ATOM_ICON_DESIGNS.FILLED,
   style: _ignoredStyle, // eslint-disable-line react/prop-types
   ...props
 }) => {
@@ -21,7 +29,8 @@ const AtomIcon = ({
     {
       [`${BASE_CLASS}--size-${size}`]: size,
       [`${BASE_CLASS}--color-${color}`]: color,
-      [`${BASE_CLASS}--shape-${shape}`]: shape
+      [`${BASE_CLASS}--shape-${shape}`]: shape,
+      [`${BASE_CLASS}--design-${design}`]: design
     },
     classNameProp
   )
@@ -64,7 +73,11 @@ AtomIcon.propTypes = {
   /**
    * CSS styles border radius
    */
-  shape: PropTypes.oneOf(Object.values(ATOM_ICON_SHAPES))
+  shape: PropTypes.oneOf(Object.values(ATOM_ICON_SHAPES)),
+  /**
+   * CSS styles border radius
+   */
+  design: PropTypes.oneOf(Object.values(ATOM_ICON_DESIGNS))
 }
 
 export default AtomIcon
@@ -74,8 +87,10 @@ export {
   ATOM_ICON_SIZES,
   ATOM_ICON_RENDERS,
   ATOM_ICON_SHAPES,
+  ATOM_ICON_DESIGNS,
   ATOM_ICON_COLORS as atomIconColors,
   ATOM_ICON_SIZES as atomIconSizes,
   ATOM_ICON_RENDERS as atomIconRenders,
-  ATOM_ICON_SHAPES as atomIconShapes
+  ATOM_ICON_SHAPES as atomIconShapes,
+  ATOM_ICON_DESIGNS as atomIconDesigns
 }

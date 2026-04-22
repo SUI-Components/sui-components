@@ -1,6 +1,7 @@
 $base-class: '.sui-AtomIcon';
 
 #{$base-class} {
+  --color: inherit;
   display: inherit;
   border: none;
   padding: 0;
@@ -20,7 +21,25 @@ $base-class: '.sui-AtomIcon';
   // Colors
   @each $key, $value in $atom-icon-colors {
     &#{$base-class}--color-#{$key} svg {
-      fill: $value;
+      --color: #{$value};
+    }
+  }
+  &#{$base-class}--design {
+    &-filled svg {
+      fill: var(--color, currentColor);
+      stroke: none;
+      path {
+        fill: inherit;
+        stroke: none !important; // !important usage for AtomButton compatibility
+      }
+    }
+    &-outline svg {
+      stroke: var(--color, currentColor);
+      fill: none;
+      path {
+        stroke: inherit;
+        fill: none !important; // !important usage for AtomButton compatibility
+      }
     }
   }
 
@@ -52,9 +71,5 @@ $base-class: '.sui-AtomIcon';
 
   svg {
     vertical-align: middle;
-
-    path {
-      stroke: none !important; // !important usage for AtomButton compatibility
-    }
   }
 }

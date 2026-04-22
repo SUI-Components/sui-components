@@ -34,7 +34,7 @@ $base-class: '.sui-AtomIcon';
       }
     }
     &-outline svg {
-      stroke: var(--color);
+      stroke: var(--color, currentColor);
       fill: none;
       path {
         stroke: inherit;

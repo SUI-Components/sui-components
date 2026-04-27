@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2026-04-27)
+
+
+### Bug Fixes
+
+* ensure correct fill and stroke inheritance with `!important` handling ([07eefa4](https://github.com/SUI-Components/sui-components/commit/07eefa46c3c230217330c2b925b5cb56f35a6636))
+
+
+
 # 1.24.0 (2026-04-22)
 
 

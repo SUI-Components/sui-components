@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.26.0 (2026-04-27)
+
+
+### Bug Fixes
+
+* correct stroke inheritance logic by updating conditional check ([4abaa8d](https://github.com/SUI-Components/sui-components/commit/4abaa8dd0750e0ff132d6e364a33b256e102ae16))
+
+
+
 # 1.25.0 (2026-04-27)
 
 

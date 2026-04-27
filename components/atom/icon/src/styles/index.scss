@@ -39,7 +39,7 @@ $base-class: '.sui-AtomIcon';
       stroke: var(--color, currentColor);
       fill: none;
       path {
-        &:not([fill='none']) {
+        &:not([stroke='none']) {
           stroke: inherit !important;
         }
         fill: none !important; // !important usage for AtomButton compatibility

@@ -29,7 +29,9 @@ $base-class: '.sui-AtomIcon';
       fill: var(--color, currentColor);
       stroke: none;
       path {
-        fill: inherit;
+        &:not([fill='none']) {
+          fill: inherit !important;
+        }
         stroke: none !important; // !important usage for AtomButton compatibility
       }
     }
@@ -37,7 +39,9 @@ $base-class: '.sui-AtomIcon';
       stroke: var(--color, currentColor);
       fill: none;
       path {
-        stroke: inherit;
+        &:not([fill='none']) {
+          stroke: inherit !important;
+        }
         fill: none !important; // !important usage for AtomButton compatibility
       }
     }

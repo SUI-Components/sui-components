@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2026-05-06)
+
+
+### Bug Fixes
+
+* ensure `cursor` inherits correctly from parent styles ([e4864fd](https://github.com/SUI-Components/sui-components/commit/e4864fd618dbabb0bc1ced8d6b4e17ab8bebed49))
+
+
+
 # 1.2.0 (2025-05-26)
 
 

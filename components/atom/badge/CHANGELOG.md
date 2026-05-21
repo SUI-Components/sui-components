@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2026-05-21)
+
+
+### Bug Fixes
+
+* ellipsis in the badge text ([ce968c5](https://github.com/SUI-Components/sui-components/commit/ce968c50ac7ae1b5ddc1f81cac7239c830fec420))
+
+
+
 # 2.5.0 (2026-03-04)
 
 

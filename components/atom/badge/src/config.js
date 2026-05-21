@@ -27,7 +27,7 @@ export const DESIGNS = {
 export const BASE_CLASS = `sui-AtomBadge`
 export const CLASS_ICON = `${BASE_CLASS}-icon`
 export const CLASS_ICON_RIGHT = `${CLASS_ICON}--iconRight`
-export const CLASS_TEXT = `${CLASS_ICON}-text`
+export const CLASS_TEXT = `${BASE_CLASS}-text`
 
 /**
  * @param  {object} options

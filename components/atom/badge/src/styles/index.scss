@@ -9,6 +9,7 @@ $base-class: '.sui-AtomBadge';
   color: $c-atom-badge;
   fill: currentColor;
   display: inline-flex;
+  max-width: 100%;
   justify-content: center;
   white-space: $ws-atom-badge;
   cursor: default;
@@ -47,6 +48,12 @@ $base-class: '.sui-AtomBadge';
       margin-left: $m-atom-badge-s;
       margin-right: 0;
     }
+  }
+
+  &-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   @each $design-key, $design-value in (solid: $badges, soft: $badge-soft) {

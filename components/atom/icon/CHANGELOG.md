@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2026-05-25)
+
+
+### Bug Fixes
+
+* add `!default` to SCSS variables for better customization ([b518785](https://github.com/SUI-Components/sui-components/commit/b518785020ecdee3223a7e6162f9901e29862b46))
+
+
+
 # 1.26.0 (2026-04-27)
 
 

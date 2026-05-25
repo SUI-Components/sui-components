@@ -5,7 +5,7 @@ $atom-icon-sizes: (
   'large': $sz-icon-l,
   'extraLarge': $sz-icon-xl,
   'extraExtraLarge': $sz-icon-xxl
-);
+) !default;
 
 $atom-icon-colors: (
   'accent': $c-accent,
@@ -15,7 +15,7 @@ $atom-icon-colors: (
   'primary': $c-primary,
   'success': $c-success,
   'gray': $c-gray
-);
+) !default;
 
 $bxsh-atom-icon-focus: none !default;
 

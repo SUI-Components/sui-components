@@ -19,6 +19,10 @@ const BaseInput = forwardRef(
       children,
       onClickLeftIcon,
       onClickRightIcon,
+      ariaLabelLeftIcon,
+      ariaLabelRightIcon,
+      leftIconButtonProps,
+      rightIconButtonProps,
       size = SIZES.MEDIUM,
       shape,
       ...inputProps
@@ -33,6 +37,10 @@ const BaseInput = forwardRef(
             rightIcon={rightIcon}
             onClickLeftIcon={onClickLeftIcon}
             onClickRightIcon={onClickRightIcon}
+            ariaLabelLeftIcon={ariaLabelLeftIcon}
+            ariaLabelRightIcon={ariaLabelRightIcon}
+            leftIconButtonProps={leftIconButtonProps}
+            rightIconButtonProps={rightIconButtonProps}
           >
             <Input ref={forwardedRef} shape={shape} {...inputProps} size={size}>
               {children}
@@ -61,6 +69,14 @@ BaseInput.propTypes = {
   onClickLeftIcon: PropTypes.func,
   /* Right icon click callback */
   onClickRightIcon: PropTypes.func,
+  /* Right icon aria-label */
+  ariaLabelRightIcon: PropTypes.string,
+  /* Left icon aria-label */
+  ariaLabelLeftIcon: PropTypes.string,
+  /* Left icon button props */
+  leftIconButtonProps: PropTypes.object,
+  /* Right icon button props */
+  rightIconButtonProps: PropTypes.object,
   /* Sets the size of the inputAddon */
   size: PropTypes.oneOf(Object.values(SIZES)),
   /* Sets the shape of the input */

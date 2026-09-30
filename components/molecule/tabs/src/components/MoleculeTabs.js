@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import useOnScreen from '@s-ui/react-hooks/lib/useOnScreen'
 
-import {BASE_CLASS, CLASS_CONTENT, CLASS_SCROLLER, TYPES, VARIANTS} from '../config.js'
+import {BASE_CLASS, CLASS_CONTENT, CLASS_SCROLLER, TYPES, VARIANTS, TABS_JUSTIFY_CONTENT} from '../config.js'
 
 const MoleculeTabs = ({
   autoScrollIntoView = true,
@@ -13,11 +13,13 @@ const MoleculeTabs = ({
   id = 'molecule-tab-content',
   onChange,
   type = TYPES.HORIZONTAL,
-  variant = VARIANTS.CLASSIC
+  variant = VARIANTS.CLASSIC,
+  tabsJustifyContent = TABS_JUSTIFY_CONTENT.FLEX_START
 }) => {
   const className = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${variant}`]: variant,
-    [`${BASE_CLASS}--${type}`]: type
+    [`${BASE_CLASS}--${type}`]: type,
+    [`${BASE_CLASS}--justify-content-${tabsJustifyContent}`]: tabsJustifyContent
   })
   const childrenArray = Children.toArray(children)
   const isVerticalOrientation = type === TYPES.VERTICAL
@@ -156,7 +158,10 @@ MoleculeTabs.propTypes = {
   variant: PropTypes.oneOf(Object.values(VARIANTS)),
 
   /** type */
-  type: PropTypes.oneOf(Object.values(TYPES))
+  type: PropTypes.oneOf(Object.values(TYPES)),
+
+  /** justify the tabs elements in its area following the element declared **/
+  tabsJustifyContent: PropTypes.oneOf(Object.values(TABS_JUSTIFY_CONTENT))
 }
 
 export default MoleculeTabs

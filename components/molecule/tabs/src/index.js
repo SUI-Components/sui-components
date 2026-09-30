@@ -6,12 +6,13 @@ import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import MoleculeTab from './components/MoleculeTab.js'
 import MoleculeTabs from './components/MoleculeTabs.js'
-import {TYPES, VARIANTS} from './config.js'
+import {TYPES, VARIANTS, TABS_JUSTIFY_CONTENT} from './config.js'
 
 const MoleculeTabsWithStateActive = ({
   children,
   activeTabIndex: activeTabIndexProp,
   defaultActiveTabIndex: defaultActiveTabIndexProp = 1,
+  tabsJustifyContent,
   onChange,
   ...props
 }) => {
@@ -23,7 +24,7 @@ const MoleculeTabsWithStateActive = ({
   }
 
   return (
-    <MoleculeTabs {...props} onChange={handleChange}>
+    <MoleculeTabs {...props} tabsJustifyContent={tabsJustifyContent} onChange={handleChange}>
       {Children.toArray(children)
         .filter(Boolean)
         .map((child, index) => cloneElement(child, {active: activeTab === index + 1}))}
@@ -43,7 +44,9 @@ MoleculeTabsWithStateActive.propTypes = {
   children: PropTypes.element,
 
   /** onChange callback  */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+
+  tabsJustifyContent: PropTypes.oneOfType(Object.values(TABS_JUSTIFY_CONTENT))
 }
 
 export {
@@ -51,7 +54,8 @@ export {
   MoleculeTabs,
   MoleculeTabsWithStateActive,
   TYPES as moleculeTabsTypes,
-  VARIANTS as moleculeTabsVariants
+  VARIANTS as moleculeTabsVariants,
+  TABS_JUSTIFY_CONTENT as moleculeTabsJustifyContent
 }
 
 export default MoleculeTabsWithStateActive

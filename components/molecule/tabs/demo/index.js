@@ -5,6 +5,7 @@ import ArticleDefault from './Articles/ArticleDefault.js'
 import ArticleIconsCounters from './Articles/ArticleIconsCounters.js'
 import ArticleType from './Articles/ArticleType.js'
 import ArticleVariant from './Articles/ArticleVariant.js'
+import ArticleTabsJustifyContent from './Articles/ArticleTabsJustifyContent.js'
 import {CLASS_DEMO_SECTION} from './config.js'
 
 import './index.scss'
@@ -23,6 +24,8 @@ const Demo = () => {
       <ArticleType className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleVariant className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleTabsJustifyContent className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleIconsCounters className={CLASS_DEMO_SECTION} />
     </div>

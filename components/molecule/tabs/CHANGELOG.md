@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.42.0 (2026-09-30)
+
+
+### Features
+
+* add justify-content prop ([8d89934](https://github.com/SUI-Components/sui-components/commit/8d8993404f15a834a3677ec40b0dfd68909e952f))
+
+
+
 # 2.41.0 (2025-11-03)
 
 

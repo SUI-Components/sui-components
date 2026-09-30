@@ -6,6 +6,14 @@ $item-base-class: '#{$base-class}-item';
   background-color: $bgc-sui-molecule-tabs;
   border-radius: $bdrs-sui-molecule-tabs;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @each $value in $sui-molecule-tabs-justify-content {
+    &#{$base-class}--justify-content-#{$value} {
+      align-items: $value;
+    }
+  }
 
   &-content {
     background: $bg-sui-molecule-tabs-content;
@@ -49,6 +57,11 @@ $item-base-class: '#{$base-class}-item';
       display: flex;
       flex-direction: column;
       font-weight: $fw-sui-molecule-tabs;
+      @each $value in $sui-molecule-tabs-justify-content {
+        &#{$base-class}--justify-content-#{$value} {
+          justify-content: $value;
+        }
+      }
 
       &.is-active {
         background: $bgc-sui-molecule-tabs-active;
@@ -196,6 +209,7 @@ $item-base-class: '#{$base-class}-item';
 
   &--vertical {
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
 
     #{$base-class}-scroller {

@@ -268,8 +268,9 @@ describe(json.name, () => {
       // Given
       const library = pkg
       const expected = {
-        HIGHLIGHTED: 'highlighted',
-        CLASSIC: 'classic'
+        FLEX_START: 'flex-start',
+        CENTER: 'center',
+        FLEX_END: 'flex-end'
       }
 
       // When

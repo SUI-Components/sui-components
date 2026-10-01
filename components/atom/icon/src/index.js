@@ -5,11 +5,11 @@ import Icon from './Icon.js'
 import LazyIcon from './LazyIcon.js'
 import {
   ATOM_ICON_COLORS,
+  ATOM_ICON_DESIGNS,
   ATOM_ICON_RENDERS,
   ATOM_ICON_SHAPES,
   ATOM_ICON_SIZES,
-  BASE_CLASS,
-  ATOM_ICON_DESIGNS
+  BASE_CLASS
 } from './settings.js'
 
 const AtomIcon = ({

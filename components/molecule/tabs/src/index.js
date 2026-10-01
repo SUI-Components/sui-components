@@ -6,7 +6,7 @@ import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import MoleculeTab from './components/MoleculeTab.js'
 import MoleculeTabs from './components/MoleculeTabs.js'
-import {TYPES, VARIANTS, TABS_JUSTIFY_CONTENT} from './config.js'
+import {TABS_JUSTIFY_CONTENT, TYPES, VARIANTS} from './config.js'
 
 const MoleculeTabsWithStateActive = ({
   children,
@@ -14,6 +14,7 @@ const MoleculeTabsWithStateActive = ({
   defaultActiveTabIndex: defaultActiveTabIndexProp = 1,
   tabsJustifyContent,
   onChange,
+  keepTabsContentMounted,
   ...props
 }) => {
   const [activeTab, setActiveTab] = useControlledState(activeTabIndexProp, defaultActiveTabIndexProp)
@@ -24,7 +25,12 @@ const MoleculeTabsWithStateActive = ({
   }
 
   return (
-    <MoleculeTabs {...props} tabsJustifyContent={tabsJustifyContent} onChange={handleChange}>
+    <MoleculeTabs
+      {...props}
+      tabsJustifyContent={tabsJustifyContent}
+      keepTabsContentMounted={keepTabsContentMounted}
+      onChange={handleChange}
+    >
       {Children.toArray(children)
         .filter(Boolean)
         .map((child, index) => cloneElement(child, {active: activeTab === index + 1}))}
@@ -46,7 +52,9 @@ MoleculeTabsWithStateActive.propTypes = {
   /** onChange callback  */
   onChange: PropTypes.func,
 
-  tabsJustifyContent: PropTypes.oneOfType(Object.values(TABS_JUSTIFY_CONTENT))
+  tabsJustifyContent: PropTypes.oneOfType(Object.values(TABS_JUSTIFY_CONTENT)),
+
+  keepTabsContentMounted: PropTypes.bool
 }
 
 export {

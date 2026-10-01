@@ -1,8 +1,8 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {CLASS_INDICATOR} from './settings.js'
 import {COLORS} from '../../settings.js'
+import {CLASS_INDICATOR} from './settings.js'
 
 const Indicator = ({indicatorBottom, indicatorTotal, percentage, color}) => {
   return (

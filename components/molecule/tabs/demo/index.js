@@ -3,9 +3,10 @@ import {H1, Paragraph} from '@s-ui/documentation-library'
 import ArticleActiveTabs from './Articles/ArticleActiveTabs.js'
 import ArticleDefault from './Articles/ArticleDefault.js'
 import ArticleIconsCounters from './Articles/ArticleIconsCounters.js'
+import ArticleKeepTabsContentMounted from './Articles/ArticleKeepTabsContentMounted.js'
+import ArticleTabsJustifyContent from './Articles/ArticleTabsJustifyContent.js'
 import ArticleType from './Articles/ArticleType.js'
 import ArticleVariant from './Articles/ArticleVariant.js'
-import ArticleTabsJustifyContent from './Articles/ArticleTabsJustifyContent.js'
 import {CLASS_DEMO_SECTION} from './config.js'
 
 import './index.scss'
@@ -18,6 +19,8 @@ const Demo = () => {
         Basic component for tabs allowing versions with or without icons and classic or highlighted variants
       </Paragraph>
       <ArticleDefault className={CLASS_DEMO_SECTION} />
+      <br />
+      <ArticleKeepTabsContentMounted className={CLASS_DEMO_SECTION} />
       <br />
       <ArticleActiveTabs className={CLASS_DEMO_SECTION} />
       <br />

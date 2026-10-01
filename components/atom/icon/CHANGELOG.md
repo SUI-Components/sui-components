@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.28.0 (2026-10-01)
+
+
+### Features
+
+* fix linting ([124b9db](https://github.com/SUI-Components/sui-components/commit/124b9db381e008fd0d10a2aedb978921351987d6))
+
+
+
 # 1.27.0 (2026-05-25)
 
 

@@ -1,7 +1,8 @@
 import {Fragment} from 'react'
-import {IconBrandGithub, IconBrandGithubFilled} from '@tabler/icons-react'
 
 import PropTypes from 'prop-types'
+
+import {IconBrandGithub, IconBrandGithubFilled} from '@tabler/icons-react'
 
 import {Article, Cell, Code, Grid, H2, Label, Paragraph} from '@s-ui/documentation-library'
 

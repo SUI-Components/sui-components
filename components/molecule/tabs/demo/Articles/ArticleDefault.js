@@ -17,7 +17,7 @@ const ArticleType = ({className}) => {
         will be the last active defined. You can also use <Code>disable</Code> (boolean) prop to make unreachable any of
         that tabs.
       </Paragraph>
-      <MoleculeTabs keepTabsContentMounted>
+      <MoleculeTabs>
         {Array(5)
           .fill(true)
           .map((v, index) => (

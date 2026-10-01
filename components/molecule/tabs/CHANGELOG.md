@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.43.0 (2026-10-01)
+
+
+### Features
+
+* add keepTabsContentMounted demo article ([dfc44a4](https://github.com/SUI-Components/sui-components/commit/dfc44a4699d216baefaf7c1c374587866ea5a60e))
+* update demo article ([0091979](https://github.com/SUI-Components/sui-components/commit/00919798db4145ea3f9a219bd6bb308fd552c0ff))
+
+
+
 # 2.42.0 (2026-09-30)
 
 

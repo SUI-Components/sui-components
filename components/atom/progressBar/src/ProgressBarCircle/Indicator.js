@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import {SIZES, STATUS, COLORS} from '../settings.js'
+import {COLORS, SIZES, STATUS} from '../settings.js'
 import {INDICATOR_CLASS_NAME} from './settings.js'
 
 const Indicator = ({percentage, status, errorIcon, size, children, color}) => {

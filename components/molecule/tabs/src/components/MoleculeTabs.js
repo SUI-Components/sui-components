@@ -4,8 +4,39 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import useOnScreen from '@s-ui/react-hooks/lib/useOnScreen'
+import PrimitiveVisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
-import {BASE_CLASS, CLASS_CONTENT, CLASS_SCROLLER, TYPES, VARIANTS, TABS_JUSTIFY_CONTENT} from '../config.js'
+import {BASE_CLASS, CLASS_CONTENT, CLASS_SCROLLER, TABS_JUSTIFY_CONTENT, TYPES, VARIANTS} from '../config.js'
+
+const Wrapper = ({isActive, keepTabsContentMounted, children, id, numTab, ...props}) => {
+  if (isActive) {
+    return (
+      <div className={CLASS_CONTENT} id={`${id}-${numTab}`} role="tabpanel" {...props}>
+        {children}
+      </div>
+    )
+  } else if (keepTabsContentMounted) {
+    return (
+      <PrimitiveVisuallyHidden>
+        <div className={CLASS_CONTENT} id={`${id}-${numTab}`} role="tabpanel" style={{display: 'none'}} {...props}>
+          {children}
+        </div>
+      </PrimitiveVisuallyHidden>
+    )
+  } else {
+    return null
+  }
+}
+
+Wrapper.displayName = 'Wrapper'
+
+Wrapper.propTypes = {
+  isActive: PropTypes.bool,
+  keepTabsContentMounted: PropTypes.bool,
+  children: PropTypes.node,
+  id: PropTypes.string,
+  numTab: PropTypes.number
+}
 
 const MoleculeTabs = ({
   autoScrollIntoView = true,
@@ -14,7 +45,8 @@ const MoleculeTabs = ({
   onChange,
   type = TYPES.HORIZONTAL,
   variant = VARIANTS.CLASSIC,
-  tabsJustifyContent = TABS_JUSTIFY_CONTENT.FLEX_START
+  tabsJustifyContent = TABS_JUSTIFY_CONTENT.FLEX_START,
+  keepTabsContentMounted = false
 }) => {
   const className = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${variant}`]: variant,
@@ -108,20 +140,17 @@ const MoleculeTabs = ({
       })
     })
 
-  const activeTabContent = childrenArray.reduce((activeContent, child) => {
+  const tabContent = childrenArray.reduce((activeContent, child) => {
     if (child) {
       const {children: childrenChild, active, numTab} = child.props
-
-      if (active) {
-        return (
-          <div className={CLASS_CONTENT} id={`${id}-${numTab}`} role="tabpanel">
-            {childrenChild}
-          </div>
-        )
-      }
+      activeContent.push(
+        <Wrapper id={id} keepTabsContentMounted={keepTabsContentMounted} isActive={active} numTab={numTab}>
+          {childrenChild}
+        </Wrapper>
+      )
     }
     return activeContent
-  }, null)
+  }, [])
 
   return (
     <div className={className}>
@@ -134,7 +163,7 @@ const MoleculeTabs = ({
       >
         {extendedChildren}
       </ul>
-      {activeTabContent}
+      {tabContent}
     </div>
   )
 }
@@ -161,7 +190,10 @@ MoleculeTabs.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPES)),
 
   /** justify the tabs elements in its area following the element declared **/
-  tabsJustifyContent: PropTypes.oneOf(Object.values(TABS_JUSTIFY_CONTENT))
+  tabsJustifyContent: PropTypes.oneOf(Object.values(TABS_JUSTIFY_CONTENT)),
+
+  /** keep the inactive tabs content rendered **/
+  keepTabsContentMounted: PropTypes.bool
 }
 
 export default MoleculeTabs

@@ -25,7 +25,7 @@ $base-class-element-panel: '#{$base-class}-Panel';
       border-radius: $bdrs-atom-card;
       position: relative;
       overflow: hidden;
-      width: calc(100% - 2 * #{$sz-base});
+      width: 100%;
       height: calc(100% - 2 * #{$sz-base});
       display: grid;
 

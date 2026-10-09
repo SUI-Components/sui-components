@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.2.0 (2026-10-09)
+
+
+### Bug Fixes
+
+* adjust width calculation in styles for consistency ([ed5225c](https://github.com/SUI-Components/sui-components/commit/ed5225c36377f910d309080d89df1e16d7c0deed))
+
+
+
 # 2.1.0 (2025-10-10)
 
 

@@ -16,7 +16,7 @@ $base-class-element-panel: '#{$base-class}-Panel';
     padding: $sz-base;
     box-sizing: content-box;
     width: calc(100% - 2 * #{$sz-base});
-    height: auto;
+    height: calc(100% - 2 * #{$sz-base});
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +26,7 @@ $base-class-element-panel: '#{$base-class}-Panel';
       position: relative;
       overflow: hidden;
       width: 100%;
+      height: 100%;
       display: grid;
 
       #{$base-class-element-container-content} {

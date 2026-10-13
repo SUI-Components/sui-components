@@ -33,6 +33,7 @@ $base-class-element-panel: '#{$base-class}-Panel';
         overflow: hidden;
         grid-area: 1 / 1;
         z-index: 1;
+        box-sizing: border-box;
       }
 
       #{$base-class-element-panel} {

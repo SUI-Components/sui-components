@@ -65,8 +65,15 @@ const MoleculeDrawer = forwardRef(
       }
     })
 
-    const blockScrollPage = () => (document.body.style.overflow = 'hidden')
-    const enableScrollPage = () => (document.body.style.overflow = 'auto')
+    const blockScrollPage = () => {
+      document.body.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
+    }
+
+    const enableScrollPage = () => {
+      document.body.style.overflow = 'auto'
+      document.body.style.touchAction = 'auto'
+    }
 
     return (
       <div

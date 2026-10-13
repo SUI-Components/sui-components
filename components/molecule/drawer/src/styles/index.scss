@@ -18,6 +18,8 @@ $base-class: '.sui-MoleculeDrawer';
     position: absolute;
     background-color: $bgc-molecule-drawer;
     display: block;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 
     &--animationDuration {
       transition-property: transform;

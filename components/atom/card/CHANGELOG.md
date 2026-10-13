@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 2.4.0 (2026-10-13)
+
+
+### Bug Fixes
+
+* bump ([15c20cf](https://github.com/SUI-Components/sui-components/commit/15c20cfcf861104ce1001da2a767337203c91087))
+
+
+### Features
+
+* height fixes ([81e5769](https://github.com/SUI-Components/sui-components/commit/81e57692b53f6abac7339adf459ccf91fd2107f9))
+
+
+
 # 2.3.0 (2026-10-13)
 
 

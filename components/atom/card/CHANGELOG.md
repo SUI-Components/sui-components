@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.3.0 (2026-10-13)
+
+
+### Features
+
+* bump ([6e17806](https://github.com/SUI-Components/sui-components/commit/6e1780605550e45a907acbe5be4261147bb4f6c0))
+* fix small bug ([25dc268](https://github.com/SUI-Components/sui-components/commit/25dc268fdb3168644abf7b111ddcc15aa1aa0882))
+* spacings in card ([8d1e5cb](https://github.com/SUI-Components/sui-components/commit/8d1e5cbfba84e34d13f70412cb8499898f533a4a))
+
+
+
 # 2.2.0 (2026-10-09)
 
 

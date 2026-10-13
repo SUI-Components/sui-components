@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2026-10-13)
+
+
+### Features
+
+* bump ([6793de2](https://github.com/SUI-Components/sui-components/commit/6793de205a327469913b795d4d6ebef3e02d3b2e))
+
+
+
 # 2.4.0 (2026-10-13)
 
 

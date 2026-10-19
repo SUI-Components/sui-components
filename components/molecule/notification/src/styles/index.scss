@@ -35,15 +35,16 @@ $base-class: '.sui-MoleculeNotification';
     }
 
     &Left {
+      display: none;
+      margin-right: $m-m;
+      @include media-breakpoint-up(xs) {
+        display: block;
+      }
+
       svg {
         height: $sz-notification-icon;
         width: $sz-notification-icon;
       }
-      @include media-breakpoint-up(xs) {
-        display: block;
-      }
-      display: none;
-      margin-right: $m-m;
 
       &--show {
         display: block;
@@ -51,15 +52,16 @@ $base-class: '.sui-MoleculeNotification';
     }
 
     &Close {
+      cursor: pointer;
+      margin-left: $m-l;
+      @include media-breakpoint-up(xs) {
+        margin-left: $m-m;
+      }
+
       svg {
         height: $sz-icon-m;
         width: $sz-icon-m;
       }
-      @include media-breakpoint-up(xs) {
-        margin-left: $m-m;
-      }
-      cursor: pointer;
-      margin-left: $m-l;
     }
   }
 

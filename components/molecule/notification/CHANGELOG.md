@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.36.0 (2026-10-19)
+
+
+### Bug Fixes
+
+* reorder declarations before media queries in icon styles ([4c3728b](https://github.com/SUI-Components/sui-components/commit/4c3728b324ea069e5d2f1974f126de3fcf6626b8))
+
+
+
 # 1.35.0 (2025-03-20)
 
 

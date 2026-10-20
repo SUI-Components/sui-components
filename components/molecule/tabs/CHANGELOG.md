@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.44.0 (2026-10-20)
+
+
+### Bug Fixes
+
+* add unique key to child elements in tab mapping ([4ee6516](https://github.com/SUI-Components/sui-components/commit/4ee65165edb97023ec8603fd32b5a3f12ec5d4f9))
+
+
+
 # 2.43.0 (2026-10-01)
 
 

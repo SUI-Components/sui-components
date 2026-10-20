@@ -33,7 +33,7 @@ const MoleculeTabsWithStateActive = ({
     >
       {Children.toArray(children)
         .filter(Boolean)
-        .map((child, index) => cloneElement(child, {active: activeTab === index + 1}))}
+        .map((child, index) => cloneElement(child, {active: activeTab === index + 1, key: index}))}
     </MoleculeTabs>
   )
 }

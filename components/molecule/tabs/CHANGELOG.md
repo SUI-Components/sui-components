@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.45.0 (2026-10-20)
+
+
+### Features
+
+* add support for spreading additional props and unique keys ([5ae6aa8](https://github.com/SUI-Components/sui-components/commit/5ae6aa8989fe50d44da8a1ef2a56d74d6dac6c35))
+* add support for spreading additional props and unique keys ([55f7b0f](https://github.com/SUI-Components/sui-components/commit/55f7b0ff627ba4113c4765fb46c2020678741221))
+* bump ([6259c7b](https://github.com/SUI-Components/sui-components/commit/6259c7b84864284b647d3310593559831d770099))
+
+
+
 # 2.44.0 (2026-10-20)
 
 

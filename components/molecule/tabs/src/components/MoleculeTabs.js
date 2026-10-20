@@ -46,7 +46,8 @@ const MoleculeTabs = ({
   type = TYPES.HORIZONTAL,
   variant = VARIANTS.CLASSIC,
   tabsJustifyContent = TABS_JUSTIFY_CONTENT.FLEX_START,
-  keepTabsContentMounted = false
+  keepTabsContentMounted = false,
+  ...props
 }) => {
   const className = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${variant}`]: variant,
@@ -136,15 +137,22 @@ const MoleculeTabs = ({
         numTab,
         id,
         onChange,
-        ref: el => (tabRefs.current[index] = el) // Assign ref to each MoleculeTab
+        ref: el => (tabRefs.current[index] = el), // Assign ref to each MoleculeTab
+        key: index
       })
     })
 
-  const tabContent = childrenArray.reduce((activeContent, child) => {
+  const tabContent = childrenArray.reduce((activeContent, child, currentIndex) => {
     if (child) {
       const {children: childrenChild, active, numTab} = child.props
       activeContent.push(
-        <Wrapper id={id} keepTabsContentMounted={keepTabsContentMounted} isActive={active} numTab={numTab}>
+        <Wrapper
+          id={id}
+          keepTabsContentMounted={keepTabsContentMounted}
+          isActive={active}
+          numTab={numTab}
+          key={currentIndex}
+        >
           {childrenChild}
         </Wrapper>
       )
@@ -153,7 +161,7 @@ const MoleculeTabs = ({
   }, [])
 
   return (
-    <div className={className}>
+    <div className={className} {...props}>
       <ul
         ref={outerRef}
         className={CLASS_SCROLLER}

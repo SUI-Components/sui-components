@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2026-10-21)
+
+
+### Bug Fixes
+
+* set height to auto in Card.Root styles ([9ddfd1d](https://github.com/SUI-Components/sui-components/commit/9ddfd1d36180087eeea121dc715bc1605bf321f7))
+
+
+
 # 2.5.0 (2026-10-13)
 
 

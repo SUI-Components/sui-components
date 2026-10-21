@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.7.0 (2026-10-21)
+
+
+### Bug Fixes
+
+* set height to 100% in Card.Root styles ([31af9ef](https://github.com/SUI-Components/sui-components/commit/31af9efd7f3e81df86dd26067453366f61aa03a8))
+
+
+
 # 2.6.0 (2026-10-21)
 
 

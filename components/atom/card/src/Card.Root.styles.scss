@@ -26,7 +26,7 @@ $base-class-element-panel: '#{$base-class}-Panel';
       position: relative;
       overflow: hidden;
       width: 100%;
-      height: auto;
+      height: 100%;
       display: grid;
 
       #{$base-class-element-container-content} {

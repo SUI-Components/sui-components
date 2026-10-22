@@ -26,6 +26,7 @@ $item-base-class: '#{$base-class}-item';
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    scrollbar-width: none;
     scroll-snap-type: $sst-sui-molecule-tabs;
   }
 

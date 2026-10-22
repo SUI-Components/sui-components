@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.46.0 (2026-10-22)
+
+
+### Bug Fixes
+
+* hide scrollbar using `scrollbar-width` in styles ([14ee48a](https://github.com/SUI-Components/sui-components/commit/14ee48a1f5ffa5257b0e563f3c50eddbfac6dbe8))
+
+
+
 # 2.45.0 (2026-10-20)
 
 

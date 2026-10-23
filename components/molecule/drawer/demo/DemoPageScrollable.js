@@ -14,6 +14,9 @@ const DemoPageScroll = ({className}) => {
     <Article className={className}>
       <H2>Page scroll</H2>
       <Paragraph>The drawer can avoid the page to scroll when is opened</Paragraph>
+      <Paragraph style={{color: 'red', fontWeight: 'bold'}}>
+        Test on mobile: Open drawer and try scrolling the background. It should be locked!
+      </Paragraph>
       <RadioButton label={<Label>OPEN</Label>} checked={opened} onClick={() => setOpened(!opened)} />
       <br />
       <br />
@@ -37,7 +40,21 @@ const DemoPageScroll = ({className}) => {
             ref={drawerRef}
             closeOnOutsideClick
           >
-            <H4>None</H4>
+            <div style={{padding: '20px'}}>
+              <H4>Drawer Content (should scroll)</H4>
+              <input
+                type="text"
+                name="Field"
+                placeholder="Test input with keyboard"
+                style={{marginTop: '20px', marginBottom: '20px'}}
+              />
+              {Array.from({length: 30}, (_, i) => (
+                <Paragraph key={i}>
+                  Drawer item #{i + 1} - This content should scroll smoothly on iOS. The background should remain locked
+                  even when you focus the input and the keyboard appears.
+                </Paragraph>
+              ))}
+            </div>
           </MoleculeDrawer>
         </div>
       </Box>

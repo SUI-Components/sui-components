@@ -254,6 +254,8 @@ const MoleculeSelect = forwardRef(
     }
 
     const handleChange = (ev, {value}) => {
+      if (disabled) return
+
       setInnerValue(value)
       onChange && onChange(ev, {value})
     }
